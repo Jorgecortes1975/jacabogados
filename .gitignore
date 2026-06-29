@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+env/
+
+# Excel generado (artefacto — regenerar con python3 generar_crm.py)
+crm_jaabogados.xlsx
+crm_jaabogados.csv
+
+# OS
+.DS_Store
+Thumbs.db
