@@ -1,0 +1,22 @@
+{
+  "endpoint_url": "EDITAR_AQUÍ",
+  "allowed_columns": [
+    "empresa",
+    "sector",
+    "senal",
+    "decisor",
+    "cargo",
+    "servicio",
+    "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8",
+    "total",
+    "semaforo",
+    "estado",
+    "proxima_accion"
+  ],
+  "rate_limit_per_minute": 20,
+  "max_page_size": 10,
+  "max_offset": 50,
+  "cors_origins": ["*"],
+  "api_title": "JA Abogados — CRM Prospectos API",
+  "api_version": "1.0.0"
+}
