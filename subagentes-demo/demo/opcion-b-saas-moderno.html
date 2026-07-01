@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jacabogados | Iniciar sesión</title>
+<style>
+  :root {
+    --accent: #10b981;
+    --accent-dark: #059669;
+    --accent-light: #d1fae5;
+    --violet: #7c3aed;
+    --ink: #0f172a;
+    --muted: #64748b;
+    --bg: #f8fafc;
+    --border: #e2e8f0;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Inter', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  /* ---------- Panel visual izquierdo ---------- */
+  .visual-panel {
+    position: relative;
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 56px 56px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.16) 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(255,255,255,0.12) 0%, transparent 50%),
+      linear-gradient(135deg, #059669 0%, #10b981 45%, #7c3aed 100%);
+    color: #ffffff;
+  }
+
+  .visual-panel::before {
+    content: "";
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    top: -160px;
+    right: -140px;
+  }
+
+  .visual-panel::after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    bottom: -140px;
+    left: -100px;
+  }
+
+  .visual-top {
+    position: relative;
+    z-index: 2;
+  }
+
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .brand-mark .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background: #ffffff;
+    display: inline-block;
+  }
+
+  .visual-content {
+    position: relative;
+    z-index: 2;
+    max-width: 420px;
+  }
+
+  .visual-content h1 {
+    font-size: 34px;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+
+  .visual-content p {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 32px;
+  }
+
+  .stat-cards {
+    display: flex;
+    gap: 14px;
+  }
+
+  .stat-card {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 14px;
+    padding: 16px 18px;
+    flex: 1;
+  }
+
+  .stat-card .num {
+    font-size: 22px;
+    font-weight: 700;
+    display: block;
+  }
+
+  .stat-card .label {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 2px;
+    display: block;
+  }
+
+  .visual-footer {
+    position: relative;
+    z-index: 2;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  /* ---------- Panel del formulario ---------- */
+  .form-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: #ffffff;
+  }
+
+  .form-wrap {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .form-logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 48px;
+    letter-spacing: -0.02em;
+  }
+
+  .form-logo .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  .form-wrap h2 {
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .form-wrap .subtitle {
+    font-size: 14.5px;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 7px;
+  }
+
+  .field input {
+    width: 100%;
+    padding: 13px 14px;
+    font-size: 14.5px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: #f8fafc;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    font-family: inherit;
+  }
+
+  .field input::placeholder {
+    color: #a3adbb;
+  }
+
+  .field input:focus {
+    border-color: var(--accent);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px var(--accent-light);
+  }
+
+  .row-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+    font-size: 13.5px;
+  }
+
+  .remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+  }
+
+  .remember input {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--accent);
+  }
+
+  .link {
+    color: var(--accent-dark);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .link:hover {
+    text-decoration: underline;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    letter-spacing: -0.01em;
+    box-shadow: 0 8px 20px -6px rgba(16, 185, 129, 0.55);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    font-family: inherit;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px -6px rgba(16, 185, 129, 0.65);
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 28px 0;
+    color: #a3adbb;
+    font-size: 12.5px;
+  }
+
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .btn-secondary {
+    width: 100%;
+    padding: 12.5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    background: #ffffff;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    font-family: inherit;
+  }
+
+  .btn-secondary:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+  }
+
+  .signup-hint {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 860px) {
+    .visual-panel {
+      display: none;
+    }
+    .form-panel {
+      padding: 24px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="layout">
+
+    <!-- Panel visual -->
+    <aside class="visual-panel">
+      <div class="visual-top">
+        <span class="brand-mark"><span class="dot"></span> jacabogados</span>
+      </div>
+
+      <div class="visual-content">
+        <h1>Gestiona tus casos con claridad y control total.</h1>
+        <p>Expedientes, plazos procesales, documentación y clientes en una única plataforma pensada para despachos de abogados en España.</p>
+
+        <div class="stat-cards">
+          <div class="stat-card">
+            <span class="num">+2.400</span>
+            <span class="label">Expedientes activos</span>
+          </div>
+          <div class="stat-card">
+            <span class="num">98%</span>
+            <span class="label">Plazos cumplidos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual-footer">
+        © 2026 jacabogados · Software de gestión legal
+      </div>
+    </aside>
+
+    <!-- Panel formulario -->
+    <main class="form-panel">
+      <div class="form-wrap">
+        <div class="form-logo"><span class="dot"></span> jacabogados</div>
+
+        <h2>Bienvenido de nuevo</h2>
+        <p class="subtitle">Introduce tus credenciales para acceder a tu despacho.</p>
+
+        <form action="#" method="post">
+          <div class="field">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="nombre@despacho.es" required>
+          </div>
+
+          <div class="field">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" placeholder="••••••••••" required>
+          </div>
+
+          <div class="row-between">
+            <label class="remember">
+              <input type="checkbox" name="remember">
+              Recordarme
+            </label>
+            <a href="#" class="link">¿Olvidaste tu contraseña?</a>
+          </div>
+
+          <button type="submit" class="btn-primary">Acceder a mi cuenta</button>
+        </form>
+
+        <div class="divider">o continúa con</div>
+
+        <button type="button" class="btn-secondary">Acceso con certificado digital / Cl@ve</button>
+
+        <p class="signup-hint">¿Tu despacho aún no tiene cuenta? <a href="#" class="link">Solicita una demo</a></p>
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>

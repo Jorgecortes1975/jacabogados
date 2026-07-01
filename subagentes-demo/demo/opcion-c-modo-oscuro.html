@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jacabogados | Acceso</title>
+<style>
+  :root{
+    --bg-0:#08090b;
+    --bg-1:#101216;
+    --bg-2:#16181d;
+    --border:#2a2d34;
+    --border-soft:#1e2025;
+    --gold:#c9a24b;
+    --gold-bright:#e8c877;
+    --gold-dim:#8a7233;
+    --text-0:#eceef1;
+    --text-1:#9ba0aa;
+    --text-2:#5b606b;
+    --danger:#c9524b;
+    --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    height:100%;
+    margin:0;
+    padding:0;
+  }
+
+  body{
+    font-family: var(--sans);
+    background:
+      radial-gradient(circle at 50% 0%, rgba(201,162,75,0.06), transparent 45%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px),
+      var(--bg-0);
+    color: var(--text-0);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 32px 16px;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* Grid técnico de fondo */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(201,162,75,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,162,75,0.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(circle at 50% 30%, black 0%, transparent 70%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .top-bar{
+    position:fixed;
+    top:0; left:0; right:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 14px 28px;
+    font-family: var(--mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    color: var(--text-2);
+    border-bottom: 1px solid var(--border-soft);
+    background: rgba(8,9,11,0.75);
+    backdrop-filter: blur(6px);
+    z-index:5;
+  }
+
+  .top-bar .status{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color: var(--text-1);
+  }
+
+  .status-dot{
+    width:7px; height:7px;
+    border-radius:50%;
+    background: var(--gold);
+    box-shadow: 0 0 8px var(--gold);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse{
+    0%,100%{ opacity:1; }
+    50%{ opacity:0.35; }
+  }
+
+  .wrapper{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width: 420px;
+    margin-top: 24px;
+  }
+
+  /* Marco tipo panel */
+  .panel{
+    background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 40px 36px 32px;
+    position: relative;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.02) inset,
+      0 20px 60px rgba(0,0,0,0.55),
+      0 0 80px rgba(201,162,75,0.03);
+  }
+
+  .panel::before,
+  .panel::after{
+    content:"";
+    position:absolute;
+    width:16px; height:16px;
+    border: 1px solid var(--gold-dim);
+    opacity:0.7;
+  }
+  .panel::before{
+    top:-1px; left:-1px;
+    border-right:none;
+    border-bottom:none;
+  }
+  .panel::after{
+    bottom:-1px; right:-1px;
+    border-left:none;
+    border-top:none;
+  }
+
+  .corner-tl, .corner-br{
+    position:absolute;
+    width:16px; height:16px;
+    border: 1px solid var(--gold-dim);
+  }
+  .corner-tl{ top:-1px; right:-1px; border-left:none; border-bottom:none; }
+  .corner-br{ bottom:-1px; left:-1px; border-right:none; border-top:none; }
+
+  /* Icono balanza */
+  .scale-wrap{
+    display:flex;
+    justify-content:center;
+    margin-bottom: 18px;
+  }
+
+  .scale-icon{
+    width: 58px;
+    height: 58px;
+    filter: drop-shadow(0 0 6px rgba(201,162,75,0.35));
+  }
+
+  .scale-icon .line{
+    stroke: var(--gold);
+    stroke-width: 1.4;
+    fill:none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .scale-icon .plate{
+    stroke: var(--gold-bright);
+    stroke-width: 1.2;
+    fill: none;
+  }
+  .scale-icon .fill{
+    fill: var(--gold);
+  }
+
+  .brand{
+    text-align:center;
+    margin-bottom: 6px;
+  }
+
+  .brand-name{
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--text-0);
+    font-family: var(--sans);
+  }
+  .brand-name span{
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .brand-tag{
+    text-align:center;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    margin-top: 4px;
+    margin-bottom: 30px;
+  }
+
+  .divider{
+    height:1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 0 28px;
+  }
+
+  form{
+    display:flex;
+    flex-direction:column;
+    gap: 18px;
+  }
+
+  .field{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .field label{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+
+  .field label::before{
+    content:"//";
+    color: var(--gold-dim);
+  }
+
+  .input-shell{
+    position:relative;
+    display:flex;
+    align-items:center;
+  }
+
+  .input-shell svg{
+    position:absolute;
+    left:13px;
+    width:15px; height:15px;
+    stroke: var(--text-2);
+    fill:none;
+    stroke-width:1.6;
+    pointer-events:none;
+    transition: stroke 0.15s ease;
+  }
+
+  input[type="email"],
+  input[type="password"]{
+    width:100%;
+    padding: 13px 14px 13px 38px;
+    background: var(--bg-0);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-0);
+    font-size: 14px;
+    font-family: var(--sans);
+    outline:none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  input::placeholder{
+    color: var(--text-2);
+  }
+
+  input:focus{
+    border-color: var(--gold-dim);
+    box-shadow: 0 0 0 3px rgba(201,162,75,0.12);
+  }
+
+  input:focus + svg,
+  .input-shell:focus-within svg{
+    stroke: var(--gold);
+  }
+
+  .row-between{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size: 12.5px;
+    margin-top: -4px;
+  }
+
+  .remember{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    color: var(--text-1);
+  }
+
+  .remember input[type="checkbox"]{
+    appearance:none;
+    width:14px; height:14px;
+    border:1px solid var(--border);
+    border-radius:3px;
+    background: var(--bg-0);
+    cursor:pointer;
+    position:relative;
+    top:1px;
+  }
+
+  .remember input[type="checkbox"]:checked{
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .remember input[type="checkbox"]:checked::after{
+    content:"";
+    position:absolute;
+    left:4px; top:1px;
+    width:3px; height:7px;
+    border: solid var(--bg-0);
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+
+  .link-gold{
+    color: var(--gold);
+    text-decoration:none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+  }
+  .link-gold:hover{
+    border-color: var(--gold);
+  }
+
+  .btn-access{
+    margin-top: 8px;
+    width:100%;
+    padding: 14px;
+    border-radius: 6px;
+    border: 1px solid var(--gold);
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+    color: #171308;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: var(--sans);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    transition: transform 0.12s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    box-shadow: 0 8px 24px rgba(201,162,75,0.18);
+  }
+
+  .btn-access:hover{
+    filter: brightness(1.08);
+    box-shadow: 0 10px 30px rgba(201,162,75,0.28);
+  }
+
+  .btn-access:active{
+    transform: translateY(1px);
+  }
+
+  .btn-access svg{
+    width:15px; height:15px;
+    stroke:#171308;
+    stroke-width:2;
+    fill:none;
+  }
+
+  .footer-note{
+    margin-top: 26px;
+    text-align:center;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--text-2);
+    line-height:1.6;
+  }
+
+  .footer-note strong{
+    color: var(--text-1);
+    font-weight:600;
+  }
+
+  .sys-info{
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-soft);
+    display:flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    color: var(--text-2);
+    text-transform:uppercase;
+  }
+
+  .sys-info span b{
+    color: var(--gold-dim);
+    font-weight:600;
+  }
+
+  @media (max-width: 480px){
+    .panel{ padding: 32px 22px 26px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="brand-mini">JACABOGADOS · PANEL&nbsp;DE&nbsp;GESTIÓN</div>
+    <div class="status">
+      <span class="status-dot"></span>
+      CONEXIÓN SEGURA · ES-MAD-01
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="panel">
+      <span class="corner-tl"></span>
+      <span class="corner-br"></span>
+
+      <div class="scale-wrap">
+        <svg class="scale-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <!-- mástil -->
+          <line class="line" x1="32" y1="8" x2="32" y2="50"></line>
+          <!-- base -->
+          <line class="line" x1="20" y1="56" x2="44" y2="56"></line>
+          <line class="line" x1="32" y1="50" x2="32" y2="56"></line>
+          <!-- remate superior -->
+          <circle class="fill" cx="32" cy="7" r="2.6"></circle>
+          <!-- barra horizontal -->
+          <line class="line" x1="12" y1="16" x2="52" y2="16"></line>
+          <!-- brazo izquierdo y plato -->
+          <line class="line" x1="12" y1="16" x2="12" y2="27"></line>
+          <path class="plate" d="M4 27 Q12 36 20 27" />
+          <!-- brazo derecho y plato -->
+          <line class="line" x1="52" y1="16" x2="52" y2="27"></line>
+          <path class="plate" d="M44 27 Q52 36 60 27" />
+        </svg>
+      </div>
+
+      <div class="brand">
+        <div class="brand-name">jac<span>a</span>bogados</div>
+      </div>
+      <div class="brand-tag">Gestión de casos &amp; expedientes</div>
+
+      <div class="divider"></div>
+
+      <form autocomplete="off">
+        <div class="field">
+          <label for="email">Correo electrónico</label>
+          <div class="input-shell">
+            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 6l9 7 9-7"/></svg>
+            <input type="email" id="email" name="email" placeholder="nombre@despacho.es" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password">Contraseña</label>
+          <div class="input-shell">
+            <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            <input type="password" id="password" name="password" placeholder="••••••••••" required>
+          </div>
+        </div>
+
+        <div class="row-between">
+          <label class="remember">
+            <input type="checkbox" id="remember" name="remember">
+            Mantener sesión iniciada
+          </label>
+          <a href="#" class="link-gold">He olvidado mi contraseña</a>
+        </div>
+
+        <button type="submit" class="btn-access">
+          Acceder al panel
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+
+      <div class="sys-info">
+        <span>Cifrado <b>AES-256</b></span>
+        <span>Cumplimiento <b>RGPD / LOPDGDD</b></span>
+      </div>
+
+      <div class="footer-note">
+        Acceso exclusivo para <strong>colegiados y personal autorizado</strong>.<br>
+        © 2026 jacabogados — Todos los derechos reservados.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jacabogados | Acceso al portal</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background-color: #f4f3ef;
+    background-image:
+      linear-gradient(180deg, #101d34 0%, #101d34 260px, #f4f3ef 260px);
+    color: #1c2331;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 32px 16px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brand {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .brand .emblem {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 14px;
+    border: 2px solid #c9a86a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #101d34;
+  }
+
+  .brand .emblem span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #c9a86a;
+    letter-spacing: 1px;
+  }
+
+  .brand h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #f4f3ef;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .brand p.tagline {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a86a;
+    margin-top: 6px;
+  }
+
+  .card {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #d9d6cd;
+    border-top: 4px solid #101d34;
+    box-shadow: 0 10px 30px rgba(16, 29, 52, 0.15);
+    padding: 40px 36px 32px;
+  }
+
+  .card h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #101d34;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .card .subtitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12.5px;
+    color: #5a6270;
+    text-align: center;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .divider {
+    width: 40px;
+    height: 2px;
+    background-color: #c9a86a;
+    margin: 0 auto 26px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .field label {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #101d34;
+    margin-bottom: 7px;
+  }
+
+  .field input {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #1c2331;
+    background-color: #f9f8f6;
+    border: 1px solid #c7c9d1;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .field input::placeholder {
+    color: #9a9d a8;
+    color: #9ea1ac;
+  }
+
+  .field input:focus {
+    border-color: #101d34;
+    background-color: #ffffff;
+  }
+
+  .row-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12.5px;
+  }
+
+  .remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #4a5160;
+  }
+
+  .remember input {
+    width: 14px;
+    height: 14px;
+    accent-color: #101d34;
+  }
+
+  .row-options a {
+    color: #101d34;
+    text-decoration: none;
+    border-bottom: 1px solid #c9a86a;
+    padding-bottom: 1px;
+  }
+
+  .row-options a:hover {
+    color: #0a1424;
+  }
+
+  button.btn-access {
+    margin-top: 6px;
+    width: 100%;
+    padding: 13px 16px;
+    background-color: #101d34;
+    color: #f4f3ef;
+    border: 1px solid #101d34;
+    border-radius: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  button.btn-access:hover {
+    background-color: #1a2c4d;
+    box-shadow: 0 6px 16px rgba(16, 29, 52, 0.28);
+  }
+
+  button.btn-access:active {
+    background-color: #0a1424;
+  }
+
+  .security-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #7a7f8a;
+    letter-spacing: 0.3px;
+  }
+
+  .security-note svg {
+    flex-shrink: 0;
+  }
+
+  .footer {
+    margin-top: 26px;
+    text-align: center;
+  }
+
+  .footer p.firm {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12.5px;
+    color: #101d34;
+    letter-spacing: 0.5px;
+  }
+
+  .footer p.legal {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10.5px;
+    color: #8c8f98;
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+
+  .footer .sep {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background-color: #c9a86a;
+    margin: 12px 0 12px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="brand">
+      <div class="emblem"><span>JA</span></div>
+      <h1>jacabogados</h1>
+      <p class="tagline">Gesti&oacute;n Jur&iacute;dica &middot; Despacho de Abogados</p>
+    </div>
+
+    <div class="card">
+      <h2>Acceso al Portal</h2>
+      <p class="subtitle">Introduzca sus credenciales profesionales<br>para acceder a la plataforma de gesti&oacute;n de expedientes.</p>
+      <div class="divider"></div>
+
+      <form action="#" method="post">
+        <div class="field">
+          <label for="email">Correo electr&oacute;nico</label>
+          <input type="email" id="email" name="email" placeholder="nombre@jacabogados.es" required>
+        </div>
+
+        <div class="field">
+          <label for="password">Contrase&ntilde;a</label>
+          <input type="password" id="password" name="password" placeholder="••••••••••" required>
+        </div>
+
+        <div class="row-options">
+          <label class="remember">
+            <input type="checkbox" id="remember" name="remember">
+            Recordarme
+          </label>
+          <a href="#">&iquest;Olvid&oacute; su contrase&ntilde;a?</a>
+        </div>
+
+        <button type="submit" class="btn-access">Acceder al expediente</button>
+      </form>
+
+      <div class="security-note">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#7a7f8a" stroke-width="2">
+          <rect x="5" y="11" width="14" height="9" rx="1"></rect>
+          <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+        </svg>
+        Conexi&oacute;n cifrada &middot; Confidencialidad garantizada (LOPD-GDD / RGPD)
+      </div>
+    </div>
+
+    <div class="footer">
+      <p class="firm">JACABOGADOS &mdash; DESPACHO DE ABOGADOS</p>
+      <div class="sep"></div>
+      <p class="legal">
+        Colegio de Abogados &middot; N&ordm; Colegiado 00000<br>
+        &copy; 2026 jacabogados. Todos los derechos reservados.
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
