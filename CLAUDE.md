@@ -58,6 +58,7 @@ Los 8 pilares de servicio ya tienen su infografía en `infografias-linkedin/`: D
 ## Contenido y publicación
 - `ganchos-promocionales-jaabogados.md` — banco de ganchos (hooks) por pilar, listo para alimentar infografías, posts y reels
 - `estrategia-publicacion-viral.md` — horarios, formato por red, estructura de caption, calendario semanal y KPIs de alcance para la serie de infografías
+- `calendario-publicacion-sigss-2026.md` — calendario ejecutable de 30 días para la campaña SIGSS (diagnóstico empresarial de seguridad social: UGPP, PILA, contrato realidad, pensiones, PCL, incapacidades), con fecha/hora por publicación y protocolo de respuesta por palabra clave
 
 ## Convenciones
 - Los archivos `.xlsx` y `.csv` son artefactos generados — siempre regenerar desde el script
