@@ -46,11 +46,14 @@ python3 generar_crm.py
 - `/infografia-linkedin [tema]` — Genera una infografía how-to (3 pasos) en HTML autocontenido + captura PNG 1080×1350, con la paleta de marca bloqueada. Reemplaza al plugin `frontend-design@claude-code-plugins` (no instalable en entornos remotos sin acceso a github.com fuera de este repo). Ver `infografias-linkedin/`.
 
 ## Identidad visual — Infografías LinkedIn/Instagram (v2)
-- Fondo casi negro `#14141F`, texto blanco `#FFFFFF` / secundario `#B9BAC4`, acento único dorado `#C9A84C`
+- Fondo casi negro `#14141F`, texto blanco `#FFFFFF` / secundario `#B9BAC4`, un acento saturado por pieza (uno distinto por pilar — ver tabla en `.claude/commands/infografia-linkedin.md`)
 - Tipografía sans del sistema, sin fuentes web externas (HTML 100% autocontenido)
 - Sin degradados, sombras duras ni emojis en el cuerpo; iconos solo de línea fina
-- Elementos de marca fijos: barra superior dorada de 6px, monograma "JA" en círculo, ícono de línea fina por paso (documento → escudo → calendario), pie con ícono de WhatsApp
+- Elementos de marca fijos: barra superior de 6px en el color de acento, monograma "JA" en círculo, ícono de línea fina por paso (documento → escudo → calendario), pie con ícono de WhatsApp
 - Formato 1080×1350px (4:5), capturado con Playwright + Chromium (`/opt/pw-browsers/chromium`, requiere `NODE_PATH=$(npm root -g)` para resolver el paquete `playwright` global)
+
+## Serie de infografías — cobertura de los 8 pilares
+Los 8 pilares de servicio ya tienen su infografía en `infografias-linkedin/`: Derecho Corporativo (`blindaje-legal-pyme`), Derecho Laboral (`riesgo-laboral-pyme`), Contratos Comerciales (`contratos-comerciales-pyme`), Tributario (`riesgo-tributario-pyme`), Propiedad Intelectual (`propiedad-intelectual-pyme`), Litigios y Arbitraje (`litigio-primeras-48-horas`), Derecho Inmobiliario (`riesgo-inmobiliario-pyme`) y Cumplimiento Normativo (`cumplimiento-normativo-pyme`). Cada `.html` tiene su `.png` (1080×1350) y su `.md` con el caption listo para publicar.
 
 ## Contenido y publicación
 - `ganchos-promocionales-jaabogados.md` — banco de ganchos (hooks) por pilar, listo para alimentar infografías, posts y reels

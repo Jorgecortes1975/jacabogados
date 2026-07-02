@@ -39,7 +39,20 @@ Reglas de redacción (no negociables):
 - Lienzo: **1080×1350px** (4:5, vertical LinkedIn/Instagram).
 - Fondo: `#14141F` (oscuro casi negro, tono navy de marca).
 - Texto principal: `#FFFFFF`. Texto secundario: `#B9BAC4`.
-- Acento único: `#C9A84C` (dorado JA Abogados) — solo en números, la cápsula de categoría y la línea del pie. No introducir un segundo color de acento.
+- Acento único **por pieza** — un solo color de acento por infografía (nunca dos en la misma pieza), asignado por pilar de servicio para que la serie completa se distinga a simple vista sin perder cohesión de marca:
+
+  | Pilar | Acento |
+  |---|---|
+  | Derecho Corporativo y M&A | `#C9A84C` (dorado JA Abogados — pilar de referencia) |
+  | Derecho Laboral y Litigios laborales | `#C9A84C` (dorado) |
+  | Contratos Comerciales | `#F5A623` (ámbar) |
+  | Tributario y Financiero | `#2ECC71` (verde esmeralda) |
+  | Propiedad Intelectual | `#8B5CF6` (violeta) |
+  | Litigios y Arbitraje | `#EF4444` (rojo coral) |
+  | Derecho Inmobiliario | `#38BDF8` (azul cielo) |
+  | Cumplimiento Normativo | `#14B8A6` (verde azulado) |
+
+  Si se necesita un pilar nuevo fuera de esta tabla, elegir un acento saturado y con buen contraste sobre `#14141F` que no repita ninguno de los ya usados en la serie.
 - Tipografía sans del sistema (`-apple-system, "Segoe UI", Inter, Arial, sans-serif`) con contraste de peso: números y títulos en 800/900, cuerpo en 400/500. No usar fuentes web externas (el HTML debe ser 100% autocontenido, sin llamadas de red).
 - Colores planos, sin degradados, sin sombras duras, sin emojis. Iconos únicamente de línea fina (SVG stroke, `stroke-width` ~1.5-2px).
 - Mucho aire: padding generoso (~90-100px laterales), espaciado vertical claro entre bloques.
