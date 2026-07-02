@@ -351,6 +351,25 @@ Revisa esta tabla cada lunes junto con los KPIs generales (`plan_marketing_digit
 - Ningún caso mencionado identifica una empresa real — todos son situaciones genéricas del sector, no casos de clientes (Art. 28).
 - Todo dato citado (68% flujo de caja, umbrales de nómina, etc.) debe poder sustentarse si un lector lo pregunta directamente en comentarios — ten la fuente a la mano antes de publicar.
 
+**Verificación normativa (julio 2026):** ninguna publicación de este calendario ni las infografías derivadas citan un decreto, ley o artículo específico salvo dos, ambos verificados vigentes por búsqueda web antes de publicarse:
+- **Ley 1123 de 2007** (Código Disciplinario del Abogado) — vigente, sin derogatoria.
+- **Decreto 0581 de 2026** (Ministerio del Trabajo, 5 de junio de 2026, adiciona capítulo al Decreto 1072 de 2015 sobre tercerización e intermediación laboral) — vigente, usado en la infografía `contrato-realidad-sigss` (ver días 3 y 12). No se citan cifras de multas ni números de artículo de este decreto en piezas públicas hasta confirmar el texto oficial completo en SUIN-Juriscol o el Diario Oficial.
+
+Antes de agregar cualquier nueva referencia normativa a este calendario, verifica vigencia (no derogada) y existencia real de la norma — no asumas ni redactes un número de ley/decreto de memoria.
+
+## 7. Versión en infografía (formato alternativo)
+
+4 días de esta campaña tienen además una versión en infografía (`/infografia-linkedin`, acento magenta `#EC4899` propio de la sub-marca SIGSS) para variar el formato el mismo día o repostear en Instagram, según `estrategia-publicacion-viral.md` sección 2:
+
+| Día(s) | Infografía | Uso sugerido |
+|---|---|---|
+| 1 | `diagnostico-ugpp-sigss` | Publicar como LinkedIn Document Post el mismo día 1, en vez de texto plano |
+| 3 y 12 | `contrato-realidad-sigss` | Pieza combinada — usar en el día 3 (gancho) o reservarla para el día 12 (desarrollo) |
+| 5 | `metodo-sigss` | Publicar el día 5 — es la pieza que mejor comunica el método propio de un vistazo |
+| 15 | `incapacidades-sigss` | Publicar el día 15 — tema de "dinero recuperable" funciona bien como imagen para guardar |
+
+Los 26 días restantes se mantienen como texto plano, tal como está diseñado el calendario.
+
 ---
 
 *Documento elaborado para JA Abogados — Medellín, Colombia — Julio 2026*
