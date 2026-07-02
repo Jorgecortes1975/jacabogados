@@ -41,8 +41,15 @@ Reglas de redacción (no negociables):
 - Texto principal: `#FFFFFF`. Texto secundario: `#B9BAC4`.
 - Acento único: `#C9A84C` (dorado JA Abogados) — solo en números, la cápsula de categoría y la línea del pie. No introducir un segundo color de acento.
 - Tipografía sans del sistema (`-apple-system, "Segoe UI", Inter, Arial, sans-serif`) con contraste de peso: números y títulos en 800/900, cuerpo en 400/500. No usar fuentes web externas (el HTML debe ser 100% autocontenido, sin llamadas de red).
-- Colores planos, sin degradados, sin sombras duras, sin emojis. Iconos únicamente de línea fina (SVG stroke, `stroke-width` ~1.5-2px) si se usan — opcionales, nunca obligatorios.
+- Colores planos, sin degradados, sin sombras duras, sin emojis. Iconos únicamente de línea fina (SVG stroke, `stroke-width` ~1.5-2px).
 - Mucho aire: padding generoso (~90-100px laterales), espaciado vertical claro entre bloques.
+- Distribuir el lienzo con `justify-content: space-between` entre los 3 grupos (encabezado / pasos / pie) para que el aire sobrante no se acumule en un solo hueco antes del pie.
+
+**Elementos de marca fijos (v2 — no rediseñar, reutilizar tal cual):**
+- Barra superior de 6px sólida en `#C9A84C`, a todo el ancho, fuera del padding.
+- Monograma "JA" en círculo (borde 1.5px dorado, sin relleno) en la esquina superior izquierda.
+- Un ícono de línea fina en un cuadrado redondeado (borde dorado) junto a cada número de paso: documento (paso 1, revisión/auditoría), escudo con check (paso 2, cumplimiento/corrección), calendario con punto (paso 3, agendar). Mantener este mapeo semántico en toda la serie — es lo que da consistencia visual entre infografías de distintos pilares.
+- Pie con línea dorada, handle, ciudad y una fila con ícono de WhatsApp (línea fina) + número.
 
 ## Paso 4 — Generar y capturar
 
