@@ -21,6 +21,6 @@ Corrige los pasivos ocultos que ya están corriendo sin que lo sepas.
 03 · Agenda un diagnóstico jurídico
 30 minutos para saber exactamente en dónde está expuesta tu empresa.
 
-👉 Escríbeme y agenda tu diagnóstico jurídico gratuito de 30 minutos.
+👉 Escríbeme por WhatsApp y agenda tu diagnóstico jurídico gratuito de 30 minutos: wa.me/573217047556
 
 #DerechoCorporativo #PYMEsColombia #AsesoríaJurídica #Contratos #CumplimientoNormativo #Medellín #Colombia #JAAbogados

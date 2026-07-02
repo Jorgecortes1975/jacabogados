@@ -158,7 +158,7 @@ No esperes a que llegue la demanda para saber qué dice tu contrato.
 **Firma:**
 Andrés Felipe Ríos Montoya
 Consultor Legal Empresarial
-[LinkedIn] [WhatsApp]
+[LinkedIn] · WhatsApp: wa.me/573217047556
 
 ---
 

@@ -19,7 +19,7 @@ Completa estos campos siguiendo reglas estrictas de redacción:
 - **Etiqueta** (categoría, MAYÚSCULAS): uno de los 8 pilares, ej. `DERECHO CORPORATIVO`, `CONTRATOS COMERCIALES`, `CUMPLIMIENTO NORMATIVO`.
 - **Título how-to**: qué consigue el lector, no qué es el tema. Formato "Cómo [resultado]" o "[Número] señales de que [problema]". Máx. ~10 palabras.
 - **3 bloques numerados**: cada uno "[título de 2-4 palabras]" + "[frase de 6-10 palabras, verbatim, sin relleno]". Deben ser pasos accionables en secuencia (1→2→3), no una lista plana de datos.
-- **Pie**: `@jaabogados.co` (o el handle real de la red destino) + ciudad `Medellín, Colombia`.
+- **Pie**: `@jaabogados.co` (o el handle real de la red destino) + ciudad `Medellín, Colombia` + WhatsApp `+57 321 704 7556` (medio de contacto directo — ver `CLAUDE.md`, incluir siempre, nunca dejarlo como placeholder).
 
 Reglas de redacción (no negociables):
 - Narrativa, no keywords: cada frase describe una acción o consecuencia concreta, no una lista de adjetivos.

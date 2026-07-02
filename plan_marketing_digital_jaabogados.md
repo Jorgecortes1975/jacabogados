@@ -177,7 +177,7 @@ CEO AND pyme AND Antioquia
 - Etiquetas: Prospecto nuevo / Consulta activa / Cliente / Seguimiento / Propuesta enviada
 
 **Enlace directo para bio de Instagram:**
-`https://wa.me/57XXXXXXXXXX?text=Hola,%20me%20interesa%20una%20consulta%20jurídica`
+`https://wa.me/573217047556?text=Hola,%20me%20interesa%20una%20consulta%20jurídica`
 
 ---
 

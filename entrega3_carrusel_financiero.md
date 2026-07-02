@@ -168,7 +168,7 @@ No es normal no saber. Es frecuente. Y tiene solución.
 **Firma:**
 Carolina Mejía Vargas
 Consultora Financiera Empresarial
-[LinkedIn] [WhatsApp]
+[LinkedIn] · WhatsApp: wa.me/573217047556
 
 ---
 

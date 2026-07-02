@@ -131,7 +131,7 @@ Políticas internas · Documentación · Organización · Mejora operativa
 > *Si mañana tu empresa recibiera una revisión legal, laboral, financiera o administrativa… ¿todo estaría en orden?*
 
 👉 **Escríbeme y hablamos**
-[Agregar perfil de LinkedIn o WhatsApp]
+WhatsApp: wa.me/573217047556
 
 ---
 

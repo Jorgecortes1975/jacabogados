@@ -2,6 +2,9 @@
 
 Firma de abogados en Medellín, Colombia. Este repositorio contiene herramientas de desarrollo de negocio y gestión de prospectos.
 
+## Contacto directo
+- **WhatsApp: +57 321 704 7556** (`wa.me/573217047556`) — medio de comunicación directo del titular. Usar siempre como CTA en contenido promocional (infografías, carruseles, plan de marketing), nunca como placeholder genérico.
+
 ## Stack
 - **Python 3** + `openpyxl` para generación de Excel
 - **Excel/Google Sheets** como frontend del CRM
