@@ -48,6 +48,8 @@ CATEGORIAS = {
         "control-conflictos-intake-co", "gestion-conocimiento-co",
         "facturacion-horas-co", "disclosure-cliente", "redaccion-tutela-co",
         "revision-contrato-mercantil-co", "verificacion-citas-co",
+        "redaccion-demanda-co", "derecho-peticion-co", "recurso-co",
+        "alegato-conclusion-co", "interrogatorio-co",
     ],
     "Escritura y contenido": [
         "arquitecto-de-hilos", "esqueleto-de-articulo", "email-en-frio",
@@ -79,6 +81,9 @@ CATEGORIAS = {
     ],
     "Meta / construcción de skills": [
         "skill-creator", "documento-con-mi-formato", "proceso-multipaso-con-plan-b",
+    ],
+    "Gobernanza y control de calidad": [
+        "protocolo-control-antialucinacion-co",
     ],
     "Plantilla / scaffold": ["tu-nombre-de-skill"],
 }
