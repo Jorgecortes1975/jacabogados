@@ -33,16 +33,10 @@ Clasifica el encargo en una de estas categorías (u otra que el despacho use int
 Pregunta o infiere del encargo qué categorías de datos personales estarán involucradas: datos de identificación, datos de contacto, datos financieros, datos de salud (sensibles — requieren mención expresa reforzada bajo la Ley 1581 de 2012), datos de terceros no clientes (contraparte, testigos).
 
 **Paso 3 — Generar el aviso de tratamiento de datos.**
-El aviso debe incluir, como mínimo:
-1. Identificación del despacho como responsable del tratamiento.
-2. Finalidad específica del tratamiento, ajustada al tipo de encargo identificado en el Paso 1 (ej. para un litigio activo: "tratamiento de datos personales para la preparación, presentación y seguimiento de la acción judicial, incluyendo el uso de herramientas de asistencia de inteligencia artificial para análisis documental y redacción de escritos, bajo acceso restringido y sin entrenamiento de modelos con la información del cliente").
-3. Mención expresa del uso de IA cuando aplique, y de las salvaguardas de acceso acotado (carpeta específica del caso, no acceso a la unidad completa del despacho).
-4. Derechos del titular: conocer, actualizar, rectificar, solicitar prueba de la autorización, revocar la autorización y suprimir el dato cuando proceda, presentar quejas ante la SIC.
-5. Canal y procedimiento para ejercer esos derechos.
-6. Vigencia del tratamiento y política de conservación del expediente.
+El aviso debe incluir, como mínimo, identificación del despacho como responsable, finalidad específica ajustada al tipo de encargo, mención expresa del uso de IA y sus salvaguardas cuando aplique, derechos del titular, canal para ejercerlos, y vigencia/conservación del expediente. Ver `references/plantilla-aviso-autorizacion.md` para el detalle de cada punto y ejemplos de lenguaje de finalidad por tipo de encargo.
 
 **Paso 4 — Generar la autorización para firma del cliente.**
-Documento separado y breve, en lenguaje llano (no jurídico denso), que el cliente pueda leer y firmar en un máximo de dos minutos. Debe declarar expresamente que el cliente autoriza el tratamiento descrito en el aviso del Paso 3, con espacio para firma, fecha, y — si el encargo involucra datos sensibles— una casilla de autorización reforzada separada.
+Documento separado y breve, en lenguaje llano (no jurídico denso), que el cliente pueda leer y firmar en un máximo de dos minutos. Debe declarar expresamente que el cliente autoriza el tratamiento descrito en el aviso del Paso 3, con espacio para firma, fecha, y — si el encargo involucra datos sensibles— una casilla de autorización reforzada separada. Ver `references/plantilla-aviso-autorizacion.md` para el detalle completo.
 
 **Paso 5 — Adaptar automáticamente si el encargo involucra datos de terceros no clientes.**
 Si el encargo requiere tratar datos de una contraparte, testigo, o tercero que no es el cliente que firma la autorización, el Skill debe alertar que ese tercero requiere su propio aviso o, cuando no sea practicable obtenerlo (ej. contraparte en litigio), documentar la base de legitimación distinta a la autorización (ej. cumplimiento de una obligación legal o interés legítimo en el marco del proceso judicial) que el abogado responsable debe validar.
