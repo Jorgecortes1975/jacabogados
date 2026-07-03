@@ -1,6 +1,6 @@
 ---
 name: facturacion-horas-co
-description: Revisa el registro de horas (time entries) y el WIP del periodo antes de facturar, señala descripciones vagas o no defendibles y horas que exceden el presupuesto pactado, y arma el borrador de cuenta de cobro con el desglose exigido por la cláusula de transparencia del Módulo 03 — sin decidir por sí sola qué se cobra.
+description: Revisa el registro de horas (time entries) y el WIP del periodo antes de facturar, señala descripciones vagas o no defendibles y horas que exceden el presupuesto pactado, y arma el borrador de cuenta de cobro con el desglose exigido por la cláusula de transparencia del Módulo 03 — sin decidir por sí sola qué se cobra. Úsala cuando el usuario pida revisar el registro de horas antes de facturar o preparar el borrador de una cuenta de cobro.
 ---
 
 # Revisión de horas y WIP antes de facturar (Colombia)

@@ -1,6 +1,6 @@
 ---
 name: gestion-conocimiento-co
-description: Mantiene curado el banco interno de precedentes, memos y plantillas del despacho — detecta normas vencidas de revisión, señala memos contradictorios y sugiere qué documentar tras cerrar un caso, sin decidir nunca vigencia ni aplicabilidad.
+description: Mantiene curado el banco interno de precedentes, memos y plantillas del despacho — detecta normas vencidas de revisión, señala memos contradictorios y sugiere qué documentar tras cerrar un caso, sin decidir nunca vigencia ni aplicabilidad. Úsala cuando el usuario pida revisar el banco de precedentes del despacho o sugerir un memo interno al cerrar un caso.
 ---
 
 # Gestión del Conocimiento (Knowledge Management) del Despacho

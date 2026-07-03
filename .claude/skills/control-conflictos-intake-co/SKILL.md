@@ -1,6 +1,6 @@
 ---
 name: control-conflictos-intake-co
-description: Cruza cliente potencial, contraparte y terceros relacionados contra el historial de clientes/casos del despacho para señalar coincidencias de conflicto de interés, y genera el formulario de apertura de expediente — sin decidir nunca por sí misma si hay o no conflicto.
+description: Cruza cliente potencial, contraparte y terceros relacionados contra el historial de clientes/casos del despacho para señalar coincidencias de conflicto de interés, y genera el formulario de apertura de expediente — sin decidir nunca por sí misma si hay o no conflicto. Úsala cuando el usuario pida hacer el chequeo de conflictos de un cliente nuevo o abrir un expediente para un caso nuevo.
 ---
 
 # Control de Conflictos de Interés e Intake de Nuevos Clientes (Colombia)

@@ -1,6 +1,6 @@
 ---
 name: disclosure-cliente
-description: Genera automáticamente el aviso de tratamiento de datos y la autorización correspondiente para el cliente, ajustados al tipo de encargo, conforme a la Ley 1581 de 2012 y al Código Disciplinario del Abogado (Ley 1123 de 2007).
+description: Genera automáticamente el aviso de tratamiento de datos y la autorización correspondiente para el cliente, ajustados al tipo de encargo, conforme a la Ley 1581 de 2012 y al Código Disciplinario del Abogado (Ley 1123 de 2007). Úsala cuando el usuario pida generar el aviso de privacidad de un cliente o la autorización de tratamiento de datos para un encargo nuevo.
 ---
 
 # Disclosure y autorización de datos para el cliente

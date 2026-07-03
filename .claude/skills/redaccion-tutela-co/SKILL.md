@@ -1,6 +1,6 @@
 ---
 name: redaccion-tutela-co
-description: Genera el borrador estructurado de una acción de tutela colombiana (hechos, derecho invocado, pretensiones, pruebas), citando exclusivamente fuentes cargadas por el usuario en la conversación.
+description: Genera el borrador estructurado de una acción de tutela colombiana (hechos, derecho invocado, pretensiones, pruebas), citando exclusivamente fuentes cargadas por el usuario en la conversación. Úsala cuando el usuario pida redactar una tutela o un primer borrador por vulneración de un derecho fundamental.
 ---
 
 # Redacción de acción de tutela (Colombia)

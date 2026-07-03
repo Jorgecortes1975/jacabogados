@@ -1,6 +1,6 @@
 ---
 name: verificacion-citas-co
-description: Verifica que cada cita normativa y jurisprudencial de un documento jurídico colombiano sea real, localizable en fuentes oficiales y correctamente atribuida, antes de que el documento salga del despacho.
+description: Verifica que cada cita normativa y jurisprudencial de un documento jurídico colombiano sea real, localizable en fuentes oficiales y correctamente atribuida, antes de que el documento salga del despacho. Úsala cuando el usuario pida verificar las citas de un escrito jurídico o confirmar que una norma o sentencia citada es real.
 ---
 
 # Verificación de citas normativas y jurisprudenciales (Colombia)

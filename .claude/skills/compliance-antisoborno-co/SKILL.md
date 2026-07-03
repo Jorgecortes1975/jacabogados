@@ -1,6 +1,6 @@
 ---
 name: compliance-antisoborno-co
-description: Revisa programas de cumplimiento anticorrupción y antisoborno de personas jurídicas colombianas contra los requisitos de la Ley 1778 de 2016 (soborno transnacional) y, cuando aplique, los lineamientos SAGRLAFT de la Superintendencia Financiera, identificando brechas y generando un plan de remediación priorizado.
+description: Revisa programas de cumplimiento anticorrupción y antisoborno de personas jurídicas colombianas contra los requisitos de la Ley 1778 de 2016 (soborno transnacional) y, cuando aplique, los lineamientos SAGRLAFT de la Superintendencia Financiera, identificando brechas y generando un plan de remediación priorizado. Úsala cuando el usuario pida revisar un programa de compliance anticorrupción o evaluar exposición a soborno transnacional.
 ---
 
 # Revisión de Programas de Cumplimiento Anticorrupción y Antisoborno (Colombia)

@@ -1,6 +1,6 @@
 ---
 name: gobierno-corporativo-co
-description: Redacta actas y resoluciones societarias, verifica su coherencia con los estatutos vigentes, arma el checklist de registro ante Cámara de Comercio y mantiene el calendario anual de obligaciones societarias en Colombia.
+description: Redacta actas y resoluciones societarias, verifica su coherencia con los estatutos vigentes, arma el checklist de registro ante Cámara de Comercio y mantiene el calendario anual de obligaciones societarias en Colombia. Úsala cuando el usuario pida redactar un acta de junta directiva o asamblea, o preparar el registro de una decisión societaria ante Cámara de Comercio.
 ---
 
 # Housekeeping de gobierno corporativo (Colombia)

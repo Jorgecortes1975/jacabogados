@@ -1,6 +1,6 @@
 ---
 name: monitoreo-litigios-co
-description: Monitorea el portafolio completo de litigios activos, detecta actuaciones nuevas mediante consulta de solo lectura a Rama Judicial y SAMAI, calcula términos con margen de seguridad, clasifica la exposición del cliente y genera un dashboard semanal para los socios.
+description: Monitorea el portafolio completo de litigios activos, detecta actuaciones nuevas mediante consulta de solo lectura a Rama Judicial y SAMAI, calcula términos con margen de seguridad, clasifica la exposición del cliente y genera un dashboard semanal para los socios. Úsala cuando el usuario pida un reporte del estado de los litigios activos o calcular vencimientos de términos procesales.
 ---
 
 # Monitoreo de Litigios Colombia

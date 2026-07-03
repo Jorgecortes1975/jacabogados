@@ -1,6 +1,6 @@
 ---
 name: revision-contrato-mercantil-co
-description: Identifica y clasifica cláusulas de riesgo en contratos mercantiles colombianos frente al Código de Comercio, entregando una tabla priorizada de hallazgos para revisión del abogado responsable.
+description: Identifica y clasifica cláusulas de riesgo en contratos mercantiles colombianos frente al Código de Comercio, entregando una tabla priorizada de hallazgos para revisión del abogado responsable. Úsala cuando el usuario pida revisar un contrato mercantil o identificar cláusulas de riesgo en un contrato comercial.
 ---
 
 # Revisión de contrato mercantil (Colombia)

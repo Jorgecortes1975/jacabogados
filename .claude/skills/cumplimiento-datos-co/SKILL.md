@@ -1,6 +1,6 @@
 ---
 name: cumplimiento-datos-co
-description: Evalúa el cumplimiento de protección de datos personales de un cliente corporativo en Colombia (inventario de tratamientos, autorizaciones, riesgo e incidentes) bajo la Ley 1581 de 2012, la Ley 1266 de 2008 y el Decreto 1377 de 2013.
+description: Evalúa el cumplimiento de protección de datos personales de un cliente corporativo en Colombia (inventario de tratamientos, autorizaciones, riesgo e incidentes) bajo la Ley 1581 de 2012, la Ley 1266 de 2008 y el Decreto 1377 de 2013. Úsala cuando el usuario pida evaluar el cumplimiento de protección de datos de un cliente o preparar un protocolo ante un incidente de seguridad de datos.
 ---
 
 # Cumplimiento de datos personales (Colombia)

@@ -1,6 +1,6 @@
 ---
 name: auditoria-laboral-co
-description: Auditoría de cumplimiento laboral para clientes corporativos en Colombia — detecta riesgo de contrato realidad, terminaciones sin soporte de justa causa, incumplimiento de aportes a seguridad social e inequidad salarial, y produce una tabla de hallazgos con severidad y pasivo estimado.
+description: Auditoría de cumplimiento laboral para clientes corporativos en Colombia — detecta riesgo de contrato realidad, terminaciones sin soporte de justa causa, incumplimiento de aportes a seguridad social e inequidad salarial, y produce una tabla de hallazgos con severidad y pasivo estimado. Úsala cuando el usuario pida auditar el cumplimiento laboral de un cliente o revisar un grupo de contratos por riesgo de contrato realidad.
 ---
 
 # Auditoría de Cumplimiento Laboral (Colombia)

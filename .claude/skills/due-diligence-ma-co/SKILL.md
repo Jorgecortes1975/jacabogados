@@ -1,6 +1,6 @@
 ---
 name: due-diligence-ma-co
-description: Orquesta revisores paralelos (laboral, tributario, societario, adversarial) sobre un cuarto de datos de M&A en Colombia y consolida los hallazgos en una matriz única de riesgos con severidad y fuente normativa. Úsese al iniciar o consolidar una due diligence legal previa al cierre de una adquisición o fusión.
+description: Orquesta revisores paralelos (laboral, tributario, societario, adversarial) sobre un cuarto de datos de M&A en Colombia y consolida los hallazgos en una matriz única de riesgos con severidad y fuente normativa. Úsala cuando el usuario pida hacer una due diligence de M&A o consolidar los hallazgos de una adquisición o fusión antes del cierre.
 ---
 
 # Due Diligence M&A Colombia — Orquestador Multi-Revisor

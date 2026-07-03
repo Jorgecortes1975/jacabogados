@@ -1,6 +1,6 @@
 ---
 name: contratacion-estatal-co
-description: Analiza pliegos de condiciones de SECOP II para clientes proponentes en Colombia, verifica requisitos habilitantes, detecta cláusulas de riesgo en la minuta y redacta borradores de observaciones al pliego.
+description: Analiza pliegos de condiciones de SECOP II para clientes proponentes en Colombia, verifica requisitos habilitantes, detecta cláusulas de riesgo en la minuta y redacta borradores de observaciones al pliego. Úsala cuando el usuario pida revisar un pliego de licitación estatal o preparar observaciones a un proceso de contratación pública.
 ---
 
 # Contratación estatal Colombia — revisión de pliegos como proponente
