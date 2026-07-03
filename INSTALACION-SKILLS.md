@@ -12,12 +12,12 @@ Subida manual por interfaz (`Settings → Skills → Add Skill`). Necesitas un
 `.zip` individual por skill, con el mismo nombre que la skill.
 
 **Ya generado**: corre `./scripts/package_skills_for_upload.sh` desde la raíz
-del repo — valida cada `SKILL.md` con `validate_skill.py` y deja los 54 zips
+del repo — valida cada `SKILL.md` con `validate_skill.py` y deja los 57 zips
 (más el scaffold `tu-nombre-de-skill`) en `dist/` (carpeta ignorada por git,
 se regenera cuando quieras).
 
 ```bash
-./scripts/package_skills_for_upload.sh                      # las 54
+./scripts/package_skills_for_upload.sh                      # las 57
 ./scripts/package_skills_for_upload.sh verificacion-citas-co # solo una
 ```
 
@@ -46,7 +46,7 @@ reiniciar nada más.
 ## Vía 03 — Equipo · multi-repo
 
 `<repo>/.claude/skills/<nombre>/SKILL.md` — **esta vía ya está resuelta**:
-las 54 skills viven en `.claude/skills/` de este repositorio y están
+las 57 skills viven en `.claude/skills/` de este repositorio y están
 commiteadas en el branch `claude/lawyers-guide-toc-ss9zcm`. Cualquier
 compañero que clone el repo y abra Claude Code las tiene disponibles de
 inmediato, sin instalar nada a mano. Los cambios futuros a una skill se
