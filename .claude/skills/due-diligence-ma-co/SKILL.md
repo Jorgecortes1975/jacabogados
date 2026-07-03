@@ -14,15 +14,11 @@ description: Orquesta revisores paralelos (laboral, tributario, societario, adve
 
 **1. Segmentar el cuarto de datos.** Clasifica los documentos en categorías fijas: laboral, tributario, societario/corporativo, contratos comerciales, litigios, propiedad intelectual, ambiental/regulatorio. No mezclar categorías en un mismo revisor.
 
-**2. Asignar un revisor por categoría (modelo: Claude Sonnet 5).** Cada revisor recibe únicamente su categoría y el prompt de rol siguiente:
-
-> "Eres el revisor de [CATEGORÍA] en una due diligence de M&A colombiana. Analiza únicamente los documentos de esta categoría. Para cada hallazgo relevante produce: (a) descripción del hecho, (b) por qué es un riesgo para el comprador, (c) severidad 1 (bajo) / 2 (medio) / 3 (alto) según el marco de niveles de riesgo del despacho, (d) fuente normativa exacta (artículo de código o norma estable). Si citas jurisprudencia específica, agrégale el marcador [verificar contra la Relatoría antes de usar] — nunca la des por confirmada. No opines sobre el precio ni sobre si la operación debe cerrarse. Entrega en formato de lista, un hallazgo por ítem."
+**2. Asignar un revisor por categoría (modelo: Claude Sonnet 5).** Cada revisor recibe únicamente su categoría y un prompt de rol que exige, por hallazgo: hecho, riesgo para el comprador, severidad 1-3 y fuente normativa exacta, con el marcador de jurisprudencia no verificada cuando aplique. Texto completo del prompt en `references/prompts-revisores.md`.
 
 Ejemplo del revisor laboral: buscar indicios de tercerización que active la presunción de contrato laboral del art. 23 del Código Sustantivo del Trabajo, o brechas en aportes parafiscales fiscalizables por la UGPP.
 
-**3. Ejecutar el pase adversarial (modelo: Claude Opus 4.8).** Un único revisor adicional recibe **todos** los hallazgos de los revisores anteriores más el cuarto de datos completo, con este prompt:
-
-> "Eres el revisor adversarial. Tu único mandato es refutar y encontrar lo que los demás omitieron. Para cada hallazgo de los otros revisores: (a) evalúa si la severidad asignada es razonable o si debe subirse/bajarse, (b) señala si la fuente normativa citada realmente sostiene la conclusión, (c) marca cualquier cita jurisprudencial no verificada. Adicionalmente, revisa el cuarto de datos completo buscando categorías de riesgo que ningún revisor cubrió (ej. contingencias cruzadas entre tributario y societario, cláusulas de cambio de control no detectadas, pasivos ambientales no clasificados). No suavices ni valides por cortesía: tu valor está en encontrar lo que falta o está mal calificado. No opines sobre precio ni sobre cierre de la operación."
+**3. Ejecutar el pase adversarial (modelo: Claude Opus 4.8).** Un único revisor adicional recibe **todos** los hallazgos de los revisores anteriores más el cuarto de datos completo, con el mandato exclusivo de refutar severidades mal calificadas, verificar que la fuente normativa sostenga la conclusión, marcar jurisprudencia no verificada y detectar categorías de riesgo omitidas por los demás revisores. Texto completo del prompt en `references/prompts-revisores.md`.
 
 **4. Consolidar en matriz de riesgos única (modelo: Claude Opus 4.8).** Columnas fijas, sin variación: **Hallazgo | Severidad (1-3) | Fuente normativa | Nota adversarial**. La columna "Nota adversarial" siempre existe, incluso si dice "sin objeción del revisor adversarial" — nunca se omite ni se deja vacía.
 

@@ -26,38 +26,14 @@ Recorre los documentos normativos cargados en cada Project de legislación. Para
 Cuando se carga un memo interno nuevo, compáralo contra los memos existentes del banco de precedentes en la misma área temática. Busca conclusiones jurídicas incompatibles sobre un mismo supuesto de hecho (ej. dos memos que califican de forma distinta la misma figura contractual, o que llegan a interpretaciones opuestas de la misma norma). Reporta cada posible contradicción con: los dos memos en conflicto, la frase específica de cada uno que genera la tensión, y la fecha de cada memo. No resuelve la contradicción ni decide cuál memo es correcto — solo la señala para que el abogado responsable la revise.
 
 ### Paso 3 — Sugerencia de nuevo memo al cerrar un caso
-Al cierre de un caso, evalúa si el análisis producido tiene valor reutilizable (aborda una pregunta jurídica que probablemente se repita, no es específico de hechos irrepetibles del cliente). Si aplica, sugiere convertirlo en memo de precedente usando la plantilla del paso 3 más abajo, dejando explícito que es una **sugerencia**, no una publicación automática al banco — requiere revisión y aprobación del abogado responsable antes de incorporarse.
+Al cierre de un caso, evalúa si el análisis producido tiene valor reutilizable (aborda una pregunta jurídica que probablemente se repita, no es específico de hechos irrepetibles del cliente). Si aplica, sugiere convertirlo en memo de precedente usando la plantilla de `references/plantilla-memo-precedente.md`, dejando explícito que es una **sugerencia**, no una publicación automática al banco — requiere revisión y aprobación del abogado responsable antes de incorporarse.
 
 ### Paso 4 — Índice temático actualizado
 Genera o actualiza un índice del banco de precedentes organizado por área del derecho y subtema, listando para cada memo: título, área, fecha de última verificación de vigencia y estado (vigente según última revisión / pendiente de revisión / con posible contradicción señalada). Este índice es una herramienta de navegación, no una certificación de vigencia.
 
 ## Plantilla de memo de precedente interno
 
-```
-MEMO DE PRECEDENTE INTERNO
-
-Título: [Nombre descriptivo y específico de la cuestión — ej. "Tratamiento
-tributario de la enajenación indirecta de acciones bajo el Art. 90-3 ET"]
-
-Área: [Ej. Tributario / Laboral / Societario / Litigios / Regulatorio]
-
-Resumen de la cuestión jurídica:
-[Descripción en 3-5 líneas del problema jurídico abordado, el supuesto de
-hecho relevante y la norma o normas aplicadas. Debe ser lo bastante general
-para servir de referencia a casos futuros similares, sin datos confidenciales
-del cliente original.]
-
-Conclusión:
-[Postura o respuesta a la que se llegó, redactada como regla aplicable,
-citando la fuente normativa o jurisprudencial base (Módulo 02).]
-
-Fecha de última verificación de vigencia: [DD/MM/AAAA]
-
-Abogado responsable del área: [Nombre]
-
-Estado: [Vigente según última revisión / Pendiente de revisión trimestral /
-Con posible contradicción señalada — ver nota]
-```
+La plantilla completa para redactar un memo de precedente (título, área, resumen de la cuestión jurídica, conclusión, fecha de última verificación de vigencia, abogado responsable y estado) está en `references/plantilla-memo-precedente.md`. Úsala siempre que el paso 3 sugiera documentar un caso cerrado.
 
 ## Cierre
 

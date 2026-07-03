@@ -34,10 +34,10 @@ Buscar cada nombre extraído en la base de clientes y casos cargada en el Projec
 Cada clasificación debe ir acompañada de la evidencia concreta encontrada (nombre del caso histórico, fecha, rol de la parte) — nunca como una afirmación sin sustento.
 
 **4. Generar el formulario de apertura de expediente.**
-Con los datos ya verificados (nombres correctos, NITs, roles de las partes), producir el formulario de apertura de expediente que use el despacho, incluyendo: datos del cliente, datos de la contraparte, tipo de asunto, socio responsable propuesto, y una sección de "Resultado del chequeo de conflictos" con el resumen de los pasos 2 y 3.
+Con los datos ya verificados (nombres correctos, NITs, roles de las partes), producir el formulario de apertura de expediente que use el despacho, incluyendo: datos del cliente, datos de la contraparte, tipo de asunto, socio responsable propuesto, y una sección de "Resultado del chequeo de conflictos" con el resumen de los pasos 2 y 3. Usar la plantilla de `references/formulario-apertura-expediente.md` como estructura base de ese formulario.
 
 **5. Dejar constancia cuando no se encontró ninguna coincidencia.**
-Si la búsqueda no arroja resultados, indicarlo expresamente en el formulario con una nota como:
+Si la búsqueda no arroja resultados, indicarlo expresamente en el formulario con la nota estándar incluida en `references/formulario-apertura-expediente.md` (sección "Si no se encontró ninguna coincidencia"), reproducida aquí para referencia rápida:
 
 > "No se encontraron coincidencias en la base de datos histórica del despacho para las partes listadas. Esta ausencia de coincidencia NO garantiza la ausencia de conflicto de interés: pueden existir relaciones societarias, familiares o de representación no registradas en la base de datos. Se recomienda verificación adicional por el socio responsable antes de aceptar el asunto."
 
