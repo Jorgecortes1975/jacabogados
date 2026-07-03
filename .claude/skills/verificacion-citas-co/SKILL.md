@@ -27,6 +27,7 @@ Busca cada pregunta contra fuentes oficiales, en este orden de prioridad:
 2. Relatoría de la Corte Constitucional (buscador de sentencias por número y año) para tutelas y control de constitucionalidad.
 3. Relatoría de la Corte Suprema de Justicia (por sala — Civil, Laboral, Penal) para casación y tutelas de esa corporación.
 4. Relatoría del Consejo de Estado para asuntos contencioso-administrativos.
+Ver `references/fuentes-oficiales.md` para el detalle de qué cubre cada fuente, cómo buscar en ella y los errores frecuentes que producen falsos "NO LOCALIZADA" o falsos "VERIFICADA" (numeración derogada, prefijo o sala equivocados, etc.).
 No aceptes como fuente un resumen de segunda mano, un blog jurídico o la propia memoria del modelo sin verificación en la fuente primaria. Si no tienes acceso directo a estas bases en el entorno de trabajo, dilo explícitamente en vez de simular la verificación.
 
 **Paso 4 — Clasificar cada cita.**

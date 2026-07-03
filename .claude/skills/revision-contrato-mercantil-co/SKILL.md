@@ -19,10 +19,7 @@ Sobre cualquier contrato mercantil cargado por el usuario (suministro, distribuc
 Lee el contrato completo y numera cada cláusula (o subsección relevante) en una lista de trabajo, con un resumen de una línea de su contenido. No omitas anexos ni otrosíes si fueron cargados junto con el contrato principal — un riesgo frecuente está en la inconsistencia entre el cuerpo del contrato y sus anexos.
 
 **Paso 2 — Cotejo contra el Código de Comercio y regímenes especiales aplicables.**
-Para cada cláusula, evalúa si:
-- Modifica, limita o excluye normas del Código de Comercio que son de orden público y por tanto no son disponibles para las partes (ej. terminación unilateral en agencia comercial — art. 1324 C.Co., que limita la posibilidad de renuncia anticipada a la cesantía comercial).
-- Se aparta de normas supletivas del Código de Comercio sin que la desviación esté claramente pactada (ej. plazos de garantía, lugar de cumplimiento de la obligación, momento de transferencia del riesgo en compraventa mercantil — arts. 909 y ss.).
-- Activa un régimen especial adicional al Código de Comercio: cláusulas de exclusividad de largo plazo (posible tema de libre competencia, Ley 1340 de 2009), cláusulas de tratamiento de datos de clientes o proveedores (Ley 1581 de 2012), o cláusulas cambiarias si hay pagos en moneda extranjera (régimen del Banco de la República).
+Para cada cláusula, evalúa si modifica normas de orden público no disponibles para las partes, se aparta de normas supletivas sin pactarlo claramente, o activa un régimen especial adicional (libre competencia, datos personales, régimen cambiario). Ver `references/checklist-riesgos-clausulas.md` para el detalle de cada categoría con ejemplos y las normas específicas en juego.
 
 **Paso 3 — Clasificación de cláusulas de riesgo.**
 Para cada hallazgo, entrega:
@@ -32,7 +29,7 @@ Para cada hallazgo, entrega:
 4. Norma específica del Código de Comercio o régimen especial en juego, cuando aplique — si la cláusula requiere verificación normativa adicional, márcala para el Skill `verificacion-citas-co` en vez de asumir la cita.
 
 **Paso 4 — Identificar vacíos, no solo cláusulas problemáticas.**
-El riesgo contractual no siempre está en lo que el contrato dice — a menudo está en lo que omite: ausencia de cláusula de fuerza mayor, ausencia de mecanismo de resolución de disputas, ausencia de tratamiento del inventario o los activos en tránsito ante terminación, ausencia de cláusula de cesión. Señala estos vacíos como hallazgos independientes, con la misma estructura de severidad.
+El riesgo contractual no siempre está en lo que el contrato dice — a menudo está en lo que omite. Ver la lista de vacíos frecuentes en `references/checklist-riesgos-clausulas.md`. Señala estos vacíos como hallazgos independientes, con la misma estructura de severidad.
 
 **Paso 5 — Entregar tabla priorizada.**
 Presenta los hallazgos ordenados de mayor a menor severidad, en una tabla con columnas: # | Cláusula/vacío | Tipo de riesgo | Severidad | Norma en juego | Recomendación de acción (negociar / aceptar como riesgo asumido / requiere opinión adicional). Cierra con una nota explícita: esta tabla es un insumo de trabajo, no el concepto final sobre el contrato.
