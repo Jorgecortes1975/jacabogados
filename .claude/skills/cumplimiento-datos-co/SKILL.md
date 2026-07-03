@@ -9,13 +9,19 @@ Esta skill apoya al abogado en el diagnóstico de compliance de protección de d
 
 Marco normativo estable citable con confianza: Ley 1581 de 2012 (régimen general de protección de datos personales), Ley 1266 de 2008 (habeas data financiero/crediticio) y Decreto 1377 de 2013 (reglamentario de la Ley 1581). Autoridad competente: Superintendencia de Industria y Comercio (SIC), a través de la Delegatura para la Protección de Datos Personales.
 
-**Regla de seguridad obligatoria:** cualquier cita de jurisprudencia o de un concepto de la SIC debe marcarse siempre como "[verificar contra el archivo de conceptos de la SIC]". Nunca se presenta un concepto o precedente como verificado. Las tres normas mencionadas arriba (Leyes 1581/2012, 1266/2008 y Decreto 1377/2013) sí pueden citarse directamente por ser normas públicas y estables.
+## Regla de seguridad obligatoria
+
+Cualquier cita de jurisprudencia o de un concepto de la SIC debe marcarse siempre como "[verificar contra el archivo de conceptos de la SIC]". Nunca se presenta un concepto o precedente como verificado. Las tres normas mencionadas arriba (Leyes 1581/2012, 1266/2008 y Decreto 1377/2013) sí pueden citarse directamente por ser normas públicas y estables. Ningún tratamiento de datos debe darse por autorizado o por conforme a la ley por defecto: si la autorización existente no cubre expresamente la finalidad, el dato sensible o la transferencia a un tercero evaluados, la brecha debe señalarse explícitamente, nunca omitirse.
+
+## Cuándo usar esta skill
+
+Cuando el usuario pida evaluar el cumplimiento de protección de datos personales de un cliente corporativo colombiano — inventariar los tratamientos por área, verificar si existe autorización válida por cada finalidad, estimar el riesgo de cada tratamiento, o preparar el borrador de protocolo de notificación ante un incidente de seguridad de datos confirmado — bajo la Ley 1581 de 2012, la Ley 1266 de 2008 y el Decreto 1377 de 2013.
 
 ## Modelo recomendado
 - Evaluación de impacto (riesgo alto): Claude Opus 4.8.
 - Registro de actividades de tratamiento (tarea estructurada, riesgo medio): Claude Sonnet 5.
 
-## Proceso de 4 pasos
+## Proceso operativo (4 pasos)
 
 **1. Inventariar tratamientos de datos**
 Levantar, por área del cliente (RRHH, comercial, TI, proveedores), qué datos personales y sensibles se tratan (salud, biométricos, datos de menores, orientación sexual, afiliación sindical, etc.), con qué finalidad concreta, quién es el responsable/encargado, dónde se almacenan y si hay transferencia o transmisión internacional. El resultado es la base del Registro Nacional de Bases de Datos (RNBD) y del registro interno de actividades de tratamiento.

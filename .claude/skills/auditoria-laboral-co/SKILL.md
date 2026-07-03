@@ -7,6 +7,19 @@ description: Auditoría de cumplimiento laboral para clientes corporativos en Co
 
 Skill para analizar el inventario de vínculos contractuales de un cliente corporativo (contratos de trabajo, contratos de prestación de servicios, y sus terminaciones recientes) e identificar riesgos bajo el régimen laboral colombiano. No sustituye el criterio del abogado laboral responsable.
 
+## Regla de veracidad obligatoria (no negociable)
+
+Esta skill trabaja con dos tipos de riesgo de error que no son simétricos y deben tratarse con el mismo rigor:
+
+1. **Falsos positivos de riesgo laboral**: marcar como "contrato realidad" o "despido sin justa causa" un caso que en realidad está bien soportado genera alarma innecesaria y puede llevar a un cliente a gastar en remediación que no necesitaba. Nunca subas la severidad de un hallazgo solo porque el patrón se parece a uno de riesgo — exige que concurran los indicadores concretos listados en el Paso 1 antes de calificar "alto".
+2. **Falsos negativos de riesgo laboral**: no señalar un contrato de prestación de servicios que en la práctica opera como relación laboral, o dar por válida una terminación sin verificar el soporte documental real, expone al cliente a un pasivo que nunca se dimensionó. Ante la duda razonable, la skill debe marcar el hallazgo como "riesgo medio — requiere verificación adicional", nunca omitirlo ni darlo por "bajo" por defecto.
+3. **Pasivos estimados**: todo rango de pasivo en COP que entregue esta skill es una **estimación preliminar para priorización**, nunca un cálculo actuarial ni una cifra que pueda citarse ante el cliente o un tercero como definitiva. Debe presentarse siempre como rango, nunca como número puntual.
+4. **Citas normativas y jurisprudenciales**: los artículos del Código Sustantivo del Trabajo citados aquí (art. 23, art. 62) y la Ley 1496 de 2011 son normas estables y públicas, citables con confianza. Cualquier sentencia específica de la Corte Suprema de Justicia u otro criterio jurisprudencial puntual debe marcarse siempre como **"[verificar contra la Relatoría de la Corte Suprema, Sala Laboral]"** — nunca se presenta como verificada por defecto.
+
+## Cuándo usar esta skill
+
+Cuando el usuario pida auditar el cumplimiento laboral de un cliente corporativo colombiano — por ejemplo, revisar un grupo de contratos de prestación de servicios por riesgo de contrato realidad, evaluar el soporte documental de terminaciones recientes, cruzar aportes a seguridad social contra la nómina real, o detectar brechas de igualdad salarial entre cargos equivalentes — y necesite una tabla de hallazgos priorizada por severidad y pasivo estimado para acelerar la revisión del abogado laboral responsable.
+
 ## Modelo recomendado
 
 - **Claude Sonnet 5** para el análisis estándar de contratos y hallazgos.
@@ -19,7 +32,7 @@ Skill para analizar el inventario de vínculos contractuales de un cliente corpo
 - **Ley 1496 de 2011** — régimen de igualdad salarial y de retribución entre hombres y mujeres que desempeñen la misma labor.
 - **UGPP** — Unidad de Gestión Pensional y Parafiscales, autoridad de fiscalización de aportes al Sistema de Seguridad Social Integral y parafiscales; sus liquidaciones oficiales incluyen sanciones e intereses moratorios.
 
-## Proceso de 4 pasos
+## Proceso operativo (4 pasos)
 
 ### Paso 1 — Clasificación de vínculos y detección de subordinación de facto
 
@@ -59,6 +72,6 @@ Consolida todos los hallazgos de los pasos 1-3 en una tabla única, ordenada por
 
 Nota jurisprudencial: si el análisis cita una sentencia específica de la Corte Suprema de Justicia (por ejemplo, sobre los criterios de subordinación) que no ha sido verificada directamente contra la fuente oficial, debe marcarse explícitamente como **"[verificar contra la Relatoría de la Corte Suprema, Sala Laboral]"**. Nunca se presenta una cita jurisprudencial de ejemplo como verificada. Los artículos del Código Sustantivo del Trabajo citados en este documento sí son normas estables y públicas, y pueden citarse con confianza.
 
-## Límites de esta skill
+## Cierre — límite de esta skill
 
 Esta skill organiza, clasifica y prioriza hallazgos de cumplimiento laboral para acelerar la revisión del abogado responsable. **No decide** si un contrato de prestación de servicios debe convertirse en contrato de trabajo, **no decide** si procede despedir a un trabajador, y **no negocia** una conciliación ante el Ministerio de Trabajo o ante el trabajador. Estas son decisiones de criterio jurídico exclusivo del abogado laboral a cargo del caso, quien cuenta con conocimiento del cliente, del contexto operativo y de la estrategia de riesgo que esta IA no tiene ni puede tener.

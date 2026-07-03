@@ -5,6 +5,10 @@ description: Orquesta revisores paralelos (laboral, tributario, societario, adve
 
 # Due Diligence M&A Colombia — Orquestador Multi-Revisor
 
+## Cuándo usar esta skill
+
+Cuando el usuario pida hacer una due diligence de M&A sobre una sociedad target en Colombia, o consolidar los hallazgos de varios revisores (laboral, tributario, societario, adversarial) de una adquisición o fusión antes del cierre, en una única matriz de riesgos con severidad y fuente normativa lista para el comité de inversión.
+
 ## Regla de seguridad (no negociable)
 
 1. **Jurisprudencia**: nunca marques una cita jurisprudencial específica (número de sentencia) como "verificada" o "confirmada", salvo que sea un fallo estructural universalmente conocido (ej. T-760 de 2008 sobre salud). Cualquier otra sentencia citada como ejemplo debe llevar el marcador **"[verificar contra la Relatoría antes de usar]"**.

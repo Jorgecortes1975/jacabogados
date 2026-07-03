@@ -13,12 +13,16 @@ Esta skill **nunca** determina que "no hay conflicto de interés". Solo puede re
 
 En ambos casos debe dejarse constancia expresa de que **la ausencia de coincidencia no equivale a ausencia de conflicto**. Pueden existir relaciones societarias, familiares, de representación o de interés económico real que no estén registradas en la base de datos del despacho. Bajo la Ley 1123 de 2007 (Código Disciplinario del Abogado), el conflicto de interés no declarado es una de las faltas más graves de la profesión — la responsabilidad de verificar exhaustivamente y de decidir recae siempre en un humano, nunca en esta herramienta.
 
+## Cuándo usar esta skill
+
+Cuando el usuario pida hacer el chequeo de conflictos de interés de un cliente potencial nuevo, o abrir el expediente de un caso nuevo — cruzando cliente, contraparte y terceros relacionados contra el historial de clientes y casos del despacho, y generando el formulario de apertura de expediente con el resultado de ese cruce.
+
 ## Modelo recomendado
 
 - **Claude Sonnet 5** (`claude-sonnet-5`) para el cruce estándar de nombres, razones sociales y NITs contra la base histórica.
 - **Claude Opus 4.8** (`claude-opus-4-8`) cuando el asunto involucra grupos empresariales, estructuras matriz-filial, o cadenas de control societario complejas que requieren razonamiento sobre relaciones indirectas.
 
-## Proceso de 5 pasos
+## Proceso operativo (5 pasos)
 
 **1. Extraer las partes relevantes del nuevo asunto.**
 Identificar y listar de forma explícita: cliente potencial (persona natural o jurídica, con NIT/cédula si está disponible), contraparte(s), terceros con interés en el resultado, sociedades relacionadas o vinculadas (matrices, filiales, subordinadas, socios comunes), y representantes legales o apoderados de cada parte.

@@ -15,7 +15,11 @@ Esta skill **nunca decide** qué horas se le cobran o no al cliente, ni aplica d
 
 Esta skill hace cumplir, en la práctica, la cláusula de honorarios y transparencia del Módulo 03: "las eficiencias derivadas del uso de IA no representen una facturación adicional o duplicada de tiempo no efectivamente dedicado por el profesional." Si el uso de IA le ahorró tiempo al abogado, ese ahorro no se traslada al cliente como horas fantasma; y si el uso de IA generó trabajo extra por corregir un error suyo, ese tiempo tampoco se traslada al cliente.
 
-## Proceso (4 pasos)
+## Cuándo usar esta skill
+
+Actívala antes de emitir cualquier cuenta de cobro a un cliente: cuando el usuario pida revisar el registro de horas (time entries) y el WIP del periodo antes de facturar, o preparar el borrador de una cuenta de cobro con el desglose por actividad que exige la cláusula de transparencia del Módulo 03. No decide qué se cobra — solo señala descripciones vagas, sobrepasos de presupuesto y horas no facturables, dejando la decisión final al socio a cargo.
+
+## Proceso operativo (4 pasos)
 
 **1. Revisar cada entrada de tiempo del periodo.**
 Lee la descripción tal como quedó registrada. Señala como "vaga" cualquier entrada que no permita reconstruir, sin preguntar a nadie más, qué se hizo, sobre qué documento o asunto, y para qué. Ejemplos de bandera roja: "trabajo en el caso", "revisión de documentos", "llamada con cliente", "varios". Una entrada defendible especifica el documento o trámite, la acción concreta y el objetivo (ej. "revisión de la cláusula de indemnidad del contrato de suministro con Proveedor XYZ para identificar exposición ante incumplimiento").

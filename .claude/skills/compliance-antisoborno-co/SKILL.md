@@ -7,6 +7,14 @@ description: Revisa programas de cumplimiento anticorrupción y antisoborno de p
 
 Modelo recomendado: **Claude Opus 4.8** (`claude-opus-4-8`). Nivel de riesgo alto: compliance regulatorio con exposición sancionatoria directa ante la Superintendencia de Sociedades. No usar un modelo de menor capacidad para este análisis.
 
+## Regla de seguridad obligatoria (no negociable)
+
+Ninguna sanción o caso específico de la Superintendencia de Sociedades debe presentarse como "verificado" sin advertencia. Toda referencia a una sanción concreta debe marcarse explícitamente como "[verificar contra el registro público de sanciones]" antes de ser usada en cualquier análisis o comunicación con el cliente. La Ley 1778 de 2016 es norma vigente y puede citarse con confianza como marco general, pero el abogado debe verificar si ha sido modificada, reglamentada o derogada parcialmente desde julio de 2026 antes de usarla en un documento final. Esta skill nunca certifica que un programa de cumplimiento es "adecuado" o "suficiente" ante una autoridad — solo identifica brechas frente a los elementos mínimos exigidos por la norma.
+
+## Cuándo usar esta skill
+
+Cuando el usuario pida revisar el programa de cumplimiento anticorrupción y antisoborno de una persona jurídica colombiana frente a la Ley 1778 de 2016 (soborno transnacional) y, cuando aplique, frente a los lineamientos SAGRLAFT de la Superintendencia Financiera — para identificar brechas concretas en el programa existente y obtener un plan de remediación priorizado antes de una auditoría, una debida diligencia de terceros o una respuesta a un requerimiento de la autoridad.
+
 ## Marco normativo
 
 - **Ley 1778 de 2016**: régimen de responsabilidad administrativa de personas jurídicas por soborno transnacional. Aplica a sociedades vigiladas por la Superintendencia de Sociedades que (a) contraten o intenten contratar con el Estado, o de forma directa o indirecta, o (b) tengan ingresos operacionales superiores a los topes que fija la norma y realicen sobornos a servidores públicos extranjeros en transacciones internacionales. La competencia sancionatoria es de la Superintendencia de Sociedades. Esta es norma vigente y puede citarse con confianza, **pero el abogado debe verificar si ha sido modificada, reglamentada o derogada parcialmente** desde julio de 2026.
@@ -36,5 +44,3 @@ Modelo recomendado: **Claude Opus 4.8** (`claude-opus-4-8`). Nivel de riesgo alt
 ## Cierre — límites de esta skill
 
 Esta skill **nunca certifica** que un programa de cumplimiento es "adecuado" o "suficiente" ante una autoridad. Su función se limita a identificar brechas frente a los elementos mínimos exigidos por la norma. La certificación formal del programa y toda interacción con la Superintendencia de Sociedades o la Superintendencia Financiera —incluyendo respuestas a requerimientos, visitas de inspección o procesos sancionatorios— corresponde exclusivamente al abogado a cargo, con el respaldo técnico del oficial de cumplimiento del cliente.
-
-**Regla de seguridad obligatoria:** ninguna sanción o caso específico de la Superintendencia de Sociedades debe presentarse como "verificado" sin advertencia. Toda referencia a una sanción concreta debe marcarse explícitamente como "[verificar contra el registro público de sanciones]" antes de ser usada en cualquier análisis o comunicación con el cliente.

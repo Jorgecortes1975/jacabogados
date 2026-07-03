@@ -9,7 +9,7 @@ description: Genera el borrador estructurado de una acción de tutela colombiana
 
 Cuando el abogado necesita un primer borrador de una acción de tutela (artículo 86 de la Constitución Política, Decreto 2591 de 1991) a partir de los hechos del caso, ya sea para vulneración directa de un derecho fundamental o como mecanismo transitorio para evitar un perjuicio irremediable.
 
-## Regla no negociable: solo fuentes cargadas
+## Regla de veracidad obligatoria (no negociable): solo fuentes cargadas
 
 Este Skill cita exclusivamente jurisprudencia, normas y hechos que el usuario haya cargado explícitamente en la conversación (documentos adjuntos, texto pegado, o hechos narrados directamente). Si el borrador necesita invocar un precedente de la Corte Constitucional y ese precedente no fue cargado por el usuario, el Skill debe:
 1. Marcar el espacio con `[VERIFICAR: cita pendiente — Corte Constitucional, tema: {tema}]`, y
@@ -31,6 +31,20 @@ Ver `references/estructura-tutela.md` para el detalle completo y los requisitos 
 5. Listar Pruebas contra los documentos efectivamente cargados.
 6. Entregar el borrador completo con todas las marcas `[VERIFICAR: ...]` visibles, y recordar al usuario correr `verificacion-citas-co` antes de radicar.
 
-## Límite del Skill
+## Mini-ejemplo (hechos ficticios anonimizados)
 
-Este Skill produce un borrador de trabajo, no una tutela lista para radicar. La decisión de radicar, el juez de reparto exacto, la estrategia frente al término de 10 días para el fallo, y la firma del escrito corresponden al abogado responsable del caso.
+**Hechos aportados por el usuario**: la accionante, "AA" (nombre real conocido solo por el abogado, no incluido en el borrador de trabajo), fue desvinculada de su EPS ficticia "Salud Total Andina" tras dejar de cotizar dos meses por pérdida de empleo. Requiere continuar un tratamiento oncológico en curso y la EPS le informó verbalmente que el servicio queda suspendido hasta que se pongan al día los aportes.
+
+**Fragmento del borrador que produciría esta skill:**
+
+> **3. Derecho fundamental invocado**: derecho a la salud (artículo 49 de la Constitución Política) en conexidad con el derecho a la vida digna, de la accionante AA, actualmente en tratamiento oncológico activo.
+>
+> **4. Procedibilidad de la tutela**: se invoca la tutela como mecanismo principal por tratarse de un sujeto de especial protección constitucional (paciente con enfermedad catastrófica en tratamiento activo), donde la suspensión del servicio genera un perjuicio irremediable si se exige agotar la vía administrativa ordinaria ante la EPS. `[VERIFICAR: cita pendiente — Corte Constitucional, tema: continuidad del servicio de salud pese a mora en aportes durante desempleo]`.
+>
+> **5. Pretensiones**: PRIMERO. Ordenar a Salud Total Andina EPS que reanude, de forma inmediata e ininterrumpida, el tratamiento oncológico de la accionante AA, sin exigir como condición previa el pago de los aportes en mora. SEGUNDO. Ordenar que dicho pago en mora se gestione por el mecanismo de recobro o cobro persuasivo que corresponda, sin que ello suspenda la prestación del servicio.
+
+Nótese la marca `[VERIFICAR: ...]` en la sección de Procedibilidad: el usuario no cargó jurisprudencia sobre continuidad del servicio de salud en mora, así que la skill no inventa un número de sentencia — deja el hueco marcado y recomienda correr `verificacion-citas-co` antes de completarlo.
+
+## Cierre — límite de esta skill
+
+Este Skill produce un borrador de trabajo, no una tutela lista para radicar. Nunca presenta la tutela ante el juez de reparto ni decide su viabilidad procesal — esas son decisiones y actos exclusivos del abogado responsable del caso. La decisión de radicar, el juez de reparto exacto, la estrategia frente al término de 10 días para el fallo, y la firma del escrito corresponden a ese abogado.

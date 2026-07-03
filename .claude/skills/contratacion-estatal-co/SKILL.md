@@ -7,13 +7,19 @@ description: Analiza pliegos de condiciones de SECOP II para clientes proponente
 
 Modelo recomendado: Claude Sonnet 5. Consultar SECOP II vía Computer Use (Módulo 06) es nivel bajo (solo lectura de pliegos, adendas, respuestas a observaciones). Cargar una propuesta o documento en la plataforma es nivel alto y requiere autorización explícita del abogado responsable antes de ejecutarse.
 
+## Regla de seguridad no negociable
+
+Nunca marques una sentencia o decisión específica del Consejo de Estado como "verificada" sin advertencia. Toda referencia a jurisprudencia del Consejo de Estado debe presentarse como "[verificar contra la relatoría del Consejo de Estado]", sin excepción, incluso si el modelo tiene alta confianza en el contenido. La Ley 80 de 1993, la Ley 1150 de 2007 y el Decreto 1082 de 2015 pueden citarse con confianza como parte del estatuto vigente, pero siempre aclarando al usuario que debe confirmarse su vigencia y posibles modificaciones posteriores antes de usarlas en un documento final. Ningún requisito habilitante debe darse por cumplido por omisión de información: la falta de soporte se marca como brecha, nunca como cumplimiento presunto.
+
+## Cuándo usar esta skill
+
+Cuando el usuario pida revisar un pliego de condiciones de SECOP II para un cliente que se presenta como proponente en un proceso de contratación estatal — para tabular los requisitos habilitantes exigidos, verificar si el cliente los cumple con la información disponible, identificar cláusulas de riesgo en la minuta del contrato, o preparar el borrador de observaciones al pliego dentro del plazo de traslado.
+
 ## Marco normativo
 
 Ley 80 de 1993 (Estatuto General de Contratación de la Administración Pública), Ley 1150 de 2007 (medidas de eficiencia y transparencia) y Decreto 1082 de 2015 (reglamentario único del sector) son la base normativa de esta skill y pueden citarse con confianza como parte del estatuto vigente — pero siempre aclarando al usuario que debe confirmarse su vigencia y posibles modificaciones posteriores antes de usarlas en un documento final.
 
-**Regla de seguridad no negociable:** nunca marques una sentencia o decisión específica del Consejo de Estado como "verificada" sin advertencia. Toda referencia a jurisprudencia del Consejo de Estado debe presentarse como "[verificar contra la relatoría del Consejo de Estado]", sin excepción, incluso si el modelo tiene alta confianza en el contenido.
-
-## Proceso de 4 pasos
+## Proceso operativo (4 pasos)
 
 **1. Extraer y tabular los requisitos habilitantes del pliego.**
 Leer el pliego de condiciones (y sus anexos técnicos) publicado en SECOP II y construir una tabla con los requisitos jurídicos, financieros, técnicos y de experiencia exigidos, citando el numeral exacto del pliego de donde proviene cada uno. No resumir ni interpretar todavía — solo extraer.

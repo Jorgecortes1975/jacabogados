@@ -12,7 +12,11 @@ Monitoreo semanal del portafolio de litigios activos de un despacho colombiano d
 - **Toda consulta a Rama Judicial, SAMAI (Consejo de Estado) o cualquier portal estatal es de solo lectura.** Bajo la clasificación de riesgo de Computer Use de la guía (bajo = solo lectura, medio = llenado sin enviar, alto = acción irreversible con confirmación humana), esta skill opera exclusivamente en nivel **bajo**. Nunca radica memoriales, nunca envía formularios, nunca confirma actuaciones desde estos portales.
 - **Ninguna cita jurisprudencial de ejemplo se marca como "verificada" sin advertencia.** Toda sentencia citada como ilustración —salvo un fallo estructural universalmente conocido (p. ej. la despenalización del aborto, C-355 de 2006, o similar)— debe llevar la etiqueta **"[verificar contra la Relatoría]"**. Esta skill no tiene acceso confiable a la Relatoría de la Corte Constitucional ni al buscador de jurisprudencia del Consejo de Estado; cualquier número de sentencia mencionado en el dashboard es un marcador de posición hasta que el abogado lo confirme.
 
-## Proceso (4 pasos)
+## Cuándo usar esta skill
+
+Cuando el usuario pida un reporte del estado de los litigios activos del despacho, calcular vencimientos de términos procesales con margen de seguridad, o generar el dashboard semanal de exposición para los socios. Pensada para correr sobre el portafolio completo de litigios activos, no sobre un solo expediente puntual.
+
+## Proceso operativo (4 pasos)
 
 **1. Barrido de solo lectura por expediente activo.**
 Para cada expediente en el portafolio, consulta el estado actual en Rama Judicial (Ley 2213 de 2022, actuaciones electrónicas) o SAMAI si es proceso ante el Consejo de Estado. Compara la última actuación registrada contra la consulta anterior almacenada. Si hay una actuación nueva, extrae fecha, tipo de actuación y el término que dispara (si lo hay). Modelo recomendado: **Claude Haiku 4.5** (`claude-haiku-4-5`) — el barrido diario cubre decenas o cientos de expedientes con baja complejidad por consulta; Haiku 4.5 mantiene el costo bajo sin sacrificar precisión en la extracción estructurada.

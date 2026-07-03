@@ -7,13 +7,17 @@ description: Redacta actas y resoluciones societarias, verifica su coherencia co
 
 Modelo recomendado: Claude Sonnet 5. Este skill apoya el housekeeping documental de sociedades colombianas: actas de asamblea y junta directiva, resoluciones societarias, verificación registral ante Cámara de Comercio y calendario de obligaciones anuales.
 
-## Advertencia de seguridad obligatoria (no negociable)
+## Regla de veracidad obligatoria (no negociable)
 
 - Nunca marques una cita jurisprudencial como "verificada" sin advertencia explícita. Toda referencia a sentencias, conceptos de la Superintendencia de Sociedades o doctrina debe ir acompañada de una nota indicando que el abogado responsable debe confirmarla en la fuente oficial antes de usarla.
 - Los artículos del Código de Comercio de conocimiento general muy asentado (p. ej. arts. 158 y 187 y ss. sobre actas y decisiones societarias) y la Circular Única de la Superintendencia de Sociedades pueden citarse como referencia porque son normas estables y públicas. **Cualquier otro número de artículo específico usado en un borrador concreto —incluidos los de quórum, facultades del representante legal o mayorías decisorias— debe marcarse siempre como "[confirmar número de artículo contra el texto vigente del Código de Comercio y los estatutos]"**, incluso si el modelo lo presenta con aparente seguridad: un número de artículo equivocado en un acta que se registra ante la Cámara de Comercio no es un detalle menor, y es indistinguible en apariencia de uno correcto hasta que se verifica.
 - Nunca presentes un borrador de acta o resolución como definitivo. Es siempre un proyecto sujeto a revisión y aprobación del abogado y de los órganos sociales.
 
-## Proceso de 4 pasos
+## Cuándo usar esta skill
+
+Cuando el usuario pida redactar un acta de junta directiva o asamblea, preparar una resolución societaria, verificar su coherencia con los estatutos vigentes, o armar el checklist y calendario de obligaciones societarias de una sociedad colombiana ante Cámara de Comercio.
+
+## Proceso operativo (4 pasos)
 
 ### 1. Generar el borrador de acta o resolución
 Identifica el tipo de decisión societaria (aumento de capital, nombramiento o remoción de representante legal, distribución de utilidades, reforma estatutaria, disolución, etc.) y genera el borrador siguiendo la estructura formal exigida por el Código de Comercio: encabezado del órgano, lugar/fecha/hora, forma de convocatoria, verificación del quórum, orden del día, deliberación, texto de la decisión con la votación exacta, y constancia de cierre y firmas. Usa siempre lenguaje societario preciso (número de acciones o cuotas, mayorías decisorias, capital suscrito y pagado si aplica).
@@ -30,6 +34,22 @@ Mantén y actualiza un calendario con al menos: renovación de la matrícula mer
 ## Modelo de acta de junta directiva (nombramiento de representante legal)
 
 El modelo completo de acta (encabezado, convocatoria, verificación de quórum, orden del día, desarrollo y cierre), incluidas sus advertencias de verificación de artículos, está en `references/modelo-acta-junta.md`. Cárgalo como punto de partida al ejecutar el paso 1 del proceso y ajústalo al tipo de decisión societaria concreto; mantén intactas las marcas "[CONFIRMAR NÚMERO EXACTO ...]" del modelo.
+
+## Mini-ejemplo — acta breve de reforma estatutaria menor
+
+Junta directiva de una SAS ficticia ("Comercializadora Andina S.A.S.") aprueba un cambio menor: trasladar el domicilio social dentro del mismo municipio y ajustar el objeto social para incluir comercio electrónico.
+
+> **ACTA No. 14 — JUNTA DIRECTIVA DE COMERCIALIZADORA ANDINA S.A.S.**
+>
+> En Medellín, a los [DÍA] de [MES] de 2026, siendo las 9:00 a.m., se reunió la Junta Directiva de Comercializadora Andina S.A.S., previa convocatoria realizada conforme al artículo [CONFIRMAR NÚMERO EXACTO ...] de los estatutos sociales, con la asistencia de sus tres (3) miembros principales, verificándose quórum deliberatorio y decisorio conforme al artículo [CONFIRMAR NÚMERO EXACTO ...] de los estatutos.
+>
+> **Orden del día:** (1) Verificación de quórum. (2) Propuesta de reforma estatutaria: ampliación del objeto social para incluir actividades de comercio electrónico y modificación de la dirección de notificación judicial dentro del mismo domicilio. (3) Votación. (4) Cierre.
+>
+> **Deliberación y decisión:** sometida a votación la propuesta, fue aprobada por unanimidad (3 votos a favor, 0 en contra), dejando constancia de que la reforma deberá someterse posteriormente a la Asamblea General de Accionistas si los estatutos reservan a ese órgano la competencia sobre reformas estatutarias — punto que debe verificarse contra el texto estatutario vigente antes de registrar esta acta [CONFIRMAR NÚMERO EXACTO del artículo estatutario que asigna esa competencia].
+>
+> Sin más asuntos que tratar, se cierra la sesión siendo las 9:40 a.m. Firman los asistentes.
+
+Con este borrador, el Paso 2 exige contrastar contra los estatutos cargados si la reforma del objeto social requiere aprobación de la Asamblea (no solo de la Junta Directiva) — si esa verificación no se puede hacer porque los estatutos no están cargados, la skill debe declararlo expresamente en vez de asumir que la Junta Directiva tiene la competencia.
 
 ## Cierre explícito de alcance
 
