@@ -77,6 +77,9 @@ CATEGORIAS = {
         "revision-semanal", "diario-de-decisiones", "pipeline-de-lectura",
         "traductor-de-metas", "disenador-de-habitos", "ordenador-de-brain-dump",
     ],
+    "Meta / construcción de skills": [
+        "skill-creator", "documento-con-mi-formato", "proceso-multipaso-con-plan-b",
+    ],
     "Plantilla / scaffold": ["tu-nombre-de-skill"],
 }
 CATEGORIA_DE = {name: cat for cat, names in CATEGORIAS.items() for name in names}
