@@ -1,0 +1,70 @@
+{
+  "model": "claude-sonnet-4-5",
+
+  "permissions": {
+    "allow": [
+      "Read(*)",
+      "Edit(casos/**/*.md)",
+      "Edit(documentos/**/*)",
+      "Edit(procedimientos/**/*)",
+      "Edit(CLAUDE.md)",
+      "Edit(.claude/skills/**/*.md)",
+      "Glob(casos/**)",
+      "Glob(documentos/**)",
+      "Glob(procedimientos/**)",
+      "Grep(casos/**)",
+      "Grep(documentos/**)",
+      "Bash(git status)",
+      "Bash(git add)",
+      "Bash(git commit -m)",
+      "Bash(git log)",
+      "Bash(git diff)",
+      "Bash(git fetch)",
+      "Bash(git pull origin)",
+      "Bash(ls)",
+      "Bash(find casos -name '*.md')"
+    ],
+
+    "deny": [
+      "Bash(rm -rf)",
+      "Bash(git push --force)",
+      "Bash(git reset --hard)",
+      "Bash(sudo *)",
+      "Edit(.env*)",
+      "Edit(.git*)",
+      "SendMessage",
+      "Bash(chmod -R)"
+    ]
+  },
+
+  "mcpServers": {
+    "legal-data-hunter": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-legal-data-hunter"],
+      "env": {
+        "LEGAL_DATA_HUNTER_API_KEY": "${LEGAL_DATA_HUNTER_API_KEY}"
+      }
+    },
+
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      }
+    },
+
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  },
+
+  "hooks": {
+    "before-commit": "echo 'Verificando formato de commit...'",
+    "after-edit": "echo 'Archivo actualizado: verificar que no haya secretos'"
+  }
+}
