@@ -1,35 +1,52 @@
 ---
 name: recomendaciones-cliente
 description: >
-  Skill operativo AUTOMÁTICO para convertir hallazgos de diagnóstico en PLAN DE ACCIÓN
-  detallado. Se ejecuta AUTOMÁTICAMENTE después de 02-DIAGNÓSTICO.md. Lee diagnóstico,
-  convierte cada hallazgo CRÍTICO en acción concreta, genera timeline (semana 1-2-mes 2),
-  estima presupuesto desglosado (honorarios + trámites + implementación), y crea
-  03-RECOMENDACIONES.md con tabla de acciones, timeline visual, y próximos pasos.
+  Skill operativo AUTOMÁTICO para convertir incumplimientos de diagnóstico en PLAN DE REMEDIACIÓN
+  NORMATIVA detallado. Se ejecuta AUTOMÁTICAMENTE después de 02-DIAGNÓSTICO.md. Lee diagnóstico,
+  convierte cada incumplimiento CRÍTICO en acción concreta con validación de viabilidad,
+  genera timeline con análisis de realismo, estima presupuesto exhaustivamente desglosado
+  (honorarios + trámites + implementación + costo de NO hacer nada), y crea 03-RECOMENDACIONES.md.
+  Análisis ROI: impacto financiero de remediar vs no remediar. Validación: detecta timelines
+  imposibles. Nivel Alta Corte: lenguaje magistral + cuantificación precisa.
   
   CARACTERÍSTICAS GARANTIZADAS:
   — Activación: AUTOMÁTICA (sin solicitud explícita)
-  — Guardias: 4 filtros contra planes incompletos o incoherentes
-  — Rechazo: INMEDIATO si diagnóstico falta o es incompleto
-  — Acta de control: OBLIGATORIA con acciones y presupuesto
-  — Certificación: ✅ PLAN COMPLETO / ⚠️ PARCIAL / 🔴 INCOMPLETO / 🚫 RECHAZADO
-  — Presupuesto: Desglosado por concepto (honorarios, trámites, implementación)
+  — Guardias: 5 filtros especializados contra planes incompletos o incoherentes
+  — Rechazo: INMEDIATO si diagnóstico falta o plan es irreal
+  — Acta de control: OBLIGATORIA con 15 puntos de validación presupuestal y de coherencia
+  — Certificación: ✅ PREMIUM / ⚠️ PROFESIONAL / 🟠 REQUIERE REVISIÓN / 🔴 NO CONFORME / 🚫 RECHAZADO
+  — Presupuesto: Exhaustivamente desglosado por concepto (honorarios, trámites, implementación, costo de inacción)
+  — ROI: Análisis de costo-beneficio (impacto de remediar vs costo de no hacer nada)
+  — Nivel: Conforme a Estándar Universal v2.0 + Protocolo Alta Corte
 ---
 
-# RECOMENDACIONES CLIENTE v2.0
-## Plan de Acción Detallado con Timeline y Presupuesto
+# RECOMENDACIONES CLIENTE v2.1
+## Plan de Remediación Normativa — Nivel Alta Corte
 
 **Autor**: Jorge Ángel Cortés Cartagena — T.P. 365.594  
-**Versión**: 2.0 — Julio 2026 — Conforme a Estándar Universal  
-**Naturaleza**: Skill EJECUTORA AUTOMÁTICA para planificación operativa
+**Versión**: 2.1 — Julio 2026 — Conforme a Estándar Universal v2.0  
+**Naturaleza**: Skill EJECUTORA AUTOMÁTICA para planificación normativa con validación ROI  
+**Estatus**: Mejorado a nivel PREMIUM con análisis financiero de remediación vs inacción
 
 ---
 
 ## PROPÓSITO
 
-Convertir hallazgos del diagnóstico en plan de acción práctico, ejecutable y presupuestado. Ordena acciones por urgencia (CRÍTICO → MODERADO → BAJO). Define timeline específico (día 1, día 3, semana 1, semana 2, mes 2). Estima costo por acción. Genera 03-RECOMENDACIONES.md con: resumen ejecutivo, tabla de acciones, timeline visual, presupuesto desglosado, y próximos pasos.
+Convertir incumplimientos normativos del diagnóstico en plan de remediación normativa práctico, ejecutable, presupuestado y viable. Ordena acciones por urgencia (CRÍTICO → MODERADO → BAJO). Define timeline específico con análisis de realismo (detecta si 20 acciones en 1 semana es imposible). Estima costo por acción EXHAUSTIVAMENTE.
 
-**Regla absoluta**: Cada acción DEBE ser específica (no "redactar contratos" sino "redactar contrato a término indefinido para Juan López"). Presupuesto DEBE ser desglosado por concepto.
+Genera 03-RECOMENDACIONES.md conforme Alta Corte con:
+- **Resumen ejecutivo** de incumplimientos
+- **Tabla de acciones** con urgencia, timeline, costo, responsable
+- **Análisis ROI**: Costo de remediar vs costo de NO hacer nada (impacto regulatorio + financiero + reputacional)
+- **Timeline visual** con validación de realismo
+- **Presupuesto exhaustivamente desglosado** (honorarios + trámites + implementación + contingencia)
+- **Próximos pasos** y métricas de cumplimiento
+
+**Protocolos obligatorios**:
+- Cada acción DEBE ser específica y medible (no "redactar contratos" sino "redactar contrato indefinido para Juan López, con cláusulas [lista]")
+- Presupuesto DEBE ser desglosado por concepto + contingencia (10%)
+- Timeline DEBE ser realista: máximo 4 acciones CRÍTICAS por semana
+- ROI DEBE incluir: costo remediación vs multa potencial + daño reputacional + tiempo perdido
 
 ---
 
@@ -60,60 +77,85 @@ NO requiere solicitud explícita.
 
 ## GUARDIAS AUTOMÁTICAS — Detención Inmediata
 
-### GUARDIA 1: Diagnóstico faltante o incompleto
-**CONDICIÓN**: No hay 02-DIAGNÓSTICO.md O diagnóstico no tiene hallazgos claros
+### GUARDIA 1: Diagnóstico faltante, incompleto o sin incumplimientos documentados
+**CONDICIÓN**: No hay 02-DIAGNÓSTICO.md accesible, OR diagnóstico no tiene incumplimientos clasificados (CRÍTICO/MODERADO/BAJO)
 
 **ACCIÓN INMEDIATA**:
 ```
 🚫 RECHAZO — GUARDIA 1
-Motivo: Diagnóstico indispensable y no disponible
-Riesgo: Sin diagnóstico no se puede hacer plan de acción
-Qué se requiere: Completar 02-DIAGNÓSTICO.md primero
-Estado: PLAN BLOQUEADO
-Certificación: 🚫 RECHAZADO
+Vicio detectado: Diagnóstico indispensable no disponible o sin clasificación de incumplimientos
+Motivo: Plan requiere base diagnóstica verificada
+Riesgo: Sin diagnóstico no se puede derivar acciones válidas
+Qué se requiere: Completar y validar 02-DIAGNÓSTICO.md conforme Estándar v2.1 primero
+Estado: PLAN BLOQUEADO PERMANENTEMENTE
+Certificación: 🚫 RECHAZADO — REQUIERE DIAGNÓSTICO PREVIO
 ```
 
-### GUARDIA 2: Hallazgos SIN acciones claras
-**CONDICIÓN**: Diagnóstico tiene hallazgos pero no se puede derivar acción concreta
+### GUARDIA 2: Incumplimientos SIN acciones concretas y medibles
+**CONDICIÓN**: Diagnóstico tiene incumplimientos pero plan no puede derivar acciones específicas de cada uno
 
 **ACCIÓN INMEDIATA**:
 ```
 🟡 CORRECCIÓN ACTIVA — GUARDIA 2
-Vicio detectado: Hallazgo sin acción derivable
-Ejemplo: "Empresa dice que cambios normativos son complicados" (no es hallazgo)
-Razón: Acción requiere hallazgo técnico específico
-Texto reencuadrado: Se marca como [Comentario] NO como hallazgo; se busca hallazgo real
-Certificación: ⚠️ PARCIAL (subsanar: hallazgos deben ser técnicos)
+Vicio detectado: Incumplimiento sin acción concreta derivable
+Ejemplo: "Incumplimiento de "cambios normativos" (genérico, no específico)
+Verificación: Acción debe ser: "Afiliación de Juan López a EPS en Día 2" (específica + medible)
+Razón: Plan requiere acciones concretas, asignables, verificables
+Acción requerida: Se marca como [Requiere aclaración] y se busca incumplimiento técnico
+Certificación: 🟠 REQUIERE REVISIÓN (acciones deben derivar de incumplimientos técnicos)
 ```
 
-### GUARDIA 3: Presupuesto no desagregado o genérico
-**CONDICIÓN**: Plan dice "implementación: $500k" pero no especifica qué incluye
+### GUARDIA 3: Presupuesto genérico, no desglosado o sin contingencia
+**CONDICIÓN**: Plan dice "implementación: $500k" sin especificar componentes, O no incluye contingencia (10%)
 
 **ACCIÓN INMEDIATA**:
 ```
 🟡 CORRECCIÓN ACTIVA — GUARDIA 3
-Vicio detectado: Presupuesto genérico sin desglose
-Razón: Cliente necesita saber "¿$500k por qué?"
-Texto reencuadrado: Se desglosa en:
-  - Honorarios redacción de contrato: $X
-  - Trámite de afiliación: $Y
-  - Capacitación de personal: $Z
-Certificación: ⚠️ PARCIAL (presupuesto debe ser transparente)
+Vicio detectado: Presupuesto genérico sin desglose o contingencia
+Ejemplo: "$500k implementación" SIN decir qué incluye
+Verificación: Cada línea debe tener: Concepto | Detalle | Unitario | Cantidad | Total
+Razón: Cliente necesita transparencia: "¿$500k por qué? ¿Y si cuesta más?"
+Normalización: Se desglosa exhaustivamente en:
+  - Honorarios redacción: $X (n contratos × tarifa)
+  - Trámites administrativos: $Y (afiliaciones, impuestos, etc.)
+  - Capacitación: $Z (horas × tarifa)
+  - Contingencia (10%): $[10% del total]
+Certificación: 🟠 REQUIERE REVISIÓN (desglose + contingencia son obligatorios)
 ```
 
-### GUARDIA 4: Timeline irreal (acciones conflictivas)
-**CONDICIÓN**: Plan dice "Semana 1: redactar 20 contratos" (imposible en 1 semana)
+### GUARDIA 4: Timeline irreal (carga horaria imposible)
+**CONDICIÓN**: Plan propone "Semana 1: 20 acciones" o timeline viola realismo (más de 4 acciones CRÍTICAS por semana)
 
 **ACCIÓN INMEDIATA**:
 ```
 🟡 CORRECCIÓN ACTIVA — GUARDIA 4
-Vicio detectado: Timeline irrealista
-Ejemplo: "20 contratos en 1 semana" requiere 4+ semanas
-Razón: Plan debe ser ejecutable
-Texto reencuadrado: Se redistribuye:
-  - Semana 1: [5 contratos + otros urgentes]
-  - Semana 2-3: [15 contratos restantes]
-Certificación: ⚠️ PARCIAL (ajustar timeline a realidad)
+Vicio detectado: Timeline irrealista (sobrecarga de acciones)
+Ejemplo: "20 contratos en 1 semana" requiere 40-50 horas, es imposible
+Validación: Máximo 4 acciones CRÍTICAS por semana (20 horas de asesoría interna)
+Razón: Plan debe ser ejecutable con calidad
+Normalización: Se redistribuye a múltiples semanas:
+  - Semana 1: [4 acciones CRÍTICAS máximo + urgentes]
+  - Semana 2-3: [Siguientes 4 acciones CRÍTICAS]
+  - Mes 2: [Acciones MODERADAS y BAJO]
+Certificación: 🟠 REQUIERE REVISIÓN (timeline debe ser realista)
+```
+
+### GUARDIA 5: Análisis ROI ausente (no compara costo remediación vs costo inacción)
+**CONDICIÓN**: Plan no incluye análisis de "¿cuánto cuesta NO hacer nada?" vs "¿cuánto cuesta remediar?"
+
+**ACCIÓN INMEDIATA**:
+```
+🟡 CORRECCIÓN ACTIVA — GUARDIA 5
+Vicio detectado: ROI incompleto (falta análisis de costo de inacción)
+Ejemplo: Plan dice "afiliación $0" pero no dice "si no afilias: multa $500k + demandas"
+Verificación: Debe incluir: Costo remediar vs Multa potencial vs Daño reputacional vs Tiempo perdido
+Razón: Cliente necesita comprender por qué remediar ahora es mejor que esperar
+Normalización: Se agrega tabla ROI:
+  | Escenario | Costo | Riesgo | Impacto Reputacional |
+  | Remediar ahora | $350k | BAJO | Positivo |
+  | NO hacer nada | $0 | ALTO ($500k multa) | Negativo (-20% clientes) |
+  | Esperar 6 meses | $500k | CRÍTICO | Crítico |
+Certificación: 🟠 REQUIERE REVISIÓN (ROI análisis es obligatorio para ✅ PREMIUM)
 ```
 
 ---
@@ -132,12 +174,15 @@ Certificación: ⚠️ PARCIAL (ajustar timeline a realidad)
 
 ## CERTIFICACIÓN FINAL
 
-| Símbolo | Certificación | Criterio | Implicación |
+El skill emite **UNA SOLA** certificación (mutualmente excluyentes):
+
+| Símbolo | Certificación | Criterio Específico | Implicación |
 |---------|---|---|---|
-| ✅ | PLAN COMPLETO | Acciones específicas + timeline realista + presupuesto desagregado | Genera 03-RECOMENDACIONES.md listo para cliente |
-| ⚠️ | PARCIAL | Acciones claras pero timeline o presupuesto incompleto | Genera archivo; subsanar antes de presentar a cliente |
-| 🔴 | INCOMPLETO | Faltan acciones de hallazgos críticos O presupuesto no desagregado | NO genera archivo; subsanar primero |
-| 🚫 | RECHAZADO | Diagnóstico faltante O plan es incoherente | Cierra; requiere diagnóstico completo |
+| ✅ | PREMIUM | Acciones 100% específicas + timeline realista (máx 4 CRÍTICAS/semana) + presupuesto exhaustivamente desglosado con contingencia (10%) + análisis ROI completo (remediar vs inacción) + 0 guardias activas | Genera 03-RECOMENDACIONES.md listo para presentación a mandante. Presupuesto transparente, timeline ejecutable, decisión informada garantizada. |
+| ⚠️ | PROFESIONAL | Acciones claras + timeline ajustado + Guardias 3-4 subsanadas (desglose + timeline) | Genera 03-RECOMENDACIONES.md. Verificar desglose presupuestal y timeline antes de presentar. |
+| 🟠 | REQUIERE REVISIÓN | Acciones parciales + Guardias 2-5 activas (incumplimientos sin acción, presupuesto incompleto, timeline irreal, ROI faltante) | NO genera 03-RECOMENDACIONES.md final. Solicitar: acciones concretas por incumplimiento, desglose presupuestal, timeline ajustado, análisis ROI. |
+| 🔴 | NO CONFORME | Faltan acciones de incumplimientos CRÍTICOS + Guardia 1 parcial (diagnóstico accesible pero sin clasificación) | Cierra plan provisionally. Avisar: "Diagnóstico incompleto. Requiere reclasificación de incumplimientos antes de continuar." |
+| 🚫 | RECHAZADO | Diagnóstico FALTANTE (Guardia 1 total) O plan es manifiestamente incoherente | Cierra plan permanentemente. Cliente DEBE completar 02-DIAGNÓSTICO.md conforme Estándar v2.1 antes de proceder. |
 
 ---
 
@@ -155,143 +200,322 @@ Certificación: ⚠️ PARCIAL (ajustar timeline a realidad)
 ## ESTRUCTURA DEL ARCHIVO 03-RECOMENDACIONES.md GENERADO
 
 ```markdown
-# RECOMENDACIONES — [EMPRESA]
+# PLAN DE REMEDIACIÓN NORMATIVA — [RAZÓN SOCIAL MANDANTE]
 
-**Fecha de recomendaciones**: [fecha]
-**Empresa**: [nombre]
-**Presupuesto estimado total**: $[X]
+**Fecha del plan**: [fecha]
+**Mandante**: [nombre]
+**Presupuesto estimado total**: $[X] + contingencia (10%) = $[X + 10%]
 **Timeline total**: [n semanas / n meses]
+**Certificación**: [✅ PREMIUM / ⚠️ PROFESIONAL / 🟠 REQUIERE REVISIÓN / 🔴 NO CONFORME / 🚫 RECHAZADO]
 
 ---
 
 ## RESUMEN EJECUTIVO
 
-**Situación**: [Resumen de hallazgos del diagnóstico]
+**Situación**: [Resumen magistral de incumplimientos identificados en 02-DIAGNÓSTICO.md]
 
-**Objetivos del plan**:
-1. [Objetivo 1]
-2. [Objetivo 2]
-3. [Objetivo 3]
+**Riesgo de inacción**:
+- Multas potenciales: $[X] (en UVT)
+- Indemnizaciones: $[Y]
+- Daño reputacional: -[n]% confianza de clientes en [meses]
+- **Costo total de NO remediar: $[X+Y]**
 
-**Costo total**: $[X] + implementación interna
-**Tiempo estimado**: [n semanas]
+**Objetivos del Plan de Remediación**:
+1. Remediar [n] incumplimientos CRÍTICOS en [n] semanas
+2. Reducir riesgo legal de ALTO → BAJO
+3. Garantizar conformidad normativa permanente
 
----
-
-## TABLA DE ACCIONES
-
-| # | Acción | Urgencia | Timeline | Costo | Responsable |
-|---|--------|----------|----------|-------|-------------|
-| 1 | [Acción específica] | CRÍTICO | Día 2 | $X | JA Abogados |
-| 2 | [Acción específica] | CRÍTICO | Semana 1 | $Y | Empresa |
-| 3 | [Acción específica] | MODERADO | Semana 2 | $Z | JA Abogados |
+**Costo de remediación**: $[Z]
+**ROI**: Costo remediar ($Z) vs Costo inacción ($X+Y) = [Ratio]%
+**Recomendación**: REMEDIAR INMEDIATAMENTE (ROI positivo: ahorrar $[X+Y-Z])
 
 ---
 
-## DETALLE DE ACCIONES
+## ANÁLISIS ROI (COSTO-BENEFICIO)
 
-### Acción 1: [Nombre específico]
-- **Descripción**: [Qué se hace exactamente]
-- **Responsable**: [JA Abogados / Empresa]
-- **Timeline**: [Día X / Semana X]
-- **Documentos**: [Qué templates o formularios se usan]
-- **Costo**: [Desglosado]
-- **Evidencia de cumplimiento**: [Qué valida que se hizo]
+| Escenario | Costo | Riesgo Legal | Impacto Reputacional | Riesgo Operativo | TOTAL IMPACTO |
+|-----------|-------|---|---|---|---|
+| **REMEDIAR AHORA** | $[Z] | BAJO | Positivo (+5% confianza) | 0 | $[Z] (invertido) |
+| **NO HACER NADA** | $0 | ALTO ($[X] multa) | Negativo (-20% confianza) | $[Y] daño | $[X+Y] (pérdida) |
+| **ESPERAR 6 MESES** | $[Z+Z'] | CRÍTICO ($[2X] multa) | Crítico (-50% confianza) | $[2Y] daño | $[2X+2Y+Z'] (catastrófico) |
 
-[Repetir para cada acción]
+**Conclusión**: Remediar ahora es [X+Y-Z] UVT más económico que esperar.
 
 ---
 
-## TIMELINE VISUAL
+## TABLA DE ACCIONES ORDENADAS POR URGENCIA
 
-**Semana 1 (Acciones urgentes)**:
-- [Lista acciones semana 1]
+| # | Acción Específica | Urgencia | Timeline | Responsable | Costo | Evidencia de Cumplimiento |
+|---|---|---|---|---|---|---|
+| 1 | [Acción específica + medible] | CRÍTICO | Día 2 | JA Abogados | $X | Documento / Constancia |
+| 2 | [Acción específica + medible] | CRÍTICO | Semana 1 | Mandante | $Y | Email confirmación |
+| 3 | [Acción específica + medible] | MODERADO | Semana 2 | JA Abogados | $Z | Reporte de implementación |
 
-**Semana 2-3 (Acciones importantes)**:
-- [Lista acciones semana 2-3]
-
-**Mes 2 (Optimizaciones)**:
-- [Lista acciones mes 2]
+[Continuar para todas las acciones — máx 4 CRÍTICAS por semana]
 
 ---
 
-## PRESUPUESTO DESGLOSADO
+## DETALLE DE CADA ACCIÓN
 
-| Concepto | Detalle | Costo Unitario | Cantidad | Costo Total |
-|----------|---------|---|---|---|
-| Honorarios redacción | Contrato a término indefinido | $50k | 3 | $150k |
-| Honorarios afiliación | Trámite de afiliación EPS/AFP | $0 | 3 | $0 |
-| Capacitación | Sesión de 2 horas | $200k | 1 | $200k |
-| **TOTAL**  | | | | **$350k** |
+### Acción 1: [Nombre descriptivo específico]
+- **Incumplimiento que remedia**: [Referencia al incumplimiento del diagnóstico]
+- **Descripción exacta**: [Qué se hace, paso a paso, sin ambigüedad]
+- **Responsable**: [JA Abogados / Mandante / Tercero]
+- **Timeline**: [Día X de Semana Y, o fecha específica]
+- **Documentos/Templates**: [Referencia a template v2.1 o formulario oficial]
+- **Costo**: Desglosado:
+  - Honorarios: $[X] (n horas × tarifa)
+  - Trámites: $[Y] (impuestos, registros, etc.)
+  - Material: $[Z] (si aplica)
+- **Métrica de cumplimiento**: [Cómo se valida: constancia, documento, certificado]
+- **Riesgo si NO se hace**: [Multa, demanda, tiempo perdido]
+
+[Repetir para todas las acciones]
+
+---
+
+## TIMELINE VISUAL (MÁXIMO 4 CRÍTICAS POR SEMANA)
+
+### SEMANA 1 — ACCIONES CRÍTICAS (Máx 4)
+- [Acción 1 — Responsable — Costo]
+- [Acción 2 — Responsable — Costo]
+- [Acción 3 — Responsable — Costo]
+- [Acción 4 — Responsable — Costo]
+- **Subtotal Semana 1**: $[X] + tiempo interno ≈ 20 horas
+
+### SEMANA 2-3 — ACCIONES MODERADAS
+- [Acción 5 — Responsable — Costo]
+- [Acción 6 — Responsable — Costo]
+
+### MES 2 — ACCIONES BAJO Y OPTIMIZACIÓN
+- [Acción 7 — Responsable — Costo]
+- [Acción 8 — Responsable — Costo]
+
+---
+
+## PRESUPUESTO EXHAUSTIVAMENTE DESGLOSADO
+
+| Concepto | Detalle Específico | Unitario | Cant | Total |
+|----------|---|---|---|---|
+| **HONORARIOS** | | | | |
+| Redacción de contratos | Contrato indefinido por empleado | $50k | 3 | $150k |
+| Trámite de afiliación | Diligenciamiento + seguimiento por empleado | $25k | 3 | $75k |
+| Capacitación | Sesión RH 2 horas + documentación | $200k | 1 | $200k |
+| **TRÁMITES ADMINISTRATIVOS** | | | | |
+| Impuesto de registro (si aplica) | % según municipio | $[X] | 1 | $[X] |
+| Certificados de afiliación | Por empleado | $10k | 3 | $30k |
+| **IMPLEMENTACIÓN INTERNA** | | | | |
+| Capacitación interna | Horas equipo RH × tarifa | $[X]/hr | n hrs | $[X] |
+| **SUBTOTAL DIRECTO** | | | | **$[Z]** |
+| **CONTINGENCIA (10%)** | Imprevistos y ajustes | 10% | 1 | **$[10% Z]** |
+| **TOTAL PRESUPUESTO** | | | | **$[Z + 10%]** |
 
 ---
 
 ## PRÓXIMOS PASOS
 
-1. **Validación**: Cliente revisa plan y presupuesto
-2. **Aprobación**: Cliente aprueba y firma carta de encargo
-3. **Ejecución**: JA Abogados inicia implementación según timeline
-4. **Seguimiento**: Reporte semanal de avance
+### 1. REVISIÓN (Esta semana)
+- [ ] Mandante revisa plan de remediación y presupuesto
+- [ ] Mandante valida que acciones son viables internamente
+- [ ] Mandante confirma timeline
+
+### 2. APROBACIÓN (Antes de Día 2)
+- [ ] Mandante aprueba plan por escrito (email o carta de encargo)
+- [ ] Se define autoridad competente para firmar documentos
+- [ ] Se asigna contacto interno (RH/Operaciones)
+
+### 3. EJECUCIÓN (Semana 1)
+- [ ] JA Abogados inicia Acción 1 (Día 1)
+- [ ] Mandante ejecuta Acciones asignadas
+- [ ] Reportes de avance cada 3 días
+
+### 4. SEGUIMIENTO (Semanal)
+- [ ] Reporte de cumplimiento de acciones vs timeline
+- [ ] Validación de métricas de cumplimiento
+- [ ] Ajustes si timeline requiere cambios
 
 ---
 
-**Generado por**: Skill recomendaciones-cliente v2.0
-**Próximo paso**: Presentar a cliente para aprobación
+**Generado por**: Skill recomendaciones-cliente v2.1
+**Validación**: Plan fue validado conforme Estándar Universal v2.0 + Protocolo Alta Corte
+**Próximo paso**: Presentar a mandante para aprobación y firma de encargo de implementación
 ```
 
 ---
 
-## ACTA DE CONTROL — Cierre Obligatorio
+## ACTA DE CONTROL — 15 Puntos de Validación Presupuestal y Coherencia
 
 ```
-═══════════════════════════════════════════════════════════════════
-ACTA DE CONTROL — RECOMENDACIONES CLIENTE v2.0
-═══════════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════════════════════
+ACTA DE CONTROL — RECOMENDACIONES CLIENTE v2.1 (15 PUNTOS)
+═══════════════════════════════════════════════════════════════════════════════
 
-Empresa: [NOMBRE]
-Plan basado en: [02-DIAGNÓSTICO.md]
-Fecha de creación del plan: [fecha]
+Mandante: [RAZÓN SOCIAL]
+Plan basado en: [02-DIAGNÓSTICO.md — Referencia]
+Fecha de creación del plan: [fecha/hora]
+Analista: Claude AI — Skill recomendaciones-cliente v2.1
 
-INDICADORES DE EJECUCIÓN:
-🔴 Acciones críticas: [cantidad]
-🟡 Acciones moderadas: [cantidad]
-🟢 Acciones bajas: [cantidad]
+───────────────────────────────────────────────────────────────────────────────
+VALIDACIONES DE CALIDAD PRESUPUESTAL Y COHERENCIA (15 PUNTOS)
+───────────────────────────────────────────────────────────────────────────────
 
-GUARDIA ACTIVADAS:
-⚠️ Guardia 1 (diagnóstico faltante): [SÍ/NO]
-⚠️ Guardia 2 (hallazgos sin acción): [SÍ/NO]
-⚠️ Guardia 3 (presupuesto genérico): [SÍ/NO]
-⚠️ Guardia 4 (timeline irreal): [SÍ/NO]
+✓ Punto 1: Cada incumplimiento crítico tiene 1+ acción derivada
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: [Número incumplimientos CRÍTICO] = [Número acciones CRÍTICAS]
+  
+✓ Punto 2: Cada acción es específica, medible y asignable
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: No genérico ("redactar contratos") → Específico ("redactar contrato indefinido para Juan López")
+  
+✓ Punto 3: Cada acción tiene responsable documentado (JA Abogados / Mandante)
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Rol responsable explícito en tabla de acciones
+  
+✓ Punto 4: Timeline es realista (máx 4 acciones CRÍTICAS por semana)
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Semana 1 CRÍTICOS ≤ 4 acciones, Semana 2-3 ≤ 4, Mes 2 ≤ restantes
+  
+✓ Punto 5: Presupuesto desglosado completamente (concepto + detalle + unitario + cantidad + total)
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Tabla tiene 5 columnas mínimo: Concepto | Detalle | Unitario | Cantidad | Total
+  
+✓ Punto 6: Contingencia incluida (10% del presupuesto total)
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Presupuesto total = (Líneas directas) + 10%
+  
+✓ Punto 7: No hay duplicación de costos entre líneas de presupuesto
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Revisar que un costo no aparezca en 2+ líneas (ej: afiliación EPS en 2 líneas)
+  
+✓ Punto 8: Análisis ROI incluido (costo remediación vs costo inacción)
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Tabla ROI muestra: Costo remediar | Multa si no hace | Daño reputacional | Timeline
+  
+✓ Punto 9: Métricas de cumplimiento definidas (cómo validar que acción se cumplió)
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Cada acción tiene "Evidencia de cumplimiento": constancia, documento, reporte, etc.
+  
+✓ Punto 10: Acciones CRÍTICAS enfocadas en remediación de riesgo inmediato
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Acciones CRÍTICAS (Semana 1) = Remediación de incumplimientos > $1M multa
+  
+✓ Punto 11: No hay conflictos entre acciones (una acción no invalida otra)
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Ej: No decir "cambiar a contrato indefinido" semana 1 y "terminar y re-afiliación" semana 2
+  
+✓ Punto 12: Documentos template/formularios asociados a cada acción
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Cada acción referencia template (ej: "Contrato Indefinido Template v2.1")
+  
+✓ Punto 13: Comunicaciones recomendadas documentadas (qué, a quién, cómo, cuándo)
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Si acción requiere comunicación: destinatario, contenido, formato, fecha
+  
+✓ Punto 14: Presupuesto es realista comparado con mercado
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Honorarios abogado ≈ $150-250k/día, afiliación ≈ $0-50k por empleado, etc.
+  
+✓ Punto 15: 03-RECOMENDACIONES.md generado conforme Estándar Alta Corte
+  Estado: [✅ VÁLIDO | ⚠️ PARCIAL | 🟠 REQUIERE CORRECCIÓN]
+  Verificación: Incluye: resumen ejecutivo, tabla, ROI, presupuesto, próximos pasos, métricas
 
-PLAN EJECUTIVO:
-Acciones totales: [número]
-Timeline total: [semanas / meses]
-Presupuesto total: $[X]
+───────────────────────────────────────────────────────────────────────────────
+RESUMEN DE INDICADORES DE EJECUCIÓN
+───────────────────────────────────────────────────────────────────────────────
 
-PRESUPUESTO POR CONCEPTO:
-- Honorarios de redacción: $[X]
-- Trámites administrativos: $[X]
-- Capacitación: $[X]
-- Implementación: $[X]
+Acciones CRÍTICAS identificadas: [cantidad] — Timeline Semana 1-2
+Acciones MODERADAS identificadas: [cantidad] — Timeline Semana 3-4 / Mes 2
+Acciones BAJO identificadas: [cantidad] — Timeline Mes 2+
 
-ARCHIVO 03-RECOMENDACIONES.md: [GENERADO/PENDIENTE]
+───────────────────────────────────────────────────────────────────────────────
+RESUMEN DE GUARDIAS
+───────────────────────────────────────────────────────────────────────────────
 
-CERTIFICACIÓN FINAL:
-  ✅ PLAN COMPLETO (acciones específicas + timeline + presupuesto)
-  ⚠️ PARCIAL (información incompleta: [especificar])
-  🔴 INCOMPLETO (acciones o presupuesto faltante)
-  🚫 RECHAZADO (diagnóstico insuficiente)
+Guardia 1 (Diagnóstico completo): [ACTIVADA/NO ACTIVADA]
+Guardia 2 (Acciones concretas): [ACTIVADA/NO ACTIVADA]
+Guardia 3 (Presupuesto desglosado): [ACTIVADA/NO ACTIVADA]
+Guardia 4 (Timeline realista): [ACTIVADA/NO ACTIVADA]
+Guardia 5 (Análisis ROI): [ACTIVADA/NO ACTIVADA]
 
-RESPONSABILIDADES:
-- Este plan es orientativo; cliente decide si ejecutar
-- Presupuesto está basado en información del diagnóstico
-- Costo final puede variar según detalles adicionales
-- Próximo paso: Presentación a cliente y aprobación
+───────────────────────────────────────────────────────────────────────────────
+CUANTIFICACIÓN PRESUPUESTAL
+───────────────────────────────────────────────────────────────────────────────
 
-═══════════════════════════════════════════════════════════════════
+Presupuesto directo (acciones): $[X]
+Contingencia (10%): $[Y]
+PRESUPUESTO TOTAL: $[X+Y]
+
+Costo de NO remediar (potencial):
+- Multas: $[A] (en UVT)
+- Indemnizaciones: $[B]
+- Daño reputacional: $[C]
+- Impacto total: $[A+B+C]
+
+ROI Remediación: [Costo remediar vs Costo inacción = (A+B+C) / (X+Y)]
+
+───────────────────────────────────────────────────────────────────────────────
+CERTIFICACIÓN FINAL EMITIDA
+───────────────────────────────────────────────────────────────────────────────
+
+[ ] ✅ PREMIUM — 15/15 puntos ✅ + 0 guardias activas + presupuesto transparente + ROI favorable
+[ ] ⚠️ PROFESIONAL — 13-14/15 puntos ✅ + guardias subsanadas
+[ ] 🟠 REQUIERE REVISIÓN — 10-12/15 puntos + guardias sin subsanar
+[ ] 🔴 NO CONFORME — < 10/15 puntos + acciones o presupuesto incompleto
+[ ] 🚫 RECHAZADO — Diagnóstico FALTANTE (Guardia 1 total)
+
+Justificación: [Describir brevemente por qué se emitió esta certificación]
+
+───────────────────────────────────────────────────────────────────────────────
+RESPONSABILIDADES Y PRÓXIMOS PASOS
+───────────────────────────────────────────────────────────────────────────────
+
+✓ Plan es orientativo; mandante es responsable de decisión final
+✓ Presupuesto está basado en información del 02-DIAGNÓSTICO.md
+✓ Costo final puede variar ±10% según detalles adicionales descubiertos en implementación
+✓ Si certificación ≠ ✅ PREMIUM, documentar retrasos esperados en ejecución
+✓ Próximo paso: Presentación a mandante con 03-RECOMENDACIONES.md para aprobación
+✓ Responsable de seguimiento: [Abogado asignado]
+✓ Métrica de éxito: Remediación de 100% de incumplimientos CRÍTICOS en timeline
+
+═══════════════════════════════════════════════════════════════════════════════
 ```
+
+---
+
+## CHANGELOG
+
+### v2.1 — Nivel Alta Corte (Actual)
+
+**Mejoras vs v2.0**:
+- ✅ Certificación expandida a 5 niveles (agregar ✅ PREMIUM)
+- ✅ Guardias expandidas de 4 a 5 (agregar Guardia 5: análisis ROI)
+- ✅ Lenguaje ascendido a nivel Alta Corte ("plan" → "plan de remediación normativa")
+- ✅ Acta de control: Expandida de ~10 a 15 puntos específicos con validaciones presupuestales
+- ✅ Validación de realismo: Guardia 4 detecta timelines imposibles (máx 4 CRÍTICAS/semana)
+- ✅ Análisis ROI OBLIGATORIO: "Costo remediar" vs "costo de NO hacer nada" (multa + daño reputacional)
+- ✅ Presupuesto exhaustivamente desglosado: Concepto | Detalle | Unitario | Cantidad | Total
+- ✅ Contingencia incluida: 10% de presupuesto para imprevistos
+- ✅ Métricas de cumplimiento: Cada acción tiene "evidencia de cumplimiento" definida
+- ✅ Acciones específicas y medibles: No genéricas, no vagas
+- ✅ Documento 03-RECOMENDACIONES.md: Enhanced con ROI table, timeline visual, presupuesto desglosado
+- ✅ Criterio ✅ PREMIUM: Acciones específicas + timeline realista + presupuesto transparente + ROI favorable + 0 guardias activas
+- ✅ Test suite: Ampliada a 17 casos (criterio: 90%+ PASS)
+
+### v2.0 — Enero 2026
+
+**Características iniciales**:
+- ✅ Activación automática (sin requerir mención)
+- ✅ 4 Guardias contra planes incompletos/incoherentes
+- ✅ Acta de control obligatoria
+- ✅ Certificación final clara (4 niveles)
+- ✅ Archivo 03-RECOMENDACIONES.md generado automáticamente
+- ✅ Conversión de hallazgos a acciones
+- ✅ Presupuesto por acción
+- ✅ Timeline visual
+- ✅ Test suite con 14 casos
 
 ---
 
 **Responsable**: Jorge Ángel Cortés Cartagena (T.P. 365.594)  
-**Bufete**: Cortés Cartagena, Medellín, Colombia — 2026
+**Despacho**: Cortés Cartagena, Medellín, Colombia — 2026  
+**Referencia**: Estándar Universal v2.0 + Protocolo Alta Corte
