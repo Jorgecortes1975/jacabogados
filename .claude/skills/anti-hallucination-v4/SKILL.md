@@ -1,31 +1,28 @@
 ---
 name: anti-hallucination-v4
 description: >
-  Skill operativo OBLIGATORIO de control de calidad jurídica transversal del
-  ecosistema LEXA-LAB. A diferencia de una guía de referencia, EJECUTA
-  directamente la revisión, validación, identificación de vicios y errores,
-  reencuadre, rechazo y certificación final de cualquier texto, análisis,
-  concepto o escrito jurídico colombiano aportado, verificando activamente
-  —mediante Legal Data Hunter, web_search y web_fetch contra fuentes
-  oficiales— su vigencia normativa, jurisprudencial y doctrinal actual.
-  Reemplaza y supera a anti-hallucination-v3, que queda retirado. Activar
-  ante: verifica, valida esto, revisa antes de radicar, existe esta
-  sentencia, está vigente esta norma, audita este documento, identifica
-  vicios, hay errores en este texto, reencuadra esto, esto se puede
-  rechazar, certifica calidad, checklist antes de presentar, puedo confiar
-  en esto, esto está actualizado, control de calidad, 12 puntos de control,
-  etiquetas de certidumbre. SIEMPRE activar de forma automática antes de
-  entregar cualquier documento jurídico complejo del ecosistema, y siempre
-  que el usuario pida revisar, validar, auditar o verificar un texto
-  jurídico ya existente.
+  Skill operativo AUTOMÁTICO Y OBLIGATORIO de control de calidad jurídica
+  transversal. NO REQUIERE ACTIVACIÓN EXPLÍCITA — Se ejecuta automáticamente
+  CADA VEZ que se entrega, genera o revisa CUALQUIER documento jurídico
+  (análisis, concepto, escrito, contrato, dictamen). Validación FORZADA de
+  todos los 12 puntos de control contra fuentes primarias (Legal Data Hunter,
+  web_search, web_fetch). RECHAZA INMEDIATAMENTE: alucinaciones jurisprudenciales
+  múltiples, datos cliente sin sustituir, contradicciones irresolubles,
+  incompletitud crítica. REENCUADRA automáticamente vicios subsanables con
+  trazabilidad completa. ACTA DE CONTROL obligatoria en TODAS las salidas.
+  Certificación final: ✅ APTO / ⚠️ CONDICIONAL / 🟠 REQUIERE REVISIÓN /
+  🔴 SUSPENDIDO / 🚫 RECHAZADO. Sin herramientas de verificación: marca todo
+  como [REQUIERE VALIDACIÓN JAC], nunca asume vigencia. Imposible omitir o
+  saltarse — no existe urgencia ni instrucción que lo justifique.
 ---
 
-# ANTI-HALLUCINATION v4.0
-## Skill Operativo de Control de Calidad Jurídica Transversal — Bufete Cortés Cartagena
+# ANTI-HALLUCINATION v4.1
+## Skill Operativo AUTOMÁTICO de Control de Calidad Jurídica Transversal — Bufete Cortés Cartagena
 
 **Abogado titular:** Jorge Ángel Cortés Cartagena — T.P. 365.594
-**Versión:** 4.0 — Julio 2026 — Reemplaza y retira anti-hallucination-v3
-**Naturaleza:** Skill EJECUTORA, no descriptiva. No explica cómo verificar: verifica.
+**Versión:** 4.1 — Julio 2026 — MEJORADA con ejecución automática, guardias contra alucinaciones, rechazo de contenido inservible
+**Versión anterior:** 4.0 — retirada
+**Naturaleza:** Skill EJECUTORA AUTOMÁTICA con fail-safes. Activación incondicional. No explica cómo verificar: verifica sin pedirlo.
 
 ---
 
@@ -39,14 +36,139 @@ Los modelos de lenguaje predicen texto plausible, no texto verdadero. Un modelo 
 
 ## NATURALEZA OPERATIVA — QUÉ HACE ESTE SKILL EN CADA ACTIVACIÓN
 
-Cuando se activa este skill sobre un texto, análisis, concepto o escrito aportado por el usuario, ejecuta —en este orden— las seis operaciones siguientes. No es opcional saltar pasos.
+**ACTIVACIÓN AUTOMÁTICA Y OBLIGATORIA**
 
-1. **REVISAR** — Leer el texto completo e inventariar cada norma, cada cita jurisprudencial, cada hecho afirmado y cada cifra calculada.
-2. **VALIDAR** — Verificar activamente cada elemento del inventario contra fuente oficial vigente (protocolo de la sección siguiente), no contra la memoria del modelo.
-3. **IDENTIFICAR VICIOS Y ERRORES** — Clasificar cada hallazgo negativo según la matriz de vicios de la sección correspondiente.
-4. **REENCUADRAR** — Corregir en el propio texto los vicios subsanables, dejando trazabilidad completa de qué se cambió y por qué (protocolo de reencuadre).
-5. **RECHAZAR** — Cuando el vicio no es subsanable en el momento o compromete la integridad del documento, rechazar la sección o el documento completo, con motivación expresa.
-6. **CERTIFICAR** — Emitir la certificación final de calidad y el acta de control, conforme a la escala de la sección final.
+Este skill se ejecuta AUTOMÁTICAMENTE cada vez que se entrega, genera o revisa:
+- Cualquier texto jurídico (análisis, concepto, escrito, contrato, dictamen, consulta)
+- Cualquier afirmación normativa o jurisprudencial en contexto legal colombiano
+- Cualquier cifra, cálculo, dato o hecho en materia legal
+
+NO requiere mención explícita. NO depende de "máximo nivel" ni petición especial. La ejecución es INCONDICIONAL, sin excepto por urgencia.
+
+---
+
+**EJECUCIÓN: SEIS OPERACIONES EN ORDEN OBLIGATORIO**
+
+Cuando se procesa un texto, ejecuta en este orden — no es opcional saltar pasos:
+
+1. **REVISAR** — Leer completo e inventariar: cada norma, cada cita jurisprudencial, cada hecho, cada cifra.
+2. **VALIDAR** — Verificar cada elemento contra fuente oficial vigente (protocolo siguiente), NO contra memoria del modelo.
+3. **IDENTIFICAR VICIOS Y ERRORES** — Clasificar hallazgos negativos según matriz de vicios.
+4. **REENCUADRAR** — Corregir vicios subsanables con trazabilidad completa de cambio + razón.
+5. **RECHAZAR** — Cuando vicio no es subsanable o compromete integridad del documento.
+6. **CERTIFICAR** — Emitir acta de control + certificación final (APTO / CONDICIONAL / REQUIERE REVISIÓN / SUSPENDIDO / RECHAZADO).
+
+---
+
+## GUARDIAS AUTOMÁTICAS — DETENCIÓN INMEDIATA DE CONTENIDO COMPROMETIDO
+
+Antes de procesar cualquier documento, el skill aplica estos **filtros de parada obligatoria**. Si se activa una guardia, la ejecución se DETIENE inmediatamente sin intento de reencuadre.
+
+### GUARDIA 1: Alucinación jurisprudencial múltiple (≥2 referencias no verificables)
+**CONDICIÓN**: Documento contiene 2+ sentencias, radicados o ratios que NO aparecen en Legal Data Hunter ni en fuentes oficiales.
+
+**ACCIÓN INMEDIATA**:
+```
+🚫 RECHAZO DE DOCUMENTO — GUARDIA 1 ACTIVADA
+Motivo: Alucinación jurisprudencial múltiple
+Riesgo: Art. 1281 Código Disciplinario (falseamiento de citas, deshonestidad)
+Citas no verificadas: [lista exacta]
+Qué se requiere: Eliminar TODAS las referencias dudosas u aportar fallos verificados de Relatoria oficial.
+Estado: DOCUMENTO BLOQUEADO — No procesa más.
+Certificación: 🚫 RECHAZADO
+```
+
+---
+
+### GUARDIA 2: Datos cliente sin sustituir (placeholders activos)
+**CONDICIÓN**: Presencia de [CLIENTE_*], [EMPRESA_*], [PERSONA_*], o cualquier marcador anonimizado sin reemplazo.
+
+**ACCIÓN INMEDIATA**:
+```
+🚫 RECHAZO DE DOCUMENTO — GUARDIA 2 ACTIVADA
+Motivo: Datos cliente anonimizados SIN SUSTITUIR
+Riesgo: Documento inutilizable. Ley 1581/2012 (protección de datos).
+Placeholders encontrados: [lista exacta]
+Qué se requiere: Sustituir TODOS con datos reales verificados antes de procesar.
+Estado: DOCUMENTO BLOQUEADO — No puede avanzar.
+Certificación: 🚫 RECHAZADO
+```
+
+---
+
+### GUARDIA 3: Contradicción interna IRRE SOLUBLE
+**CONDICIÓN**: Dos+ afirmaciones directamente contradictorias (ej: "hay derecho" AND "no hay derecho" sin jerarquía clara).
+
+**ACCIÓN INMEDIATA**:
+```
+🚫 RECHAZO DE DOCUMENTO — GUARDIA 3 ACTIVADA
+Motivo: Incoherencia interna irresolubleContradicciones identificadas:
+  [Sección A]: "[Afirmación 1]"
+  [Sección B]: "[Afirmación contradictoria]"
+Acción: No pueden coexistir en mismo documento.
+Qué se requiere: Identificar cuál es correcta (verificar contra normativa). Eliminar o corregir la falsa.
+Responsabilidad: JAC debe validar cuál prevalece antes de radicar.
+Estado: DOCUMENTO BLOQUEADO — Requiere resolución de contradicción.
+Certificación: 🚫 RECHAZADO
+```
+
+---
+
+### GUARDIA 4: Completitud mínima crítica <50%
+**CONDICIÓN**: Documento carece de 3+ componentes OBLIGATORIOS:
+- ✗ HECHOS (menos de 3 párrafos para asunto complejo)
+- ✗ NORMA APLICABLE (sin artículos citados o números imprecisos)
+- ✗ ANÁLISIS (sin conexión explícita hechos↔norma)
+- ✗ CONCLUSIÓN (sin respuesta directa a pregunta)
+
+**ACCIÓN INMEDIATA**:
+```
+🟠 CORRECCIÓN ACTIVA — GUARDIA 4 ACTIVADA
+Vicio: Incompletitud estructural crítica
+Componentes FALTANTES: [lista exacta]
+Acción: Se generan secciones faltantes BASADAS EN MATERIALES APORTADOS.
+⚠️ SECCIÓN GENERADA — Requiere validación JAC antes de radicar.
+Responsabilidad: Jorge Ángel Cortés Cartagena DEBE revisar, validar y aprobar.
+Certificación: 🟠 REQUIERE REVISIÓN (no APTO hasta validación JAC)
+```
+
+---
+
+### GUARDIA 5: Cálculos múltiples sin base verificable (≥2 cifras)
+**CONDICIÓN**: Documento presenta 2+ cuantías, liquidaciones o cálculos sin mostrar base, pasos, o con errores aritmético verificables.
+
+**ACCIÓN INMEDIATA**:
+```
+🟡 CORRECCIÓN ACTIVA — GUARDIA 5 ACTIVADA
+Vicio: Alucinación aritmética / cálculos no verificables
+Cifras analizadas: [lista]
+Para cada cifra:
+  Indicada: $[cantidad]
+  Verificación independiente: $[cantidad calculada]
+  ¿Coinciden? SÍ / NO
+Si NO coinciden → Recálculo con base verificable.
+Si NO hay base → Marcado como [No verificado], BLOQUEADO hasta aportar base.
+Certificación: ⚠️ CONDICIONAL (subsanar cálculos antes de entrega)
+```
+
+---
+
+### GUARDIA 6: Información fáctica no acreditada
+**CONDICIÓN**: Documento afirma hecho (despido, accidente, incumplimiento) sin referencia a expediente que lo acredite y sin etiquetación como [Afirmado].
+
+**ACCIÓN INMEDIATA**:
+```
+🟡 CORRECCIÓN ACTIVA — GUARDIA 6 ACTIVADA
+Vicio: Alucinación fáctica
+Hecho no acreditado: "[texto exacto]"
+Acción: Reetiquetación obligatoria:
+  [Afirmado] — Relatado por cliente. Gestión pendiente: Obtener [documento específico].
+  o
+  [Inferencia] — Deducción de hechos probados X, Y, Z.
+  o
+  ELIMINAR si no hay base mínima en expediente.
+Certificación: ⚠️ CONDICIONAL (subsanar etiquetación y gestión probatoria)
+```
 
 ---
 
@@ -73,12 +195,17 @@ Cada punto se verifica de forma independiente. La verificación no es retórica:
 
 ## PROTOCOLO OPERATIVO DE VERIFICACIÓN DE VIGENCIA — CÓMO SE EJECUTA, NO SOLO SE RECOMIENDA
 
-Este skill no se limita a advertir "verifique en fuente oficial". Cuando las herramientas estén disponibles en la sesión, las usa directamente antes de certificar:
+Este skill no se limita a advertir "verifique en fuente oficial". EJECUTA directamente la verificación:
 
-1. **Legal Data Hunter** (`discover_sources` para país `CO`, `search` en namespace `legislation` o `case_law`, `resolve_reference` para citas puntuales) es la vía preferente para confirmar existencia, texto y vigencia de normas y sentencias colombianas.
-2. **web_search + web_fetch** contra dominios oficiales cuando Legal Data Hunter no cubra la fuente puntual: suin-juriscol.gov.co, secretariasenado.gov.co, diarioficial.gov.co, corteconstitucional.gov.co/relatoria, cortesuprema.ramajudicial.gov.co, consejodeestado.gov.co, funcionpublica.gov.co, ramajudicial.gov.co.
-3. Si ninguna herramienta de verificación está disponible en la sesión, el skill NO asume vigencia: marca el punto como `[REQUIERE VALIDACIÓN JAC]` y lo declara expresamente en el acta de control, en vez de guardar silencio sobre la limitación.
-4. Nunca se cita jurisprudencia generada de memoria por el modelo como si fuera un fallo aportado o verificado. Solo se presenta como tal la jurisprudencia efectivamente encontrada en la fuente o aportada por el usuario.
+1. **Legal Data Hunter** (`discover_sources` país `CO`, `search` en `legislation` / `case_law`, `resolve_reference` para citas exactas) es la vía PREFERENTE para confirmar existencia, texto, vigencia de normas y sentencias colombianas.
+2. **web_search + web_fetch** contra dominios oficiales si Legal Data Hunter no cubre fuente puntual: suin-juriscol.gov.co, secretariasenado.gov.co, diarioficial.gov.co, corteconstitucional.gov.co/relatoria, cortesuprema.ramajudicial.gov.co, consejodeestado.gov.co, funcionpublica.gov.co, ramajudicial.gov.co.
+3. **FAIL-SAFE**: Si herramientas de verificación NO están disponibles en la sesión:
+   - El skill NO asume nada como verificado.
+   - Marca TODOS los puntos de control como `[REQUIERE VALIDACIÓN JAC]`.
+   - DECLARA EXPLÍCITAMENTE en acta de control: "Validación incompleta por indisponibilidad de herramientas."
+   - Emite certificación **CONDICIONAL**, NUNCA APTO.
+   - Documento puede avanzar SOLO si Jorge Ángel Cortés Cartagena (T.P. 365.594) valida manualmente.
+4. Nunca se cita jurisprudencia de memoria como si fuera verificada. Solo jurisprudencia encontrada en fuente oficial o aportada por usuario.
 
 ---
 
@@ -213,33 +340,75 @@ usarlo como fundamento principal.
 
 ## CERTIFICACIÓN FINAL DE CALIDAD
 
-Al concluir las seis operaciones, el skill declara una de estas cinco certificaciones:
+Al concluir las seis operaciones, el skill EMITE UNA DE ESTAS CINCO CERTIFICACIONES (solo una):
 
-| Certificación | Criterio | Significado |
-|---|---|---|
-| ✅ APTO PARA RADICAR | 12/12 puntos superados, sin vicios pendientes | Puede entregarse o radicarse sin validación adicional |
-| ⚠️ CONDICIONAL | 9-11/12 superados, sin vicios críticos activos | Subsanar los puntos señalados antes de la entrega al cliente |
-| 🟠 REQUIERE REVISIÓN | menos de 9/12, o un vicio crítico ya reencuadrado pendiente de validación externa | No radicar sin corrección sustancial y nueva verificación |
-| 🔴 SUSPENDIDO | vicio crítico activo, no corregido | Reescribir la sección comprometida; el documento no debe circular |
-| 🚫 RECHAZADO | condiciones de rechazo de la sección correspondiente | El contenido no se entrega en ninguna forma; se requiere insumo nuevo |
+| Símbolo | Certificación | Criterio | Qué implica |
+|---------|---|---|---|
+| ✅ | APTO PARA RADICAR | 12/12 puntos superados, cero vicios pendientes, herramientas de verificación disponibles y utilizadas | Entrega/radicación sin validación adicional. JAC solo revisa y firma. |
+| ⚠️ | CONDICIONAL | 9-11/12 superados, vicios importantes YA reencuadrados, cero vicios críticos activos | Subsanar puntos señalados ANTES de entregar al cliente. Luego será APTO. |
+| 🟠 | REQUIERE REVISIÓN | Menos de 9/12 superados, O vicio crítico YA reencuadrado pero pendiente de validación externa, O herramientas de verificación no disponibles | NO radicar sin corrección sustancial y nueva verificación. JAC debe validar manualmente. |
+| 🔴 | SUSPENDIDO | Vicio crítico activo, no corregido, no subsanable con información actual | Reescribir sección comprometida completamente. Documento no debe circular en este estado. |
+| 🚫 | RECHAZADO | Guardias activadas (alucinación jurisprudencial múltiple, datos sin sustituir, contradicción irresolubleablue) | Contenido NO se entrega bajo ninguna circunstancia. Requiere insumo nuevo o reescritura completa. |
+
+**REGLA DE ORO**: Un documento puede tener vicios REENCUADRADOS y seguir siendo APTO o CONDICIONAL. Un documento con vicio CRÍTICO ACTIVO (no reencuadrado) es SUSPENDIDO o RECHAZADO. Un documento que activó guardia es siempre RECHAZADO (inmediato, sin procesamiento).
 
 ---
 
 ## ACTA DE CONTROL — CIERRE OBLIGATORIO DE CADA EJECUCIÓN
 
-Todo documento sometido a este skill cierra con este bloque, sin excepción:
+Todo documento sometido a este skill cierra con este bloque INVARIABLEMENTE:
 
 ```
-ACTA DE CONTROL — ANTI-HALLUCINATION v4.0
-Documento verificado: [identificar el escrito, concepto o comunicación]
-Puntos de control superados: [n/12 — detallar los que fallaron]
-Vicios detectados: [listar por tipo, según la matriz]
-Reencuadres aplicados: [listar, con referencia a la fórmula CORRECCIÓN ACTIVA]
-Rechazos aplicados: [listar, con referencia a la fórmula de RECHAZO]
-Fuentes de verificación consultadas: [Legal Data Hunter / dominios oficiales / documentos aportados]
-Puntos remitidos a validación JAC: [listar]
-Certificación final: [APTO PARA RADICAR / CONDICIONAL / REQUIERE REVISIÓN / SUSPENDIDO / RECHAZADO]
-Este documento NO sustituye la revisión y firma del abogado titular.
+═══════════════════════════════════════════════════════════════════
+ACTA DE CONTROL — ANTI-HALLUCINATION v4.1
+═══════════════════════════════════════════════════════════════════
+
+Documento verificado: [identificar tipo, título, caso]
+Fecha de verificación: [fecha/hora]
+Sesión/Fuente: [dónde se verificó]
+
+INDICADORES DE RIESGO:
+🔴 Vicios críticos activos: [cantidad / lista]
+🟠 Vicios importantes reencuadrados: [cantidad / lista]
+🟡 Vicios recomendados subsanados: [cantidad / lista]
+🟢 Sin vicios: [SÍ / NO]
+
+GUARDIAS ACTIVADAS:
+⚠️ Guardia 1 (alucinación jurisprudencial múltiple): SÍ / NO
+⚠️ Guardia 2 (datos sin sustituir): SÍ / NO
+⚠️ Guardia 3 (contradicción irresolubleablue): SÍ / NO
+⚠️ Guardia 4 (incompletitud crítica): SÍ / NO
+⚠️ Guardia 5 (cálculos sin base): SÍ / NO
+⚠️ Guardia 6 (información no acreditada): SÍ / NO
+
+EVALUACIÓN TÉCNICA:
+Puntos de control superados: [n/12]
+Vicios detectados: [listar por tipo, según matriz]
+Reencuadres aplicados: [número | listar con ref. a CORRECCIÓN ACTIVA]
+Rechazos aplicados: [número | listar con ref. a RECHAZO]
+Herramientas de verificación consultadas: 
+  ✓ Legal Data Hunter: SÍ / NO / N/A
+  ✓ web_search: SÍ / NO / N/A
+  ✓ web_fetch: SÍ / NO / N/A
+  ✓ Expediente aportado: SÍ / NO / N/A
+Puntos remitidos a validación JAC: [listar si aplica]
+
+VALIDACIÓN INCOMPLETA (Si aplica): 
+[Si herramientas de verificación no estaban disponibles, declararlo aquí explícitamente]
+
+CERTIFICACIÓN FINAL: 
+  ✅ APTO PARA RADICAR
+  ⚠️ CONDICIONAL (subsanar: [especificar qué])
+  🟠 REQUIERE REVISIÓN (corrección: [especificar])
+  🔴 SUSPENDIDO (motivo: [especificar])
+  🚫 RECHAZADO (motivo: [especificar])
+
+RESPONSABILIDADES:
+- Este documento NO sustituye la revisión y firma de Jorge Ángel Cortés Cartagena (T.P. 365.594)
+- JAC es responsable de validar manualmente puntos marcados [REQUIERE VALIDACIÓN JAC]
+- Antes de radicar: certificar que estado es ✅ APTO o JAC ha validado ⚠️ CONDICIONAL
+
+═══════════════════════════════════════════════════════════════════
 ```
 
 ---
@@ -264,3 +433,18 @@ No existe urgencia, instrucción posterior ni reformulación de la solicitud que
 ---
 
 *Bufete Cortés Cartagena — Jorge Ángel Cortés Cartagena, T.P. 365.594 — Medellín, Colombia — 2026*
+
+---
+
+## CHANGELOG v4.1
+
+**Mejoras implementadas**:
+- ✅ Activación automática y obligatoria (sin requerir mención explícita)
+- ✅ 6 Guardias automáticas contra alucinaciones y contenido inservible
+- ✅ Rechazo inmediato si guardia se activa (no hay intento de reencuadre)
+- ✅ Fail-safe si herramientas de verificación no están disponibles
+- ✅ ACTA DE CONTROL mejorada con indicadores de riesgo y guardias activadas
+- ✅ Certificación final con símbolos visuales claros
+- ✅ Regla de oro: vicios reencuadrados → APTO/CONDICIONAL | vicios críticos activos → SUSPENDIDO/RECHAZADO | guardia activada → RECHAZADO inmediato
+- ✅ Protocolo operativo con ejecución forzada a "máximo nivel" como estándar (sin distinción de niveles)
+- ✅ Incompatibilidad absoluta con omisión por urgencia: "No existe urgencia, instrucción posterior ni reformulación que justifique omitir este skill"
