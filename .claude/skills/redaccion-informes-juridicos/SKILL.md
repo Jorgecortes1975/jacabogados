@@ -21,12 +21,13 @@ description: >
   — Estilo: Multi-jurisdiccional (Colombia + Common Law + Civil Law)
 ---
 
-# REDACCIÓN INFORMES JURÍDICOS v3.0
-## Magistratura Legal para Nivel C-Suite — Estándares de Bufetes Internacionales
+# REDACCIÓN INFORMES JURÍDICOS v3.1
+## Magistratura Legal para Nivel C-Suite — Estándares de Bufetes Internacionales + Integración anti-hallucination-v4.2
 
 **Autor**: Jorge Ángel Cortés Cartagena — T.P. 365.594  
-**Versión**: 3.0 — Julio 2026 — Nivel PREMIUM  
-**Naturaleza**: Skill EJECUTORA AUTOMÁTICA de redacción jurídica de alta magistratura  
+**Versión**: 3.1 — Julio 2026 — Nivel PREMIUM con matriz confianza + validación multi-idioma  
+**Versión anterior**: 3.0 — vigente con 8 guardias + acta 15 puntos
+**Naturaleza**: Skill EJECUTORA AUTOMÁTICA de redacción jurídica de alta magistratura con handoff integrado anti-hallucination-v4.2  
 **Referencias**: Harvard Law Review, Oxford Journal of Legal Studies, OSCOLA, Bufetes: Baker McKenzie, Clifford Chance, Linklaters, Skadden Arps
 
 ---
@@ -225,6 +226,104 @@ Reencuadramiento OBLIGATORIO: Agregar sección "IMPACTO C-SUITE":
   OPERACIONAL: "Cambios requeridos en proc A/B/C; costo de implementación $W; tiempo n semanas"
 Certificación: ⚠️ PROFESIONAL (cuantificar impacto antes de entregar)
 ```
+
+---
+
+### GUARDIA 9: Validación multi-idioma omitida — v3.1 NOVEDAD
+**CONDICIÓN**: Documento contiene citas o análisis en idioma no-español (English, Spanish europeo, otras jurisdicciones) sin validación de equivalentes legales o traducción.
+
+**ACCIÓN INMEDIATA**:
+```
+🟡 CORRECCIÓN ACTIVA — GUARDIA 9 ACTIVADA (v3.1)
+Vicio detectado: Términos jurídicos multi-idioma sin validación
+Idiomas detectados: [listar: Spanish(CO), English(UK/USA), Spanish(ES), etc.]
+Acción: Se REQUIERE:
+  1. Cada término legal en idioma no-español: traducción exacta + equivalente colombiano
+  2. Si no hay equivalente exacto: etiquetación [Sin equivalente exacto en derecho colombiano]
+  3. Matriz de validación: término original | traducción | equivalente colombiano | confianza (Alto/Medio/Bajo)
+Certificación: ⚠️ PROFESIONAL (subsanar validación multi-idioma)
+```
+
+---
+
+## INTEGRACIÓN CON ANTI-HALLUCINATION-v4.2 — v3.1 NOVEDAD
+
+**AUTOMATISMO OBLIGATORIO**: Cada documento de redacción-informes-juridicos v3.1 se somete automáticamente a anti-hallucination-v4.2 ANTES de ser considerado final.
+
+**FLUJO DE INTEGRACIÓN**:
+
+```
+Redacción-Informes v3.1 (generación de documento)
+         ↓
+    [Documento completo con todas las citas]
+         ↓
+    anti-hallucination-v4.2 (EJECUCIÓN AUTOMÁTICA)
+         ├→ Verificación de citas en Legal Data Hunter (100% cobertura)
+         ├→ Análisis multi-jurisdiccional (si aplica)
+         ├→ Matriz de confianza por cita (Alto/Medio/Bajo)
+         ├→ Validación multi-idioma (si aplica)
+         └→ Genera ACTA v4.2 con 15 puntos + certificación
+         ↓
+    SI certificación anti-hallucination = [✅ APTO o ⚠️ CONDICIONAL]
+         ↓
+    Redacción-Informes emite documento FINAL
+    CON acta anti-hallucination adjunta en ANEXO
+         ↓
+    Certificación redaccion-informes = [Mismo nivel anti-hallucination]
+    
+    SI certificación anti-hallucination = [🟠 REQUIERE REVISIÓN o peor]
+         ↓
+    Redacción-Informes RETORNA a análisis primario
+    NO emite documento (BLOQUEADO hasta corregir)
+```
+
+**Regla**: Redaccion-informes v3.1 NUNCA emite documento con certificación ✅ PREMIUM si anti-hallucination-v4.2 retorna [🟠 REQUIERE REVISIÓN] o peor.
+
+---
+
+## MATRIZ DE CONFIANZA EN CITAS — v3.1 NOVEDAD
+
+Cada cita jurídica en el documento recibe clasificación de confianza integrada con anti-hallucination-v4.2:
+
+| Confianza | Criterio | Uso en redacción | Marca en ACTA |
+|---|---|---|---|
+| **ALTA** | Cita 100% verificable Legal Data Hunter + Relatoria oficial, vigencia confirmada | Fundamento principal + análisis de ratio | ✅ Confianza ALTA |
+| **MEDIA** | Cita verificable pero requiere interpretación o matiz, o vigencia con cambios posteriores | Fundamento secundario + aclaración, etiqueta [Confianza Media — detalle: ...] | ⚠️ Confianza MEDIA |
+| **BAJA** | Cita no verificable o con contradicciones entre fuentes | NO usar como fundamento principal | ❌ Confianza BAJA |
+
+**Reporte obligatorio en ACTA de control v3.1**:
+- % Citas Confianza ALTA: [n%]
+- % Citas Confianza MEDIA: [n%]
+- % Citas Confianza BAJA: [n%]
+
+Si % Confianza BAJA ≥ 15%, certificación máxima es ⚠️ PROFESIONAL (no PREMIUM).
+
+---
+
+## VALIDACIÓN MULTI-IDIOMA — v3.1 NOVEDAD
+
+**CUANDO APLICA**: Documento contiene citas, análisis o comparación en idiomas múltiples (Spanish(CO)/Spanish(ES)/English/French/otros).
+
+**VALIDACIÓN OBLIGATORIA POR IDIOMA**:
+
+| Idioma | Fuente primaria | Validación requerida |
+|---|---|---|
+| **Español (Colombia)** | SUIN-Juriscol, Correlatoria, MINSALUD | Vigencia + Equivalente en CST |
+| **Español (España)** | BOE, Boletines oficiales, Códigos civiles | Vigencia + Equivalencia Civil Law europea |
+| **English (UK)** | Bailii, UK Parliament, Case Law databases | Precedente verificable + equivalente colombiano |
+| **English (USA)** | US Courts, Federal Reporter, state databases | Jurisprudencia verificable + equivalencia Common Law |
+| **Francés/Alemán/otros** | Derecho comparado académico | Traducción + equivalencia ordenamiento colombiano |
+
+**Etiquetación multi-idioma obligatoria**:
+- `[Equivalente colombiano: ...]` — Cuando término foreign tiene equivalente exacto
+- `[Sin equivalente exacto en derecho colombiano]` — Cuando figura es extranjera sin equivalencia
+- `[Traducción: ...]` — Cuando se traduce término legal de otro idioma
+
+**Reporte en ACTA v3.1**:
+- Idiomas detectados: [listar]
+- Términos foreign con equivalente: [cantidad]
+- Términos sin equivalente documentados: [cantidad]
+- Validación multi-idioma completada: [SÍ / NO]
 
 ---
 
@@ -440,11 +539,11 @@ Ejemplo para Memorandum de Asesoría:
 
 ---
 
-## ACTA DE CONTROL — 15 Puntos de Calidad Jurídica
+## ACTA DE CONTROL v3.1 — 15 Puntos de Calidad Jurídica + Integración anti-hallucination-v4.2
 
 ```
 ═══════════════════════════════════════════════════════════════════
-ACTA DE CONTROL — REDACCIÓN INFORMES JURÍDICOS v3.0
+ACTA DE CONTROL — REDACCIÓN INFORMES JURÍDICOS v3.1
 ═══════════════════════════════════════════════════════════════════
 
 Informe generado: [TIPO DE INFORME]
@@ -453,43 +552,86 @@ Formato: [Memorandum / Concepto / Dictamen / Análisis Riesgo / Defensa]
 Destinatario: [Audiencia]
 Cuestión jurídica analizada: [Cuestión]
 
-═ VALIDACIÓN ANTI-ALUCINACIÓN =
+═══════════════════════════════════════════════════════════════════
+PUNTOS DE VALIDACIÓN v3.1 (15 PUNTOS EXHAUSTIVOS):
+═══════════════════════════════════════════════════════════════════
 
-✓ Validación Legal Data Hunter (cobertura): [100% / Parcial / [Verificación pendiente]]
-✓ Citas jurisprudenciales: [n citas verificadas]
-✓ Normas citadas: [n normas, todas vigentes 2026]
-✓ Alucinaciones detectadas: [0 / n]
+(1) CITAS JURISPRUDENCIALES VERIFICADAS — [SÍ ✅ / NO ❌]
+    100% de citas en Legal Data Hunter + Relatoria oficial, sin alucinaciones.
+    Citas jurisprudenciales: [cantidad verificada / total]
+    Alucinaciones detectadas: [cantidad]
 
-═ GUARDIAS ACTIVADAS =
+(2) NORMATIVA VIGENTE Y ACTUALIZADA — [SÍ ✅ / NO ❌]
+    Todas las leyes, decretos y resoluciones vigentes en 2026. Sin derogatorias aplicables no mencionadas.
+    Normas vigentes: [cantidad confirmada]
+    Reformas posteriores identificadas: [SÍ (especificar) / NO]
 
-⚠️ Guardia 1 (citas falsas): [SÍ/NO]
-⚠️ Guardia 2 (normativa desactualizada): [SÍ/NO]
-⚠️ Guardia 3 (lenguaje no profesional): [SÍ/NO]
-⚠️ Guardia 4 (riesgo no cuantificado): [SÍ/NO]
-⚠️ Guardia 5 (opciones sin análisis): [SÍ/NO]
-⚠️ Guardia 6 (estructura no Harvard): [SÍ/NO]
-⚠️ Guardia 7 (contra-argumentos débiles): [SÍ/NO]
-⚠️ Guardia 8 (impacto C-Suite no cuantificado): [SÍ/NO]
+(3) LENGUAJE CONFORME MAGISTRATURA INTERNACIONAL — [SÍ ✅ / NO ❌]
+    Redacción neutral, profesional, sin coloquialismo. Estándar Harvard/OSCOLA.
+    Tono validado como: [C-suite ready / Profesional / Requiere revisión]
 
-═ PUNTOS DE CALIDAD JURÍDICA (15/15) =
+(4) ANÁLISIS DE RIESGO CUANTIFICADO — [SÍ ✅ / NO ❌]
+    Todo riesgo con cifra ($), probabilidad (%), y timeline. No "riesgo medio genérico".
+    Riesgos cuantificados: [cantidad / total]
 
-1. ✅ Autoridad: Lenguaje de experto (nunca "creo" / "parece")
-2. ✅ Precisión: Terminología legal exacta
-3. ✅ Exhaustividad: Todas normas aplicables citadas
-4. ✅ Anticipación: Contra-argumentos presentados y refutados
-5. ✅ Cuantificación: Riesgos numéricos ($/% /timeframe)
-6. ✅ Transparencia: Limitaciones y supuestos declarados
-7. ✅ Evidencia: 100% citación estilo Harvard Legal Review
-8. ✅ Estructura: Conforme a formato internacional estándar
-9. ✅ Ejecutividad: Recomendación concreta y accionable
-10. ✅ Multi-jurisdicción: Derecho comparado si aplica
-11. ✅ Impacto C-Suite: Financiero + Reputacional + Operacional cuantificado
-12. ✅ Timeline: Claros plazos para implementación
-13. ✅ Análisis de opciones: Mínimo 2-3 opciones con pros/contras exhaustivos
-14. ✅ Profesionalismo: Formato, gráficos, tablas de nivel C-suite
-15. ✅ Completitud: Todos anexos, referencias, notas presentes
+(5) OPCIONES CON ANÁLISIS EXHAUSTIVO — [SÍ ✅ / NO ❌]
+    Mínimo 2-3 opciones analizadas con pros/contras/normativa/consecuencias jurídicas completas.
+    Opciones analizadas: [cantidad con análisis completo / total opciones presentadas]
 
-═ REPORTE DE CONTENIDO =
+(6) ESTRUCTURA CONFORME HARVARD LEGAL REVIEW — [SÍ ✅ / NO ❌]
+    Documento sigue: Portada → Executive Summary → Hechos → Cuestión Jurídica → Normativa → Análisis → Opciones → Recomendación → Conclusión → Anexos.
+    Orden conforme: [SÍ / NO]
+
+(7) DEFENSA DE CONTRA-ARGUMENTOS ANTICIPADA — [SÍ ✅ / NO ❌]
+    Análisis incluye posición adversa + refutación jurídica explícita.
+    Contra-argumentos anticipados: [SÍ / NO]
+
+(8) IMPACTO C-SUITE CUANTIFICADO — [SÍ ✅ / NO ❌]
+    Riesgo traducido a Financiero ($), Reputacional (escala), Operacional (cambios/costo).
+    Impacto cuantificado en: [Financiero / Reputacional / Operacional] — [todos / algunos / ninguno]
+
+(9) DATOS DEL CLIENTE Y CONFIDENCIALIDAD — [SÍ ✅ / NO ❌]
+    Cero datos sensibles sin protección. Cero placeholders [CLIENTE_*]. Nota de confidencialidad presente.
+    Protección de datos: [Completa / Parcial / Faltante]
+
+(10) ANÁLISIS MULTI-JURISDICCIONAL (Si aplica) — [SÍ ✅ / NO / N/A]
+     Si documento menciona derecho comparado: análisis contrastivo Colombia vs Common Law vs Civil Law incluido.
+     Jurisdicciones analizadas: [listar: Colombia / Common Law / Civil Law / Otra]
+
+(11) MATRIZ DE CONFIANZA EN CITAS (v3.1) — [SÍ ✅ / NO ❌]
+     Cada cita clasificada por confianza verificabilidad: Alto/Medio/Bajo según anti-hallucination-v4.2.
+     % Confianza ALTA: [n%] | % MEDIA: [n%] | % BAJA: [n%]
+
+(12) VALIDACIÓN MULTI-IDIOMA (v3.1 — Si aplica) — [SÍ ✅ / NO / N/A]
+     Si hay citas en idioma no-español: traducción + equivalente colombiano incluido o etiquetado.
+     Idiomas detectados: [listar]
+     Términos foreign con equivalente: [cantidad]
+     Términos sin equivalente documentados: [cantidad]
+
+(13) INTEGRACIÓN ANTI-HALLUCINATION-v4.2 (v3.1) — [SÍ ✅ / NO ❌]
+     Documento completó ejecución anti-hallucination-v4.2 automática con acta adjunta.
+     ACTA anti-hallucination adjunta: [SÍ / NO]
+     Certificación anti-hallucination: [✅ APTO / ⚠️ CONDICIONAL / 🟠 REQUIERE REVISIÓN / 🔴 / 🚫]
+
+(14) GUARDIAS AUTOMÁTICAS REDACCIÓN-INFORMES — [Estado final]
+     ⚠️ Guardia 1 (citas falsas): ACTIVADA / No activada
+     ⚠️ Guardia 2 (normativa desactualizada): ACTIVADA / No activada
+     ⚠️ Guardia 3 (lenguaje no profesional): ACTIVADA / No activada
+     ⚠️ Guardia 4 (riesgo no cuantificado): ACTIVADA / No activada
+     ⚠️ Guardia 5 (opciones sin análisis): ACTIVADA / No activada
+     ⚠️ Guardia 6 (estructura no Harvard): ACTIVADA / No activada
+     ⚠️ Guardia 7 (contra-argumentos débiles): ACTIVADA / No activada
+     ⚠️ Guardia 8 (impacto C-Suite no cuantificado): ACTIVADA / No activada
+     ⚠️ Guardia 9 (validación multi-idioma omitida — v3.1): ACTIVADA / No activada
+
+(15) CERTIFICACIÓN FINAL ACORDE ANTI-HALLUCINATION-v4.2 — [SÍ ✅ / NO ❌]
+     Certificación redaccion-informes = Certificación anti-hallucination-v4.2.
+     Si anti-hallucination [🟠 o peor]: redaccion-informes NO emite documento (BLOQUEADO).
+     Concordancia certificaciones: [SÍ / NO]
+
+═══════════════════════════════════════════════════════════════════
+REPORTE DE CONTENIDO:
+═══════════════════════════════════════════════════════════════════
 
 Extensión: [n páginas]
 Hechos analizados: [n hechos]
@@ -498,32 +640,49 @@ Opciones analizadas: [n opciones]
 Riesgos cuantificados: [n riesgos identificados]
 Recomendación: [Opción elegida con probabilidad de éxito]
 
-═ CERTIFICACIÓN FINAL =
+═══════════════════════════════════════════════════════════════════
+CERTIFICACIÓN FINAL:
+═══════════════════════════════════════════════════════════════════
 
-✅ PREMIUM (100% citas verificadas + análisis exhaustivo + C-suite ready)
-⚠️ PROFESIONAL (análisis completo + [Subsanaciones] menores)
-🟠 REQUIERE REVISIÓN (falta verificación de citas O análisis incompleto)
-🔴 NO CONFORME (alucinaciones detectadas, requiere revisión manual)
-🚫 RECHAZADO (cuestión jurídica inválida, refiere a especialista)
+✅ PREMIUM
+   → 15/15 puntos superados + anti-hallucination ✅ APTO
+   → Listo para presentar sin revisión adicional
 
-═ RESPONSABILIDADES =
+⚠️ PROFESIONAL
+   → 13-14/15 puntos + anti-hallucination ⚠️ CONDICIONAL
+   → Subsanar puntos indicados antes de entregar: [especificar]
 
-- Este informe es análisis técnico-legal, NO es concepto formal de abogado
-- Recomendación es orientativa; cliente decide si actuar
-- Si es ✅ PREMIUM: listo para presentación sin revisión adicional
-- Si es ⚠️/🟠: subsanar puntos indicados antes de presentar
-- Si es 🔴/🚫: requiere revisión manual por abogado especialista
+🟠 REQUIERE REVISIÓN
+   → Menos de 13/15 puntos O anti-hallucination 🟠
+   → NO emitir documento hasta corregir
 
-═ PRÓXIMOS PASOS =
+🔴 NO CONFORME
+   → Anti-hallucination 🔴 SUSPENDIDO
+   → Alucinaciones jurídicas detectadas
 
-[Basado en certificación final]
+🚫 RECHAZADO
+   → Anti-hallucination 🚫 RECHAZADO
+   → Guardias activadas o cuestión jurídica inválida
+   → NO se emite documento bajo ninguna circunstancia
+
+CERTIFICACIÓN FINAL: [Marcar una de las 5 anteriores]
+
+═══════════════════════════════════════════════════════════════════
+RESPONSABILIDADES Y PRÓXIMOS PASOS:
+═══════════════════════════════════════════════════════════════════
+
+✓ Este informe es análisis técnico-legal, NO sustituye concepto de abogado
+✓ ACTA anti-hallucination-v4.2 está adjunta como ANEXO obligatorio
+✓ Si ✅ PREMIUM: listo para presentar a cliente/juzgado sin revisión adicional
+✓ Si ⚠️ PROFESIONAL: JAC subsana puntos antes de entregar
+✓ Si 🟠/🔴/🚫: RETORNO a análisis primario, NO se entrega
 
 ═══════════════════════════════════════════════════════════════════
 ```
 
 ---
 
-## TEST SUITE — Validación de Redacción
+## TEST SUITE v3.1 — Validación de Redacción (17 Test Cases)
 
 ### Test Case 1: Cita Jurisprudencial Falsa
 **Input**: Análisis que cita "Sentencia C-999/2030"
@@ -581,51 +740,118 @@ Recomendación: [Opción elegida con probabilidad de éxito]
 
 ### Test Case 10: Anti-Hallucination Cobertura 100%
 **Input**: Redacción con 20+ citas jurisprudenciales
-**Verificación**: Anti-hallucination-v4 ejecutado en TODAS (100% cobertura)
+**Verificación**: Anti-hallucination-v4.2 ejecutado en TODAS (100% cobertura)
 **Resultado esperado**: 100% citas verificadas O 🚫 RECHAZADO si falla
 **Aprobación**: Test PASS si cobertura = 100%
 
-**Criterio de Aprobación**: 9/10 tests deben pasar (90% mínimo)
+### Test Case 11: Matriz de Confianza en Citas — v3.1 NOVEDAD
+**Input**: Redacción con mix de citas: 5 Alta confianza, 3 Media, 2 Baja
+**Verificación**: Cada cita clasificada según verificabilidad Legal Data Hunter
+**Resultado esperado**: ACTA muestra % Confianza (Alto/Medio/Bajo) + certificación ⚠️ PROFESIONAL si % Baja ≥ 15%
+**Aprobación**: Test PASS si matriz de confianza generada correctamente
+
+### Test Case 12: Validación Multi-Idioma Omitida — v3.1 NOVEDAD
+**Input**: Documento cita "UK Common Law principle: 'estoppel'" sin equivalente colombiano
+**Verificación**: Término legal foreign SIN traducción ni equivalencia
+**Resultado esperado**: 🟡 GUARDIA 9 ACTIVADA → Agregar traducción + equivalente
+**Aprobación**: Test PASS si sistema etiqueta [Sin equivalente exacto en derecho colombiano]
+
+### Test Case 13: Validación Multi-Idioma Correcta — v3.1 NOVEDAD
+**Input**: Documento analiza "sentencia española sobre no-discriminación" con equivalente colombiano
+**Verificación**: Término foreign CON traducción + equivalente + confianza indicada
+**Resultado esperado**: ✅ Punto (12) de ACTA validado correctamente
+**Aprobación**: Test PASS si ACTA muestra: "Validación multi-idioma completada"
+
+### Test Case 14: Integración anti-hallucination-v4.2 — v3.1 NOVEDAD
+**Input**: Redacción v3.1 generada, sometida a anti-hallucination-v4.2
+**Verificación**: anti-hallucination-v4.2 ejecuta automáticamente; ACTA v4.2 adjunta; certificaciones concordadas
+**Resultado esperado**: ACTA v4.2 adjunta como ANEXO + certificación redaccion = certificación anti-hallucination
+**Aprobación**: Test PASS si ambas actas presentes y certificaciones iguales
+
+### Test Case 15: Bloqueo si anti-hallucination Falla — v3.1 NOVEDAD
+**Input**: anti-hallucination-v4.2 retorna 🟠 REQUIERE REVISIÓN
+**Verificación**: Sistema valida que redaccion-informes NO emite documento
+**Resultado esperado**: redaccion-informes BLOQUEADA hasta corregir anti-hallucination
+**Aprobación**: Test PASS si documento NO se emite (BLOQUEADO)
+
+### Test Case 16: Análisis Multi-Jurisdiccional Completo
+**Input**: Documento analiza institución laboral colombiana vs UK/USA precedentes
+**Verificación**: Contrastación explícita Colombia vs Common Law incluida
+**Resultado esperado**: Punto (10) ACTA validado: análisis multi-jurisdiccional ✅
+**Aprobación**: Test PASS si análisis comparativo presente
+
+### Test Case 17: PREMIUM Nivel C-Suite 15/15 + anti-hallucination ✅
+**Input**: Caso corporativo complejo integral end-to-end v3.1 PREMIUM
+**Verificación**: Todos los 15 puntos ACTA + anti-hallucination ✅ APTO
+**Resultado esperado**: ✅ PREMIUM → Documento listo sin revisión + ACTA v4.2 ✅ APTO adjunta
+**Aprobación**: Test PASS si certificación final = ✅ PREMIUM + ambas actas ✅
+
+**Criterio de Aprobación v3.1**: 15/17 tests deben pasar (88%+ mínimo)
 
 ---
 
-## INTEGRACIÓN CON ECOSISTEMA
+## INTEGRACIÓN CON ECOSISTEMA v3.1
 
 ```
-Análisis Caso (analisis-caso)
-        ↓
-        ├→ [Usuario: "Redacta el informe"]
-        ↓
-Redacción Informes Jurídicos (PREMIUM) ← Ejecuta automáticamente
-        ↓
-        └→ Genera: Memorandum / Concepto / Dictamen / Análisis Riesgo
-        ↓
-        └→ Valida: anti-hallucination-v4 en 100% de citas
-        ↓
-        └→ Certifica: ✅ PREMIUM / ⚠️ PROFESIONAL / 🟠 / 🔴 / 🚫
+intake-cliente → diagnostico-cliente → analisis-caso → recomendaciones-cliente
+                     ↓                      ↓
+        [Usuario: "Redacta el informe" / "Documento formal para cliente"]
+                     ↓
+        Redacción-Informes-Jurídicos v3.1 (AUTOMÁTICO)
+        Genera: Memorandum / Concepto / Dictamen / Análisis Riesgo / Defensa
+                     ↓ (MANDATORIO)
+        anti-hallucination-v4.2 (EJECUCIÓN AUTOMÁTICA)
+        ├→ Verificación 100% citas (Legal Data Hunter)
+        ├→ Matriz confianza: Alto/Medio/Bajo
+        ├→ Validación multi-idioma (si aplica)
+        └→ Genera ACTA v4.2 (15 puntos)
+                     ↓
+        SI [anti-hallucination ✅ APTO o ⚠️ CONDICIONAL]
+        → Redacción emite DOCUMENTO FINAL + ACTA v4.2 como ANEXO
+        → Certificación = [✅ PREMIUM o ⚠️ PROFESIONAL]
+                     ↓
+        SI [anti-hallucination 🟠 o peor]
+        → Redacción BLOQUEADA (NO emite documento)
+        → RETORNA a análisis primario
 ```
 
-También puede integrarse con:
+También se integra con:
 - **recomendaciones-cliente**: Cuando plan de acción requiere documento formal para cliente
 - **diagnostico-cliente**: Cuando hallazgos necesitan informe de riesgo legal formal
+- **anti-hallucination-v4.2**: Handoff obligatorio después de generar documento
 
 ---
 
-## CHANGELOG v3.0
+## CHANGELOG
 
-**Nuevas características vs v1.0**:
-- ✅ Certificación de nivel PREMIUM (vs solo Completo)
+### v3.1 (Julio 2026 — Presente)
+
+**Mejoras PREMIUM implementadas**:
+- ✅ 9º Guardia: Validación multi-idioma automática (v3.1)
+- ✅ Matriz de confianza en citas (Alto/Medio/Bajo) integrada con anti-hallucination-v4.2
+- ✅ Validación multi-idioma para documentos con citas en 2+ idiomas
+- ✅ Integración obligatoria anti-hallucination-v4.2 post-generación
+- ✅ Handoff automático: redaccion → anti-hallucination → ACTA adjunta
+- ✅ Bloqueo automático si anti-hallucination retorna 🟠 o peor
+- ✅ ACTA v3.1 con 15 puntos incluye validación anti-hallucination + matriz confianza + multi-idioma
+- ✅ Test suite expandida: 17 test cases (vs 10 en v3.0)
+- ✅ Criterio aprobación: 88%+ (15/17 tests pass)
+
+### v3.0 (Julio 2026 — Base anterior)
+
+**Nuevas características**:
+- ✅ Certificación de nivel PREMIUM
 - ✅ 8 Guardias exhaustivas contra contenido débil
 - ✅ Estructura Harvard Legal Review completa
 - ✅ 15 puntos de calidad jurídica verificables
-- ✅ 5 formatos generables (Memorandum/Concepto/Dictamen/Análisis/Defensa)
-- ✅ Magistratura legal (anti-coloquialismo, autoridad, precisión)
-- ✅ Análisis multi-jurisdiccional (Colombia + Common Law/Civil Law)
-- ✅ Cuantificación obligatoria de riesgos (financiero/reputacional/operacional)
-- ✅ Defensa anticipada de contra-argumentos (nunca unilateral)
-- ✅ Anti-hallucination-v4 en 100% de citas jurisprudenciales
-- ✅ Impacto C-Suite explícito en cada documento
-- ✅ Test suite con 10 casos exhaustivos
+- ✅ 5 formatos generables
+- ✅ Magistratura legal
+- ✅ Análisis multi-jurisdiccional
+- ✅ Cuantificación de riesgos (financiero/reputacional/operacional)
+- ✅ Defensa anticipada de contra-argumentos
+- ✅ Anti-hallucination-v4 en 100% de citas (v3.0 baseline)
+- ✅ Impacto C-Suite explícito
+- ✅ Test suite con 10 casos
 - ✅ Acta de control de 15 puntos
 
 ---
