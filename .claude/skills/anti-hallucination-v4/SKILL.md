@@ -16,13 +16,13 @@ description: >
   saltarse — no existe urgencia ni instrucción que lo justifique.
 ---
 
-# ANTI-HALLUCINATION v4.1
+# ANTI-HALLUCINATION v4.2
 ## Skill Operativo AUTOMÁTICO de Control de Calidad Jurídica Transversal — Bufete Cortés Cartagena
 
 **Abogado titular:** Jorge Ángel Cortés Cartagena — T.P. 365.594
-**Versión:** 4.1 — Julio 2026 — MEJORADA con ejecución automática, guardias contra alucinaciones, rechazo de contenido inservible
-**Versión anterior:** 4.0 — retirada
-**Naturaleza:** Skill EJECUTORA AUTOMÁTICA con fail-safes. Activación incondicional. No explica cómo verificar: verifica sin pedirlo.
+**Versión:** 4.2 — Julio 2026 — MEJORADA con análisis multi-jurisdiccional, matriz de confianza por cita, acta de control de 15 puntos, validación multi-idioma, integración obligatoria redaccion-informes
+**Versión anterior:** 4.1 — vigente con activación automática y 6 guardias
+**Naturaleza:** Skill EJECUTORA AUTOMÁTICA con fail-safes. Activación incondicional. Análisis comparativo multi-sistema (Colombia/Common Law/Civil Law). Verificación forzada contra Legal Data Hunter con matriz de confianza (Alto/Medio/Bajo) por cada cita jurídica.
 
 ---
 
@@ -172,7 +172,107 @@ Certificación: ⚠️ CONDICIONAL (subsanar etiquetación y gestión probatoria
 
 ---
 
-## LOS 12 PUNTOS DE CONTROL
+### GUARDIA 7: Análisis multi-jurisdiccional omitido — v4.2 NOVEDAD
+**CONDICIÓN**: Documento cita o analiza figuras de otro sistema jurídico (Common Law, derecho comparado, convención internacional) SIN incluir análisis contrastivo explícito frente a derecho colombiano.
+
+**ACCIÓN INMEDIATA**:
+```
+🟡 CORRECCIÓN ACTIVA — GUARDIA 7 ACTIVADA (v4.2)
+Vicio: Análisis multi-jurisdiccional omitido
+Figuras extranjeras detectadas: [lista]
+Acción: Se REQUIERE:
+  1. Identificar figura/instituto colombiano equivalente (si existe)
+  2. Explicar diferencias explícitas frente al sistema extranjero citado
+  3. Si no hay equivalente: etiquetación [Sin equivalente exacto en derecho colombiano]
+  4. Indicar matriz de confianza por jurisdicción: Colombia [Alto/Medio/Bajo] | Common Law [Alto/Medio/Bajo] | Civil Law [Alto/Medio/Bajo]
+Certificación: ⚠️ CONDICIONAL (subsanar análisis comparativo)
+```
+
+---
+
+## ANÁLISIS MULTI-JURISDICCIONAL AUTOMÁTICO — v4.2 NOVEDAD
+
+Cuando el documento analiza cuestión que admite comparación entre sistemas jurídicos, anti-hallucination-v4.2 **activa automáticamente** validación comparativa:
+
+**TRIGGER AUTOMÁTICO**: Presencia de términos como:
+- "Common Law vs. Civil Law"
+- "Derecho comparado"
+- "Jurisdicciones múltiples"
+- "Derecho internacional privado"
+- "Convención internacional"
+- Referencias explícitas a sistemas no-colombianos
+
+**VALIDACIÓN COMPARATIVA OBLIGATORIA**:
+
+| Jurisdicción | Validación primaria | Contraste requerido | Etiqueta resultado |
+|---|---|---|---|
+| **Colombia** (Default) | Legal Data Hunter + SUIN-Juriscol + Cortes | Análisis frente a Civil Law europeo / Common Law anglosajón | [Verificado — Colombia] |
+| **Common Law** (UK/USA) | Web search académico + precedente judicial | Diferencia explícita de figura jurídica colombiana | [Common Law — Diferente] o [Common Law — Análogo] |
+| **Civil Law** (España/Francia/Alemania) | Derecho comparado académico + códigos vigentes | Alineación o desviación frente a Colombia | [Civil Law — Análogo] o [Civil Law — Divergente] |
+
+**Efectos operativos**:
+- ✅ Documento con análisis multi-jurisdiccional CORRECTO → Sección 🟢 Verde
+- ⚠️ Documento cita sistema extranjero SIN comparación explícita → Guardia adicional: "Comparación omitida — Se requiere validación multi-jurisdiccional"
+- 🚫 Documento importa figura de otro sistema sin adaptación al ordenamiento colombiano → RECHAZADO (riesgo de jurisdicción)
+
+---
+
+## MATRIZ DE CONFIANZA EN CITAS JURÍDICAS — v4.2 NOVEDAD
+
+**OBLIGATORIO**: Cada cita jurídica (normativa o jurisprudencial) recibe clasificación de confianza **antes de usar como fundamento**:
+
+| Nivel | Definición | Criterio de asignación | Uso permitido | Requisito verificación |
+|---|---|---|---|---|
+| **Confianza ALTA** | Cita totalmente verificable en fuente primaria oficial | Existe en Legal Data Hunter + Relatoria/SUIN con vigencia confirmada | Fundamento principal del argumento | 100% verificado en fuente oficial |
+| **Confianza MEDIA** | Cita verificable pero sujeta a interpretación o matices | Existe en fuente oficial pero requiere lectura crítica de ratios subyacentes | Fundamento secundario + aclaración de matices | Verificado + anotación [Confianza Media — matiz: ...] |
+| **Confianza BAJA** | Cita no verificable o con contradictiones entre fuentes | NO existe en Legal Data Hunter / Relatoria / existe pero con variantes | NO puede usarse como fundamento | Marcar como [No verificado] o eliminar |
+
+**Ejecución**: 
+1. Cada cita jurídica se verifica contra Legal Data Hunter primero
+2. Se asigna nivel de confianza (Alto/Medio/Bajo) basado en verificabilidad
+3. En acta de control v4.2: se reporta matriz de confianza con % de citaciones por nivel
+4. Si % de Confianza Baja ≥ 30%, certificación máxima es CONDICIONAL o REQUIERE REVISIÓN
+
+---
+
+## VALIDACIÓN MULTI-IDIOMA — v4.2 NOVEDAD
+
+**Cuando aplica**: Documentos que mezclan idiomas o citan fuentes en idiomas múltiples (frecuente en análisis comparado).
+
+**Validación obligatoria**:
+
+| Idioma | Validación | Herramienta |
+|---|---|---|
+| **Español (Colombia)** | Vigencia + texto oficial SUIN | Legal Data Hunter + suin-juriscol.gov.co |
+| **Español (España)** | Vigencia + código civil/mercantil comparado | microsoft_docs_search (European legal sources) + doctrina académica |
+| **English (UK/USA)** | Precedente verificable + sistema común | case law databases (Bailii, Google Scholar, Westlaw si disponible) |
+
+**Regla**: Si un término jurídico está en idioma no-español y es componente crítico del argumento, DEBE acompañarse con traducción + equivalente colombiano o etiqueta [Sin equivalente exacto — Concepto foreign].
+
+---
+
+## INTEGRACIÓN OBLIGATORIA CON REDACCIÓN-INFORMES — v4.2 NOVEDAD
+
+**CUANDO APLICA**: Cada vez que el documento pasa control anti-hallucination-v4.2 con certificación ✅ APTO o ⚠️ CONDICIONAL Y está destinado a cliente externo o radicación ante autoridad.
+
+**HANDOFF AUTOMÁTICO**:
+
+```
+SI [documento supera anti-hallucination v4.2 con ✅ o ⚠️] 
+   AND [destinatario es cliente o autoridad]
+ENTONCES → Activar redaccion-informes para:
+  1. Aplicar formato final High Court Standard / OSCOLA (si cita jurisprudencia)
+  2. Validar que NO hay placeholders, datos sensibles o metadatos reveladores
+  3. Generar portada + numeración conforme estándar
+  4. Verificar coherencia entre acta anti-hallucination y documento final
+```
+
+**Criterios de handoff**:
+- ✅ Documento APTO + destinatario externo → redaccion-informes EJECUTA sin esperar
+- ⚠️ Documento CONDICIONAL → redaccion-informes EJECUTA solo después que JAC resuelve condiciones
+- 🟠 REQUIERE REVISIÓN o peor → BLOQUEADO para redaccion-informes (retorno a análisis primario)
+
+---
 
 Cada punto se verifica de forma independiente. La verificación no es retórica: exige, según el punto, la consulta efectiva de una fuente externa.
 
@@ -354,81 +454,177 @@ Al concluir las seis operaciones, el skill EMITE UNA DE ESTAS CINCO CERTIFICACIO
 
 ---
 
-## ACTA DE CONTROL — CIERRE OBLIGATORIO DE CADA EJECUCIÓN
+## ACTA DE CONTROL v4.2 — CIERRE OBLIGATORIO CON 15 PUNTOS DE VALIDACIÓN
 
-Todo documento sometido a este skill cierra con este bloque INVARIABLEMENTE:
+Todo documento sometido a este skill cierra con este bloque INVARIABLEMENTE, con 15 puntos de validación exhaustiva:
 
 ```
 ═══════════════════════════════════════════════════════════════════
-ACTA DE CONTROL — ANTI-HALLUCINATION v4.1
+ACTA DE CONTROL — ANTI-HALLUCINATION v4.2
 ═══════════════════════════════════════════════════════════════════
 
-Documento verificado: [identificar tipo, título, caso]
+Documento verificado: [tipo, título, caso, expediente]
 Fecha de verificación: [fecha/hora]
 Sesión/Fuente: [dónde se verificó]
+Responsable verificación: anti-hallucination-v4.2 (automático)
 
-INDICADORES DE RIESGO:
-🔴 Vicios críticos activos: [cantidad / lista]
-🟠 Vicios importantes reencuadrados: [cantidad / lista]
-🟡 Vicios recomendados subsanados: [cantidad / lista]
-🟢 Sin vicios: [SÍ / NO]
+═══════════════════════════════════════════════════════════════════
+PUNTOS DE CONTROL EXHAUSTIVOS (15/15):
+═══════════════════════════════════════════════════════════════════
 
-GUARDIAS ACTIVADAS:
-⚠️ Guardia 1 (alucinación jurisprudencial múltiple): SÍ / NO
-⚠️ Guardia 2 (datos sin sustituir): SÍ / NO
-⚠️ Guardia 3 (contradicción irresolubleablue): SÍ / NO
-⚠️ Guardia 4 (incompletitud crítica): SÍ / NO
-⚠️ Guardia 5 (cálculos sin base): SÍ / NO
-⚠️ Guardia 6 (información no acreditada): SÍ / NO
+(1) ALUCINACIONES JURISPRUDENCIALES — [SÍ ✅ / NO ❌]
+    Todas las sentencias, radicados y ratios citadas verificadas en Legal Data Hunter o Relatoria oficial.
+    Citas encontradas: [cantidad / lista]
+    Citas no verificables: [cantidad / lista]
 
-EVALUACIÓN TÉCNICA:
-Puntos de control superados: [n/12]
-Vicios detectados: [listar por tipo, según matriz]
-Reencuadres aplicados: [número | listar con ref. a CORRECCIÓN ACTIVA]
-Rechazos aplicados: [número | listar con ref. a RECHAZO]
-Herramientas de verificación consultadas: 
-  ✓ Legal Data Hunter: SÍ / NO / N/A
+(2) VIGENCIA NORMATIVA — [SÍ ✅ / NO ❌]
+    Todas las leyes, decretos y resoluciones vigentes al momento de análisis.
+    Derogatoria u otra reforma posterior identificada: [SÍ (especificar) / NO]
+
+(3) JURISDICCIÓN CORRECTA — [SÍ ✅ / NO ❌]
+    Análisis confinado al ordenamiento colombiano (Civil Law) o comparación explícita si menciona Common Law/otras jurisdicciones.
+    Análisis multi-jurisdiccional incluido: [SÍ / NO]
+
+(4) AUSENCIA DE ALUCINACIONES FACTUALES — [SÍ ✅ / NO ❌]
+    Todos los hechos acreditados en expediente o explícitamente etiquetados como [Afirmado], [Inferencia], [Controvertido].
+    Hechos no acreditados: [cantidad / lista]
+
+(5) COHERENCIA INTERNA — [SÍ ✅ / NO ❌]
+    Cero contradicciones irresolubles entre secciones. Hechos + norma + conclusión alineados.
+    Contradicciones detectadas: [SÍ (especificar) / NO]
+
+(6) COMPLETITUD ESTRUCTURAL — [SÍ ✅ / NO ❌]
+    Documento contiene: HECHOS + NORMA APLICABLE + ANÁLISIS + CONCLUSIÓN.
+    Componentes faltantes: [SÍ (especificar) / NO]
+
+(7) TONO Y REGISTRO — [SÍ ✅ / NO ❌]
+    Lenguaje conforme a destinatario (juez = High Court Standard; cliente = accesible; interno = técnico).
+    Registro validado para: [destinatario específico]
+
+(8) DATOS DEL CLIENTE CORRECTOS — [SÍ ✅ / NO ❌]
+    Cero placeholders [CLIENTE_*], [EMPRESA_*], [PERSONA_*]. Datos reales sustituidos correctamente.
+    Datos potencialmente sensibles revisados: [SÍ / NO]
+
+(9) CÁLCULOS ARITMÉTICOS — [SÍ ✅ / NO ❌]
+    Todas las liquidaciones, intereses y cuantías recalculadas de forma independiente y correctas.
+    Errores detectados: [cantidad / lista]
+
+(10) ANÁLISIS MULTI-JURISDICCIONAL (Si aplica) — [SÍ ✅ / NO / N/A]
+     Si documento menciona derecho extranjero o comparado: análisis contrastivo explícito incluido.
+     Jurisdicciones analizadas: [listar: Colombia / Common Law / Civil Law / Otra]
+     Matriz de confianza por jurisdicción: [Alto/Medio/Bajo por cada una]
+
+(11) MATRIZ DE CONFIANZA EN CITAS — [SÍ ✅ / NO ❌]
+     Cada cita jurídica clasificada: Confianza Alta / Media / Baja según verificabilidad Legal Data Hunter.
+     % Confianza Alta: [n%] | % Confianza Media: [n%] | % Confianza Baja: [n%]
+
+(12) VALIDACIÓN MULTI-IDIOMA (Si aplica) — [SÍ ✅ / NO / N/A]
+     Si hay citas en idioma no-español: traducción + equivalente colombiano incluido o etiquetado [Sin equivalente exacto].
+     Idiomas detectados: [listar]
+     Términos foreign sin equivalente identificados: [cantidad / lista]
+
+(13) ETIQUETACIÓN CORRECTA SEGÚN CERTIDUMBRE — [SÍ ✅ / NO ❌]
+     Todas las afirmaciones etiquetadas: [Acreditado] / [Afirmado] / [Controvertido] / [Inferencia] / [No verificado] / [Reformación pendiente].
+     Afirmaciones sin etiqueta: [cantidad / lista]
+
+(14) GUARDIAS AUTOMÁTICAS — [Estado final]
+     ⚠️ Guardia 1 (Alucinación jurisprudencial múltiple): ACTIVADA / No activada
+     ⚠️ Guardia 2 (Datos sin sustituir): ACTIVADA / No activada
+     ⚠️ Guardia 3 (Contradicción irresolubleablue): ACTIVADA / No activada
+     ⚠️ Guardia 4 (Incompletitud crítica): ACTIVADA / No activada
+     ⚠️ Guardia 5 (Cálculos sin base): ACTIVADA / No activada
+     ⚠️ Guardia 6 (Información no acreditada): ACTIVADA / No activada
+     ⚠️ Guardia 7 (Análisis multi-jurisdiccional omitido — v4.2): ACTIVADA / No activada
+
+(15) INTEGRACIÓN REDACCIÓN-INFORMES — [SÍ ✅ / NO / N/A]
+     Si certificación es ✅ APTO o ⚠️ CONDICIONAL y destinatario es externo: handoff a redaccion-informes documentado.
+     Handoff requerido: [SÍ / NO]
+     Estado handoff: [Pendiente / En proceso / Completado]
+
+═══════════════════════════════════════════════════════════════════
+RESUMEN TÉCNICO:
+═══════════════════════════════════════════════════════════════════
+
+Puntos de control superados: [n/15]
+Vicios críticos activos: [cantidad / lista]
+Vicios importantes reencuadrados: [cantidad / lista]
+Vicios recomendados subsanados: [cantidad / lista]
+
+Herramientas de verificación consultadas:
+  ✓ Legal Data Hunter: SÍ / NO / N/A [si SÍ: jurisdicciones cubiertas]
   ✓ web_search: SÍ / NO / N/A
   ✓ web_fetch: SÍ / NO / N/A
   ✓ Expediente aportado: SÍ / NO / N/A
-Puntos remitidos a validación JAC: [listar si aplica]
 
-VALIDACIÓN INCOMPLETA (Si aplica): 
-[Si herramientas de verificación no estaban disponibles, declararlo aquí explícitamente]
+VALIDACIÓN INCOMPLETA (Si aplica):
+[Si herramientas de verificación no estaban disponibles, declararlo aquí explícitamente. En tal caso, certificación no puede ser ✅ APTO]
 
-CERTIFICACIÓN FINAL: 
+═══════════════════════════════════════════════════════════════════
+CERTIFICACIÓN FINAL:
+═══════════════════════════════════════════════════════════════════
+
   ✅ APTO PARA RADICAR
-  ⚠️ CONDICIONAL (subsanar: [especificar qué])
-  🟠 REQUIERE REVISIÓN (corrección: [especificar])
-  🔴 SUSPENDIDO (motivo: [especificar])
-  🚫 RECHAZADO (motivo: [especificar])
+     → 15/15 puntos superados + cero vicios críticos activos + herramientas verificación disponibles
+  
+  ⚠️ CONDICIONAL
+     → 12-14/15 puntos superados + vicios importantes YA reencuadrados + cero vicios críticos activos
+     → SUBSANAR ANTES DE ENTREGAR: [especificar qué]
+  
+  🟠 REQUIERE REVISIÓN
+     → Menos de 12/15 puntos superados
+     → O vicio crítico YA reencuadrado pero pendiente validación JAC
+     → O herramientas verificación no disponibles
+     → NO radicar sin corrección JAC
+  
+  🔴 SUSPENDIDO
+     → Vicio crítico activo, no corregible con información actual
+     → Reescribir sección completamente
+  
+  🚫 RECHAZADO
+     → Una+ guardias automáticas ACTIVADAS (rechazo inmediato, sin reencuadre)
+     → Contenido NO se entrega bajo ninguna circunstancia
 
-RESPONSABILIDADES:
-- Este documento NO sustituye la revisión y firma de Jorge Ángel Cortés Cartagena (T.P. 365.594)
-- JAC es responsable de validar manualmente puntos marcados [REQUIERE VALIDACIÓN JAC]
-- Antes de radicar: certificar que estado es ✅ APTO o JAC ha validado ⚠️ CONDICIONAL
+CERTIFICACIÓN: [Marcar una de las 5 anteriores]
+
+═══════════════════════════════════════════════════════════════════
+RESPONSABILIDADES Y PRÓXIMOS PASOS:
+═══════════════════════════════════════════════════════════════════
+
+✓ Este acta NO sustituye la revisión y firma de Jorge Ángel Cortés Cartagena (T.P. 365.594)
+✓ JAC es responsable de validar manualmente puntos marcados [REQUIERE VALIDACIÓN JAC]
+✓ Si certificación ⚠️ CONDICIONAL: JAC subsana y confirma antes de entregar
+✓ Si certificación 🟠/🔴/🚫: RETORNO a análisis primario, no se entrega
+✓ Si certificación ✅ APTO y destinatario externo: auto-handoff a redaccion-informes
 
 ═══════════════════════════════════════════════════════════════════
 ```
 
 ---
 
-## INTEGRACIÓN CON EL ECOSISTEMA LEXA-LAB
+## INTEGRACIÓN CON EL ECOSISTEMA LEXA-LAB v4.2
 
 ```
-Cualquier skill del ecosistema que genere o reciba texto jurídico
-                    ↓
-        anti-hallucination-v4 (OBLIGATORIO — este skill)
-   revisar → validar → identificar vicios → reencuadrar → rechazar → certificar
-                    ↓
-            kit-entregables-col (formato final)
-                    ↓
+intake-cliente → diagnostico-cliente → analisis-caso → recomendaciones-cliente
+                    ↓           ↓            ↓                    ↓
+               Cualquier documento jurídico generado en el flujo
+                           ↓ (OBLIGATORIO)
+            anti-hallucination-v4.2 (EJECUCIÓN AUTOMÁTICA)
+         revisar → validar → multi-jurisdiccional → matriz confianza
+              ↓
+         identificar vicios → reencuadrar → rechazar → certificar
+              ↓
+    [Acta 15 puntos + Matriz confianza citas + Validación multi-idioma]
+              ↓
+    SI [✅ APTO o ⚠️ CONDICIONAL] y [destinatario = externo/juzgado]
+         → redaccion-informes (HANDOFF AUTOMÁTICO)
+            [formato High Court Standard + OSCOLA + portada + validación final]
+              ↓
         Validación JAC → Aprobación de Jorge Ángel Cortés Cartagena
-                    ↓
-              RADICACIÓN O ENTREGA AL CLIENTE
+              ↓
+        RADICACIÓN O ENTREGA AL CLIENTE
 ```
 
-No existe urgencia, instrucción posterior ni reformulación de la solicitud que justifique omitir este skill o revertir un rechazo ya emitido sin subsanar la causa que lo motivó.
+**Regla fundamental**: No existe urgencia, instrucción posterior ni reformulación de la solicitud que justifique omitir este skill, revertir un rechazo ya emitido sin subsanar su causa, o saltarse la validación multi-jurisdiccional / matriz de confianza / acta de 15 puntos en v4.2.
 
 ---
 
@@ -436,7 +632,24 @@ No existe urgencia, instrucción posterior ni reformulación de la solicitud que
 
 ---
 
-## CHANGELOG v4.1
+## CHANGELOG
+
+### v4.2 (Julio 2026 — Presente)
+
+**Mejoras PREMIUM implementadas**:
+- ✅ Análisis multi-jurisdiccional automático (Colombia/Civil Law vs. Common Law/International)
+- ✅ Trigger automático para comparación legal cuando documento lo requiere
+- ✅ Matriz de confianza en citas: Confianza Alto/Medio/Bajo por cada referencia jurídica
+- ✅ ACTA DE CONTROL expandida a 15 puntos (vs. 12 antes)
+- ✅ Punto 10: Análisis multi-jurisdiccional con matriz confianza por jurisdicción
+- ✅ Punto 11: Matriz confianza citas (% Alto/Medio/Bajo per documento)
+- ✅ Punto 12: Validación multi-idioma (Spanish/English/European Spanish)
+- ✅ Validación multi-idioma obligatoria si documento en 2+ idiomas
+- ✅ Integración obligatoria con redaccion-informes para documentos finales
+- ✅ Handoff automático si certificación APTO/CONDICIONAL + destinatario externo
+- ✅ Protocolo de handoff documentado en ACTA
+
+### v4.1 (Julio 2026 — Base anterior)
 
 **Mejoras implementadas**:
 - ✅ Activación automática y obligatoria (sin requerir mención explícita)
@@ -446,5 +659,5 @@ No existe urgencia, instrucción posterior ni reformulación de la solicitud que
 - ✅ ACTA DE CONTROL mejorada con indicadores de riesgo y guardias activadas
 - ✅ Certificación final con símbolos visuales claros
 - ✅ Regla de oro: vicios reencuadrados → APTO/CONDICIONAL | vicios críticos activos → SUSPENDIDO/RECHAZADO | guardia activada → RECHAZADO inmediato
-- ✅ Protocolo operativo con ejecución forzada a "máximo nivel" como estándar (sin distinción de niveles)
-- ✅ Incompatibilidad absoluta con omisión por urgencia: "No existe urgencia, instrucción posterior ni reformulación que justifique omitir este skill"
+- ✅ Protocolo operativo con ejecución forzada a "máximo nivel" como estándar
+- ✅ Incompatibilidad absoluta con omisión por urgencia
