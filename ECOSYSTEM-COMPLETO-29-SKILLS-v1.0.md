@@ -1,12 +1,12 @@
-# ABOGADOS ASOCIADOS JAC — ECOSYSTEM COMPLETO 29 SKILLS
-**Versión**: 1.0 | **Fecha**: 13 de Julio, 2026  
+# ABOGADOS ASOCIADOS JAC — ECOSYSTEM COMPLETO 31 SKILLS
+**Versión**: 1.1 (Actualizado) | **Fecha**: 13 de Julio, 2026  
 **Responsable**: Jorge Ángel Cortés Cartagena, T.P. 365.594
 
 ---
 
 ## DESCRIPCIÓN GENERAL
 
-Este documento compila la arquitectura completa del sistema de **29 agentes jurídicos especializados** para Abogados Asociados JAC, cada uno implementado con:
+Este documento compila la arquitectura completa del sistema de **31 agentes jurídicos especializados** para Abogados Asociados JAC, cada uno implementado con:
 
 ✅ **16-Component Protocolo JAC v1.0** (nombre, misión, alcance, asuntos, entrada, fuentes, tareas, formato, verificación, riesgos, errores prohibidos, criterio aprobación, responsable, entregable, cierre, integración)
 
@@ -29,6 +29,16 @@ Este documento compila la arquitectura completa del sistema de **29 agentes jur�
 ---
 
 ## DISTRIBUCIÓN POR CATEGORÍA
+
+**Total: 31 Skills**
+- Intake & Diagnóstico: 3
+- Litigación & Procedimiento: 5
+- Redacción & Calidad: 4
+- Derecho Sustantivo: 14 ⭐ (incluyendo nuevas especialidades)
+- Procedimientos Administrativos: 2
+- Estrategia & Comunicación: 2
+- Conocimiento & Datos: 2
+- Sistema: 1
 
 ### CATEGORÍA A: INTAKE & DIAGNÓSTICO (3 Skills)
 
@@ -204,18 +214,36 @@ Este documento compila la arquitectura completa del sistema de **29 agentes jur�
 - **Guardias**: 3 (PPE, origen fondos, reportes a autoridades)
 - **ACTA**: 8 puntos
 
+#### 23. **INS-030: ASESOR DERECHO DE SEGUROS** ⭐ NEW
+- **Misión**: Pólizas, reclamaciones, cobertura, negociación aseguradora
+- **Entrada**: Póliza / reclamación siniestro / negativa aseguradora
+- **Salida**: `ANÁLISIS-SEGUROS-{ASEGURADO}.md` + matrices + defensa
+- **Guardias**: 6 (Siniestro notificado, plazo caducidad, póliza vigente, límites)
+- **ACTA**: 14 puntos
+- **Test Suite**: 14 casos
+- **Certificación**: ✅ PREMIUM si ≥13/14 + G1-G6
+
+#### 24. **TRX-031: ASESOR DERECHO DE TRÁNSITO** ⭐ NEW
+- **Misión**: Infracciones, retención vehículos, accidentes, licencias
+- **Entrada**: Acta infracción / retención / accidente / DUI
+- **Salida**: `ANÁLISIS-TRÁNSITO-{CASO}.md` + escrito impugnación
+- **Guardias**: 7 (Plazo recurso, vicios acta, retención ilegal, DUI, licencia)
+- **ACTA**: 14 puntos
+- **Test Suite**: 13 casos
+- **Certificación**: ✅ PREMIUM si ≥13/14 + G1-G7
+
 ---
 
 ### CATEGORÍA E: PROCEDIMIENTOS ADMINISTRATIVOS (2 Skills)
 
-#### 23. **DERECHOS-PETICION-020: ASESOR DERECHOS DE PETICIÓN**
+#### 25. **DERECHOS-PETICION-020: ASESOR DERECHOS DE PETICIÓN**
 - **Misión**: Derechos de petición, acceso a información, recursos ante entidades públicas
 - **Entrada**: Acto administrativo / negativa información
 - **Salida**: `DERECHO-PETICIÓN-{ENTIDAD}.docx` + recurso si procede
 - **Guardias**: 4 (Legitimidad, plazo, competencia entidad)
 - **ACTA**: 9 puntos
 
-#### 24. **CONCILIACION-021: ASESOR CONCILIACIÓN & MEDIACIÓN**
+#### 26. **CONCILIACION-021: ASESOR CONCILIACIÓN & MEDIACIÓN**
 - **Misión**: Estrategia conciliación, negoción, mediación prejudicial
 - **Entrada**: Conflicto en fase prejuicio
 - **Salida**: `ESTRATEGIA-CONCILIACIÓN.md` + acta conciliación
@@ -226,14 +254,14 @@ Este documento compila la arquitectura completa del sistema de **29 agentes jur�
 
 ### CATEGORÍA F: ESTRATEGIA & COMUNICACIÓN (2 Skills)
 
-#### 25. **REPUTACION-024: ASESOR REPUTACIÓN & CRISIS**
+#### 27. **REPUTACION-024: ASESOR REPUTACIÓN & CRISIS**
 - **Misión**: Gestión de crisis reputacional, comunicados, stakeholders
 - **Entrada**: Crisis identificada
 - **Salida**: `PLAN-CRISIS-{TEMA}.md` + comunicados pre-redactados
 - **Guardias**: 3 (Comunicado responsable, riesgos legales, timeline respuesta)
 - **ACTA**: 8 puntos
 
-#### 26. **COMERCIAL-017: AGENTE COMERCIAL & COMUNICACIÓN**
+#### 28. **COMERCIAL-017: AGENTE COMERCIAL & COMUNICACIÓN**
 - **Misión**: Artículos blog, guías legales, análisis tendencias, SEO
 - **Entrada**: Tema jurídico relevante
 - **Salida**: `ARTICULO-{TEMA}.md` + versión web + LinkedIn
@@ -244,14 +272,14 @@ Este documento compila la arquitectura completa del sistema de **29 agentes jur�
 
 ### CATEGORÍA G: CONOCIMIENTO & DATOS (2 Skills)
 
-#### 27. **CONOCIMIENTO-019: ASESOR CONOCIMIENTO INTERNO**
+#### 29. **CONOCIMIENTO-019: ASESOR CONOCIMIENTO INTERNO**
 - **Misión**: Documentación de casos de éxito, argumentos validados, templates reutilizables
 - **Entrada**: Caso cerrado exitoso
 - **Salida**: `CASO-EXITO-{TEMA}.md` + template + jurisprudencia
 - **Guardias**: 3 (Desidentificación datos, generalización argumentos, templates)
 - **ACTA**: 8 puntos
 
-#### 28. **LEXIUS-026: CONSULTOR LEGAL LEXIUS (Acceso Base Datos)**
+#### 30. **LEXIUS-026: CONSULTOR LEGAL LEXIUS (Acceso Base Datos)**
 - **Misión**: Acceso a appcolombia.lexius.io para consultas jurídicas verificadas
 - **Entrada**: Query de normativa/jurisprudencia/análisis
 - **Salida**: Resultado verificado + Matriz Confianza + cita OSCOLA
@@ -265,7 +293,7 @@ Este documento compila la arquitectura completa del sistema de **29 agentes jur�
 
 ### CATEGORÍA H: SISTEMA (1 Skill)
 
-#### 29. **ANTI-HALLUCINATION-004: GUARDIÁN ANTI-ALUCINACIÓN v4.2**
+#### 31. **ANTI-HALLUCINATION-004: GUARDIÁN ANTI-ALUCINACIÓN v4.2**
 - **Misión**: Validar que TODA afirmación legal sea verificable
 - **Entrada**: Cualquier documento jurídico producido
 - **Salida**: ✅ VERIFICADO / ❌ RECHAZO + correcciones
@@ -309,7 +337,7 @@ Este documento compila la arquitectura completa del sistema de **29 agentes jur�
 
 ---
 
-## TABLA RESUMEN: 29 SKILLS COMPLETOS
+## TABLA RESUMEN: 31 SKILLS COMPLETOS
 
 | # | Código | Nombre | Categoría | Guardias | ACTA | Test | Premium |
 |----|--------|--------|-----------|----------|------|------|---------|
@@ -335,13 +363,15 @@ Este documento compila la arquitectura completa del sistema de **29 agentes jur�
 | 20 | SUC-023 | Derecho Sucesiones | Sustantivo | 4 | 10 | 10 | Si 8/10 |
 | 21 | CUM-016 | Compliance | Sustantivo | 5 | 12 | 12 | Si 10/12 |
 | 22 | SUP-025 | Supervisión Bancaria | Sustantivo | 3 | 8 | 8 | Si 7/8 |
-| 23 | DPE-020 | Derechos Petición | Admin. | 4 | 9 | 9 | Si 7/9 |
-| 24 | CON-021 | Conciliación | Admin. | 3 | 9 | 9 | Si 7/9 |
-| 25 | REP-024 | Reputación Crisis | Comun. | 3 | 8 | 8 | Si 7/8 |
-| 26 | COM-017 | Comercial/Blog | Comun. | 3 | 8 | 8 | Si 7/8 |
-| 27 | CON-019 | Conocimiento Interno | Conocim. | 3 | 8 | 8 | Si 7/8 |
-| 28 | LEX-026 | Consultor Lexius | Datos | 7 | 15 | 17 | Si ≥14/15 |
-| 29 | AHV4-004 | Anti-Hallucination v4.2 | Sistema | 4 | 10 | 10 | Si 8/10 |
+| 23 | INS-030 | Derecho de Seguros ⭐ | Sustantivo | 6 | 14 | 14 | Si ≥13/14 |
+| 24 | TRX-031 | Derecho de Tránsito ⭐ | Sustantivo | 7 | 14 | 13 | Si ≥13/14 |
+| 25 | DPE-020 | Derechos Petición | Admin. | 4 | 9 | 9 | Si 7/9 |
+| 26 | CON-021 | Conciliación | Admin. | 3 | 9 | 9 | Si 7/9 |
+| 27 | REP-024 | Reputación Crisis | Comun. | 3 | 8 | 8 | Si 7/8 |
+| 28 | COM-017 | Comercial/Blog | Comun. | 3 | 8 | 8 | Si 7/8 |
+| 29 | CON-019 | Conocimiento Interno | Conocim. | 3 | 8 | 8 | Si 7/8 |
+| 30 | LEX-026 | Consultor Lexius | Datos | 7 | 15 | 17 | Si ≥14/15 |
+| 31 | AHV4-004 | Anti-Hallucination v4.2 | Sistema | 4 | 10 | 10 | Si 8/10 |
 
 ---
 
@@ -457,7 +487,7 @@ Toda actuación documentada, con responsable, fecha, versión.
 
 ## PRÓXIMOS PASOS IMPLEMENTACIÓN
 
-1. ✅ **29 Skills creados** (v1.0 completada)
+1. ✅ **31 Skills creados** (v1.0 completada — incluyendo Penal, Tributario, Ambiental, Seguros, Tránsito)
 2. ✅ **Protocolo maestro documentado** (16-component)
 3. ✅ **Guardias + ACTA + Test Suite** (especificado cada skill)
 4. ⏳ **Capacitación abogados** (cómo usar cada skill)
