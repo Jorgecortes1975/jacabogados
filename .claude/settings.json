@@ -1,0 +1,218 @@
+{
+  "name": "Abogados Asociados JAC",
+  "description": "Ecosistema integral de agentes jurídicos especializados bajo derecho colombiano",
+  "version": "1.1",
+  "created": "2026-07-13",
+  "updated": "2026-07-16",
+
+  "commands": {
+    "available": [
+      "/auditar",
+      "/demanda",
+      "/tributario",
+      "/societario",
+      "/laboral",
+      "/penal",
+      "/ambiental",
+      "/contrato",
+      "/peticion",
+      "/recurso",
+      "/tutela",
+      "/due-diligence",
+      "/investigar",
+      "/lexa",
+      "/marketing",
+      "/compliance",
+      "/pi",
+      "/transito",
+      "/seguros",
+      "/notebooklm",
+      "/contratacion-publica",
+      "/privacidad",
+      "/ugpp",
+      "/sigss"
+    ],
+    "description": "24 comandos CLI para acceso rápido a servicios jurídicos"
+  },
+
+  "agents": {
+    "core": [
+      "lexa_router",
+      "control_entrada",
+      "auditor_control_final",
+      "auditor_redaccion",
+      "socio_director"
+    ],
+    "total": 41,
+    "status": "Instalación en progreso"
+  },
+
+  "skills": {
+    "total": 31,
+    "categories": {
+      "intake": 3,
+      "litigation": 5,
+      "writing": 4,
+      "substantive_law": 14,
+      "admin_procedures": 2,
+      "strategy": 2,
+      "knowledge": 2,
+      "system": 1
+    },
+    "all_skills": [
+      "INTAKE-001", "DIAGNOSTICO-002", "RECOMENDACIONES-003",
+      "PEN-027", "ALE-008", "REC-007", "INT-009", "ANALISIS-004",
+      "RED-010", "AUD-011", "RED-005", "EXP-018",
+      "TAX-028", "ENV-029", "LAB-013", "CON-012", "SOC-014",
+      "FIN-015", "COS-022", "SUC-023", "CUM-016", "SUP-025",
+      "INS-030", "TRX-031",
+      "DPE-020", "CON-021",
+      "REP-024", "COM-017",
+      "CON-019", "LEX-026",
+      "AHV4-004"
+    ]
+  },
+
+  "mcp_servers": {
+    "local": [
+      {
+        "name": "notebooklm-mcp",
+        "status": "requires_setup",
+        "command": "notebooklm-mcp",
+        "auth": "google_oauth",
+        "setup": "pip install notebooklm-mcp-cli && nlm doctor"
+      }
+    ],
+    "cloud": [
+      {
+        "name": "Google Drive",
+        "for": "Compartir documentos cliente"
+      },
+      {
+        "name": "Gmail",
+        "for": "Historial comunicaciones"
+      },
+      {
+        "name": "Google Calendar",
+        "for": "Calendario audiencias/vencimientos"
+      }
+    ]
+  },
+
+  "protocols": {
+    "high_court_protocol": {
+      "version": "1.0",
+      "applies_to": "todos_documentos_entrega_cliente",
+      "requirements": [
+        "lenguaje_magistral",
+        "oscola_citations",
+        "structure_formality",
+        "sin_coloquialismos"
+      ]
+    },
+    "anti_hallucination": {
+      "version": "4.2",
+      "applies_to": "todas_afirmaciones_juridicas",
+      "requirements": [
+        "100_percent_verification",
+        "confidence_matrix",
+        "source_attribution",
+        "no_unverified_claims"
+      ]
+    },
+    "integrated_flow": {
+      "version": "1.0",
+      "orchestration": "automatic_skill_coordination",
+      "example_flow": "INTAKE → DIAG → SKILL_PRIMARY → RED-010 → AUD-011 → CLIENT"
+    }
+  },
+
+  "quality_gates": {
+    "entry": {
+      "agent": "control_entrada",
+      "checkpoint": "Verificar cliente, conflicto interés, confidencialidad",
+      "required_score": "6/6"
+    },
+    "intermediate": {
+      "agent": "auditor_redaccion",
+      "checkpoint": "Validar redacción magistral, OSCOLA, anti-hallucination",
+      "required_score": "10/10"
+    },
+    "final": {
+      "agent": "auditor_control_final",
+      "checkpoint": "ACTA 16 puntos: integridad, legalidad, formato",
+      "required_score": "14/16"
+    }
+  },
+
+  "certifications": {
+    "premium_skill": {
+      "criteria": [
+        "ACTA ≥80% (14/16 típicamente)",
+        "Guardias automáticas 100%",
+        "Test Suite ≥85% casos",
+        "Anti-Hallucination v4.2 aprobado",
+        "Jurisprudencia 100% verificada"
+      ]
+    },
+    "current_premium": [
+      "PEN-027", "TAX-028", "ENV-029", "INS-030", "TRX-031",
+      "LEX-026", "AUD-011", "RED-010"
+    ]
+  },
+
+  "dependencies": {
+    "python_packages": [
+      "python-docx>=0.8.11",
+      "markitdown>=0.0.1",
+      "notebooklm-mcp-cli>=0.1.0"
+    ],
+    "external_services": [
+      "Google Drive API",
+      "Gmail API",
+      "Google Calendar API",
+      "Claude API (claude-opus-4-8 or higher)"
+    ]
+  },
+
+  "team_assignments": {
+    "intake": "control_entrada",
+    "routing": "lexa_router",
+    "strategy": "socio_director",
+    "redaction": "auditor_redaccion",
+    "final_review": "auditor_control_final",
+    "specialties": {
+      "penal": ["PEN-027", "especialista_5años_penal"],
+      "tributario": ["TAX-028", "CPA_especializado"],
+      "ambiental": ["ENV-029", "ingeniero_ambiental"],
+      "laboral": ["LAB-013", "especialista_laboral"],
+      "corporativo": ["SOC-014", "CON-012", "FIN-015"],
+      "litigacion": ["RED-010", "ALE-008", "REC-007"],
+      "compliance": ["CUM-016", "SUP-025", "DEP-020"]
+    }
+  },
+
+  "integration": {
+    "flujo_integrado_v1": "Orquestación automática entre skills según caso",
+    "example": {
+      "case_type": "Acusación penal",
+      "flow": "INTAKE-001 → DIAG-002 → PEN-027 (estrategia) → ALE-008 (alegatos) → RED-010 (lenguaje) → AUD-011 (checklist) → CLIENTE"
+    }
+  },
+
+  "backup_and_security": {
+    "sensitive_folders": [
+      ".claude/agents",
+      ".claude/commands",
+      "expedientes_clientes"
+    ],
+    "backup_frequency": "diaria",
+    "encryption": "cliente_data_encrypted",
+    "access_control": "restricted_por_caso"
+  },
+
+  "version_history": {
+    "1.0": "Initial JAC setup - 7 skills",
+    "1.1": "Expanded to 31 skills + 5 agents + 18 commands - 7/16/2026"
+  }
+}
