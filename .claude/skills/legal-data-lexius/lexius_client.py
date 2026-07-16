@@ -15,8 +15,13 @@ import requests
 from requests.auth import HTTPBasicAuth
 from pathlib import Path
 
-# Cargar variables de entorno
-load_dotenv(Path(__file__).parent.parent.parent / '.env.local')
+# Cargar variables de entorno desde .env.local en raíz del proyecto
+env_path = Path(__file__).parent.parent.parent / '.env.local'
+if env_path.exists():
+    load_dotenv(env_path)
+else:
+    # Fallback: intentar desde cwd
+    load_dotenv('.env.local')
 
 # Configuración logging
 logging.basicConfig(
