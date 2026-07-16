@@ -1,0 +1,35 @@
+# Archivos de entorno (NUNCA commit credenciales)
+.env
+.env.local
+.env.*.local
+
+# Caches y reportes
+lexius-cache/
+.logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporal
+*.tmp
+*.bak
+*.swp
