@@ -67,7 +67,10 @@ problema jurídico central en una oración → tesis → antítesis (mejor argum
 de la contraparte, en serio, no de paja) → síntesis con regla aplicable →
 consecuencias. Sin este esqueleto no se redacta.
 
-**REDACCIÓN DE ALTA MAGISTRATURA** — el registro de las Altas Cortes:
+**REDACCIÓN DE ALTA MAGISTRATURA** — el registro de las Altas Cortes
+(leer SIEMPRE `references/estandar-altas-cortes.md`: problema jurídico
+canónico, disciplina de precedente, tests completos, citación pinpoint y
+verificación viva integrada):
 - Estructura de providencia: hechos relevantes → problema jurídico → marco
   normativo y jurisprudencial → subsunción (el silogismo explícito: premisa
   normativa, premisa fáctica, conclusión) → decisión/petición.
