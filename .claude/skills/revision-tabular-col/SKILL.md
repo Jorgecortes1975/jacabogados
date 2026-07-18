@@ -1,20 +1,14 @@
 ---
 name: revision-tabular-col
 description: >
-  Revisión tabular MASIVA de contratos en Colombia — una fila por contrato, una
-  columna por dato, cada celda con cita textual verificable y semáforo de riesgo
-  ROJO/AMARILLO/VERDE del playbook del despacho. Convierte lotes de contratos
-  (due diligence, auditoría de proveedores, portafolio de arrendamientos,
-  contratos laborales de un cliente corporativo) en una matriz comparable en
-  Excel/CSV/Markdown con evidencia rastreable. Activar ante:
-  revisión tabular, matriz de contratos, revisa estos contratos y sácame una
-  tabla, extrae estos campos de estos contratos, compara este lote de contratos,
-  auditoría masiva de contratos, due diligence contractual del target, grilla de
-  revisión, dame un Excel con las cláusulas de, revisión por lotes, carpeta de
-  contratos para comparar, semáforo de todo el portafolio. SIEMPRE activar
-  cuando el usuario señale varios contratos (3 o más) y pida compararlos,
-  extraer los mismos datos de todos o construir una tabla de cláusulas, riesgos
-  o hallazgos.
+  Revisión tabular MASIVA de contratos: una fila por contrato, columna por dato,
+  semáforo ROJO/AMARILLO/VERDE. Convierte lotes de contratos (due diligence,
+  auditoría proveedores, arrendamientos, laborales) en matriz comparable Excel/CSV/
+  Markdown con evidencia rastreable. Activar ante: revisión tabular, matriz
+  contratos, tabla de cláusulas, compara lote contratos, auditoría masiva,
+  due diligence contractual, extrae campos de contratos, semáforo portafolio.
+  SIEMPRE activar ante 3+ contratos para comparar, extraer datos o construir
+  tabla de cláusulas, riesgos o hallazgos.
 ---
 
 # Revisión Tabular de Contratos — Colombia

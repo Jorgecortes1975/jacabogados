@@ -1,18 +1,14 @@
 ---
 name: acuerdos-confidencialidad-col
 description: >
-  Revisión y redacción de acuerdos de confidencialidad (NDA) bajo derecho colombiano:
-  triaje VERDE/AMARILLO/ROJO de NDAs recibidos, redlines quirúrgicos y redacción de
-  minutas propias. Cubre secreto empresarial (Decisión 486 de 2000 CAN), competencia
-  desleal (Ley 256 de 1996), cláusula penal (Código Civil y Código de Comercio), datos
-  personales (Ley 1581 de 2012) y límites frente a trabajadores (CST: confidencialidad
-  sí; no competencia post-contractual restringida). Activar ante: NDA, acuerdo de
-  confidencialidad, convenio de confidencialidad, cláusula de confidencialidad, secreto
-  empresarial, información confidencial, revisar NDA de contraparte, redactar acuerdo de
-  reserva, cláusula penal por revelación, no divulgación, due diligence con información
-  sensible, confidencialidad de empleados o contratistas. SIEMPRE activar cuando el
-  usuario aporte o pida un acuerdo o cláusula de confidencialidad para revisar, negociar
-  o redactar en Colombia.
+  Revisión y redacción de acuerdos de confidencialidad (NDA) colombianos: triaje
+  VERDE/AMARILLO/ROJO, redlines y redacción. Secreto empresarial (Decisión 486
+  CAN), competencia desleal (Ley 256), cláusula penal, datos personales (Ley
+  1581), límites laborales (CST). Activar ante: NDA, acuerdo/convenio/cláusula
+  de confidencialidad, secreto empresarial, revisar NDA contraparte, redactar
+  acuerdo reserva, cláusula penal revelación, due diligence información sensible,
+  confidencialidad empleados/contratistas. SIEMPRE activar ante NDA o cláusula de
+  confidencialidad para revisar, negociar o redactar en Colombia.
 ---
 
 # Acuerdos de Confidencialidad (NDA) — Colombia
@@ -199,19 +195,17 @@ de la tabla maestra de `liquidador-aportes-col` cuando el NDA toque temas labora
 
 ## Granularidad del redline
 
-**Editar en la menor escala posible.** Un redline es un artefacto de negociación, no una
-reescritura. Reemplazar cláusulas enteras dice "botamos su redacción"; el redline
-quirúrgico dice "tenemos pedidos concretos" y se lee, entiende y acepta más rápido:
-palabra antes que frase; frase antes que oración; reestructurar el literal antes que
-reemplazar la oración; oración antes que cláusula; cláusula entera solo cuando lo demás
-sería ilegible — y decirlo en la remisión. En la duda, más pequeño.
+**Editar en la menor escala posible.** Un redline es un artefacto de negociación, no
+una reescritura: palabra antes que frase; frase antes que oración; reestructurar el
+literal antes que reemplazar la oración; oración antes que cláusula; cláusula entera
+solo cuando lo demás sería ilegible — y decirlo en la remisión. En la duda, más pequeño.
 
 ## Contexto de contraparte
 
-**Grandes empresas:** rara vez negocian NDAs. Calibrar: ¿la bandera roja es realmente
-rompe-tratos o solo "distinto a nuestra minuta"? Si la relación importa, la decisión de
-aceptar su papel se escala, no se toma aquí. **Startups y pymes:** suelen aceptar
-nuestra minuta; ante un NDA con problemas, la vía rápida es "usemos la nuestra".
+**Grandes empresas:** rara vez negocian NDAs. Calibrar si la bandera roja es realmente
+rompe-tratos o solo "distinto a nuestra minuta"; si la relación importa, la decisión de
+aceptar su papel se escala. **Startups y pymes:** suelen aceptar nuestra minuta; ante
+un NDA con problemas, la vía rápida es "usemos la nuestra".
 
 ## Reglas de salida
 

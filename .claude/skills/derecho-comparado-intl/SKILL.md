@@ -2,18 +2,12 @@
 name: derecho-comparado-intl
 description: >
   Investigación de derecho comparado multijurisdiccional (230+ jurisdicciones
-  vía MCP Legal Data Hunter y fuentes oficiales extranjeras) como módulo
-  INFORMATIVO E INDEPENDIENTE del despacho: valida contexto internacional y
-  produce informes comparados autónomos que NO se incorporan a escritos,
-  conceptos ni procesos colombianos (muro de separación por decisión del
-  despacho). Activar ante: derecho comparado, cómo se regula esto en otros
-  países, qué dice la ley de [país extranjero], benchmarking normativo,
-  comparativa multijurisdiccional, GDPR vs Ley 1581, legislación extranjera,
-  estándar internacional sobre [tema], cómo lo resuelven en Europa / EE.UU. /
-  Latinoamérica, tendencia regulatoria global. SIEMPRE activar cuando se
-  pregunte por derecho de una jurisdicción distinta de Colombia o por
-  comparaciones entre jurisdicciones — y NUNCA mezclar sus resultados con la
-  producción jurídica colombiana del despacho.
+  vía Legal Data Hunter) como módulo INFORMATIVO INDEPENDIENTE: informes
+  comparados que NO se incorporan a escritos colombianos (muro de separación).
+  Activar ante: derecho comparado, cómo se regula en otros países, qué dice la
+  ley de [país], benchmarking normativo, GDPR vs Ley 1581, legislación extranjera,
+  estándar internacional, tendencia regulatoria global. SIEMPRE activar ante
+  derecho de jurisdicción distinta de Colombia o comparaciones entre jurisdicciones.
 ---
 
 # DERECHO COMPARADO MULTIJURISDICCIONAL

@@ -1,18 +1,13 @@
 ---
 name: meta-prompt-maestro-col
 description: >
-  Capa maestra de meta-prompts jurídicos y corporativos de alta exigencia para
-  Colombia. Eleva y depura la producción de lexa-lab-ultra, lexa-lab-premium y
-  biblioteca-prompts-lexa: todo meta-prompt sale con 5 capas (rol y estándar,
-  insumos verificados, producción avanzada, control anti-alucinación,
-  señal/ruido) y con estándar de alta magistratura — el registro argumentativo
-  de las Altas Cortes — o de mixtura técnico-ejecutiva para audiencias
-  corporativas. Activar ante: meta-prompt, prompt profesional o maestro, refina
-  o mejora mi prompt, prompt de alta magistratura, texto con nivel de casación,
-  prompt corporativo o para junta, capas de control del prompt, depura la
-  biblioteca de prompts, estándar de producción de texto jurídico. SIEMPRE
-  activar cuando se genere, refine o audite un prompt o meta-prompt jurídico o
-  corporativo del despacho: define el estándar mínimo de salida.
+  Capa maestra de meta-prompts jurídicos y corporativos para Colombia con 5
+  capas: rol/estándar, insumos verificados, producción avanzada, control
+  anti-alucinación, señal/ruido. Estándar de alta magistratura o mixtura
+  técnico-ejecutiva corporativa. Activar ante: meta-prompt, refina/mejora mi
+  prompt, prompt de casación, prompt corporativo/junta, capas de control,
+  depura biblioteca prompts. SIEMPRE activar cuando se genere o refine un
+  prompt jurídico o corporativo del despacho.
 ---
 
 # META-PROMPT MAESTRO — Estándar de generación de prompts del despacho
