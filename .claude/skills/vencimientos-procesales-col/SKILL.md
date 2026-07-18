@@ -1,19 +1,13 @@
 ---
 name: vencimientos-procesales-col
 description: >
-  Gestión de términos y vencimientos procesales y regulatorios del despacho con
-  cómputo verificado de días hábiles (consulta EN VIVO el calendario oficial de
-  festivos de Colombia en Google Calendar, con filtrado de celebraciones no
-  festivas), doble control del conteo día a día y agenda automática en Google
-  Calendar con alertas escalonadas y registro auditable en el repositorio.
-  Activar ante: vencimiento, término procesal, plazo para contestar / apelar /
-  subsanar / recurrir, cuándo vence, computa el término, cuántos días hábiles,
-  ejecutoria, traslado, agenda el plazo, recuérdame la audiencia, caducidad,
-  prescripción, plazo regulatorio (SG-SST, UGPP, pila, renovación mercantil),
-  registra en mi calendario, qué vence esta semana, semáforo de plazos.
-  SIEMPRE activar cuando una fecha límite legal, procesal o regulatoria deba
-  calcularse, agendarse o revisarse, incluso si el usuario solo pide "un
-  recordatorio".
+  Gestión de términos y vencimientos procesales y regulatorios con cómputo
+  verificado de días hábiles. Doble control del conteo y agenda automática en
+  Google Calendar con alertas. Activar ante: vencimiento, término procesal,
+  plazo para contestar/apelar/recurrir, cuándo vence, días hábiles, ejecutoria,
+  caducidad, prescripción, plazo regulatorio (UGPP, PILA, renovación mercantil),
+  registra en calendario, qué vence esta semana, semáforo de plazos. SIEMPRE
+  activar ante cualquier fecha límite legal, procesal o regulatoria.
 ---
 
 # GESTOR DE VENCIMIENTOS PROCESALES — Colombia

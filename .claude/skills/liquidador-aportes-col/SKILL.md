@@ -2,17 +2,12 @@
 name: liquidador-aportes-col
 description: >
   Liquidación de nómina, aportes a seguridad social, parafiscales y prestaciones
-  sociales en Colombia con validación previa de parámetros y doble control
-  aritmético. Todo cálculo parte de la tabla de valores verificados del despacho
-  (references/tabla-valores-2026.md) y ningún parámetro PENDIENTE se usa en un
-  entregable a cliente sin verificación en vivo previa. Activar ante: liquidar
-  nómina, calcular aportes, cotizaciones, PILA, seguridad social del trabajador,
-  cuánto cuesta un empleado, costo de contratación, carga prestacional, liquidar
-  prestaciones (cesantías, prima, vacaciones, intereses), liquidación final de
-  contrato, recargos y horas extra, aportes de independientes, IBC, exoneración
-  de parafiscales, provisión de nómina, presupuesto de personal. SIEMPRE activar
-  cuando se pida cualquier cálculo de nómina, aportes o prestaciones bajo derecho
-  laboral colombiano, incluso si el usuario solo pide "un estimado".
+  en Colombia con validación de parámetros y doble control. Todo cálculo de tabla
+  de valores verificados del despacho (2026). Activar ante: liquidar nómina,
+  calcular aportes, PILA, seguridad social, costo de empleado, carga prestacional,
+  cesantías/prima/vacaciones, horas extra, recargos, aportes independientes, IBC,
+  exoneración parafiscales, provisión nómina. SIEMPRE activar ante cualquier
+  cálculo de nómina, aportes o prestaciones colombianas.
 ---
 
 # LIQUIDADOR DE APORTES Y NÓMINA — Colombia
