@@ -40,6 +40,10 @@ Reglas de uso del Nivel C:
 - NUNCA se cita un Nivel C como fuente de una alerta confirmada.
 - Su interpretación de la norma se descarta: solo se toma el dato de existencia
   y se va a confirmar el texto al Nivel A.
+- Una réplica no estatal del texto (aunque incluya el PDF completo de la norma)
+  NO convierte la señal en confirmada: si la norma no aparece en fuente Nivel A
+  ni en el Diario Oficial, el veredicto máximo es NO CONFIRMADO con reserva
+  expresa y ruta manual — nunca CONFIRMADO, por urgente que sea el plazo.
 
 ---
 
