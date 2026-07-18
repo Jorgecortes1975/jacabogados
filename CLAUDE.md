@@ -72,9 +72,14 @@ Archivo: `{empresa}/05-SEGUIMIENTO-{TRIM}.md`
 
 ### Seguridad Social
 - **Ley 100 de 1993**: Sistema Integral (Pensiones, Salud, Riesgos, Familia)
-- **UPC 2026**: $314.020 (unidad de pago por capitación, cambia anualmente)
-- **Salario Mínimo 2026**: $1.576.500
-- **Auxilio Transporte 2026**: $163.286
+- **UPC 2026**: fijada por Resolución 2764 de 2025 (Minsalud) — valor exacto **s/d,
+  pendiente de confirmar** en el PDF oficial (minsalud.gov.co/Normatividad_Nuevo,
+  inaccesible en la verificación del 18-jul-2026; señales Nivel C refieren UPC-C
+  $1.658.912,01/año — NO usar hasta confirmar en el texto oficial)
+- **Salario Mínimo 2026**: $1.750.905 (Decreto 1469 del 29-dic-2025, art. 1 —
+  verificado en transcripción oficial, Concepto DAFP 062131 de 2026, 18-jul-2026)
+- **Auxilio Transporte 2026**: $249.095 (Decreto 1470 del 29-dic-2025, art. 1 —
+  verificado en transcripción oficial, Concepto DAFP 005171 de 2026, 18-jul-2026)
 
 ### Reciente
 - **Ley 2294 de 2023**: Reforma tributaria
@@ -140,3 +145,4 @@ Archivo: `{empresa}/05-SEGUIMIENTO-{TRIM}.md`
 | Jul 10, 2026 | v1.0 — Estructura inicial, CLAUDE.md, templates base, cliente Telepatía |
 | Jul 10, 2026 | Normativa base + Prompts automáticos |
 | Jul 10, 2026 | Próximo: Diagnóstico Telepatía |
+| Jul 18, 2026 | Valores 2026 corregidos contra decretos (barrido Grupo 1, `vigilancia-normativa-col`): SMLMV $1.750.905 y auxilio $249.095 confirmados; UPC pendiente (s/d) |
