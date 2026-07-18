@@ -147,6 +147,11 @@ con URL y fecha de consulta. Los elementos [No verificado] o EN TRÁMITE no debe
 usarse como fundamento de decisiones hasta su confirmación en fuente primaria.
 ```
 
+**Proporcionalidad del formato**: la plantilla completa es para barridos. Para un
+chequeo puntual ("¿es cierto que...?", "¿está vigente...?") usar el formato compacto:
+veredicto directo en las primeras líneas → fundamento verificado con URL + fecha →
+acciones → una sola sección final "Pendientes y limitaciones". Sin secciones vacías.
+
 Clasificación de impacto (alineada con el flujo de diagnóstico del despacho):
 - **CRÍTICO**: exige acción del cliente en < 30 días o genera riesgo de sanción/litigio.
 - **MODERADO**: exige ajuste en el trimestre (contratos, aportes, políticas).
@@ -181,6 +186,14 @@ comunicación al cliente con `traduccion-ejecutiva-col` + `kit-entregables-col`.
    skill se ejecuta completo antes de entregar la alerta al cliente.
 7. **Valores anuales** (SMLMV, UPC, auxilio de transporte, bases de cotización) se
    verifican contra el decreto/resolución que los fija, no contra páginas de resumen.
+8. **Señal, no ruido.** El rigor va en el FONDO (verificación), no en la FORMA
+   (burocracia). En el entregable: la respuesta va PRIMERO, en las primeras líneas;
+   el proceso no se narra (no mencionar el skill, sus fases ni sus controles — el
+   lector recibe conclusiones, no metodología); cada control interno se ejecuta pero
+   solo deja huella visible cuando encontró algo (una sección sin contenido se reduce
+   a una línea o se omite); la extensión es proporcional a los hallazgos — un chequeo
+   puntual de dos normas no puede ocupar más que su propio fundamento. Un reporte que
+   da vueltas antes de responder es un reporte defectuoso, igual que uno sin fuentes.
 
 ---
 
