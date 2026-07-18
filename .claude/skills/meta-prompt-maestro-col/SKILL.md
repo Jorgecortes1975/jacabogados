@@ -1,21 +1,18 @@
 ---
 name: meta-prompt-maestro-col
 description: >
-  Capa maestra de generación de meta-prompts jurídicos y corporativos de alta
-  exigencia para Colombia. Eleva y depura la producción de lexa-lab-ultra,
-  lexa-lab-premium y biblioteca-prompts-lexa: todo meta-prompt generado debe
-  salir con las 5 capas (rol y estándar, insumos verificados, producción
-  avanzada, control anti-alucinación, señal/ruido) y con estándar de redacción
-  de alta magistratura — el registro argumentativo de las Altas Cortes — o de
-  mixtura técnico-ejecutiva cuando la audiencia es corporativa. Activar ante:
-  meta-prompt, prompt profesional, prompt maestro, refina este prompt, mejora
-  mi prompt, prompt de alta magistratura, redacción de alta corte, texto con
-  nivel de casación, prompt corporativo, prompt para junta o cliente empresarial,
-  capas de control del prompt, depura la biblioteca de prompts, estándar de
-  producción de texto jurídico. SIEMPRE activar cuando se genere, refine o
-  audite un prompt o meta-prompt jurídico o corporativo del despacho, incluso
-  si otro skill de prompting también se activa: este define el estándar mínimo
-  de salida.
+  Capa maestra de meta-prompts jurídicos y corporativos de alta exigencia para
+  Colombia. Eleva y depura la producción de lexa-lab-ultra, lexa-lab-premium y
+  biblioteca-prompts-lexa: todo meta-prompt sale con 5 capas (rol y estándar,
+  insumos verificados, producción avanzada, control anti-alucinación,
+  señal/ruido) y con estándar de alta magistratura — el registro argumentativo
+  de las Altas Cortes — o de mixtura técnico-ejecutiva para audiencias
+  corporativas. Activar ante: meta-prompt, prompt profesional o maestro, refina
+  o mejora mi prompt, prompt de alta magistratura, texto con nivel de casación,
+  prompt corporativo o para junta, capas de control del prompt, depura la
+  biblioteca de prompts, estándar de producción de texto jurídico. SIEMPRE
+  activar cuando se genere, refine o audite un prompt o meta-prompt jurídico o
+  corporativo del despacho: define el estándar mínimo de salida.
 ---
 
 # META-PROMPT MAESTRO — Estándar de generación de prompts del despacho

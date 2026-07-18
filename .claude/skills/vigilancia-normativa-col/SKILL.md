@@ -2,19 +2,17 @@
 name: vigilancia-normativa-col
 description: >
   Vigilancia de cambios normativos y jurisprudenciales de Colombia con verificación
-  rigurosa en fuentes oficiales EN VIVO y capa anti-fallas de 5 controles (anti-vicios,
-  anti-vacíos, anti-ambigüedades, anti-alucinaciones, anti-fallas operativas). Detecta
-  leyes, decretos, resoluciones, circulares y sentencias nuevas que afecten a los
-  clientes del despacho, verifica existencia y vigencia en fuentes primarias, y produce
-  alertas clasificadas por impacto con registro auditable. Activar ante: vigilancia
-  normativa, cambios normativos, qué cambió en la ley, alerta normativa, novedades
-  jurídicas, barrido normativo, monitorea el Diario Oficial, salió una ley nueva,
-  reforma laboral, reforma pensional, reforma tributaria, nueva sentencia de la Corte,
-  ¿está vigente esta norma?, ¿ya rige?, actualizar valores del año (salario mínimo,
-  UPC, auxilio de transporte), radar normativo, seguimiento trimestral de clientes.
-  SIEMPRE activar cuando se pida detectar, confirmar o reportar cambios en normas o
-  jurisprudencia colombiana, o cuando una decisión del despacho dependa de si una
-  norma cambió o sigue vigente.
+  EN VIVO en fuentes oficiales y capa anti-fallas de 5 controles (anti-vicios,
+  anti-vacíos, anti-ambigüedades, anti-alucinaciones, anti-fallas operativas).
+  Detecta leyes, decretos, resoluciones y sentencias nuevas, verifica existencia y
+  vigencia en fuentes primarias y produce alertas por impacto con registro auditable.
+  Activar ante: vigilancia normativa, cambios normativos, qué cambió en la ley,
+  alerta normativa, barrido normativo, salió una ley nueva, reforma laboral,
+  pensional o tributaria, nueva sentencia de la Corte, ¿está vigente?, ¿ya rige?,
+  valores del año (salario mínimo, UPC, auxilio de transporte), radar normativo,
+  seguimiento trimestral. SIEMPRE activar cuando se pida detectar, confirmar o
+  reportar cambios en normas o jurisprudencia colombiana, o cuando una decisión
+  dependa de si una norma cambió o sigue vigente.
 ---
 
 # VIGILANCIA NORMATIVA COLOMBIA
