@@ -87,6 +87,25 @@ al usuario. Desde que existe `vigilancia-normativa-col`, el estándar sube:
   maestra del despacho (`liquidador-aportes-col/references/tabla-valores-2026.md`)
   con su estado CONFIRMADO — jamás calculadas de memoria dentro del escrito.
 
+## 6. TÉCNICA DE CASACIÓN Y MENTALIDAD DE PONENTE (el máximo nivel)
+
+- **Cargos de casación con técnica estricta** (donde el rigor formal decide):
+  cada cargo es autónomo y completo; declarar la vía (directa: infracción de
+  la norma sin discutir hechos / indirecta: error de hecho o de derecho en la
+  valoración probatoria, identificando LA prueba mal valorada); nunca mezclar
+  vías en un mismo cargo; señalar la norma sustancial violada y el concepto de
+  la violación (infracción directa, aplicación indebida, interpretación
+  errónea). Un cargo técnicamente mal formulado se desestima sin estudiarse —
+  la técnica ES el fondo en casación.
+- **Mentalidad de ponente**: redactar cada escrito como el proyecto de la
+  providencia que quisiéramos que el juez firme — con la estructura, el nivel
+  de motivación y la prudencia de una sentencia: si un párrafo no podría
+  aparecer en la providencia que nos da la razón, no pertenece al escrito.
+- **Prueba de fuego final**: leer el escrito como el magistrado auxiliar que
+  busca razones para desestimarlo (requisitos formales, técnica, carga
+  argumentativa). Cada debilidad que ese lector hostil encontraría, se corrige
+  o se blinda antes de radicar.
+
 ---
 
 ## ORDEN DEL ENTREGABLE (señal/ruido aplicada a escritos)

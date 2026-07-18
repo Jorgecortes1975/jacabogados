@@ -86,6 +86,17 @@ skill NO aplica — remitir al ecosistema nacional.
 Lo no cubierto por las herramientas se declara fuera del alcance, no se
 improvisa.
 
+### 2.5 Método funcional (regla de oro del comparatista)
+
+Comparar **funciones, no etiquetas**: la pregunta correcta es "¿cómo resuelve
+esta jurisdicción el problema X?" y no "¿existe la figura Y?" (la misma función
+puede cumplirla una ley, un precedente, un convenio colectivo o una práctica
+administrativa según la familia jurídica). Antes de la tabla comparativa,
+fijar el **tertium comparationis**: el criterio común contra el que se compara
+cada jurisdicción (el problema regulado, no la institución local) — sin ese
+criterio explícito, la tabla compara peras con manzanas y el informe no se
+entrega.
+
 ### 3. Investigar por jurisdicción
 Una jurisdicción a la vez: norma aplicable → estado (vigente/reformada, hasta
 donde la fuente lo indique) → contenido relevante → fallo(s) clave si el tema
