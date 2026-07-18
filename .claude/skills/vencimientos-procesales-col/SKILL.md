@@ -56,6 +56,9 @@ Obtener del usuario o del expediente; lo que falte se pregunta:
   fecha es incierta, se computa con el peor escenario** (la más temprana).
 - Cliente, radicado, carpeta en `/casos/`, y si el término es **FATAL**
   (caducidad, prescripción, término para recurrir) — cambia las alertas.
+- **Producto que exige el término**: no todo vencimiento es solo una fecha —
+  la mayoría exige un entregable (demanda, contestación, recurso, alegato,
+  informe al cliente, concepto profesional). Capturarlo aquí define la FASE 6.
 
 ### FASE 2 — Cómputo con doble control
 
@@ -109,6 +112,29 @@ Cuando pidan el estado de plazos: cruzar `casos/00-VENCIMIENTOS.md` con
 - 🟢 VERDE: el resto, informativo
 Discrepancias entre calendario y registro se reportan — nunca se ignoran.
 
+### FASE 6 — Producción del entregable del vencimiento
+
+El gestor no solo avisa: cuando el término exige un producto, la alerta
+`🟡 PREPARAR` dispara su producción con el estándar del despacho
+(`meta-prompt-maestro-col`, 5 capas), según el destinatario:
+
+| Producto | Registro de producción | Skills que ejecutan |
+|---|---|---|
+| Demanda, contestación, recurso, alegato | **Alta magistratura**: problema jurídico → tesis → mejor argumento contrario → subsunción explícita; registro de Altas Cortes | `ecosistema-juridico-col` + `jurisprudencia-col` + `redactor-juridico-col` |
+| Informe de estado o avance al cliente | **Mixtura judicial-corporativa**: apertura ejecutiva (decisión/riesgo/costo), cuerpo técnico con rigor pleno, cierre operativo | `traduccion-ejecutiva-col` + `kit-entregables-col` |
+| Concepto profesional / dictamen | **Mixtura con núcleo de alta magistratura**: concepto técnico completo + resumen ejecutivo para el decisor no abogado | `meta-prompt-maestro-col` (plantilla maestra) + `subsuncion-juridica-col` |
+
+Reglas de producción:
+- El cronograma lo fija el cómputo: **borrador terminado a más tardar 2 días
+  hábiles antes del vencimiento** (los términos cortos ≤ 5 días: borrador el
+  mismo día de la alerta PREPARAR). El evento PREPARAR incluye qué producto y
+  con qué estándar.
+- Toda norma o fallo del entregable pasa por verificación en vivo
+  (`vigilancia-normativa-col`) y el documento cierra con `anti-hallucination-v3`
+  antes de radicar o enviar — sin excepción por urgencia del término.
+- El registro central anota el producto y su estado de producción junto al
+  vencimiento (columna Actuación).
+
 ---
 
 ## REGLAS DURAS
@@ -137,6 +163,7 @@ Discrepancias entre calendario y registro se reportan — nunca se ignoran.
 | `vigilancia-normativa-col` | Detecta nuevos plazos regulatorios (ej. SG-SST 31-jul) y cambios en términos legales |
 | `ecosistema-juridico-col` | Estrategia procesal alrededor del término |
 | `anti-hallucination-v3` | Cierre de entregables con cómputos a cliente |
+| `meta-prompt-maestro-col` | Estándar de producción de los entregables del término (alta magistratura / mixtura) — FASE 6 |
 
 ## REFERENCIAS
 
