@@ -185,13 +185,68 @@ Corte Constitucional (C-, SU- vinculantes; T- según línea) → CSJ casación �
 Consejo de Estado → Tribunales (auxiliar) → doctrina (auxiliar). Bloque de
 constitucionalidad cuando aplique.
 
-## VINCULACIÓN v2.0
+## VINCULACIÓN Y FLUJO DE VALIDACIÓN CRUZADA v2.1
 
-| Skill | Rol |
-|---|---|
-| `vigilancia-normativa-col` | Verificación viva de toda norma citada |
-| `liquidador-aportes-col` | Única fuente de cifras (tabla maestra CONFIRMADA) |
-| `meta-prompt-maestro-col` | Estándar de capas y mixtura técnico-ejecutiva |
-| `anti-hallucination-v3` | Cierre obligatorio antes de radicar o enviar |
-| `ecosistema-juridico-col` / `subsuncion-juridica-col` / `jurisprudencia-col` | Cadena de producción que esta skill depura |
-| `vencimientos-procesales-col` | Si el texto tiene término corriendo |
+| Skill | Rol | Cuándo activar |
+|---|---|---|
+| `vigilancia-normativa-col` | Verificación viva de toda norma citada (vigencia, texto, estado) | Antes de citar norma central en escrito |
+| `liquidador-aportes-col` | Única fuente de cifras (tabla maestra CONFIRMADA) | Toda cifra de aporte, salario, auxilio, prestación |
+| `meta-prompt-maestro-col` | Estándar de capas y estructura para meta-prompts | Cuando se genere prompt jurídico para redacción |
+| `anti-hallucination-v3` | Cierre obligatorio antes de radicar o enviar | Validación final; marca [No verificado] |
+| `jurisprudencia-col` | Audita líneas jurisprudenciales aportadas o generadas; verifica existencia, M.P., ratio, progresión | **NUEVA**: Toda línea jurisprudencial debe pasar aquí antes de entrar al escrito |
+| `vencimientos-procesales-col` | Si el texto tiene término corriendo | Plazo para contestar, recurrir, apelar |
+
+### FLUJO DE VALIDACIÓN CRUZADA (v2.1)
+
+Cuando REDACTOR-JURIDICO-COL depura un escrito (propio o del usuario):
+
+1. **INGESTA**: Recibe escrito + líneas jurisprudenciales + normas + cifras propuestas
+
+2. **FASE I (Extracción)**: Separa hechos · problemas jurídicos · normas · líneas · argumentos
+
+3. **FASE II (Validación cruzada)**:
+   - Cada **línea jurisprudencial** → `jurisprudencia-col` verifica: 
+     * Existencia de fallos (Corporación+Sala+Tipo/Número+Fecha+M.P.)
+     * Ratio extraída correctamente (método Wambaugh)
+     * Progresión clara (fundadora→hitos→consolidadora)
+     * Retorno: CONFIRMADA / PARCIAL / INCONSISTENTE
+   
+   - Cada **norma central** → `vigilancia-normativa-col` verifica:
+     * Vigencia y texto actual
+     * Estado (vigente / derogada / inexequible)
+     * Retorno: CONFIRMADA / EN TRÁMITE / NO CONFIRMADA
+   
+   - Cada **cifra** (salarios, aportes, auxilio, prestaciones) → `liquidador-aportes-col`:
+     * Consulta tabla maestra del despacho
+     * Retorno: CONFIRMADA + fecha / NO EN TABLA + indicación de cómo obtener
+
+4. **FASE III (Redacción de Alta Precisión)**: Con validación cruzada completada, redacta la versión final (o señala [No verificado] si algo falla)
+
+5. **FASE IV (Validación Final)**: `anti-hallucination-v3` cierra el escrito antes de entrega
+
+### RESULTADO DE REDACTOR-JURIDICO-COL (v2.1)
+
+```
+1. VEREDICTO EJECUTIVO
+   Calidad del escrito original [Alto/Medio/Bajo/Crítico]
+   Qué se corrigió (normas verificadas, líneas confirmadas, cifras validadas)
+   Qué riesgo se eliminó (falsos fallos, normas inventadas, cifras incorrectas)
+
+2. HALLAZGOS DE VALIDACIÓN CRUZADA
+   - Líneas jurisprudenciales: [CONFIRMADA] / [PARCIAL] / [INCONSISTENTE]
+     * Cada fallo: existencia + M.P. + ratio + vigencia
+   - Normas: [CONFIRMADA] / [EN TRÁMITE] / [NO CONFIRMADA]
+   - Cifras: [CONFIRMADA] + fecha / [NO EN TABLA]
+
+3. RIESGOS JURÍDICOS
+   Riesgo | Nivel | Acción recomendada
+
+4. VERSIÓN FINAL DEL TEXTO (lista para uso)
+   [Texto íntegro, redactado, con citas pinpoint, sin alucinaciones]
+
+5. ANEXO TÉCNICO
+   Cambios normativos y jurisprudenciales aplicados
+   Líneas verificadas con URL + fecha
+   Normas verificadas con vigencia + estado
+   Pendientes [No verificado] con ruta de confirmación
+```
