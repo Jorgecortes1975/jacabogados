@@ -130,11 +130,12 @@ Archivo: `{empresa}/05-SEGUIMIENTO-{TRIM}.md`
 ## SIGUIENTES PASOS
 
 1. ✅ Estructura de carpetas creada
-2. ✅ Cliente Telepatía importado con Intake
-3. ✅ Templates base en lugar
-4. ⏳ Normativa: Se carga en `/normativa/`
-5. ⏳ Prompts automatizados: Se crean en `/prompts/`
-6. ⏳ Primer diagnóstico: Con Telepatía
+2. ✅ Cliente Telepatía: Diagnóstico + Recomendaciones (falta INTAKE retroactivo)
+3. ✅ Cliente Recurly: INTAKE → Diagnóstico → Recomendaciones → Resumen
+4. ✅ Normativa: 5 resúmenes en `/normativa/`
+5. ✅ Prompts automatizados: 4 prompts en `/prompts/`
+6. ✅ GUIA-USO.md: Flujo completo de trabajo
+7. ⏳ **PRÓXIMOS**: Implementación de Telepatía + Recurly
 
 ---
 
@@ -144,5 +145,6 @@ Archivo: `{empresa}/05-SEGUIMIENTO-{TRIM}.md`
 |-------|--------|
 | Jul 10, 2026 | v1.0 — Estructura inicial, CLAUDE.md, templates base, cliente Telepatía |
 | Jul 10, 2026 | Normativa base + Prompts automáticos |
-| Jul 10, 2026 | Próximo: Diagnóstico Telepatía |
-| Jul 18, 2026 | Valores 2026 corregidos contra decretos (barrido Grupo 1, `vigilancia-normativa-col`): SMLMV $1.750.905 y auxilio $249.095 confirmados; UPC pendiente (s/d) |
+| Jul 10, 2026 | Diagnóstico Telepatía (riesgo ALTO, 5 hallazgos críticos) |
+| Jul 18, 2026 | Valores 2026 corregidos contra decretos: SMLMV $1.750.905 y auxilio $249.095 confirmados; UPC pendiente (s/d) |
+| Jul 19, 2026 | 🚀 **CONFIGURACIÓN REMOTA COMPLETADA** — Ambiente cloud activo, rama `claude/remote-control-vrhu5u`, GUIA-USO.md generado, clientes validados |
