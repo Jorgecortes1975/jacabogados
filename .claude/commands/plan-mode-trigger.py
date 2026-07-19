@@ -236,7 +236,14 @@ class PlanModeEngine:
 
     def confirm_execution(self) -> bool:
         """Solicita confirmación antes de ejecutar"""
-        response = input("¿Ejecutar este plan? (s/n): ").lower().strip()
+        print(f"\n📌 NOTA: Este plan será ejecutado por subagentes especializados:")
+        print(f"  - postgres-specialist (FASE 1)")
+        print(f"  - sync-orchestrator (FASE 2)")
+        print(f"  - security-architect (FASE 3)")
+        print(f"  - automation-engineer (FASE 4)")
+        print(f"  - operations-manager (FASE 5)")
+        print(f"\n💡 Usa @project-coordinator para orquestación automática")
+        response = input("\n¿Ejecutar este plan? (s/n): ").lower().strip()
         return response == "s"
 
 

