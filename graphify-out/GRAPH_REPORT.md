@@ -1,12 +1,18 @@
-# Graph Report - .  (2026-07-26)
+# Graph Report - jacabogados  (2026-07-26)
 
 ## Corpus Check
-- Corpus is ~7,638 words - fits in a single context window. You may not need a graph.
+- 2 files · ~7,638 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
 - 60 nodes · 126 edges · 9 communities
 - Extraction: 83% EXTRACTED · 16% INFERRED · 1% AMBIGUOUS · INFERRED: 20 edges (avg confidence: 0.86)
-- Token cost: 71,948 input · 0 output
+- Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `9622daa4`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Segmentacion y Nurturing de Prospectos
@@ -16,8 +22,8 @@
 - Contenido y Prospeccion en LinkedIn
 - Canales Digitales y Presencia Local
 - Hojas CRM y Dashboard
-- Etica y Cumplimiento Normativo
-- Hoja de Matriz y Estilos
+- Principios Eticos y Deontologicos del Marketing Juridico
+- crear_matriz
 
 ## God Nodes (most connected - your core abstractions)
 1. `crear_dashboard()` - 10 edges
@@ -81,11 +87,11 @@ Nodes (7): Decreto 0581 de 2026 (tercerizacion laboral), Estrategia de Canales D
 Cohesion: 0.60
 Nodes (5): crear_crm(), crear_dashboard(), semaforo(), semaforo_fill(), semaforo_font()
 
-### Community 7 - "Etica y Cumplimiento Normativo"
+### Community 7 - "Principios Eticos y Deontologicos del Marketing Juridico"
 Cohesion: 0.50
 Nodes (4): Confidencialidad en Casos de Exito (anonimizacion), Ley 1123 de 2007 (Codigo Disciplinario del Abogado), Ley 1581 de 2012 (Habeas Data), Principios Eticos y Deontologicos del Marketing Juridico
 
-### Community 8 - "Hoja de Matriz y Estilos"
+### Community 8 - "crear_matriz"
 Cohesion: 0.67
 Nodes (3): crear_matriz(), left(), thin_border()
 

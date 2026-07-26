@@ -61,6 +61,7 @@
       "_origin": "ast",
       "id": "generar_crm",
       "community": 1,
+      "community_name": "Nucleo del Generador CRM",
       "norm_label": "generar_crm.py"
     },
     {
@@ -71,6 +72,7 @@
       "_origin": "ast",
       "id": "generar_crm_header_fill",
       "community": 1,
+      "community_name": "Nucleo del Generador CRM",
       "norm_label": "header_fill()"
     },
     {
@@ -81,6 +83,7 @@
       "_origin": "ast",
       "id": "generar_crm_header_font",
       "community": 1,
+      "community_name": "Nucleo del Generador CRM",
       "norm_label": "header_font()"
     },
     {
@@ -91,6 +94,7 @@
       "_origin": "ast",
       "id": "generar_crm_cell_font",
       "community": 1,
+      "community_name": "Nucleo del Generador CRM",
       "norm_label": "cell_font()"
     },
     {
@@ -101,6 +105,7 @@
       "_origin": "ast",
       "id": "generar_crm_center",
       "community": 1,
+      "community_name": "Nucleo del Generador CRM",
       "norm_label": "center()"
     },
     {
@@ -111,6 +116,7 @@
       "_origin": "ast",
       "id": "generar_crm_left",
       "community": 8,
+      "community_name": "crear_matriz",
       "norm_label": "left()"
     },
     {
@@ -121,6 +127,7 @@
       "_origin": "ast",
       "id": "generar_crm_thin_border",
       "community": 8,
+      "community_name": "crear_matriz",
       "norm_label": "thin_border()"
     },
     {
@@ -131,6 +138,7 @@
       "_origin": "ast",
       "id": "generar_crm_semaforo",
       "community": 6,
+      "community_name": "Hojas CRM y Dashboard",
       "norm_label": "semaforo()"
     },
     {
@@ -141,6 +149,7 @@
       "_origin": "ast",
       "id": "generar_crm_semaforo_fill",
       "community": 6,
+      "community_name": "Hojas CRM y Dashboard",
       "norm_label": "semaforo_fill()"
     },
     {
@@ -151,6 +160,7 @@
       "_origin": "ast",
       "id": "generar_crm_semaforo_font",
       "community": 6,
+      "community_name": "Hojas CRM y Dashboard",
       "norm_label": "semaforo_font()"
     },
     {
@@ -161,6 +171,7 @@
       "_origin": "ast",
       "id": "generar_crm_crear_dashboard",
       "community": 6,
+      "community_name": "Hojas CRM y Dashboard",
       "norm_label": "crear_dashboard()"
     },
     {
@@ -171,6 +182,7 @@
       "_origin": "ast",
       "id": "generar_crm_crear_crm",
       "community": 6,
+      "community_name": "Hojas CRM y Dashboard",
       "norm_label": "crear_crm()"
     },
     {
@@ -181,6 +193,7 @@
       "_origin": "ast",
       "id": "generar_crm_crear_matriz",
       "community": 8,
+      "community_name": "crear_matriz",
       "norm_label": "crear_matriz()"
     },
     {
@@ -191,6 +204,7 @@
       "_origin": "ast",
       "id": "generar_crm_crear_mensajes",
       "community": 1,
+      "community_name": "Nucleo del Generador CRM",
       "norm_label": "crear_mensajes()"
     },
     {
@@ -201,6 +215,7 @@
       "_origin": "ast",
       "id": "generar_crm_crear_instrucciones",
       "community": 1,
+      "community_name": "Nucleo del Generador CRM",
       "norm_label": "crear_instrucciones()"
     },
     {
@@ -211,6 +226,7 @@
       "_origin": "ast",
       "id": "generar_crm_main",
       "community": 1,
+      "community_name": "Nucleo del Generador CRM",
       "norm_label": "main()"
     },
     {
@@ -222,9 +238,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_plan_marketing_digital",
       "community": 2,
-      "norm_label": "plan de marketing digital ja abogados v1.0"
+      "norm_label": "plan de marketing digital ja abogados v1.0",
+      "community_name": "Matriz de Evaluacion de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_plan_marketing_digital"
     },
     {
       "label": "JA Abogados (despacho, Medellin)",
@@ -235,9 +252,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_ja_abogados",
       "community": 2,
-      "norm_label": "ja abogados (despacho, medellin)"
+      "norm_label": "ja abogados (despacho, medellin)",
+      "community_name": "Matriz de Evaluacion de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_ja_abogados"
     },
     {
       "label": "Objetivo General del Sistema de Captacion",
@@ -248,9 +266,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_objetivo_general",
       "community": 2,
-      "norm_label": "objetivo general del sistema de captacion"
+      "norm_label": "objetivo general del sistema de captacion",
+      "community_name": "Matriz de Evaluacion de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_objetivo_general"
     },
     {
       "label": "Portafolio de 8 Pilares de Servicio",
@@ -261,9 +280,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_portafolio_ocho_pilares",
       "community": 2,
-      "norm_label": "portafolio de 8 pilares de servicio"
+      "norm_label": "portafolio de 8 pilares de servicio",
+      "community_name": "Matriz de Evaluacion de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_portafolio_ocho_pilares"
     },
     {
       "label": "Matriz de Evaluacion de Prospectos (Semaforo de Viabilidad)",
@@ -274,9 +294,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
       "community": 2,
-      "norm_label": "matriz de evaluacion de prospectos (semaforo de viabilidad)"
+      "norm_label": "matriz de evaluacion de prospectos (semaforo de viabilidad)",
+      "community_name": "Matriz de Evaluacion de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
     },
     {
       "label": "Ocho Criterios de Puntuacion (0-40 puntos)",
@@ -287,9 +308,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_criterios_puntuacion",
       "community": 2,
-      "norm_label": "ocho criterios de puntuacion (0-40 puntos)"
+      "norm_label": "ocho criterios de puntuacion (0-40 puntos)",
+      "community_name": "Matriz de Evaluacion de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_criterios_puntuacion"
     },
     {
       "label": "Clasificacion Semaforo (Verde/Amarillo/Naranja/Rojo)",
@@ -300,9 +322,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_clasificacion_semaforo",
       "community": 0,
-      "norm_label": "clasificacion semaforo (verde/amarillo/naranja/rojo)"
+      "norm_label": "clasificacion semaforo (verde/amarillo/naranja/rojo)",
+      "community_name": "Segmentacion y Nurturing de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_clasificacion_semaforo"
     },
     {
       "label": "Criterio de Competencia / Riesgo BigLaw",
@@ -313,9 +336,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_riesgo_biglaw",
       "community": 2,
-      "norm_label": "criterio de competencia / riesgo biglaw"
+      "norm_label": "criterio de competencia / riesgo biglaw",
+      "community_name": "Matriz de Evaluacion de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_riesgo_biglaw"
     },
     {
       "label": "Cartera de 17 Prospectos Identificados",
@@ -326,9 +350,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_diecisiete_prospectos",
       "community": 3,
-      "norm_label": "cartera de 17 prospectos identificados"
+      "norm_label": "cartera de 17 prospectos identificados",
+      "community_name": "Gestion y Seguimiento Comercial",
+      "id": "plan_marketing_digital_jaabogados_diecisiete_prospectos"
     },
     {
       "label": "Grupo A - Prioridad Alta (33-40 pts)",
@@ -339,9 +364,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_grupo_a_prioridad_alta",
       "community": 0,
-      "norm_label": "grupo a - prioridad alta (33-40 pts)"
+      "norm_label": "grupo a - prioridad alta (33-40 pts)",
+      "community_name": "Segmentacion y Nurturing de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_grupo_a_prioridad_alta"
     },
     {
       "label": "Grupo B - Nurturing a 30 dias (24-32 pts)",
@@ -352,9 +378,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_grupo_b_nurturing",
       "community": 0,
-      "norm_label": "grupo b - nurturing a 30 dias (24-32 pts)"
+      "norm_label": "grupo b - nurturing a 30 dias (24-32 pts)",
+      "community_name": "Segmentacion y Nurturing de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_grupo_b_nurturing"
     },
     {
       "label": "Grupo C - Seguimiento Pasivo (15-23 pts)",
@@ -365,9 +392,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_grupo_c_seguimiento_pasivo",
       "community": 0,
-      "norm_label": "grupo c - seguimiento pasivo (15-23 pts)"
+      "norm_label": "grupo c - seguimiento pasivo (15-23 pts)",
+      "community_name": "Segmentacion y Nurturing de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_grupo_c_seguimiento_pasivo"
     },
     {
       "label": "Telepatia (prospecto A, ronda US$42M a16z)",
@@ -378,9 +406,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_telepatia",
       "community": 2,
-      "norm_label": "telepatia (prospecto a, ronda us$42m a16z)"
+      "norm_label": "telepatia (prospecto a, ronda us$42m a16z)",
+      "community_name": "Matriz de Evaluacion de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_telepatia"
     },
     {
       "label": "Recurly Colombia (prospecto A, nueva entidad legal)",
@@ -391,9 +420,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_recurly_colombia",
       "community": 0,
-      "norm_label": "recurly colombia (prospecto a, nueva entidad legal)"
+      "norm_label": "recurly colombia (prospecto a, nueva entidad legal)",
+      "community_name": "Segmentacion y Nurturing de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_recurly_colombia"
     },
     {
       "label": "Health Prime Colombia (prospecto A, llegada 2025)",
@@ -404,9 +434,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_health_prime_colombia",
       "community": 0,
-      "norm_label": "health prime colombia (prospecto a, llegada 2025)"
+      "norm_label": "health prime colombia (prospecto a, llegada 2025)",
+      "community_name": "Segmentacion y Nurturing de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_health_prime_colombia"
     },
     {
       "label": "CapitalPocket/Pocki (fintech regulado SFC)",
@@ -417,9 +448,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_capitalpocket_pocki",
       "community": 0,
-      "norm_label": "capitalpocket/pocki (fintech regulado sfc)"
+      "norm_label": "capitalpocket/pocki (fintech regulado sfc)",
+      "community_name": "Segmentacion y Nurturing de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_capitalpocket_pocki"
     },
     {
       "label": "Drones Sky Solutions (regulacion Aerocivil)",
@@ -430,9 +462,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_drones_sky_solutions",
       "community": 0,
-      "norm_label": "drones sky solutions (regulacion aerocivil)"
+      "norm_label": "drones sky solutions (regulacion aerocivil)",
+      "community_name": "Segmentacion y Nurturing de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_drones_sky_solutions"
     },
     {
       "label": "Medvision (medtech regulado INVIMA)",
@@ -443,9 +476,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_medvision",
       "community": 0,
-      "norm_label": "medvision (medtech regulado invima)"
+      "norm_label": "medvision (medtech regulado invima)",
+      "community_name": "Segmentacion y Nurturing de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_medvision"
     },
     {
       "label": "Estrategia de Canales Digitales",
@@ -456,9 +490,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_estrategia_canales_digitales",
       "community": 5,
-      "norm_label": "estrategia de canales digitales"
+      "norm_label": "estrategia de canales digitales",
+      "community_name": "Canales Digitales y Presencia Local",
+      "id": "plan_marketing_digital_jaabogados_estrategia_canales_digitales"
     },
     {
       "label": "LinkedIn como Canal Principal B2B Legal",
@@ -469,9 +504,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_linkedin_canal_principal",
       "community": 4,
-      "norm_label": "linkedin como canal principal b2b legal"
+      "norm_label": "linkedin como canal principal b2b legal",
+      "community_name": "Contenido y Prospeccion en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_linkedin_canal_principal"
     },
     {
       "label": "Regla 3-2-1 de Contenido Semanal",
@@ -482,9 +518,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_regla_3_2_1",
       "community": 4,
-      "norm_label": "regla 3-2-1 de contenido semanal"
+      "norm_label": "regla 3-2-1 de contenido semanal",
+      "community_name": "Contenido y Prospeccion en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_regla_3_2_1"
     },
     {
       "label": "Acciones Diarias en LinkedIn (30 min/dia)",
@@ -495,9 +532,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin",
       "community": 3,
-      "norm_label": "acciones diarias en linkedin (30 min/dia)"
+      "norm_label": "acciones diarias en linkedin (30 min/dia)",
+      "community_name": "Gestion y Seguimiento Comercial",
+      "id": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin"
     },
     {
       "label": "Cadenas Booleanas de Busqueda de Decisores",
@@ -508,9 +546,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_busquedas_decisores",
       "community": 4,
-      "norm_label": "cadenas booleanas de busqueda de decisores"
+      "norm_label": "cadenas booleanas de busqueda de decisores",
+      "community_name": "Contenido y Prospeccion en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_busquedas_decisores"
     },
     {
       "label": "Instagram como Canal de Marca Personal",
@@ -521,9 +560,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_instagram_marca_personal",
       "community": 5,
-      "norm_label": "instagram como canal de marca personal"
+      "norm_label": "instagram como canal de marca personal",
+      "community_name": "Canales Digitales y Presencia Local",
+      "id": "plan_marketing_digital_jaabogados_instagram_marca_personal"
     },
     {
       "label": "WhatsApp Business como Canal de Conversion",
@@ -534,9 +574,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_whatsapp_business",
       "community": 5,
-      "norm_label": "whatsapp business como canal de conversion"
+      "norm_label": "whatsapp business como canal de conversion",
+      "community_name": "Canales Digitales y Presencia Local",
+      "id": "plan_marketing_digital_jaabogados_whatsapp_business"
     },
     {
       "label": "Pagina Web / Landing Page",
@@ -547,9 +588,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_landing_page_web",
       "community": 5,
-      "norm_label": "pagina web / landing page"
+      "norm_label": "pagina web / landing page",
+      "community_name": "Canales Digitales y Presencia Local",
+      "id": "plan_marketing_digital_jaabogados_landing_page_web"
     },
     {
       "label": "SEO Local con Palabras Clave Colombia",
@@ -560,9 +602,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_seo_local",
       "community": 5,
-      "norm_label": "seo local con palabras clave colombia"
+      "norm_label": "seo local con palabras clave colombia",
+      "community_name": "Canales Digitales y Presencia Local",
+      "id": "plan_marketing_digital_jaabogados_seo_local"
     },
     {
       "label": "Google Business Profile (visibilidad local)",
@@ -573,9 +616,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_google_business_profile",
       "community": 5,
-      "norm_label": "google business profile (visibilidad local)"
+      "norm_label": "google business profile (visibilidad local)",
+      "community_name": "Canales Digitales y Presencia Local",
+      "id": "plan_marketing_digital_jaabogados_google_business_profile"
     },
     {
       "label": "Directorios y Plataformas Juridicas en Colombia",
@@ -586,9 +630,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_directorios_juridicos",
       "community": 0,
-      "norm_label": "directorios y plataformas juridicas en colombia"
+      "norm_label": "directorios y plataformas juridicas en colombia",
+      "community_name": "Segmentacion y Nurturing de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_directorios_juridicos"
     },
     {
       "label": "Sistema de Gestion de Prospectos (CRM Simple)",
@@ -599,9 +644,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_crm_simple",
       "community": 3,
-      "norm_label": "sistema de gestion de prospectos (crm simple)"
+      "norm_label": "sistema de gestion de prospectos (crm simple)",
+      "community_name": "Gestion y Seguimiento Comercial",
+      "id": "plan_marketing_digital_jaabogados_crm_simple"
     },
     {
       "label": "Tabla de Seguimiento de Prospectos (esquema de campos)",
@@ -612,9 +658,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos",
       "community": 3,
-      "norm_label": "tabla de seguimiento de prospectos (esquema de campos)"
+      "norm_label": "tabla de seguimiento de prospectos (esquema de campos)",
+      "community_name": "Gestion y Seguimiento Comercial",
+      "id": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos"
     },
     {
       "label": "Secuencia de Nurturing a 30 dias",
@@ -625,9 +672,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_secuencia_nurturing_30_dias",
       "community": 0,
-      "norm_label": "secuencia de nurturing a 30 dias"
+      "norm_label": "secuencia de nurturing a 30 dias",
+      "community_name": "Segmentacion y Nurturing de Prospectos",
+      "id": "plan_marketing_digital_jaabogados_secuencia_nurturing_30_dias"
     },
     {
       "label": "Contenido Juridico para Posicionamiento",
@@ -638,9 +686,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_content_marketing_juridico",
       "community": 4,
-      "norm_label": "contenido juridico para posicionamiento"
+      "norm_label": "contenido juridico para posicionamiento",
+      "community_name": "Contenido y Prospeccion en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_content_marketing_juridico"
     },
     {
       "label": "Guias Descargables PDF (captura de emails)",
@@ -651,9 +700,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_guias_descargables_lead_magnet",
       "community": 4,
-      "norm_label": "guias descargables pdf (captura de emails)"
+      "norm_label": "guias descargables pdf (captura de emails)",
+      "community_name": "Contenido y Prospeccion en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_guias_descargables_lead_magnet"
     },
     {
       "label": "Newsletter mensual 'Consulta Juridica Ejecutiva'",
@@ -664,9 +714,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva",
       "community": 4,
-      "norm_label": "newsletter mensual 'consulta juridica ejecutiva'"
+      "norm_label": "newsletter mensual 'consulta juridica ejecutiva'",
+      "community_name": "Contenido y Prospeccion en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva"
     },
     {
       "label": "Metricas e Indicadores (KPIs semanales y mensuales)",
@@ -677,9 +728,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_kpis",
       "community": 3,
-      "norm_label": "metricas e indicadores (kpis semanales y mensuales)"
+      "norm_label": "metricas e indicadores (kpis semanales y mensuales)",
+      "community_name": "Gestion y Seguimiento Comercial",
+      "id": "plan_marketing_digital_jaabogados_kpis"
     },
     {
       "label": "Stack de Herramientas Digitales Recomendadas",
@@ -690,9 +742,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_herramientas_digitales",
       "community": 4,
-      "norm_label": "stack de herramientas digitales recomendadas"
+      "norm_label": "stack de herramientas digitales recomendadas",
+      "community_name": "Contenido y Prospeccion en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_herramientas_digitales"
     },
     {
       "label": "Plan de Implementacion - Primeras 8 Semanas",
@@ -703,9 +756,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
       "community": 3,
-      "norm_label": "plan de implementacion - primeras 8 semanas"
+      "norm_label": "plan de implementacion - primeras 8 semanas",
+      "community_name": "Gestion y Seguimiento Comercial",
+      "id": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas"
     },
     {
       "label": "Principios Eticos y Deontologicos del Marketing Juridico",
@@ -716,9 +770,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_principios_eticos",
       "community": 7,
-      "norm_label": "principios eticos y deontologicos del marketing juridico"
+      "norm_label": "principios eticos y deontologicos del marketing juridico",
+      "community_name": "Principios Eticos y Deontologicos del Marketing Juridico",
+      "id": "plan_marketing_digital_jaabogados_principios_eticos"
     },
     {
       "label": "Ley 1123 de 2007 (Codigo Disciplinario del Abogado)",
@@ -729,9 +784,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_ley_1123_2007",
       "community": 7,
-      "norm_label": "ley 1123 de 2007 (codigo disciplinario del abogado)"
+      "norm_label": "ley 1123 de 2007 (codigo disciplinario del abogado)",
+      "community_name": "Principios Eticos y Deontologicos del Marketing Juridico",
+      "id": "plan_marketing_digital_jaabogados_ley_1123_2007"
     },
     {
       "label": "Ley 1581 de 2012 (Habeas Data)",
@@ -742,9 +798,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_ley_1581_2012",
       "community": 7,
-      "norm_label": "ley 1581 de 2012 (habeas data)"
+      "norm_label": "ley 1581 de 2012 (habeas data)",
+      "community_name": "Principios Eticos y Deontologicos del Marketing Juridico",
+      "id": "plan_marketing_digital_jaabogados_ley_1581_2012"
     },
     {
       "label": "Decreto 0581 de 2026 (tercerizacion laboral)",
@@ -755,9 +812,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_decreto_0581_2026",
       "community": 5,
-      "norm_label": "decreto 0581 de 2026 (tercerizacion laboral)"
+      "norm_label": "decreto 0581 de 2026 (tercerizacion laboral)",
+      "community_name": "Canales Digitales y Presencia Local",
+      "id": "plan_marketing_digital_jaabogados_decreto_0581_2026"
     },
     {
       "label": "Confidencialidad en Casos de Exito (anonimizacion)",
@@ -768,9 +826,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_confidencialidad_casos_exito",
       "community": 7,
-      "norm_label": "confidencialidad en casos de exito (anonimizacion)"
+      "norm_label": "confidencialidad en casos de exito (anonimizacion)",
+      "community_name": "Principios Eticos y Deontologicos del Marketing Juridico",
+      "id": "plan_marketing_digital_jaabogados_confidencialidad_casos_exito"
     },
     {
       "label": "Resumen Ejecutivo - 5 Pasos para Arrancar Hoy",
@@ -781,9 +840,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos",
       "community": 3,
-      "norm_label": "resumen ejecutivo - 5 pasos para arrancar hoy"
+      "norm_label": "resumen ejecutivo - 5 pasos para arrancar hoy",
+      "community_name": "Gestion y Seguimiento Comercial",
+      "id": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos"
     }
   ],
   "links": [
@@ -2176,5 +2236,5 @@
       "source_file": "plan_marketing_digital_jaabogados.md"
     }
   ],
-  "built_at_commit": "8f2d526155d4176dc4369e092c1bd925909f7e90"
+  "built_at_commit": "9622daa46f99d17645767321a1d750afe1983cd7"
 }

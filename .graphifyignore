@@ -16,8 +16,12 @@ out/
 target/
 *.egg-info/
 
-# Salida del propio graphify
+# Salida y andamiaje del propio graphify
 graphify-out/
+CLAUDE.md
+AGENTS.md
+.claude/
+.codex/
 
 # Control de versiones
 .git/
