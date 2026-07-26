@@ -1,41 +1,19 @@
-# Dependencias
+# .graphifyignore — sintaxis idéntica a .gitignore
 node_modules/
-.venv/
-venv/
-env/
-__pycache__/
-.mypy_cache/
-.pytest_cache/
-.ruff_cache/
-
-# Builds y artefactos
 .next/
 dist/
 build/
-out/
-target/
-*.egg-info/
+.venv/
+vendor/
+*.generated.ts
+docs/translations/
+public/assets/
 
-# Salida y andamiaje del propio graphify
+# --- Necesarias en este repo (no quitar) ---
+# Salida del propio graphify: indexarla haria que el grafo se describa a si mismo
 graphify-out/
+# Andamiaje que genera `graphify claude/codex install`, no es contenido del proyecto
 CLAUDE.md
 AGENTS.md
 .claude/
 .codex/
-
-# Control de versiones
-.git/
-
-# Assets pesados
-assets/
-static/
-public/
-media/
-uploads/
-*.mp4
-*.mov
-*.avi
-*.zip
-*.tar.gz
-*.psd
-*.ai
