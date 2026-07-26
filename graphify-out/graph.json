@@ -48,86 +48,73 @@
         "confidence": "EXTRACTED",
         "confidence_score": 1.0,
         "source_file": "plan_marketing_digital_jaabogados.md"
+      },
+      {
+        "id": "pipeline_scoring_prospectos",
+        "label": "Pipeline de puntuaci\u00f3n: criterios C1\u2013C8 \u2192 TOTAL /40 \u2192 clasificaci\u00f3n sem\u00e1foro en el CRM",
+        "nodes": [
+          "graphify_out_converted_crm_jaabogados_f5624444_c1_senal_reciente",
+          "graphify_out_converted_crm_jaabogados_f5624444_c2_alineacion_servicios",
+          "graphify_out_converted_crm_jaabogados_f5624444_c3_tamano_capacidad_pago",
+          "graphify_out_converted_crm_jaabogados_f5624444_c4_acceso_al_decisor",
+          "graphify_out_converted_crm_jaabogados_f5624444_c5_madurez_legal",
+          "graphify_out_converted_crm_jaabogados_f5624444_c6_presencia_en_medellin",
+          "graphify_out_converted_crm_jaabogados_f5624444_c7_urgencia_del_problema",
+          "graphify_out_converted_crm_jaabogados_f5624444_c8_sin_riesgo_biglaw",
+          "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+          "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo",
+          "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md"
+      },
+      {
+        "id": "rutina_operativa_semanal_crm",
+        "label": "Rutina operativa semanal: lunes Verde, martes Amarillo/nurturing, viernes altas nuevas, fin de mes Naranja",
+        "nodes": [
+          "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado",
+          "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde",
+          "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo",
+          "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja",
+          "graphify_out_converted_crm_jaabogados_f5624444_procedimiento_agregar_prospecto",
+          "graphify_out_converted_crm_jaabogados_f5624444_campo_estado_prospecto",
+          "graphify_out_converted_crm_jaabogados_f5624444_revision_mensual_naranja"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md"
+      },
+      {
+        "id": "secuencia_outreach_linkedin",
+        "label": "Secuencia de outreach en LinkedIn: conexi\u00f3n \u2192 DM inicial \u2192 seguimiento, bajo las reglas de oro",
+        "nodes": [
+          "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_conexion_linkedin",
+          "graphify_out_converted_crm_jaabogados_f5624444_primer_mensaje_dm",
+          "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_seguimiento",
+          "graphify_out_converted_crm_jaabogados_f5624444_oferta_revision_gratuita",
+          "graphify_out_converted_crm_jaabogados_f5624444_regla_conversacion_no_venta",
+          "graphify_out_converted_crm_jaabogados_f5624444_limite_mensajes_linkedin"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md"
       }
     ]
   },
   "nodes": [
-    {
-      "label": "crm_jaabogados_f5624444.md",
-      "file_type": "document",
-      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444",
-      "community": 7,
-      "community_name": "crm_jaabogados_f5624444.md",
-      "norm_label": "crm_jaabogados_f5624444.md"
-    },
-    {
-      "label": "Sheet: \ud83d\udcca Dashboard",
-      "file_type": "document",
-      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_sheet_dashboard",
-      "community": 7,
-      "community_name": "crm_jaabogados_f5624444.md",
-      "norm_label": "sheet: \ud83d\udcca dashboard"
-    },
-    {
-      "label": "Sheet: \ud83d\udccb CRM Prospectos",
-      "file_type": "document",
-      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_sheet_crm_prospectos",
-      "community": 7,
-      "community_name": "crm_jaabogados_f5624444.md",
-      "norm_label": "sheet: \ud83d\udccb crm prospectos"
-    },
-    {
-      "label": "Sheet: \ud83c\udfaf Matriz de Evaluaci\u00f3n",
-      "file_type": "document",
-      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
-      "source_location": "L51",
-      "_origin": "ast",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_sheet_matriz_de_evaluaci\u00f3n",
-      "community": 7,
-      "community_name": "crm_jaabogados_f5624444.md",
-      "norm_label": "sheet: \ud83c\udfaf matriz de evaluacion"
-    },
-    {
-      "label": "Sheet: \u2709\ufe0f Mensajes",
-      "file_type": "document",
-      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
-      "source_location": "L70",
-      "_origin": "ast",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_sheet_mensajes",
-      "community": 7,
-      "community_name": "crm_jaabogados_f5624444.md",
-      "norm_label": "sheet: \u2709\ufe0f mensajes"
-    },
-    {
-      "label": "Sheet: \ud83d\udcd6 Instrucciones",
-      "file_type": "document",
-      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
-      "source_location": "L91",
-      "_origin": "ast",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_sheet_instrucciones",
-      "community": 7,
-      "community_name": "crm_jaabogados_f5624444.md",
-      "norm_label": "sheet: \ud83d\udcd6 instrucciones"
-    },
     {
       "label": "generar_crm.py",
       "file_type": "code",
       "source_file": "generar_crm.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "generar_crm.py",
       "id": "generar_crm",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "generar_crm.py"
     },
     {
       "label": "header_fill()",
@@ -135,10 +122,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L263",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "header_fill()",
       "id": "generar_crm_header_fill",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "header_fill()"
     },
     {
       "label": "header_font()",
@@ -146,10 +132,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L266",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "header_font()",
       "id": "generar_crm_header_font",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "header_font()"
     },
     {
       "label": "cell_font()",
@@ -157,10 +142,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L269",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "cell_font()",
       "id": "generar_crm_cell_font",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "cell_font()"
     },
     {
       "label": "center()",
@@ -168,10 +152,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L272",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "center()",
       "id": "generar_crm_center",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "center()"
     },
     {
       "label": "left()",
@@ -179,10 +162,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L275",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "left()",
       "id": "generar_crm_left",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "left()"
     },
     {
       "label": "thin_border()",
@@ -190,10 +172,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L278",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "thin_border()",
       "id": "generar_crm_thin_border",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "thin_border()"
     },
     {
       "label": "semaforo()",
@@ -201,10 +182,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L282",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "semaforo()",
       "id": "generar_crm_semaforo",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "semaforo()"
     },
     {
       "label": "semaforo_fill()",
@@ -212,10 +192,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L288",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "semaforo_fill()",
       "id": "generar_crm_semaforo_fill",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "semaforo_fill()"
     },
     {
       "label": "semaforo_font()",
@@ -223,10 +202,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L294",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "semaforo_font()",
       "id": "generar_crm_semaforo_font",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "semaforo_font()"
     },
     {
       "label": "crear_dashboard()",
@@ -234,10 +212,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L302",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "crear_dashboard()",
       "id": "generar_crm_crear_dashboard",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "crear_dashboard()"
     },
     {
       "label": "crear_crm()",
@@ -245,10 +222,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L422",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "crear_crm()",
       "id": "generar_crm_crear_crm",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "crear_crm()"
     },
     {
       "label": "crear_matriz()",
@@ -256,10 +232,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L592",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "crear_matriz()",
       "id": "generar_crm_crear_matriz",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "crear_matriz()"
     },
     {
       "label": "crear_mensajes()",
@@ -267,10 +242,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L783",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "crear_mensajes()",
       "id": "generar_crm_crear_mensajes",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "crear_mensajes()"
     },
     {
       "label": "crear_instrucciones()",
@@ -278,10 +252,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L847",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "crear_instrucciones()",
       "id": "generar_crm_crear_instrucciones",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "crear_instrucciones()"
     },
     {
       "label": "main()",
@@ -289,10 +262,9 @@
       "source_file": "generar_crm.py",
       "source_location": "L926",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "main()",
       "id": "generar_crm_main",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "norm_label": "main()"
     },
     {
       "label": "Plan de Marketing Digital JA Abogados v1.0",
@@ -303,10 +275,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "plan de marketing digital ja abogados v1.0",
       "id": "plan_marketing_digital_jaabogados_plan_marketing_digital",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 1,
+      "norm_label": "plan de marketing digital ja abogados v1.0"
     },
     {
       "label": "Objetivo General del Sistema de Captacion",
@@ -318,10 +289,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Se busca un sistema profesional, etico y medible porque la captacion juridica en Colombia esta regulada; el objetivo combina atraccion organica, evaluacion de viabilidad/rentabilidad, gestion del ciclo de venta y construccion de reputacion digital de abogado consultor de alto valor.",
-      "community": 3,
-      "norm_label": "objetivo general del sistema de captacion",
       "id": "plan_marketing_digital_jaabogados_objetivo_general",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 1,
+      "norm_label": "objetivo general del sistema de captacion"
     },
     {
       "label": "Portafolio de Ocho Pilares de Servicio",
@@ -333,10 +303,9 @@
       "author": null,
       "contributor": null,
       "rationale": "El portafolio funciona como base de calificacion: los prospectos se evaluan contra los ocho pilares para decidir si hay encaje comercial antes de invertir tiempo de contacto.",
-      "community": 1,
-      "norm_label": "portafolio de ocho pilares de servicio",
       "id": "plan_marketing_digital_jaabogados_portafolio_servicios",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "portafolio de ocho pilares de servicio"
     },
     {
       "label": "Derecho Corporativo y M&A",
@@ -347,10 +316,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "derecho corporativo y m&a",
       "id": "plan_marketing_digital_jaabogados_derecho_corporativo_ma",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "derecho corporativo y m&a"
     },
     {
       "label": "Contratos y Compliance",
@@ -361,10 +329,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "contratos y compliance",
       "id": "plan_marketing_digital_jaabogados_contratos_compliance",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "contratos y compliance"
     },
     {
       "label": "Derecho Laboral y Litigios",
@@ -375,10 +342,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "derecho laboral y litigios",
       "id": "plan_marketing_digital_jaabogados_derecho_laboral_litigios",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "derecho laboral y litigios"
     },
     {
       "label": "Tributario y Financiero",
@@ -389,10 +355,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "tributario y financiero",
       "id": "plan_marketing_digital_jaabogados_tributario_financiero",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "tributario y financiero"
     },
     {
       "label": "Civil, Comercial y Administrativo",
@@ -403,10 +368,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "civil, comercial y administrativo",
       "id": "plan_marketing_digital_jaabogados_civil_comercial_administrativo",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "civil, comercial y administrativo"
     },
     {
       "label": "Redaccion Juridica Profesional",
@@ -417,10 +381,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "redaccion juridica profesional",
       "id": "plan_marketing_digital_jaabogados_redaccion_juridica_profesional",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "redaccion juridica profesional"
     },
     {
       "label": "Consultoria para Pymes",
@@ -431,10 +394,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "consultoria para pymes",
       "id": "plan_marketing_digital_jaabogados_consultoria_pymes",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "consultoria para pymes"
     },
     {
       "label": "Asesoria a Empresas Extranjeras",
@@ -445,10 +407,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "asesoria a empresas extranjeras",
       "id": "plan_marketing_digital_jaabogados_asesoria_empresas_extranjeras",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "asesoria a empresas extranjeras"
     },
     {
       "label": "Matriz de Evaluacion de Prospectos (Semaforo de Viabilidad)",
@@ -460,10 +421,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Ocho criterios puntuados 0-5 (maximo 40 puntos) convierten un juicio subjetivo de encaje en un puntaje comparable, para que el tiempo comercial escaso se asigne primero a los prospectos con mayor probabilidad de cierre y menor riesgo de competir con BigLaw.",
-      "community": 3,
-      "norm_label": "matriz de evaluacion de prospectos (semaforo de viabilidad)",
       "id": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 2,
+      "norm_label": "matriz de evaluacion de prospectos (semaforo de viabilidad)"
     },
     {
       "label": "Criterio: Senal de Oportunidad Reciente",
@@ -474,10 +434,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "criterio: senal de oportunidad reciente",
       "id": "plan_marketing_digital_jaabogados_criterio_senal_oportunidad",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 4,
+      "norm_label": "criterio: senal de oportunidad reciente"
     },
     {
       "label": "Criterio: Alineacion con Servicios",
@@ -488,10 +447,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "criterio: alineacion con servicios",
       "id": "plan_marketing_digital_jaabogados_criterio_alineacion_servicios",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "criterio: alineacion con servicios"
     },
     {
       "label": "Criterio: Tamano y Capacidad de Pago",
@@ -502,10 +460,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "criterio: tamano y capacidad de pago",
       "id": "plan_marketing_digital_jaabogados_criterio_capacidad_pago",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 2,
+      "norm_label": "criterio: tamano y capacidad de pago"
     },
     {
       "label": "Criterio: Acceso al Decisor",
@@ -516,10 +473,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "criterio: acceso al decisor",
       "id": "plan_marketing_digital_jaabogados_criterio_acceso_decisor",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "criterio: acceso al decisor"
     },
     {
       "label": "Criterio: Madurez Legal de la Empresa",
@@ -530,10 +486,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "criterio: madurez legal de la empresa",
       "id": "plan_marketing_digital_jaabogados_criterio_madurez_legal",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 2,
+      "norm_label": "criterio: madurez legal de la empresa"
     },
     {
       "label": "Criterio: Presencia en Medellin/Colombia",
@@ -544,10 +499,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "criterio: presencia en medellin/colombia",
       "id": "plan_marketing_digital_jaabogados_criterio_presencia_medellin",
-      "community_name": "Web, SEO Local y Stack de Herramientas"
+      "community": 1,
+      "norm_label": "criterio: presencia en medellin/colombia"
     },
     {
       "label": "Criterio: Urgencia del Problema Legal",
@@ -558,10 +512,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "criterio: urgencia del problema legal",
       "id": "plan_marketing_digital_jaabogados_criterio_urgencia_legal",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 2,
+      "norm_label": "criterio: urgencia del problema legal"
     },
     {
       "label": "Criterio: Competencia y Riesgo de BigLaw",
@@ -573,10 +526,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Se penaliza el prospecto que ya trabaja con una firma grande visible porque un despacho boutique no puede desplazarla con costo de adquisicion razonable; se premia la pyme o scaleup sin firma externa evidente.",
-      "community": 3,
-      "norm_label": "criterio: competencia y riesgo de biglaw",
       "id": "plan_marketing_digital_jaabogados_criterio_riesgo_biglaw",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 2,
+      "norm_label": "criterio: competencia y riesgo de biglaw"
     },
     {
       "label": "Prospecto A - Semaforo Verde (33-40)",
@@ -587,10 +539,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "prospecto a - semaforo verde (33-40)",
       "id": "plan_marketing_digital_jaabogados_prospecto_a_verde",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "prospecto a - semaforo verde (33-40)"
     },
     {
       "label": "Prospecto B - Semaforo Amarillo (24-32)",
@@ -601,10 +552,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "prospecto b - semaforo amarillo (24-32)",
       "id": "plan_marketing_digital_jaabogados_prospecto_b_amarillo",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 0,
+      "norm_label": "prospecto b - semaforo amarillo (24-32)"
     },
     {
       "label": "Prospecto C - Semaforo Naranja (15-23)",
@@ -615,10 +565,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "prospecto c - semaforo naranja (15-23)",
       "id": "plan_marketing_digital_jaabogados_prospecto_c_naranja",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 7,
+      "norm_label": "prospecto c - semaforo naranja (15-23)"
     },
     {
       "label": "Descartar - Semaforo Rojo (0-14)",
@@ -629,10 +578,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "descartar - semaforo rojo (0-14)",
       "id": "plan_marketing_digital_jaabogados_descartar_rojo",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 2,
+      "norm_label": "descartar - semaforo rojo (0-14)"
     },
     {
       "label": "Telepatia (36/40)",
@@ -643,10 +591,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "telepatia (36/40)",
       "id": "plan_marketing_digital_jaabogados_telepatia",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "telepatia (36/40)"
     },
     {
       "label": "Recurly Colombia (35/40)",
@@ -657,10 +604,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "recurly colombia (35/40)",
       "id": "plan_marketing_digital_jaabogados_recurly_colombia",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "recurly colombia (35/40)"
     },
     {
       "label": "Health Prime Colombia (34/40)",
@@ -671,10 +617,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "health prime colombia (34/40)",
       "id": "plan_marketing_digital_jaabogados_health_prime_colombia",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "health prime colombia (34/40)"
     },
     {
       "label": "CapitalPocket / Pocki (34/40)",
@@ -685,10 +630,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "capitalpocket / pocki (34/40)",
       "id": "plan_marketing_digital_jaabogados_capitalpocket_pocki",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "capitalpocket / pocki (34/40)"
     },
     {
       "label": "Drones Sky Solutions (33/40)",
@@ -699,10 +643,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "drones sky solutions (33/40)",
       "id": "plan_marketing_digital_jaabogados_drones_sky_solutions",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "drones sky solutions (33/40)"
     },
     {
       "label": "Netux (31/40)",
@@ -713,10 +656,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "netux (31/40)",
       "id": "plan_marketing_digital_jaabogados_netux",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 0,
+      "norm_label": "netux (31/40)"
     },
     {
       "label": "MovilBox (30/40)",
@@ -727,10 +669,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "movilbox (30/40)",
       "id": "plan_marketing_digital_jaabogados_movilbox",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "movilbox (30/40)"
     },
     {
       "label": "Medvision (30/40)",
@@ -741,10 +682,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "medvision (30/40)",
       "id": "plan_marketing_digital_jaabogados_medvision",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 0,
+      "norm_label": "medvision (30/40)"
     },
     {
       "label": "Erco Energia (29/40)",
@@ -755,10 +695,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "erco energia (29/40)",
       "id": "plan_marketing_digital_jaabogados_erco_energia",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 0,
+      "norm_label": "erco energia (29/40)"
     },
     {
       "label": "Golden Energy (28/40)",
@@ -769,10 +708,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "golden energy (28/40)",
       "id": "plan_marketing_digital_jaabogados_golden_energy",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 0,
+      "norm_label": "golden energy (28/40)"
     },
     {
       "label": "Somos Internet (27/40)",
@@ -783,10 +721,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "somos internet (27/40)",
       "id": "plan_marketing_digital_jaabogados_somos_internet",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 0,
+      "norm_label": "somos internet (27/40)"
     },
     {
       "label": "SiembraViva (25/40)",
@@ -797,10 +734,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "siembraviva (25/40)",
       "id": "plan_marketing_digital_jaabogados_siembraviva",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 7,
+      "norm_label": "siembraviva (25/40)"
     },
     {
       "label": "Azimut Energia (24/40)",
@@ -811,10 +747,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "azimut energia (24/40)",
       "id": "plan_marketing_digital_jaabogados_azimut_energia",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 0,
+      "norm_label": "azimut energia (24/40)"
     },
     {
       "label": "B2Chat (23/40)",
@@ -825,10 +760,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "b2chat (23/40)",
       "id": "plan_marketing_digital_jaabogados_b2chat",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 7,
+      "norm_label": "b2chat (23/40)"
     },
     {
       "label": "Aba Tech (22/40)",
@@ -839,10 +773,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "aba tech (22/40)",
       "id": "plan_marketing_digital_jaabogados_aba_tech",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 7,
+      "norm_label": "aba tech (22/40)"
     },
     {
       "label": "iQor Colombia (20/40)",
@@ -853,10 +786,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "iqor colombia (20/40)",
       "id": "plan_marketing_digital_jaabogados_iqor_colombia",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 2,
+      "norm_label": "iqor colombia (20/40)"
     },
     {
       "label": "TaskUs Colombia (18/40)",
@@ -867,10 +799,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "taskus colombia (18/40)",
       "id": "plan_marketing_digital_jaabogados_taskus_colombia",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 2,
+      "norm_label": "taskus colombia (18/40)"
     },
     {
       "label": "Estrategia de Canales Digitales",
@@ -881,10 +812,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "estrategia de canales digitales",
       "id": "plan_marketing_digital_jaabogados_estrategia_canales_digitales",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "estrategia de canales digitales"
     },
     {
       "label": "LinkedIn (Canal Principal B2B Legal)",
@@ -896,10 +826,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Es el canal numero uno porque el 80% de los decisores corporativos en Colombia lo usa y es el unico donde el abogado alcanza directamente al gerente, CFO o CEO sin intermediarios remunerados (lo cual ademas evita el riesgo disciplinario del Art. 34).",
-      "community": 4,
-      "norm_label": "linkedin (canal principal b2b legal)",
       "id": "plan_marketing_digital_jaabogados_linkedin",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "linkedin (canal principal b2b legal)"
     },
     {
       "label": "Checklist de Optimizacion del Perfil LinkedIn",
@@ -910,10 +839,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "checklist de optimizacion del perfil linkedin",
       "id": "plan_marketing_digital_jaabogados_checklist_perfil_linkedin",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "checklist de optimizacion del perfil linkedin"
     },
     {
       "label": "Regla 3-2-1 de Contenido Semanal",
@@ -925,10 +853,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Tres piezas educativas, dos de prueba social y una oferta directa por semana: la proporcion mantiene la cuenta como fuente de valor y limita la percepcion de venta agresiva, que en el marketing juridico erosiona la credibilidad.",
-      "community": 6,
-      "norm_label": "regla 3-2-1 de contenido semanal",
       "id": "plan_marketing_digital_jaabogados_regla_3_2_1",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 5,
+      "norm_label": "regla 3-2-1 de contenido semanal"
     },
     {
       "label": "Acciones Diarias en LinkedIn (30 min/dia)",
@@ -939,10 +866,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "acciones diarias en linkedin (30 min/dia)",
       "id": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 1,
+      "norm_label": "acciones diarias en linkedin (30 min/dia)"
     },
     {
       "label": "Busquedas Booleanas de Decisores",
@@ -953,10 +879,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "busquedas booleanas de decisores",
       "id": "plan_marketing_digital_jaabogados_busquedas_decisores",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "busquedas booleanas de decisores"
     },
     {
       "label": "Instagram (Canal de Marca Personal)",
@@ -968,10 +893,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Humaniza la marca y capta pymes y emprendedores que buscan abogado por primera vez, un segmento que no llega por LinkedIn.",
-      "community": 4,
-      "norm_label": "instagram (canal de marca personal)",
       "id": "plan_marketing_digital_jaabogados_instagram",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "instagram (canal de marca personal)"
     },
     {
       "label": "WhatsApp Business (Canal de Conversion)",
@@ -983,10 +907,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Numero dedicado y no el personal, con mensaje de bienvenida automatico y palabra clave URGENTE, para separar la vida privada del canal comercial y fijar expectativa de respuesta en menos de 2 horas.",
-      "community": 4,
-      "norm_label": "whatsapp business (canal de conversion)",
       "id": "plan_marketing_digital_jaabogados_whatsapp_business",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "whatsapp business (canal de conversion)"
     },
     {
       "label": "Pagina Web o Landing Page",
@@ -997,10 +920,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "pagina web o landing page",
       "id": "plan_marketing_digital_jaabogados_landing_page",
-      "community_name": "Web, SEO Local y Stack de Herramientas"
+      "community": 1,
+      "norm_label": "pagina web o landing page"
     },
     {
       "label": "SEO Local con Palabras Clave para Colombia",
@@ -1011,10 +933,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "seo local con palabras clave para colombia",
       "id": "plan_marketing_digital_jaabogados_seo_local",
-      "community_name": "Web, SEO Local y Stack de Herramientas"
+      "community": 1,
+      "norm_label": "seo local con palabras clave para colombia"
     },
     {
       "label": "Google Business Profile (Visibilidad Local)",
@@ -1026,10 +947,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Es critico porque captura la busqueda de intencion inmediata ('abogado corporativo cerca de mi') y con solo 5 resenas ya se posiciona, sin costo publicitario.",
-      "community": 4,
-      "norm_label": "google business profile (visibilidad local)",
       "id": "plan_marketing_digital_jaabogados_google_business_profile",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "google business profile (visibilidad local)"
     },
     {
       "label": "Directorios y Plataformas Juridicas en Colombia",
@@ -1040,10 +960,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "directorios y plataformas juridicas en colombia",
       "id": "plan_marketing_digital_jaabogados_directorios_juridicos",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "directorios y plataformas juridicas en colombia"
     },
     {
       "label": "Directorio Abogados Colombia (abogados.com.co)",
@@ -1054,10 +973,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "directorio abogados colombia (abogados.com.co)",
       "id": "plan_marketing_digital_jaabogados_abogados_com_co",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "directorio abogados colombia (abogados.com.co)"
     },
     {
       "label": "Consultopedia",
@@ -1068,10 +986,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "consultopedia",
       "id": "plan_marketing_digital_jaabogados_consultopedia",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "consultopedia"
     },
     {
       "label": "Letradoo (legaltech LATAM)",
@@ -1082,10 +999,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "letradoo (legaltech latam)",
       "id": "plan_marketing_digital_jaabogados_letradoo",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "letradoo (legaltech latam)"
     },
     {
       "label": "Camara de Comercio de Medellin",
@@ -1096,10 +1012,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "camara de comercio de medellin",
       "id": "plan_marketing_digital_jaabogados_camara_comercio_medellin",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "camara de comercio de medellin"
     },
     {
       "label": "ProColombia",
@@ -1110,10 +1025,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "procolombia",
       "id": "plan_marketing_digital_jaabogados_procolombia",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "procolombia"
     },
     {
       "label": "ACI Medellin (inversion extranjera)",
@@ -1124,10 +1038,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
-      "norm_label": "aci medellin (inversion extranjera)",
       "id": "plan_marketing_digital_jaabogados_aci_medellin",
-      "community_name": "Portafolio de Servicios y Prospectos Verdes"
+      "community": 3,
+      "norm_label": "aci medellin (inversion extranjera)"
     },
     {
       "label": "Sistema de Gestion de Prospectos (CRM Simple)",
@@ -1139,10 +1052,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Se evita software costoso al inicio: una hoja de calculo o Notion con once campos basta hasta que el volumen justifique HubSpot; el campo 'Puntaje semaforo' enlaza el CRM con la matriz de la seccion 3.",
-      "community": 5,
-      "norm_label": "sistema de gestion de prospectos (crm simple)",
       "id": "plan_marketing_digital_jaabogados_crm_simple",
-      "community_name": "Web, SEO Local y Stack de Herramientas"
+      "community": 4,
+      "norm_label": "sistema de gestion de prospectos (crm simple)"
     },
     {
       "label": "Tabla de Seguimiento de Prospectos (Esquema de Campos)",
@@ -1153,10 +1065,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "tabla de seguimiento de prospectos (esquema de campos)",
       "id": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 4,
+      "norm_label": "tabla de seguimiento de prospectos (esquema de campos)"
     },
     {
       "label": "Google Sheets",
@@ -1167,10 +1078,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "google sheets",
       "id": "plan_marketing_digital_jaabogados_google_sheets",
-      "community_name": "Web, SEO Local y Stack de Herramientas"
+      "community": 4,
+      "norm_label": "google sheets"
     },
     {
       "label": "Notion",
@@ -1181,10 +1091,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "notion",
       "id": "plan_marketing_digital_jaabogados_notion",
-      "community_name": "Web, SEO Local y Stack de Herramientas"
+      "community": 4,
+      "norm_label": "notion"
     },
     {
       "label": "HubSpot CRM gratuito",
@@ -1195,10 +1104,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "hubspot crm gratuito",
       "id": "plan_marketing_digital_jaabogados_hubspot_crm",
-      "community_name": "Web, SEO Local y Stack de Herramientas"
+      "community": 4,
+      "norm_label": "hubspot crm gratuito"
     },
     {
       "label": "Trello",
@@ -1209,10 +1117,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "trello",
       "id": "plan_marketing_digital_jaabogados_trello",
-      "community_name": "Web, SEO Local y Stack de Herramientas"
+      "community": 4,
+      "norm_label": "trello"
     },
     {
       "label": "Secuencia de Nurturing a 30 Dias",
@@ -1224,10 +1131,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Cuatro semanas escalonadas: conexion sin vender, aporte de valor, oferta suave y cierre o pausa. El orden difiere la oferta hasta el dia 18 porque el prospecto B/C aun no reconoce la necesidad juridica; presionar antes quema el contacto.",
-      "community": 6,
-      "norm_label": "secuencia de nurturing a 30 dias",
       "id": "plan_marketing_digital_jaabogados_secuencia_nurturing",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 5,
+      "norm_label": "secuencia de nurturing a 30 dias"
     },
     {
       "label": "Contenido Juridico para Posicionamiento",
@@ -1238,10 +1144,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "contenido juridico para posicionamiento",
       "id": "plan_marketing_digital_jaabogados_content_marketing",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 5,
+      "norm_label": "contenido juridico para posicionamiento"
     },
     {
       "label": "Posts Educativos",
@@ -1252,10 +1157,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "posts educativos",
       "id": "plan_marketing_digital_jaabogados_posts_educativos",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 1,
+      "norm_label": "posts educativos"
     },
     {
       "label": "Casos de Exito sin Datos Confidenciales",
@@ -1266,10 +1170,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "casos de exito sin datos confidenciales",
       "id": "plan_marketing_digital_jaabogados_casos_exito",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 5,
+      "norm_label": "casos de exito sin datos confidenciales"
     },
     {
       "label": "Guias Descargables para Captura de Emails",
@@ -1280,10 +1183,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "guias descargables para captura de emails",
       "id": "plan_marketing_digital_jaabogados_guias_descargables",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 5,
+      "norm_label": "guias descargables para captura de emails"
     },
     {
       "label": "Newsletter Consulta Juridica Ejecutiva",
@@ -1294,10 +1196,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "newsletter consulta juridica ejecutiva",
       "id": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 5,
+      "norm_label": "newsletter consulta juridica ejecutiva"
     },
     {
       "label": "Mailchimp",
@@ -1308,10 +1209,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "mailchimp",
       "id": "plan_marketing_digital_jaabogados_mailchimp",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 5,
+      "norm_label": "mailchimp"
     },
     {
       "label": "Brevo",
@@ -1322,10 +1222,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "brevo",
       "id": "plan_marketing_digital_jaabogados_brevo",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 5,
+      "norm_label": "brevo"
     },
     {
       "label": "KPIs Semanales",
@@ -1336,10 +1235,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "kpis semanales",
       "id": "plan_marketing_digital_jaabogados_kpis_semanales",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "kpis semanales"
     },
     {
       "label": "KPIs Mensuales",
@@ -1350,10 +1248,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "kpis mensuales",
       "id": "plan_marketing_digital_jaabogados_kpis_mensuales",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 7,
+      "norm_label": "kpis mensuales"
     },
     {
       "label": "Canva",
@@ -1364,10 +1261,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "canva",
       "id": "plan_marketing_digital_jaabogados_canva",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "canva"
     },
     {
       "label": "Calendly",
@@ -1378,10 +1274,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "calendly",
       "id": "plan_marketing_digital_jaabogados_calendly",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "calendly"
     },
     {
       "label": "LinkedIn Sales Navigator",
@@ -1392,10 +1287,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "linkedin sales navigator",
       "id": "plan_marketing_digital_jaabogados_linkedin_sales_navigator",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "linkedin sales navigator"
     },
     {
       "label": "Buffer / Hootsuite",
@@ -1406,10 +1300,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "buffer / hootsuite",
       "id": "plan_marketing_digital_jaabogados_buffer_hootsuite",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 5,
+      "norm_label": "buffer / hootsuite"
     },
     {
       "label": "Google Analytics",
@@ -1420,10 +1313,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "google analytics",
       "id": "plan_marketing_digital_jaabogados_google_analytics",
-      "community_name": "Web, SEO Local y Stack de Herramientas"
+      "community": 1,
+      "norm_label": "google analytics"
     },
     {
       "label": "ChatGPT / Claude para Redaccion Juridica",
@@ -1434,10 +1326,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "chatgpt / claude para redaccion juridica",
       "id": "plan_marketing_digital_jaabogados_chatgpt_claude",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 5,
+      "norm_label": "chatgpt / claude para redaccion juridica"
     },
     {
       "label": "Loom",
@@ -1448,10 +1339,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
-      "norm_label": "loom",
       "id": "plan_marketing_digital_jaabogados_loom",
-      "community_name": "Prospectos Amarillos de Energia y Tech"
+      "community": 5,
+      "norm_label": "loom"
     },
     {
       "label": "Plan de Implementacion - Primeras 8 Semanas",
@@ -1463,10 +1353,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Secuencia deliberada: primero fundaciones digitales (semanas 1-2) porque contactar prospectos con perfiles sin optimizar desperdicia la unica primera impresion; luego contenido y contactos, nurturing y por ultimo evaluacion y escala.",
-      "community": 4,
-      "norm_label": "plan de implementacion - primeras 8 semanas",
       "id": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "plan de implementacion - primeras 8 semanas"
     },
     {
       "label": "Principios Eticos y Deontologicos del Marketing Juridico",
@@ -1478,10 +1367,9 @@
       "author": null,
       "contributor": null,
       "rationale": "El marketing juridico en Colombia opera bajo restriccion disciplinaria: cualquier tactica de captacion debe filtrarse contra la Ley 1123 de 2007 y la Ley 1581 de 2012 antes de ejecutarse, porque el costo de una sancion supera el beneficio de cualquier campana.",
-      "community": 3,
-      "norm_label": "principios eticos y deontologicos del marketing juridico",
       "id": "plan_marketing_digital_jaabogados_principios_eticos",
-      "community_name": "Criterios de Scoring y Descarte"
+      "community": 1,
+      "norm_label": "principios eticos y deontologicos del marketing juridico"
     },
     {
       "label": "Ley 1123 de 2007 (Codigo Disciplinario del Abogado)",
@@ -1492,10 +1380,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "ley 1123 de 2007 (codigo disciplinario del abogado)",
       "id": "plan_marketing_digital_jaabogados_ley_1123_2007",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 1,
+      "norm_label": "ley 1123 de 2007 (codigo disciplinario del abogado)"
     },
     {
       "label": "Prohibicion de Captacion por Medios Desleales (Art. 34)",
@@ -1506,10 +1393,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "prohibicion de captacion por medios desleales (art. 34)",
       "id": "plan_marketing_digital_jaabogados_prohibicion_captacion_desleal",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 1,
+      "norm_label": "prohibicion de captacion por medios desleales (art. 34)"
     },
     {
       "label": "Deber de Confidencialidad (Art. 28)",
@@ -1520,10 +1406,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "deber de confidencialidad (art. 28)",
       "id": "plan_marketing_digital_jaabogados_confidencialidad_art_28",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 5,
+      "norm_label": "deber de confidencialidad (art. 28)"
     },
     {
       "label": "Publicidad Veraz (Art. 35)",
@@ -1534,10 +1419,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "publicidad veraz (art. 35)",
       "id": "plan_marketing_digital_jaabogados_publicidad_veraz_art_35",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 1,
+      "norm_label": "publicidad veraz (art. 35)"
     },
     {
       "label": "Ley 1581 de 2012 (Habeas Data)",
@@ -1548,10 +1432,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "ley 1581 de 2012 (habeas data)",
       "id": "plan_marketing_digital_jaabogados_ley_1581_2012",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 1,
+      "norm_label": "ley 1581 de 2012 (habeas data)"
     },
     {
       "label": "Decreto 0581 de 2026 (tercerizacion laboral)",
@@ -1562,10 +1445,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "decreto 0581 de 2026 (tercerizacion laboral)",
       "id": "plan_marketing_digital_jaabogados_decreto_0581_2026",
-      "community_name": "Contenido, Nurturing y Deontologia"
+      "community": 1,
+      "norm_label": "decreto 0581 de 2026 (tercerizacion laboral)"
     },
     {
       "label": "Resumen Ejecutivo - 5 Pasos para Arrancar Hoy",
@@ -1576,68 +1458,870 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "resumen ejecutivo - 5 pasos para arrancar hoy",
       "id": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos",
-      "community_name": "Canales, KPIs y Plan de Implementacion"
+      "community": 1,
+      "norm_label": "resumen ejecutivo - 5 pasos para arrancar hoy"
+    },
+    {
+      "label": "Workbook CRM JA Abogados (crm_jaabogados.xlsx)",
+      "file_type": "document",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 1",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Claude (Anthropic) para JA Abogados",
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_crm_jaabogados_workbook",
+      "community": 0,
+      "norm_label": "workbook crm ja abogados (crm_jaabogados.xlsx)"
+    },
+    {
+      "label": "Sheet: Dashboard",
+      "file_type": "document",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_dashboard",
+      "community": 0,
+      "norm_label": "sheet: dashboard"
+    },
+    {
+      "label": "Sheet: CRM Prospectos",
+      "file_type": "document",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 21",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos",
+      "community": 0,
+      "norm_label": "sheet: crm prospectos"
+    },
+    {
+      "label": "Sheet: Matriz de Evaluaci\u00f3n",
+      "file_type": "document",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 51",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
+      "community": 2,
+      "norm_label": "sheet: matriz de evaluacion"
+    },
+    {
+      "label": "Sheet: Mensajes",
+      "file_type": "document",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 70",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensajes",
+      "community": 5,
+      "norm_label": "sheet: mensajes"
+    },
+    {
+      "label": "Sheet: Instrucciones",
+      "file_type": "document",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 91",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_instrucciones",
+      "community": 4,
+      "norm_label": "sheet: instrucciones"
+    },
+    {
+      "label": "TOP 5 Prospectos Prioritarios (Sem\u00e1foro Verde)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 14",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_top_5_prospectos_prioritarios",
+      "community": 0,
+      "norm_label": "top 5 prospectos prioritarios (semaforo verde)"
+    },
+    {
+      "label": "Conteo por Sem\u00e1foro (5 Verde / 8 Amarillo / 4 Naranja / 0 Rojo / 17 total)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 7-13",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_conteo_semaforo_dashboard",
+      "community": 0,
+      "norm_label": "conteo por semaforo (5 verde / 8 amarillo / 4 naranja / 0 rojo / 17 total)"
+    },
+    {
+      "label": "Prospecto: Telepat\u00eda",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 34",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_telepatia",
+      "community": 0,
+      "norm_label": "prospecto: telepatia"
+    },
+    {
+      "label": "Prospecto: Recurly Colombia",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 35",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_recurly_colombia",
+      "community": 0,
+      "norm_label": "prospecto: recurly colombia"
+    },
+    {
+      "label": "Prospecto: Health Prime Colombia",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 36",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_health_prime_colombia",
+      "community": 0,
+      "norm_label": "prospecto: health prime colombia"
+    },
+    {
+      "label": "Prospecto: CapitalPocket / Pocki",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 37",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_capitalpocket_pocki",
+      "community": 0,
+      "norm_label": "prospecto: capitalpocket / pocki"
+    },
+    {
+      "label": "Prospecto: Drones Sky Solutions",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 38",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_drones_sky_solutions",
+      "community": 0,
+      "norm_label": "prospecto: drones sky solutions"
+    },
+    {
+      "label": "Prospecto: Netux",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 39",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_netux",
+      "community": 0,
+      "norm_label": "prospecto: netux"
+    },
+    {
+      "label": "Prospecto: MovilBox",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 40",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_movilbox",
+      "community": 0,
+      "norm_label": "prospecto: movilbox"
+    },
+    {
+      "label": "Prospecto: Medvision",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 41",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_medvision",
+      "community": 0,
+      "norm_label": "prospecto: medvision"
+    },
+    {
+      "label": "Prospecto: Erco Energ\u00eda",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 42",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_erco_energia",
+      "community": 0,
+      "norm_label": "prospecto: erco energia"
+    },
+    {
+      "label": "Prospecto: Golden Energy",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 43",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_golden_energy",
+      "community": 0,
+      "norm_label": "prospecto: golden energy"
+    },
+    {
+      "label": "Prospecto: Somos Internet",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 44",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_somos_internet",
+      "community": 0,
+      "norm_label": "prospecto: somos internet"
+    },
+    {
+      "label": "Prospecto: SiembraViva",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 45",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_siembraviva",
+      "community": 7,
+      "norm_label": "prospecto: siembraviva"
+    },
+    {
+      "label": "Prospecto: Azimut Energ\u00eda",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 46",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_azimut_energia",
+      "community": 0,
+      "norm_label": "prospecto: azimut energia"
+    },
+    {
+      "label": "Prospecto: B2Chat",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 47",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_b2chat",
+      "community": 7,
+      "norm_label": "prospecto: b2chat"
+    },
+    {
+      "label": "Prospecto: Aba Tech",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 48",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_aba_tech",
+      "community": 7,
+      "norm_label": "prospecto: aba tech"
+    },
+    {
+      "label": "Prospecto: iQor Colombia",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 49",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_iqor_colombia",
+      "community": 2,
+      "norm_label": "prospecto: iqor colombia"
+    },
+    {
+      "label": "Prospecto: TaskUs Colombia",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 50",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_taskus_colombia",
+      "community": 2,
+      "norm_label": "prospecto: taskus colombia"
+    },
+    {
+      "label": "C1: Se\u00f1al Reciente",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 56",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c1_senal_reciente",
+      "community": 2,
+      "norm_label": "c1: senal reciente"
+    },
+    {
+      "label": "C2: Alineaci\u00f3n Servicios",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 57",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c2_alineacion_servicios",
+      "community": 2,
+      "norm_label": "c2: alineacion servicios"
+    },
+    {
+      "label": "C3: Tama\u00f1o / Capacidad de Pago",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 58",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c3_tamano_capacidad_pago",
+      "community": 2,
+      "norm_label": "c3: tamano / capacidad de pago"
+    },
+    {
+      "label": "C4: Acceso al Decisor",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 59",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c4_acceso_al_decisor",
+      "community": 2,
+      "norm_label": "c4: acceso al decisor"
+    },
+    {
+      "label": "C5: Madurez Legal",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 60",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c5_madurez_legal",
+      "community": 2,
+      "norm_label": "c5: madurez legal"
+    },
+    {
+      "label": "C6: Presencia en Medell\u00edn",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 61",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c6_presencia_en_medellin",
+      "community": 2,
+      "norm_label": "c6: presencia en medellin"
+    },
+    {
+      "label": "C7: Urgencia del Problema",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 62",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c7_urgencia_del_problema",
+      "community": 2,
+      "norm_label": "c7: urgencia del problema"
+    },
+    {
+      "label": "C8: Sin Riesgo BigLaw",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 63",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c8_sin_riesgo_biglaw",
+      "community": 2,
+      "norm_label": "c8: sin riesgo biglaw"
+    },
+    {
+      "label": "Puntaje TOTAL /40 (suma C1\u2013C8)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 32-33, 105",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+      "community": 2,
+      "norm_label": "puntaje total /40 (suma c1\u2013c8)"
+    },
+    {
+      "label": "Tabla de Clasificaci\u00f3n (Sem\u00e1foro)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 64-69",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo",
+      "community": 2,
+      "norm_label": "tabla de clasificacion (semaforo)"
+    },
+    {
+      "label": "Sem\u00e1foro Verde \u2014 Prospecto A (33\u201340)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 66",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde",
+      "community": 0,
+      "norm_label": "semaforo verde \u2014 prospecto a (33\u201340)"
+    },
+    {
+      "label": "Sem\u00e1foro Amarillo \u2014 Prospecto B (24\u201332)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 67",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo",
+      "community": 0,
+      "norm_label": "semaforo amarillo \u2014 prospecto b (24\u201332)"
+    },
+    {
+      "label": "Sem\u00e1foro Naranja \u2014 Prospecto C (15\u201323)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 68",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja",
+      "community": 7,
+      "norm_label": "semaforo naranja \u2014 prospecto c (15\u201323)"
+    },
+    {
+      "label": "Sem\u00e1foro Rojo \u2014 Descartar (0\u201314)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 69",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_rojo",
+      "community": 2,
+      "norm_label": "semaforo rojo \u2014 descartar (0\u201314)"
+    },
+    {
+      "label": "Campo ESTADO del Prospecto (Prospecto Nuevo / Seguimiento Pasivo)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 24-33, 103",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_estado_prospecto",
+      "community": 4,
+      "norm_label": "campo estado del prospecto (prospecto nuevo / seguimiento pasivo)"
+    },
+    {
+      "label": "Campo Se\u00f1al de Oportunidad",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 24",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_senal_de_oportunidad",
+      "community": 4,
+      "norm_label": "campo senal de oportunidad"
+    },
+    {
+      "label": "Campo Pr\u00f3xima Acci\u00f3n y Fecha Pr\u00f3xima Acci\u00f3n",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 33, 108",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_proxima_accion",
+      "community": 4,
+      "norm_label": "campo proxima accion y fecha proxima accion"
+    },
+    {
+      "label": "Campo Servicio Principal",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 24",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_servicio_principal",
+      "community": 3,
+      "norm_label": "campo servicio principal"
+    },
+    {
+      "label": "Esquema de Columnas del CRM (A\u2013Z: Empresa, Sector, Decisor, Contacto, C1\u2013C8, TOTAL, Sem\u00e1foro)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 24-33",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_esquema_columnas_crm",
+      "community": 4,
+      "norm_label": "esquema de columnas del crm (a\u2013z: empresa, sector, decisor, contacto, c1\u2013c8, total, semaforo)"
+    },
+    {
+      "label": "F\u00f3rmula =SUMA(N3:U3) para el TOTAL",
+      "file_type": "code",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 105",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_formula_suma_c1_c8",
+      "community": 2,
+      "norm_label": "formula =suma(n3:u3) para el total"
+    },
+    {
+      "label": "F\u00f3rmula de SEM\u00c1FORO (columna W, copiable por fila)",
+      "file_type": "code",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 106",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_formula_semaforo",
+      "community": 2,
+      "norm_label": "formula de semaforo (columna w, copiable por fila)"
+    },
+    {
+      "label": "Plantilla: Mensaje de Conexi\u00f3n LinkedIn (\u2264300 caracteres)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 73",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_conexion_linkedin",
+      "community": 5,
+      "norm_label": "plantilla: mensaje de conexion linkedin (\u2264300 caracteres)"
+    },
+    {
+      "label": "Plantilla: Primer Mensaje (DM LinkedIn)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 73",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_primer_mensaje_dm",
+      "community": 5,
+      "norm_label": "plantilla: primer mensaje (dm linkedin)"
+    },
+    {
+      "label": "Plantilla: Mensaje de Seguimiento",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 73",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_seguimiento",
+      "community": 5,
+      "norm_label": "plantilla: mensaje de seguimiento"
+    },
+    {
+      "label": "Plantilla Gen\u00e9rica con Placeholder [TEMA RELEVANTE AL SECTOR]",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 79-90",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_plantilla_generica_sector",
+      "community": 0,
+      "norm_label": "plantilla generica con placeholder [tema relevante al sector]"
+    },
+    {
+      "label": "Mensaje Personalizado de Alto Valor (prospectos Verde)",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 66, 74-78",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_personalizado_alto_valor",
+      "community": 0,
+      "norm_label": "mensaje personalizado de alto valor (prospectos verde)"
+    },
+    {
+      "label": "Gancho: Primera Revisi\u00f3n Jur\u00eddica Sin Costo",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 74-90",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_oferta_revision_gratuita",
+      "community": 5,
+      "norm_label": "gancho: primera revision juridica sin costo"
+    },
+    {
+      "label": "Gu\u00eda: C\u00f3mo subir el archivo a Google Sheets",
+      "file_type": "document",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 94-100",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_guia_carga_google_sheets",
+      "community": 4,
+      "norm_label": "guia: como subir el archivo a google sheets"
+    },
+    {
+      "label": "Procedimiento: C\u00f3mo agregar un prospecto nuevo",
+      "file_type": "document",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 109-114",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_procedimiento_agregar_prospecto",
+      "community": 4,
+      "norm_label": "procedimiento: como agregar un prospecto nuevo"
+    },
+    {
+      "label": "Flujo Semanal Recomendado (30 min/semana)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 115-119",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado",
+      "community": 4,
+      "norm_label": "flujo semanal recomendado (30 min/semana)"
+    },
+    {
+      "label": "Revisi\u00f3n de Fin de Mes de Prospectos Naranja (ascenso a Amarillo)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 119",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_revision_mensual_naranja",
+      "community": 7,
+      "norm_label": "revision de fin de mes de prospectos naranja (ascenso a amarillo)"
+    },
+    {
+      "label": "Reglas de Oro (del PDF 'Tu Buscador de Clientes Potenciales')",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 120-125",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_reglas_de_oro",
+      "community": 4,
+      "norm_label": "reglas de oro (del pdf 'tu buscador de clientes potenciales')"
+    },
+    {
+      "label": "Regla: Nunca inventar datos \u2014 solo informaci\u00f3n verificada",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 121-122",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_regla_nunca_inventar_datos",
+      "community": 4,
+      "norm_label": "regla: nunca inventar datos \u2014 solo informacion verificada"
+    },
+    {
+      "label": "Regla: Los mensajes son conversaciones, no ventas (primero valor, luego oferta)",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 123",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_regla_conversacion_no_venta",
+      "community": 5,
+      "norm_label": "regla: los mensajes son conversaciones, no ventas (primero valor, luego oferta)"
+    },
+    {
+      "label": "L\u00edmite Anti-Spam: 10\u201315 mensajes/d\u00eda en LinkedIn",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 124",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_limite_mensajes_linkedin",
+      "community": 4,
+      "norm_label": "limite anti-spam: 10\u201315 mensajes/dia en linkedin"
+    },
+    {
+      "label": "Ley 1581/2012 (Habeas Data) \u2014 no compartir la base con terceros",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 125",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_ley_1581_habeas_data",
+      "community": 4,
+      "norm_label": "ley 1581/2012 (habeas data) \u2014 no compartir la base con terceros"
+    },
+    {
+      "label": "PDF fuente: 'Tu Buscador de Clientes Potenciales'",
+      "file_type": "document",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 120",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_pdf_buscador_clientes_potenciales",
+      "community": 4,
+      "norm_label": "pdf fuente: 'tu buscador de clientes potenciales'"
+    },
+    {
+      "label": "Se\u00f1al: Selecci\u00f3n Medell\u00edn Next 2026",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 39-47",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_medellin_next_2026",
+      "community": 0,
+      "norm_label": "senal: seleccion medellin next 2026"
+    },
+    {
+      "label": "Riesgo de Descarte: BPO grande con probable abogado interno",
+      "file_type": "rationale",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 49-50",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_riesgo_abogado_interno_bpo",
+      "community": 2,
+      "norm_label": "riesgo de descarte: bpo grande con probable abogado interno"
+    },
+    {
+      "label": "Nurturing 30 d\u00edas (acci\u00f3n operativa para prospectos Amarillo)",
+      "file_type": "concept",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 39, 67, 117",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_nurturing_30_dias_crm",
+      "community": 5,
+      "norm_label": "nurturing 30 dias (accion operativa para prospectos amarillo)"
+    },
+    {
+      "label": "Versi\u00f3n 1.0 \u2014 Junio 2026 (generado con Claude para JA Abogados)",
+      "file_type": "document",
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 126-128",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_version_1_0_junio_2026",
+      "community": 4,
+      "norm_label": "version 1.0 \u2014 junio 2026 (generado con claude para ja abogados)"
     }
   ],
   "links": [
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "graphify_out_converted_crm_jaabogados_f5624444",
-      "target": "graphify_out_converted_crm_jaabogados_f5624444_sheet_crm_prospectos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "graphify_out_converted_crm_jaabogados_f5624444",
-      "target": "graphify_out_converted_crm_jaabogados_f5624444_sheet_dashboard",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
-      "source_location": "L91",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "graphify_out_converted_crm_jaabogados_f5624444",
-      "target": "graphify_out_converted_crm_jaabogados_f5624444_sheet_instrucciones",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
-      "source_location": "L51",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "graphify_out_converted_crm_jaabogados_f5624444",
-      "target": "graphify_out_converted_crm_jaabogados_f5624444_sheet_matriz_de_evaluaci\u00f3n",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
-      "source_location": "L70",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "graphify_out_converted_crm_jaabogados_f5624444",
-      "target": "graphify_out_converted_crm_jaabogados_f5624444_sheet_mensajes",
-      "confidence_score": 1.0
-    },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
@@ -1645,9 +2329,9 @@
       "source_location": "L269",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_cell_font"
+      "target": "generar_crm_cell_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1656,9 +2340,9 @@
       "source_location": "L272",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1667,9 +2351,9 @@
       "source_location": "L422",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_crear_crm"
+      "target": "generar_crm_crear_crm",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1678,9 +2362,9 @@
       "source_location": "L302",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_crear_dashboard"
+      "target": "generar_crm_crear_dashboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1689,9 +2373,9 @@
       "source_location": "L847",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_crear_instrucciones"
+      "target": "generar_crm_crear_instrucciones",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1700,9 +2384,9 @@
       "source_location": "L592",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_crear_matriz"
+      "target": "generar_crm_crear_matriz",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1711,9 +2395,9 @@
       "source_location": "L783",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_crear_mensajes"
+      "target": "generar_crm_crear_mensajes",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1722,9 +2406,9 @@
       "source_location": "L263",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1733,9 +2417,9 @@
       "source_location": "L266",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_header_font"
+      "target": "generar_crm_header_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1744,9 +2428,9 @@
       "source_location": "L275",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_left"
+      "target": "generar_crm_left",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1755,9 +2439,9 @@
       "source_location": "L926",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_main"
+      "target": "generar_crm_main",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1766,9 +2450,9 @@
       "source_location": "L282",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_semaforo"
+      "target": "generar_crm_semaforo",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1777,9 +2461,9 @@
       "source_location": "L288",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_semaforo_fill"
+      "target": "generar_crm_semaforo_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1788,9 +2472,9 @@
       "source_location": "L294",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_semaforo_font"
+      "target": "generar_crm_semaforo_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1799,9 +2483,9 @@
       "source_location": "L278",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_thin_border"
+      "target": "generar_crm_thin_border",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1811,9 +2495,9 @@
       "source_location": "L432",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1823,9 +2507,9 @@
       "source_location": "L312",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1835,9 +2519,9 @@
       "source_location": "L856",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_instrucciones",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1847,9 +2531,9 @@
       "source_location": "L600",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_matriz",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1859,9 +2543,9 @@
       "source_location": "L791",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_mensajes",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1871,9 +2555,9 @@
       "source_location": "L538",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_cell_font"
+      "target": "generar_crm_cell_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1883,9 +2567,9 @@
       "source_location": "L402",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_cell_font"
+      "target": "generar_crm_cell_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1895,9 +2579,9 @@
       "source_location": "L709",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_matriz",
-      "target": "generar_crm_cell_font"
+      "target": "generar_crm_cell_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1907,9 +2591,9 @@
       "source_location": "L830",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_mensajes",
-      "target": "generar_crm_cell_font"
+      "target": "generar_crm_cell_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1919,9 +2603,9 @@
       "source_location": "L433",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1931,9 +2615,9 @@
       "source_location": "L313",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1943,9 +2627,9 @@
       "source_location": "L857",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_instrucciones",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1955,9 +2639,9 @@
       "source_location": "L601",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_matriz",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1967,9 +2651,9 @@
       "source_location": "L792",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_mensajes",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1979,9 +2663,9 @@
       "source_location": "L543",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_left"
+      "target": "generar_crm_left",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1991,9 +2675,9 @@
       "source_location": "L403",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_left"
+      "target": "generar_crm_left",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2003,9 +2687,9 @@
       "source_location": "L710",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_matriz",
-      "target": "generar_crm_left"
+      "target": "generar_crm_left",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2015,9 +2699,9 @@
       "source_location": "L474",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_thin_border"
+      "target": "generar_crm_thin_border",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2027,9 +2711,9 @@
       "source_location": "L357",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_thin_border"
+      "target": "generar_crm_thin_border",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2039,9 +2723,9 @@
       "source_location": "L625",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_matriz",
-      "target": "generar_crm_thin_border"
+      "target": "generar_crm_thin_border",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2051,9 +2735,9 @@
       "source_location": "L804",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_mensajes",
-      "target": "generar_crm_thin_border"
+      "target": "generar_crm_thin_border",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2063,9 +2747,9 @@
       "source_location": "L498",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_semaforo"
+      "target": "generar_crm_semaforo",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2075,9 +2759,9 @@
       "source_location": "L396",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_semaforo"
+      "target": "generar_crm_semaforo",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2087,9 +2771,9 @@
       "source_location": "L570",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_semaforo_fill"
+      "target": "generar_crm_semaforo_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2099,9 +2783,9 @@
       "source_location": "L406",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_semaforo_fill"
+      "target": "generar_crm_semaforo_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2111,9 +2795,9 @@
       "source_location": "L571",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_semaforo_font"
+      "target": "generar_crm_semaforo_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2123,9 +2807,9 @@
       "source_location": "L407",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_semaforo_font"
+      "target": "generar_crm_semaforo_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2135,9 +2819,9 @@
       "source_location": "L930",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_main",
-      "target": "generar_crm_crear_dashboard"
+      "target": "generar_crm_crear_dashboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2147,9 +2831,9 @@
       "source_location": "L933",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_main",
-      "target": "generar_crm_crear_crm"
+      "target": "generar_crm_crear_crm",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2159,9 +2843,9 @@
       "source_location": "L936",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_main",
-      "target": "generar_crm_crear_matriz"
+      "target": "generar_crm_crear_matriz",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2171,9 +2855,9 @@
       "source_location": "L939",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_main",
-      "target": "generar_crm_crear_mensajes"
+      "target": "generar_crm_crear_mensajes",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2183,9 +2867,9 @@
       "source_location": "L942",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_main",
-      "target": "generar_crm_crear_instrucciones"
+      "target": "generar_crm_crear_instrucciones",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -2276,6 +2960,26 @@
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_objetivo_general",
       "target": "plan_marketing_digital_jaabogados_principios_eticos"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 57",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_c2_alineacion_servicios",
+      "target": "plan_marketing_digital_jaabogados_portafolio_servicios"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 24, 34-50",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_campo_servicio_principal",
+      "target": "plan_marketing_digital_jaabogados_portafolio_servicios"
     },
     {
       "relation": "references",
@@ -2518,6 +3222,156 @@
       "target": "plan_marketing_digital_jaabogados_asesoria_empresas_extranjeras"
     },
     {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 56",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_c1_senal_reciente",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 57",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_c2_alineacion_servicios",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 58",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_c3_tamano_capacidad_pago",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 59",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_c4_acceso_al_decisor",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 60",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_c5_madurez_legal",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 61",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_c6_presencia_en_medellin",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 62",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_c7_urgencia_del_problema",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 63",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_c8_sin_riesgo_biglaw",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 34-50, 102",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 106",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_formula_semaforo",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 51-63",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 54",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 69",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_rojo",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 51-69",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 14-20",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_top_5_prospectos_prioritarios",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -2718,6 +3572,26 @@
       "target": "plan_marketing_digital_jaabogados_criterio_riesgo_biglaw"
     },
     {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 7-13",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_conteo_semaforo_dashboard",
+      "target": "plan_marketing_digital_jaabogados_prospecto_a_verde"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 66",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde",
+      "target": "plan_marketing_digital_jaabogados_prospecto_a_verde"
+    },
+    {
       "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -2766,6 +3640,16 @@
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_telepatia",
       "target": "plan_marketing_digital_jaabogados_prospecto_a_verde"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 67",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo",
+      "target": "plan_marketing_digital_jaabogados_prospecto_b_amarillo"
     },
     {
       "relation": "conceptually_related_to",
@@ -2838,6 +3722,16 @@
       "target": "plan_marketing_digital_jaabogados_prospecto_b_amarillo"
     },
     {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 68",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja",
+      "target": "plan_marketing_digital_jaabogados_prospecto_c_naranja"
+    },
+    {
       "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -2886,6 +3780,176 @@
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_siembraviva",
       "target": "plan_marketing_digital_jaabogados_prospecto_c_naranja"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 34",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_telepatia",
+      "target": "plan_marketing_digital_jaabogados_telepatia"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 35",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_recurly_colombia",
+      "target": "plan_marketing_digital_jaabogados_recurly_colombia"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 36",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_health_prime_colombia",
+      "target": "plan_marketing_digital_jaabogados_health_prime_colombia"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 37",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_capitalpocket_pocki",
+      "target": "plan_marketing_digital_jaabogados_capitalpocket_pocki"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 38",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_drones_sky_solutions",
+      "target": "plan_marketing_digital_jaabogados_drones_sky_solutions"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 39",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_netux",
+      "target": "plan_marketing_digital_jaabogados_netux"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 40",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_movilbox",
+      "target": "plan_marketing_digital_jaabogados_movilbox"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 41",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_medvision",
+      "target": "plan_marketing_digital_jaabogados_medvision"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 42",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_erco_energia",
+      "target": "plan_marketing_digital_jaabogados_erco_energia"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 43",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_golden_energy",
+      "target": "plan_marketing_digital_jaabogados_golden_energy"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 44",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_somos_internet",
+      "target": "plan_marketing_digital_jaabogados_somos_internet"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 45",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_siembraviva",
+      "target": "plan_marketing_digital_jaabogados_siembraviva"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 46",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_azimut_energia",
+      "target": "plan_marketing_digital_jaabogados_azimut_energia"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 47",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_b2chat",
+      "target": "plan_marketing_digital_jaabogados_b2chat"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 48",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_aba_tech",
+      "target": "plan_marketing_digital_jaabogados_aba_tech"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 49",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_iqor_colombia",
+      "target": "plan_marketing_digital_jaabogados_iqor_colombia"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 50",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_taskus_colombia",
+      "target": "plan_marketing_digital_jaabogados_taskus_colombia"
     },
     {
       "relation": "references",
@@ -3298,6 +4362,56 @@
       "target": "plan_marketing_digital_jaabogados_directorios_juridicos"
     },
     {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 1",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_crm_jaabogados_workbook",
+      "target": "plan_marketing_digital_jaabogados_crm_simple"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 21-50",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos",
+      "target": "plan_marketing_digital_jaabogados_crm_simple"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 3-20",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_dashboard",
+      "target": "plan_marketing_digital_jaabogados_crm_simple"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 94-100",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_guia_carga_google_sheets",
+      "target": "plan_marketing_digital_jaabogados_crm_simple"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.3,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 120",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_pdf_buscador_clientes_potenciales",
+      "target": "plan_marketing_digital_jaabogados_crm_simple"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -3378,6 +4492,56 @@
       "target": "plan_marketing_digital_jaabogados_crm_simple"
     },
     {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 24, 103",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_campo_estado_prospecto",
+      "target": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 33, 108",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_campo_proxima_accion",
+      "target": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 24",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_campo_senal_de_oportunidad",
+      "target": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 24-33",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_esquema_columnas_crm",
+      "target": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 109-114",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_procedimiento_agregar_prospecto",
+      "target": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos"
+    },
+    {
       "relation": "semantically_similar_to",
       "confidence": "INFERRED",
       "confidence_score": 0.65,
@@ -3386,6 +4550,76 @@
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_hubspot_crm",
       "target": "plan_marketing_digital_jaabogados_notion"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 73",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_conexion_linkedin",
+      "target": "plan_marketing_digital_jaabogados_secuencia_nurturing"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 73",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_seguimiento",
+      "target": "plan_marketing_digital_jaabogados_secuencia_nurturing"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 66, 74-78",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_personalizado_alto_valor",
+      "target": "plan_marketing_digital_jaabogados_secuencia_nurturing"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 70-90",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_mensajes",
+      "target": "plan_marketing_digital_jaabogados_secuencia_nurturing"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 39, 67, 117",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_nurturing_30_dias_crm",
+      "target": "plan_marketing_digital_jaabogados_secuencia_nurturing"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 73",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_primer_mensaje_dm",
+      "target": "plan_marketing_digital_jaabogados_secuencia_nurturing"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 67",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo",
+      "target": "plan_marketing_digital_jaabogados_secuencia_nurturing"
     },
     {
       "relation": "conceptually_related_to",
@@ -3558,6 +4792,36 @@
       "target": "plan_marketing_digital_jaabogados_mailchimp"
     },
     {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 7-13",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_conteo_semaforo_dashboard",
+      "target": "plan_marketing_digital_jaabogados_kpis_semanales"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 115-118",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado",
+      "target": "plan_marketing_digital_jaabogados_kpis_semanales"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.25,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 124",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_limite_mensajes_linkedin",
+      "target": "plan_marketing_digital_jaabogados_kpis_semanales"
+    },
+    {
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
@@ -3586,6 +4850,26 @@
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
       "target": "plan_marketing_digital_jaabogados_kpis_semanales"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.3,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 3-20",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_dashboard",
+      "target": "plan_marketing_digital_jaabogados_kpis_mensuales"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 119",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_revision_mensual_naranja",
+      "target": "plan_marketing_digital_jaabogados_kpis_mensuales"
     },
     {
       "relation": "references",
@@ -3666,6 +4950,1346 @@
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_ley_1123_2007",
       "target": "plan_marketing_digital_jaabogados_publicidad_veraz_art_35"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 21",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_crm_jaabogados_workbook",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 3",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_crm_jaabogados_workbook",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_dashboard"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 91",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_crm_jaabogados_workbook",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_instrucciones"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 51",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_crm_jaabogados_workbook",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 70",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_crm_jaabogados_workbook",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensajes"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 7-13",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_dashboard",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_conteo_semaforo_dashboard"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 14-20",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_dashboard",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 14",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_dashboard",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_top_5_prospectos_prioritarios"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 48",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_aba_tech",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 46",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_azimut_energia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 47",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_b2chat",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 37",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_capitalpocket_pocki",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 13, 34-50",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_conteo_semaforo_dashboard",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 38",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_drones_sky_solutions",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 42",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_erco_energia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 24-33",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_esquema_columnas_crm",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 43",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_golden_energy",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 36",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_health_prime_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 49",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_iqor_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 125",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_ley_1581_habeas_data",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 41",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_medvision",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 73-90",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_mensajes",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 40",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_movilbox",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 39",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_netux",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 110",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_procedimiento_agregar_prospecto",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 35",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_recurly_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 45",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_siembraviva",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 44",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_somos_internet",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 50",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_taskus_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 34",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_telepatia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 56",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c1_senal_reciente"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 57",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c2_alineacion_servicios"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 58",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c3_tamano_capacidad_pago"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 59",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c4_acceso_al_decisor"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 60",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c5_madurez_legal"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 61",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c6_presencia_en_medellin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 62",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c7_urgencia_del_problema"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 63",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c8_sin_riesgo_biglaw"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 64",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.3,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 120",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_pdf_buscador_clientes_potenciales",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 112",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_procedimiento_agregar_prospecto",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 73",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_mensajes",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_conexion_linkedin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 73",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_mensajes",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_seguimiento"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 73",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_mensajes",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_primer_mensaje_dm"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 79-90",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_plantilla_generica_sector",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensajes"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 101-108",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_instrucciones",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_esquema_columnas_crm"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 115-119",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_instrucciones",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 94-100",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_instrucciones",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_guia_carga_google_sheets"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 109-114",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_instrucciones",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_procedimiento_agregar_prospecto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 120-125",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_instrucciones",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_reglas_de_oro"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 126-128",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_instrucciones",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_version_1_0_junio_2026"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 14",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_top_5_prospectos_prioritarios",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 74",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_telepatia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_personalizado_alto_valor"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 34",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_telepatia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 75",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_recurly_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_personalizado_alto_valor"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 35",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_recurly_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 76",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_health_prime_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_personalizado_alto_valor"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 36",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_health_prime_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 77",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_capitalpocket_pocki",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_personalizado_alto_valor"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 37",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_capitalpocket_pocki",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 78",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_drones_sky_solutions",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_personalizado_alto_valor"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 38",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_drones_sky_solutions",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 39",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_netux",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_medellin_next_2026"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 79",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_netux",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_plantilla_generica_sector"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 39",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_netux",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 40",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_movilbox",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_medellin_next_2026"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 40",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_movilbox",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 41",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_medvision",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 42",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_erco_energia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_medellin_next_2026"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 42",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_erco_energia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 43",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_golden_energy",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 44",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_somos_internet",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 45",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_siembraviva",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 46",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_azimut_energia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_medellin_next_2026"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 46",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_azimut_energia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 47",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_b2chat",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_medellin_next_2026"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 47",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_b2chat",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 48",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_aba_tech",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 49",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_iqor_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_riesgo_abogado_interno_bpo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 49",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_iqor_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 90",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_taskus_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_plantilla_generica_sector"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 50",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_taskus_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_riesgo_abogado_interno_bpo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 50",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_taskus_colombia",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 24, 56",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_campo_senal_de_oportunidad",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c1_senal_reciente"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 105",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c1_senal_reciente"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 56, 121-122",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_regla_nunca_inventar_datos",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c1_senal_reciente"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 24, 57",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_campo_servicio_principal",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c2_alineacion_servicios"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 105",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c2_alineacion_servicios"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 105",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c3_tamano_capacidad_pago"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 105",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c4_acceso_al_decisor"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 105",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c5_madurez_legal"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 105",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c6_presencia_en_medellin"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 105",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c7_urgencia_del_problema"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 105",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c8_sin_riesgo_biglaw"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 49-50, 63",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_riesgo_abogado_interno_bpo",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_c8_sin_riesgo_biglaw"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 32-33",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_esquema_columnas_crm",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 105",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_formula_suma_c1_c8",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 54, 65-69",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 106, 64-69",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_formula_semaforo",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 67",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 68",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 69",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_rojo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 66",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 116",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 66",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_personalizado_alto_valor",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 117",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 67",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_nurturing_30_dias_crm",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 79-90",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_plantilla_generica_sector",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 119",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_revision_mensual_naranja",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 24, 103",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_esquema_columnas_crm",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_campo_estado_prospecto"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 116-119",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_campo_estado_prospecto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 114",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_procedimiento_agregar_prospecto",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_campo_estado_prospecto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 24",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_esquema_columnas_crm",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_campo_senal_de_oportunidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 24, 39-47",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_medellin_next_2026",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_campo_senal_de_oportunidad"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 121-122",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_regla_nunca_inventar_datos",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_campo_senal_de_oportunidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 33, 108",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_esquema_columnas_crm",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_campo_proxima_accion"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 24",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_esquema_columnas_crm",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_campo_servicio_principal"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 105-106",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_formula_semaforo",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_formula_suma_c1_c8"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 94-105",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_guia_carga_google_sheets",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_formula_suma_c1_c8"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 113",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_procedimiento_agregar_prospecto",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_formula_suma_c1_c8"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 73, 124",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_limite_mensajes_linkedin",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_conexion_linkedin"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 73",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_conexion_linkedin",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_primer_mensaje_dm"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 74-90",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_oferta_revision_gratuita",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_primer_mensaje_dm"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 73",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_primer_mensaje_dm",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_seguimiento"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 73, 117",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_nurturing_30_dias_crm",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_seguimiento"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 74-90",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_personalizado_alto_valor",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_plantilla_generica_sector"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 123",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_regla_conversacion_no_venta",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_oferta_revision_gratuita"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 117",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_nurturing_30_dias_crm"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 119",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_revision_mensual_naranja"
+    },
+    {
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 125",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_reglas_de_oro",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_ley_1581_habeas_data"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 124",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_reglas_de_oro",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_limite_mensajes_linkedin"
+    },
+    {
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 120",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_reglas_de_oro",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_pdf_buscador_clientes_potenciales"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "line 123",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_reglas_de_oro",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_regla_conversacion_no_venta"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md",
+      "source_location": "lines 121-122",
+      "weight": 1.0,
+      "source": "graphify_out_converted_crm_jaabogados_f5624444_reglas_de_oro",
+      "target": "graphify_out_converted_crm_jaabogados_f5624444_regla_nunca_inventar_datos"
     }
   ],
   "hyperedges": [
@@ -3714,7 +6338,61 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md"
+    },
+    {
+      "id": "pipeline_scoring_prospectos",
+      "label": "Pipeline de puntuaci\u00f3n: criterios C1\u2013C8 \u2192 TOTAL /40 \u2192 clasificaci\u00f3n sem\u00e1foro en el CRM",
+      "nodes": [
+        "graphify_out_converted_crm_jaabogados_f5624444_c1_senal_reciente",
+        "graphify_out_converted_crm_jaabogados_f5624444_c2_alineacion_servicios",
+        "graphify_out_converted_crm_jaabogados_f5624444_c3_tamano_capacidad_pago",
+        "graphify_out_converted_crm_jaabogados_f5624444_c4_acceso_al_decisor",
+        "graphify_out_converted_crm_jaabogados_f5624444_c5_madurez_legal",
+        "graphify_out_converted_crm_jaabogados_f5624444_c6_presencia_en_medellin",
+        "graphify_out_converted_crm_jaabogados_f5624444_c7_urgencia_del_problema",
+        "graphify_out_converted_crm_jaabogados_f5624444_c8_sin_riesgo_biglaw",
+        "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
+        "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo",
+        "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md"
+    },
+    {
+      "id": "rutina_operativa_semanal_crm",
+      "label": "Rutina operativa semanal: lunes Verde, martes Amarillo/nurturing, viernes altas nuevas, fin de mes Naranja",
+      "nodes": [
+        "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado",
+        "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde",
+        "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo",
+        "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja",
+        "graphify_out_converted_crm_jaabogados_f5624444_procedimiento_agregar_prospecto",
+        "graphify_out_converted_crm_jaabogados_f5624444_campo_estado_prospecto",
+        "graphify_out_converted_crm_jaabogados_f5624444_revision_mensual_naranja"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md"
+    },
+    {
+      "id": "secuencia_outreach_linkedin",
+      "label": "Secuencia de outreach en LinkedIn: conexi\u00f3n \u2192 DM inicial \u2192 seguimiento, bajo las reglas de oro",
+      "nodes": [
+        "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_conexion_linkedin",
+        "graphify_out_converted_crm_jaabogados_f5624444_primer_mensaje_dm",
+        "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_seguimiento",
+        "graphify_out_converted_crm_jaabogados_f5624444_oferta_revision_gratuita",
+        "graphify_out_converted_crm_jaabogados_f5624444_regla_conversacion_no_venta",
+        "graphify_out_converted_crm_jaabogados_f5624444_limite_mensajes_linkedin"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "graphify-out/converted/crm_jaabogados_f5624444.md"
     }
   ],
-  "built_at_commit": "893f9f36da12edaf9f45882da4daf5a9e7fb6893"
+  "built_at_commit": "0af717f029156ac855039161e824c3f735a3a99d"
 }
