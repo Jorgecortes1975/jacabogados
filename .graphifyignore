@@ -10,8 +10,10 @@ docs/translations/
 public/assets/
 
 # --- Necesarias en este repo (no quitar) ---
-# Salida del propio graphify: indexarla haria que el grafo se describa a si mismo
-graphify-out/
+# Salida del propio graphify: indexarla haria que el grafo se describa a si mismo.
+# Excepcion: converted/ guarda los sidecars .md de xlsx/docx, que SI son corpus.
+graphify-out/*
+!graphify-out/converted/
 # Andamiaje que genera `graphify claude/codex install`, no es contenido del proyecto
 CLAUDE.md
 AGENTS.md
