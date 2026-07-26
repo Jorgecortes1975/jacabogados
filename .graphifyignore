@@ -1,0 +1,37 @@
+# Dependencias
+node_modules/
+.venv/
+venv/
+env/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Builds y artefactos
+.next/
+dist/
+build/
+out/
+target/
+*.egg-info/
+
+# Salida del propio graphify
+graphify-out/
+
+# Control de versiones
+.git/
+
+# Assets pesados
+assets/
+static/
+public/
+media/
+uploads/
+*.mp4
+*.mov
+*.avi
+*.zip
+*.tar.gz
+*.psd
+*.ai

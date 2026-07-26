@@ -1,0 +1,9 @@
+# Cache local de extraccion de graphify (se regenera solo)
+graphify-out/cache/
+graphify-out/.graphify_*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
