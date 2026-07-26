@@ -4,15 +4,14 @@
   "graph": {
     "hyperedges": [
       {
-        "id": "embudo_captacion_prospectos_juridicos",
-        "label": "Embudo de captacion: senal, calificacion, contacto, nurturing, cierre",
+        "id": "plan_marketing_embudo_captacion_prospectos",
+        "label": "Embudo de Captacion: calificacion, registro, nurturing y medicion",
         "nodes": [
-          "plan_marketing_digital_jaabogados_diecisiete_prospectos",
           "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
-          "plan_marketing_digital_jaabogados_clasificacion_semaforo",
-          "plan_marketing_digital_jaabogados_secuencia_nurturing_30_dias",
           "plan_marketing_digital_jaabogados_crm_simple",
-          "plan_marketing_digital_jaabogados_kpis"
+          "plan_marketing_digital_jaabogados_secuencia_nurturing",
+          "plan_marketing_digital_jaabogados_kpis_semanales",
+          "plan_marketing_digital_jaabogados_kpis_mensuales"
         ],
         "relation": "form",
         "confidence": "INFERRED",
@@ -20,13 +19,13 @@
         "source_file": "plan_marketing_digital_jaabogados.md"
       },
       {
-        "id": "mix_canales_digitales_jaabogados",
-        "label": "Mix de canales digitales del despacho",
+        "id": "plan_marketing_canales_digitales_stack",
+        "label": "Stack de Canales Digitales del Despacho",
         "nodes": [
-          "plan_marketing_digital_jaabogados_linkedin_canal_principal",
-          "plan_marketing_digital_jaabogados_instagram_marca_personal",
+          "plan_marketing_digital_jaabogados_linkedin",
+          "plan_marketing_digital_jaabogados_instagram",
           "plan_marketing_digital_jaabogados_whatsapp_business",
-          "plan_marketing_digital_jaabogados_landing_page_web",
+          "plan_marketing_digital_jaabogados_landing_page",
           "plan_marketing_digital_jaabogados_google_business_profile",
           "plan_marketing_digital_jaabogados_directorios_juridicos"
         ],
@@ -36,14 +35,14 @@
         "source_file": "plan_marketing_digital_jaabogados.md"
       },
       {
-        "id": "marco_cumplimiento_deontologico_marketing",
-        "label": "Marco de cumplimiento deontologico del marketing juridico colombiano",
+        "id": "plan_marketing_marco_deontologico_publicidad",
+        "label": "Marco Deontologico que Restringe el Marketing Juridico",
         "nodes": [
-          "plan_marketing_digital_jaabogados_principios_eticos",
           "plan_marketing_digital_jaabogados_ley_1123_2007",
-          "plan_marketing_digital_jaabogados_ley_1581_2012",
-          "plan_marketing_digital_jaabogados_confidencialidad_casos_exito",
-          "plan_marketing_digital_jaabogados_content_marketing_juridico"
+          "plan_marketing_digital_jaabogados_prohibicion_captacion_desleal",
+          "plan_marketing_digital_jaabogados_confidencialidad_art_28",
+          "plan_marketing_digital_jaabogados_publicidad_veraz_art_35",
+          "plan_marketing_digital_jaabogados_ley_1581_2012"
         ],
         "relation": "form",
         "confidence": "EXTRACTED",
@@ -60,8 +59,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "generar_crm",
-      "community": 1,
-      "community_name": "Nucleo del Generador CRM",
+      "community": 2,
       "norm_label": "generar_crm.py"
     },
     {
@@ -71,8 +69,7 @@
       "source_location": "L263",
       "_origin": "ast",
       "id": "generar_crm_header_fill",
-      "community": 1,
-      "community_name": "Nucleo del Generador CRM",
+      "community": 2,
       "norm_label": "header_fill()"
     },
     {
@@ -82,8 +79,7 @@
       "source_location": "L266",
       "_origin": "ast",
       "id": "generar_crm_header_font",
-      "community": 1,
-      "community_name": "Nucleo del Generador CRM",
+      "community": 2,
       "norm_label": "header_font()"
     },
     {
@@ -93,8 +89,7 @@
       "source_location": "L269",
       "_origin": "ast",
       "id": "generar_crm_cell_font",
-      "community": 1,
-      "community_name": "Nucleo del Generador CRM",
+      "community": 2,
       "norm_label": "cell_font()"
     },
     {
@@ -104,8 +99,7 @@
       "source_location": "L272",
       "_origin": "ast",
       "id": "generar_crm_center",
-      "community": 1,
-      "community_name": "Nucleo del Generador CRM",
+      "community": 2,
       "norm_label": "center()"
     },
     {
@@ -115,8 +109,7 @@
       "source_location": "L275",
       "_origin": "ast",
       "id": "generar_crm_left",
-      "community": 8,
-      "community_name": "crear_matriz",
+      "community": 2,
       "norm_label": "left()"
     },
     {
@@ -126,8 +119,7 @@
       "source_location": "L278",
       "_origin": "ast",
       "id": "generar_crm_thin_border",
-      "community": 8,
-      "community_name": "crear_matriz",
+      "community": 2,
       "norm_label": "thin_border()"
     },
     {
@@ -137,8 +129,7 @@
       "source_location": "L282",
       "_origin": "ast",
       "id": "generar_crm_semaforo",
-      "community": 6,
-      "community_name": "Hojas CRM y Dashboard",
+      "community": 2,
       "norm_label": "semaforo()"
     },
     {
@@ -148,8 +139,7 @@
       "source_location": "L288",
       "_origin": "ast",
       "id": "generar_crm_semaforo_fill",
-      "community": 6,
-      "community_name": "Hojas CRM y Dashboard",
+      "community": 2,
       "norm_label": "semaforo_fill()"
     },
     {
@@ -159,8 +149,7 @@
       "source_location": "L294",
       "_origin": "ast",
       "id": "generar_crm_semaforo_font",
-      "community": 6,
-      "community_name": "Hojas CRM y Dashboard",
+      "community": 2,
       "norm_label": "semaforo_font()"
     },
     {
@@ -170,8 +159,7 @@
       "source_location": "L302",
       "_origin": "ast",
       "id": "generar_crm_crear_dashboard",
-      "community": 6,
-      "community_name": "Hojas CRM y Dashboard",
+      "community": 2,
       "norm_label": "crear_dashboard()"
     },
     {
@@ -181,8 +169,7 @@
       "source_location": "L422",
       "_origin": "ast",
       "id": "generar_crm_crear_crm",
-      "community": 6,
-      "community_name": "Hojas CRM y Dashboard",
+      "community": 2,
       "norm_label": "crear_crm()"
     },
     {
@@ -192,8 +179,7 @@
       "source_location": "L592",
       "_origin": "ast",
       "id": "generar_crm_crear_matriz",
-      "community": 8,
-      "community_name": "crear_matriz",
+      "community": 2,
       "norm_label": "crear_matriz()"
     },
     {
@@ -203,8 +189,7 @@
       "source_location": "L783",
       "_origin": "ast",
       "id": "generar_crm_crear_mensajes",
-      "community": 1,
-      "community_name": "Nucleo del Generador CRM",
+      "community": 2,
       "norm_label": "crear_mensajes()"
     },
     {
@@ -214,8 +199,7 @@
       "source_location": "L847",
       "_origin": "ast",
       "id": "generar_crm_crear_instrucciones",
-      "community": 1,
-      "community_name": "Nucleo del Generador CRM",
+      "community": 2,
       "norm_label": "crear_instrucciones()"
     },
     {
@@ -225,37 +209,21 @@
       "source_location": "L926",
       "_origin": "ast",
       "id": "generar_crm_main",
-      "community": 1,
-      "community_name": "Nucleo del Generador CRM",
+      "community": 2,
       "norm_label": "main()"
     },
     {
       "label": "Plan de Marketing Digital JA Abogados v1.0",
       "file_type": "document",
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L1-L429",
+      "source_location": "L1-L5",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
-      "norm_label": "plan de marketing digital ja abogados v1.0",
-      "community_name": "Matriz de Evaluacion de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_plan_marketing_digital"
-    },
-    {
-      "label": "JA Abogados (despacho, Medellin)",
-      "file_type": "concept",
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L1-L3",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 2,
-      "norm_label": "ja abogados (despacho, medellin)",
-      "community_name": "Matriz de Evaluacion de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_ja_abogados"
+      "id": "plan_marketing_digital_jaabogados_plan_marketing_digital",
+      "community": 4,
+      "norm_label": "plan de marketing digital ja abogados v1.0"
     },
     {
       "label": "Objetivo General del Sistema de Captacion",
@@ -266,13 +234,13 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
-      "norm_label": "objetivo general del sistema de captacion",
-      "community_name": "Matriz de Evaluacion de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_objetivo_general"
+      "rationale": "Se busca un sistema profesional, etico y medible porque la captacion juridica en Colombia esta regulada; el objetivo combina atraccion organica, evaluacion de viabilidad/rentabilidad, gestion del ciclo de venta y construccion de reputacion digital de abogado consultor de alto valor.",
+      "id": "plan_marketing_digital_jaabogados_objetivo_general",
+      "community": 4,
+      "norm_label": "objetivo general del sistema de captacion"
     },
     {
-      "label": "Portafolio de 8 Pilares de Servicio",
+      "label": "Portafolio de Ocho Pilares de Servicio",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L18-L31",
@@ -280,10 +248,114 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
-      "norm_label": "portafolio de 8 pilares de servicio",
-      "community_name": "Matriz de Evaluacion de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_portafolio_ocho_pilares"
+      "rationale": "El portafolio funciona como base de calificacion: los prospectos se evaluan contra los ocho pilares para decidir si hay encaje comercial antes de invertir tiempo de contacto.",
+      "id": "plan_marketing_digital_jaabogados_portafolio_servicios",
+      "community": 1,
+      "norm_label": "portafolio de ocho pilares de servicio"
+    },
+    {
+      "label": "Derecho Corporativo y M&A",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L24",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_derecho_corporativo_ma",
+      "community": 1,
+      "norm_label": "derecho corporativo y m&a"
+    },
+    {
+      "label": "Contratos y Compliance",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L25",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_contratos_compliance",
+      "community": 1,
+      "norm_label": "contratos y compliance"
+    },
+    {
+      "label": "Derecho Laboral y Litigios",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L26",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_derecho_laboral_litigios",
+      "community": 1,
+      "norm_label": "derecho laboral y litigios"
+    },
+    {
+      "label": "Tributario y Financiero",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L27",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_tributario_financiero",
+      "community": 1,
+      "norm_label": "tributario y financiero"
+    },
+    {
+      "label": "Civil, Comercial y Administrativo",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L28",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_civil_comercial_administrativo",
+      "community": 1,
+      "norm_label": "civil, comercial y administrativo"
+    },
+    {
+      "label": "Redaccion Juridica Profesional",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L29",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_redaccion_juridica_profesional",
+      "community": 1,
+      "norm_label": "redaccion juridica profesional"
+    },
+    {
+      "label": "Consultoria para Pymes",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L30",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_consultoria_pymes",
+      "community": 1,
+      "norm_label": "consultoria para pymes"
+    },
+    {
+      "label": "Asesoria a Empresas Extranjeras",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L31",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_asesoria_empresas_extranjeras",
+      "community": 1,
+      "norm_label": "asesoria a empresas extranjeras"
     },
     {
       "label": "Matriz de Evaluacion de Prospectos (Semaforo de Viabilidad)",
@@ -294,234 +366,442 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
-      "norm_label": "matriz de evaluacion de prospectos (semaforo de viabilidad)",
-      "community_name": "Matriz de Evaluacion de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+      "rationale": "Ocho criterios puntuados 0-5 (maximo 40 puntos) convierten un juicio subjetivo de encaje en un puntaje comparable, para que el tiempo comercial escaso se asigne primero a los prospectos con mayor probabilidad de cierre y menor riesgo de competir con BigLaw.",
+      "id": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "community": 3,
+      "norm_label": "matriz de evaluacion de prospectos (semaforo de viabilidad)"
     },
     {
-      "label": "Ocho Criterios de Puntuacion (0-40 puntos)",
-      "file_type": "rationale",
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L39-L50",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 2,
-      "norm_label": "ocho criterios de puntuacion (0-40 puntos)",
-      "community_name": "Matriz de Evaluacion de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_criterios_puntuacion"
-    },
-    {
-      "label": "Clasificacion Semaforo (Verde/Amarillo/Naranja/Rojo)",
+      "label": "Criterio: Senal de Oportunidad Reciente",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L52-L59",
+      "source_location": "L43",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "clasificacion semaforo (verde/amarillo/naranja/rojo)",
-      "community_name": "Segmentacion y Nurturing de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_clasificacion_semaforo"
+      "id": "plan_marketing_digital_jaabogados_criterio_senal_oportunidad",
+      "community": 3,
+      "norm_label": "criterio: senal de oportunidad reciente"
     },
     {
-      "label": "Criterio de Competencia / Riesgo BigLaw",
-      "file_type": "rationale",
+      "label": "Criterio: Alineacion con Servicios",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L44",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_criterio_alineacion_servicios",
+      "community": 1,
+      "norm_label": "criterio: alineacion con servicios"
+    },
+    {
+      "label": "Criterio: Tamano y Capacidad de Pago",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L45",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_criterio_capacidad_pago",
+      "community": 3,
+      "norm_label": "criterio: tamano y capacidad de pago"
+    },
+    {
+      "label": "Criterio: Acceso al Decisor",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L46",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_criterio_acceso_decisor",
+      "community": 3,
+      "norm_label": "criterio: acceso al decisor"
+    },
+    {
+      "label": "Criterio: Madurez Legal de la Empresa",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L47",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_criterio_madurez_legal",
+      "community": 3,
+      "norm_label": "criterio: madurez legal de la empresa"
+    },
+    {
+      "label": "Criterio: Presencia en Medellin/Colombia",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L48",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_criterio_presencia_medellin",
+      "community": 5,
+      "norm_label": "criterio: presencia en medellin/colombia"
+    },
+    {
+      "label": "Criterio: Urgencia del Problema Legal",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L49",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_criterio_urgencia_legal",
+      "community": 3,
+      "norm_label": "criterio: urgencia del problema legal"
+    },
+    {
+      "label": "Criterio: Competencia y Riesgo de BigLaw",
+      "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L50",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
-      "norm_label": "criterio de competencia / riesgo biglaw",
-      "community_name": "Matriz de Evaluacion de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_riesgo_biglaw"
-    },
-    {
-      "label": "Cartera de 17 Prospectos Identificados",
-      "file_type": "concept",
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L63-L95",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
+      "rationale": "Se penaliza el prospecto que ya trabaja con una firma grande visible porque un despacho boutique no puede desplazarla con costo de adquisicion razonable; se premia la pyme o scaleup sin firma externa evidente.",
+      "id": "plan_marketing_digital_jaabogados_criterio_riesgo_biglaw",
       "community": 3,
-      "norm_label": "cartera de 17 prospectos identificados",
-      "community_name": "Gestion y Seguimiento Comercial",
-      "id": "plan_marketing_digital_jaabogados_diecisiete_prospectos"
+      "norm_label": "criterio: competencia y riesgo de biglaw"
     },
     {
-      "label": "Grupo A - Prioridad Alta (33-40 pts)",
+      "label": "Prospecto A - Semaforo Verde (33-40)",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L65-L73",
+      "source_location": "L56",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "grupo a - prioridad alta (33-40 pts)",
-      "community_name": "Segmentacion y Nurturing de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_grupo_a_prioridad_alta"
+      "id": "plan_marketing_digital_jaabogados_prospecto_a_verde",
+      "community": 1,
+      "norm_label": "prospecto a - semaforo verde (33-40)"
     },
     {
-      "label": "Grupo B - Nurturing a 30 dias (24-32 pts)",
+      "label": "Prospecto B - Semaforo Amarillo (24-32)",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L75-L84",
+      "source_location": "L57",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "grupo b - nurturing a 30 dias (24-32 pts)",
-      "community_name": "Segmentacion y Nurturing de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_grupo_b_nurturing"
+      "id": "plan_marketing_digital_jaabogados_prospecto_b_amarillo",
+      "community": 6,
+      "norm_label": "prospecto b - semaforo amarillo (24-32)"
     },
     {
-      "label": "Grupo C - Seguimiento Pasivo (15-23 pts)",
+      "label": "Prospecto C - Semaforo Naranja (15-23)",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L86-L95",
+      "source_location": "L58",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_prospecto_c_naranja",
       "community": 0,
-      "norm_label": "grupo c - seguimiento pasivo (15-23 pts)",
-      "community_name": "Segmentacion y Nurturing de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_grupo_c_seguimiento_pasivo"
+      "norm_label": "prospecto c - semaforo naranja (15-23)"
     },
     {
-      "label": "Telepatia (prospecto A, ronda US$42M a16z)",
+      "label": "Descartar - Semaforo Rojo (0-14)",
       "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L59",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_descartar_rojo",
+      "community": 3,
+      "norm_label": "descartar - semaforo rojo (0-14)"
+    },
+    {
+      "label": "Telepatia (36/40)",
+      "file_type": "document",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L69",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
-      "norm_label": "telepatia (prospecto a, ronda us$42m a16z)",
-      "community_name": "Matriz de Evaluacion de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_telepatia"
+      "id": "plan_marketing_digital_jaabogados_telepatia",
+      "community": 1,
+      "norm_label": "telepatia (36/40)"
     },
     {
-      "label": "Recurly Colombia (prospecto A, nueva entidad legal)",
-      "file_type": "concept",
+      "label": "Recurly Colombia (35/40)",
+      "file_type": "document",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L70",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "recurly colombia (prospecto a, nueva entidad legal)",
-      "community_name": "Segmentacion y Nurturing de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_recurly_colombia"
+      "id": "plan_marketing_digital_jaabogados_recurly_colombia",
+      "community": 1,
+      "norm_label": "recurly colombia (35/40)"
     },
     {
-      "label": "Health Prime Colombia (prospecto A, llegada 2025)",
-      "file_type": "concept",
+      "label": "Health Prime Colombia (34/40)",
+      "file_type": "document",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L71",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "health prime colombia (prospecto a, llegada 2025)",
-      "community_name": "Segmentacion y Nurturing de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_health_prime_colombia"
+      "id": "plan_marketing_digital_jaabogados_health_prime_colombia",
+      "community": 1,
+      "norm_label": "health prime colombia (34/40)"
     },
     {
-      "label": "CapitalPocket/Pocki (fintech regulado SFC)",
-      "file_type": "concept",
+      "label": "CapitalPocket / Pocki (34/40)",
+      "file_type": "document",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L72",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "capitalpocket/pocki (fintech regulado sfc)",
-      "community_name": "Segmentacion y Nurturing de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_capitalpocket_pocki"
+      "id": "plan_marketing_digital_jaabogados_capitalpocket_pocki",
+      "community": 1,
+      "norm_label": "capitalpocket / pocki (34/40)"
     },
     {
-      "label": "Drones Sky Solutions (regulacion Aerocivil)",
-      "file_type": "concept",
+      "label": "Drones Sky Solutions (33/40)",
+      "file_type": "document",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L73",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "drones sky solutions (regulacion aerocivil)",
-      "community_name": "Segmentacion y Nurturing de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_drones_sky_solutions"
+      "id": "plan_marketing_digital_jaabogados_drones_sky_solutions",
+      "community": 1,
+      "norm_label": "drones sky solutions (33/40)"
     },
     {
-      "label": "Medvision (medtech regulado INVIMA)",
-      "file_type": "concept",
+      "label": "Netux (31/40)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L79",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_netux",
+      "community": 6,
+      "norm_label": "netux (31/40)"
+    },
+    {
+      "label": "MovilBox (30/40)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L80",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_movilbox",
+      "community": 1,
+      "norm_label": "movilbox (30/40)"
+    },
+    {
+      "label": "Medvision (30/40)",
+      "file_type": "document",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L81",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_medvision",
+      "community": 6,
+      "norm_label": "medvision (30/40)"
+    },
+    {
+      "label": "Erco Energia (29/40)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L82",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_erco_energia",
+      "community": 6,
+      "norm_label": "erco energia (29/40)"
+    },
+    {
+      "label": "Golden Energy (28/40)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L83",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_golden_energy",
+      "community": 6,
+      "norm_label": "golden energy (28/40)"
+    },
+    {
+      "label": "Somos Internet (27/40)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L84",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_somos_internet",
+      "community": 6,
+      "norm_label": "somos internet (27/40)"
+    },
+    {
+      "label": "SiembraViva (25/40)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L90",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_siembraviva",
       "community": 0,
-      "norm_label": "medvision (medtech regulado invima)",
-      "community_name": "Segmentacion y Nurturing de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_medvision"
+      "norm_label": "siembraviva (25/40)"
+    },
+    {
+      "label": "Azimut Energia (24/40)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L91",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_azimut_energia",
+      "community": 0,
+      "norm_label": "azimut energia (24/40)"
+    },
+    {
+      "label": "B2Chat (23/40)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L92",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_b2chat",
+      "community": 0,
+      "norm_label": "b2chat (23/40)"
+    },
+    {
+      "label": "Aba Tech (22/40)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L93",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_aba_tech",
+      "community": 0,
+      "norm_label": "aba tech (22/40)"
+    },
+    {
+      "label": "iQor Colombia (20/40)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L94",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_iqor_colombia",
+      "community": 3,
+      "norm_label": "iqor colombia (20/40)"
+    },
+    {
+      "label": "TaskUs Colombia (18/40)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L95",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_taskus_colombia",
+      "community": 3,
+      "norm_label": "taskus colombia (18/40)"
     },
     {
       "label": "Estrategia de Canales Digitales",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L99-L232",
+      "source_location": "L99-L233",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "estrategia de canales digitales",
-      "community_name": "Canales Digitales y Presencia Local",
-      "id": "plan_marketing_digital_jaabogados_estrategia_canales_digitales"
+      "id": "plan_marketing_digital_jaabogados_estrategia_canales_digitales",
+      "community": 4,
+      "norm_label": "estrategia de canales digitales"
     },
     {
-      "label": "LinkedIn como Canal Principal B2B Legal",
-      "file_type": "rationale",
+      "label": "LinkedIn (Canal Principal B2B Legal)",
+      "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L101-L137",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "linkedin como canal principal b2b legal",
-      "community_name": "Contenido y Prospeccion en LinkedIn",
-      "id": "plan_marketing_digital_jaabogados_linkedin_canal_principal"
+      "rationale": "Es el canal numero uno porque el 80% de los decisores corporativos en Colombia lo usa y es el unico donde el abogado alcanza directamente al gerente, CFO o CEO sin intermediarios remunerados (lo cual ademas evita el riesgo disciplinario del Art. 34).",
+      "id": "plan_marketing_digital_jaabogados_linkedin",
+      "community": 0,
+      "norm_label": "linkedin (canal principal b2b legal)"
+    },
+    {
+      "label": "Checklist de Optimizacion del Perfil LinkedIn",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L105-L113",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_checklist_perfil_linkedin",
+      "community": 0,
+      "norm_label": "checklist de optimizacion del perfil linkedin"
     },
     {
       "label": "Regla 3-2-1 de Contenido Semanal",
-      "file_type": "rationale",
+      "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L115-L121",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "regla 3-2-1 de contenido semanal",
-      "community_name": "Contenido y Prospeccion en LinkedIn",
-      "id": "plan_marketing_digital_jaabogados_regla_3_2_1"
+      "rationale": "Tres piezas educativas, dos de prueba social y una oferta directa por semana: la proporcion mantiene la cuenta como fuente de valor y limita la percepcion de venta agresiva, que en el marketing juridico erosiona la credibilidad.",
+      "id": "plan_marketing_digital_jaabogados_regla_3_2_1",
+      "community": 0,
+      "norm_label": "regla 3-2-1 de contenido semanal"
     },
     {
       "label": "Acciones Diarias en LinkedIn (30 min/dia)",
@@ -532,13 +812,12 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "acciones diarias en linkedin (30 min/dia)",
-      "community_name": "Gestion y Seguimiento Comercial",
-      "id": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin"
+      "id": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin",
+      "community": 0,
+      "norm_label": "acciones diarias en linkedin (30 min/dia)"
     },
     {
-      "label": "Cadenas Booleanas de Busqueda de Decisores",
+      "label": "Busquedas Booleanas de Decisores",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L130-L137",
@@ -546,41 +825,40 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "cadenas booleanas de busqueda de decisores",
-      "community_name": "Contenido y Prospeccion en LinkedIn",
-      "id": "plan_marketing_digital_jaabogados_busquedas_decisores"
+      "id": "plan_marketing_digital_jaabogados_busquedas_decisores",
+      "community": 3,
+      "norm_label": "busquedas booleanas de decisores"
     },
     {
-      "label": "Instagram como Canal de Marca Personal",
-      "file_type": "rationale",
+      "label": "Instagram (Canal de Marca Personal)",
+      "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L141-L165",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "instagram como canal de marca personal",
-      "community_name": "Canales Digitales y Presencia Local",
-      "id": "plan_marketing_digital_jaabogados_instagram_marca_personal"
+      "rationale": "Humaniza la marca y capta pymes y emprendedores que buscan abogado por primera vez, un segmento que no llega por LinkedIn.",
+      "id": "plan_marketing_digital_jaabogados_instagram",
+      "community": 4,
+      "norm_label": "instagram (canal de marca personal)"
     },
     {
-      "label": "WhatsApp Business como Canal de Conversion",
-      "file_type": "rationale",
+      "label": "WhatsApp Business (Canal de Conversion)",
+      "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L169-L180",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "whatsapp business como canal de conversion",
-      "community_name": "Canales Digitales y Presencia Local",
-      "id": "plan_marketing_digital_jaabogados_whatsapp_business"
+      "rationale": "Numero dedicado y no el personal, con mensaje de bienvenida automatico y palabra clave URGENTE, para separar la vida privada del canal comercial y fijar expectativa de respuesta en menos de 2 horas.",
+      "id": "plan_marketing_digital_jaabogados_whatsapp_business",
+      "community": 4,
+      "norm_label": "whatsapp business (canal de conversion)"
     },
     {
-      "label": "Pagina Web / Landing Page",
+      "label": "Pagina Web o Landing Page",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L184-L214",
@@ -588,13 +866,12 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_landing_page",
       "community": 5,
-      "norm_label": "pagina web / landing page",
-      "community_name": "Canales Digitales y Presencia Local",
-      "id": "plan_marketing_digital_jaabogados_landing_page_web"
+      "norm_label": "pagina web o landing page"
     },
     {
-      "label": "SEO Local con Palabras Clave Colombia",
+      "label": "SEO Local con Palabras Clave para Colombia",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L208-L214",
@@ -602,24 +879,23 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_seo_local",
       "community": 5,
-      "norm_label": "seo local con palabras clave colombia",
-      "community_name": "Canales Digitales y Presencia Local",
-      "id": "plan_marketing_digital_jaabogados_seo_local"
+      "norm_label": "seo local con palabras clave para colombia"
     },
     {
-      "label": "Google Business Profile (visibilidad local)",
-      "file_type": "rationale",
+      "label": "Google Business Profile (Visibilidad Local)",
+      "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L218-L232",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "google business profile (visibilidad local)",
-      "community_name": "Canales Digitales y Presencia Local",
-      "id": "plan_marketing_digital_jaabogados_google_business_profile"
+      "rationale": "Es critico porque captura la busqueda de intencion inmediata ('abogado corporativo cerca de mi') y con solo 5 resenas ya se posiciona, sin costo publicitario.",
+      "id": "plan_marketing_digital_jaabogados_google_business_profile",
+      "community": 4,
+      "norm_label": "google business profile (visibilidad local)"
     },
     {
       "label": "Directorios y Plataformas Juridicas en Colombia",
@@ -630,10 +906,87 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "directorios y plataformas juridicas en colombia",
-      "community_name": "Segmentacion y Nurturing de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_directorios_juridicos"
+      "id": "plan_marketing_digital_jaabogados_directorios_juridicos",
+      "community": 1,
+      "norm_label": "directorios y plataformas juridicas en colombia"
+    },
+    {
+      "label": "Directorio Abogados Colombia (abogados.com.co)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L242",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_abogados_com_co",
+      "community": 1,
+      "norm_label": "directorio abogados colombia (abogados.com.co)"
+    },
+    {
+      "label": "Consultopedia",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L243",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_consultopedia",
+      "community": 1,
+      "norm_label": "consultopedia"
+    },
+    {
+      "label": "Letradoo (legaltech LATAM)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L245",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_letradoo",
+      "community": 1,
+      "norm_label": "letradoo (legaltech latam)"
+    },
+    {
+      "label": "Camara de Comercio de Medellin",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L247",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_camara_comercio_medellin",
+      "community": 1,
+      "norm_label": "camara de comercio de medellin"
+    },
+    {
+      "label": "ProColombia",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L248",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_procolombia",
+      "community": 1,
+      "norm_label": "procolombia"
+    },
+    {
+      "label": "ACI Medellin (inversion extranjera)",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L249",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_aci_medellin",
+      "community": 1,
+      "norm_label": "aci medellin (inversion extranjera)"
     },
     {
       "label": "Sistema de Gestion de Prospectos (CRM Simple)",
@@ -644,13 +997,13 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "sistema de gestion de prospectos (crm simple)",
-      "community_name": "Gestion y Seguimiento Comercial",
-      "id": "plan_marketing_digital_jaabogados_crm_simple"
+      "rationale": "Se evita software costoso al inicio: una hoja de calculo o Notion con once campos basta hasta que el volumen justifique HubSpot; el campo 'Puntaje semaforo' enlaza el CRM con la matriz de la seccion 3.",
+      "id": "plan_marketing_digital_jaabogados_crm_simple",
+      "community": 5,
+      "norm_label": "sistema de gestion de prospectos (crm simple)"
     },
     {
-      "label": "Tabla de Seguimiento de Prospectos (esquema de campos)",
+      "label": "Tabla de Seguimiento de Prospectos (Esquema de Campos)",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L257-L271",
@@ -658,13 +1011,64 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos",
       "community": 3,
-      "norm_label": "tabla de seguimiento de prospectos (esquema de campos)",
-      "community_name": "Gestion y Seguimiento Comercial",
-      "id": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos"
+      "norm_label": "tabla de seguimiento de prospectos (esquema de campos)"
     },
     {
-      "label": "Secuencia de Nurturing a 30 dias",
+      "label": "Google Sheets",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L275",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_google_sheets",
+      "community": 5,
+      "norm_label": "google sheets"
+    },
+    {
+      "label": "Notion",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L276",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_notion",
+      "community": 5,
+      "norm_label": "notion"
+    },
+    {
+      "label": "HubSpot CRM gratuito",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L277",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_hubspot_crm",
+      "community": 5,
+      "norm_label": "hubspot crm gratuito"
+    },
+    {
+      "label": "Trello",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L278",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_trello",
+      "community": 5,
+      "norm_label": "trello"
+    },
+    {
+      "label": "Secuencia de Nurturing a 30 Dias",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L282-L302",
@@ -672,10 +1076,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
+      "rationale": "Cuatro semanas escalonadas: conexion sin vender, aporte de valor, oferta suave y cierre o pausa. El orden difiere la oferta hasta el dia 18 porque el prospecto B/C aun no reconoce la necesidad juridica; presionar antes quema el contacto.",
+      "id": "plan_marketing_digital_jaabogados_secuencia_nurturing",
       "community": 0,
-      "norm_label": "secuencia de nurturing a 30 dias",
-      "community_name": "Segmentacion y Nurturing de Prospectos",
-      "id": "plan_marketing_digital_jaabogados_secuencia_nurturing_30_dias"
+      "norm_label": "secuencia de nurturing a 30 dias"
     },
     {
       "label": "Contenido Juridico para Posicionamiento",
@@ -686,27 +1090,51 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "contenido juridico para posicionamiento",
-      "community_name": "Contenido y Prospeccion en LinkedIn",
-      "id": "plan_marketing_digital_jaabogados_content_marketing_juridico"
+      "id": "plan_marketing_digital_jaabogados_content_marketing",
+      "community": 0,
+      "norm_label": "contenido juridico para posicionamiento"
     },
     {
-      "label": "Guias Descargables PDF (captura de emails)",
-      "file_type": "rationale",
+      "label": "Posts Educativos",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L310-L314",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_posts_educativos",
+      "community": 0,
+      "norm_label": "posts educativos"
+    },
+    {
+      "label": "Casos de Exito sin Datos Confidenciales",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L316-L318",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_casos_exito",
+      "community": 0,
+      "norm_label": "casos de exito sin datos confidenciales"
+    },
+    {
+      "label": "Guias Descargables para Captura de Emails",
+      "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L320-L323",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "guias descargables pdf (captura de emails)",
-      "community_name": "Contenido y Prospeccion en LinkedIn",
-      "id": "plan_marketing_digital_jaabogados_guias_descargables_lead_magnet"
+      "id": "plan_marketing_digital_jaabogados_guias_descargables",
+      "community": 0,
+      "norm_label": "guias descargables para captura de emails"
     },
     {
-      "label": "Newsletter mensual 'Consulta Juridica Ejecutiva'",
+      "label": "Newsletter Consulta Juridica Ejecutiva",
       "file_type": "concept",
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L325-L328",
@@ -714,38 +1142,152 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "newsletter mensual 'consulta juridica ejecutiva'",
-      "community_name": "Contenido y Prospeccion en LinkedIn",
-      "id": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva"
+      "id": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva",
+      "community": 0,
+      "norm_label": "newsletter consulta juridica ejecutiva"
     },
     {
-      "label": "Metricas e Indicadores (KPIs semanales y mensuales)",
-      "file_type": "concept",
+      "label": "Mailchimp",
+      "file_type": "document",
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L332-L355",
+      "source_location": "L327",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_mailchimp",
+      "community": 0,
+      "norm_label": "mailchimp"
+    },
+    {
+      "label": "Brevo",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L327",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_brevo",
+      "community": 0,
+      "norm_label": "brevo"
+    },
+    {
+      "label": "KPIs Semanales",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L336-L345",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_kpis_semanales",
+      "community": 4,
+      "norm_label": "kpis semanales"
+    },
+    {
+      "label": "KPIs Mensuales",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L347-L355",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_kpis_mensuales",
+      "community": 4,
+      "norm_label": "kpis mensuales"
+    },
+    {
+      "label": "Canva",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L363",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_canva",
+      "community": 4,
+      "norm_label": "canva"
+    },
+    {
+      "label": "Calendly",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L364",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_calendly",
+      "community": 4,
+      "norm_label": "calendly"
+    },
+    {
+      "label": "LinkedIn Sales Navigator",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L367",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_linkedin_sales_navigator",
       "community": 3,
-      "norm_label": "metricas e indicadores (kpis semanales y mensuales)",
-      "community_name": "Gestion y Seguimiento Comercial",
-      "id": "plan_marketing_digital_jaabogados_kpis"
+      "norm_label": "linkedin sales navigator"
     },
     {
-      "label": "Stack de Herramientas Digitales Recomendadas",
-      "file_type": "concept",
+      "label": "Buffer / Hootsuite",
+      "file_type": "document",
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L359-L372",
+      "source_location": "L368",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
-      "norm_label": "stack de herramientas digitales recomendadas",
-      "community_name": "Contenido y Prospeccion en LinkedIn",
-      "id": "plan_marketing_digital_jaabogados_herramientas_digitales"
+      "id": "plan_marketing_digital_jaabogados_buffer_hootsuite",
+      "community": 0,
+      "norm_label": "buffer / hootsuite"
+    },
+    {
+      "label": "Google Analytics",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L369",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_google_analytics",
+      "community": 5,
+      "norm_label": "google analytics"
+    },
+    {
+      "label": "ChatGPT / Claude para Redaccion Juridica",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L371",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_chatgpt_claude",
+      "community": 0,
+      "norm_label": "chatgpt / claude para redaccion juridica"
+    },
+    {
+      "label": "Loom",
+      "file_type": "document",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L372",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_loom",
+      "community": 0,
+      "norm_label": "loom"
     },
     {
       "label": "Plan de Implementacion - Primeras 8 Semanas",
@@ -756,10 +1298,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "plan de implementacion - primeras 8 semanas",
-      "community_name": "Gestion y Seguimiento Comercial",
-      "id": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas"
+      "rationale": "Secuencia deliberada: primero fundaciones digitales (semanas 1-2) porque contactar prospectos con perfiles sin optimizar desperdicia la unica primera impresion; luego contenido y contactos, nurturing y por ultimo evaluacion y escala.",
+      "id": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
+      "community": 4,
+      "norm_label": "plan de implementacion - primeras 8 semanas"
     },
     {
       "label": "Principios Eticos y Deontologicos del Marketing Juridico",
@@ -770,10 +1312,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
-      "norm_label": "principios eticos y deontologicos del marketing juridico",
-      "community_name": "Principios Eticos y Deontologicos del Marketing Juridico",
-      "id": "plan_marketing_digital_jaabogados_principios_eticos"
+      "rationale": "El marketing juridico en Colombia opera bajo restriccion disciplinaria: cualquier tactica de captacion debe filtrarse contra la Ley 1123 de 2007 y la Ley 1581 de 2012 antes de ejecutarse, porque el costo de una sancion supera el beneficio de cualquier campana.",
+      "id": "plan_marketing_digital_jaabogados_principios_eticos",
+      "community": 4,
+      "norm_label": "principios eticos y deontologicos del marketing juridico"
     },
     {
       "label": "Ley 1123 de 2007 (Codigo Disciplinario del Abogado)",
@@ -784,10 +1326,48 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
-      "norm_label": "ley 1123 de 2007 (codigo disciplinario del abogado)",
-      "community_name": "Principios Eticos y Deontologicos del Marketing Juridico",
-      "id": "plan_marketing_digital_jaabogados_ley_1123_2007"
+      "id": "plan_marketing_digital_jaabogados_ley_1123_2007",
+      "community": 0,
+      "norm_label": "ley 1123 de 2007 (codigo disciplinario del abogado)"
+    },
+    {
+      "label": "Prohibicion de Captacion por Medios Desleales (Art. 34)",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L410",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_prohibicion_captacion_desleal",
+      "community": 0,
+      "norm_label": "prohibicion de captacion por medios desleales (art. 34)"
+    },
+    {
+      "label": "Deber de Confidencialidad (Art. 28)",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L411",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_confidencialidad_art_28",
+      "community": 0,
+      "norm_label": "deber de confidencialidad (art. 28)"
+    },
+    {
+      "label": "Publicidad Veraz (Art. 35)",
+      "file_type": "concept",
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L412",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "plan_marketing_digital_jaabogados_publicidad_veraz_art_35",
+      "community": 0,
+      "norm_label": "publicidad veraz (art. 35)"
     },
     {
       "label": "Ley 1581 de 2012 (Habeas Data)",
@@ -798,38 +1378,22 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
-      "norm_label": "ley 1581 de 2012 (habeas data)",
-      "community_name": "Principios Eticos y Deontologicos del Marketing Juridico",
-      "id": "plan_marketing_digital_jaabogados_ley_1581_2012"
+      "id": "plan_marketing_digital_jaabogados_ley_1581_2012",
+      "community": 0,
+      "norm_label": "ley 1581 de 2012 (habeas data)"
     },
     {
       "label": "Decreto 0581 de 2026 (tercerizacion laboral)",
       "file_type": "document",
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L162, L312",
+      "source_location": "L162",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
-      "norm_label": "decreto 0581 de 2026 (tercerizacion laboral)",
-      "community_name": "Canales Digitales y Presencia Local",
-      "id": "plan_marketing_digital_jaabogados_decreto_0581_2026"
-    },
-    {
-      "label": "Confidencialidad en Casos de Exito (anonimizacion)",
-      "file_type": "rationale",
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L316-L318, L411",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 7,
-      "norm_label": "confidencialidad en casos de exito (anonimizacion)",
-      "community_name": "Principios Eticos y Deontologicos del Marketing Juridico",
-      "id": "plan_marketing_digital_jaabogados_confidencialidad_casos_exito"
+      "id": "plan_marketing_digital_jaabogados_decreto_0581_2026",
+      "community": 0,
+      "norm_label": "decreto 0581 de 2026 (tercerizacion laboral)"
     },
     {
       "label": "Resumen Ejecutivo - 5 Pasos para Arrancar Hoy",
@@ -840,10 +1404,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
-      "norm_label": "resumen ejecutivo - 5 pasos para arrancar hoy",
-      "community_name": "Gestion y Seguimiento Comercial",
-      "id": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos"
+      "id": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos",
+      "community": 4,
+      "norm_label": "resumen ejecutivo - 5 pasos para arrancar hoy"
     }
   ],
   "links": [
@@ -1401,50 +1964,110 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L1-L3",
+      "source_location": "L99",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_plan_marketing_digital",
-      "target": "plan_marketing_digital_jaabogados_ja_abogados"
+      "target": "plan_marketing_digital_jaabogados_estrategia_canales_digitales"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L7-L14",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_plan_marketing_digital",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L7",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_plan_marketing_digital",
       "target": "plan_marketing_digital_jaabogados_objetivo_general"
     },
     {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L18-L31",
+      "source_location": "L376",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_ja_abogados",
-      "target": "plan_marketing_digital_jaabogados_portafolio_ocho_pilares"
+      "source": "plan_marketing_digital_jaabogados_plan_marketing_digital",
+      "target": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_plan_marketing_digital",
+      "target": "plan_marketing_digital_jaabogados_portafolio_servicios"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L406",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_plan_marketing_digital",
+      "target": "plan_marketing_digital_jaabogados_principios_eticos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L418",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_plan_marketing_digital",
+      "target": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos"
     },
     {
       "relation": "rationale_for",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L11-L14, L35",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_objetivo_general",
       "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
     },
     {
-      "relation": "shares_data_with",
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_objetivo_general",
+      "target": "plan_marketing_digital_jaabogados_principios_eticos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_checklist_perfil_linkedin",
+      "target": "plan_marketing_digital_jaabogados_portafolio_servicios"
+    },
+    {
+      "relation": "references",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L44, L18-L31",
+      "source_location": "L44",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_criterios_puntuacion",
-      "target": "plan_marketing_digital_jaabogados_portafolio_ocho_pilares"
+      "source": "plan_marketing_digital_jaabogados_criterio_alineacion_servicios",
+      "target": "plan_marketing_digital_jaabogados_portafolio_servicios"
     },
     {
       "relation": "references",
@@ -1453,28 +2076,108 @@
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L191",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_landing_page_web",
-      "target": "plan_marketing_digital_jaabogados_portafolio_ocho_pilares"
+      "source": "plan_marketing_digital_jaabogados_landing_page",
+      "target": "plan_marketing_digital_jaabogados_portafolio_servicios"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L18-L20, L44",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
-      "target": "plan_marketing_digital_jaabogados_portafolio_ocho_pilares"
+      "target": "plan_marketing_digital_jaabogados_portafolio_servicios"
     },
     {
       "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_portafolio_servicios",
+      "target": "plan_marketing_digital_jaabogados_asesoria_empresas_extranjeras"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_portafolio_servicios",
+      "target": "plan_marketing_digital_jaabogados_civil_comercial_administrativo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_portafolio_servicios",
+      "target": "plan_marketing_digital_jaabogados_consultoria_pymes"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_portafolio_servicios",
+      "target": "plan_marketing_digital_jaabogados_contratos_compliance"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_portafolio_servicios",
+      "target": "plan_marketing_digital_jaabogados_derecho_corporativo_ma"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_portafolio_servicios",
+      "target": "plan_marketing_digital_jaabogados_derecho_laboral_litigios"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_portafolio_servicios",
+      "target": "plan_marketing_digital_jaabogados_redaccion_juridica_profesional"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_portafolio_servicios",
+      "target": "plan_marketing_digital_jaabogados_tributario_financiero"
+    },
+    {
+      "relation": "shares_data_with",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L268",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos",
-      "target": "plan_marketing_digital_jaabogados_portafolio_ocho_pilares"
+      "target": "plan_marketing_digital_jaabogados_portafolio_servicios"
     },
     {
       "relation": "references",
@@ -1484,40 +2187,250 @@
       "source_location": "L174",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_whatsapp_business",
-      "target": "plan_marketing_digital_jaabogados_portafolio_ocho_pilares"
+      "target": "plan_marketing_digital_jaabogados_portafolio_servicios"
     },
     {
-      "relation": "implements",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L63-L95",
+      "source_location": "L72",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_diecisiete_prospectos",
-      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+      "source": "plan_marketing_digital_jaabogados_capitalpocket_pocki",
+      "target": "plan_marketing_digital_jaabogados_contratos_compliance"
     },
     {
-      "relation": "implements",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L52-L59",
+      "source_location": "L69",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
-      "target": "plan_marketing_digital_jaabogados_clasificacion_semaforo"
+      "source": "plan_marketing_digital_jaabogados_telepatia",
+      "target": "plan_marketing_digital_jaabogados_contratos_compliance"
     },
     {
-      "relation": "implements",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L37-L50",
+      "source_location": "L69",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
-      "target": "plan_marketing_digital_jaabogados_criterios_puntuacion"
+      "source": "plan_marketing_digital_jaabogados_telepatia",
+      "target": "plan_marketing_digital_jaabogados_derecho_laboral_litigios"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_recurly_colombia",
+      "target": "plan_marketing_digital_jaabogados_tributario_financiero"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_drones_sky_solutions",
+      "target": "plan_marketing_digital_jaabogados_redaccion_juridica_profesional"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_movilbox",
+      "target": "plan_marketing_digital_jaabogados_redaccion_juridica_profesional"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.3,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L247",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_camara_comercio_medellin",
+      "target": "plan_marketing_digital_jaabogados_consultoria_pymes"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L249",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_aci_medellin",
+      "target": "plan_marketing_digital_jaabogados_asesoria_empresas_extranjeras"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_health_prime_colombia",
+      "target": "plan_marketing_digital_jaabogados_asesoria_empresas_extranjeras"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L248",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_procolombia",
+      "target": "plan_marketing_digital_jaabogados_asesoria_empresas_extranjeras"
     },
     {
       "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L351",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_kpis_mensuales",
+      "target": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_criterio_acceso_decisor"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_criterio_alineacion_servicios"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_criterio_capacidad_pago"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_criterio_madurez_legal"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_criterio_presencia_medellin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_criterio_riesgo_biglaw"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_criterio_senal_oportunidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_criterio_urgencia_legal"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_descartar_rojo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_prospecto_a_verde"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_prospecto_b_amarillo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
+      "target": "plan_marketing_digital_jaabogados_prospecto_c_naranja"
+    },
+    {
+      "relation": "shares_data_with",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
@@ -1529,182 +2442,152 @@
     {
       "relation": "shares_data_with",
       "confidence": "INFERRED",
-      "confidence_score": 0.85,
+      "confidence_score": 0.95,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L46, L130-L137",
+      "source_location": "L267",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_busquedas_decisores",
-      "target": "plan_marketing_digital_jaabogados_criterios_puntuacion"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L50",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_riesgo_biglaw",
-      "target": "plan_marketing_digital_jaabogados_criterios_puntuacion"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L56, L65",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_grupo_a_prioridad_alta",
-      "target": "plan_marketing_digital_jaabogados_clasificacion_semaforo"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L57, L75",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_grupo_b_nurturing",
-      "target": "plan_marketing_digital_jaabogados_clasificacion_semaforo"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L58, L86",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_grupo_c_seguimiento_pasivo",
-      "target": "plan_marketing_digital_jaabogados_clasificacion_semaforo"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L351",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_kpis",
-      "target": "plan_marketing_digital_jaabogados_clasificacion_semaforo"
+      "source": "plan_marketing_digital_jaabogados_criterio_senal_oportunidad",
+      "target": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos"
     },
     {
       "relation": "conceptually_related_to",
-      "confidence": "AMBIGUOUS",
-      "confidence_score": 0.25,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L50, L69",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_telepatia",
-      "target": "plan_marketing_digital_jaabogados_riesgo_biglaw"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L125",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin",
-      "target": "plan_marketing_digital_jaabogados_diecisiete_prospectos"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L388, L399",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
-      "target": "plan_marketing_digital_jaabogados_diecisiete_prospectos"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L421",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos",
-      "target": "plan_marketing_digital_jaabogados_diecisiete_prospectos"
-    },
-    {
-      "relation": "shares_data_with",
       "confidence": "INFERRED",
-      "confidence_score": 0.95,
+      "confidence_score": 0.85,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L63-L95, L257-L271",
+      "source_location": "L130",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos",
-      "target": "plan_marketing_digital_jaabogados_diecisiete_prospectos"
+      "source": "plan_marketing_digital_jaabogados_busquedas_decisores",
+      "target": "plan_marketing_digital_jaabogados_criterio_acceso_decisor"
     },
     {
-      "relation": "references",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_taskus_colombia",
+      "target": "plan_marketing_digital_jaabogados_criterio_madurez_legal"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_criterio_presencia_medellin",
+      "target": "plan_marketing_digital_jaabogados_seo_local"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_iqor_colombia",
+      "target": "plan_marketing_digital_jaabogados_criterio_riesgo_biglaw"
+    },
+    {
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L72",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_grupo_a_prioridad_alta",
-      "target": "plan_marketing_digital_jaabogados_capitalpocket_pocki"
+      "source": "plan_marketing_digital_jaabogados_capitalpocket_pocki",
+      "target": "plan_marketing_digital_jaabogados_prospecto_a_verde"
     },
     {
-      "relation": "references",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L73",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_grupo_a_prioridad_alta",
-      "target": "plan_marketing_digital_jaabogados_drones_sky_solutions"
+      "source": "plan_marketing_digital_jaabogados_drones_sky_solutions",
+      "target": "plan_marketing_digital_jaabogados_prospecto_a_verde"
     },
     {
-      "relation": "references",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L71",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_grupo_a_prioridad_alta",
-      "target": "plan_marketing_digital_jaabogados_health_prime_colombia"
+      "source": "plan_marketing_digital_jaabogados_health_prime_colombia",
+      "target": "plan_marketing_digital_jaabogados_prospecto_a_verde"
     },
     {
-      "relation": "references",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L70",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_grupo_a_prioridad_alta",
-      "target": "plan_marketing_digital_jaabogados_recurly_colombia"
+      "source": "plan_marketing_digital_jaabogados_recurly_colombia",
+      "target": "plan_marketing_digital_jaabogados_prospecto_a_verde"
     },
     {
-      "relation": "references",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L69",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_grupo_a_prioridad_alta",
-      "target": "plan_marketing_digital_jaabogados_telepatia"
+      "source": "plan_marketing_digital_jaabogados_telepatia",
+      "target": "plan_marketing_digital_jaabogados_prospecto_a_verde"
     },
     {
-      "relation": "references",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_erco_energia",
+      "target": "plan_marketing_digital_jaabogados_prospecto_b_amarillo"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_golden_energy",
+      "target": "plan_marketing_digital_jaabogados_prospecto_b_amarillo"
+    },
+    {
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L81",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_grupo_b_nurturing",
-      "target": "plan_marketing_digital_jaabogados_medvision"
+      "source": "plan_marketing_digital_jaabogados_medvision",
+      "target": "plan_marketing_digital_jaabogados_prospecto_b_amarillo"
     },
     {
-      "relation": "references",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L282-L284",
+      "source_location": "L80",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_secuencia_nurturing_30_dias",
-      "target": "plan_marketing_digital_jaabogados_grupo_b_nurturing"
+      "source": "plan_marketing_digital_jaabogados_movilbox",
+      "target": "plan_marketing_digital_jaabogados_prospecto_b_amarillo"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_netux",
+      "target": "plan_marketing_digital_jaabogados_prospecto_b_amarillo"
     },
     {
       "relation": "references",
@@ -1713,48 +2596,68 @@
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L282",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_secuencia_nurturing_30_dias",
-      "target": "plan_marketing_digital_jaabogados_grupo_c_seguimiento_pasivo"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L70-L71",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_recurly_colombia",
-      "target": "plan_marketing_digital_jaabogados_health_prime_colombia"
+      "source": "plan_marketing_digital_jaabogados_secuencia_nurturing",
+      "target": "plan_marketing_digital_jaabogados_prospecto_b_amarillo"
     },
     {
       "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.65,
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L249, L71",
+      "source_location": "L84",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_directorios_juridicos",
-      "target": "plan_marketing_digital_jaabogados_health_prime_colombia"
+      "source": "plan_marketing_digital_jaabogados_somos_internet",
+      "target": "plan_marketing_digital_jaabogados_prospecto_b_amarillo"
     },
     {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L72-L73",
+      "source_location": "L93",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_capitalpocket_pocki",
-      "target": "plan_marketing_digital_jaabogados_drones_sky_solutions"
+      "source": "plan_marketing_digital_jaabogados_aba_tech",
+      "target": "plan_marketing_digital_jaabogados_prospecto_c_naranja"
     },
     {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L72, L81",
+      "source_location": "L91",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_medvision",
-      "target": "plan_marketing_digital_jaabogados_capitalpocket_pocki"
+      "source": "plan_marketing_digital_jaabogados_azimut_energia",
+      "target": "plan_marketing_digital_jaabogados_prospecto_c_naranja"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_b2chat",
+      "target": "plan_marketing_digital_jaabogados_prospecto_c_naranja"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L282",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_secuencia_nurturing",
+      "target": "plan_marketing_digital_jaabogados_prospecto_c_naranja"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_siembraviva",
+      "target": "plan_marketing_digital_jaabogados_prospecto_c_naranja"
     },
     {
       "relation": "references",
@@ -1774,7 +2677,7 @@
       "source_location": "L141",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_estrategia_canales_digitales",
-      "target": "plan_marketing_digital_jaabogados_instagram_marca_personal"
+      "target": "plan_marketing_digital_jaabogados_instagram"
     },
     {
       "relation": "references",
@@ -1784,7 +2687,7 @@
       "source_location": "L184",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_estrategia_canales_digitales",
-      "target": "plan_marketing_digital_jaabogados_landing_page_web"
+      "target": "plan_marketing_digital_jaabogados_landing_page"
     },
     {
       "relation": "references",
@@ -1794,7 +2697,7 @@
       "source_location": "L101",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_estrategia_canales_digitales",
-      "target": "plan_marketing_digital_jaabogados_linkedin_canal_principal"
+      "target": "plan_marketing_digital_jaabogados_linkedin"
     },
     {
       "relation": "references",
@@ -1807,84 +2710,154 @@
       "target": "plan_marketing_digital_jaabogados_whatsapp_business"
     },
     {
-      "relation": "implements",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L123-L128",
+      "source_location": "L340",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_linkedin_canal_principal",
-      "target": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L130-L137",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_linkedin_canal_principal",
-      "target": "plan_marketing_digital_jaabogados_busquedas_decisores"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L115-L121",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_linkedin_canal_principal",
-      "target": "plan_marketing_digital_jaabogados_regla_3_2_1"
+      "source": "plan_marketing_digital_jaabogados_kpis_semanales",
+      "target": "plan_marketing_digital_jaabogados_linkedin"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L287-L297",
+      "source_location": "L123",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_secuencia_nurturing_30_dias",
-      "target": "plan_marketing_digital_jaabogados_linkedin_canal_principal"
+      "source": "plan_marketing_digital_jaabogados_linkedin",
+      "target": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_linkedin",
+      "target": "plan_marketing_digital_jaabogados_busquedas_decisores"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_linkedin",
+      "target": "plan_marketing_digital_jaabogados_checklist_perfil_linkedin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_linkedin",
+      "target": "plan_marketing_digital_jaabogados_regla_3_2_1"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L410",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_prohibicion_captacion_desleal",
+      "target": "plan_marketing_digital_jaabogados_linkedin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L420",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos",
+      "target": "plan_marketing_digital_jaabogados_linkedin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L287",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_secuencia_nurturing",
+      "target": "plan_marketing_digital_jaabogados_linkedin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L379",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
+      "target": "plan_marketing_digital_jaabogados_checklist_perfil_linkedin"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L412",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_publicidad_veraz_art_35",
+      "target": "plan_marketing_digital_jaabogados_checklist_perfil_linkedin"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L368",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_buffer_hootsuite",
+      "target": "plan_marketing_digital_jaabogados_regla_3_2_1"
     },
     {
       "relation": "semantically_similar_to",
       "confidence": "INFERRED",
-      "confidence_score": 0.85,
+      "confidence_score": 0.75,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L115-L121, L306-L318",
+      "source_location": "L282",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_content_marketing_juridico",
+      "source": "plan_marketing_digital_jaabogados_secuencia_nurturing",
       "target": "plan_marketing_digital_jaabogados_regla_3_2_1"
     },
     {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L123-L128, L340-L344",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_kpis",
-      "target": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin"
-    },
-    {
-      "relation": "rationale_for",
+      "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L410, L123-L128",
+      "source_location": "L367",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_principios_eticos",
-      "target": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin"
+      "source": "plan_marketing_digital_jaabogados_linkedin_sales_navigator",
+      "target": "plan_marketing_digital_jaabogados_busquedas_decisores"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L367",
+      "source_location": "L148",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_herramientas_digitales",
-      "target": "plan_marketing_digital_jaabogados_busquedas_decisores"
+      "source": "plan_marketing_digital_jaabogados_instagram",
+      "target": "plan_marketing_digital_jaabogados_calendly"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L155",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_instagram",
+      "target": "plan_marketing_digital_jaabogados_canva"
     },
     {
       "relation": "cites",
@@ -1893,7 +2866,7 @@
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L162",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_instagram_marca_personal",
+      "source": "plan_marketing_digital_jaabogados_instagram",
       "target": "plan_marketing_digital_jaabogados_decreto_0581_2026"
     },
     {
@@ -1901,10 +2874,20 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L148, L179-L180",
+      "source_location": "L179",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_instagram_marca_personal",
+      "source": "plan_marketing_digital_jaabogados_instagram",
       "target": "plan_marketing_digital_jaabogados_whatsapp_business"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L380",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
+      "target": "plan_marketing_digital_jaabogados_instagram"
     },
     {
       "relation": "references",
@@ -1917,33 +2900,53 @@
       "target": "plan_marketing_digital_jaabogados_whatsapp_business"
     },
     {
-      "relation": "implements",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L194, L208-L214",
+      "source_location": "L381",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_landing_page_web",
-      "target": "plan_marketing_digital_jaabogados_seo_local"
+      "source": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
+      "target": "plan_marketing_digital_jaabogados_whatsapp_business"
     },
     {
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L193, L196, L412-L413",
+      "source_location": "L422",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_principios_eticos",
-      "target": "plan_marketing_digital_jaabogados_landing_page_web"
+      "source": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos",
+      "target": "plan_marketing_digital_jaabogados_whatsapp_business"
     },
     {
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
-      "confidence_score": 0.75,
+      "confidence_score": 0.85,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L236-L249",
+      "source_location": "L369",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_directorios_juridicos",
+      "source": "plan_marketing_digital_jaabogados_landing_page",
+      "target": "plan_marketing_digital_jaabogados_google_analytics"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L206",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_landing_page",
+      "target": "plan_marketing_digital_jaabogados_notion"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L208",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_landing_page",
       "target": "plan_marketing_digital_jaabogados_seo_local"
     },
     {
@@ -1951,10 +2954,20 @@
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L208-L214, L231-L232",
+      "source_location": "L218",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_google_business_profile",
       "target": "plan_marketing_digital_jaabogados_seo_local"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L238",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_directorios_juridicos",
+      "target": "plan_marketing_digital_jaabogados_google_business_profile"
     },
     {
       "relation": "references",
@@ -1963,8 +2976,88 @@
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L345",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_kpis",
+      "source": "plan_marketing_digital_jaabogados_kpis_semanales",
       "target": "plan_marketing_digital_jaabogados_google_business_profile"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L382",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
+      "target": "plan_marketing_digital_jaabogados_google_business_profile"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L423",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos",
+      "target": "plan_marketing_digital_jaabogados_google_business_profile"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L242",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_directorios_juridicos",
+      "target": "plan_marketing_digital_jaabogados_abogados_com_co"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L249",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_directorios_juridicos",
+      "target": "plan_marketing_digital_jaabogados_aci_medellin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L247",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_directorios_juridicos",
+      "target": "plan_marketing_digital_jaabogados_camara_comercio_medellin"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_directorios_juridicos",
+      "target": "plan_marketing_digital_jaabogados_consultopedia"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L245",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_directorios_juridicos",
+      "target": "plan_marketing_digital_jaabogados_letradoo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L248",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_directorios_juridicos",
+      "target": "plan_marketing_digital_jaabogados_procolombia"
     },
     {
       "relation": "references",
@@ -1977,11 +3070,51 @@
       "target": "plan_marketing_digital_jaabogados_directorios_juridicos"
     },
     {
-      "relation": "implements",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L255-L271",
+      "source_location": "L275",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_crm_simple",
+      "target": "plan_marketing_digital_jaabogados_google_sheets"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L277",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_crm_simple",
+      "target": "plan_marketing_digital_jaabogados_hubspot_crm"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L414",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_crm_simple",
+      "target": "plan_marketing_digital_jaabogados_ley_1581_2012"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L276",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_crm_simple",
+      "target": "plan_marketing_digital_jaabogados_notion"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L257",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_crm_simple",
       "target": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos"
@@ -1991,19 +3124,19 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L365, L370",
+      "source_location": "L278",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_herramientas_digitales",
-      "target": "plan_marketing_digital_jaabogados_crm_simple"
+      "source": "plan_marketing_digital_jaabogados_crm_simple",
+      "target": "plan_marketing_digital_jaabogados_trello"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L341-L342",
+      "source_location": "L341",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_kpis",
+      "source": "plan_marketing_digital_jaabogados_kpis_semanales",
       "target": "plan_marketing_digital_jaabogados_crm_simple"
     },
     {
@@ -2017,14 +3150,24 @@
       "target": "plan_marketing_digital_jaabogados_crm_simple"
     },
     {
-      "relation": "rationale_for",
+      "relation": "semantically_similar_to",
       "confidence": "INFERRED",
-      "confidence_score": 0.95,
+      "confidence_score": 0.65,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L414, L253-L271",
+      "source_location": "L276",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_principios_eticos",
-      "target": "plan_marketing_digital_jaabogados_crm_simple"
+      "source": "plan_marketing_digital_jaabogados_hubspot_crm",
+      "target": "plan_marketing_digital_jaabogados_notion"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.25,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L372",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_loom",
+      "target": "plan_marketing_digital_jaabogados_secuencia_nurturing"
     },
     {
       "relation": "references",
@@ -2034,7 +3177,17 @@
       "source_location": "L393",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
-      "target": "plan_marketing_digital_jaabogados_secuencia_nurturing_30_dias"
+      "target": "plan_marketing_digital_jaabogados_secuencia_nurturing"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L297",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_secuencia_nurturing",
+      "target": "plan_marketing_digital_jaabogados_casos_exito"
     },
     {
       "relation": "references",
@@ -2043,8 +3196,18 @@
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L294",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_secuencia_nurturing_30_dias",
-      "target": "plan_marketing_digital_jaabogados_guias_descargables_lead_magnet"
+      "source": "plan_marketing_digital_jaabogados_secuencia_nurturing",
+      "target": "plan_marketing_digital_jaabogados_guias_descargables"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L363",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_content_marketing",
+      "target": "plan_marketing_digital_jaabogados_canva"
     },
     {
       "relation": "references",
@@ -2053,8 +3216,48 @@
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L316",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_content_marketing_juridico",
-      "target": "plan_marketing_digital_jaabogados_confidencialidad_casos_exito"
+      "source": "plan_marketing_digital_jaabogados_content_marketing",
+      "target": "plan_marketing_digital_jaabogados_casos_exito"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L371",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_content_marketing",
+      "target": "plan_marketing_digital_jaabogados_chatgpt_claude"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L320",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_content_marketing",
+      "target": "plan_marketing_digital_jaabogados_guias_descargables"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L325",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_content_marketing",
+      "target": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L310",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_content_marketing",
+      "target": "plan_marketing_digital_jaabogados_posts_educativos"
     },
     {
       "relation": "cites",
@@ -2063,78 +3266,88 @@
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L312",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_content_marketing_juridico",
+      "source": "plan_marketing_digital_jaabogados_posts_educativos",
       "target": "plan_marketing_digital_jaabogados_decreto_0581_2026"
     },
     {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L320-L323",
+      "source_location": "L412",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_content_marketing_juridico",
-      "target": "plan_marketing_digital_jaabogados_guias_descargables_lead_magnet"
+      "source": "plan_marketing_digital_jaabogados_publicidad_veraz_art_35",
+      "target": "plan_marketing_digital_jaabogados_posts_educativos"
     },
     {
-      "relation": "implements",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L325-L328",
+      "source_location": "L411",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_content_marketing_juridico",
+      "source": "plan_marketing_digital_jaabogados_casos_exito",
+      "target": "plan_marketing_digital_jaabogados_confidencialidad_art_28"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L320",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_guias_descargables",
       "target": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L363, L389",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_herramientas_digitales",
-      "target": "plan_marketing_digital_jaabogados_guias_descargables_lead_magnet"
     },
     {
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L320, L414",
+      "source_location": "L414",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_ley_1581_2012",
-      "target": "plan_marketing_digital_jaabogados_guias_descargables_lead_magnet"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L320-L328, L401",
-      "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva",
-      "target": "plan_marketing_digital_jaabogados_guias_descargables_lead_magnet"
+      "target": "plan_marketing_digital_jaabogados_guias_descargables"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L327, L366",
+      "source_location": "L327",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_herramientas_digitales",
-      "target": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva"
+      "source": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva",
+      "target": "plan_marketing_digital_jaabogados_brevo"
     },
     {
-      "relation": "shares_data_with",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L327",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva",
+      "target": "plan_marketing_digital_jaabogados_mailchimp"
+    },
+    {
+      "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L338-L345, L359-L372",
+      "source_location": "L332",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_herramientas_digitales",
-      "target": "plan_marketing_digital_jaabogados_kpis"
+      "source": "plan_marketing_digital_jaabogados_kpis_mensuales",
+      "target": "plan_marketing_digital_jaabogados_kpis_semanales"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L343",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_kpis_semanales",
+      "target": "plan_marketing_digital_jaabogados_calendly"
     },
     {
       "relation": "references",
@@ -2144,14 +3357,34 @@
       "source_location": "L396",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
-      "target": "plan_marketing_digital_jaabogados_kpis"
+      "target": "plan_marketing_digital_jaabogados_kpis_semanales"
     },
     {
-      "relation": "semantically_similar_to",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L389",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
+      "target": "plan_marketing_digital_jaabogados_canva"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L402",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
+      "target": "plan_marketing_digital_jaabogados_linkedin_sales_navigator"
+    },
+    {
+      "relation": "conceptually_related_to",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L376-L424",
+      "source_location": "L418",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos",
       "target": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas"
@@ -2161,7 +3394,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
-      "source_location": "L408-L412",
+      "source_location": "L408",
       "weight": 1.0,
       "source": "plan_marketing_digital_jaabogados_principios_eticos",
       "target": "plan_marketing_digital_jaabogados_ley_1123_2007"
@@ -2177,27 +3410,46 @@
       "target": "plan_marketing_digital_jaabogados_ley_1581_2012"
     },
     {
-      "relation": "cites",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "plan_marketing_digital_jaabogados.md",
       "source_location": "L411",
       "weight": 1.0,
-      "source": "plan_marketing_digital_jaabogados_confidencialidad_casos_exito",
-      "target": "plan_marketing_digital_jaabogados_ley_1123_2007"
+      "source": "plan_marketing_digital_jaabogados_ley_1123_2007",
+      "target": "plan_marketing_digital_jaabogados_confidencialidad_art_28"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L410",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_ley_1123_2007",
+      "target": "plan_marketing_digital_jaabogados_prohibicion_captacion_desleal"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "plan_marketing_digital_jaabogados.md",
+      "source_location": "L412",
+      "weight": 1.0,
+      "source": "plan_marketing_digital_jaabogados_ley_1123_2007",
+      "target": "plan_marketing_digital_jaabogados_publicidad_veraz_art_35"
     }
   ],
   "hyperedges": [
     {
-      "id": "embudo_captacion_prospectos_juridicos",
-      "label": "Embudo de captacion: senal, calificacion, contacto, nurturing, cierre",
+      "id": "plan_marketing_embudo_captacion_prospectos",
+      "label": "Embudo de Captacion: calificacion, registro, nurturing y medicion",
       "nodes": [
-        "plan_marketing_digital_jaabogados_diecisiete_prospectos",
         "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
-        "plan_marketing_digital_jaabogados_clasificacion_semaforo",
-        "plan_marketing_digital_jaabogados_secuencia_nurturing_30_dias",
         "plan_marketing_digital_jaabogados_crm_simple",
-        "plan_marketing_digital_jaabogados_kpis"
+        "plan_marketing_digital_jaabogados_secuencia_nurturing",
+        "plan_marketing_digital_jaabogados_kpis_semanales",
+        "plan_marketing_digital_jaabogados_kpis_mensuales"
       ],
       "relation": "form",
       "confidence": "INFERRED",
@@ -2205,13 +3457,13 @@
       "source_file": "plan_marketing_digital_jaabogados.md"
     },
     {
-      "id": "mix_canales_digitales_jaabogados",
-      "label": "Mix de canales digitales del despacho",
+      "id": "plan_marketing_canales_digitales_stack",
+      "label": "Stack de Canales Digitales del Despacho",
       "nodes": [
-        "plan_marketing_digital_jaabogados_linkedin_canal_principal",
-        "plan_marketing_digital_jaabogados_instagram_marca_personal",
+        "plan_marketing_digital_jaabogados_linkedin",
+        "plan_marketing_digital_jaabogados_instagram",
         "plan_marketing_digital_jaabogados_whatsapp_business",
-        "plan_marketing_digital_jaabogados_landing_page_web",
+        "plan_marketing_digital_jaabogados_landing_page",
         "plan_marketing_digital_jaabogados_google_business_profile",
         "plan_marketing_digital_jaabogados_directorios_juridicos"
       ],
@@ -2221,14 +3473,14 @@
       "source_file": "plan_marketing_digital_jaabogados.md"
     },
     {
-      "id": "marco_cumplimiento_deontologico_marketing",
-      "label": "Marco de cumplimiento deontologico del marketing juridico colombiano",
+      "id": "plan_marketing_marco_deontologico_publicidad",
+      "label": "Marco Deontologico que Restringe el Marketing Juridico",
       "nodes": [
-        "plan_marketing_digital_jaabogados_principios_eticos",
         "plan_marketing_digital_jaabogados_ley_1123_2007",
-        "plan_marketing_digital_jaabogados_ley_1581_2012",
-        "plan_marketing_digital_jaabogados_confidencialidad_casos_exito",
-        "plan_marketing_digital_jaabogados_content_marketing_juridico"
+        "plan_marketing_digital_jaabogados_prohibicion_captacion_desleal",
+        "plan_marketing_digital_jaabogados_confidencialidad_art_28",
+        "plan_marketing_digital_jaabogados_publicidad_veraz_art_35",
+        "plan_marketing_digital_jaabogados_ley_1581_2012"
       ],
       "relation": "form",
       "confidence": "EXTRACTED",
@@ -2236,5 +3488,5 @@
       "source_file": "plan_marketing_digital_jaabogados.md"
     }
   ],
-  "built_at_commit": "9622daa46f99d17645767321a1d750afe1983cd7"
+  "built_at_commit": "7e1b3a30106f5502f1ffef8bfc92c68f27da2414"
 }
