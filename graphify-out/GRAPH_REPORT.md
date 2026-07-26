@@ -1,16 +1,16 @@
 # Graph Report - jacabogados  (2026-07-26)
 
 ## Corpus Check
-- 4 files · ~12,512 words
+- 3 files · ~12,498 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 176 nodes · 391 edges · 10 communities (9 shown, 1 thin omitted)
-- Extraction: 72% EXTRACTED · 27% INFERRED · 2% AMBIGUOUS · INFERRED: 105 edges (avg confidence: 0.86)
+- 173 nodes · 389 edges · 8 communities
+- Extraction: 71% EXTRACTED · 27% INFERRED · 2% AMBIGUOUS · INFERRED: 105 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `98ed5361`
+- Built from commit: `e7efaf24`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,8 +23,6 @@
 - Plantillas de Mensaje y Nurturing
 - Generador CRM en Excel
 - Prospectos Naranja y Revision Mensual
-- Directorios y Plataformas Juridicas en Colombia
-- graphify
 
 ## God Nodes (most connected - your core abstractions)
 1. `Matriz de Evaluacion de Prospectos (Semaforo de Viabilidad)` - 33 edges
@@ -61,43 +59,39 @@
 - **Stack de Canales Digitales del Despacho** — plan_marketing_digital_jaabogados_linkedin, plan_marketing_digital_jaabogados_instagram, plan_marketing_digital_jaabogados_whatsapp_business, plan_marketing_digital_jaabogados_landing_page, plan_marketing_digital_jaabogados_google_business_profile, plan_marketing_digital_jaabogados_directorios_juridicos [EXTRACTED 1.00]
 - **Marco Deontologico que Restringe el Marketing Juridico** — plan_marketing_digital_jaabogados_ley_1123_2007, plan_marketing_digital_jaabogados_prohibicion_captacion_desleal, plan_marketing_digital_jaabogados_confidencialidad_art_28, plan_marketing_digital_jaabogados_publicidad_veraz_art_35, plan_marketing_digital_jaabogados_ley_1581_2012 [EXTRACTED 1.00]
 
-## Communities (10 total, 1 thin omitted)
+## Communities (8 total, 0 thin omitted)
 
 ### Community 0 - "Cartera de Prospectos del CRM"
-Cohesion: 0.19
-Nodes (17): Prospecto: Azimut Energía, Prospecto: Erco Energía, Prospecto: Golden Energy, Señal: Selección Medellín Next 2026, Prospecto: Medvision, Prospecto: MovilBox, Prospecto: Netux, Plantilla Genérica con Placeholder [TEMA RELEVANTE AL SECTOR] (+9 more)
+Cohesion: 0.14
+Nodes (29): Prospecto: Azimut Energía, Prospecto: CapitalPocket / Pocki, Conteo por Semáforo (5 Verde / 8 Amarillo / 4 Naranja / 0 Rojo / 17 total), Workbook CRM JA Abogados (crm_jaabogados.xlsx), Sheet: CRM Prospectos, Sheet: Dashboard, Prospecto: Drones Sky Solutions, Prospecto: Erco Energía (+21 more)
 
 ### Community 1 - "Prospeccion Diaria en LinkedIn"
-Cohesion: 0.13
-Nodes (27): Acciones Diarias en LinkedIn (30 min/dia), Busquedas Booleanas de Decisores, Calendly, Canva, Checklist de Optimizacion del Perfil LinkedIn, Criterio: Acceso al Decisor, Criterio: Presencia en Medellin/Colombia, Decreto 0581 de 2026 (tercerizacion laboral) (+19 more)
+Cohesion: 0.12
+Nodes (28): Acciones Diarias en LinkedIn (30 min/dia), Busquedas Booleanas de Decisores, Calendly, Canva, Checklist de Optimizacion del Perfil LinkedIn, Criterio: Acceso al Decisor, Criterio: Presencia en Medellin/Colombia, Decreto 0581 de 2026 (tercerizacion laboral) (+20 more)
 
 ### Community 2 - "Scoring C1-C8 y Bandas de Semaforo"
 Cohesion: 0.16
 Nodes (25): C1: Señal Reciente, C2: Alineación Servicios, C3: Tamaño / Capacidad de Pago, C4: Acceso al Decisor, C5: Madurez Legal, C6: Presencia en Medellín, C7: Urgencia del Problema, C8: Sin Riesgo BigLaw (+17 more)
 
 ### Community 3 - "Portafolio de Servicios y Directorios"
-Cohesion: 0.14
-Nodes (26): Campo Servicio Principal, Prospecto: CapitalPocket / Pocki, Conteo por Semáforo (5 Verde / 8 Amarillo / 4 Naranja / 0 Rojo / 17 total), Workbook CRM JA Abogados (crm_jaabogados.xlsx), Sheet: CRM Prospectos, Sheet: Dashboard, Prospecto: Drones Sky Solutions, Prospecto: Health Prime Colombia (+18 more)
+Cohesion: 0.10
+Nodes (25): Campo Servicio Principal, Directorio Abogados Colombia (abogados.com.co), ACI Medellin (inversion extranjera), Asesoria a Empresas Extranjeras, Camara de Comercio de Medellin, CapitalPocket / Pocki (34/40), Civil, Comercial y Administrativo, Consultopedia (+17 more)
 
 ### Community 4 - "Esquema y Operativa del CRM"
 Cohesion: 0.14
 Nodes (21): Campo ESTADO del Prospecto (Prospecto Nuevo / Seguimiento Pasivo), Campo Próxima Acción y Fecha Próxima Acción, Campo Señal de Oportunidad, Esquema de Columnas del CRM (A–Z: Empresa, Sector, Decisor, Contacto, C1–C8, TOTAL, Semáforo), Flujo Semanal Recomendado (30 min/semana), Guía: Cómo subir el archivo a Google Sheets, Sheet: Instrucciones, Ley 1581/2012 (Habeas Data) — no compartir la base con terceros (+13 more)
 
 ### Community 5 - "Plantillas de Mensaje y Nurturing"
-Cohesion: 0.14
-Nodes (20): Plantilla: Mensaje de Conexión LinkedIn (≤300 caracteres), Plantilla: Mensaje de Seguimiento, Sheet: Mensajes, Nurturing 30 días (acción operativa para prospectos Amarillo), Gancho: Primera Revisión Jurídica Sin Costo, Plantilla: Primer Mensaje (DM LinkedIn), Regla: Los mensajes son conversaciones, no ventas (primero valor, luego oferta), Brevo (+12 more)
+Cohesion: 0.15
+Nodes (19): Plantilla: Mensaje de Conexión LinkedIn (≤300 caracteres), Plantilla: Mensaje de Seguimiento, Sheet: Mensajes, Nurturing 30 días (acción operativa para prospectos Amarillo), Gancho: Primera Revisión Jurídica Sin Costo, Plantilla: Primer Mensaje (DM LinkedIn), Regla: Los mensajes son conversaciones, no ventas (primero valor, luego oferta), Brevo (+11 more)
 
 ### Community 6 - "Generador CRM en Excel"
 Cohesion: 0.39
 Nodes (14): cell_font(), center(), crear_crm(), crear_dashboard(), crear_instrucciones(), crear_matriz(), crear_mensajes(), header_fill() (+6 more)
 
 ### Community 7 - "Prospectos Naranja y Revision Mensual"
-Cohesion: 0.22
-Nodes (11): Prospecto: Aba Tech, Prospecto: B2Chat, Revisión de Fin de Mes de Prospectos Naranja (ascenso a Amarillo), Semáforo Naranja — Prospecto C (15–23), Prospecto: SiembraViva, Aba Tech (22/40), Azimut Energia (24/40), B2Chat (23/40) (+3 more)
-
-### Community 8 - "Directorios y Plataformas Juridicas en Colombia"
-Cohesion: 0.22
-Nodes (10): Directorio Abogados Colombia (abogados.com.co), ACI Medellin (inversion extranjera), Asesoria a Empresas Extranjeras, Camara de Comercio de Medellin, Consultopedia, Consultoria para Pymes, Directorios y Plataformas Juridicas en Colombia, Health Prime Colombia (34/40) (+2 more)
+Cohesion: 0.24
+Nodes (10): Prospecto: Aba Tech, Prospecto: B2Chat, Revisión de Fin de Mes de Prospectos Naranja (ascenso a Amarillo), Semáforo Naranja — Prospecto C (15–23), Prospecto: SiembraViva, Aba Tech (22/40), B2Chat (23/40), KPIs Mensuales (+2 more)
 
 ## Ambiguous Edges - Review These
 - `Sheet: Dashboard` → `KPIs Mensuales`  [AMBIGUOUS]
@@ -114,9 +108,8 @@ Nodes (10): Directorio Abogados Colombia (abogados.com.co), ACI Medellin (invers
   plan_marketing_digital_jaabogados.md · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **18 isolated node(s):** `graphify-mcp`, `Versión 1.0 — Junio 2026 (generado con Claude para JA Abogados)`, `Derecho Corporativo y M&A`, `Civil, Comercial y Administrativo`, `Criterio: Tamano y Capacidad de Pago` (+13 more)
+- **17 isolated node(s):** `Versión 1.0 — Junio 2026 (generado con Claude para JA Abogados)`, `Derecho Corporativo y M&A`, `Civil, Comercial y Administrativo`, `Criterio: Tamano y Capacidad de Pago`, `Criterio: Urgencia del Problema Legal` (+12 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -134,4 +127,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **What is the exact relationship between `Secuencia de Nurturing a 30 Dias` and `Loom`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **Why does `Matriz de Evaluacion de Prospectos (Semaforo de Viabilidad)` connect `Scoring C1-C8 y Bandas de Semaforo` to `Cartera de Prospectos del CRM`, `Prospeccion Diaria en LinkedIn`, `Portafolio de Servicios y Directorios`, `Esquema y Operativa del CRM`, `Prospectos Naranja y Revision Mensual`?**
-  _High betweenness centrality (0.258) - this node is a cross-community bridge._
+  _High betweenness centrality (0.267) - this node is a cross-community bridge._

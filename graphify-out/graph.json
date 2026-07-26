@@ -107,57 +107,15 @@
   },
   "nodes": [
     {
-      "label": ".mcp.json",
-      "file_type": "code",
-      "source_file": ".mcp.json",
-      "source_location": "L1",
-      "metadata": {
-        "mcp_kind": "mcp_config_file"
-      },
-      "_origin": "ast",
-      "id": "mcp",
-      "community": 9,
-      "community_name": "graphify",
-      "norm_label": ".mcp.json"
-    },
-    {
-      "label": "graphify",
-      "file_type": "code",
-      "source_file": ".mcp.json",
-      "source_location": "L1",
-      "metadata": {
-        "mcp_kind": "mcp_server"
-      },
-      "_origin": "ast",
-      "id": "mcp_mcp_server_graphify",
-      "community": 9,
-      "community_name": "graphify",
-      "norm_label": "graphify"
-    },
-    {
-      "label": "graphify-mcp",
-      "file_type": "code",
-      "source_file": ".mcp.json",
-      "source_location": "L1",
-      "metadata": {
-        "mcp_kind": "mcp_command"
-      },
-      "_origin": "ast",
-      "id": "mcp_command_graphify_mcp",
-      "community": 9,
-      "community_name": "graphify",
-      "norm_label": "graphify-mcp"
-    },
-    {
       "label": "generar_crm.py",
       "file_type": "code",
       "source_file": "generar_crm.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "generar_crm.py",
       "id": "generar_crm",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "generar_crm.py"
     },
     {
       "label": "header_fill()",
@@ -165,10 +123,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L263",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "header_fill()",
       "id": "generar_crm_header_fill",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "header_fill()"
     },
     {
       "label": "header_font()",
@@ -176,10 +134,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L266",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "header_font()",
       "id": "generar_crm_header_font",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "header_font()"
     },
     {
       "label": "cell_font()",
@@ -187,10 +145,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L269",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "cell_font()",
       "id": "generar_crm_cell_font",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "cell_font()"
     },
     {
       "label": "center()",
@@ -198,10 +156,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L272",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "center()",
       "id": "generar_crm_center",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "center()"
     },
     {
       "label": "left()",
@@ -209,10 +167,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L275",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "left()",
       "id": "generar_crm_left",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "left()"
     },
     {
       "label": "thin_border()",
@@ -220,10 +178,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L278",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "thin_border()",
       "id": "generar_crm_thin_border",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "thin_border()"
     },
     {
       "label": "semaforo()",
@@ -231,10 +189,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L282",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "semaforo()",
       "id": "generar_crm_semaforo",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "semaforo()"
     },
     {
       "label": "semaforo_fill()",
@@ -242,10 +200,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L288",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "semaforo_fill()",
       "id": "generar_crm_semaforo_fill",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "semaforo_fill()"
     },
     {
       "label": "semaforo_font()",
@@ -253,10 +211,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L294",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "semaforo_font()",
       "id": "generar_crm_semaforo_font",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "semaforo_font()"
     },
     {
       "label": "crear_dashboard()",
@@ -264,10 +222,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L302",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "crear_dashboard()",
       "id": "generar_crm_crear_dashboard",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "crear_dashboard()"
     },
     {
       "label": "crear_crm()",
@@ -275,10 +233,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L422",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "crear_crm()",
       "id": "generar_crm_crear_crm",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "crear_crm()"
     },
     {
       "label": "crear_matriz()",
@@ -286,10 +244,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L592",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "crear_matriz()",
       "id": "generar_crm_crear_matriz",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "crear_matriz()"
     },
     {
       "label": "crear_mensajes()",
@@ -297,10 +255,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L783",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "crear_mensajes()",
       "id": "generar_crm_crear_mensajes",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "crear_mensajes()"
     },
     {
       "label": "crear_instrucciones()",
@@ -308,10 +266,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L847",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "crear_instrucciones()",
       "id": "generar_crm_crear_instrucciones",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "crear_instrucciones()"
     },
     {
       "label": "main()",
@@ -319,10 +277,10 @@
       "source_file": "generar_crm.py",
       "source_location": "L926",
       "_origin": "ast",
-      "community": 6,
-      "norm_label": "main()",
       "id": "generar_crm_main",
-      "community_name": "Generador CRM en Excel"
+      "community": 6,
+      "community_name": "Generador CRM en Excel",
+      "norm_label": "main()"
     },
     {
       "label": "Workbook CRM JA Abogados (crm_jaabogados.xlsx)",
@@ -333,10 +291,10 @@
       "captured_at": null,
       "author": "Claude (Anthropic) para JA Abogados",
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "workbook crm ja abogados (crm_jaabogados.xlsx)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_crm_jaabogados_workbook",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_crm_jaabogados_workbook"
     },
     {
       "label": "Sheet: Dashboard",
@@ -347,10 +305,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "sheet: dashboard",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_dashboard",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_dashboard"
     },
     {
       "label": "Sheet: CRM Prospectos",
@@ -361,10 +319,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "sheet: crm prospectos",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_crm_prospectos"
     },
     {
       "label": "Sheet: Matriz de Evaluaci\u00f3n",
@@ -377,8 +335,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "sheet: matriz de evaluacion",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_matriz_de_evaluacion"
     },
     {
       "label": "Sheet: Mensajes",
@@ -391,8 +349,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "sheet: mensajes",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensajes",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensajes"
     },
     {
       "label": "Sheet: Instrucciones",
@@ -405,8 +363,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "sheet: instrucciones",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_instrucciones",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_instrucciones"
     },
     {
       "label": "TOP 5 Prospectos Prioritarios (Sem\u00e1foro Verde)",
@@ -417,10 +375,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "top 5 prospectos prioritarios (semaforo verde)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_top_5_prospectos_prioritarios",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_top_5_prospectos_prioritarios"
     },
     {
       "label": "Conteo por Sem\u00e1foro (5 Verde / 8 Amarillo / 4 Naranja / 0 Rojo / 17 total)",
@@ -431,10 +389,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "conteo por semaforo (5 verde / 8 amarillo / 4 naranja / 0 rojo / 17 total)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_conteo_semaforo_dashboard",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_conteo_semaforo_dashboard"
     },
     {
       "label": "Prospecto: Telepat\u00eda",
@@ -445,10 +403,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "prospecto: telepatia",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_telepatia",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_telepatia"
     },
     {
       "label": "Prospecto: Recurly Colombia",
@@ -459,10 +417,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "prospecto: recurly colombia",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_recurly_colombia",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_recurly_colombia"
     },
     {
       "label": "Prospecto: Health Prime Colombia",
@@ -473,10 +431,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "prospecto: health prime colombia",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_health_prime_colombia",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_health_prime_colombia"
     },
     {
       "label": "Prospecto: CapitalPocket / Pocki",
@@ -487,10 +445,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "prospecto: capitalpocket / pocki",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_capitalpocket_pocki",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_capitalpocket_pocki"
     },
     {
       "label": "Prospecto: Drones Sky Solutions",
@@ -501,10 +459,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "prospecto: drones sky solutions",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_drones_sky_solutions",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_drones_sky_solutions"
     },
     {
       "label": "Prospecto: Netux",
@@ -517,8 +475,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "prospecto: netux",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_netux",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_netux"
     },
     {
       "label": "Prospecto: MovilBox",
@@ -531,8 +489,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "prospecto: movilbox",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_movilbox",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_movilbox"
     },
     {
       "label": "Prospecto: Medvision",
@@ -545,8 +503,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "prospecto: medvision",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_medvision",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_medvision"
     },
     {
       "label": "Prospecto: Erco Energ\u00eda",
@@ -559,8 +517,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "prospecto: erco energia",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_erco_energia",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_erco_energia"
     },
     {
       "label": "Prospecto: Golden Energy",
@@ -573,8 +531,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "prospecto: golden energy",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_golden_energy",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_golden_energy"
     },
     {
       "label": "Prospecto: Somos Internet",
@@ -587,8 +545,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "prospecto: somos internet",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_somos_internet",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_somos_internet"
     },
     {
       "label": "Prospecto: SiembraViva",
@@ -601,8 +559,8 @@
       "contributor": null,
       "community": 7,
       "norm_label": "prospecto: siembraviva",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_siembraviva",
-      "community_name": "Prospectos Naranja y Revision Mensual"
+      "community_name": "Prospectos Naranja y Revision Mensual",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_siembraviva"
     },
     {
       "label": "Prospecto: Azimut Energ\u00eda",
@@ -615,8 +573,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "prospecto: azimut energia",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_azimut_energia",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_azimut_energia"
     },
     {
       "label": "Prospecto: B2Chat",
@@ -629,8 +587,8 @@
       "contributor": null,
       "community": 7,
       "norm_label": "prospecto: b2chat",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_b2chat",
-      "community_name": "Prospectos Naranja y Revision Mensual"
+      "community_name": "Prospectos Naranja y Revision Mensual",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_b2chat"
     },
     {
       "label": "Prospecto: Aba Tech",
@@ -643,8 +601,8 @@
       "contributor": null,
       "community": 7,
       "norm_label": "prospecto: aba tech",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_aba_tech",
-      "community_name": "Prospectos Naranja y Revision Mensual"
+      "community_name": "Prospectos Naranja y Revision Mensual",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_aba_tech"
     },
     {
       "label": "Prospecto: iQor Colombia",
@@ -657,8 +615,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "prospecto: iqor colombia",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_iqor_colombia",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_iqor_colombia"
     },
     {
       "label": "Prospecto: TaskUs Colombia",
@@ -671,8 +629,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "prospecto: taskus colombia",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_taskus_colombia",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_taskus_colombia"
     },
     {
       "label": "C1: Se\u00f1al Reciente",
@@ -685,8 +643,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "c1: senal reciente",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_c1_senal_reciente",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c1_senal_reciente"
     },
     {
       "label": "C2: Alineaci\u00f3n Servicios",
@@ -699,8 +657,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "c2: alineacion servicios",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_c2_alineacion_servicios",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c2_alineacion_servicios"
     },
     {
       "label": "C3: Tama\u00f1o / Capacidad de Pago",
@@ -713,8 +671,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "c3: tamano / capacidad de pago",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_c3_tamano_capacidad_pago",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c3_tamano_capacidad_pago"
     },
     {
       "label": "C4: Acceso al Decisor",
@@ -727,8 +685,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "c4: acceso al decisor",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_c4_acceso_al_decisor",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c4_acceso_al_decisor"
     },
     {
       "label": "C5: Madurez Legal",
@@ -741,8 +699,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "c5: madurez legal",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_c5_madurez_legal",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c5_madurez_legal"
     },
     {
       "label": "C6: Presencia en Medell\u00edn",
@@ -755,8 +713,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "c6: presencia en medellin",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_c6_presencia_en_medellin",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c6_presencia_en_medellin"
     },
     {
       "label": "C7: Urgencia del Problema",
@@ -769,8 +727,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "c7: urgencia del problema",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_c7_urgencia_del_problema",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c7_urgencia_del_problema"
     },
     {
       "label": "C8: Sin Riesgo BigLaw",
@@ -783,8 +741,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "c8: sin riesgo biglaw",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_c8_sin_riesgo_biglaw",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_c8_sin_riesgo_biglaw"
     },
     {
       "label": "Puntaje TOTAL /40 (suma C1\u2013C8)",
@@ -797,8 +755,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "puntaje total /40 (suma c1\u2013c8)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_puntaje_total_40"
     },
     {
       "label": "Tabla de Clasificaci\u00f3n (Sem\u00e1foro)",
@@ -811,8 +769,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "tabla de clasificacion (semaforo)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_tabla_clasificacion_semaforo"
     },
     {
       "label": "Sem\u00e1foro Verde \u2014 Prospecto A (33\u201340)",
@@ -823,10 +781,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "semaforo verde \u2014 prospecto a (33\u201340)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_verde"
     },
     {
       "label": "Sem\u00e1foro Amarillo \u2014 Prospecto B (24\u201332)",
@@ -839,8 +797,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "semaforo amarillo \u2014 prospecto b (24\u201332)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_amarillo"
     },
     {
       "label": "Sem\u00e1foro Naranja \u2014 Prospecto C (15\u201323)",
@@ -853,8 +811,8 @@
       "contributor": null,
       "community": 7,
       "norm_label": "semaforo naranja \u2014 prospecto c (15\u201323)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja",
-      "community_name": "Prospectos Naranja y Revision Mensual"
+      "community_name": "Prospectos Naranja y Revision Mensual",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_naranja"
     },
     {
       "label": "Sem\u00e1foro Rojo \u2014 Descartar (0\u201314)",
@@ -867,8 +825,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "semaforo rojo \u2014 descartar (0\u201314)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_rojo",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_semaforo_rojo"
     },
     {
       "label": "Campo ESTADO del Prospecto (Prospecto Nuevo / Seguimiento Pasivo)",
@@ -881,8 +839,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "campo estado del prospecto (prospecto nuevo / seguimiento pasivo)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_estado_prospecto",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_estado_prospecto"
     },
     {
       "label": "Campo Se\u00f1al de Oportunidad",
@@ -895,8 +853,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "campo senal de oportunidad",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_senal_de_oportunidad",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_senal_de_oportunidad"
     },
     {
       "label": "Campo Pr\u00f3xima Acci\u00f3n y Fecha Pr\u00f3xima Acci\u00f3n",
@@ -909,8 +867,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "campo proxima accion y fecha proxima accion",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_proxima_accion",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_proxima_accion"
     },
     {
       "label": "Campo Servicio Principal",
@@ -923,8 +881,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "campo servicio principal",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_servicio_principal",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_campo_servicio_principal"
     },
     {
       "label": "Esquema de Columnas del CRM (A\u2013Z: Empresa, Sector, Decisor, Contacto, C1\u2013C8, TOTAL, Sem\u00e1foro)",
@@ -937,8 +895,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "esquema de columnas del crm (a\u2013z: empresa, sector, decisor, contacto, c1\u2013c8, total, semaforo)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_esquema_columnas_crm",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_esquema_columnas_crm"
     },
     {
       "label": "F\u00f3rmula =SUMA(N3:U3) para el TOTAL",
@@ -951,8 +909,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "formula =suma(n3:u3) para el total",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_formula_suma_c1_c8",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_formula_suma_c1_c8"
     },
     {
       "label": "F\u00f3rmula de SEM\u00c1FORO (columna W, copiable por fila)",
@@ -965,8 +923,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "formula de semaforo (columna w, copiable por fila)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_formula_semaforo",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_formula_semaforo"
     },
     {
       "label": "Plantilla: Mensaje de Conexi\u00f3n LinkedIn (\u2264300 caracteres)",
@@ -979,8 +937,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "plantilla: mensaje de conexion linkedin (\u2264300 caracteres)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_conexion_linkedin",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_conexion_linkedin"
     },
     {
       "label": "Plantilla: Primer Mensaje (DM LinkedIn)",
@@ -993,8 +951,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "plantilla: primer mensaje (dm linkedin)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_primer_mensaje_dm",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_primer_mensaje_dm"
     },
     {
       "label": "Plantilla: Mensaje de Seguimiento",
@@ -1007,8 +965,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "plantilla: mensaje de seguimiento",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_seguimiento",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_de_seguimiento"
     },
     {
       "label": "Plantilla Gen\u00e9rica con Placeholder [TEMA RELEVANTE AL SECTOR]",
@@ -1021,8 +979,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "plantilla generica con placeholder [tema relevante al sector]",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_plantilla_generica_sector",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_plantilla_generica_sector"
     },
     {
       "label": "Mensaje Personalizado de Alto Valor (prospectos Verde)",
@@ -1033,10 +991,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "mensaje personalizado de alto valor (prospectos verde)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_personalizado_alto_valor",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_mensaje_personalizado_alto_valor"
     },
     {
       "label": "Gancho: Primera Revisi\u00f3n Jur\u00eddica Sin Costo",
@@ -1049,8 +1007,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "gancho: primera revision juridica sin costo",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_oferta_revision_gratuita",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_oferta_revision_gratuita"
     },
     {
       "label": "Gu\u00eda: C\u00f3mo subir el archivo a Google Sheets",
@@ -1063,8 +1021,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "guia: como subir el archivo a google sheets",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_guia_carga_google_sheets",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_guia_carga_google_sheets"
     },
     {
       "label": "Procedimiento: C\u00f3mo agregar un prospecto nuevo",
@@ -1077,8 +1035,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "procedimiento: como agregar un prospecto nuevo",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_procedimiento_agregar_prospecto",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_procedimiento_agregar_prospecto"
     },
     {
       "label": "Flujo Semanal Recomendado (30 min/semana)",
@@ -1091,8 +1049,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "flujo semanal recomendado (30 min/semana)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_flujo_semanal_recomendado"
     },
     {
       "label": "Revisi\u00f3n de Fin de Mes de Prospectos Naranja (ascenso a Amarillo)",
@@ -1105,8 +1063,8 @@
       "contributor": null,
       "community": 7,
       "norm_label": "revision de fin de mes de prospectos naranja (ascenso a amarillo)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_revision_mensual_naranja",
-      "community_name": "Prospectos Naranja y Revision Mensual"
+      "community_name": "Prospectos Naranja y Revision Mensual",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_revision_mensual_naranja"
     },
     {
       "label": "Reglas de Oro (del PDF 'Tu Buscador de Clientes Potenciales')",
@@ -1119,8 +1077,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "reglas de oro (del pdf 'tu buscador de clientes potenciales')",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_reglas_de_oro",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_reglas_de_oro"
     },
     {
       "label": "Regla: Nunca inventar datos \u2014 solo informaci\u00f3n verificada",
@@ -1133,8 +1091,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "regla: nunca inventar datos \u2014 solo informacion verificada",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_regla_nunca_inventar_datos",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_regla_nunca_inventar_datos"
     },
     {
       "label": "Regla: Los mensajes son conversaciones, no ventas (primero valor, luego oferta)",
@@ -1147,8 +1105,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "regla: los mensajes son conversaciones, no ventas (primero valor, luego oferta)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_regla_conversacion_no_venta",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_regla_conversacion_no_venta"
     },
     {
       "label": "L\u00edmite Anti-Spam: 10\u201315 mensajes/d\u00eda en LinkedIn",
@@ -1161,8 +1119,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "limite anti-spam: 10\u201315 mensajes/dia en linkedin",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_limite_mensajes_linkedin",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_limite_mensajes_linkedin"
     },
     {
       "label": "Ley 1581/2012 (Habeas Data) \u2014 no compartir la base con terceros",
@@ -1175,8 +1133,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "ley 1581/2012 (habeas data) \u2014 no compartir la base con terceros",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_ley_1581_habeas_data",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_ley_1581_habeas_data"
     },
     {
       "label": "PDF fuente: 'Tu Buscador de Clientes Potenciales'",
@@ -1189,8 +1147,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "pdf fuente: 'tu buscador de clientes potenciales'",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_pdf_buscador_clientes_potenciales",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_pdf_buscador_clientes_potenciales"
     },
     {
       "label": "Se\u00f1al: Selecci\u00f3n Medell\u00edn Next 2026",
@@ -1203,8 +1161,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "senal: seleccion medellin next 2026",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_medellin_next_2026",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_medellin_next_2026"
     },
     {
       "label": "Riesgo de Descarte: BPO grande con probable abogado interno",
@@ -1217,8 +1175,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "riesgo de descarte: bpo grande con probable abogado interno",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_riesgo_abogado_interno_bpo",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_riesgo_abogado_interno_bpo"
     },
     {
       "label": "Nurturing 30 d\u00edas (acci\u00f3n operativa para prospectos Amarillo)",
@@ -1231,8 +1189,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "nurturing 30 dias (accion operativa para prospectos amarillo)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_nurturing_30_dias_crm",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_nurturing_30_dias_crm"
     },
     {
       "label": "Versi\u00f3n 1.0 \u2014 Junio 2026 (generado con Claude para JA Abogados)",
@@ -1245,8 +1203,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "version 1.0 \u2014 junio 2026 (generado con claude para ja abogados)",
-      "id": "graphify_out_converted_crm_jaabogados_f5624444_version_1_0_junio_2026",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "graphify_out_converted_crm_jaabogados_f5624444_version_1_0_junio_2026"
     },
     {
       "label": "Plan de Marketing Digital JA Abogados v1.0",
@@ -1259,8 +1217,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "plan de marketing digital ja abogados v1.0",
-      "id": "plan_marketing_digital_jaabogados_plan_marketing_digital",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_plan_marketing_digital"
     },
     {
       "label": "Objetivo General del Sistema de Captacion",
@@ -1274,8 +1232,8 @@
       "rationale": "Se busca un sistema profesional, etico y medible porque la captacion juridica en Colombia esta regulada; el objetivo combina atraccion organica, evaluacion de viabilidad/rentabilidad, gestion del ciclo de venta y construccion de reputacion digital de abogado consultor de alto valor.",
       "community": 1,
       "norm_label": "objetivo general del sistema de captacion",
-      "id": "plan_marketing_digital_jaabogados_objetivo_general",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_objetivo_general"
     },
     {
       "label": "Portafolio de Ocho Pilares de Servicio",
@@ -1289,8 +1247,8 @@
       "rationale": "El portafolio funciona como base de calificacion: los prospectos se evaluan contra los ocho pilares para decidir si hay encaje comercial antes de invertir tiempo de contacto.",
       "community": 3,
       "norm_label": "portafolio de ocho pilares de servicio",
-      "id": "plan_marketing_digital_jaabogados_portafolio_servicios",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_portafolio_servicios"
     },
     {
       "label": "Derecho Corporativo y M&A",
@@ -1303,8 +1261,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "derecho corporativo y m&a",
-      "id": "plan_marketing_digital_jaabogados_derecho_corporativo_ma",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_derecho_corporativo_ma"
     },
     {
       "label": "Contratos y Compliance",
@@ -1317,8 +1275,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "contratos y compliance",
-      "id": "plan_marketing_digital_jaabogados_contratos_compliance",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_contratos_compliance"
     },
     {
       "label": "Derecho Laboral y Litigios",
@@ -1331,8 +1289,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "derecho laboral y litigios",
-      "id": "plan_marketing_digital_jaabogados_derecho_laboral_litigios",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_derecho_laboral_litigios"
     },
     {
       "label": "Tributario y Financiero",
@@ -1345,8 +1303,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "tributario y financiero",
-      "id": "plan_marketing_digital_jaabogados_tributario_financiero",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_tributario_financiero"
     },
     {
       "label": "Civil, Comercial y Administrativo",
@@ -1359,8 +1317,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "civil, comercial y administrativo",
-      "id": "plan_marketing_digital_jaabogados_civil_comercial_administrativo",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_civil_comercial_administrativo"
     },
     {
       "label": "Redaccion Juridica Profesional",
@@ -1373,8 +1331,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "redaccion juridica profesional",
-      "id": "plan_marketing_digital_jaabogados_redaccion_juridica_profesional",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_redaccion_juridica_profesional"
     },
     {
       "label": "Consultoria para Pymes",
@@ -1385,10 +1343,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 3,
       "norm_label": "consultoria para pymes",
-      "id": "plan_marketing_digital_jaabogados_consultoria_pymes",
-      "community_name": "Directorios y Plataformas Juridicas en Colombia"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_consultoria_pymes"
     },
     {
       "label": "Asesoria a Empresas Extranjeras",
@@ -1399,10 +1357,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 3,
       "norm_label": "asesoria a empresas extranjeras",
-      "id": "plan_marketing_digital_jaabogados_asesoria_empresas_extranjeras",
-      "community_name": "Directorios y Plataformas Juridicas en Colombia"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_asesoria_empresas_extranjeras"
     },
     {
       "label": "Matriz de Evaluacion de Prospectos (Semaforo de Viabilidad)",
@@ -1416,8 +1374,8 @@
       "rationale": "Ocho criterios puntuados 0-5 (maximo 40 puntos) convierten un juicio subjetivo de encaje en un puntaje comparable, para que el tiempo comercial escaso se asigne primero a los prospectos con mayor probabilidad de cierre y menor riesgo de competir con BigLaw.",
       "community": 2,
       "norm_label": "matriz de evaluacion de prospectos (semaforo de viabilidad)",
-      "id": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "plan_marketing_digital_jaabogados_matriz_evaluacion_prospectos"
     },
     {
       "label": "Criterio: Senal de Oportunidad Reciente",
@@ -1430,8 +1388,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "criterio: senal de oportunidad reciente",
-      "id": "plan_marketing_digital_jaabogados_criterio_senal_oportunidad",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "plan_marketing_digital_jaabogados_criterio_senal_oportunidad"
     },
     {
       "label": "Criterio: Alineacion con Servicios",
@@ -1444,8 +1402,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "criterio: alineacion con servicios",
-      "id": "plan_marketing_digital_jaabogados_criterio_alineacion_servicios",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_criterio_alineacion_servicios"
     },
     {
       "label": "Criterio: Tamano y Capacidad de Pago",
@@ -1458,8 +1416,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "criterio: tamano y capacidad de pago",
-      "id": "plan_marketing_digital_jaabogados_criterio_capacidad_pago",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "plan_marketing_digital_jaabogados_criterio_capacidad_pago"
     },
     {
       "label": "Criterio: Acceso al Decisor",
@@ -1472,8 +1430,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "criterio: acceso al decisor",
-      "id": "plan_marketing_digital_jaabogados_criterio_acceso_decisor",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_criterio_acceso_decisor"
     },
     {
       "label": "Criterio: Madurez Legal de la Empresa",
@@ -1486,8 +1444,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "criterio: madurez legal de la empresa",
-      "id": "plan_marketing_digital_jaabogados_criterio_madurez_legal",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "plan_marketing_digital_jaabogados_criterio_madurez_legal"
     },
     {
       "label": "Criterio: Presencia en Medellin/Colombia",
@@ -1500,8 +1458,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "criterio: presencia en medellin/colombia",
-      "id": "plan_marketing_digital_jaabogados_criterio_presencia_medellin",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_criterio_presencia_medellin"
     },
     {
       "label": "Criterio: Urgencia del Problema Legal",
@@ -1514,8 +1472,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "criterio: urgencia del problema legal",
-      "id": "plan_marketing_digital_jaabogados_criterio_urgencia_legal",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "plan_marketing_digital_jaabogados_criterio_urgencia_legal"
     },
     {
       "label": "Criterio: Competencia y Riesgo de BigLaw",
@@ -1529,8 +1487,8 @@
       "rationale": "Se penaliza el prospecto que ya trabaja con una firma grande visible porque un despacho boutique no puede desplazarla con costo de adquisicion razonable; se premia la pyme o scaleup sin firma externa evidente.",
       "community": 2,
       "norm_label": "criterio: competencia y riesgo de biglaw",
-      "id": "plan_marketing_digital_jaabogados_criterio_riesgo_biglaw",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "plan_marketing_digital_jaabogados_criterio_riesgo_biglaw"
     },
     {
       "label": "Prospecto A - Semaforo Verde (33-40)",
@@ -1543,8 +1501,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "prospecto a - semaforo verde (33-40)",
-      "id": "plan_marketing_digital_jaabogados_prospecto_a_verde",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_prospecto_a_verde"
     },
     {
       "label": "Prospecto B - Semaforo Amarillo (24-32)",
@@ -1557,8 +1515,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "prospecto b - semaforo amarillo (24-32)",
-      "id": "plan_marketing_digital_jaabogados_prospecto_b_amarillo",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "plan_marketing_digital_jaabogados_prospecto_b_amarillo"
     },
     {
       "label": "Prospecto C - Semaforo Naranja (15-23)",
@@ -1571,8 +1529,8 @@
       "contributor": null,
       "community": 7,
       "norm_label": "prospecto c - semaforo naranja (15-23)",
-      "id": "plan_marketing_digital_jaabogados_prospecto_c_naranja",
-      "community_name": "Prospectos Naranja y Revision Mensual"
+      "community_name": "Prospectos Naranja y Revision Mensual",
+      "id": "plan_marketing_digital_jaabogados_prospecto_c_naranja"
     },
     {
       "label": "Descartar - Semaforo Rojo (0-14)",
@@ -1585,8 +1543,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "descartar - semaforo rojo (0-14)",
-      "id": "plan_marketing_digital_jaabogados_descartar_rojo",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "plan_marketing_digital_jaabogados_descartar_rojo"
     },
     {
       "label": "Telepatia (36/40)",
@@ -1599,8 +1557,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "telepatia (36/40)",
-      "id": "plan_marketing_digital_jaabogados_telepatia",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_telepatia"
     },
     {
       "label": "Recurly Colombia (35/40)",
@@ -1613,8 +1571,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "recurly colombia (35/40)",
-      "id": "plan_marketing_digital_jaabogados_recurly_colombia",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_recurly_colombia"
     },
     {
       "label": "Health Prime Colombia (34/40)",
@@ -1625,10 +1583,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 3,
       "norm_label": "health prime colombia (34/40)",
-      "id": "plan_marketing_digital_jaabogados_health_prime_colombia",
-      "community_name": "Directorios y Plataformas Juridicas en Colombia"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_health_prime_colombia"
     },
     {
       "label": "CapitalPocket / Pocki (34/40)",
@@ -1641,8 +1599,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "capitalpocket / pocki (34/40)",
-      "id": "plan_marketing_digital_jaabogados_capitalpocket_pocki",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_capitalpocket_pocki"
     },
     {
       "label": "Drones Sky Solutions (33/40)",
@@ -1655,8 +1613,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "drones sky solutions (33/40)",
-      "id": "plan_marketing_digital_jaabogados_drones_sky_solutions",
-      "community_name": "Portafolio de Servicios y Directorios"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_drones_sky_solutions"
     },
     {
       "label": "Netux (31/40)",
@@ -1669,8 +1627,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "netux (31/40)",
-      "id": "plan_marketing_digital_jaabogados_netux",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "plan_marketing_digital_jaabogados_netux"
     },
     {
       "label": "MovilBox (30/40)",
@@ -1681,10 +1639,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "movilbox (30/40)",
-      "id": "plan_marketing_digital_jaabogados_movilbox",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_movilbox"
     },
     {
       "label": "Medvision (30/40)",
@@ -1697,8 +1655,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "medvision (30/40)",
-      "id": "plan_marketing_digital_jaabogados_medvision",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "plan_marketing_digital_jaabogados_medvision"
     },
     {
       "label": "Erco Energia (29/40)",
@@ -1711,8 +1669,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "erco energia (29/40)",
-      "id": "plan_marketing_digital_jaabogados_erco_energia",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "plan_marketing_digital_jaabogados_erco_energia"
     },
     {
       "label": "Golden Energy (28/40)",
@@ -1725,8 +1683,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "golden energy (28/40)",
-      "id": "plan_marketing_digital_jaabogados_golden_energy",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "plan_marketing_digital_jaabogados_golden_energy"
     },
     {
       "label": "Somos Internet (27/40)",
@@ -1739,8 +1697,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "somos internet (27/40)",
-      "id": "plan_marketing_digital_jaabogados_somos_internet",
-      "community_name": "Cartera de Prospectos del CRM"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "plan_marketing_digital_jaabogados_somos_internet"
     },
     {
       "label": "SiembraViva (25/40)",
@@ -1753,8 +1711,8 @@
       "contributor": null,
       "community": 7,
       "norm_label": "siembraviva (25/40)",
-      "id": "plan_marketing_digital_jaabogados_siembraviva",
-      "community_name": "Prospectos Naranja y Revision Mensual"
+      "community_name": "Prospectos Naranja y Revision Mensual",
+      "id": "plan_marketing_digital_jaabogados_siembraviva"
     },
     {
       "label": "Azimut Energia (24/40)",
@@ -1765,10 +1723,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "azimut energia (24/40)",
-      "id": "plan_marketing_digital_jaabogados_azimut_energia",
-      "community_name": "Prospectos Naranja y Revision Mensual"
+      "community_name": "Cartera de Prospectos del CRM",
+      "id": "plan_marketing_digital_jaabogados_azimut_energia"
     },
     {
       "label": "B2Chat (23/40)",
@@ -1781,8 +1739,8 @@
       "contributor": null,
       "community": 7,
       "norm_label": "b2chat (23/40)",
-      "id": "plan_marketing_digital_jaabogados_b2chat",
-      "community_name": "Prospectos Naranja y Revision Mensual"
+      "community_name": "Prospectos Naranja y Revision Mensual",
+      "id": "plan_marketing_digital_jaabogados_b2chat"
     },
     {
       "label": "Aba Tech (22/40)",
@@ -1795,8 +1753,8 @@
       "contributor": null,
       "community": 7,
       "norm_label": "aba tech (22/40)",
-      "id": "plan_marketing_digital_jaabogados_aba_tech",
-      "community_name": "Prospectos Naranja y Revision Mensual"
+      "community_name": "Prospectos Naranja y Revision Mensual",
+      "id": "plan_marketing_digital_jaabogados_aba_tech"
     },
     {
       "label": "iQor Colombia (20/40)",
@@ -1809,8 +1767,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "iqor colombia (20/40)",
-      "id": "plan_marketing_digital_jaabogados_iqor_colombia",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "plan_marketing_digital_jaabogados_iqor_colombia"
     },
     {
       "label": "TaskUs Colombia (18/40)",
@@ -1823,8 +1781,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "taskus colombia (18/40)",
-      "id": "plan_marketing_digital_jaabogados_taskus_colombia",
-      "community_name": "Scoring C1-C8 y Bandas de Semaforo"
+      "community_name": "Scoring C1-C8 y Bandas de Semaforo",
+      "id": "plan_marketing_digital_jaabogados_taskus_colombia"
     },
     {
       "label": "Estrategia de Canales Digitales",
@@ -1837,8 +1795,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "estrategia de canales digitales",
-      "id": "plan_marketing_digital_jaabogados_estrategia_canales_digitales",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_estrategia_canales_digitales"
     },
     {
       "label": "LinkedIn (Canal Principal B2B Legal)",
@@ -1852,8 +1810,8 @@
       "rationale": "Es el canal numero uno porque el 80% de los decisores corporativos en Colombia lo usa y es el unico donde el abogado alcanza directamente al gerente, CFO o CEO sin intermediarios remunerados (lo cual ademas evita el riesgo disciplinario del Art. 34).",
       "community": 1,
       "norm_label": "linkedin (canal principal b2b legal)",
-      "id": "plan_marketing_digital_jaabogados_linkedin",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_linkedin"
     },
     {
       "label": "Checklist de Optimizacion del Perfil LinkedIn",
@@ -1866,8 +1824,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "checklist de optimizacion del perfil linkedin",
-      "id": "plan_marketing_digital_jaabogados_checklist_perfil_linkedin",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_checklist_perfil_linkedin"
     },
     {
       "label": "Regla 3-2-1 de Contenido Semanal",
@@ -1881,8 +1839,8 @@
       "rationale": "Tres piezas educativas, dos de prueba social y una oferta directa por semana: la proporcion mantiene la cuenta como fuente de valor y limita la percepcion de venta agresiva, que en el marketing juridico erosiona la credibilidad.",
       "community": 5,
       "norm_label": "regla 3-2-1 de contenido semanal",
-      "id": "plan_marketing_digital_jaabogados_regla_3_2_1",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_regla_3_2_1"
     },
     {
       "label": "Acciones Diarias en LinkedIn (30 min/dia)",
@@ -1895,8 +1853,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "acciones diarias en linkedin (30 min/dia)",
-      "id": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_acciones_diarias_linkedin"
     },
     {
       "label": "Busquedas Booleanas de Decisores",
@@ -1909,8 +1867,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "busquedas booleanas de decisores",
-      "id": "plan_marketing_digital_jaabogados_busquedas_decisores",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_busquedas_decisores"
     },
     {
       "label": "Instagram (Canal de Marca Personal)",
@@ -1924,8 +1882,8 @@
       "rationale": "Humaniza la marca y capta pymes y emprendedores que buscan abogado por primera vez, un segmento que no llega por LinkedIn.",
       "community": 1,
       "norm_label": "instagram (canal de marca personal)",
-      "id": "plan_marketing_digital_jaabogados_instagram",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_instagram"
     },
     {
       "label": "WhatsApp Business (Canal de Conversion)",
@@ -1939,8 +1897,8 @@
       "rationale": "Numero dedicado y no el personal, con mensaje de bienvenida automatico y palabra clave URGENTE, para separar la vida privada del canal comercial y fijar expectativa de respuesta en menos de 2 horas.",
       "community": 1,
       "norm_label": "whatsapp business (canal de conversion)",
-      "id": "plan_marketing_digital_jaabogados_whatsapp_business",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_whatsapp_business"
     },
     {
       "label": "Pagina Web o Landing Page",
@@ -1953,8 +1911,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "pagina web o landing page",
-      "id": "plan_marketing_digital_jaabogados_landing_page",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_landing_page"
     },
     {
       "label": "SEO Local con Palabras Clave para Colombia",
@@ -1967,8 +1925,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "seo local con palabras clave para colombia",
-      "id": "plan_marketing_digital_jaabogados_seo_local",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_seo_local"
     },
     {
       "label": "Google Business Profile (Visibilidad Local)",
@@ -1982,8 +1940,8 @@
       "rationale": "Es critico porque captura la busqueda de intencion inmediata ('abogado corporativo cerca de mi') y con solo 5 resenas ya se posiciona, sin costo publicitario.",
       "community": 1,
       "norm_label": "google business profile (visibilidad local)",
-      "id": "plan_marketing_digital_jaabogados_google_business_profile",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_google_business_profile"
     },
     {
       "label": "Directorios y Plataformas Juridicas en Colombia",
@@ -1994,10 +1952,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 3,
       "norm_label": "directorios y plataformas juridicas en colombia",
-      "id": "plan_marketing_digital_jaabogados_directorios_juridicos",
-      "community_name": "Directorios y Plataformas Juridicas en Colombia"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_directorios_juridicos"
     },
     {
       "label": "Directorio Abogados Colombia (abogados.com.co)",
@@ -2008,10 +1966,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 3,
       "norm_label": "directorio abogados colombia (abogados.com.co)",
-      "id": "plan_marketing_digital_jaabogados_abogados_com_co",
-      "community_name": "Directorios y Plataformas Juridicas en Colombia"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_abogados_com_co"
     },
     {
       "label": "Consultopedia",
@@ -2022,10 +1980,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 3,
       "norm_label": "consultopedia",
-      "id": "plan_marketing_digital_jaabogados_consultopedia",
-      "community_name": "Directorios y Plataformas Juridicas en Colombia"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_consultopedia"
     },
     {
       "label": "Letradoo (legaltech LATAM)",
@@ -2036,10 +1994,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 3,
       "norm_label": "letradoo (legaltech latam)",
-      "id": "plan_marketing_digital_jaabogados_letradoo",
-      "community_name": "Directorios y Plataformas Juridicas en Colombia"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_letradoo"
     },
     {
       "label": "Camara de Comercio de Medellin",
@@ -2050,10 +2008,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 3,
       "norm_label": "camara de comercio de medellin",
-      "id": "plan_marketing_digital_jaabogados_camara_comercio_medellin",
-      "community_name": "Directorios y Plataformas Juridicas en Colombia"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_camara_comercio_medellin"
     },
     {
       "label": "ProColombia",
@@ -2064,10 +2022,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 3,
       "norm_label": "procolombia",
-      "id": "plan_marketing_digital_jaabogados_procolombia",
-      "community_name": "Directorios y Plataformas Juridicas en Colombia"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_procolombia"
     },
     {
       "label": "ACI Medellin (inversion extranjera)",
@@ -2078,10 +2036,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 3,
       "norm_label": "aci medellin (inversion extranjera)",
-      "id": "plan_marketing_digital_jaabogados_aci_medellin",
-      "community_name": "Directorios y Plataformas Juridicas en Colombia"
+      "community_name": "Portafolio de Servicios y Directorios",
+      "id": "plan_marketing_digital_jaabogados_aci_medellin"
     },
     {
       "label": "Sistema de Gestion de Prospectos (CRM Simple)",
@@ -2095,8 +2053,8 @@
       "rationale": "Se evita software costoso al inicio: una hoja de calculo o Notion con once campos basta hasta que el volumen justifique HubSpot; el campo 'Puntaje semaforo' enlaza el CRM con la matriz de la seccion 3.",
       "community": 4,
       "norm_label": "sistema de gestion de prospectos (crm simple)",
-      "id": "plan_marketing_digital_jaabogados_crm_simple",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "plan_marketing_digital_jaabogados_crm_simple"
     },
     {
       "label": "Tabla de Seguimiento de Prospectos (Esquema de Campos)",
@@ -2109,8 +2067,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "tabla de seguimiento de prospectos (esquema de campos)",
-      "id": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "plan_marketing_digital_jaabogados_tabla_seguimiento_prospectos"
     },
     {
       "label": "Google Sheets",
@@ -2123,8 +2081,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "google sheets",
-      "id": "plan_marketing_digital_jaabogados_google_sheets",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "plan_marketing_digital_jaabogados_google_sheets"
     },
     {
       "label": "Notion",
@@ -2137,8 +2095,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "notion",
-      "id": "plan_marketing_digital_jaabogados_notion",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "plan_marketing_digital_jaabogados_notion"
     },
     {
       "label": "HubSpot CRM gratuito",
@@ -2151,8 +2109,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "hubspot crm gratuito",
-      "id": "plan_marketing_digital_jaabogados_hubspot_crm",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "plan_marketing_digital_jaabogados_hubspot_crm"
     },
     {
       "label": "Trello",
@@ -2165,8 +2123,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "trello",
-      "id": "plan_marketing_digital_jaabogados_trello",
-      "community_name": "Esquema y Operativa del CRM"
+      "community_name": "Esquema y Operativa del CRM",
+      "id": "plan_marketing_digital_jaabogados_trello"
     },
     {
       "label": "Secuencia de Nurturing a 30 Dias",
@@ -2180,8 +2138,8 @@
       "rationale": "Cuatro semanas escalonadas: conexion sin vender, aporte de valor, oferta suave y cierre o pausa. El orden difiere la oferta hasta el dia 18 porque el prospecto B/C aun no reconoce la necesidad juridica; presionar antes quema el contacto.",
       "community": 5,
       "norm_label": "secuencia de nurturing a 30 dias",
-      "id": "plan_marketing_digital_jaabogados_secuencia_nurturing",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_secuencia_nurturing"
     },
     {
       "label": "Contenido Juridico para Posicionamiento",
@@ -2194,8 +2152,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "contenido juridico para posicionamiento",
-      "id": "plan_marketing_digital_jaabogados_content_marketing",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_content_marketing"
     },
     {
       "label": "Posts Educativos",
@@ -2208,8 +2166,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "posts educativos",
-      "id": "plan_marketing_digital_jaabogados_posts_educativos",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_posts_educativos"
     },
     {
       "label": "Casos de Exito sin Datos Confidenciales",
@@ -2222,8 +2180,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "casos de exito sin datos confidenciales",
-      "id": "plan_marketing_digital_jaabogados_casos_exito",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_casos_exito"
     },
     {
       "label": "Guias Descargables para Captura de Emails",
@@ -2236,8 +2194,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "guias descargables para captura de emails",
-      "id": "plan_marketing_digital_jaabogados_guias_descargables",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_guias_descargables"
     },
     {
       "label": "Newsletter Consulta Juridica Ejecutiva",
@@ -2250,8 +2208,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "newsletter consulta juridica ejecutiva",
-      "id": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_newsletter_consulta_juridica_ejecutiva"
     },
     {
       "label": "Mailchimp",
@@ -2264,8 +2222,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "mailchimp",
-      "id": "plan_marketing_digital_jaabogados_mailchimp",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_mailchimp"
     },
     {
       "label": "Brevo",
@@ -2278,8 +2236,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "brevo",
-      "id": "plan_marketing_digital_jaabogados_brevo",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_brevo"
     },
     {
       "label": "KPIs Semanales",
@@ -2292,8 +2250,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "kpis semanales",
-      "id": "plan_marketing_digital_jaabogados_kpis_semanales",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_kpis_semanales"
     },
     {
       "label": "KPIs Mensuales",
@@ -2306,8 +2264,8 @@
       "contributor": null,
       "community": 7,
       "norm_label": "kpis mensuales",
-      "id": "plan_marketing_digital_jaabogados_kpis_mensuales",
-      "community_name": "Prospectos Naranja y Revision Mensual"
+      "community_name": "Prospectos Naranja y Revision Mensual",
+      "id": "plan_marketing_digital_jaabogados_kpis_mensuales"
     },
     {
       "label": "Canva",
@@ -2320,8 +2278,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "canva",
-      "id": "plan_marketing_digital_jaabogados_canva",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_canva"
     },
     {
       "label": "Calendly",
@@ -2334,8 +2292,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "calendly",
-      "id": "plan_marketing_digital_jaabogados_calendly",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_calendly"
     },
     {
       "label": "LinkedIn Sales Navigator",
@@ -2348,8 +2306,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "linkedin sales navigator",
-      "id": "plan_marketing_digital_jaabogados_linkedin_sales_navigator",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_linkedin_sales_navigator"
     },
     {
       "label": "Buffer / Hootsuite",
@@ -2362,8 +2320,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "buffer / hootsuite",
-      "id": "plan_marketing_digital_jaabogados_buffer_hootsuite",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_buffer_hootsuite"
     },
     {
       "label": "Google Analytics",
@@ -2376,8 +2334,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "google analytics",
-      "id": "plan_marketing_digital_jaabogados_google_analytics",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_google_analytics"
     },
     {
       "label": "ChatGPT / Claude para Redaccion Juridica",
@@ -2390,8 +2348,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "chatgpt / claude para redaccion juridica",
-      "id": "plan_marketing_digital_jaabogados_chatgpt_claude",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_chatgpt_claude"
     },
     {
       "label": "Loom",
@@ -2404,8 +2362,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "loom",
-      "id": "plan_marketing_digital_jaabogados_loom",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_loom"
     },
     {
       "label": "Plan de Implementacion - Primeras 8 Semanas",
@@ -2419,8 +2377,8 @@
       "rationale": "Secuencia deliberada: primero fundaciones digitales (semanas 1-2) porque contactar prospectos con perfiles sin optimizar desperdicia la unica primera impresion; luego contenido y contactos, nurturing y por ultimo evaluacion y escala.",
       "community": 1,
       "norm_label": "plan de implementacion - primeras 8 semanas",
-      "id": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_plan_implementacion_8_semanas"
     },
     {
       "label": "Principios Eticos y Deontologicos del Marketing Juridico",
@@ -2434,8 +2392,8 @@
       "rationale": "El marketing juridico en Colombia opera bajo restriccion disciplinaria: cualquier tactica de captacion debe filtrarse contra la Ley 1123 de 2007 y la Ley 1581 de 2012 antes de ejecutarse, porque el costo de una sancion supera el beneficio de cualquier campana.",
       "community": 1,
       "norm_label": "principios eticos y deontologicos del marketing juridico",
-      "id": "plan_marketing_digital_jaabogados_principios_eticos",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_principios_eticos"
     },
     {
       "label": "Ley 1123 de 2007 (Codigo Disciplinario del Abogado)",
@@ -2448,8 +2406,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "ley 1123 de 2007 (codigo disciplinario del abogado)",
-      "id": "plan_marketing_digital_jaabogados_ley_1123_2007",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_ley_1123_2007"
     },
     {
       "label": "Prohibicion de Captacion por Medios Desleales (Art. 34)",
@@ -2462,8 +2420,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "prohibicion de captacion por medios desleales (art. 34)",
-      "id": "plan_marketing_digital_jaabogados_prohibicion_captacion_desleal",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_prohibicion_captacion_desleal"
     },
     {
       "label": "Deber de Confidencialidad (Art. 28)",
@@ -2476,8 +2434,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "deber de confidencialidad (art. 28)",
-      "id": "plan_marketing_digital_jaabogados_confidencialidad_art_28",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Plantillas de Mensaje y Nurturing",
+      "id": "plan_marketing_digital_jaabogados_confidencialidad_art_28"
     },
     {
       "label": "Publicidad Veraz (Art. 35)",
@@ -2490,8 +2448,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "publicidad veraz (art. 35)",
-      "id": "plan_marketing_digital_jaabogados_publicidad_veraz_art_35",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_publicidad_veraz_art_35"
     },
     {
       "label": "Ley 1581 de 2012 (Habeas Data)",
@@ -2502,10 +2460,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 1,
       "norm_label": "ley 1581 de 2012 (habeas data)",
-      "id": "plan_marketing_digital_jaabogados_ley_1581_2012",
-      "community_name": "Plantillas de Mensaje y Nurturing"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_ley_1581_2012"
     },
     {
       "label": "Decreto 0581 de 2026 (tercerizacion laboral)",
@@ -2518,8 +2476,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "decreto 0581 de 2026 (tercerizacion laboral)",
-      "id": "plan_marketing_digital_jaabogados_decreto_0581_2026",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_decreto_0581_2026"
     },
     {
       "label": "Resumen Ejecutivo - 5 Pasos para Arrancar Hoy",
@@ -2532,34 +2490,11 @@
       "contributor": null,
       "community": 1,
       "norm_label": "resumen ejecutivo - 5 pasos para arrancar hoy",
-      "id": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos",
-      "community_name": "Prospeccion Diaria en LinkedIn"
+      "community_name": "Prospeccion Diaria en LinkedIn",
+      "id": "plan_marketing_digital_jaabogados_resumen_ejecutivo_5_pasos"
     }
   ],
   "links": [
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".mcp.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "mcp",
-      "target": "mcp_mcp_server_graphify"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".mcp.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "context": "command",
-      "_origin": "ast",
-      "source": "mcp_mcp_server_graphify",
-      "target": "mcp_command_graphify_mcp"
-    },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
@@ -2567,9 +2502,9 @@
       "source_location": "L269",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_cell_font"
+      "target": "generar_crm_cell_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2578,9 +2513,9 @@
       "source_location": "L272",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2589,9 +2524,9 @@
       "source_location": "L422",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_crear_crm"
+      "target": "generar_crm_crear_crm",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2600,9 +2535,9 @@
       "source_location": "L302",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_crear_dashboard"
+      "target": "generar_crm_crear_dashboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2611,9 +2546,9 @@
       "source_location": "L847",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_crear_instrucciones"
+      "target": "generar_crm_crear_instrucciones",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2622,9 +2557,9 @@
       "source_location": "L592",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_crear_matriz"
+      "target": "generar_crm_crear_matriz",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2633,9 +2568,9 @@
       "source_location": "L783",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_crear_mensajes"
+      "target": "generar_crm_crear_mensajes",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2644,9 +2579,9 @@
       "source_location": "L263",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2655,9 +2590,9 @@
       "source_location": "L266",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_header_font"
+      "target": "generar_crm_header_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2666,9 +2601,9 @@
       "source_location": "L275",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_left"
+      "target": "generar_crm_left",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2677,9 +2612,9 @@
       "source_location": "L926",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_main"
+      "target": "generar_crm_main",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2688,9 +2623,9 @@
       "source_location": "L282",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_semaforo"
+      "target": "generar_crm_semaforo",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2699,9 +2634,9 @@
       "source_location": "L288",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_semaforo_fill"
+      "target": "generar_crm_semaforo_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2710,9 +2645,9 @@
       "source_location": "L294",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_semaforo_font"
+      "target": "generar_crm_semaforo_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2721,9 +2656,9 @@
       "source_location": "L278",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm",
-      "target": "generar_crm_thin_border"
+      "target": "generar_crm_thin_border",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2733,9 +2668,9 @@
       "source_location": "L432",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2745,9 +2680,9 @@
       "source_location": "L312",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2757,9 +2692,9 @@
       "source_location": "L856",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_instrucciones",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2769,9 +2704,9 @@
       "source_location": "L600",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_matriz",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2781,9 +2716,9 @@
       "source_location": "L791",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_mensajes",
-      "target": "generar_crm_header_fill"
+      "target": "generar_crm_header_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2793,9 +2728,9 @@
       "source_location": "L538",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_cell_font"
+      "target": "generar_crm_cell_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2805,9 +2740,9 @@
       "source_location": "L402",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_cell_font"
+      "target": "generar_crm_cell_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2817,9 +2752,9 @@
       "source_location": "L709",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_matriz",
-      "target": "generar_crm_cell_font"
+      "target": "generar_crm_cell_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2829,9 +2764,9 @@
       "source_location": "L830",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_mensajes",
-      "target": "generar_crm_cell_font"
+      "target": "generar_crm_cell_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2841,9 +2776,9 @@
       "source_location": "L433",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2853,9 +2788,9 @@
       "source_location": "L313",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2865,9 +2800,9 @@
       "source_location": "L857",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_instrucciones",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2877,9 +2812,9 @@
       "source_location": "L601",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_matriz",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2889,9 +2824,9 @@
       "source_location": "L792",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_mensajes",
-      "target": "generar_crm_center"
+      "target": "generar_crm_center",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2901,9 +2836,9 @@
       "source_location": "L543",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_left"
+      "target": "generar_crm_left",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2913,9 +2848,9 @@
       "source_location": "L403",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_left"
+      "target": "generar_crm_left",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2925,9 +2860,9 @@
       "source_location": "L710",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_matriz",
-      "target": "generar_crm_left"
+      "target": "generar_crm_left",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2937,9 +2872,9 @@
       "source_location": "L474",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_thin_border"
+      "target": "generar_crm_thin_border",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2949,9 +2884,9 @@
       "source_location": "L357",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_thin_border"
+      "target": "generar_crm_thin_border",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2961,9 +2896,9 @@
       "source_location": "L625",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_matriz",
-      "target": "generar_crm_thin_border"
+      "target": "generar_crm_thin_border",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2973,9 +2908,9 @@
       "source_location": "L804",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_mensajes",
-      "target": "generar_crm_thin_border"
+      "target": "generar_crm_thin_border",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2985,9 +2920,9 @@
       "source_location": "L498",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_semaforo"
+      "target": "generar_crm_semaforo",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2997,9 +2932,9 @@
       "source_location": "L396",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_semaforo"
+      "target": "generar_crm_semaforo",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3009,9 +2944,9 @@
       "source_location": "L570",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_semaforo_fill"
+      "target": "generar_crm_semaforo_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3021,9 +2956,9 @@
       "source_location": "L406",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_semaforo_fill"
+      "target": "generar_crm_semaforo_fill",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3033,9 +2968,9 @@
       "source_location": "L571",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_crm",
-      "target": "generar_crm_semaforo_font"
+      "target": "generar_crm_semaforo_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3045,9 +2980,9 @@
       "source_location": "L407",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_crear_dashboard",
-      "target": "generar_crm_semaforo_font"
+      "target": "generar_crm_semaforo_font",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3057,9 +2992,9 @@
       "source_location": "L930",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_main",
-      "target": "generar_crm_crear_dashboard"
+      "target": "generar_crm_crear_dashboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3069,9 +3004,9 @@
       "source_location": "L933",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_main",
-      "target": "generar_crm_crear_crm"
+      "target": "generar_crm_crear_crm",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3081,9 +3016,9 @@
       "source_location": "L936",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_main",
-      "target": "generar_crm_crear_matriz"
+      "target": "generar_crm_crear_matriz",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3093,9 +3028,9 @@
       "source_location": "L939",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_main",
-      "target": "generar_crm_crear_mensajes"
+      "target": "generar_crm_crear_mensajes",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3105,9 +3040,9 @@
       "source_location": "L942",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "generar_crm_main",
-      "target": "generar_crm_crear_instrucciones"
+      "target": "generar_crm_crear_instrucciones",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -6632,5 +6567,5 @@
       "source_file": "plan_marketing_digital_jaabogados.md"
     }
   ],
-  "built_at_commit": "98ed5361e1fd44c4cdb5f5c03dd4987b9c23159f"
+  "built_at_commit": "e7efaf245262acca5ac95302a633a7289cacd85b"
 }

@@ -13,10 +13,5 @@
     "mtime": 1785039661.7793157,
     "ast_hash": "a43d2a8586de4e1e02a6e48ada387ed7",
     "semantic_hash": "a43d2a8586de4e1e02a6e48ada387ed7"
-  },
-  ".mcp.json": {
-    "mtime": 1785040622.1878226,
-    "ast_hash": "252dfaa3e5553b6807104d7ae66cf42c",
-    "semantic_hash": ""
   }
 }
