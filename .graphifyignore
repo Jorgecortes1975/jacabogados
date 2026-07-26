@@ -22,3 +22,11 @@ AGENTS.md
 .cursor/
 .github/
 .mcp.json
+
+# Export a Google Sheets de la hoja "CRM Prospectos" de crm_jaabogados.xlsx,
+# que YA esta en el grafo via graphify-out/converted/. Verificado: los 17
+# prospectos y sus datos de contacto (decisor, email, LinkedIn) estan
+# duplicados al 100%. Indexarlo creaba nodos gemelos con IDs distintos y
+# repartia la centralidad de la matriz entre ellos. Quitar esta linea solo
+# si el CSV deja de derivarse del xlsx.
+crm_jaabogados.csv
