@@ -159,7 +159,7 @@ project-coordinator delegaría a operations-manager (FASE 5) y luego a legal-tem
 ✅ Decreto 560/2020 (Insolvencia laboral) — vigente
 ✅ CGP Ley 1564/2012 (Código General Proceso) — vigente
 ✅ CP Arts. 86-87 (Tutelas) — vigente
-✅ Ley 1580/2016 (Habeas data) — vigente
+✅ Ley 1581/2012 (Habeas data) — vigente
 ✅ Ley 1480/2011 (Protección consumidor) — vigente
 
 ❌ Ley 2270/2024 — NO EXISTE (eliminada de templates)

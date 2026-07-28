@@ -11,6 +11,16 @@
             "timeout": 5
           }
         ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/auditoria-juridica.sh\"",
+            "timeout": 10
+          }
+        ]
       }
     ],
     "Stop": [

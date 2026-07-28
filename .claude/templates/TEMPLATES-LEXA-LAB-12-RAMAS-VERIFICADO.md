@@ -22,12 +22,12 @@ Este documento contiene los 12 templates especializados del ecosistema LEXA-LAB,
 | 1 | Civil general | Demanda Civil Ordinaria | Demanda escrita | C. Civil, CGP Ley 1564/2012 |
 | 2 | Casación | Memorial de Casación Civil | Recurso de casación | CGP, Código Civil supletorio |
 | 3 | Constitucional | Acción de Tutela | Urgente | CP arts. 86-87, Decreto 2591/1991 |
-| 4 | Habeas Data | Acción de Habeas Data | Administrativa | Ley 1581/2016, Decreto 1377/2013 |
+| 4 | Habeas Data | Acción de Habeas Data | Administrativa | Ley 1581/2012, Decreto 1377/2013 |
 | 5 | Consumidor | Acción de Protección al Consumidor | Administrativa | Ley 1480/2011, Superintendencia de Industria y Comercio |
 | 6 | Derecho administrativo (menor) | Derecho de Petición | Administrativa | CP art. 23, Decreto 1081/2015 |
 | 7 | Nulidad administrativa | Demanda de Nulidad y Restablecimiento | Contencioso-administrativa | CPACA Ley 1437/2011 |
 | 8 | **Laboral — SEGURIDAD SOCIAL** | Demanda Laboral Despido Injustificado | Ordinaria/Ejecutiva | **CST art. 64 — Ley 2381/2024** |
-| 9 | Penal | Defensa Penal — Audiencia de Imputación | Penal acusatorio | Código Penal, Ley 906/2000 |
+| 9 | Penal | Defensa Penal — Audiencia de Imputación | Penal acusatorio | Código Penal, Ley 906/2004 |
 | 10 | Societario | Demanda de Nulidad Reforma Estatutaria SAS | Ordinaria | Ley 1258/2008, Código de Comercio |
 | 11 | Ambiental | Solicitud Revocación Licencia Ambiental | Administrativa ambiental | Ley 1333/2009, Decreto 1076/2015 |
 | 12 | Contratos internacionales | Contrato Comercial Internacional | Preventivo/Redacción | Código de Comercio, CISG (si aplica) |

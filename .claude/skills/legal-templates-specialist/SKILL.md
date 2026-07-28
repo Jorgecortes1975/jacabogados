@@ -183,7 +183,7 @@ RIESGOS
 | Civil | CGP Ley 1564/2012 | Vigente | Demandas ordinarias, competencia |
 | Administrativo | CPACA 1437/2011 | Vigente | Nulidad administrativa |
 | Constitucional | CP 86-87, Decreto 2591/1991 | Vigente | Tutelas, competencia |
-| Datos | Ley 1581/2016, Decreto 1377/2013 | Vigente | Habeas data, ARCO |
+| Datos | Ley 1581/2012, Decreto 1377/2013 | Vigente | Habeas data, ARCO |
 | Consumidor | Ley 1480/2011 | Vigente | Protección consumidor |
 
 **REFERENCIAS FALSAS ELIMINADAS:**

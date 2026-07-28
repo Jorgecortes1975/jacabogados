@@ -3,13 +3,13 @@
 #
 # Qué hace:
 #   1. Copia las skills `aprende` y `learn` a ~/.claude/skills/
-#   2. Copia el subagente `curador-memoria` a ~/.claude/agents/
-#   3. Copia los 2 hooks a ~/.claude/hooks/ y los registra en ~/.claude/settings.json
+#   2. Copia los subagentes `curador-memoria` y `auditor-juridico-col`
+#   3. Copia los 3 hooks a ~/.claude/hooks/ y los registra en ~/.claude/settings.json
 #   4. Deja backup con fecha de settings.json antes de tocarlo
 #
 # Uso:
 #   bash scripts/instalar-aprende.sh            # instala todo
-#   bash scripts/instalar-aprende.sh --sin-hooks # solo skills + subagente
+#   bash scripts/instalar-aprende.sh --sin-hooks # solo skills + subagentes
 #   bash scripts/instalar-aprende.sh --quitar    # desinstala los hooks (deja backup)
 #
 # Requiere: bash, y `jq` solo si ya tienes un settings.json con contenido.
@@ -88,6 +88,12 @@ else
   warn "No encontré curador-memoria.md"
 fi
 
+aud="${REPO}/.claude/agents/auditor-juridico-col.md"
+if [ -f "$aud" ]; then
+  cp "$aud" "${DEST}/agents/"
+  ok "agente → ~/.claude/agents/auditor-juridico-col.md"
+fi
+
 # ---------------------------------------------------------------------- hooks
 if [ "$MODO" = "--sin-hooks" ]; then
   say "Modo --sin-hooks: no toco settings.json."
@@ -98,8 +104,9 @@ if [ "$MODO" = "--sin-hooks" ]; then
 fi
 
 cp "${REPO}/.claude/hooks/capture-signal.sh" "${DEST}/hooks/"
-cp "${REPO}/.claude/hooks/stop-suggest.sh"   "${DEST}/hooks/"
-chmod +x "${DEST}/hooks/capture-signal.sh" "${DEST}/hooks/stop-suggest.sh"
+cp "${REPO}/.claude/hooks/stop-suggest.sh"       "${DEST}/hooks/"
+cp "${REPO}/.claude/hooks/auditoria-juridica.sh" "${DEST}/hooks/"
+chmod +x "${DEST}/hooks/"*.sh
 ok "hooks  → ~/.claude/hooks/"
 
 settings="${DEST}/settings.json"
@@ -107,7 +114,9 @@ hooks_json="$(cat <<JSON
 {
   "PostToolUse": [
     { "matcher": "Bash|Edit|Write",
-      "hooks": [ { "type": "command", "command": "bash \$HOME/.claude/hooks/capture-signal.sh", "timeout": 5 } ] }
+      "hooks": [ { "type": "command", "command": "bash \$HOME/.claude/hooks/capture-signal.sh", "timeout": 5 } ] },
+    { "matcher": "Edit|Write",
+      "hooks": [ { "type": "command", "command": "bash \$HOME/.claude/hooks/auditoria-juridica.sh", "timeout": 10 } ] }
   ],
   "Stop": [
     { "hooks": [ { "type": "command", "command": "bash \$HOME/.claude/hooks/stop-suggest.sh", "timeout": 5 } ] }
@@ -118,7 +127,7 @@ JSON
 
 if [ ! -f "$settings" ]; then
   printf '{\n  "hooks": %s\n}\n' "$hooks_json" > "$settings"
-  ok "settings.json creado con los 2 hooks"
+  ok "settings.json creado con los 3 hooks"
 elif command -v jq >/dev/null 2>&1; then
   cp "$settings" "${settings}.bak-${STAMP}"
   ok "Backup: ${settings}.bak-${STAMP}"
@@ -137,7 +146,8 @@ echo "Instalado:"
 say "/aprende            — captura aprendizajes al cerrar sesión"
 say "/learn              — alias en inglés"
 say "@curador-memoria    — audita y poda la memoria (mensual)"
-say "hooks               — acumulan señales; NUNCA escriben aprendizajes"
+say "@auditor-juridico-col — audita escritos antes de radicar"
+say "hooks               — señales + auditoría jurídica mecánica al escribir"
 echo
 say "Reinicia Claude Code para que aparezcan en el typeahead."
 say "Para quitar los hooks:  bash scripts/instalar-aprende.sh --quitar"

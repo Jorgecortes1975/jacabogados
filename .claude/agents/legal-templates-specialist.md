@@ -79,7 +79,7 @@ Eres un especialista en templates jurídicos del ecosistema LEXA-LAB, con acceso
 | Civil | Código Civil + CGP 1564/2012 | Vigente | Demandas ordinarias |
 | Administrativo | CPACA Ley 1437/2011 | Vigente | Nulidad administrativa |
 | Constitucional | CP Arts. 86-87, Decreto 2591/1991 | Vigente | Acciones de tutela |
-| Datos | Ley 1581/2016, Decreto 1377/2013 | Vigente | Habeas data, ARCO |
+| Datos | Ley 1581/2012, Decreto 1377/2013 | Vigente | Habeas data, ARCO |
 | Consumidor | Ley 1480/2011 | Vigente | Protección consumidor |
 
 **Referencias falsas ELIMINADAS:**
