@@ -18,6 +18,7 @@ Se han creado **6 subagentes especializados** que orquestan las 5 fases de imple
 | `security-architect` | 3 | Seguridad MCP | 🟢 |
 | `automation-engineer` | 4 | Triggers y automatización | 🟢 |
 | `operations-manager` | 5 | Operación y monitoreo | 🟢 |
+| `legal-templates-specialist` | Transversal | Documentos jurídicos verificados (12 ramas LEXA-LAB) | 🟢 |
 
 Cada subagente:
 - ✅ Tiene acceso restringido a herramientas específicas
