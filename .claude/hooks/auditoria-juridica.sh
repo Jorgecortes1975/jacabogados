@@ -108,9 +108,62 @@ rm -f /tmp/.aud-banda.$$
 # ------------------------------------------ 3. sentencia sin radicado o fecha
 # Una sentencia citada debe traer identificador y año. "Sentencia C-123" sin
 # año, o "la Corte ha dicho que" sin providencia, es cita no verificable.
-if grep -qE 'Sentencia[[:space:]]+[CTSU]+-[0-9]+([^0-9/]|$)' "$file" 2>/dev/null \
-   && ! grep -qE 'Sentencia[[:space:]]+[CTSU]+-[0-9]+[/ ]?(de[[:space:]]+)?(19|20)[0-9]{2}' "$file" 2>/dev/null; then
-  add "🟠 REVISAR — Hay sentencias citadas sin año (formato esperado: C-123/2024 o T-456 de 2023). Sin año no es verificable."
+# Se evalúa CADA cita por separado. La versión anterior era un AND de dos
+# condiciones globales: bastaba con que UNA sola sentencia del documento
+# trajera año para silenciar el chequeo entero, y las demás pasaban sin
+# revisar. Detectado probando contra sentencias de tutela reales.
+# Estas dos verificaciones necesitan lookahead por cita y una ventana que cruce
+# saltos de línea. `grep -o` consume el texto que empareja, así que una cita
+# seguida de otra se traga a la segunda; y trabajando línea a línea, el radicado
+# que la extracción de PDF empujó al renglón siguiente queda invisible.
+# Ambas cosas se resuelven en Python; si no está disponible, se omiten estas dos
+# y el resto del hook sigue funcionando.
+if command -v python3 >/dev/null 2>&1; then
+  citas="$(python3 - "$file" <<'PYCHK' 2>/dev/null || true
+import re, sys
+
+texto = open(sys.argv[1], encoding="utf-8", errors="replace").read()
+salida = []
+
+# --- Sentencias de la Corte Constitucional sin año -------------------------
+# Se mira SOLO la cola de cada cita hasta el siguiente "Sentencia", punto o
+# punto y coma. Así una cita no se come a la que viene después.
+sin_anio = []
+for m in re.finditer(r'[Ss]entencia\s+(?:C|T|SU|SL|CSJ)[-\s]?\d{1,4}', texto):
+    cola = texto[m.end():m.end() + 40]
+    cola = re.split(r'[.;)]|[Ss]entencia', cola)[0]
+    if not re.search(r'(19|20)\d{2}', cola):
+        sin_anio.append(re.sub(r'\s+', ' ', m.group(0)).strip())
+if sin_anio:
+    vistos = list(dict.fromkeys(sin_anio))[:3]
+    salida.append(
+        "🟠 REVISAR — Sentencias citadas sin año: " + "; ".join(vistos) +
+        ". Formato esperado C-123/2024 o T-456 de 2023; sin año no se ubica en la relatoría.")
+
+# --- Providencias citadas por fecha sin radicado ---------------------------
+# El texto se aplana antes de buscar, para que un radicado empujado al renglón
+# siguiente por el salto de página siga contando como presente.
+plano = re.sub(r'\s+', ' ', texto)
+RAD = re.compile(r'rad(icado|\.)|exp(ediente|\.|\s*n)|\d{5}[\s-]*\d{2}[\s-]*\d{2}', re.I)
+sin_rad = []
+for m in re.finditer(
+        r'(?:[Ss]entencia|[Ff]allo|[Aa]uto)\s+de[l]?\s+\d{1,2}\s+de\s+\w+\s+de\s+\d{4}', plano):
+    if not RAD.search(plano[m.end():m.end() + 90]):
+        sin_rad.append(m.group(0))
+for cita in list(dict.fromkeys(sin_rad))[:3]:
+    salida.append(
+        f'🟠 REVISAR — "{cita}": providencia citada por fecha sin radicado ni '
+        "expediente. Consejo de Estado y CSJ se identifican por radicado; sin él "
+        "no se ubica en fuente oficial.")
+
+print("\n".join(salida))
+PYCHK
+)"
+  if [ -n "${citas// /}" ]; then
+    while IFS= read -r c; do
+      [ -n "$c" ] && add "$c"
+    done <<< "$citas"
+  fi
 fi
 
 if grep -qiE 'la (Corte|Sala) (ha (dicho|sostenido|señalado)|reiteró|estableció)' "$file" 2>/dev/null \
@@ -121,18 +174,6 @@ fi
 # Consejo de Estado y CSJ no numeran como la Constitucional (C-/T-/SU-): sus
 # providencias se identifican por radicado o expediente. Citarlas solo por
 # fecha y ponente las hace difíciles de verificar.
-grep -onE 'Sentencia de[l]?[[:space:]]+[0-9]{1,2}[[:space:]]+de[[:space:]]+[A-Za-zÁÉÍÓÚáéíóú]+[[:space:]]+de[[:space:]]+[0-9]{4}.{0,90}' "$file" 2>/dev/null \
-| while IFS= read -r linea; do
-  if ! printf '%s' "$linea" | grep -qiE 'rad(icado|\.)|exp(ediente|\.)|[0-9]{5}[[:space:]-]*[0-9]{2}'; then
-    n="${linea%%:*}"
-    printf -- '- 🟠 REVISAR — Línea %s: providencia citada por fecha sin radicado ni expediente. Consejo de Estado y CSJ se identifican por radicado; sin él no es verificable en fuente oficial.\n' "$n"
-  fi
-done > /tmp/.aud-rad.$$ 2>/dev/null
-if [ -s /tmp/.aud-rad.$$ ]; then
-  hallazgos="${hallazgos}
-$(cat /tmp/.aud-rad.$$)"
-fi
-rm -f /tmp/.aud-rad.$$
 
 # ------------------------------- 3b. normas inexequibles o derogadas citadas
 # Solo dispara si la norma se cita SIN advertir su estado. Un documento que
