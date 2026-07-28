@@ -61,13 +61,19 @@ fi
 
 mkdir -p "${DEST}/skills" "${DEST}/agents" "${DEST}/hooks"
 
+# Los backups NO pueden vivir dentro de skills/ — Claude Code carga toda
+# subcarpeta de ahí como skill, y un `aprende.bak-<fecha>` aparecería como
+# skill fantasma duplicada en el typeahead.
+BACKUPS="${DEST}/.backups-aprende"
+mkdir -p "$BACKUPS"
+
 # --------------------------------------------------------------------- skills
 for s in aprende learn; do
   src="${REPO}/.claude/skills/${s}"
   [ -d "$src" ] || { warn "Falta ${src}, la salto."; continue; }
   if [ -d "${DEST}/skills/${s}" ]; then
-    mv "${DEST}/skills/${s}" "${DEST}/skills/${s}.bak-${STAMP}"
-    warn "Versión previa de '${s}' movida a ${s}.bak-${STAMP}"
+    mv "${DEST}/skills/${s}" "${BACKUPS}/${s}-${STAMP}"
+    warn "Versión previa de '${s}' → ~/.claude/.backups-aprende/${s}-${STAMP}"
   fi
   cp -r "$src" "${DEST}/skills/"
   ok "skill  → ~/.claude/skills/${s}/"
