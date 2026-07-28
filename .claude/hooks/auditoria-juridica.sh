@@ -118,6 +118,40 @@ if grep -qiE 'la (Corte|Sala) (ha (dicho|sostenido|señalado)|reiteró|estableci
   add "🟠 REVISAR — Se atribuye un criterio a la Corte sin identificar la providencia. Agrega radicado y fecha, o marca [Pendiente verificación]."
 fi
 
+# Consejo de Estado y CSJ no numeran como la Constitucional (C-/T-/SU-): sus
+# providencias se identifican por radicado o expediente. Citarlas solo por
+# fecha y ponente las hace difíciles de verificar.
+grep -onE 'Sentencia de[l]?[[:space:]]+[0-9]{1,2}[[:space:]]+de[[:space:]]+[A-Za-zÁÉÍÓÚáéíóú]+[[:space:]]+de[[:space:]]+[0-9]{4}.{0,90}' "$file" 2>/dev/null \
+| while IFS= read -r linea; do
+  if ! printf '%s' "$linea" | grep -qiE 'rad(icado|\.)|exp(ediente|\.)|[0-9]{5}[[:space:]-]*[0-9]{2}'; then
+    n="${linea%%:*}"
+    printf -- '- 🟠 REVISAR — Línea %s: providencia citada por fecha sin radicado ni expediente. Consejo de Estado y CSJ se identifican por radicado; sin él no es verificable en fuente oficial.\n' "$n"
+  fi
+done > /tmp/.aud-rad.$$ 2>/dev/null
+if [ -s /tmp/.aud-rad.$$ ]; then
+  hallazgos="${hallazgos}
+$(cat /tmp/.aud-rad.$$)"
+fi
+rm -f /tmp/.aud-rad.$$
+
+# ------------------------------- 3b. normas inexequibles o derogadas citadas
+# Solo dispara si la norma se cita SIN advertir su estado. Un documento que
+# dice "fue declarada inexequible" la está usando bien.
+# El separador es @ y NO |, porque el regex que se arma abajo lleva
+# alternancia (de|/|-) — con IFS='|' el patrón se partía en pedazos.
+while IFS='@' read -r tipo num anio estado; do
+  [ -z "${num:-}" ] && continue
+  usos="$(grep -iE "${tipo}[[:space:]]+${num}[[:space:]]*(de|/|-)[[:space:]]*${anio}" "$file" 2>/dev/null \
+        | grep -vicE 'inexequible|derogad|declarad[ao] contrari|ya no rige|sin vigencia|perdió vigencia|referencia histórica' || true)"
+  if [ "${usos:-0}" -gt 0 ]; then
+    add "🟠 REVISAR — Se aplica como vigente una norma con estado comprometido: ${estado}."
+  fi
+done <<'ESTADO'
+[Ll]ey@1653@2013@Ley 1653/2013 (arancel judicial), declarada INEXEQUIBLE por C-169/2014
+[Dd]ecreto@2700@1991@Decreto 2700/1991 (antiguo CPP), DEROGADO; solo válido como referencia histórica
+[Ll]ey@600@2000@Ley 600/2000 (CPP anterior), régimen residual; verificar aplicabilidad temporal al caso
+ESTADO
+
 # ------------------------------------------ 4. jurisdicción extranjera
 ext="$(grep -onEi 'Tribunal Supremo|Ley de Enjuiciamiento|LOPJ|amparo indirecto|SCJN|Código Civil español|certiorari|common law|stare decisis|Cámara Nacional de Apelaciones' "$file" 2>/dev/null | head -3)"
 if [ -n "$ext" ]; then
