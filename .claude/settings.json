@@ -1,0 +1,233 @@
+{
+  "version": "1.0",
+  "profile": "alta-magistratura-colombiana",
+  "workspace": {
+    "name": "J.A. Abogados - Despacho Jurídico",
+    "type": "legal-firm",
+    "jurisdiction": "Colombia"
+  },
+  "agents": {
+    "enabled": true,
+    "default_agent": "agente-jurisprudencia-prompting",
+    "auto_activate": [
+      "jurisprudencia-col",
+      "redactor-juridico-col",
+      "vencimientos-procesales-col",
+      "vigilancia-normativa-col",
+      "cumplimiento-societario-col"
+    ]
+  },
+  "hooks": {
+    "enabled": true,
+    "on_file_upload": {
+      "enabled": true,
+      "patterns": [
+        ".*\\.pdf$",
+        ".*\\.docx$",
+        ".*legal.*\\.md$",
+        ".*contrato.*",
+        ".*demanda.*"
+      ],
+      "action": "trigger_agent_jurisprudencia",
+      "prompt": "Analiza este documento jurídico. Identifica: (1) área de derecho, (2) necesidad de fundamentación jurisprudencial, (3) aplicabilidad de IA frontera para análisis. ¿Activamos loop agentivo?"
+    },
+    "on_keyword": {
+      "enabled": true,
+      "trigger_phrases": [
+        "fundamenta con jurisprudencia",
+        "cita Corte Constitucional",
+        "respaldo de alta corte",
+        "jurisprudencia",
+        "precedente",
+        "Corte Suprema",
+        "Consejo de Estado",
+        "ratio decidendi",
+        "escrito procesal",
+        "demanda",
+        "contestación",
+        "recurso",
+        "tutela",
+        "prompt para IA",
+        "optimiza este prompt",
+        "análisis con IA",
+        "due diligence"
+      ],
+      "action": "trigger_agent_jurisprudencia",
+      "priority": "high"
+    },
+    "on_timer_daily": {
+      "enabled": true,
+      "time": "08:00",
+      "name": "Revisión matutina de vencimientos y vigilancia",
+      "agents": [
+        "vencimientos-procesales-col",
+        "vigilancia-normativa-col"
+      ],
+      "action": "check_and_report",
+      "report_format": "email",
+      "recipients": ["jorgeacortesc38@gmail.com"]
+    },
+    "on_timer_weekly": {
+      "enabled": true,
+      "day": "Monday",
+      "time": "09:00",
+      "name": "Auditoría semanal de cumplimiento societario",
+      "agents": [
+        "cumplimiento-societario-col"
+      ],
+      "action": "audit_and_alert",
+      "scope": "all_clients"
+    }
+  },
+  "loops": {
+    "enabled": true,
+    "agentivo_jurisprudencia": {
+      "name": "Loop Jurisprudencia & Prompting",
+      "max_iterations": 3,
+      "quality_threshold": 0.95,
+      "phases": [
+        "investigation",
+        "optimization",
+        "synthesis",
+        "audit"
+      ],
+      "auto_refine": true,
+      "escalate_if_blocked": true
+    },
+    "compliance_monitoring": {
+      "name": "Loop Monitoreo Cumplimiento",
+      "interval_hours": 24,
+      "checks": [
+        "vencimientos_procesales",
+        "renovacion_matricula",
+        "asamblea_ordinaria",
+        "normativa_cambios"
+      ]
+    }
+  },
+  "skills": {
+    "core": [
+      {
+        "name": "jurisprudencia-col",
+        "enabled": true,
+        "auto_activate": true,
+        "priority": "critical"
+      },
+      {
+        "name": "redactor-juridico-col",
+        "enabled": true,
+        "auto_activate": true,
+        "priority": "critical"
+      },
+      {
+        "name": "vencimientos-procesales-col",
+        "enabled": true,
+        "auto_activate": true,
+        "priority": "high"
+      },
+      {
+        "name": "vigilancia-normativa-col",
+        "enabled": true,
+        "auto_activate": true,
+        "priority": "high"
+      },
+      {
+        "name": "cumplimiento-societario-col",
+        "enabled": true,
+        "auto_activate": true,
+        "priority": "high"
+      }
+    ],
+    "complementary": [
+      {
+        "name": "due-diligence-col",
+        "enabled": true,
+        "auto_activate_on_trigger": ["M&A", "investment", "acquisition"]
+      },
+      {
+        "name": "acuerdos-confidencialidad-col",
+        "enabled": true,
+        "auto_activate_on_trigger": ["NDA", "confidentiality", "secreto empresarial"]
+      },
+      {
+        "name": "acuerdos-datos-col",
+        "enabled": true,
+        "auto_activate_on_trigger": ["datos personales", "DPA", "privacidad"]
+      },
+      {
+        "name": "clasificacion-laboral-col",
+        "enabled": true,
+        "auto_activate_on_trigger": ["contratación", "empleado", "independiente", "UGPP"]
+      }
+    ],
+    "ai_prompting": [
+      {
+        "name": "manual-prompting-frontera-consolidado",
+        "resource": "docs/notebooklm/guias/manual_prompting_frontera_consolidado.md",
+        "enabled": true,
+        "models": [
+          "o3",
+          "o4-mini",
+          "gpt-5.5",
+          "claude-5",
+          "gemini-3.5",
+          "midjourney-v8.1",
+          "qwen-3",
+          "hailuo-video-2.3"
+        ]
+      },
+      {
+        "name": "notebooklm-instruccion-maestra",
+        "resource": "docs/notebooklm/guias/notebooklm_instruccion_maestra.md",
+        "enabled": true,
+        "use_case": "system_instruction_for_notebooks"
+      }
+    ]
+  },
+  "automation": {
+    "enabled": true,
+    "document_processing": {
+      "enabled": true,
+      "auto_classify": true,
+      "auto_extract_metadata": true,
+      "auto_trigger_jurisprudencia": true
+    },
+    "routine_checks": {
+      "enabled": true,
+      "vencimientos": "daily_08:00",
+      "normativa": "daily_20:00",
+      "sociedades": "weekly_Monday_09:00",
+      "compliance": "monthly_first-day_08:00"
+    },
+    "notifications": {
+      "enabled": true,
+      "channels": ["email", "console"],
+      "critical_alerts": "immediate",
+      "high_priority": "within_2_hours",
+      "regular": "daily_digest"
+    }
+  },
+  "security": {
+    "data_handling": "confidential",
+    "audit_trail": true,
+    "validation": "strict",
+    "legal_compliance": "colombia-rigorous"
+  },
+  "outputs": {
+    "formats": [
+      "markdown",
+      "docx",
+      "pdf"
+    ],
+    "default_format": "docx",
+    "include_metadata": true,
+    "include_audit_trail": true
+  },
+  "preferences": {
+    "language": "es-CO",
+    "legal_framework": "colombia",
+    "citation_style": "colombian-high-court",
+    "document_tone": "magistrado",
+    "max_execution_time_minutes": 30
+  }
+}
