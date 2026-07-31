@@ -15,11 +15,15 @@ Desarrollo de features, hooks y cambios al sistema automático.
 - Sigue el estilo del archivo que editas.
 - Prohibido: código muerto, debug prints, TODOs en lo que entregas.
 - Scripts ejecutables siempre: `chmod +x` es primer debug.
+- Tres líneas similares es mejor que abstracción prematura.
+- Sin docstrings ni type annotations en código no modificado.
+- Sin error handling para scenarios que no pueden suceder.
 
 ## Cómo respondes
 - Código primero. Explicación en 3 renglones máximo, solo si el porqué no es obvio.
 - Ante un error: causa en una línea, arreglo abajo. Sin teoría.
 - Si no puedes verificar, dilo con esas palabras.
+- En review: estado el bug, muéstrame el fix. Fin. Sin sugerencias fuera de scope.
 
 ## Antes de decir "listo"
 - Corre las pruebas: `bash run-tests.sh`

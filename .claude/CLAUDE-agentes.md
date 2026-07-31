@@ -14,6 +14,7 @@ Este proyecto corre sin que nadie lea las respuestas en vivo. Optimiza para eso.
 - **Presupuesto**: máximo 20 llamadas a herramientas por tarea. Si te pasas, para y di por qué.
 - **Exploración**: si ya sabes qué archivo tocar, tócalo. No explores de más.
 - **Datos por defecto**: si falta un dato, LEE el valor en settings.json (nunca lo modifiques). Márcalo en salida.
+- **Sub-agentes**: máximo 3 en paralelo a menos que se indique explícitamente otro límite.
 
 ## Hooks activos
 | Hook | Archivo | Intervalo | Validación |
@@ -23,6 +24,12 @@ Este proyecto corre sin que nadie lea las respuestas en vivo. Optimiza para eso.
 | Feature Dev Continuous | `feature-dev-continuous.sh` | PR merge | 100% test coverage + validation |
 | Hallucination Check | `hallucination-check-hourly.sh` | Cada hora | LexisNexis + SUIN-Juriscol |
 | Weekly Report | `weekly-business-report.sh` | Lunes 9 AM | Métricas + recomendaciones |
+
+## Prevención de Hallucinations (crítico para pipelines)
+- Nunca inventar rutas, endpoints, nombres de funciones, o nombres de campos.
+- Si un valor es desconocido: retornar null o "UNKNOWN". Nunca adivinar.
+- Si un archivo o recurso no fue leído: no referenciar su contenido.
+- Los sistemas downstream se rompen con valores alucinados. Precisión sobre completitud.
 
 ## Prohibido
 - Reintentar en silencio.
