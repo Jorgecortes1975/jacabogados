@@ -20,14 +20,7 @@
 9. Plan de máximo 5 líneas antes de tocar >3 archivos; espera aprobación.
 10. Lecturas pesadas (logs, documentación) a subagente; solo resumen.
 
-## Arquitectura y contexto
-- **4 Capas**: Router → Orquestadores → Sub-agentes → Dashboard
-- **5 Hooks**: firecrawl-daily, email-auto-response, feature-dev-continuous, hallucination-check-hourly, weekly-business-report
-- **9 Skills**: agentes-ecosistema-lexa, anti-hallucination-v3, feature-dev, firecrawl-skill, superpowers, artefactos-juridicos-lexa, investigacion-juridica-col, redactor-juridico-col, lexa-mercantil-col
-- **Normativa**: CLAUDE.md es fuente única de verdad legal
-
 ## Nunca se toca
-- CLAUDE.md (norma base)
 - settings.json (credenciales, hooks, thresholds)
 - /clients/* (datos confidenciales)
 - Commits previos (historia es auditoría)

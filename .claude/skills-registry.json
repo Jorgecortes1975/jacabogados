@@ -1,0 +1,66 @@
+{
+  "version": "1.0",
+  "auto_skills": [
+    {
+      "name": "auto-testing",
+      "path": ".claude/skills/auto-testing/CLAUDE.md",
+      "triggers": [
+        "git diff --name-only | grep -E '\\.(sh|py|js)$'"
+      ],
+      "activation": "automatic",
+      "description": "Validación automática de código — tests + coverage"
+    },
+    {
+      "name": "auto-hallucination-check",
+      "path": ".claude/skills/auto-hallucination-check/CLAUDE.md",
+      "triggers": [
+        "file appears in .claude/agents/business-automation/pending-outputs/",
+        "hook completes and generates output",
+        "sub-agent produces recommendation"
+      ],
+      "activation": "automatic",
+      "description": "Fact-checking automático contra LexisNexis + SUIN-Juriscol"
+    },
+    {
+      "name": "auto-orchestration",
+      "path": ".claude/skills/auto-orchestration/CLAUDE.md",
+      "triggers": [
+        "email received in inbox",
+        "webhook POST /api/solicitud",
+        "file appears in pending-requests/"
+      ],
+      "activation": "automatic",
+      "description": "Enrutamiento automático a orquestador correcto"
+    }
+  ],
+  "manual_skills": [
+    {
+      "name": "agentes-ecosistema-lexa",
+      "category": "agents",
+      "description": "3-capas legal ecosystem"
+    },
+    {
+      "name": "anti-hallucination-v3",
+      "category": "validation",
+      "description": "Fact-checking con sources"
+    },
+    {
+      "name": "feature-dev",
+      "category": "development",
+      "description": "Spec → Código → Tests"
+    }
+  ],
+  "hooks_active": [
+    "firecrawl-daily.sh",
+    "email-auto-response.sh",
+    "feature-dev-continuous.sh",
+    "hallucination-check-hourly.sh",
+    "weekly-business-report.sh"
+  ],
+  "metadata": {
+    "last_updated": "2026-07-31T10:00:00Z",
+    "total_auto_skills": 3,
+    "total_manual_skills": 3,
+    "total_hooks": 5
+  }
+}
