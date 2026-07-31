@@ -48,6 +48,12 @@
       "name": "feature-dev",
       "category": "development",
       "description": "Spec → Código → Tests"
+    },
+    {
+      "name": "token-optimizer",
+      "category": "efficiency",
+      "description": "Compresión de tokens para pipelines automáticas (30% reduction)",
+      "path": ".claude/skills/token-optimizer/CLAUDE.md"
     }
   ],
   "hooks_active": [
@@ -58,9 +64,9 @@
     "weekly-business-report.sh"
   ],
   "metadata": {
-    "last_updated": "2026-07-31T10:00:00Z",
+    "last_updated": "2026-07-31T10:41:00Z",
     "total_auto_skills": 3,
-    "total_manual_skills": 3,
+    "total_manual_skills": 4,
     "total_hooks": 5
   }
 }
