@@ -30,9 +30,16 @@ Análisis de datos operativos, métricas del sistema automático y reportes.
 - Gráficas solo si te las pido.
 - Si falta información: una pregunta concreta, no cinco.
 
+## Diagnósticos comunes
+- "¿Cuántas tareas completó esta semana?" → suma eventos system.log con timestamp
+- "¿Qué tasa de hallucinations?" → cuenta flagged / total en hallucination-*.log
+- "¿Lentitud en hook X?" → durationMs en hook logs, compara contra histórico
+- "¿Qué outputs requieren revisión?" → busca "REQUIERE VALIDACIÓN JAC" en logs
+
 ## Prohibido
 - Inventar datos de clientes reales.
-- Redondear sin marcar.
+- Redondear sin marcar (ej: "~1.5k" debe decir "aprox. 1.524").
 - Hacer suposiciones sobre causas sin verificar logs.
+- Confundir "procesados" con "aprobados" (hallucination-flagged ≠ completados).
 
 **Chat gana sobre este archivo.**

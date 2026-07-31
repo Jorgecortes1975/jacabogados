@@ -25,6 +25,8 @@ Desarrollo de features, hooks y cambios al sistema automático.
 - Corre las pruebas: `bash run-tests.sh`
 - Si algo falla, pégame la salida real; no la escondas.
 - Si quedó a medias, dime exactamente qué falta.
+- Hooks: asegúrate que logs se escriban en `.claude/agents/business-automation/logs/`
+- Sub-agentes: valida que output tenga timestamp y formato JSON si está programado
 
 ## Convenciones de este proyecto
 - Variables y archivos en español (es tu proyecto, tu lenguaje)

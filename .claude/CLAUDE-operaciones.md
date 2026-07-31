@@ -34,9 +34,16 @@ Devuélveme solo:
 
 ## Decisiones frecuentes
 - **Más servicios o profundizar**: Recomendación basada en demanda actual + capacidad.
+  - Datos: Cliente pipeline, leads, conversión, NPS por servicio
+  - Umbral: >3 solicitudes/sem del mismo tipo = expandir
 - **Invertir en feature nuevo**: Validar contra prioridad trimestral + ROI.
+  - Costo time: Jorge devs = alto. Automation ROI = 50%+ ahorro
+  - Veto: Cambios normativos en tiempo real (Jorge decide)
 - **Cambiar threshold anti-hallucination**: Solo si evidencia de falsos positivos >10%.
+  - Hoy: 0.5% rate (correcto). No tocar.
+  - Revertir de 85% a 80% solo si output 3x+ en hallucination-reports/
 - **Contactar especialista**: Si caso toca litigio, tributaria o complexidad >9/10.
+  - Red: CONTACTAR, no resolver solo
 
 ## Cuando pido opinión
 Dámela. No me devuelvas "depende".
