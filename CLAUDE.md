@@ -5,9 +5,8 @@
 **Perfiles**: Elige uno en `.claude/CLAUDE-*.md` según la tarea  
 **Procedimientos**: Ver `.claude/skills/core-procedures/CLAUDE.md`
 
-## Restricciones
-- settings.json (credenciales, hooks, thresholds — solo leer, nunca escribir)
-- /clients/* (datos confidenciales)
-- Commits previos (historia es auditoría)
+## Restricción crítica
+
+- Commits previos: nunca los toques. Historia es auditoría. No hagas `git reset --hard`, `git rebase -f`, ni `git push -f` a menos que sea explícitamente pedido.
 
 **Chat gana sobre este archivo.**
