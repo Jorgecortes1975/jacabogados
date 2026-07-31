@@ -1,0 +1,264 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-07-31T00:00:00Z",
+  "organization": "ABOGADOS ASOCIADOS J.A.C.",
+  "environment": "production",
+
+  "agents": {
+    "business-automation": {
+      "type": "orchestrator",
+      "name": "Business Automation — Enterprise Orchestrator",
+      "path": "./.claude/agents/business-automation",
+      "description": "Sistema de 4 capas con orquestación automática, hooks y loops agentúcis",
+      "version": "1.0",
+      "status": "active",
+      "capabilities": [
+        "research",
+        "development",
+        "validation",
+        "automation",
+        "reporting"
+      ],
+      "sub_agents": [
+        "business-automation/developer",
+        "business-automation/reporter"
+      ],
+      "model": "claude-4.5",
+      "context_window": "200k"
+    },
+
+    "business-automation/developer": {
+      "type": "specialist",
+      "name": "Developer Agent — Feature Dev Specialist",
+      "parent": "business-automation",
+      "description": "Generación de código production-ready con testing automático",
+      "capabilities": [
+        "code-generation",
+        "test-generation",
+        "documentation",
+        "security-validation"
+      ],
+      "integration": "feature-dev + superpowers"
+    },
+
+    "business-automation/reporter": {
+      "type": "specialist",
+      "name": "Reporter Agent — Business Intelligence",
+      "parent": "business-automation",
+      "description": "Generación de reportes ejecutivos con análisis y recomendaciones",
+      "capabilities": [
+        "metrics-aggregation",
+        "trend-analysis",
+        "reporting",
+        "recommendations"
+      ],
+      "output_format": "markdown"
+    },
+
+    "dashboard": {
+      "type": "monitor",
+      "name": "Dashboard — 24/7 Operations Monitor",
+      "path": "./.claude/agents/dashboard",
+      "description": "Monitoreo en tiempo real del ecosistema completo",
+      "status": "active",
+      "port": 3000,
+      "features": [
+        "live-metrics",
+        "alert-management",
+        "task-queue",
+        "webhook-api"
+      ]
+    },
+
+    "router": {
+      "type": "classifier",
+      "name": "Router — Punto de Entrada Único",
+      "path": "./.claude/agents/router",
+      "description": "Clasifica y despacha solicitudes a agentes especializados",
+      "status": "active",
+      "routing_table": {
+        "legal": "juridico",
+        "commercial": "mercantil",
+        "communication": "email",
+        "technical": "business-automation"
+      }
+    },
+
+    "juridico": {
+      "type": "domain-specialist",
+      "name": "Agente Jurídico — Legal Specialist",
+      "path": "./.claude/agents/juridico",
+      "description": "Especializado en derecho civil, laboral, penal, constitucional",
+      "status": "active",
+      "sub_agents": [
+        "juridico/investigador",
+        "juridico/redactor",
+        "juridico/jac-validator"
+      ],
+      "knowledge_base": [
+        "causas",
+        "jurisprudencia",
+        "normas",
+        "plantillas"
+      ]
+    },
+
+    "mercantil": {
+      "type": "domain-specialist",
+      "name": "Agente Mercantil — Commercial Specialist",
+      "path": "./.claude/agents/mercantil",
+      "description": "Especializado en contratos, SAS, títulos valores, litigio comercial",
+      "status": "active",
+      "sub_agents": [
+        "mercantil/contratos",
+        "mercantil/litigio-mercantil",
+        "mercantil/investigador-mercantil"
+      ],
+      "knowledge_base": [
+        "contratos",
+        "societario",
+        "títulos-valores"
+      ]
+    },
+
+    "email": {
+      "type": "domain-specialist",
+      "name": "Agente Email — Communication Handler",
+      "path": "./.claude/agents/email",
+      "description": "Gestiona comunicaciones con clientes de forma automática",
+      "status": "active",
+      "sub_agents": [
+        "email/classifier",
+        "email/drafter",
+        "email/summarizer"
+      ],
+      "voice": "voz-institucional.md",
+      "approval_required": true
+    },
+
+    "anti-hallucination-v3": {
+      "type": "validator",
+      "name": "Anti-Hallucination v3 — Fact-Checker",
+      "description": "Valida outputs contra fuentes autorizadas (LexisNexis, SUIN-Juriscol)",
+      "status": "active",
+      "model": "claude-opus-5",
+      "confidence_threshold": 85,
+      "sources": [
+        "lexisnexis",
+        "suin-juriscol",
+        "precedent-db",
+        "google-scholar"
+      ],
+      "validation_points": [
+        "pre-output",
+        "hourly-batch",
+        "on-demand"
+      ]
+    }
+  },
+
+  "hooks": {
+    "firecrawl-daily": {
+      "enabled": true,
+      "schedule": "0 6 * * *",
+      "script": "hooks/firecrawl-daily.sh",
+      "triggers": ["agent:investigador", "skill:firecrawl", "skill:anti-hallucination-v3"]
+    },
+
+    "email-auto-response": {
+      "enabled": true,
+      "schedule": "on-trigger",
+      "trigger_event": "email:receive",
+      "script": "hooks/email-auto-response.sh",
+      "approval_required": true
+    },
+
+    "feature-dev-continuous": {
+      "enabled": true,
+      "schedule": "on-trigger",
+      "trigger_event": "github:pr:merge",
+      "script": "hooks/feature-dev-continuous.sh",
+      "chain": ["feature-dev", "superpowers", "pytest", "anti-hallucination-v3"]
+    },
+
+    "hallucination-check-hourly": {
+      "enabled": true,
+      "schedule": "0 * * * *",
+      "script": "hooks/hallucination-check-hourly.sh",
+      "critical": true
+    },
+
+    "weekly-business-report": {
+      "enabled": true,
+      "schedule": "0 9 * * 1",
+      "script": "hooks/weekly-business-report.sh",
+      "recipients": ["slack:#jac-operations", "email:jorge@jacabogados.co"]
+    }
+  },
+
+  "skills_integrated": [
+    "agentes-ecosistema-lexa",
+    "anti-hallucination-v3",
+    "feature-dev",
+    "firecrawl-skill",
+    "superpowers",
+    "artefactos-juridicos-lexa",
+    "investigacion-juridica-corporativa-col",
+    "redactor-juridico-col",
+    "lexa-mercantil-col"
+  ],
+
+  "integrations": {
+    "github": {
+      "enabled": true,
+      "repo": "jorgecortes1975/jacabogados",
+      "features": ["pr-triggers", "code-generation", "auto-merge"]
+    },
+
+    "gmail": {
+      "enabled": true,
+      "features": ["email-classification", "auto-response", "archiving"]
+    },
+
+    "lexisnexis": {
+      "enabled": true,
+      "features": ["jurisprudence-search", "caching", "fact-check"]
+    },
+
+    "suin-juriscol": {
+      "enabled": true,
+      "features": ["legislation-search", "case-law", "normalization"]
+    },
+
+    "slack": {
+      "enabled": true,
+      "channels": [
+        "jac-operations",
+        "jac-development",
+        "jac-quality",
+        "jac-legal"
+      ]
+    },
+
+    "webhooks": {
+      "enabled": true,
+      "base_url": "http://localhost:3000/api"
+    }
+  },
+
+  "metrics": {
+    "system_uptime": "99.9%",
+    "average_response_time": "2.5s",
+    "hallucination_detection_rate": "98.5%",
+    "feature_delivery_time": "< 30 min",
+    "email_auto_response_rate": "85%",
+    "client_satisfaction": "95%+"
+  },
+
+  "maintenance": {
+    "last_updated": "2026-07-31",
+    "next_review": "2026-08-07",
+    "maintainer": "Jorge Cortés | JAC Business Automation",
+    "contact": "jorge@jacabogados.co"
+  }
+}

@@ -1,0 +1,421 @@
+{
+  "version": "1.0",
+  "name": "JAC Business Automation — Enterprise Orchestration",
+  "description": "Sistema de 4 capas con orquestación automática, hooks y loops agentúcis con validación anti-hallucinations",
+
+  "agent": {
+    "default": "business-automation",
+    "auto_loop": true,
+    "loop_interval": "auto",
+    "max_concurrent_agents": 5
+  },
+
+  "environment": {
+    "JAC_WORKSPACE": "/home/user/jacabogados",
+    "JAC_AGENTS_PATH": "/home/user/jacabogados/.claude/agents",
+    "JAC_SKILLS_PATH": "/home/user/jacabogados/.claude/skills",
+    "JAC_LOGS_PATH": "/home/user/jacabogados/.claude/agents/business-automation/logs",
+    "ANTI_HALLUCINATION_ENABLED": "true",
+    "ANTI_HALLUCINATION_CONFIDENCE_THRESHOLD": "85",
+    "ANTI_HALLUCINATION_SOURCES": "lexisnexis,suin-juriscol,precedent-db,google-scholar",
+    "LOG_LEVEL": "INFO",
+    "MODEL": "claude-4.5",
+    "CONTEXT_WINDOW": "200k"
+  },
+
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash(git status)",
+      "mcp__github__pull_request_read"
+    ],
+
+    "bash": {
+      "enabled": true,
+      "allowed_commands": [
+        "git",
+        "curl",
+        "find",
+        "grep",
+        "date",
+        "mkdir",
+        "cp",
+        "rm",
+        "cat",
+        "echo",
+        "chmod",
+        "aws",
+        "docker"
+      ]
+    },
+
+    "network": {
+      "enabled": true,
+      "outbound_allowed": [
+        "https://lexisnexis.com",
+        "https://suin-juriscol.co",
+        "http://localhost:3000",
+        "https://api.github.com",
+        "https://gmail.googleapis.com"
+      ]
+    },
+
+    "filesystem": {
+      "read": ["/home/user/jacabogados/**"],
+      "write": ["/home/user/jacabogados/**"],
+      "delete": [
+        "/home/user/jacabogados/.claude/agents/business-automation/logs/**",
+        "/home/user/jacabogados/.claude/agents/business-automation/pending-outputs/**"
+      ]
+    },
+
+    "mcp_tools": {
+      "enabled": true,
+      "allowed": [
+        "mcp__github__*",
+        "mcp__gmail__*",
+        "mcp__Legal_Data_Hunter__*"
+      ]
+    }
+  },
+
+  "hooks": {
+    "enabled": true,
+    "base_path": "/home/user/jacabogados/.claude/hooks",
+
+    "hooks": [
+      {
+        "id": "firecrawl-daily",
+        "name": "Daily Firecrawl Research Loop",
+        "script": "firecrawl-daily.sh",
+        "trigger": "schedule",
+        "schedule": "0 6 * * *",
+        "description": "Búsqueda diaria de jurisprudencia + mercado legal",
+        "enabled": true,
+        "notification": "slack:#jac-operations",
+        "timeout_seconds": 3600
+      },
+
+      {
+        "id": "email-auto-response",
+        "name": "Email Auto-Response Classifier",
+        "script": "email-auto-response.sh",
+        "trigger": "on:email:receive",
+        "description": "Clasificar y responder emails automáticamente",
+        "enabled": true,
+        "parameters": ["subject", "body", "sender"],
+        "notification": "jorge-mailbox",
+        "requires_approval": true,
+        "timeout_seconds": 300
+      },
+
+      {
+        "id": "feature-dev-continuous",
+        "name": "Feature Dev Continuous Integration",
+        "script": "feature-dev-continuous.sh",
+        "trigger": "on:github:pr:merge",
+        "description": "Auto-generar features + tests usando Superpowers",
+        "enabled": true,
+        "parameters": ["pr_number", "branch", "title", "body"],
+        "notification": "slack:#jac-development",
+        "timeout_seconds": 1800
+      },
+
+      {
+        "id": "hallucination-check-hourly",
+        "name": "Hourly Hallucination Fact-Check",
+        "script": "hallucination-check-hourly.sh",
+        "trigger": "schedule",
+        "schedule": "0 * * * *",
+        "description": "Validar outputs contra fuentes cada hora",
+        "enabled": true,
+        "critical": true,
+        "notification": "slack:#jac-quality",
+        "timeout_seconds": 600
+      },
+
+      {
+        "id": "weekly-business-report",
+        "name": "Weekly Business Report Generator",
+        "script": "weekly-business-report.sh",
+        "trigger": "schedule",
+        "schedule": "0 9 * * 1",
+        "description": "Reporte operativo completo cada lunes",
+        "enabled": true,
+        "notification": ["slack:#jac-operations", "jorge@jacabogados.co"],
+        "timeout_seconds": 1800
+      }
+    ]
+  },
+
+  "loops": {
+    "enabled": true,
+
+    "firecrawl-daily": {
+      "interval": "24h",
+      "agent": "investigador",
+      "max_concurrent": 1,
+      "retry_on_failure": 2,
+      "validation_required": true,
+      "validator": "anti-hallucination-v3"
+    },
+
+    "email-auto-response": {
+      "interval": "on-trigger",
+      "agent": "email/classifier",
+      "downstream_agent": "email/drafter",
+      "max_concurrent": 3,
+      "approval_workflow": {
+        "enabled": true,
+        "approver": "jorge",
+        "timeout": "4h"
+      }
+    },
+
+    "feature-dev-continuous": {
+      "interval": "on-trigger",
+      "agent": "business-automation/developer",
+      "chain": ["feature-dev", "superpowers-toolkit", "pytest-runner", "anti-hallucination-v3"],
+      "max_concurrent": 2,
+      "auto_merge": false,
+      "quality_gate": "tests_passing && hallucination_check_passed"
+    },
+
+    "hallucination-check-hourly": {
+      "interval": "1h",
+      "agent": "anti-hallucination-v3",
+      "scope": "pending_outputs",
+      "confidence_threshold": 85,
+      "action_on_hallucination": "flag_and_notify",
+      "retry_with_sources": true,
+      "max_retries": 2,
+      "sources": ["lexisnexis", "suin-juriscol", "precedent-db", "google-scholar"]
+    },
+
+    "weekly-business-report": {
+      "interval": "weekly:monday:09:00",
+      "agent": "business-automation/reporter",
+      "aggregation_window": "7d",
+      "metrics_included": [
+        "tasks_completed",
+        "features_generated",
+        "hallucinations_found",
+        "hallucination_rate",
+        "client_satisfaction",
+        "feature_velocity"
+      ],
+      "output_channels": ["slack#jac-operations", "email:jorge@jacabogados.co", "dashboard"]
+    }
+  },
+
+  "skills": {
+    "enabled_skills": [
+      "agentes-ecosistema-lexa",
+      "anti-hallucination-v3",
+      "feature-dev",
+      "firecrawl-skill",
+      "superpowers",
+      "artefactos-juridicos-lexa",
+      "investigacion-juridica-corporativa-col",
+      "redactor-juridico-col",
+      "lexa-mercantil-col"
+    ],
+
+    "skill_configs": {
+      "anti-hallucination-v3": {
+        "enabled": true,
+        "model": "claude-opus-5",
+        "confidence_threshold": 85,
+        "fact_check_sources": [
+          "lexisnexis",
+          "suin-juriscol",
+          "google-scholar",
+          "precedent-db"
+        ],
+        "validation_interval": "hourly",
+        "report_hallucinations": true,
+        "rerun_on_low_confidence": true
+      },
+
+      "feature-dev": {
+        "enabled": true,
+        "model": "claude-opus-5",
+        "spec_generation": true,
+        "code_generation": true,
+        "test_generation": true,
+        "test_framework": "pytest",
+        "coverage_minimum": 100,
+        "auto_docs": true
+      },
+
+      "firecrawl-skill": {
+        "enabled": true,
+        "daily_search": true,
+        "search_areas": [
+          "derecho-laboral",
+          "derecho-civil",
+          "derecho-penal",
+          "derecho-comercial",
+          "derecho-constitucional"
+        ],
+        "sources": ["suin-juriscol", "lexisnexis", "google-scholar"],
+        "cache_results": true,
+        "cache_expiry_hours": 24
+      },
+
+      "superpowers": {
+        "enabled": true,
+        "agents_enabled": [
+          "Claude Code",
+          "Codex CLI",
+          "Factory Droid",
+          "Gemini CLI"
+        ],
+        "toolkit_version": "2.1"
+      }
+    }
+  },
+
+  "quality_gates": {
+    "enabled": true,
+
+    "before_output": [
+      {
+        "name": "Anti-Hallucination Check",
+        "validator": "anti-hallucination-v3",
+        "confidence_threshold": 85,
+        "action": "block_if_failed",
+        "timeout": 60
+      },
+      {
+        "name": "Source Verification",
+        "validator": "source-checker",
+        "required_sources": 1,
+        "action": "flag_if_missing",
+        "timeout": 30
+      }
+    ],
+
+    "before_action": [
+      {
+        "name": "Legal Validation",
+        "validator": "jac-validator",
+        "scope": "legal_outputs",
+        "action": "require_approval",
+        "approver": "jorge"
+      }
+    ]
+  },
+
+  "notifications": {
+    "enabled": true,
+    "channels": {
+      "slack": {
+        "enabled": true,
+        "workspace": "jac-workspace",
+        "channels": {
+          "jac-operations": "general-purpose",
+          "jac-development": "feature-dev",
+          "jac-quality": "hallucination-alerts",
+          "jac-legal": "legal-outputs"
+        }
+      },
+
+      "email": {
+        "enabled": true,
+        "smtp": "smtp.gmail.com",
+        "from": "automation@jacabogados.co",
+        "recipients": {
+          "jorge": "jorge@jacabogados.co",
+          "team": ["team@jacabogados.co"]
+        }
+      },
+
+      "webhook": {
+        "enabled": true,
+        "base_url": "http://localhost:3000/api",
+        "endpoints": {
+          "task_complete": "/task-complete",
+          "hallucination_alert": "/hallucination-alert",
+          "feature_dev_complete": "/feature-dev-complete"
+        }
+      }
+    },
+
+    "alert_levels": {
+      "critical": {
+        "channels": ["slack", "email"],
+        "icons": "🚨"
+      },
+      "warning": {
+        "channels": ["slack"],
+        "icons": "⚠️"
+      },
+      "info": {
+        "channels": ["slack"],
+        "icons": "ℹ️"
+      }
+    }
+  },
+
+  "logging": {
+    "enabled": true,
+    "level": "INFO",
+    "format": "json",
+    "output_path": "/home/user/jacabogados/.claude/agents/business-automation/logs",
+    "retention_days": 30,
+    "metrics_enabled": true,
+    "trace_enabled": true
+  },
+
+  "integrations": {
+    "github": {
+      "enabled": true,
+      "token_env": "GITHUB_TOKEN",
+      "repo": "jorgecortes1975/jacabogados"
+    },
+
+    "gmail": {
+      "enabled": true,
+      "token_env": "GMAIL_TOKEN",
+      "auto_sync": true
+    },
+
+    "lexisnexis": {
+      "enabled": true,
+      "token_env": "LEXISNEXIS_API_KEY",
+      "cache_enabled": true
+    },
+
+    "suin_juriscol": {
+      "enabled": true,
+      "endpoint": "https://suin-juriscol.co/api/search"
+    }
+  },
+
+  "monitoring": {
+    "enabled": true,
+    "dashboard_enabled": true,
+    "dashboard_port": 3000,
+    "metrics_collection_interval": "5m",
+    "alerts_enabled": true,
+    "uptime_tracking": true
+  },
+
+  "model_config": {
+    "default_model": "claude-4.5",
+    "temperature": 0.3,
+    "max_tokens": 4096,
+    "top_k": 40,
+    "top_p": 0.95,
+    "system_prompt_override": "Eres un agente empresarial especializado en automatización legal. Sé preciso, verifiable, y siempre cita fuentes. Si no tienes certeza sobre un hecho legal, di 'REQUIERE INVESTIGACIÓN'. Nunca hagas afirmaciones sin respaldar."
+  },
+
+  "version_info": {
+    "created": "2026-07-31",
+    "last_updated": "2026-07-31",
+    "maintained_by": "Jorge Cortés | JAC Business Automation"
+  }
+}

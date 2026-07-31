@@ -1,0 +1,9 @@
+[2026-07-31 10:15:30] 📧 Email received from: cliente@empresa.co
+[2026-07-31 10:15:31]   Subject: Solicitud de revisión de contrato de arrendamiento
+[2026-07-31 10:15:32] 🏷️ Classifying email...
+[2026-07-31 10:15:35] ✅ Category detected: [MERCANTIL] [NORMAL] [ROUTINE]
+[2026-07-31 10:15:36] ✍️ Generating auto-response...
+[2026-07-31 10:15:40] ✅ Response generated (285 words)
+[2026-07-31 10:15:41] ⏳ Awaiting approval from Jorge...
+[2026-07-31 10:15:42] 📨 Response saved to: pending-emails/1627728930-cliente@empresa.co.json
+[2026-07-31 10:15:43] 🔔 Notification sent to jorge-mailbox
