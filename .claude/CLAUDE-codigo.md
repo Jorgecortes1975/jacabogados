@@ -35,7 +35,7 @@ Desarrollo de features, hooks y cambios al sistema automático.
 - Estructura de carpetas `.claude/agents/` es sagrada: no cambiarla
 
 ## Prohibido
-- Tocar settings.json sin preguntar (ahí van credenciales)
+- Modificar settings.json sin preguntar (lectura OK, escritura requiere aprobación)
 - Modificar .claude/hooks/*.sh sin pasar tests
 - Commitear sin prueba exitosa
 

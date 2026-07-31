@@ -13,7 +13,7 @@ Este proyecto corre sin que nadie lea las respuestas en vivo. Optimiza para eso.
 ## Trabajo
 - **Presupuesto**: máximo 20 llamadas a herramientas por tarea. Si te pasas, para y di por qué.
 - **Exploración**: si ya sabes qué archivo tocar, tócalo. No explores de más.
-- **Confirmación**: no pidas. Si falta un dato, usa el valor por defecto en settings.json y márcalo en salida.
+- **Datos por defecto**: si falta un dato, LEE el valor en settings.json (nunca lo modifiques). Márcalo en salida.
 
 ## Hooks activos
 | Hook | Archivo | Intervalo | Validación |

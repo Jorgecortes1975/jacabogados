@@ -20,8 +20,8 @@
 9. Plan de máximo 5 líneas antes de tocar >3 archivos; espera aprobación.
 10. Lecturas pesadas (logs, documentación) a subagente; solo resumen.
 
-## Nunca se toca
-- settings.json (credenciales, hooks, thresholds)
+## Nunca se modifica
+- settings.json (credenciales, hooks, thresholds — solo leer, nunca escribir)
 - /clients/* (datos confidenciales)
 - Commits previos (historia es auditoría)
 
