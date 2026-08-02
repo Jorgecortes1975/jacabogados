@@ -1,0 +1,80 @@
+{
+  "defaultApproach": "client-aware",
+  "clientProfiles": [
+    {
+      "id": "fintech-mvp",
+      "name": "Fintech MVP (Pre-regulación)",
+      "regulationsApply": ["GDPR", "CCPA", "LGPD", "Ley SGDR"],
+      "checkpoints": [
+        "¿Tocamos dinero de terceros? → Reporte Superfinanciera",
+        "¿Datos de titulares? → Consentimiento + Política Privacidad",
+        "¿Transferencia internacional? → Cláusulas SIC / mecanismo transferencia",
+        "¿Clientes en UE? → Cumplimiento GDPR Art. 13/14"
+      ]
+    },
+    {
+      "id": "medtech",
+      "name": "Medtech (Dispositivos Médicos Clase II+)",
+      "regulationsApply": ["INVIMA", "Ley SGDR", "GDPR-optional"],
+      "checkpoints": [
+        "Clasificación INVIMA → Tramitología según clase",
+        "Vigilancia post-comercialización → Reportes eventos adversos",
+        "Datos pacientes → Encriptación + Privacidad",
+        "Auditoría calidad → Sistemas de gestión"
+      ]
+    },
+    {
+      "id": "energy",
+      "name": "Energías Renovables",
+      "regulationsApply": ["CREG", "Ley SGDR", "Laboral"],
+      "checkpoints": [
+        "Acceso red → Regulación CREG",
+        "Contratos PPAs → Terminalidad, fuerza mayor",
+        "Seguridad laboral → Protocolo trabajo altura",
+        "Datos personales → Empleados + terceros en sitios"
+      ]
+    },
+    {
+      "id": "saas-tech",
+      "name": "SaaS / Desarrollo Tech",
+      "regulationsApply": ["Ley SGDR", "GDPR-if-EU-users", "Laboral"],
+      "checkpoints": [
+        "¿Datos de qué tipo? → Clasificar (PII, sensible, anonimizado)",
+        "¿Subprocesadores? → Mapear + DPAs",
+        "¿Clientes empresariales? → Cláusulas confidencialidad en contrato",
+        "¿Propiedad Intelectual? → Acuerdos asignación con empleados/contratistas"
+      ]
+    }
+  ],
+  "regulatoryAnnualCalendar": {
+    "enero": [
+      "Revisión estatutos SAS (si reformas 2025)",
+      "Planificación de auditorías de cumplimiento"
+    ],
+    "marzo": [
+      "Asamblea anual de socios (recomendado antes 31/03)"
+    ],
+    "mayo_junio": [
+      "Audit compliance Superfinanciera (si fintech)",
+      "Reporte vigilancia INVIMA (si medtech)"
+    ],
+    "septiembre_octubre": [
+      "Renovación certificaciones (SOC 2, ISO 27001 si aplica)",
+      "Revisión 12 meses de 409A equivalent (si hay stock option plan con inversores)"
+    ],
+    "diciembre": [
+      "Consentimientos accionarios",
+      "Revisión contractual anual"
+    ]
+  },
+  "auditFocus": [
+    "Privacy posture vs GDPR + Ley SGDR",
+    "Subprocessor inventory + DPA coverage",
+    "Template library refresh (> 12 meses)",
+    "Compliance INVIMA (si medtech)",
+    "Compliance Superfinanciera (si fintech)",
+    "Contratos ejecutados vs estatutos"
+  ],
+  "lastAuditDate": "2026-08-02",
+  "nextAuditDate": "2026-09-02"
+}

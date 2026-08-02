@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-08-02T00:00:00Z",
+  "deadlines": [
+    {
+      "id": "asamblea-anual-2027",
+      "kind": "estatutaria",
+      "label": "Asamblea Anual de Socios — SAS",
+      "deadline": "2027-03-31",
+      "daysUntil": 241,
+      "source": "Decreto 4175/2011",
+      "authority": "Legislación colombiana SAS",
+      "urgency": "low",
+      "description": "Asamblea general anual de socios debe realizarse antes del 31 de marzo de cada año (recomendado). Decisiones: estados financieros, distribución utilidades, designación administrador, reforma estatutos."
+    }
+  ]
+}

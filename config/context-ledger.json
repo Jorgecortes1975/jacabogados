@@ -1,0 +1,141 @@
+{
+  "universal": {
+    "firm": {
+      "name": "JA Abogados S.A.S.",
+      "legalName": "ABOGADOS ASOCIADOS J.A.C. S.A.S.",
+      "country": "Colombia",
+      "city": "Medellín",
+      "state": "Antioquia",
+      "incorporationDate": "2024",
+      "practiceAreas": [
+        "Derecho Tecnológico e IA",
+        "Compliance Corporativo",
+        "Contratos Comerciales B2B",
+        "Derecho Laboral",
+        "Derecho Corporativo / M&A",
+        "Propiedad Intelectual"
+      ]
+    },
+    "legalContext": {
+      "jurisdiction": "Colombia",
+      "primaryLaw": "Código Civil, Código de Comercio, Código Laboral Sustantivo (CTRABAJO 2023)",
+      "regulatorsOfInterest": [
+        {
+          "name": "Superintendencia Financiera de Colombia",
+          "abbreviation": "Superfinanciera",
+          "focus": "Fintech, valores, sistemas de pago"
+        },
+        {
+          "name": "Instituto Nacional de Vigilancia de Medicamentos y Alimentos",
+          "abbreviation": "INVIMA",
+          "focus": "Dispositivos médicos, salud digital, autorización previa Clase II/III"
+        },
+        {
+          "name": "Aeronáutica Civil",
+          "abbreviation": "Aerocivil",
+          "focus": "Operaciones drones comerciales, tecnología aeronáutica"
+        },
+        {
+          "name": "Superintendencia de Industria y Comercio",
+          "abbreviation": "SIC",
+          "focus": "Marcas, protección datos (SGDR), competencia desleal"
+        },
+        {
+          "name": "Ministerio del Trabajo",
+          "abbreviation": "MinTrabajo",
+          "focus": "Normativa laboral, pensiones (AFP), negociación colectiva"
+        },
+        {
+          "name": "Dirección de Impuestos y Aduanas Nacionales",
+          "abbreviation": "DIAN",
+          "focus": "Tributario, precios de transferencia, controversias"
+        }
+      ],
+      "dataResidencyRequirements": "Colombia + potenciales clientes con datos UE (GDPR), Brasil (LGPD), o US (CCPA)",
+      "targetClients": [
+        "Startups tech/SaaS",
+        "Fintech reguladas",
+        "Medtech",
+        "Energías renovables",
+        "Telecomunicaciones",
+        "Desarrollo móvil / Apps"
+      ]
+    },
+    "entity": {
+      "legalForm": "S.A.S. (Sociedad por Acciones Simplificada)",
+      "state": "Antioquia",
+      "stateCode": "05",
+      "registrationRequirements": {
+        "annualAssembly": "Antes del 31 de marzo de cada año (recomendado)",
+        "statuteReform": "Dentro de 30 días si cambios estructurales (Decreto 4175/2011)"
+      }
+    }
+  },
+  "domains": {
+    "compliance": {
+      "deployedPolicies": {
+        "privacyPolicyUrl": "https://example.com/privacy",
+        "lastAuditDate": "2026-01-01",
+        "dataGeography": ["CO", "EU", "BR"]
+      },
+      "regulatoryFrameworks": {
+        "gdpr": {
+          "applicable": true,
+          "reason": "Clientes con visitantes/usuarios en UE"
+        },
+        "ccpa": {
+          "applicable": false,
+          "reason": "Clientes principales no en California"
+        },
+        "lgpd": {
+          "applicable": false,
+          "reason": "Opcional; aplica si clientes brasileños"
+        },
+        "ley_sgdr": {
+          "applicable": true,
+          "reason": "Operación en Colombia; regulación de datos personales por SIC",
+          "citation": "Resoluciones SIC 30 de 2004, art. 2.2.2.1.1"
+        },
+        "superfinanciera": {
+          "applicable": false,
+          "reason": "No regulado como fintech; aplica a clientes fintech"
+        },
+        "invima": {
+          "applicable": false,
+          "reason": "No medtech; aplica a clientes medtech"
+        }
+      }
+    },
+    "contracts": {
+      "signingPlatform": "DocuSign",
+      "documentStorage": "Google Drive",
+      "storageBasePath": "/Clientes",
+      "templateLibrary": "config/templates/",
+      "counterpartyTracker": "counterparty-tracker.json"
+    },
+    "ip": {
+      "markSearch": {
+        "jurisdiction": "SIC (Superintendencia de Industria y Comercio)",
+        "database": "https://www.sic.gov.co/",
+        "classes": [9, 42],
+        "defaultClasses": {
+          "softwareServices": [9, 42],
+          "consulting": [41]
+        }
+      }
+    }
+  },
+  "outputs": {
+    "centralLog": "outputs.json",
+    "folders": {
+      "adviceMemos": "advice-memos/",
+      "privacyAudits": "privacy-audits/",
+      "complianceReviews": "compliance-reviews/",
+      "contractTracking": "contracts/",
+      "trademarkSearches": "tm-searches/",
+      "securityQuestionnaires": "security-questionnaires/",
+      "deadlineSummaries": "deadline-summaries/",
+      "weeklyReviews": "weekly-reviews/"
+    }
+  }
+}

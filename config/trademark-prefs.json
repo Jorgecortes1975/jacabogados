@@ -1,0 +1,34 @@
+{
+  "jurisdiction": "SIC (Superintendencia de Industria y Comercio - Colombia)",
+  "database": "https://www.sic.gov.co/",
+  "searchMethod": "knockoutSearch",
+  "knockoutPassTypes": [
+    "exactWord",
+    "phonetic",
+    "visual",
+    "rootWord"
+  ],
+  "defaultClasses": {
+    "software": [9, 42],
+    "saas": [42],
+    "webServices": [42],
+    "consulting": [41],
+    "retail": [35],
+    "medicalDevices": [10, 42],
+    "energy": [35, 37],
+    "telecommunications": [38]
+  },
+  "riskLevels": {
+    "low": "No VIGENTE/PENDIENTE hits en clases objetivo/adyacentes. Pocos CADUCADOS/NULOS. Proceder a filing.",
+    "medium": "VIGENTE/PENDIENTE hits en clases adjacentes o VIGENTE + descripción similar. Retener asesor TM para clearance completa.",
+    "high": "VIGENTE/PENDIENTE hits exactos o fonéticos en clase objetivo. Rebrand o negociar coexistencia + consentimiento."
+  },
+  "filingCosts": {
+    "baseFeePerClass": "COP 2900000",
+    "currency": "COP",
+    "reference": "SIC tarifa 2026"
+  },
+  "lastSearchDate": "2026-08-02",
+  "nextReviewDate": "2026-10-02",
+  "notes": "Búsquedas SIC son knockout, no clearance completa. Cubren solo registros federales SIC. No incluyen:  marcas de estado, marcas de common law (uso sin registro), marcas extranjeras (salvo si registradas SIC), dominios, redes sociales."
+}
