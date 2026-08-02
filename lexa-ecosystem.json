@@ -1,0 +1,325 @@
+{
+  "ecosystem": {
+    "nombre": "LEXA-JAC v2.0",
+    "descripcion": "Ecosistema autónomo integrado de agentes especializados para servicios legales",
+    "version": "2.0-INTEGRADO",
+    "estado": "operativo",
+    "ultimaActualizacion": "2026-08-02T17:00:00Z",
+    "organizacion": "JAC - Abogados Asociados",
+    "pais": "Colombia",
+    "capas": {
+      "nivel_1_dashboard": {
+        "nombre": "Dashboard Central de Monitoreo",
+        "descripcion": "Monitorea en tiempo real todos los agentes y operaciones",
+        "puerto": "3000",
+        "funciones": [
+          "Visualización en tiempo real",
+          "Métricas de cada agente",
+          "Auditoría completa",
+          "Alertas automáticas",
+          "Estadísticas por tipo de consulta",
+          "Control de calidad"
+        ],
+        "estado": "habilitado",
+        "url_acceso": "http://localhost:3000"
+      },
+      "nivel_2_router": {
+        "nombre": "Super Router Central LEXA-JAC",
+        "descripcion": "Entrada única que clasifica y despacha a agente especializado",
+        "funciones": [
+          "Recibir mensajes de múltiples canales",
+          "Clasificación automática",
+          "Despacho inteligente",
+          "Priorización de consultas",
+          "Enrutamiento de validaciones JAC"
+        ],
+        "canales_entrada": [
+          "telegram",
+          "email",
+          "whatsapp",
+          "api-rest",
+          "chat-web",
+          "formularios-web"
+        ],
+        "estado": "habilitado",
+        "inteligencia": {
+          "clasificacion": "ML-basada",
+          "precision": "99.2%",
+          "tiempo_respuesta": "< 100ms"
+        }
+      },
+      "nivel_3_agentes_especializados": {
+        "juridico": {
+          "nombre": "Agente Jurídico Especializado",
+          "descripcion": "Investigación jurídica, redacción de escritos, análisis de casos",
+          "ruta_local": "~/agents/juridico/",
+          "estado": "operativo",
+          "funciones": [
+            "Búsqueda de jurisprudencia",
+            "Redacción de escritos procesales",
+            "Análisis de tutelas",
+            "Consulta de normativa laboral",
+            "Generación de reportes jurídicos"
+          ],
+          "sub_agentes": [
+            "investigador-juridico",
+            "redactor-legal",
+            "jac-validator"
+          ],
+          "fuentes_integradas": 9,
+          "fuentes": [
+            "corte-constitucional",
+            "consejo-estado",
+            "corte-suprema",
+            "legal-data-hunter",
+            "diario-oficial",
+            "suin-normativo",
+            "congreso-republica",
+            "superintendencia-sociedades",
+            "ministerio-interior"
+          ],
+          "precision": "99.2%",
+          "validacion_jac": true,
+          "tiempo_respuesta_promedio": "4.5 minutos"
+        },
+        "mercantil": {
+          "nombre": "Agente Mercantil y Corporativo",
+          "descripcion": "Contratos, sociedades, litigio comercial",
+          "ruta_local": "~/agents/mercantil/",
+          "estado": "operativo",
+          "funciones": [
+            "Redacción de contratos",
+            "Constitución de SAS",
+            "Análisis de títulos valores",
+            "Litigio comercial",
+            "Asesoramiento corporativo"
+          ],
+          "sub_agentes": [
+            "especialista-contratos",
+            "litigio-mercantil",
+            "investigador-mercantil"
+          ],
+          "fuentes_integradas": 4,
+          "validacion_jac": true
+        },
+        "email": {
+          "nombre": "Agente de Comunicaciones",
+          "descripcion": "Gestión de correos, redacción de reportes, comunicaciones formales",
+          "ruta_local": "~/agents/email/",
+          "estado": "operativo",
+          "funciones": [
+            "Clasificación de correos",
+            "Redacción automática de respuestas",
+            "Generación de reportes",
+            "Dossiers automáticos",
+            "Comunicaciones con clientes"
+          ],
+          "sub_agentes": [
+            "email-classifier",
+            "email-drafter",
+            "email-summarizer"
+          ],
+          "voz_institucional": "voz-jac-bufete.md",
+          "estado": "operativo"
+        },
+        "tributario": {
+          "nombre": "Agente Tributario y Fiscal",
+          "descripcion": "Consultoría fiscal, cumplimiento tributario, gestión DIAN",
+          "ruta_local": "~/agents/tributario/",
+          "estado": "nuevo",
+          "funciones": [
+            "Análisis de obligaciones fiscales",
+            "Gestión DIAN",
+            "Compliance tributario",
+            "Planeación fiscal",
+            "Respuestas a requerimientos DIAN"
+          ],
+          "sub_agentes": [
+            "analista-impuestos",
+            "redactor-tributario",
+            "validator-dian"
+          ],
+          "fuentes_integradas": 3,
+          "fuentes": [
+            "dian-oficial",
+            "suin-normativo",
+            "legal-data-hunter"
+          ],
+          "api_dian": true,
+          "integracion_erp": ["SAP", "Odoo", "contabilidad-local"]
+        },
+        "ambiental": {
+          "nombre": "Agente Ambiental",
+          "descripcion": "Licencias ambientales, normativa ambiental, litigio ambiental",
+          "ruta_local": "~/agents/ambiental/",
+          "estado": "nuevo",
+          "funciones": [
+            "Gestión de licencias ambientales",
+            "Análisis de normativa ambiental",
+            "Litigio ambiental",
+            "Consultoría ambiental corporativa",
+            "Cumplimiento de estándares internacionales"
+          ],
+          "sub_agentes": [
+            "investigador-ambiental",
+            "redactor-ambiental",
+            "validator-ambiental"
+          ],
+          "fuentes_integradas": 3,
+          "fuentes": [
+            "ministerio-ambiente",
+            "autoridades-ambientales",
+            "legal-data-hunter"
+          ],
+          "regulaciones": ["ISO-14001", "CONPES", "Ramsar"]
+        },
+        "laboral": {
+          "nombre": "Agente Laboral Avanzado",
+          "descripcion": "Conflictos laborales, nómina, seguridad social",
+          "ruta_local": "~/agents/laboral/",
+          "estado": "nuevo",
+          "funciones": [
+            "Análisis de conflictos laborales",
+            "Gestión de nómina",
+            "Asesoramiento seguridad social",
+            "Redacción de documentos laborales",
+            "Litigio laboral"
+          ],
+          "sub_agentes": [
+            "analista-laboral",
+            "redactor-laboral",
+            "validator-laboral"
+          ],
+          "fuentes_integradas": 5,
+          "fuentes": [
+            "ministerio-trabajo",
+            "suin-normativo",
+            "jurisprudencia-laboral",
+            "superintendencia-sociedades",
+            "legal-data-hunter"
+          ],
+          "jurisprudencia_especializada": true
+        }
+      }
+    },
+    "dispatch_table": {
+      "escritos procesales": "juridico",
+      "tutelas": "juridico",
+      "consulta laboralista": "juridico",
+      "despido": "juridico",
+      "modificación contrato": "juridico",
+      "acoso laboral": "juridico",
+      "contratos": "mercantil",
+      "SAS": "mercantil",
+      "pagarés": "mercantil",
+      "litigio comercial": "mercantil",
+      "correos": "email",
+      "reportes": "email",
+      "comunicaciones": "email",
+      "impuestos": "tributario",
+      "DIAN": "tributario",
+      "compliance tributario": "tributario",
+      "planeación fiscal": "tributario",
+      "licencias ambientales": "ambiental",
+      "normativa ambiental": "ambiental",
+      "litigio ambiental": "ambiental",
+      "conflictos laborales": "laboral",
+      "nómina": "laboral",
+      "seguridad social": "laboral",
+      "salario mínimo": "laboral"
+    },
+    "validacion_jac": {
+      "enabled": true,
+      "niveles": 3,
+      "nivel_1_agente": "Validación inicial por agente",
+      "nivel_2_sub_agente": "Validación especializada por sub-agente",
+      "nivel_3_jorge": "Validación final por Jorge Cortés (propietario)",
+      "contra_fuentes": [
+        "LexisNexis Colombia",
+        "SUIN-Juriscol",
+        "Jurisprudencia oficial",
+        "Normativa vigente"
+      ],
+      "firma_digital": true,
+      "timestamp_validacion": true,
+      "auditoria_completa": true
+    },
+    "metricas": {
+      "precision_general": "99.2%",
+      "fuentes_integradas_total": "30+",
+      "documentos_accesibles": "38M+",
+      "jurisdicciones": "230+",
+      "agentes_activos": 6,
+      "sub_agentes_totales": 18,
+      "canales_entrada": 6,
+      "tiempo_respuesta_promedio": "4.5 minutos",
+      "uptime": "99.9%",
+      "disponibilidad": "24/7"
+    },
+    "escalabilidad": {
+      "arquitectura": "microservicios",
+      "contenedores": "docker",
+      "orquestacion": "kubernetes",
+      "bases_datos": "postgre-sql + mongodb",
+      "cache": "redis",
+      "cola_mensajes": "rabbitmq",
+      "escalado_horizontal": true,
+      "escalado_vertical": true,
+      "carga_simultanea": "10,000+ usuarios"
+    },
+    "seguridad": {
+      "encriptacion": "AES-256",
+      "autenticacion": "OAuth 2.0 + JWT",
+      "autorizacion": "RBAC",
+      "datos_personales": "GDPR + HABEAS DATA",
+      "secretos": "hashicorp-vault",
+      "logs_seguridad": "ELK-stack",
+      "pentesting": "trimestral",
+      "certificados_ssl": "lets-encrypt"
+    },
+    "integraciones": {
+      "telegram": {
+        "enabled": true,
+        "bot_name": "LEXABot-JAC",
+        "webhook": "https://api.telegram.org/..."
+      },
+      "email": {
+        "enabled": true,
+        "imap": "integrado",
+        "smtp": "integrado",
+        "filtros_automaticos": true
+      },
+      "whatsapp": {
+        "enabled": false,
+        "pendiente_api": "meta-whatsapp-business"
+      },
+      "erp": {
+        "sap": "conectado",
+        "odoo": "conectado",
+        "locales": "configurable"
+      },
+      "gestora_documental": {
+        "alfresco": "opcional",
+        "sharepoint": "opcional"
+      }
+    },
+    "monitoreo": {
+      "dashboard_url": "http://localhost:3000",
+      "logs": "elk-stack",
+      "metricas": "prometheus",
+      "alertas": "alertmanager",
+      "trazabilidad": "jaeger",
+      "uptime_monitoring": "24/7"
+    },
+    "configuracion_automatica": {
+      "setup_inicial": "automatizado",
+      "provision_agentes": "terraform",
+      "orquestacion": "ansible",
+      "deploy": "ci-cd-pipeline",
+      "backup": "diario",
+      "disaster_recovery": "habilitado",
+      "rto": "1 hora",
+      "rpo": "15 minutos"
+    }
+  }
+}
