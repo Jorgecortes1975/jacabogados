@@ -201,5 +201,148 @@
       "activado": true,
       "createdAt": "2026-08-02T15:41:15.624Z"
     }
+  },
+  "ecosystem": {
+    "version": "2.0-INTEGRADO",
+    "nombre": "LEXA-JAC Ecosistema Integrado",
+    "descripcion": "Sistema autónomo de 3 capas para operación integral del despacho",
+    "estado": "activo",
+    "capas": {
+      "dashboard": {
+        "nombre": "Dashboard de Monitoreo",
+        "puerto": "3000",
+        "funcion": "Monitorea todos los agentes 24/7",
+        "estado": "habilitado"
+      },
+      "router": {
+        "nombre": "Super Router LEXA-JAC",
+        "funcion": "Entrada única - Clasifica y despacha mensajes",
+        "estado": "habilitado",
+        "entradas": [
+          "telegram",
+          "email",
+          "whatsapp",
+          "api-rest"
+        ]
+      },
+      "agentes_especializados": {
+        "juridico": {
+          "nombre": "Agente Jurídico Especializado",
+          "ruta": "~/agents/juridico/",
+          "funciones": [
+            "escritos-procesales",
+            "tutelas",
+            "laboralista"
+          ],
+          "sub_agentes": [
+            "investigador",
+            "redactor",
+            "jac-validator"
+          ],
+          "fuentes": "todas las 9 oficiales",
+          "validacion": true
+        },
+        "mercantil": {
+          "nombre": "Agente Mercantil",
+          "ruta": "~/agents/mercantil/",
+          "funciones": [
+            "contratos",
+            "SAS",
+            "litigio-comercial"
+          ],
+          "sub_agentes": [
+            "contratos",
+            "litigio-mercantil",
+            "investigador-mercantil"
+          ],
+          "estado": "habilitado"
+        },
+        "email": {
+          "nombre": "Agente de Comunicaciones",
+          "ruta": "~/agents/email/",
+          "funciones": [
+            "correos",
+            "comunicaciones",
+            "reportes"
+          ],
+          "sub_agentes": [
+            "classifier",
+            "drafter",
+            "summarizer"
+          ],
+          "estado": "habilitado"
+        },
+        "tributario": {
+          "nombre": "Agente Tributario",
+          "ruta": "~/agents/tributario/",
+          "funciones": [
+            "impuestos",
+            "DIAN",
+            "compliance-tributario"
+          ],
+          "sub_agentes": [
+            "analista-impuestos",
+            "redactor-tributario",
+            "validator-dian"
+          ],
+          "fuentes": [
+            "DIAN",
+            "suin-normativo",
+            "legal-data-hunter"
+          ],
+          "estado": "nuevo"
+        },
+        "ambiental": {
+          "nombre": "Agente Ambiental",
+          "ruta": "~/agents/ambiental/",
+          "funciones": [
+            "licencias-ambientales",
+            "normativa-ambiental",
+            "litigio-ambiental"
+          ],
+          "sub_agentes": [
+            "investigador-ambiental",
+            "redactor-ambiental",
+            "validator"
+          ],
+          "estado": "nuevo"
+        },
+        "laboral": {
+          "nombre": "Agente Laboral Avanzado",
+          "ruta": "~/agents/laboral/",
+          "funciones": [
+            "conflictos-laborales",
+            "nómina",
+            "seguridad-social"
+          ],
+          "sub_agentes": [
+            "analista-laboral",
+            "redactor-laboral",
+            "validator"
+          ],
+          "estado": "nuevo"
+        }
+      }
+    },
+    "dispatch_table": {
+      "escritos procesales|tutelas|laboralista": "juridico",
+      "contratos|SAS|comercial": "mercantil",
+      "correos|comunicaciones|reportes": "email",
+      "impuestos|DIAN|tributario": "tributario",
+      "ambiental|licencias|normativa-ambiental": "ambiental",
+      "laboral|conflictos-laborales|nómina": "laboral",
+      "[REQUIERE VALIDACIÓN JAC]": "juridico-validado"
+    },
+    "validacion": {
+      "enabled": true,
+      "requiereJACValidation": true,
+      "contra_fuentes": [
+        "SUIN",
+        "LexisNexis",
+        "Juriscol",
+        "Legal Data Hunter"
+      ],
+      "firma_digital": true
+    }
   }
 }
