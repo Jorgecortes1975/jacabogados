@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "transports": {
+    "corte-constitucional": {
+      "type": "http",
+      "url": "https://api.corteconstitucional.gov.co",
+      "enabled": true,
+      "createdAt": "2026-08-02T15:36:33.709Z",
+      "lastActivated": "2026-08-02T15:36:33.731Z"
+    }
+  },
+  "servers": {}
+}
