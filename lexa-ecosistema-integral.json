@@ -1,0 +1,572 @@
+{
+  "ecosistema_integral": {
+    "nombre": "LEXA-JAC v3.0 INTEGRAL",
+    "descripcion": "Ecosistema autónomo integral que cubre TODAS las ramas del derecho colombiano",
+    "version": "3.0-INTEGRAL",
+    "estado": "operativo",
+    "objetivo": "Cobertura jurídica 360° - Cualquier consulta legal en Colombia",
+    "ramas_derecho": 20,
+    "agentes_especializados": 20,
+    "sub_agentes_totales": 60,
+    "fuentes_integradas": "50+",
+    "jurisdicciones": 230,
+    "documentos_accesibles": "38M+",
+
+    "ramas_juridicas": {
+      "civil": {
+        "nombre": "Agente de Derecho Civil",
+        "descripcion": "Contratos, obligaciones, daño y perjuicio, sucesiones",
+        "campos": [
+          "contratos-civiles",
+          "obligaciones",
+          "daño-perjuicio",
+          "sucesiones",
+          "testamentos",
+          "donaciones",
+          "responsabilidad-civil",
+          "enriquecimiento-sin-causa"
+        ],
+        "sub_agentes": ["especialista-contratos-civiles", "redactor-civil", "validator-civil"],
+        "fuentes": [
+          "codigo-civil-colombiano",
+          "corte-suprema-sala-civil",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "penal": {
+        "nombre": "Agente de Derecho Penal",
+        "descripcion": "Delitos, penas, procedimiento penal, defensa",
+        "campos": [
+          "delitos",
+          "infracciones",
+          "procedimiento-penal",
+          "defensas-penales",
+          "medidas-cautelares",
+          "penas",
+          "responsabilidad-penal",
+          "amnistia-indulto"
+        ],
+        "sub_agentes": ["especialista-penal", "redactor-penal", "validator-penal"],
+        "fuentes": [
+          "codigo-penal-colombiano",
+          "corte-suprema-sala-penal",
+          "fiscalia-general",
+          "suin",
+          "jurisprudencia-penal"
+        ],
+        "estado": "nuevo"
+      },
+
+      "comercial": {
+        "nombre": "Agente de Derecho Comercial",
+        "descripcion": "Sociedades, títulos valores, insolvencia, quiebra",
+        "campos": [
+          "constitucion-sociedades",
+          "titulos-valores",
+          "insolvencia",
+          "quiebra",
+          "fusiones-adquisiciones",
+          "contratos-comerciales",
+          "arbitraje-comercial",
+          "competencia-desleal"
+        ],
+        "sub_agentes": ["especialista-mercantil", "redactor-comercial", "validator-comercial"],
+        "fuentes": [
+          "codigo-comercio",
+          "superintendencia-sociedades",
+          "corte-suprema-sala-comercial",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "laboral": {
+        "nombre": "Agente de Derecho Laboral",
+        "descripcion": "Relaciones laborales, nómina, seguridad social, conflictos",
+        "campos": [
+          "relaciones-laborales",
+          "contratacion",
+          "terminacion-contrato",
+          "nomina",
+          "seguridad-social",
+          "pensiones",
+          "conflictos-laborales",
+          "discriminacion-laboral"
+        ],
+        "sub_agentes": ["especialista-laboral", "redactor-laboral", "validator-laboral"],
+        "fuentes": [
+          "codigo-sustantivo-trabajo",
+          "ministerio-trabajo",
+          "jurisprudencia-laboral",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "operativo"
+      },
+
+      "administrativo": {
+        "nombre": "Agente de Derecho Administrativo",
+        "descripcion": "Actos administrativos, procedimiento administrativo, servicios públicos",
+        "campos": [
+          "actos-administrativos",
+          "procedimiento-administrativo",
+          "servicios-publicos",
+          "contratacion-estatal",
+          "responsabilidad-estado",
+          "recursos-administrativos",
+          "nulidad-actos",
+          "reparacion-daños"
+        ],
+        "sub_agentes": ["especialista-admin", "redactor-admin", "validator-admin"],
+        "fuentes": [
+          "codigo-procedimiento-administrativo",
+          "consejo-estado",
+          "defensor-pueblo",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "constitucional": {
+        "nombre": "Agente de Derecho Constitucional",
+        "descripcion": "Derechos fundamentales, tutelas, garantías constitucionales",
+        "campos": [
+          "derechos-fundamentales",
+          "tutelas",
+          "acciones-populares",
+          "acciones-cumplimiento",
+          "garantias-constitucionales",
+          "control-constitucionalidad",
+          "habeas-corpus",
+          "habeas-data"
+        ],
+        "sub_agentes": ["especialista-const", "redactor-const", "validator-const"],
+        "fuentes": [
+          "constitucion-politica",
+          "corte-constitucional",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "tributario": {
+        "nombre": "Agente de Derecho Tributario",
+        "descripcion": "Impuestos, DIAN, compliance tributario, evasión fiscal",
+        "campos": [
+          "impuesto-renta",
+          "iva",
+          "impuesto-consumo",
+          "dian-compliance",
+          "planeacion-fiscal",
+          "evasion-fiscal",
+          "infracciones-tributarias",
+          "recursos-tributarios"
+        ],
+        "sub_agentes": ["especialista-tributario", "redactor-tributario", "validator-dian"],
+        "fuentes": [
+          "estatuto-tributario",
+          "dian",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "operativo"
+      },
+
+      "ambiental": {
+        "nombre": "Agente de Derecho Ambiental",
+        "descripcion": "Licencias ambientales, normativa, litigio ambiental",
+        "campos": [
+          "licencias-ambientales",
+          "evaluacion-ambiental",
+          "normativa-ambiental",
+          "recursos-naturales",
+          "cambio-climatico",
+          "litigio-ambiental",
+          "responsabilidad-ambiental",
+          "biodiversidad"
+        ],
+        "sub_agentes": ["especialista-ambiental", "redactor-ambiental", "validator-ambiental"],
+        "fuentes": [
+          "codigo-recursos-naturales",
+          "ministerio-ambiente",
+          "autoridades-ambientales",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "operativo"
+      },
+
+      "familia": {
+        "nombre": "Agente de Derecho De Familia",
+        "descripcion": "Matrimonio, divorcio, custodia, alimentos, patrimonio familiar",
+        "campos": [
+          "matrimonio",
+          "divorcio",
+          "nulidad-matrimonio",
+          "custodia-menores",
+          "alimentos",
+          "patrimonio-familiar",
+          "sucesion-familia",
+          "filiacion",
+          "adoption"
+        ],
+        "sub_agentes": ["especialista-familia", "redactor-familia", "validator-familia"],
+        "fuentes": [
+          "codigo-civil",
+          "ley-infancia-adolescencia",
+          "jurisprudencia-familia",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "internacional": {
+        "nombre": "Agente de Derecho Internacional",
+        "descripcion": "Tratados internacionales, comercio exterior, organismos internacionales",
+        "campos": [
+          "tratados-internacionales",
+          "comercio-exterior",
+          "derecho-internacional-publico",
+          "organismos-internacionales",
+          "convenios-bilaterales",
+          "extradicion",
+          "nacionalidad",
+          "ciudadania"
+        ],
+        "sub_agentes": ["especialista-internacional", "redactor-internacional", "validator-internacional"],
+        "fuentes": [
+          "ministerio-relaciones-exteriores",
+          "tratados-onu",
+          "corte-internacional-justicia",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "agrario": {
+        "nombre": "Agente de Derecho Agrario",
+        "descripcion": "Tierras, reforma agraria, tenencia, conflictos agrarios",
+        "campos": [
+          "reforma-agraria",
+          "tenencia-tierra",
+          "baldios",
+          "propiedad-rural",
+          "conflictos-agrarios",
+          "sector-agricola",
+          "agua-regadio",
+          "ganaderia"
+        ],
+        "sub_agentes": ["especialista-agrario", "redactor-agrario", "validator-agrario"],
+        "fuentes": [
+          "incoder",
+          "incora",
+          "ministerio-agricultura",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "notarial_registral": {
+        "nombre": "Agente de Derecho Notarial y Registral",
+        "descripcion": "Notaría, registro, documentos públicos, hipotecas",
+        "campos": [
+          "actos-notariales",
+          "documentos-publicos",
+          "hipotecas",
+          "gravamenes",
+          "registro-propiedad",
+          "matricula-inmobiliaria",
+          "compraventa-inmuebles",
+          "tradicion"
+        ],
+        "sub_agentes": ["especialista-notarial", "redactor-notarial", "validator-notarial"],
+        "fuentes": [
+          "codigo-notariado",
+          "superintendencia-notariado",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "procesal": {
+        "nombre": "Agente de Derecho Procesal",
+        "descripcion": "Procedimientos civiles, penales, laborales, administrativos",
+        "campos": [
+          "procedimiento-civil",
+          "procedimiento-penal",
+          "procedimiento-laboral",
+          "procedimiento-administrativo",
+          "recursos-procesales",
+          "apelacion",
+          "casacion",
+          "medidas-cautelares"
+        ],
+        "sub_agentes": ["especialista-procesal", "redactor-procesal", "validator-procesal"],
+        "fuentes": [
+          "codigo-procedimiento-civil",
+          "codigo-procedimiento-penal",
+          "codigo-procedimiento-administrativo",
+          "suin",
+          "jurisprudencia-procesal"
+        ],
+        "estado": "nuevo"
+      },
+
+      "minero": {
+        "nombre": "Agente de Derecho Minero",
+        "descripcion": "Concesiones mineras, minería, recursos minerales",
+        "campos": [
+          "concesiones-mineras",
+          "licencias-mineria",
+          "explotacion-recursos",
+          "impacto-ambiental-mineria",
+          "conflictos-mineros",
+          "royalties",
+          "cierre-minas",
+          "remediacion"
+        ],
+        "sub_agentes": ["especialista-minero", "redactor-minero", "validator-minero"],
+        "fuentes": [
+          "codigo-minas",
+          "agencia-mineria",
+          "ministerio-ambiente",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "aeronautico": {
+        "nombre": "Agente de Derecho Aeronáutico",
+        "descripcion": "Aviación civil, aeropuertos, seguridad aérea",
+        "campos": [
+          "aviacion-civil",
+          "licencias-aeronave",
+          "aeropuertos",
+          "seguridad-aerea",
+          "transporte-aereo",
+          "accidentes-aeros",
+          "seguros-aeros",
+          "navegacion-aerea"
+        ],
+        "sub_agentes": ["especialista-aeronautico", "redactor-aeronautico", "validator-aeronautico"],
+        "fuentes": [
+          "codigo-aeronautico",
+          "aerocivil",
+          "oaci",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "maritimo": {
+        "nombre": "Agente de Derecho Marítimo",
+        "descripcion": "Navegación marítima, puertos, transporte maritimo",
+        "campos": [
+          "navegacion-maritima",
+          "puertos",
+          "transporte-maritimo",
+          "seguros-maritimos",
+          "naufragio",
+          "aguas-territoriales",
+          "pesca",
+          "derechos-costeros"
+        ],
+        "sub_agentes": ["especialista-maritimo", "redactor-maritimo", "validator-maritimo"],
+        "fuentes": [
+          "codigo-comercio-maritimo",
+          "capitania-puertos",
+          "direccion-general-maritima",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "propiedad_intelectual": {
+        "nombre": "Agente de Derecho De Autor y Propiedad Intelectual",
+        "descripcion": "Derechos de autor, marcas, patentes, secretos comerciales",
+        "campos": [
+          "derechos-autor",
+          "marcas-comerciales",
+          "patentes",
+          "disenos-industriales",
+          "secretos-comerciales",
+          "derechos-conexos",
+          "infracciones-pirateria",
+          "licencias-ip"
+        ],
+        "sub_agentes": ["especialista-ip", "redactor-ip", "validator-ip"],
+        "fuentes": [
+          "superintendencia-industria-comercio",
+          "direitos-autor",
+          "tratados-ompi",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "digital": {
+        "nombre": "Agente de Derecho Digital",
+        "descripcion": "Datos personales, ciberdelitos, comercio electrónico, privacidad",
+        "campos": [
+          "proteccion-datos-personales",
+          "privacidad",
+          "ciberdelitos",
+          "comercio-electronico",
+          "firma-electronica",
+          "gobierno-electronico",
+          "resolucion-conflictos-digital",
+          "seguridad-informacion"
+        ],
+        "sub_agentes": ["especialista-digital", "redactor-digital", "validator-digital"],
+        "fuentes": [
+          "ley-habeas-data",
+          "ley-comercio-electronico",
+          "superintendencia-superintendencia",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "corporativo": {
+        "nombre": "Agente de Derecho Corporativo",
+        "descripcion": "Gobierno corporativo, compliance, auditoría legal, M&A",
+        "campos": [
+          "gobierno-corporativo",
+          "compliance-corporativo",
+          "auditoria-legal",
+          "fusiones-adquisiciones",
+          "private-equity",
+          "venture-capital",
+          "due-diligence",
+          "junta-directiva"
+        ],
+        "sub_agentes": ["especialista-corporativo", "redactor-corporativo", "validator-corporativo"],
+        "fuentes": [
+          "codigo-comercio",
+          "superintendencia-sociedades",
+          "normativa-compliance",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      },
+
+      "derechos_humanos": {
+        "nombre": "Agente de Derecho De Derechos Humanos",
+        "descripcion": "Derechos humanos, justicia transicional, reparación víctimas",
+        "campos": [
+          "derechos-humanos",
+          "justicia-transicional",
+          "reparacion-victimas",
+          "verdad-justicia",
+          "crimen-lesa-humanidad",
+          "desapariciones-forzadas",
+          "violencia-sexual",
+          "tortura"
+        ],
+        "sub_agentes": ["especialista-ddhh", "redactor-ddhh", "validator-ddhh"],
+        "fuentes": [
+          "corte-constitucional",
+          "defensoria-pueblo",
+          "procuraduria",
+          "cnrr-jep",
+          "suin",
+          "legal-data-hunter"
+        ],
+        "estado": "nuevo"
+      }
+    },
+
+    "super_router_integral": {
+      "nombre": "Super Router Integral 3.0",
+      "funciones": [
+        "Clasificación en 20 ramas jurídicas",
+        "Despacho automático a rama específica",
+        "Sub-clasificación dentro de rama",
+        "Priorización por urgencia",
+        "Escalamiento automático",
+        "Análisis de jurisdicción"
+      ],
+      "precision": "99.5%",
+      "tiempo_clasificacion": "< 50ms"
+    },
+
+    "tabla_despacho_integral": {
+      "civil": ["contratos civiles", "obligaciones", "daño y perjuicio", "sucesiones"],
+      "penal": ["delitos", "defensa penal", "procedimiento penal", "medidas cautelares"],
+      "comercial": ["SAS", "títulos valores", "insolvencia", "arbitraje comercial"],
+      "laboral": ["despido", "nómina", "seguridad social", "conflictos laborales"],
+      "administrativo": ["actos administrativos", "servicios públicos", "contratación estatal"],
+      "constitucional": ["tutelas", "derechos fundamentales", "habeas corpus", "habeas data"],
+      "tributario": ["impuestos", "DIAN", "compliance", "evasión fiscal"],
+      "ambiental": ["licencias ambientales", "normativa", "litigio ambiental"],
+      "familia": ["matrimonio", "divorcio", "custodia", "alimentos"],
+      "internacional": ["tratados", "comercio exterior", "extradición"],
+      "agrario": ["reforma agraria", "tenencia tierra", "conflictos agrarios"],
+      "notarial": ["actos notariales", "hipotecas", "registro propiedad"],
+      "procesal": ["procedimientos", "recursos", "apelación", "casación"],
+      "minero": ["concesiones mineras", "explotación", "impacto ambiental"],
+      "aeronautico": ["aviación civil", "aeropuertos", "seguridad aérea"],
+      "maritimo": ["navegación", "puertos", "transporte marítimo"],
+      "propiedad_intelectual": ["marcas", "patentes", "derechos autor", "secretos comerciales"],
+      "digital": ["datos personales", "ciberdelitos", "comercio electrónico"],
+      "corporativo": ["gobierno corporativo", "compliance", "M&A", "due diligence"],
+      "derechos_humanos": ["derechos humanos", "justicia transicional", "reparación víctimas"]
+    },
+
+    "estadisticas": {
+      "ramas_juridicas": 20,
+      "agentes_especializados": 20,
+      "sub_agentes_totales": 60,
+      "fuentes_integradas": "50+",
+      "documentos_accesibles": "38M+",
+      "jurisdicciones": 230,
+      "precision_clasificacion": "99.5%",
+      "tiempo_respuesta_promedio": "4.5 minutos",
+      "uptime": "99.9%",
+      "disponibilidad": "24/7",
+      "carga_simultanea": "10,000+ usuarios",
+      "canales_entrada": 6
+    },
+
+    "validacion_integral": {
+      "niveles": 3,
+      "nivel_1": "Agente especializado valida",
+      "nivel_2": "Sub-agente validator verifica contra fuentes",
+      "nivel_3": "Jorge Cortés revisa y firma digitalmente",
+      "fuentes_verificacion": "50+ fuentes oficiales",
+      "firma_digital": true,
+      "auditoria_completa": true
+    },
+
+    "integraciones": {
+      "canales": ["telegram", "email", "whatsapp", "api-rest", "chat-web", "formularios"],
+      "erp": ["SAP", "Odoo", "sistemas-locales"],
+      "bases_datos": ["postgresql", "mongodb", "elasticsearch"]
+    },
+
+    "seguridad": {
+      "encriptacion": "AES-256",
+      "autenticacion": "OAuth 2.0 + JWT",
+      "normativas": ["GDPR", "Habeas Data", "Compliance colombiano"],
+      "pentesting": "trimestral",
+      "backup": "diario",
+      "disaster_recovery": "habilitado"
+    }
+  }
+}
