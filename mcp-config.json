@@ -7,7 +7,199 @@
       "enabled": true,
       "createdAt": "2026-08-02T15:36:33.709Z",
       "lastActivated": "2026-08-02T15:36:33.731Z"
+    },
+    "consejo-estado": {
+      "type": "http",
+      "url": "https://www.consejodeestado.gov.co",
+      "api": "https://www.consejodeestado.gov.co/web/guest",
+      "fuente": "Consejo de Estado de Colombia",
+      "contenido": [
+        "jurisprudencia",
+        "sentencias",
+        "decisiones"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.623Z",
+      "oficial": true
+    },
+    "corte-suprema": {
+      "type": "http",
+      "url": "https://www.cortesupremajusticia.gov.co",
+      "fuente": "Corte Suprema de Justicia",
+      "contenido": [
+        "jurisprudencia",
+        "sentencias",
+        "providencias"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "legal-data-hunter": {
+      "type": "mcp",
+      "servidor": "legal-data-hunter",
+      "fuente": "Legal Data Hunter - Base de datos multijurisdiccional",
+      "contenido": [
+        "jurisprudencia",
+        "leyes",
+        "normas",
+        "decretos",
+        "resoluciones"
+      ],
+      "jurisdicciones": 230,
+      "documentos": "38M+",
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "diario-oficial": {
+      "type": "http",
+      "url": "https://www.diariooficial.gov.co",
+      "fuente": "Diario Oficial de la República",
+      "contenido": [
+        "decretos",
+        "resoluciones",
+        "normas",
+        "edictos"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "suin-normativo": {
+      "type": "http",
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/inicio.aspx",
+      "fuente": "Sistema Único de Información Normativa (SUIN)",
+      "contenido": [
+        "leyes",
+        "decretos",
+        "resoluciones",
+        "normas"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "congreso-republica": {
+      "type": "http",
+      "url": "https://www.congreso.gov.co",
+      "api": "https://www.congreso.gov.co/comisiones/web/index.php",
+      "fuente": "Congreso de la República de Colombia",
+      "contenido": [
+        "proyectos-ley",
+        "leyes",
+        "actos-legislativos"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "superintendencia-sociedades": {
+      "type": "http",
+      "url": "https://www.supersociedades.gov.co",
+      "fuente": "Superintendencia de Sociedades",
+      "contenido": [
+        "jurisprudencia",
+        "circulares",
+        "resoluciones"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "dian": {
+      "type": "http",
+      "url": "https://www.dian.gov.co",
+      "fuente": "Dirección de Impuestos y Aduanas Nacionales",
+      "contenido": [
+        "normas-tributarias",
+        "conceptos",
+        "resoluciones"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
     }
   },
-  "servers": {}
+  "servers": {},
+  "agents": {
+    "juridico-especializado": {
+      "nombre": "Agente Jurídico Especializado JAC",
+      "tipo": "investigador-juridico-automatizado",
+      "descripcion": "Agente autónomo que consulta jurisprudencia, leyes, normas y decretos de fuentes oficiales colombianas",
+      "funciones": [
+        "Búsqueda de jurisprudencia oficial",
+        "Extracción de leyes y normas",
+        "Consulta de decretos y resoluciones",
+        "Análisis de procesos judiciales",
+        "Verificación de datos vs fuentes oficiales",
+        "Validación de información legal",
+        "Generación de reportes jurídicos"
+      ],
+      "fuentes": [
+        "corte-constitucional",
+        "consejo-estado",
+        "corte-suprema",
+        "legal-data-hunter",
+        "diario-oficial",
+        "suin-normativo",
+        "congreso-republica",
+        "superintendencia-sociedades",
+        "dian"
+      ],
+      "capacidades": {
+        "busqueda-jurisprudencia": {
+          "descripcion": "Busca sentencias en bases de datos oficiales",
+          "fuentes": [
+            "corte-constitucional",
+            "consejo-estado",
+            "corte-suprema",
+            "legal-data-hunter"
+          ],
+          "validacion": true
+        },
+        "consulta-normas": {
+          "descripcion": "Consulta leyes, decretos y resoluciones",
+          "fuentes": [
+            "suin-normativo",
+            "diario-oficial",
+            "legal-data-hunter"
+          ],
+          "validacion": true
+        },
+        "analisis-caso": {
+          "descripcion": "Analiza un caso contra jurisprudencia oficial",
+          "fuentes": "todas",
+          "validacion": true
+        },
+        "verificacion-datos": {
+          "descripcion": "Verifica información legal contra múltiples fuentes",
+          "fuentes": "todas",
+          "validacion": true
+        },
+        "generacion-reportes": {
+          "descripcion": "Genera reportes jurídicos documentados",
+          "fuentes": "todas",
+          "validacion": true
+        }
+      },
+      "verificacionDatos": {
+        "enabled": true,
+        "requiereMultiplesFuentes": true,
+        "validarContraOficial": true,
+        "evitarAlucinaciones": true
+      },
+      "modo": "automatizado",
+      "activado": true,
+      "createdAt": "2026-08-02T15:41:15.624Z"
+    }
+  }
 }
