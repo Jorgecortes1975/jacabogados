@@ -1,0 +1,101 @@
+{
+  "version": "1.0",
+  "sistema": "JAC Legal Audit v2.0 + Search Console",
+  "distribucion": "11 prompts + 6 grupos + 10 agentes GAL",
+  "baseDir": "/home/user/jacabogados/prompts-search-console",
+  "ramas": [
+    "laboral",
+    "penal",
+    "civil",
+    "administrativo",
+    "comercial",
+    "corporativo"
+  ],
+  "agentes": 10,
+  "prompts": {
+    "grupo1_diagnostico": {
+      "paso1_inventario": {
+        "nombre": "Inventario de Exportación Legal",
+        "archivo": "paso-1-inventario-legal.md",
+        "agente": "Agente 8: Extracción de Datos",
+        "duracion": "10 minutos"
+      }
+    },
+    "grupo2_huecos": {
+      "paso2a_huecos_contenido": {
+        "nombre": "Huecos de Contenido Legal (Sin página propia)",
+        "archivo": "paso-2a-huecos-contenido-legal.md",
+        "agente": "Agente 1: Síntesis Normativa",
+        "duracion": "15 minutos"
+      },
+      "paso2b_zona_casi": {
+        "nombre": "Zona de Casi (Posición 8-20)",
+        "archivo": "paso-2b-zona-casi.md",
+        "agente": "Agente 5: Prescripción",
+        "duracion": "15 minutos"
+      },
+      "paso2c_ctr_bajo": {
+        "nombre": "Sales Alto Pero No Te Dan Clic (CTR Bajo)",
+        "archivo": "paso-2c-ctr-bajo.md",
+        "agente": "Agente 4: Análisis de Prueba",
+        "duracion": "15 minutos"
+      },
+      "paso2d_canibalizacion": {
+        "nombre": "Canibalización (Opcional - Múltiples Exportaciones)",
+        "archivo": "paso-2d-canibalizacion.md",
+        "agente": "Agente 6: Legitimación",
+        "duracion": "15 minutos",
+        "opcional": true
+      }
+    },
+    "grupo3_priorizacion": {
+      "paso3_tabla_priorizada": {
+        "nombre": "Tabla de Qué Hago Primero (Priorización Legal)",
+        "archivo": "paso-3-tabla-priorizada.md",
+        "agente": "Agente 10: Puntuación Final",
+        "duracion": "20 minutos"
+      }
+    },
+    "grupo4_produccion": {
+      "paso4a_brief": {
+        "nombre": "Brief Antes del Artículo Legal",
+        "archivo": "paso-4a-brief-legal.md",
+        "agente": "Agente 2: Jurisprudencia",
+        "duracion": "20 minutos"
+      },
+      "paso4b_articulo": {
+        "nombre": "Artículo Completo (Con Datos Legales Propios)",
+        "archivo": "paso-4b-articulo-completo.md",
+        "agente": "Agente 3: Análisis de Procedimiento",
+        "duracion": "45 minutos"
+      }
+    },
+    "grupo5_auditoria": {
+      "paso5a_auditoria_plugin": {
+        "nombre": "Auditar con Plugin (Sin Código)",
+        "archivo": "paso-5a-auditoria-plugin.md",
+        "agente": "Agente 7: Competencia/Readabilidad",
+        "duracion": "15 minutos"
+      },
+      "paso5b_titulos": {
+        "nombre": "Reescribir Títulos y Descripciones Que No Ganan Clics",
+        "archivo": "paso-5b-titulos-descripciones.md",
+        "agente": "Agente 9: Contramedicinas",
+        "duracion": "20 minutos"
+      }
+    },
+    "grupo6_medicion": {
+      "paso6_comparacion": {
+        "nombre": "Medir a las Seis Semanas (Cierre del Ciclo)",
+        "archivo": "paso-6-comparacion-6-semanas.md",
+        "agente": "Agente 10: Puntuación Final",
+        "duracion": "20 minutos"
+      }
+    }
+  },
+  "instalacion": {
+    "fecha": "2026-08-12T13:14:44.601Z",
+    "version_node": "v22.22.2",
+    "estado": "instalado"
+  }
+}
