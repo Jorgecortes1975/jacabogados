@@ -1,0 +1,35 @@
+{
+  "microsoft": {
+    "clientId": "${OUTLOOK_CLIENT_ID}",
+    "clientSecret": "${OUTLOOK_CLIENT_SECRET}",
+    "tenantId": "common",
+    "scopes": [
+      "Mail.Read",
+      "Mail.Read.Shared",
+      "Calendars.Read",
+      "offline_access"
+    ],
+    "redirectUri": "http://localhost:3000/auth/outlook/callback",
+    "tokenEndpoint": "https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token",
+    "authorizationEndpoint": "https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize",
+    "apiBaseUrl": "https://graph.microsoft.com/v1.0"
+  },
+  "google": {
+    "clientId": "${GOOGLE_CLIENT_ID}",
+    "clientSecret": "${GOOGLE_CLIENT_SECRET}",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.readonly",
+      "https://www.googleapis.com/auth/gmail.modify",
+      "https://www.googleapis.com/auth/calendar.readonly"
+    ],
+    "redirectUri": "http://localhost:3000/auth/google/callback",
+    "tokenEndpoint": "https://oauth2.googleapis.com/token",
+    "authorizationEndpoint": "https://accounts.google.com/o/oauth2/v2/auth",
+    "apiBaseUrl": "https://www.googleapis.com"
+  },
+  "tokenStorage": {
+    "encryption": "AES-256-GCM",
+    "format": "json",
+    "location": "${HOME}/.config/jac/tokens"
+  }
+}
