@@ -176,6 +176,123 @@
         "alert_on": "completion"
       },
       "enabled": true
+    },
+    "optimizacion-comunicacion-legal": {
+      "description": "Optimización de comunicaciones legales antes de enviar (Slack/Teams/Email)",
+      "trigger": "manual",
+      "skill": "optimizacion-comunicacion-legal",
+      "inputs": {
+        "modes": ["profesional", "empático", "asertivo"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "analyze_risks": true
+      },
+      "outputs": {
+        "path": "outputs/comunicaciones/",
+        "format": ["txt", "md"],
+        "include_analysis": true
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "legal_risk_detected"
+      },
+      "enabled": true
+    },
+    "resolucion-errores-legales": {
+      "description": "Resolución de errores jurídicos y procedimentales",
+      "trigger": "manual",
+      "skill": "resolucion-errores-legales",
+      "inputs": {
+        "error_types": ["cálculo", "procedimiento", "interpretación", "formal"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "include_prevention": true
+      },
+      "outputs": {
+        "path": "outputs/errores-resueltos/",
+        "format": ["md", "pdf"],
+        "include_prevention_tips": true
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "critical_error"
+      },
+      "enabled": true
+    },
+    "briefing-reuniones-profesionales": {
+      "description": "Briefing ejecutivo para reuniones y negociaciones",
+      "trigger": "manual",
+      "skill": "briefing-reuniones-profesionales",
+      "inputs": {
+        "analysis_types": ["perfil", "negociación", "jurisprudencia", "contexto"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "include_strategy": true
+      },
+      "outputs": {
+        "path": "outputs/briefings/",
+        "format": ["md", "pdf"],
+        "include_strategy": true
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "high_priority_meeting"
+      },
+      "enabled": true
+    },
+    "extraccion-datos-estructurados": {
+      "description": "Extracción de datos jurídicos a tablas estructuradas Excel-compatible",
+      "trigger": "manual",
+      "skill": "extraccion-datos-estructurados",
+      "inputs": {
+        "data_types": ["jurisprudencia", "normas", "multas", "sanciones"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "output_format": "excel-ready"
+      },
+      "outputs": {
+        "path": "outputs/datos-estructurados/",
+        "format": ["csv", "xlsx", "md"],
+        "excel_compatible": true
+      },
+      "notifications": {
+        "slack": "#legal-automation"
+      },
+      "enabled": true
+    },
+    "comparativa-herramientas-legales": {
+      "description": "Análisis y comparativa de herramientas SaaS jurídicas",
+      "trigger": "manual",
+      "skill": "comparativa-herramientas-legales",
+      "inputs": {
+        "priorities": ["bajo-costo", "funcionalidad", "seguridad", "integraciones"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "include_pricing": true
+      },
+      "outputs": {
+        "path": "outputs/comparativas/",
+        "format": ["md", "pdf"],
+        "include_recommendation": true
+      },
+      "notifications": {
+        "slack": "#legal-automation"
+      },
+      "enabled": true
+    },
+    "adaptacion-documentos-rama": {
+      "description": "Adaptación de documentos y argumentos por rama jurídica",
+      "trigger": "manual",
+      "skill": "adaptacion-documentos-rama",
+      "inputs": {
+        "adaptation_types": ["rama-destino", "magistrado-específico", "cliente-específico"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "include_jurisprudencia": true
+      },
+      "outputs": {
+        "path": "outputs/documentos-adaptados/",
+        "format": ["docx", "pdf", "md"],
+        "include_justification": true
+      },
+      "notifications": {
+        "slack": "#legal-automation"
+      },
+      "enabled": true
     }
   },
   "hooks": {
@@ -341,25 +458,50 @@
       "enabled": true,
       "installed": true,
       "installed_date": "2026-08-12T10:27:42.865Z",
-      "skill": "síntesis-jurídica-emails"
+      "skills": [
+        "síntesis-jurídica-emails",
+        "optimizacion-comunicacion-legal",
+        "briefing-reuniones-profesionales"
+      ]
     },
     "investigador-jurisprudencial-jac": {
       "enabled": true,
       "installed": true,
       "installed_date": "2026-08-12T10:27:42.886Z",
-      "skill": "búsqueda-jurisprudencial-automatizada"
+      "skills": [
+        "búsqueda-jurisprudencial-automatizada",
+        "extraccion-datos-estructurados",
+        "resolucion-errores-legales"
+      ]
     },
     "auditor-contractual-jac": {
       "enabled": true,
       "installed": true,
       "installed_date": "2026-08-12T10:27:42.886Z",
-      "skill": "análisis-flujo-contractual"
+      "skills": [
+        "análisis-flujo-contractual",
+        "resolucion-errores-legales",
+        "comparativa-herramientas-legales"
+      ]
     },
     "redactor-ejecutivo-jac": {
       "enabled": true,
       "installed": true,
       "installed_date": "2026-08-12T10:27:42.886Z",
-      "skill": "generador-reportes-ejecutivos"
+      "skills": [
+        "generador-reportes-ejecutivos",
+        "adaptacion-documentos-rama",
+        "extraccion-datos-estructurados"
+      ]
+    }
+  },
+  "additional_skills_by_agent": {
+    "all-agents": {
+      "resolucion-errores-legales": "Disponible bajo demanda",
+      "briefing-reuniones-profesionales": "Disponible bajo demanda",
+      "extraccion-datos-estructurados": "Disponible bajo demanda",
+      "comparativa-herramientas-legales": "Disponible bajo demanda",
+      "adaptacion-documentos-rama": "Disponible bajo demanda"
     }
   }
 }
