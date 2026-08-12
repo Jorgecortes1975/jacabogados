@@ -1,0 +1,102 @@
+{
+  "email": "abogadojr@aliado.co",
+  "proveedor": "outlook",
+  "tipo": "microsoft-365",
+  "version": "1.0",
+  "estado": "configuracion-pendiente",
+  "autenticacion": {
+    "tipo": "oauth2",
+    "scopes": [
+      "Mail.Read",
+      "Mail.Read.Shared",
+      "Calendars.Read",
+      "Calendars.Read.Shared",
+      "offline_access"
+    ],
+    "requerida": true,
+    "estado": "PENDIENTE - Ver instrucciones abajo"
+  },
+  "configuracion": {
+    "buscar": {
+      "palabrasClaveJuridicas": [
+        "sentencia",
+        "jurisprudencia",
+        "fallo",
+        "recurso",
+        "apelación",
+        "demanda",
+        "contrato",
+        "acuerdo",
+        "ley",
+        "decreto",
+        "resolución",
+        "artículo"
+      ],
+      "carpetas": [
+        "Inbox",
+        "Seguimiento"
+      ],
+      "filtro": "hasAttachments:true OR (isRead:false AND receivedDateTime:>NOW-7d)"
+    },
+    "procesamiento": {
+      "automaticoHabilitado": true,
+      "frecuencia": "tiempo-real",
+      "analizarContenido": true,
+      "generarAnalisis": true,
+      "actualizarEcosistema": true,
+      "enviarNotificaciones": true
+    },
+    "almacenamiento": {
+      "directorio": "~/Documents/JAC-Correos-Procesados",
+      "formatoAnalisis": "json",
+      "guardarContenido": true,
+      "retencion": "90-dias"
+    }
+  },
+  "agentes": {
+    "ejecutarAutomaticamente": true,
+    "asignacion": {
+      "sentencia": "investigador-jurisprudencial",
+      "contrato": "auditor-contractual",
+      "demanda": ["investigador-jurisprudencial", "auditor-contractual"],
+      "normativo": "investigador-jurisprudencial",
+      "jurisprudencia": "investigador-jurisprudencial"
+    }
+  },
+  "notificaciones": {
+    "habilitadas": true,
+    "tipos": [
+      "resumen-diario",
+      "alertas-urgentes",
+      "acciones-completadas"
+    ],
+    "canales": [
+      "outlook-reply",
+      "console",
+      "archivo-log"
+    ]
+  },
+  "hooks": {
+    "email-received": "procesador-correos-legales",
+    "email-starred": "marcar-para-revision",
+    "email-flagged": "alertas-urgentes"
+  },
+  "integraciones": {
+    "search-console-legal": true,
+    "agentes-juridicos": true,
+    "ecosistema-legal": true,
+    "calendario-vencimientos": true
+  },
+  "logs": {
+    "enabled": true,
+    "nivel": "INFO",
+    "archivo": "~/Documents/JAC-Logs/outlook-integration-{YYYY-MM-DD}.log"
+  },
+  "_instrucciones": {
+    "paso1_autenticacion": "Ejecutar: node .claude/scripts/setup-outlook-auth.js",
+    "paso2_verificacion": "Los permisos se otorgan automáticamente en el navegador",
+    "paso3_activacion": "El sistema comenzará a procesar correos automáticamente",
+    "paso4_monitoreo": "Ver logs en ~/Documents/JAC-Logs/",
+    "soporte": "Ver CONFIGURAR-OUTLOOK.md"
+  }
+}
