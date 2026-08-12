@@ -11,6 +11,8 @@
       "trigger": "schedule",
       "schedule": "0 8 * * 1-5",
       "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
       "skill": "síntesis-jurídica-emails",
       "inputs": {
         "source": "gmail",
@@ -45,6 +47,8 @@
       "trigger": "schedule",
       "schedule": "0 6,10,14,18 * * *",
       "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
       "skill": "búsqueda-jurisprudencial-automatizada",
       "inputs": {
         "monitored_topics": [
@@ -96,6 +100,8 @@
       "trigger": "schedule",
       "schedule": "0 17 * * 5",
       "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
       "skill": "análisis-flujo-contractual",
       "inputs": {
         "contract_sources": [
@@ -139,6 +145,8 @@
       "trigger": "schedule-monthly",
       "schedule": "0 16 L * *",
       "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
       "skill": "generador-reportes-ejecutivos",
       "inputs": {
         "type": "integral-monthly",
@@ -301,6 +309,9 @@
       "timezone": "America/Bogota",
       "type": "auto-mejora-continua",
       "phase": "ciclo-completo",
+      "execution_mode": "silent",
+      "redirect_output": "file_only",
+      "suppress_display": true,
       "inputs": {
         "validar_prompts": true,
         "detectar_alucinaciones": true,

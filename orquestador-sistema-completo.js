@@ -27,10 +27,51 @@
  *           ├─ Mejora de skills
  *           ├─ Actualización jurisprudencia
  *           └─ Reporte de auto-regulación
+ *
+ * Modo Silencioso: Ejecuta sin mostrar pantalla (--silent)
  */
 
 const fs = require('fs');
 const path = require('path');
+
+// ============================================================
+// SISTEMA DE LOGGING SILENCIOSO
+// ============================================================
+
+class LoggerSilencioso {
+  constructor(silentMode = false) {
+    this.silentMode = silentMode;
+    this.logFile = path.join('/home/user/jacabogados/outputs', 'orquestador', `execution-${new Date().toISOString().split('T')[0]}.log`);
+
+    if (!fs.existsSync(path.dirname(this.logFile))) {
+      fs.mkdirSync(path.dirname(this.logFile), { recursive: true });
+    }
+  }
+
+  log(mensaje) {
+    if (!this.silentMode) {
+      console.log(mensaje);
+    }
+    this.registrarEnArchivo(mensaje);
+  }
+
+  error(mensaje) {
+    if (!this.silentMode) {
+      console.error(mensaje);
+    }
+    this.registrarEnArchivo(`[ERROR] ${mensaje}`);
+  }
+
+  registrarEnArchivo(mensaje) {
+    const timestamp = new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' });
+    const linea = `[${timestamp}] ${mensaje}\n`;
+    fs.appendFileSync(this.logFile, linea);
+  }
+}
+
+// Detectar modo silencioso desde argumentos
+const isSilentMode = process.argv.includes('--silent');
+const logger = new LoggerSilencioso(isSilentMode);
 
 // ============================================================
 // COMPONENTES INTEGRADOS
@@ -49,13 +90,13 @@ class OrquestadorSistema {
     try {
       return JSON.parse(fs.readFileSync('/home/user/jacabogados/.claude/settings.json', 'utf8'));
     } catch (e) {
-      console.error('Error cargando configuración:', e.message);
+      logger.error('Error cargando configuración:', e.message);
       return {};
     }
   }
 
   async inicializar() {
-    console.log(`
+    logger.log(`
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║              ORQUESTADOR: SISTEMA DE AUTOMATIZACIÓN JURÍDICA              ║
 ║                    Versión 2.0 - Con Auto-Regulación Nocturna             ║
@@ -142,7 +183,7 @@ class OrquestadorSistema {
       tecnicas: tecnicas,
       estado: '✓ Activas'
     });
-    console.log(`  ✓ Técnicas de Vanguardia (${tecnicas.length} técnicas)`);
+    logger.log(`  ✓ Técnicas de Vanguardia (${tecnicas.length} técnicas)`);
   }
 
   async validarIntegridad() {
@@ -158,14 +199,14 @@ class OrquestadorSistema {
     for (const archivo of archivos) {
       const rutaCompleta = path.join('/home/user/jacabogados', archivo);
       const existe = fs.existsSync(rutaCompleta);
-      console.log(`  ${existe ? '✓' : '❌'} ${archivo}`);
+      logger.log(`  ${existe ? '✓' : '❌'} ${archivo}`);
     }
 
     console.log('\n✓ Integridad validada');
   }
 
   mostrarEstadoCompleto() {
-    console.log(`
+    logger.log(`
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║                        ESTADO DEL SISTEMA                                 ║
 ╚════════════════════════════════════════════════════════════════════════════╝
@@ -229,7 +270,7 @@ class OrquestadorSistema {
   }
 
   mostrarPlanificacion() {
-    console.log(`
+    logger.log(`
 📅 PLANIFICACIÓN DE EJECUCIONES AUTOMÁTICAS
 ════════════════════════════════════════════════════════════════════════════════
 
@@ -321,7 +362,7 @@ RESUMEN MENSUAL (30 días tipo):
     console.log('4️⃣  Hooks de Automatización → LISTO');
     console.log('5️⃣  Técnicas de Vanguardia → LISTO');
 
-    console.log(`
+    logger.log(`
 ✅ SISTEMA COMPLETAMENTE OPERATIVO
 
 Próximas ejecuciones automáticas:
@@ -335,7 +376,7 @@ Auto-mejora: AUTOMÁTICA
   }
 
   async mostrarComandos() {
-    console.log(`
+    logger.log(`
 🚀 COMANDOS DISPONIBLES
 ════════════════════════════════════════════════════════════════════════════════
 

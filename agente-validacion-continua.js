@@ -13,10 +13,51 @@
  *
  * Se ejecuta: DIARIAMENTE 22:00 (10 PM) - análisis nocturno
  * Vanguardia: Últimas técnicas en derecho colombiano
+ *
+ * Modo Silencioso: Ejecuta sin mostrar pantalla (--silent)
  */
 
 const fs = require('fs');
 const path = require('path');
+
+// ============================================================
+// SISTEMA DE LOGGING SILENCIOSO
+// ============================================================
+
+class LoggerSilencioso {
+  constructor(silentMode = false) {
+    this.silentMode = silentMode;
+    this.logFile = path.join('/home/user/jacabogados/outputs', 'auto-regulacion', `execution-${new Date().toISOString().split('T')[0]}.log`);
+
+    if (!fs.existsSync(path.dirname(this.logFile))) {
+      fs.mkdirSync(path.dirname(this.logFile), { recursive: true });
+    }
+  }
+
+  log(mensaje) {
+    if (!this.silentMode) {
+      console.log(mensaje);
+    }
+    this.registrarEnArchivo(mensaje);
+  }
+
+  error(mensaje) {
+    if (!this.silentMode) {
+      console.error(mensaje);
+    }
+    this.registrarEnArchivo(`[ERROR] ${mensaje}`);
+  }
+
+  registrarEnArchivo(mensaje) {
+    const timestamp = new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' });
+    const linea = `[${timestamp}] ${mensaje}\n`;
+    fs.appendFileSync(this.logFile, linea);
+  }
+}
+
+// Detectar modo silencioso desde argumentos
+const isSilentMode = process.argv.includes('--silent');
+const logger = new LoggerSilencioso(isSilentMode);
 
 // ============================================================
 // CONFIGURACIÓN
@@ -474,7 +515,7 @@ class AgenteValidacionContinua {
   }
 
   async ejecutarCicloCompleto() {
-    console.log(`
+    logger.log(`
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║          AGENTE DE VALIDACIÓN Y AUTO-MEJORA CONTINUA                      ║
 ║                    Ciclo Nocturno de Auto-Regulación                      ║
@@ -484,29 +525,29 @@ Iniciando validación nocturna: ${new Date().toLocaleString('es-CO', { timeZone:
     `);
 
     // Fase 1: Validación de todos los prompts maestros
-    console.log('\n📋 FASE 1: Validación de 60 prompts maestros...\n');
+    logger.log('\n📋 FASE 1: Validación de 60 prompts maestros...\n');
     await this.faseValidacion();
 
     // Fase 2: Detección de alucinaciones
-    console.log('\n🔍 FASE 2: Detección de alucinaciones (triple-verificación)...\n');
+    logger.log('\n🔍 FASE 2: Detección de alucinaciones (triple-verificación)...\n');
     await this.faseDeteccionAlucinaciones();
 
     // Fase 3: Mejora de prompts deficientes
-    console.log('\n✨ FASE 3: Auto-mejora de prompts...\n');
+    logger.log('\n✨ FASE 3: Auto-mejora de prompts...\n');
     await this.faseMejoraPrompts();
 
     // Fase 4: Actualización de skills con jurisprudencia reciente
-    console.log('\n📚 FASE 4: Actualización de skills con jurisprudencia nueva...\n');
+    logger.log('\n📚 FASE 4: Actualización de skills con jurisprudencia nueva...\n');
     await this.faseActualizacionSkills();
 
     // Fase 5: Generación de reporte
-    console.log('\n📊 FASE 5: Generación de reporte de auto-regulación...\n');
+    logger.log('\n📊 FASE 5: Generación de reporte de auto-regulación...\n');
     const reporteFinal = this.generarReporteFinal();
 
     // Guardar reporte
     this.guardarReporte(reporteFinal);
 
-    console.log(reporteFinal);
+    logger.log(JSON.stringify(reporteFinal, null, 2));
   }
 
   async faseValidacion() {
@@ -520,7 +561,7 @@ Iniciando validación nocturna: ${new Date().toLocaleString('es-CO', { timeZone:
         this.resultados.validaciones.push(validacion);
 
         const estado = validacion.score >= 85 ? '✓' : '⚠';
-        console.log(`  ${estado} Tarea ${tarea} (${rama}): Score ${validacion.score}/100`);
+        logger.log(`  ${estado} Tarea ${tarea} (${rama}): Score ${validacion.score}/100`);
       }
     }
   }
@@ -536,10 +577,10 @@ Iniciando validación nocturna: ${new Date().toLocaleString('es-CO', { timeZone:
       this.resultados.alucinaciones.push(verificacion);
 
       const estado = verificacion.alucinada ? '❌ ALUCINADA' : '✓ VERIFICADA';
-      console.log(`  ${estado}: Tarea ${val.tarea} (${val.rama})`);
+      logger.log(`  ${estado}: Tarea ${val.tarea} (${val.rama})`);
 
       if (verificacion.alucinada) {
-        console.log(`    → Recomendación: ${verificacion.recomendacion}`);
+        logger.log(`    → Recomendación: ${verificacion.recomendacion}`);
       }
     }
   }
@@ -556,10 +597,10 @@ Iniciando validación nocturna: ${new Date().toLocaleString('es-CO', { timeZone:
       );
 
       this.resultados.mejoras.push(mejora);
-      console.log(`  ✨ Tarea ${val.tarea} (${val.rama}): ${val.score} → ${mejora.scoreMejorado}/100`);
+      logger.log(`  ✨ Tarea ${val.tarea} (${val.rama}): ${val.score} → ${mejora.scoreMejorado}/100`);
     }
 
-    console.log(`\n  Total mejorado: ${this.resultados.mejoras.length} prompts`);
+    logger.log(`\n  Total mejorado: ${this.resultados.mejoras.length} prompts`);
   }
 
   async faseActualizacionSkills() {
@@ -567,10 +608,10 @@ Iniciando validación nocturna: ${new Date().toLocaleString('es-CO', { timeZone:
     this.resultados.actualizaciones = actualizaciones;
 
     for (const [skillName, data] of Object.entries(actualizaciones.skills)) {
-      console.log(`  ✓ ${skillName}: +${data.jurisprudenciaIncorporada} sentencias nuevas`);
+      logger.log(`  ✓ ${skillName}: +${data.jurisprudenciaIncorporada} sentencias nuevas`);
     }
 
-    console.log(`\n  Técnicas vanguardia integradas: ${Object.keys(TECNICAS_VANGUARDIA).length}`);
+    logger.log(`\n  Técnicas vanguardia integradas: ${Object.keys(TECNICAS_VANGUARDIA).length}`);
   }
 
   generarReporteFinal() {
@@ -592,7 +633,7 @@ Iniciando validación nocturna: ${new Date().toLocaleString('es-CO', { timeZone:
     const archivo = path.join(outputDir, `reporte-${new Date().toISOString().split('T')[0]}.json`);
     fs.writeFileSync(archivo, JSON.stringify(reporte, null, 2));
 
-    console.log(`\n📁 Reporte guardado: ${archivo}`);
+    logger.log(`\n📁 Reporte guardado: ${archivo}`);
   }
 }
 
@@ -604,12 +645,15 @@ const args = process.argv.slice(2);
 const agente = new AgenteValidacionContinua();
 
 if (args[0] === 'ejecutar' || args.length === 0) {
-  agente.ejecutarCicloCompleto();
+  agente.ejecutarCicloCompleto().catch(err => {
+    logger.error(`Error durante ejecución: ${err.message}`);
+    process.exit(1);
+  });
 } else if (args[0] === 'test') {
-  console.log('✓ Agente de validación funcionando correctamente');
-  console.log('Uso: node agente-validacion-continua.js [ejecutar|test]');
+  logger.log('✓ Agente de validación funcionando correctamente');
+  logger.log('Uso: node agente-validacion-continua.js [ejecutar|test] [--silent]');
 } else if (args[0] === 'help') {
-  console.log(`
+  logger.log(`
 AGENTE DE VALIDACIÓN Y AUTO-MEJORA CONTINUA
 ============================================
 
@@ -622,10 +666,17 @@ Ejecuta un ciclo nocturno de auto-regulación que:
 
 Ciclo Automático: DIARIAMENTE 22:00 (10 PM Colombia)
 
+Argumentos:
+  --silent    : Ejecuta sin mostrar nada en pantalla (modo background)
+  --verbose   : Muestra todos los detalles
+
 Uso:
   node agente-validacion-continua.js ejecutar
   node agente-validacion-continua.js test
   node agente-validacion-continua.js help
+
+Ejemplo con modo silencioso (para automatización):
+  node agente-validacion-continua.js ejecutar --silent
   `);
 }
 

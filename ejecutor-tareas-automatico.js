@@ -6,6 +6,8 @@
  *
  * Ejecuta las 10 tareas en loops programados
  * Similar a cron jobs pero desde Node.js
+ *
+ * Modo Silencioso: Ejecuta sin mostrar pantalla (--silent)
  */
 
 const fs = require('fs');
@@ -13,6 +15,45 @@ const path = require('path');
 
 // Importar el sistema de 10 tareas
 const SistemaAutomatizacion = require('./sistema-automatizacion-10-tareas.js');
+
+// ============================================================
+// SISTEMA DE LOGGING SILENCIOSO
+// ============================================================
+
+class LoggerSilencioso {
+  constructor(silentMode = false) {
+    this.silentMode = silentMode;
+    this.logFile = path.join('/home/user/jacabogados/outputs', 'ejecuciones-automaticas', `executor-${new Date().toISOString().split('T')[0]}.log`);
+
+    if (!fs.existsSync(path.dirname(this.logFile))) {
+      fs.mkdirSync(path.dirname(this.logFile), { recursive: true });
+    }
+  }
+
+  log(mensaje) {
+    if (!this.silentMode) {
+      console.log(mensaje);
+    }
+    this.registrarEnArchivo(mensaje);
+  }
+
+  error(mensaje) {
+    if (!this.silentMode) {
+      console.error(mensaje);
+    }
+    this.registrarEnArchivo(`[ERROR] ${mensaje}`);
+  }
+
+  registrarEnArchivo(mensaje) {
+    const timestamp = new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' });
+    const linea = `[${timestamp}] ${mensaje}\n`;
+    fs.appendFileSync(this.logFile, linea);
+  }
+}
+
+// Detectar modo silencioso desde argumentos
+const isSilentMode = process.argv.includes('--silent');
+const logger = new LoggerSilencioso(isSilentMode);
 
 class EjecutorAutomatico {
   constructor() {
@@ -74,7 +115,7 @@ class EjecutorAutomatico {
       descripcion: 'Briefing ejecutivo 24h antes de reunión'
     });
 
-    this.log('✓ Loops programados correctamente');
+    logger.log('✓ Loops programados correctamente');
   }
 
   programarLoop(config) {
@@ -85,7 +126,7 @@ class EjecutorAutomatico {
       proximaEjecucion: this.calcularProximaEjecucion(config.horario)
     };
 
-    this.log(`📅 ${config.nombre}: ${config.descripcion}`);
+    logger.log(`📅 ${config.nombre}: ${config.descripcion}`);
   }
 
   calcularProximaEjecucion(horario) {
@@ -109,14 +150,14 @@ class EjecutorAutomatico {
   ejecutarTareasDelLoop(nombreLoop) {
     const loop = this.tareasProgramadas[nombreLoop];
     if (!loop) {
-      this.log(`❌ Loop ${nombreLoop} no encontrado`);
+      logger.log(`❌ Loop ${nombreLoop} no encontrado`);
       return;
     }
 
-    this.log(`\n🔄 Ejecutando loop: ${loop.nombre}`);
-    this.log(`   Descripción: ${loop.descripcion}`);
-    this.log(`   Tareas: ${loop.tareas.join(', ')}`);
-    this.log(`   Ramas: ${loop.ramas.join(', ')}`);
+    logger.log(`\n🔄 Ejecutando loop: ${loop.nombre}`);
+    logger.log(`   Descripción: ${loop.descripcion}`);
+    logger.log(`   Tareas: ${loop.tareas.join(', ')}`);
+    logger.log(`   Ramas: ${loop.ramas.join(', ')}`);
 
     const resultados = [];
 
@@ -148,9 +189,9 @@ class EjecutorAutomatico {
             timestamp: new Date().toISOString()
           });
 
-          this.log(`   ✓ Tarea ${numeroTarea} (${rama}): completada`);
+          logger.log(`   ✓ Tarea ${numeroTarea} (${rama}): completada`);
         } catch (error) {
-          this.log(`   ❌ Tarea ${numeroTarea} (${rama}): error - ${error.message}`);
+          logger.log(`   ❌ Tarea ${numeroTarea} (${rama}): error - ${error.message}`);
           resultados.push({
             tarea: numeroTarea,
             rama: rama,
@@ -170,7 +211,7 @@ class EjecutorAutomatico {
     // Guardar resultados
     this.guardarResultados(nombreLoop, resultados);
 
-    this.log(`✓ Loop completado: ${resultados.length} tareas ejecutadas`);
+    logger.log(`✓ Loop completado: ${resultados.length} tareas ejecutadas`);
   }
 
   obtenerClaseTarea(numero) {
@@ -204,7 +245,7 @@ class EjecutorAutomatico {
       resultados: resultados
     }, null, 2));
 
-    this.log(`📁 Resultados guardados: ${archivo}`);
+    logger.log(`📁 Resultados guardados: ${archivo}`);
   }
 
   // ============================================================
@@ -212,7 +253,7 @@ class EjecutorAutomatico {
   // ============================================================
 
   mostrarEstado() {
-    console.log(`
+    logger.log(`
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║                   ESTADO DEL SISTEMA AUTOMÁTICO                          ║
 ╚════════════════════════════════════════════════════════════════════════════╝
@@ -224,7 +265,7 @@ Hora actual: ${new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }
 `);
 
     for (const [nombre, config] of Object.entries(this.tareasProgramadas)) {
-      console.log(`
+      logger.log(`
   ${nombre.toUpperCase()}
   ├─ Estado: ${config.estado}
   ├─ Descripción: ${config.descripcion}
@@ -244,7 +285,7 @@ Hora actual: ${new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }
     `);
   }
 
-  log(mensaje) {
+  logToFile(mensaje) {
     const timestamp = new Date().toISOString();
     const entrada = `[${timestamp}] ${mensaje}`;
     this.logs.push(entrada);
@@ -268,11 +309,11 @@ Hora actual: ${new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }
 ╚════════════════════════════════════════════════════════════════════════════╝
     `);
 
-    this.log('Cargando configuración...');
+    logger.log('Cargando configuración...');
     this.programarLoops();
 
     this.estado = 'operativo';
-    this.log('✓ Sistema inicializado correctamente');
+    logger.log('✓ Sistema inicializado correctamente');
 
     this.mostrarEstado();
   }
