@@ -369,6 +369,107 @@
       "enabled": true,
       "prioridad": "crítica",
       "autonomía": "alta"
+    },
+    "semanal-zona-casi": {
+      "description": "Revisión semanal: Zona de Casi (posición 8-20 en Search Console)",
+      "trigger": "schedule",
+      "schedule": "0 9 * * 1",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "analisis-search-console-legal",
+      "inputs": {
+        "paso": "paso-2b-zona-casi",
+        "entrada": "ultimo-export-search-console.csv",
+        "descripcion": "Identifica búsquedas en posiciones 8-20: a un empujón de la primera página"
+      },
+      "outputs": {
+        "path": "outputs/search-console/",
+        "format": ["json", "html"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Search Console Análisis/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "high_opportunity_keywords"
+      },
+      "enabled": true
+    },
+    "quincenal-ctr-bajo": {
+      "description": "Revisión quincenal: CTR Bajo (posición buena, pocos clics)",
+      "trigger": "schedule",
+      "schedule": "0 14 * * 5",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "analisis-search-console-legal",
+      "inputs": {
+        "paso": "paso-2c-ctr-bajo",
+        "entrada": "ultimo-export-search-console.csv",
+        "descripcion": "Detecta búsquedas con buena posición pero bajo CTR - candidatos para reescribir títulos"
+      },
+      "outputs": {
+        "path": "outputs/search-console/",
+        "format": ["json", "html"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Search Console Análisis/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "low_ctr_opportunities"
+      },
+      "enabled": true
+    },
+    "mensual-huecos-contenido": {
+      "description": "Análisis mensual: Huecos de Contenido Legal",
+      "trigger": "schedule",
+      "schedule": "0 10 1-7 * 1",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "analisis-search-console-legal",
+      "inputs": {
+        "paso": "paso-2a-huecos-contenido",
+        "entrada": "ultimo-export-search-console.csv",
+        "descripcion": "Identifica oportunidades de contenido nuevo: búsquedas donde apareces pero sin página propia"
+      },
+      "outputs": {
+        "path": "outputs/search-console/",
+        "format": ["json", "html"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Search Console Análisis/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "new_content_opportunities"
+      },
+      "enabled": true
+    },
+    "cada-6-semanas-ciclo-completo": {
+      "description": "Ciclo completo cada 6 semanas: comparación de impacto",
+      "trigger": "timer",
+      "duration": "6 weeks",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "analisis-search-console-legal",
+      "inputs": {
+        "paso": "paso-6-comparacion",
+        "entrada": "export-anterior.csv + export-nuevo.csv",
+        "descripcion": "Descarga nuevo export y compara con anterior para medir impacto de cambios"
+      },
+      "outputs": {
+        "path": "outputs/search-console/",
+        "format": ["json", "html", "pdf"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Search Console Análisis/Impacto 6 Semanas/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "email": "socios@jacabogados.co",
+        "alert_on": "impact_measured"
+      },
+      "enabled": true
     }
   },
   "hooks": {
@@ -477,6 +578,38 @@
         "redacción-legal-persuasiva",
         "análisis-de-riesgo-predictivo"
       ]
+    },
+    "exportacion-descargada": {
+      "description": "Trigger: Se detecta un archivo CSV nuevo de Search Console descargado",
+      "enabled": true,
+      "trigger": "file-created",
+      "pattern": "search-console-*/Consultas.csv",
+      "action": "trigger_analisis-search-console-legal",
+      "skill_action": "ejecutar paso-1-inventario",
+      "description_detail": "Cuando se descarga una nueva exportación de Google Search Console, automáticamente inicia Paso 1 (Inventario de Exportación Legal)",
+      "hooks": ["on-exportacion-descargada"],
+      "gal_agent": "Agente 8 (Extracción de Datos)"
+    },
+    "contenido-publicado": {
+      "description": "Trigger: Se publica nuevo contenido legal (artículo o demanda)",
+      "enabled": true,
+      "trigger": "manual-o-loop",
+      "action": "trigger_analisis-search-console-legal",
+      "skill_action": "ejecutar paso-5a-auditoria",
+      "description_detail": "Cuando se publica un nuevo artículo legal o demanda, automáticamente audita con Plugin para verificar indexabilidad Google e IA",
+      "hooks": ["on-contenido-publicado"],
+      "gal_agent": "Agente 7 (Competencia/Readabilidad)"
+    },
+    "6-semanas-transcurridas": {
+      "description": "Trigger: Ciclo de medición completado (6 semanas después de última publicación)",
+      "enabled": true,
+      "trigger": "timer",
+      "duration": "6 weeks",
+      "action": "trigger_analisis-search-console-legal",
+      "skill_action": "ejecutar paso-6-comparacion",
+      "description_detail": "Después de 6 semanas desde la publicación, automáticamente descarga nuevo export y compara para medir impacto",
+      "hooks": ["on-ciclo-6-semanas"],
+      "gal_agent": "Agente 10 (Puntuación Final)"
     }
   },
   "integrations": {

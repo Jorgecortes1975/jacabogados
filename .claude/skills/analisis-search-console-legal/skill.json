@@ -1,0 +1,242 @@
+{
+  "name": "analisis-search-console-legal",
+  "version": "1.0.0",
+  "description": "Análisis automático de Google Search Console para casos legales colombianos. 11 prompts organizados en 6 grupos, integrados con GAL y 10 agentes especializados.",
+
+  "metadata": {
+    "tipo": "profesional",
+    "integracion": "GAL",
+    "agentes": 10,
+    "ramas_juridicas": ["civil", "laboral", "penal", "administrativa", "comercial", "corporativo"],
+    "cero_alucinaciones": true,
+    "fuentes_verificadas": ["Google Search Console", "Jurisprudencia oficial", "Código Colombiano"]
+  },
+
+  "triggers": [
+    {
+      "id": "exportacion-descargada",
+      "nombre": "Exportación de Search Console descargada",
+      "descripcion": "Se dispara cuando se detecta un archivo CSV nuevo de Search Console en la carpeta",
+      "evento": "file-created",
+      "patron": "search-console-*/Consultas.csv",
+      "accion": "ejecutar paso-1-inventario",
+      "hooks": ["on-exportacion-descargada"]
+    },
+    {
+      "id": "contenido-publicado",
+      "nombre": "Contenido legal publicado",
+      "descripcion": "Se dispara cuando se publica un nuevo artículo o demanda",
+      "evento": "hook-personalizado",
+      "activacion": "manual-o-loop",
+      "accion": "ejecutar paso-5a-auditoria",
+      "hooks": ["on-contenido-publicado"]
+    },
+    {
+      "id": "6-semanas-transcurridas",
+      "nombre": "Ciclo de medición completado",
+      "descripcion": "Se dispara 6 semanas después de la última publicación",
+      "evento": "timer",
+      "duracion": "6 semanas",
+      "accion": "ejecutar paso-6-comparacion",
+      "hooks": ["on-ciclo-6-semanas"]
+    }
+  ],
+
+  "loops": [
+    {
+      "id": "semanal-zona-casi",
+      "nombre": "Revisión semanal: Zona de Casi",
+      "descripcion": "Revisa búsquedas en posición 8-20 (a un empujón de primera página)",
+      "frecuencia": "semanal",
+      "dia": "lunes",
+      "hora": "09:00",
+      "accion": "ejecutar paso-2b-zona-casi",
+      "entrada": "ultimo-export-search-console.csv",
+      "salida": "reporte-zona-casi.json"
+    },
+    {
+      "id": "quincenal-ctr-bajo",
+      "nombre": "Revisión quincenal: CTR Bajo",
+      "descripcion": "Detecta búsquedas con buena posición pero bajo CTR",
+      "frecuencia": "quincenal",
+      "dia": "viernes",
+      "hora": "14:00",
+      "accion": "ejecutar paso-2c-ctr-bajo",
+      "entrada": "ultimo-export-search-console.csv",
+      "salida": "reporte-titulos-a-mejorar.json"
+    },
+    {
+      "id": "mensual-huecos-contenido",
+      "nombre": "Análisis mensual: Huecos de Contenido",
+      "descripcion": "Identifica oportunidades de contenido nuevo",
+      "frecuencia": "mensual",
+      "dia": "primer-lunes",
+      "hora": "10:00",
+      "accion": "ejecutar paso-2a-huecos-contenido",
+      "entrada": "ultimo-export-search-console.csv",
+      "salida": "reporte-huecos-mensuales.json"
+    },
+    {
+      "id": "cada-6-semanas-ciclo-completo",
+      "nombre": "Ciclo completo cada 6 semanas",
+      "descripcion": "Descarga nuevo export y compara con anterior",
+      "frecuencia": "cada-6-semanas",
+      "duracion": "6 semanas",
+      "accion": "ejecutar paso-6-comparacion",
+      "entrada": "export-anterior.csv + export-nuevo.csv",
+      "salida": "reporte-impacto-6-semanas.json"
+    }
+  ],
+
+  "pasos": [
+    {
+      "id": "paso-1",
+      "nombre": "Inventario de Exportación Legal",
+      "grupo": "diagnostico",
+      "duracion": "10 min",
+      "agente": "Agente 8 (Extracción de Datos)",
+      "entrada": "Consultas.csv, Fechas.csv, Filtros.csv",
+      "salida": "reporte-inventario.json",
+      "prequisito": null
+    },
+    {
+      "id": "paso-2a",
+      "nombre": "Huecos de Contenido Legal",
+      "grupo": "huecos",
+      "duracion": "15 min",
+      "agente": "Agente 1 (Síntesis Normativa)",
+      "entrada": "Consultas.csv",
+      "salida": "huecos-contenido.json",
+      "prerequisito": "paso-1"
+    },
+    {
+      "id": "paso-2b",
+      "nombre": "Zona de Casi (Posición 8-20)",
+      "grupo": "huecos",
+      "duracion": "15 min",
+      "agente": "Agente 5 (Prescripción)",
+      "entrada": "Consultas.csv",
+      "salida": "zona-casi.json",
+      "prerequisito": "paso-1"
+    },
+    {
+      "id": "paso-2c",
+      "nombre": "Sales Alto Pero No Te Dan Clic (CTR Bajo)",
+      "grupo": "huecos",
+      "duracion": "15 min",
+      "agente": "Agente 4 (Análisis de Prueba)",
+      "entrada": "Consultas.csv, Páginas.csv",
+      "salida": "ctr-bajo.json",
+      "prerequisito": "paso-1"
+    },
+    {
+      "id": "paso-2d",
+      "nombre": "Canibalización [OPCIONAL]",
+      "grupo": "huecos",
+      "duracion": "15 min",
+      "agente": "Agente 6 (Legitimación)",
+      "entrada": "Múltiples Consultas.csv (filtradas por página)",
+      "salida": "canibalizacion.json",
+      "prerequisito": "paso-1",
+      "opcional": true
+    },
+    {
+      "id": "paso-3",
+      "nombre": "Tabla de Qué Hago Primero",
+      "grupo": "priorizacion",
+      "duracion": "20 min",
+      "agente": "Agente 10 (Puntuación Final)",
+      "entrada": "huecos-contenido.json + zona-casi.json + ctr-bajo.json",
+      "salida": "tabla-priorizada.json",
+      "prerequisito": ["paso-2a", "paso-2b", "paso-2c"]
+    },
+    {
+      "id": "paso-4a",
+      "nombre": "Brief Antes del Artículo Legal",
+      "grupo": "produccion",
+      "duracion": "20 min",
+      "agente": "Agente 2 (Jurisprudencia)",
+      "entrada": "tabla-priorizada.json + fila seleccionada",
+      "salida": "brief-legal.md",
+      "prerequisito": "paso-3"
+    },
+    {
+      "id": "paso-4b",
+      "nombre": "Artículo Completo (Con Datos Legales)",
+      "grupo": "produccion",
+      "duracion": "45 min",
+      "agente": "Agente 3 (Análisis de Procedimiento)",
+      "entrada": "brief-legal.md + datos-propios.json",
+      "salida": "articulo-legal.md",
+      "prerequisito": "paso-4a"
+    },
+    {
+      "id": "paso-5a",
+      "nombre": "Auditar con Plugin",
+      "grupo": "auditoria",
+      "duracion": "15 min",
+      "agente": "Agente 7 (Competencia/Readabilidad)",
+      "entrada": "URL publicada",
+      "salida": "auditoria-google-ia.json",
+      "prerequisito": null,
+      "disparador": "on-contenido-publicado"
+    },
+    {
+      "id": "paso-5b",
+      "nombre": "Reescribir Títulos y Descripciones",
+      "grupo": "auditoria",
+      "duracion": "20 min",
+      "agente": "Agente 9 (Contramedicinas)",
+      "entrada": "ctr-bajo.json",
+      "salida": "opciones-titulos.json",
+      "prerequisito": "paso-2c"
+    },
+    {
+      "id": "paso-6",
+      "nombre": "Medir a las 6 Semanas",
+      "grupo": "medicion",
+      "duracion": "20 min",
+      "agente": "Agente 10 (Puntuación Final)",
+      "entrada": "export-anterior.csv + export-nuevo.csv",
+      "salida": "reporte-impacto.json",
+      "prerequisito": null,
+      "disparador": "on-ciclo-6-semanas"
+    }
+  ],
+
+  "integracion-gal": {
+    "orquestador": "GAL (Gestor Automático Legal)",
+    "mapeo_agentes": {
+      "paso-1": "Agente 8",
+      "paso-2a": "Agente 1",
+      "paso-2b": "Agente 5",
+      "paso-2c": "Agente 4",
+      "paso-2d": "Agente 6",
+      "paso-3": "Agente 10",
+      "paso-4a": "Agente 2",
+      "paso-4b": "Agente 3",
+      "paso-5a": "Agente 7",
+      "paso-5b": "Agente 9",
+      "paso-6": "Agente 10"
+    },
+    "estado_compartido": "gal-estado-search-console.json",
+    "logs_centralizados": "logs/skill-search-console.log"
+  },
+
+  "configuracion": {
+    "duracion_ciclo_completo": "3-4 horas",
+    "espera_entre_ciclos": "6 semanas",
+    "historial_google": "16 meses rodantes",
+    "techo_filas_export": "1000 por pestaña",
+    "auto_detectar_truncamiento": true,
+    "verificar_jurisprudencia": true,
+    "sources_verificadas": 9
+  },
+
+  "comandos": {
+    "ejecutar_paso": "claude --skill analisis-search-console-legal ejecutar <paso>",
+    "ver_estado": "claude --skill analisis-search-console-legal status",
+    "listar_pasos": "claude --skill analisis-search-console-legal listar",
+    "ver_progreso": "claude --skill analisis-search-console-legal progreso"
+  }
+}
