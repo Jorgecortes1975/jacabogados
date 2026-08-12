@@ -30,7 +30,7 @@ class ExecutorPromptsLegal {
       {
         orden: 1,
         id: "inventario",
-        grupo: "diagnostico",
+        grupo: "grupo1_diagnostico",
         nombre: "Paso 1: Inventario de Exportación Legal",
         archivo: "paso-1-inventario-legal.md",
         duracion: "10 min",
@@ -39,7 +39,7 @@ class ExecutorPromptsLegal {
       {
         orden: 2,
         id: "huecos_contenido",
-        grupo: "huecos",
+        grupo: "grupo2_huecos",
         nombre: "Paso 2A: Huecos de Contenido Legal",
         archivo: "paso-2a-huecos-contenido-legal.md",
         duracion: "15 min",
@@ -48,7 +48,7 @@ class ExecutorPromptsLegal {
       {
         orden: 3,
         id: "zona_casi",
-        grupo: "huecos",
+        grupo: "grupo2_huecos",
         nombre: "Paso 2B: Zona de Casi (Posición 8-20)",
         archivo: "paso-2b-zona-casi.md",
         duracion: "15 min",
@@ -57,7 +57,7 @@ class ExecutorPromptsLegal {
       {
         orden: 4,
         id: "ctr_bajo",
-        grupo: "huecos",
+        grupo: "grupo2_huecos",
         nombre: "Paso 2C: Sales Alto Pero No Te Dan Clic",
         archivo: "paso-2c-ctr-bajo.md",
         duracion: "15 min",
@@ -66,7 +66,7 @@ class ExecutorPromptsLegal {
       {
         orden: 5,
         id: "canibalizacion",
-        grupo: "huecos",
+        grupo: "grupo2_huecos",
         nombre: "Paso 2D: Canibalización [OPCIONAL]",
         archivo: "paso-2d-canibalizacion.md",
         duracion: "15 min",
@@ -76,7 +76,7 @@ class ExecutorPromptsLegal {
       {
         orden: 6,
         id: "tabla_priorizada",
-        grupo: "priorizacion",
+        grupo: "grupo3_priorizacion",
         nombre: "Paso 3: Tabla de Qué Hago Primero",
         archivo: "paso-3-tabla-priorizada.md",
         duracion: "20 min",
@@ -85,7 +85,7 @@ class ExecutorPromptsLegal {
       {
         orden: 7,
         id: "brief_legal",
-        grupo: "produccion",
+        grupo: "grupo4_produccion",
         nombre: "Paso 4A: Brief Antes del Artículo Legal",
         archivo: "paso-4a-brief-legal.md",
         duracion: "20 min",
@@ -94,7 +94,7 @@ class ExecutorPromptsLegal {
       {
         orden: 8,
         id: "articulo_completo",
-        grupo: "produccion",
+        grupo: "grupo4_produccion",
         nombre: "Paso 4B: Artículo Completo (Con Datos Legales)",
         archivo: "paso-4b-articulo-completo.md",
         duracion: "45 min",
@@ -103,7 +103,7 @@ class ExecutorPromptsLegal {
       {
         orden: 9,
         id: "auditoria_plugin",
-        grupo: "auditoria",
+        grupo: "grupo5_auditoria",
         nombre: "Paso 5A: Auditar con Plugin",
         archivo: "paso-5a-auditoria-plugin.md",
         duracion: "15 min",
@@ -112,7 +112,7 @@ class ExecutorPromptsLegal {
       {
         orden: 10,
         id: "titulos_descripciones",
-        grupo: "auditoria",
+        grupo: "grupo5_auditoria",
         nombre: "Paso 5B: Reescribir Títulos y Descripciones",
         archivo: "paso-5b-titulos-descripciones.md",
         duracion: "20 min",
@@ -121,7 +121,7 @@ class ExecutorPromptsLegal {
       {
         orden: 11,
         id: "comparacion_6semanas",
-        grupo: "medicion",
+        grupo: "grupo6_medicion",
         nombre: "Paso 6: Medir a las Seis Semanas",
         archivo: "paso-6-comparacion-6-semanas.md",
         duracion: "20 min",
