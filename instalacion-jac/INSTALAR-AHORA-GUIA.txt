@@ -1,0 +1,119 @@
+════════════════════════════════════════════════════════════════
+              🚀 INSTALACIÓN RÁPIDA - 3 PASOS
+════════════════════════════════════════════════════════════════
+
+PASO 1: EJECUTAR INSTALADOR
+────────────────────────────────────────
+
+1. Click DERECHO en: install-all.bat
+2. Selecciona: "Ejecutar como administrador"
+3. Presiona YES en el aviso de permisos
+4. Espera a que termine (1-2 minutos)
+5. Presiona cualquier tecla
+
+✓ Se instalarán:
+  - Todos los scripts
+  - Las dependencias (npm)
+  - La configuración
+  - Se desactivará pantalla negra
+
+════════════════════════════════════════════════════════════════
+
+PASO 2: CONFIGURAR TERMINAL (PowerShell)
+────────────────────────────────────────
+
+1. Presiona: Windows + X
+2. Selecciona: "Windows PowerShell (Admin)"
+
+   O busca: PowerShell en el menú Inicio
+
+3. Copia y pega este comando:
+
+   New-Item -Path $PROFILE -Type File -Force | Out-Null;
+   Copy-Item ".\profile.ps1" $PROFILE -Force;
+   Write-Host "✓ Perfil instalado" -ForegroundColor Green
+
+4. Presiona ENTER
+5. Reinicia PowerShell
+
+════════════════════════════════════════════════════════════════
+
+PASO 3: PROBAR LOS COMANDOS
+────────────────────────────────────────
+
+En PowerShell, ejecuta:
+
+  audit "Luz Deira"          ← Genera auditoría
+  legal "sucesiones"         ← Busca jurisprudencia
+  sync-downloads             ← Organiza descargas
+  alerts check               ← Ve alertas vencidas
+
+═══════════════════════════════════════════════════════════════
+
+🎯 ¡LISTO! Ya tienes todo funcionando en tu PC.
+
+═══════════════════════════════════════════════════════════════
+
+COMANDOS DIARIOS:
+
+📋 Generar auditoría:
+   audit "Nombre del caso"
+
+📚 Buscar jurisprudencia:
+   legal "tema"
+
+📁 Organizar descargas:
+   sync-downloads
+
+⏰ Gestionar vencimientos:
+   alerts check
+   alerts new "2026-09-20" "Demanda en familia"
+
+📂 Navegar:
+   docs        → Abre documentos JAC
+   scripts     → Abre carpeta de scripts
+   home        → Abre carpeta del usuario
+
+════════════════════════════════════════════════════════════════
+
+¿PROBLEMAS?
+
+❌ "node no se reconoce"
+   → Instala Node.js desde: https://nodejs.org/
+   → Reinicia PowerShell
+
+❌ PowerShell no ejecuta scripts
+   → Ejecuta (como admin):
+     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+
+❌ Perfil no se carga
+   → Abre PowerShell como admin
+   → Ejecuta: $PROFILE (para ver la ruta)
+   → Copia profile.ps1 a esa ruta
+   → Reinicia PowerShell
+
+════════════════════════════════════════════════════════════════
+
+Archivos en tu PC después de instalar:
+
+C:\Users\JorgeCortés\
+├── .claude\
+│   ├── scripts\
+│   │   ├── auto-auditoria.js
+│   │   ├── auto-jurisprudencia.js
+│   │   ├── auto-descargas.js
+│   │   ├── auto-notificaciones.js
+│   │   └── fix-black-screen.bat
+│   └── config\
+│       └── jac-config.json
+├── Documents\
+│   ├── JAC-Documentos\    ← Tus auditorías organizadas
+│   ├── JAC-Alertas\        ← Vencimientos
+│   └── JAC-Logs\           ← Logs de sincronización
+└── Downloads\              ← Se organiza automáticamente
+
+════════════════════════════════════════════════════════════════
+
+¡Listo! Tu sistema JAC está instalado y funcionando en local.
+
+════════════════════════════════════════════════════════════════
