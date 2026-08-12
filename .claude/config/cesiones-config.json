@@ -1,0 +1,84 @@
+{
+  "cesiones": {
+    "habilitadas": true,
+    "procesamiento": {
+      "automatico": true,
+      "frecuencia": "tiempo-real",
+      "guardar_analisis": true,
+      "ejecutar_agentes": true,
+      "generar_alertas": true
+    },
+    "deteccion": {
+      "palabras_clave": [
+        "cesión",
+        "cedente",
+        "cesionario",
+        "cesión de derechos",
+        "cesión de crédito",
+        "cesión de acciones",
+        "cesión de participaciones",
+        "endoso",
+        "transferencia de derechos",
+        "traspaso",
+        "subrogación"
+      ],
+      "confianza_minima": 20
+    },
+    "extraccion": {
+      "cedente": true,
+      "cesionario": true,
+      "tipo_derechos": true,
+      "monto": true,
+      "fecha": true,
+      "normativa": true
+    },
+    "analisis_riesgos": {
+      "detectar_ausencia_contraprestacion": true,
+      "detectar_identidad_incompleta": true,
+      "detectar_falta_consentimiento": true,
+      "detectar_fecha_incompleta": true,
+      "detectar_indicios_fraude": true,
+      "generar_recomendaciones": true
+    },
+    "agentes": {
+      "auditor_contractual": true,
+      "investigador_jurisprudencial": true,
+      "consultor_comunicaciones": true,
+      "redactor_ejecutivo": true
+    },
+    "almacenamiento": {
+      "base": "~/Documents/JAC-Correos-Procesados",
+      "carpeta_cesiones": "cesiones",
+      "por_tipo_derechos": true,
+      "por_nivel_riesgo": true,
+      "generar_indice": true
+    },
+    "notificaciones": {
+      "habilitadas": true,
+      "alertar_riesgos_criticos": true,
+      "alertar_riesgos_altos": true,
+      "resumen_diario": true,
+      "canales": [
+        "archivo_log",
+        "consola",
+        "correo_respuesta"
+      ]
+    },
+    "integraciones": {
+      "ecosistema_legal": true,
+      "base_cesiones": true,
+      "calendario_terminos": true,
+      "auditoria_pre_radicacion": true
+    },
+    "normativa_aplicable": {
+      "colombia": {
+        "codigo_civil": "Artículos 1972-2014",
+        "codigo_comercio": "Artículos 809-815",
+        "leyes_especiales": [
+          "Ley 1480/2011 (Protección Derechos del Consumidor)",
+          "Ley 1682/2013 (Reforma Tributaria)"
+        ]
+      }
+    }
+  }
+}
