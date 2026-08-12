@@ -1,0 +1,132 @@
+{
+  "name": "consultor-comunicaciones-jac",
+  "displayName": "Consultor Legal de Comunicaciones",
+  "description": "Analiza automáticamente comunicaciones legales complejas y toma decisiones estratégicas",
+  "type": "decision-agent",
+  "baseSkill": "síntesis-jurídica-emails",
+  "autonomyLevel": "high",
+  "capabilities": {
+    "inputProcessing": ["email", "chat", "documents"],
+    "analysis": ["extract-parties", "identify-risks", "extract-decisions", "extract-tasks"],
+    "decisions": ["escalate", "trigger-jurisprudence-search", "trigger-contract-analysis", "create-alert"],
+    "output": ["summary-pdf", "tasks-board", "risk-alerts", "notifications"]
+  },
+  "decisionRules": {
+    "escalateToHuman": {
+      "trigger": "risk_score > 8",
+      "notification": ["slack://socios-urgent", "email://socios@jacabogados.co"]
+    },
+    "triggerJurisprudenceSearch": {
+      "trigger": "precedent_mentioned OR legal_question_raised",
+      "action": "invoke investigador-jurisprudencial"
+    },
+    "triggerContractAnalysis": {
+      "trigger": "contract_mentioned OR clause_discussion",
+      "action": "invoke auditor-contractual"
+    },
+    "autoApprove": {
+      "trigger": "risk_score < 3",
+      "action": "process_silently"
+    }
+  },
+  "workflowSteps": [
+    {
+      "step": 1,
+      "name": "extract-communication",
+      "prompt": "Extrae información de comunicación legal",
+      "timeout": 30
+    },
+    {
+      "step": 2,
+      "name": "analyze-risks",
+      "prompt": "Analiza riesgos identificados",
+      "timeout": 30
+    },
+    {
+      "step": 3,
+      "name": "identify-tasks",
+      "prompt": "Extrae tareas con responsable y fecha",
+      "timeout": 20
+    },
+    {
+      "step": 4,
+      "name": "generate-summary",
+      "prompt": "Genera resumen ejecutivo de máximo 150 palabras",
+      "timeout": 30
+    },
+    {
+      "step": 5,
+      "name": "decide-escalation",
+      "prompt": "Decide si escalar a humano basado en riesgos",
+      "timeout": 20
+    }
+  ],
+  "qualityChecks": {
+    "onlyExplicitInformation": true,
+    "noSpeculations": true,
+    "tasksHaveResponsible": true,
+    "risksClassified": true,
+    "trackeableReferences": true
+  },
+  "outputs": {
+    "default": {
+      "format": "pdf",
+      "path": "outputs/síntesis/",
+      "template": "summary-executive-one-page"
+    },
+    "secondary": [
+      {
+        "format": "html",
+        "path": "outputs/síntesis/",
+        "purpose": "internal-review"
+      },
+      {
+        "format": "json",
+        "path": ".claude/logs/decisions/",
+        "purpose": "audit-trail"
+      }
+    ]
+  },
+  "notifications": {
+    "onSuccess": {
+      "slack": "#legal-automation",
+      "format": "brief-summary"
+    },
+    "onRiskDetected": {
+      "slack": "#socios-urgent",
+      "email": "socios@jacabogados.co",
+      "format": "detailed-alert"
+    },
+    "onEscalation": {
+      "slack": ["#socios-urgent", "#legal-automation"],
+      "email": "socios@jacabogados.co",
+      "format": "full-details"
+    }
+  },
+  "schedule": {
+    "type": "daily",
+    "time": "08:00",
+    "timezone": "America/Bogota",
+    "daysOfWeek": [1, 2, 3, 4, 5],
+    "inputs": {
+      "source": "gmail",
+      "filters": {
+        "unread": true,
+        "folders": ["Clientes Principales", "Contraparte"],
+        "lastHours": 24
+      }
+    }
+  },
+  "fallback": {
+    "onError": "flag-for-manual-review",
+    "notifyOn": "all-errors",
+    "maxRetries": 3
+  },
+  "auditTrail": {
+    "enabled": true,
+    "logPath": ".claude/logs/audit-consultor-comunicaciones.log",
+    "captureInputs": true,
+    "captureDecisions": true,
+    "captureOutputs": true
+  }
+}

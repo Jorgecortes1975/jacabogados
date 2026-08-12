@@ -1,0 +1,238 @@
+{
+  "name": "investigador-jurisprudencial-jac",
+  "displayName": "Investigador Jurisprudencial Automatizado",
+  "description": "Busca y verifica jurisprudencia de 9 fuentes oficiales colombianas sin alucinaciones",
+  "type": "research-agent",
+  "baseSkill": "búsqueda-jurisprudencial-automatizada",
+  "autonomyLevel": "high",
+  "verificationLevel": "critical",
+  "capabilities": {
+    "sources": [
+      "corte-constitucional",
+      "consejo-estado",
+      "corte-suprema",
+      "legal-data-hunter",
+      "suin",
+      "diario-oficial",
+      "congreso-colombia",
+      "superintendencia-sociedades",
+      "dian"
+    ],
+    "operations": ["search", "compare", "analyze-trends", "verify-citations"],
+    "output": ["comparison-table", "trend-analysis", "strategic-recommendation"]
+  },
+  "searchParameters": {
+    "maxResults": 10,
+    "sourceValidation": "required",
+    "citationFormat": "radicado-date-ponente",
+    "halluccinationCheck": "critical",
+    "verifyVigencia": true,
+    "checkIfRevoked": true
+  },
+  "verificationRules": [
+    {
+      "check": "sourceOfficial",
+      "rule": "Solo fuentes oficiales colombianas",
+      "failAction": "reject"
+    },
+    {
+      "check": "exactRadicado",
+      "rule": "Radicado debe existir en fuente",
+      "failAction": "reject"
+    },
+    {
+      "check": "officialDate",
+      "rule": "Fecha de sentencia verificada",
+      "failAction": "reject"
+    },
+    {
+      "check": "ponenteVerified",
+      "rule": "Magistrado confirmado en documento",
+      "failAction": "reject"
+    },
+    {
+      "check": "ratioDecidendi",
+      "rule": "Fundamento explícito en sentencia",
+      "failAction": "reject"
+    },
+    {
+      "check": "notRevoked",
+      "rule": "Verificar que no fue revocada",
+      "failAction": "flag-with-warning"
+    }
+  ],
+  "analysisSteps": [
+    {
+      "step": 1,
+      "name": "identify-topic",
+      "description": "Identifica tema específico a investigar"
+    },
+    {
+      "step": 2,
+      "name": "search-all-sources",
+      "description": "Busca en 9 fuentes oficiales",
+      "parallel": true
+    },
+    {
+      "step": 3,
+      "name": "verify-citations",
+      "description": "Verifica radicado, fecha, ponente",
+      "critical": true
+    },
+    {
+      "step": 4,
+      "name": "extract-ratio",
+      "description": "Extrae ratio decidendi de cada sentencia"
+    },
+    {
+      "step": 5,
+      "name": "compare-jurisprudence",
+      "description": "Compara sentencias y tendencias"
+    },
+    {
+      "step": 6,
+      "name": "identify-trends",
+      "description": "Identifica cambios jurisprudenciales"
+    },
+    {
+      "step": 7,
+      "name": "generate-recommendation",
+      "description": "Propone tesis estratégica con fundamentos"
+    }
+  ],
+  "outputs": {
+    "comparisonTable": {
+      "format": "pdf",
+      "path": "outputs/jurisprudencia/",
+      "columns": ["Corte", "Radicado", "Fecha", "Ponente", "Decisión", "Ratio Decidendi", "Relevancia"]
+    },
+    "strategicAnalysis": {
+      "format": "pdf",
+      "path": "outputs/jurisprudencia/",
+      "includes": ["strongest-thesis", "counter-thesis", "jurisprudence-trends", "recommendations"]
+    },
+    "auditLog": {
+      "format": "json",
+      "path": ".claude/logs/jurisprudencia/",
+      "captures": ["all-sources-checked", "verification-results", "decisions"]
+    }
+  },
+  "qualityGates": {
+    "minimumSentencesFound": 3,
+    "allCitationsVerified": true,
+    "noHallucinations": "critical",
+    "noSpeculations": true,
+    "sourceDocumentation": "required"
+  },
+  "schedule": {
+    "type": "periodic",
+    "frequency": "every-4-hours",
+    "times": ["06:00", "10:00", "14:00", "18:00"],
+    "timezone": "America/Bogota",
+    "daysOfWeek": [1, 2, 3, 4, 5],
+    "inputs": {
+      "monitoredTopics": [
+        "derecho-laboral",
+        "derecho-civil",
+        "derecho-penal",
+        "derecho-administrativo",
+        "derecho-comercial",
+        "direccion-corporativo-empresarial"
+      ],
+      "ramasLegales": {
+        "laboral": {
+          "activo": true,
+          "temasEspecificos": [
+            "despido-sin-justa-causa",
+            "indemnización",
+            "prestaciones-sociales",
+            "acoso-laboral",
+            "derecho-huelga"
+          ]
+        },
+        "civil": {
+          "activo": true,
+          "temasEspecificos": [
+            "responsabilidad-civil",
+            "daño-moral",
+            "daño-patrimonial",
+            "incumplimiento-contrato",
+            "obligaciones"
+          ]
+        },
+        "penal": {
+          "activo": true,
+          "temasEspecificos": [
+            "estafa",
+            "fraude",
+            "lavado-dinero",
+            "corrupción",
+            "delitos-informaticos"
+          ]
+        },
+        "administrativo": {
+          "activo": true,
+          "temasEspecificos": [
+            "nulidad-acto-administrativo",
+            "reparación-directa",
+            "contratación-publica",
+            "licitación",
+            "procedimiento-administrativo"
+          ]
+        },
+        "comercial": {
+          "activo": true,
+          "temasEspecificos": [
+            "sociedades",
+            "accionistas",
+            "competencia-desleal",
+            "propiedad-industrial",
+            "insolvencia"
+          ]
+        },
+        "corporativo-empresarial": {
+          "activo": true,
+          "temasEspecificos": [
+            "gobierno-corporativo",
+            "responsabilidad-directivos",
+            "derechos-minoria",
+            "fusión-adquisicion",
+            "due-diligence"
+          ]
+        }
+      }
+    }
+  },
+  "integrations": {
+    "consultor-comunicaciones": {
+      "trigger": "precedent_mentioned",
+      "action": "auto-search"
+    },
+    "redactor-ejecutivo": {
+      "trigger": "end-of-period",
+      "action": "include-latest-findings"
+    }
+  },
+  "notifications": {
+    "onNewJurisprudence": {
+      "slack": "#legal-automation",
+      "format": "discovered-judgments"
+    },
+    "onJurisprudenceReversed": {
+      "slack": "#socios-urgent",
+      "email": "socios@jacabogados.co",
+      "format": "critical-alert"
+    },
+    "onTrendChange": {
+      "slack": "#legal-automation",
+      "format": "trend-notification"
+    }
+  },
+  "auditTrail": {
+    "enabled": true,
+    "logPath": ".claude/logs/audit-jurisprudencia.log",
+    "captureAllSearches": true,
+    "captureVerifications": true,
+    "captureDecisions": true
+  }
+}

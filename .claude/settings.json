@@ -35,7 +35,7 @@
       "enabled": true
     },
     "búsqueda-jurisprudencial-4h": {
-      "description": "Monitoreo automático de jurisprudencia en temas activos",
+      "description": "Monitoreo automático de jurisprudencia en 6 ramas del derecho colombiano",
       "trigger": "schedule",
       "schedule": "0 6,10,14,18 * * *",
       "timezone": "America/Bogota",
@@ -43,9 +43,19 @@
       "inputs": {
         "monitored_topics": [
           "derecho-laboral",
-          "responsabilidad-civil",
+          "derecho-civil",
+          "derecho-penal",
+          "derecho-administrativo",
           "derecho-comercial",
-          "tributario"
+          "direccion-corporativo-empresarial"
+        ],
+        "ramasLegales": [
+          "laboral",
+          "civil",
+          "penal",
+          "administrativo",
+          "comercial",
+          "corporativo-empresarial"
         ],
         "sources": [
           "corte-constitucional",
