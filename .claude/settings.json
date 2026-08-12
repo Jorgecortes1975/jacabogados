@@ -1,0 +1,284 @@
+{
+  "version": "1.0.0",
+  "automation": {
+    "enabled": true,
+    "mode": "professional-corporate",
+    "environment": "JAC-Abogados-Asociados"
+  },
+  "loops": {
+    "síntesis-jurídica-diaria": {
+      "description": "Síntesis automática de comunicaciones legales",
+      "trigger": "schedule",
+      "schedule": "0 8 * * 1-5",
+      "timezone": "America/Bogota",
+      "skill": "síntesis-jurídica-emails",
+      "inputs": {
+        "source": "gmail",
+        "filters": {
+          "unread": true,
+          "folders": ["Clientes Principales", "Contraparte"],
+          "last_hours": 24
+        },
+        "format": "ejecutivo"
+      },
+      "outputs": {
+        "path": "outputs/síntesis/",
+        "format": ["html", "pdf"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Síntesis Diaria/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "email": false,
+        "alert_on": "risk_detected"
+      },
+      "enabled": true
+    },
+    "búsqueda-jurisprudencial-4h": {
+      "description": "Monitoreo automático de jurisprudencia en temas activos",
+      "trigger": "schedule",
+      "schedule": "0 6,10,14,18 * * *",
+      "timezone": "America/Bogota",
+      "skill": "búsqueda-jurisprudencial-automatizada",
+      "inputs": {
+        "monitored_topics": [
+          "derecho-laboral",
+          "responsabilidad-civil",
+          "derecho-comercial",
+          "tributario"
+        ],
+        "sources": [
+          "corte-constitucional",
+          "consejo-estado",
+          "corte-suprema",
+          "legal-data-hunter",
+          "suin"
+        ],
+        "timeframe": "last_7_days"
+      },
+      "outputs": {
+        "path": "outputs/jurisprudencia/",
+        "format": ["html", "pdf"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Jurisprudencia/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "email": "socios@jacabogados.co",
+        "alert_on": ["new_jurisprudence", "jurisprudence_reversed"]
+      },
+      "enabled": true
+    },
+    "análisis-contractual-semanal": {
+      "description": "Análisis de riesgos contractuales todos los viernes",
+      "trigger": "schedule",
+      "schedule": "0 17 * * 5",
+      "timezone": "America/Bogota",
+      "skill": "análisis-flujo-contractual",
+      "inputs": {
+        "contract_sources": [
+          "contratos/",
+          "contratos-archivados/",
+          "contratos-pendientes/"
+        ],
+        "analysis_depth": "exhaustiva",
+        "include_benchmarking": true,
+        "alert_thresholds": {
+          "risk_score_above": 6,
+          "expiration_days": [30, 60, 90],
+          "jurisprudence_changes": true
+        }
+      },
+      "outputs": {
+        "path": "outputs/contratos/",
+        "format": ["html", "pdf"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Análisis Contractual/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "email": "socios@jacabogados.co",
+        "alert_on": ["risk_critical", "expiration_warning"]
+      },
+      "enabled": true
+    },
+    "reporte-mensual-ejecutivo": {
+      "description": "Generación de reporte mensual compilado",
+      "trigger": "schedule-monthly",
+      "schedule": "0 16 L * *",
+      "timezone": "America/Bogota",
+      "skill": "generador-reportes-ejecutivos",
+      "inputs": {
+        "type": "integral-monthly",
+        "include_sections": [
+          "sintesis-comunicaciones",
+          "jurisprudencia-verificada",
+          "evaluacion-riesgos",
+          "plan-accion",
+          "impacto-financiero"
+        ],
+        "aggregate_sources": [
+          "outputs/síntesis/",
+          "outputs/jurisprudencia/",
+          "outputs/contratos/"
+        ]
+      },
+      "outputs": {
+        "path": "outputs/reportes/",
+        "formats": ["pdf", "docx", "html", "pptx"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Reportes Ejecutivos/",
+        "archive_previous": true
+      },
+      "notifications": {
+        "slack": "#reportes-legales",
+        "email": ["socios@jacabogados.co", "clientes@ejemplo.co"],
+        "alert_on": "completion"
+      },
+      "enabled": true
+    }
+  },
+  "hooks": {
+    "pre-automation": {
+      "description": "Preparar entorno antes de loops",
+      "enabled": true,
+      "commands": [
+        "git fetch origin main",
+        "npm install --silent"
+      ]
+    },
+    "post-síntesis": {
+      "description": "Después de síntesis, investigar jurisprudencia si hay referencias",
+      "enabled": true,
+      "trigger": "síntesis-jurídica-diaria-complete",
+      "action": "if_jurisprudence_mentioned then trigger búsqueda-jurisprudencial-4h"
+    },
+    "post-jurisprudencia": {
+      "description": "Si hay jurisprudencia nueva, incluir en reporte mensual",
+      "enabled": true,
+      "trigger": "búsqueda-jurisprudencial-4h-complete",
+      "action": "append_to_monthly_report"
+    },
+    "escalacion-riesgos": {
+      "description": "Si riesgo crítico detectado, notificar inmediatamente a socios",
+      "enabled": true,
+      "trigger": "risk_score_above_8",
+      "action": "send_urgent_notification",
+      "targets": ["slack://socios-urgent", "email://socios@jacabogados.co"]
+    },
+    "sincronizacion-drive": {
+      "description": "Sincronizar outputs con Google Drive cada 6 horas",
+      "enabled": true,
+      "trigger": "schedule",
+      "schedule": "0 */6 * * *",
+      "action": "sync_outputs_to_drive",
+      "retry_failed": true,
+      "backoff": "exponential"
+    },
+    "notificacion-vencimientos": {
+      "description": "Recordar vencimientos contractuales",
+      "enabled": true,
+      "trigger": "schedule",
+      "schedule": "0 9 * * 1-5",
+      "action": "notify_contract_expirations",
+      "days_before": [90, 60, 30, 14, 7, 1]
+    },
+    "validacion-calidad": {
+      "description": "Validar que outputs cumplan estándares de calidad",
+      "enabled": true,
+      "trigger": "any-loop-complete",
+      "checks": [
+        "verified_sources_only",
+        "citas_verificables",
+        "no_hallucinations",
+        "formato_profesional"
+      ],
+      "fail_action": "flag_for_review"
+    }
+  },
+  "integrations": {
+    "gmail": {
+      "enabled": true,
+      "scopes": ["readonly"]
+    },
+    "google_drive": {
+      "enabled": true,
+      "scopes": ["read", "write"],
+      "sync_interval": "6h",
+      "folders": {
+        "síntesis": "JAC/Síntesis Diaria/",
+        "jurisprudencia": "JAC/Jurisprudencia/",
+        "contratos": "JAC/Análisis Contractual/",
+        "reportes": "JAC/Reportes Ejecutivos/"
+      }
+    },
+    "slack": {
+      "enabled": true,
+      "channels": {
+        "automation": "#legal-automation",
+        "reportes": "#reportes-legales",
+        "urgent": "#socios-urgent"
+      },
+      "message_format": "rich-formatting"
+    },
+    "github": {
+      "enabled": true,
+      "auto_commit": true,
+      "commit_frequency": "daily",
+      "branch": "claude/claude-automation-skills-os6e2k"
+    }
+  },
+  "quality_assurance": {
+    "enabled": true,
+    "rules": {
+      "jurisprudencia_verificada": {
+        "description": "Solo jurisprudencia de fuentes oficiales",
+        "validation": "required",
+        "source_validation": true
+      },
+      "citas_trackeables": {
+        "description": "Cada cita debe tener radicado y fecha",
+        "validation": "required"
+      },
+      "no_hallucinations": {
+        "description": "No generar sentencias inventadas",
+        "validation": "critical",
+        "check_frequency": "every_output"
+      },
+      "profesionalismo": {
+        "description": "Formato y tono profesional corporativo",
+        "validation": "required"
+      }
+    },
+    "fail_on_missing": "critical",
+    "review_before_send": "risk_score_above_5"
+  },
+  "permissions": {
+    "gmail_read": true,
+    "drive_sync": true,
+    "slack_notify": true,
+    "git_commit": true,
+    "file_system_write": true
+  },
+  "logging": {
+    "enabled": true,
+    "level": "info",
+    "outputs": [
+      ".claude/logs/automation.log",
+      "outputs/logs/"
+    ]
+  },
+  "error_handling": {
+    "retry_failed_loops": true,
+    "max_retries": 3,
+    "backoff_strategy": "exponential",
+    "notify_on_failure": true,
+    "fail_notifications": "socios@jacabogados.co"
+  },
+  "schedule_preferences": {
+    "timezone": "America/Bogota",
+    "business_hours_only": true,
+    "skip_weekends": true,
+    "skip_holidays_colombia": true
+  }
+}
