@@ -293,6 +293,71 @@
         "slack": "#legal-automation"
       },
       "enabled": true
+    },
+    "validacion-auto-regulacion-nocturna": {
+      "description": "Ciclo nocturno de validación, mejora continua y detección de alucinaciones",
+      "trigger": "schedule",
+      "schedule": "0 22 * * *",
+      "timezone": "America/Bogota",
+      "type": "auto-mejora-continua",
+      "phase": "ciclo-completo",
+      "inputs": {
+        "validar_prompts": true,
+        "detectar_alucinaciones": true,
+        "mejorar_skills": true,
+        "actualizar_jurisprudencia": true,
+        "tecnicas_vanguardia": [
+          "análisis-jurisprudencial-avanzado",
+          "redacción-legal-persuasiva",
+          "análisis-de-riesgo-predictivo",
+          "validación-múltiple-fuentes",
+          "detección-alucinaciones-avanzada"
+        ],
+        "fuentes_validacion": [
+          "corte-constitucional",
+          "corte-suprema",
+          "consejo-estado",
+          "diario-oficial",
+          "suin",
+          "dian",
+          "superintendencia-sociedades"
+        ],
+        "target_score": 85,
+        "ramasLegales": [
+          "laboral",
+          "civil",
+          "penal",
+          "administrativo",
+          "comercial",
+          "corporativo-empresarial"
+        ]
+      },
+      "outputs": {
+        "path": "outputs/auto-regulacion/",
+        "format": ["json", "html", "pdf"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Auto-Regulación Nocturna/",
+        "include_metrics": true
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "email": "socios@jacabogados.co",
+        "alert_on": [
+          "alucinaciones_detectadas",
+          "mejoras_aplicadas",
+          "skills_actualizados"
+        ],
+        "summary_report": true
+      },
+      "quality_assurance": {
+        "validaciones_ejecutadas": 60,
+        "alucinaciones_prevenidas": "todas",
+        "confianza_minima": 0.95,
+        "precision_requerida": "100%"
+      },
+      "enabled": true,
+      "prioridad": "crítica",
+      "autonomía": "alta"
     }
   },
   "hooks": {
@@ -361,6 +426,46 @@
         "formato_profesional"
       ],
       "fail_action": "flag_for_review"
+    },
+    "auto-regulacion-nocturna-trigger": {
+      "description": "Dispara ciclo nocturno de auto-mejora después de cualquier cambio de skill",
+      "enabled": true,
+      "trigger": "any-skill-modified",
+      "action": "trigger_validacion-auto-regulacion-nocturna",
+      "timing": "schedule_next_22:00",
+      "priority": "high",
+      "retry_on_failure": true
+    },
+    "deteccion-alucinaciones-continua": {
+      "description": "Detecta alucinaciones en tiempo real durante ejecución de tasks",
+      "enabled": true,
+      "trigger": "task-execution-start",
+      "action": "triple_verify_output",
+      "verificar_contra": [
+        "corte-constitucional",
+        "corte-suprema",
+        "consejo-estado"
+      ],
+      "fail_action": "prevent_hallucination_output",
+      "confidence_threshold": 0.95
+    },
+    "mejora-continua-skills": {
+      "description": "Aplica mejoras continuas a skills basado en resultados",
+      "enabled": true,
+      "trigger": "daily-22:00",
+      "actions": [
+        "validar_prompts_maestros",
+        "detectar_alucinaciones",
+        "aplicar_mejoras",
+        "actualizar_con_jurisprudencia_nueva",
+        "integrar_tecnicas_vanguardia",
+        "generar_reporte"
+      ],
+      "techniques": [
+        "análisis-jurisprudencial-avanzado",
+        "redacción-legal-persuasiva",
+        "análisis-de-riesgo-predictivo"
+      ]
     }
   },
   "integrations": {
