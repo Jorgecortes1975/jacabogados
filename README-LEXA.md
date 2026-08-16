@@ -2,6 +2,32 @@
 
 > **Solución integral de servicios legales para Colombia con entrada única, 6 agentes especializados y operación 24/7**
 
+---
+
+## ⚡ Instalación Rápida (2 minutos)
+
+```bash
+# 1. Clonar repositorio
+git clone https://github.com/jorgecortes1975/jacabogados.git
+cd jacabogados
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Configurar variables de entorno
+cp .env.example .env  # Editar con tus valores
+
+# 4. Inicializar base de datos
+npm run db:migrate
+
+# 5. Verificar instalación
+node lexa-super-router.js status
+```
+
+**¿Necesitas ayuda?** Consulta la [Guía Completa de Instalación](./INSTALAR.md) para instrucciones detalladas.
+
+---
+
 ## 🎯 ¿Qué es LEXA-JAC v2.0?
 
 Un **ecosistema autónomo** de agentes especializados que integra:
