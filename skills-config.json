@@ -1,0 +1,283 @@
+{
+  "version": "3.0",
+  "description": "10 Skills Reales para Derecho Colombiano - Sin Alucinaciones - Verificado contra MCP",
+  "skills": [
+    {
+      "id": 1,
+      "nombre": "síntesis-correos-jurídicos",
+      "tarea": "Síntesis de hilos de correo jurídicos",
+      "tipo": "automatizable",
+      "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo"],
+      "fuentes_verificacion": [
+        "Legal_Data_Hunter",
+        "Corte_Suprema_Justicia",
+        "Consejo_Estado",
+        "Corte_Constitucional"
+      ],
+      "parametros": {
+        "input": "hilo_de_correos_raw",
+        "output": "síntesis_estructurada_json",
+        "validar_contra": "jurisprudencia_oficial",
+        "precision_requerida": "100%"
+      },
+      "automático": true,
+      "trigger": "lunes_viernes_08:00",
+      "loops": ["síntesis-jurídica-diaria"]
+    },
+    {
+      "id": 2,
+      "nombre": "comparativa-herramientas-legales",
+      "tarea": "Comparativa de herramientas/SaaS jurídicas",
+      "tipo": "manual_demanda",
+      "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo"],
+      "fuentes_verificacion": [
+        "Superintendencia_Sociedades",
+        "DIAN",
+        "Datos_públicos_herramientas"
+      ],
+      "parametros": {
+        "input": "urls_herramientas",
+        "output": "matriz_comparativa_excel",
+        "validar_contra": "normativa_protección_datos_1581",
+        "precision_requerida": "100%"
+      },
+      "automático": false,
+      "trigger": "manual"
+    },
+    {
+      "id": 3,
+      "nombre": "adaptación-documentos-rama",
+      "tarea": "Adaptación de documentos legales por rama",
+      "tipo": "manual_demanda",
+      "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo"],
+      "fuentes_verificacion": [
+        "Corte_Suprema_Justicia",
+        "Consejo_Estado",
+        "Legal_Data_Hunter"
+      ],
+      "parametros": {
+        "input": "documento_legal_raw",
+        "output": "documento_adaptado_rama",
+        "validar_contra": "jurisprudencia_rama_específica",
+        "precision_requerida": "100%"
+      },
+      "automático": false,
+      "trigger": "manual"
+    },
+    {
+      "id": 4,
+      "nombre": "extracción-datos-tablas",
+      "tarea": "Extracción de datos jurídicos a tablas estructuradas",
+      "tipo": "automático_periodia",
+      "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo"],
+      "fuentes_verificacion": [
+        "Legal_Data_Hunter",
+        "Corte_Suprema_Justicia",
+        "Consejo_Estado"
+      ],
+      "parametros": {
+        "input": "página_web_jurisprudencia",
+        "output": "tabla_excel_estructurada",
+        "validar_contra": "datos_verificables_oficial",
+        "precision_requerida": "100%"
+      },
+      "automático": true,
+      "trigger": "cada_4_horas",
+      "loops": ["búsqueda-jurisprudencial-4h"]
+    },
+    {
+      "id": 5,
+      "nombre": "optimización-comunicación-legal",
+      "tarea": "Optimización de comunicación legal profesional",
+      "tipo": "manual_demanda",
+      "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo"],
+      "fuentes_verificacion": ["Ley_1581_2012", "Estándares_profesionales"],
+      "parametros": {
+        "input": "borrador_comunicación",
+        "output": "comunicación_optimizada",
+        "validar_contra": "tono_profesional_derecho",
+        "precision_requerida": "100%"
+      },
+      "automático": false,
+      "trigger": "manual"
+    },
+    {
+      "id": 6,
+      "nombre": "análisis-sentencias-informes",
+      "tarea": "Análisis de informes/sentencias jurídicas",
+      "tipo": "automático_periodico",
+      "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo"],
+      "fuentes_verificacion": [
+        "Corte_Suprema_Justicia",
+        "Consejo_Estado",
+        "Corte_Constitucional",
+        "Legal_Data_Hunter"
+      ],
+      "parametros": {
+        "input": "sentencia_pdf_texto",
+        "output": "análisis_estructura_json",
+        "validar_contra": "jurisprudencia_oficial",
+        "precision_requerida": "100%"
+      },
+      "automático": true,
+      "trigger": "cada_4_horas",
+      "loops": ["búsqueda-jurisprudencial-4h"]
+    },
+    {
+      "id": 7,
+      "nombre": "resolución-errores-jurídicos",
+      "tarea": "Resolución de errores jurídicos",
+      "tipo": "manual_demanda",
+      "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo"],
+      "fuentes_verificacion": [
+        "Corte_Suprema_Justicia",
+        "Normativa_vigente"
+      ],
+      "parametros": {
+        "input": "error_jurídico_descripción",
+        "output": "solución_paso_a_paso",
+        "validar_contra": "normativa_rama_específica",
+        "precision_requerida": "100%"
+      },
+      "automático": false,
+      "trigger": "manual"
+    },
+    {
+      "id": 8,
+      "nombre": "briefing-reuniones-legales",
+      "tarea": "Briefing para reuniones legales",
+      "tipo": "manual_demanda",
+      "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo"],
+      "fuentes_verificacion": [
+        "Legal_Data_Hunter",
+        "Información_pública",
+        "Jurisprudencia"
+      ],
+      "parametros": {
+        "input": "perfil_persona_empresa",
+        "output": "briefing_ejecutivo_json",
+        "validar_contra": "información_verificable",
+        "precision_requerida": "100%"
+      },
+      "automático": false,
+      "trigger": "manual"
+    },
+    {
+      "id": 9,
+      "nombre": "estructuración-notas-actas",
+      "tarea": "Estructuración de notas y actas profesionales",
+      "tipo": "manual_demanda",
+      "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo"],
+      "fuentes_verificacion": ["Estándares_procedimentales"],
+      "parametros": {
+        "input": "notas_desordenadas",
+        "output": "acta_profesional_formato",
+        "validar_contra": "formato_tribunal",
+        "precision_requerida": "100%"
+      },
+      "automático": false,
+      "trigger": "manual"
+    },
+    {
+      "id": 10,
+      "nombre": "verificación-información-legal",
+      "tarea": "Verificación de información legal contra fuentes oficiales",
+      "tipo": "automático_periodico",
+      "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo"],
+      "fuentes_verificacion": [
+        "Legal_Data_Hunter",
+        "Corte_Suprema_Justicia",
+        "Corte_Constitucional",
+        "Consejo_Estado",
+        "SUIN"
+      ],
+      "parametros": {
+        "input": "afirmación_legal",
+        "output": "verificación_resultado",
+        "validar_contra": "múltiples_fuentes_oficiales",
+        "precision_requerida": "100%"
+      },
+      "automático": true,
+      "trigger": "cada_4_horas",
+      "loops": ["búsqueda-jurisprudencial-4h"]
+    }
+  ],
+  "agentes": [
+    {
+      "id": "agente-1",
+      "nombre": "Consultor Legal de Comunicaciones JAC",
+      "skills": [1, 5, 8],
+      "automático": false,
+      "trigger": "manual",
+      "descripción": "Síntesis, optimización y briefings para comunicación legal"
+    },
+    {
+      "id": "agente-2",
+      "nombre": "Investigador Jurisprudencial JAC",
+      "skills": [4, 6, 10],
+      "automático": true,
+      "trigger": "cada_4_horas",
+      "descripción": "Extracción, análisis y verificación de jurisprudencia"
+    },
+    {
+      "id": "agente-3",
+      "nombre": "Auditor de Riesgos Contractuales JAC",
+      "skills": [2, 3, 7],
+      "automático": true,
+      "trigger": "viernes_17:00",
+      "descripción": "Comparativa, adaptación y resolución de errores"
+    },
+    {
+      "id": "agente-4",
+      "nombre": "Redactor Ejecutivo JAC",
+      "skills": [3, 9],
+      "automático": true,
+      "trigger": "fin_de_mes_16:00",
+      "descripción": "Adaptación de documentos y estructuración de reportes"
+    }
+  ],
+  "garantía_anti_alucinación": {
+    "enabled": true,
+    "nivel": "crítico",
+    "verificación": "triple_check",
+    "fuentes_oficiales": [
+      "Legal_Data_Hunter",
+      "Corte_Suprema_Justicia",
+      "Corte_Constitucional",
+      "Consejo_Estado",
+      "Superintendencia_Sociedades",
+      "DIAN",
+      "SUIN",
+      "Diario_Oficial"
+    ],
+    "regla_oro": "Si no está en fuentes oficiales → NO se menciona",
+    "tolerancia_alucinaciones": "0%"
+  },
+  "loops_programados": {
+    "síntesis-jurídica-diaria": {
+      "skills": [1, 9],
+      "schedule": "0 8 * * 1-5",
+      "ramas": 6,
+      "agentes": 1
+    },
+    "búsqueda-jurisprudencial-4h": {
+      "skills": [4, 6, 10],
+      "schedule": "0 6,10,14,18 * * *",
+      "ramas": 6,
+      "agentes": 1
+    },
+    "análisis-contractual-semanal": {
+      "skills": [2, 3, 7],
+      "schedule": "0 17 * * 5",
+      "ramas": 4,
+      "agentes": 1
+    },
+    "reporte-mensual": {
+      "skills": [3, 4, 9],
+      "schedule": "0 16 L * *",
+      "ramas": 6,
+      "agentes": 1
+    }
+  },
+  "estado": "✅ LISTO PARA IMPLEMENTAR COMO SKILLS EN CLAUDE CODE"
+}

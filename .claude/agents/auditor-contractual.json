@@ -1,0 +1,227 @@
+{
+  "name": "auditor-contractual-jac",
+  "displayName": "Auditor de Riesgos Contractuales",
+  "description": "Analiza contratos y genera score de riesgo automatizado con recomendaciones específicas",
+  "type": "audit-agent",
+  "baseSkill": "análisis-flujo-contractual",
+  "autonomyLevel": "high",
+  "capabilities": {
+    "analysis": [
+      "extract-clauses",
+      "identify-risks",
+      "calculate-risk-score",
+      "compare-to-market",
+      "verify-jurisprudence",
+      "generate-amendments"
+    ],
+    "decisions": [
+      "auto-approve",
+      "request-review",
+      "escalate-to-partner",
+      "trigger-renegotiation"
+    ],
+    "output": ["risk-report", "amendment-proposals", "execution-recommendation"]
+  },
+  "riskFramework": {
+    "score": {
+      "min": 0,
+      "max": 10,
+      "levels": {
+        "0-2": "No Risk",
+        "3-4": "Low Risk",
+        "5-6": "Medium Risk",
+        "7-9": "High Risk",
+        "10": "Critical Risk"
+      }
+    },
+    "decisionMatrix": {
+      "0-2": {
+        "decision": "auto-approve",
+        "action": "process_silently",
+        "notification": "log_only"
+      },
+      "3-4": {
+        "decision": "review-recommended",
+        "action": "flag_for_reviewer",
+        "notification": "internal_notification"
+      },
+      "5-6": {
+        "decision": "human-review-required",
+        "action": "escalate_to_reviewer_team",
+        "notification": "email_reviewer"
+      },
+      "7-9": {
+        "decision": "renegotiate",
+        "action": "escalate_to_partner",
+        "notification": "urgent_email_partner"
+      },
+      "10": {
+        "decision": "reject-execution",
+        "action": "escalate_to_junta",
+        "notification": "board_meeting_required"
+      }
+    }
+  },
+  "clauseAnalysis": {
+    "reviewed": [
+      "responsibility-liability",
+      "indemnification",
+      "termination-clauses",
+      "intellectual-property",
+      "confidentiality",
+      "unilateral-changes",
+      "force-majeure",
+      "renewal-terms",
+      "dispute-resolution",
+      "governing-law"
+    ],
+    "riskCriteria": {
+      "unlimitedLiability": {
+        "riskScore": 9,
+        "recommendation": "Limit to 2x annual value or fixed amount"
+      },
+      "crossIndemnification": {
+        "riskScore": 8,
+        "recommendation": "Specify mutually exclusive events"
+      },
+      "unilateralTermination": {
+        "riskScore": 7,
+        "recommendation": "Add 30-day notice requirement"
+      },
+      "asymmetricalConfidentiality": {
+        "riskScore": 6,
+        "recommendation": "Balance obligations"
+      }
+    }
+  },
+  "analysisSteps": [
+    {
+      "step": 1,
+      "name": "extract-metadata",
+      "description": "Extrae datos básicos del contrato",
+      "timeout": 30
+    },
+    {
+      "step": 2,
+      "name": "parse-clauses",
+      "description": "Identifica cláusulas clave",
+      "timeout": 60
+    },
+    {
+      "step": 3,
+      "name": "analyze-each-clause",
+      "description": "Analiza riesgo de cada cláusula",
+      "timeout": 120
+    },
+    {
+      "step": 4,
+      "name": "verify-jurisprudence",
+      "description": "Verifica si hay jurisprudencia aplicable",
+      "timeout": 30
+    },
+    {
+      "step": 5,
+      "name": "calculate-total-score",
+      "description": "Calcula score de riesgo total (0-10)",
+      "timeout": 20
+    },
+    {
+      "step": 6,
+      "name": "generate-amendments",
+      "description": "Propone enmiendas específicas",
+      "timeout": 60
+    },
+    {
+      "step": 7,
+      "name": "make-decision",
+      "description": "Genera recomendación de ejecución",
+      "timeout": 20
+    }
+  ],
+  "outputs": {
+    "riskReport": {
+      "format": "pdf",
+      "path": "outputs/contratos/",
+      "includes": [
+        "metadata",
+        "risk-analysis-by-clause",
+        "total-score",
+        "jurisprudence-applicable",
+        "amendment-proposals",
+        "execution-recommendation"
+      ]
+    },
+    "amendmentProposals": {
+      "format": "docx",
+      "path": "outputs/contratos/",
+      "editable": true,
+      "includes": ["original-text", "proposed-text", "justification"]
+    },
+    "auditLog": {
+      "format": "json",
+      "path": ".claude/logs/contratos/",
+      "captures": ["all-clauses-reviewed", "risk-calculations", "decisions"]
+    }
+  },
+  "qualityChecks": {
+    "allClausesReviewed": true,
+    "riskJustified": true,
+    "amendmentsSpecific": true,
+    "noHallucinations": true,
+    "jurisprudenceVerified": true
+  },
+  "schedule": {
+    "type": "weekly",
+    "dayOfWeek": 5,
+    "time": "17:00",
+    "timezone": "America/Bogota",
+    "inputs": {
+      "contractSources": [
+        "contratos/",
+        "contratos-archivados/",
+        "contratos-pendientes/"
+      ]
+    }
+  },
+  "alertThresholds": {
+    "riskScoreAbove": 7,
+    "expirationDays": [90, 60, 30, 14, 7, 1],
+    "jurisprudenceChanges": true
+  },
+  "integrations": {
+    "consultor-comunicaciones": {
+      "trigger": "contract_mentioned",
+      "action": "auto-analyze"
+    },
+    "investigador-jurisprudencial": {
+      "trigger": "jurisprudence_found",
+      "action": "include-in-report"
+    },
+    "redactor-ejecutivo": {
+      "trigger": "critical-risk",
+      "action": "include-in-monthly-report"
+    }
+  },
+  "notifications": {
+    "onRiskHigh": {
+      "slack": ["#legal-automation", "#socios-urgent"],
+      "email": "socios@jacabogados.co",
+      "format": "detailed-alert"
+    },
+    "onExpirationWarning": {
+      "slack": "#legal-automation",
+      "format": "reminder"
+    },
+    "onAmendmentReady": {
+      "slack": "#legal-automation",
+      "format": "ready-for-negotiation"
+    }
+  },
+  "auditTrail": {
+    "enabled": true,
+    "logPath": ".claude/logs/audit-contractual.log",
+    "captureAllClauses": true,
+    "captureRiskCalculations": true,
+    "captureDecisions": true
+  }
+}

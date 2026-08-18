@@ -1,0 +1,271 @@
+{
+  "version": "1.0",
+  "description": "Mapeo de skills y tareas a ramas del derecho colombiano",
+  "ramasPrioritarias": [
+    "laboral",
+    "civil",
+    "penal",
+    "administrativo",
+    "comercial",
+    "corporativo-empresarial"
+  ],
+  "skillsAplicablesPorRama": {
+    "laboral": {
+      "síntesis-jurídica-emails": {
+        "activo": true,
+        "casos": ["despidos", "indemnizaciones", "conflictos-laborales", "acoso"],
+        "fuentes": ["corte-suprema", "consejo-estado"],
+        "frecuencia": "diaria"
+      },
+      "búsqueda-jurisprudencial": {
+        "activo": true,
+        "temasMonitoreados": [
+          "despido-sin-justa-causa",
+          "indemnización",
+          "prestaciones-sociales",
+          "acoso-laboral",
+          "derecho-huelga",
+          "negociación-colectiva"
+        ],
+        "frecuencia": "cada-4-horas"
+      },
+      "análisis-contractual": {
+        "activo": true,
+        "documentos": ["contrato-trabajo", "acuerdos-transacción", "clausulas-laborales"],
+        "riesgosAEvaluar": ["terminación-unilateral", "indemnización", "competencia-no-compite"]
+      },
+      "generador-reportes": {
+        "activo": true,
+        "seccionesEspeciales": ["jurisprudencia-laboral", "tendencias-sentencias", "recomendaciones-defensivas"]
+      }
+    },
+    "civil": {
+      "síntesis-jurídica-emails": {
+        "activo": true,
+        "casos": ["responsabilidad-civil", "incumplimiento-contrato", "daño-patrimonial"],
+        "fuentes": ["corte-suprema", "consejo-estado"],
+        "frecuencia": "diaria"
+      },
+      "búsqueda-jurisprudencial": {
+        "activo": true,
+        "temasMonitoreados": [
+          "responsabilidad-civil",
+          "daño-moral",
+          "daño-patrimonial",
+          "incumplimiento",
+          "obligaciones",
+          "prescripción"
+        ],
+        "frecuencia": "cada-4-horas"
+      },
+      "análisis-contractual": {
+        "activo": true,
+        "documentos": ["contratos-civiles", "compraventas", "arrendamientos", "servicios"],
+        "riesgosAEvaluar": ["incumplimiento", "responsabilidad", "garantías", "cláusulas-exoneración"]
+      },
+      "generador-reportes": {
+        "activo": true,
+        "seccionesEspeciales": ["análisis-daño", "estándares-causalidad", "jurisprudencia-civil"]
+      }
+    },
+    "penal": {
+      "síntesis-jurídica-emails": {
+        "activo": true,
+        "casos": ["delitos-relacionados", "defensa-penal", "procedimiento-penal"],
+        "fuentes": ["corte-suprema", "corte-constitucional"],
+        "frecuencia": "diaria"
+      },
+      "búsqueda-jurisprudencial": {
+        "activo": true,
+        "temasMonitoreados": [
+          "estafa",
+          "fraude",
+          "lavado-dinero",
+          "corrupción",
+          "derechos-defensa",
+          "nulidad-procesal"
+        ],
+        "frecuencia": "cada-4-horas"
+      },
+      "análisis-contractual": {
+        "activo": false,
+        "documentos": [],
+        "riesgosAEvaluar": []
+      },
+      "generador-reportes": {
+        "activo": true,
+        "seccionesEspeciales": ["análisis-delito", "jurisprudencia-penal", "procedimiento-aplicable"]
+      }
+    },
+    "administrativo": {
+      "síntesis-jurídica-emails": {
+        "activo": true,
+        "casos": ["actos-administrativos", "contratación-pública", "recurso-administrativo"],
+        "fuentes": ["consejo-estado", "corte-constitucional"],
+        "frecuencia": "diaria"
+      },
+      "búsqueda-jurisprudencial": {
+        "activo": true,
+        "temasMonitoreados": [
+          "nulidad-acto-administrativo",
+          "reparación-directa",
+          "contratación-publica",
+          "licitación",
+          "silencio-administrativo",
+          "debido-proceso"
+        ],
+        "frecuencia": "cada-4-horas"
+      },
+      "análisis-contractual": {
+        "activo": true,
+        "documentos": ["contratos-estatales", "pliegos-términos", "órdenes-compra"],
+        "riesgosAEvaluar": ["prohibición-de-indexación", "cláusula-penal", "resolución-por-incumplimiento"]
+      },
+      "generador-reportes": {
+        "activo": true,
+        "seccionesEspeciales": ["cumplimiento-estatutario", "jurisprudencia-contencioso", "procedimiento-administrativo"]
+      }
+    },
+    "comercial": {
+      "síntesis-jurídica-emails": {
+        "activo": true,
+        "casos": ["conflictos-accionarios", "competencia-desleal", "propiedad-intelectual"],
+        "fuentes": ["corte-suprema", "superintendencia-sociedades"],
+        "frecuencia": "diaria"
+      },
+      "búsqueda-jurisprudencial": {
+        "activo": true,
+        "temasMonitoreados": [
+          "sociedades",
+          "accionistas",
+          "competencia-desleal",
+          "propiedad-industrial",
+          "insolvencia",
+          "cesión-derechos"
+        ],
+        "frecuencia": "cada-4-horas"
+      },
+      "análisis-contractual": {
+        "activo": true,
+        "documentos": ["estatutos-sociales", "pactos-accionarios", "contratos-comerciales"],
+        "riesgosAEvaluar": ["responsabilidad-socio", "conflicto-intereses", "propiedad-intelectual", "indemnización"]
+      },
+      "generador-reportes": {
+        "activo": true,
+        "seccionesEspeciales": ["jurisprudencia-comercial", "tendencias-superintendencia", "recomendaciones-corporativas"]
+      }
+    },
+    "corporativo-empresarial": {
+      "síntesis-jurídica-emails": {
+        "activo": true,
+        "casos": ["gobierno-corporativo", "fusiones-adquisiciones", "conflictos-accionarios"],
+        "fuentes": ["corte-suprema", "superintendencia-sociedades", "consejo-estado"],
+        "frecuencia": "diaria"
+      },
+      "búsqueda-jurisprudencial": {
+        "activo": true,
+        "temasMonitoreados": [
+          "gobierno-corporativo",
+          "responsabilidad-directivos",
+          "derechos-minoria",
+          "due-diligence",
+          "transacciones-relacionadas",
+          "protección-accionista"
+        ],
+        "frecuencia": "cada-4-horas"
+      },
+      "análisis-contractual": {
+        "activo": true,
+        "documentos": ["documentos-fusión", "acuerdos-accionistas", "protocolos-family-office"],
+        "riesgosAEvaluar": ["conflicto-de-interés", "responsabilidad-civil", "garantías-solvencia", "cláusulas-salida"]
+      },
+      "generador-reportes": {
+        "activo": true,
+        "seccionesEspeciales": ["análisis-gobierno-corporativo", "matriz-riesgos-corporativa", "recomendaciones-cumplimiento"]
+      }
+    }
+  },
+  "tasasAutomatizablesPorRama": {
+    "laboral": [
+      "síntesis-comunicaciones",
+      "búsqueda-jurisprudencial",
+      "análisis-contratos-trabajo",
+      "análisis-sentimientos-empleados",
+      "generador-reportes-casos"
+    ],
+    "civil": [
+      "síntesis-comunicaciones",
+      "búsqueda-jurisprudencial",
+      "análisis-contratos-civiles",
+      "análisis-daño",
+      "generador-reportes-casos"
+    ],
+    "penal": [
+      "síntesis-comunicaciones",
+      "búsqueda-jurisprudencial",
+      "análisis-delito",
+      "análisis-procedimiento",
+      "generador-reportes-defensa"
+    ],
+    "administrativo": [
+      "síntesis-comunicaciones",
+      "búsqueda-jurisprudencial",
+      "análisis-acto-administrativo",
+      "análisis-contratación-pública",
+      "generador-reportes-administrativos"
+    ],
+    "comercial": [
+      "síntesis-comunicaciones",
+      "búsqueda-jurisprudencial",
+      "análisis-estatutos",
+      "análisis-pactos-accionarios",
+      "generador-reportes-comerciales"
+    ],
+    "corporativo-empresarial": [
+      "síntesis-comunicaciones",
+      "búsqueda-jurisprudencial",
+      "análisis-gobierno-corporativo",
+      "análisis-due-diligence",
+      "generador-reportes-ejecutivos"
+    ]
+  },
+  "validacionCalidadPorRama": {
+    "laboral": {
+      "fuentesObligatorias": ["corte-suprema", "jurisprudencia-constante"],
+      "citasVerificables": true,
+      "precedentesObligatorios": true
+    },
+    "civil": {
+      "fuentesObligatorias": ["corte-suprema", "jurisprudencia-mayoritaria"],
+      "citasVerificables": true,
+      "precedentesObligatorios": false
+    },
+    "penal": {
+      "fuentesObligatorias": ["corte-suprema", "favorabilidad"],
+      "citasVerificables": true,
+      "precedentesObligatorios": true
+    },
+    "administrativo": {
+      "fuentesObligatorias": ["consejo-estado", "jurisprudencia-consistente"],
+      "citasVerificables": true,
+      "precedentesObligatorios": true
+    },
+    "comercial": {
+      "fuentesObligatorias": ["corte-suprema", "superintendencia-sociedades"],
+      "citasVerificables": true,
+      "precedentesObligatorios": false
+    },
+    "corporativo-empresarial": {
+      "fuentesObligatorias": ["superintendencia-sociedades", "corte-suprema"],
+      "citasVerificables": true,
+      "precedentesObligatorios": false
+    }
+  },
+  "reportingEstructura": {
+    "formatoPorRama": true,
+    "comparativoCruzado": true,
+    "trendPorRama": true,
+    "alertasPorRama": true,
+    "jurisprudenciaPorRama": true
+  }
+}

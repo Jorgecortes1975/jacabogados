@@ -1,0 +1,326 @@
+{
+  "version": "1.0",
+  "pais": "Colombia",
+  "ramasLegales": [
+    {
+      "id": "laboral",
+      "nombre": "Derecho Laboral",
+      "descripcion": "Relaciones laborales, despidos, indemnizaciones, derechos de trabajadores",
+      "corteAplicable": ["corte-suprema", "consejo-estado"],
+      "normasBase": [
+        "Código Sustantivo del Trabajo",
+        "Constitución Política (Arts. 25-29)",
+        "Ley 50/1990 - Reforma Laboral",
+        "Ley 1010/2006 - Acoso Laboral"
+      ],
+      "temasComunes": [
+        "despido-sin-justa-causa",
+        "indemnización",
+        "contrato-trabajo",
+        "terminación-contrato",
+        "prestaciones-sociales",
+        "afiliación-seguridad-social",
+        "acoso-laboral",
+        "discriminación-laboral",
+        "derecho-huelga",
+        "negociación-colectiva"
+      ],
+      "monitoreoActivo": true
+    },
+    {
+      "id": "civil",
+      "nombre": "Derecho Civil",
+      "descripcion": "Obligaciones, contratos, responsabilidad civil, daño patrimonial y moral",
+      "corteAplicable": ["corte-suprema", "consejo-estado"],
+      "normasBase": [
+        "Código Civil Colombiano",
+        "Código de Procedimiento Civil",
+        "Ley 446/1998 - Mecanismos alternativos"
+      ],
+      "temasComunes": [
+        "responsabilidad-civil",
+        "daño-patrimonial",
+        "daño-moral",
+        "incumplimiento-contrato",
+        "obligaciones",
+        "venta-compraventa",
+        "arrendamiento",
+        "sucesiones",
+        "enriquecimiento-sin-causa",
+        "prescripción"
+      ],
+      "monitoreoActivo": true
+    },
+    {
+      "id": "penal",
+      "nombre": "Derecho Penal",
+      "descripcion": "Delitos, procedimiento penal, sanciones, derechos fundamentales del acusado",
+      "corteAplicable": ["corte-suprema", "corte-constitucional"],
+      "normasBase": [
+        "Código Penal Colombiano",
+        "Código de Procedimiento Penal",
+        "Ley 600/2000 - Sistema Inquisitivo",
+        "Ley 906/2004 - Sistema Acusatorio"
+      ],
+      "temasComunes": [
+        "estafa",
+        "fraude",
+        "lavado-dinero",
+        "corrupción",
+        "malversación",
+        "falsedad",
+        "hurto",
+        "usurpación",
+        "injuria-calumnia",
+        "delitos-informaticos"
+      ],
+      "monitoreoActivo": true
+    },
+    {
+      "id": "administrativo",
+      "nombre": "Derecho Administrativo",
+      "descripcion": "Actos administrativos, contratación estatal, responsabilidad del estado, nulidad",
+      "corteAplicable": ["consejo-estado", "corte-constitucional"],
+      "normasBase": [
+        "Código de Procedimiento Administrativo y de lo Contencioso-Administrativo (CPACA)",
+        "Ley 80/1993 - Estatuto de Contratación",
+        "Ley 1150/2007 - Reforma Contratación Estatal",
+        "Ley 1444/2011 - Reforma Administrativa"
+      ],
+      "temasComunes": [
+        "nulidad-acto-administrativo",
+        "reparación-directa",
+        "contratación-publica",
+        "licitación",
+        "términos-procedimiento-administrativo",
+        "silencio-administrativo",
+        "licencias",
+        "permisos",
+        "expropiación",
+        "reclamación-tributaria"
+      ],
+      "monitoreoActivo": true
+    },
+    {
+      "id": "comercial",
+      "nombre": "Derecho Comercial",
+      "descripcion": "Actividades comerciales, sociedades, competencia, marcas, insolvencia",
+      "corteAplicable": ["corte-suprema", "superintendencia-sociedades"],
+      "normasBase": [
+        "Código de Comercio",
+        "Ley 590/2000 - Régimen de Pequeña Empresa",
+        "Ley 1014/2006 - Ley de Emprendimiento",
+        "Ley 1090/2006 - Reforma Comercial",
+        "Decisión Andina 486 - Propiedad Industrial"
+      ],
+      "temasComunes": [
+        "constitución-sociedades",
+        "disolución-liquidación",
+        "responsabilidad-socios",
+        "conflictos-accionistas",
+        "competencia-desleal",
+        "propiedad-intelectual",
+        "marcas-patentes",
+        "derechos-de-autor",
+        "insolvencia",
+        "cesión-de-derechos"
+      ],
+      "monitoreoActivo": true
+    },
+    {
+      "id": "corporativo-empresarial",
+      "nombre": "Dirección Corporativa Empresarial",
+      "descripcion": "Gobierno corporativo, conflictos accionarios, fusiones, adquisiciones, due diligence",
+      "corteAplicable": ["corte-suprema", "superintendencia-sociedades", "consejo-estado"],
+      "normasBase": [
+        "Código de Comercio - Sociedades",
+        "Ley 1681/2013 - Gobierno Corporativo",
+        "Código de Buen Gobierno Corporativo",
+        "Superintendencia Financiera - Circulares",
+        "Reglamentación Bolsa de Valores"
+      ],
+      "temasComunes": [
+        "asamblea-junta-directiva",
+        "derechos-minoria",
+        "conflictos-accionarios",
+        "fusión-adquisición",
+        "due-diligence",
+        "auditoría-interna",
+        "cumplimiento-normativo",
+        "códigos-conducta",
+        "divulgación-información",
+        "responsabilidad-directivos",
+        "protección-accionista",
+        "transacciones-relacionadas"
+      ],
+      "monitoreoActivo": true
+    }
+  ],
+  "fuentes": {
+    "jurisprudencial": [
+      {
+        "nombre": "Corte Constitucional",
+        "sigla": "CC",
+        "especialidad": ["constitucional", "derechos-fundamentales"],
+        "url": "www.corteconstitucional.gov.co",
+        "cobertura": "todas"
+      },
+      {
+        "nombre": "Consejo de Estado",
+        "sigla": "CE",
+        "especialidad": ["administrativo", "contencioso-administrativo"],
+        "url": "www.consejodeestado.gov.co",
+        "cobertura": ["administrativo", "corporativo-empresarial"]
+      },
+      {
+        "nombre": "Corte Suprema de Justicia",
+        "sigla": "CSJ",
+        "especialidad": ["civil", "penal", "laboral", "comercial"],
+        "url": "www.cortesuprema.gov.co",
+        "cobertura": ["civil", "penal", "laboral", "comercial", "corporativo-empresarial"]
+      },
+      {
+        "nombre": "Legal Data Hunter",
+        "sigla": "LDH",
+        "especialidad": ["todas"],
+        "url": "legaldata.com",
+        "cobertura": "todas"
+      },
+      {
+        "nombre": "Superintendencia de Sociedades",
+        "sigla": "SS",
+        "especialidad": ["comercial", "corporativo-empresarial"],
+        "url": "www.supersociedades.gov.co",
+        "cobertura": ["comercial", "corporativo-empresarial"]
+      }
+    ],
+    "normativa": [
+      {
+        "nombre": "SUIN - Sistema Único de Información Normativa",
+        "url": "www.suinjuriscol.gov.co",
+        "cobertura": "todas"
+      },
+      {
+        "nombre": "Diario Oficial",
+        "url": "www.diariooficial.gov.co",
+        "cobertura": "todas"
+      }
+    ]
+  },
+  "searchPatterns": {
+    "laboral": {
+      "keywords": [
+        "despido",
+        "indemnización",
+        "contrato-trabajo",
+        "terminación",
+        "prestaciones",
+        "acoso-laboral",
+        "discriminación",
+        "derechos-trabajador"
+      ],
+      "excludeKeywords": ["laboral-penal"]
+    },
+    "civil": {
+      "keywords": [
+        "responsabilidad-civil",
+        "daño",
+        "obligación",
+        "contrato-civil",
+        "incumplimiento",
+        "enriquecimiento",
+        "prescripción"
+      ],
+      "excludeKeywords": []
+    },
+    "penal": {
+      "keywords": [
+        "delito",
+        "sentencia-penal",
+        "procedimiento-penal",
+        "condena",
+        "acusado",
+        "defensa",
+        "pena",
+        "prisión"
+      ],
+      "excludeKeywords": ["penal-laboral"]
+    },
+    "administrativo": {
+      "keywords": [
+        "acto-administrativo",
+        "nulidad",
+        "reparación-directa",
+        "contratación-publica",
+        "licitación",
+        "procedimiento-administrativo",
+        "recurso-administrativo"
+      ],
+      "excludeKeywords": []
+    },
+    "comercial": {
+      "keywords": [
+        "sociedad-comercial",
+        "accionista",
+        "junta-directiva",
+        "competencia-desleal",
+        "propiedad-industrial",
+        "marca",
+        "insolvencia",
+        "liquidación"
+      ],
+      "excludeKeywords": []
+    },
+    "corporativo-empresarial": {
+      "keywords": [
+        "gobierno-corporativo",
+        "conflicto-accionario",
+        "fusion-adquisicion",
+        "due-diligence",
+        "directivo",
+        "junta-directiva",
+        "asamblea",
+        "responsabilidad-directivo"
+      ],
+      "excludeKeywords": []
+    }
+  },
+  "jurisprudenciaTendencias": {
+    "laboral": {
+      "sentenciasRecientes": 0,
+      "tendencia": "favorable-trabajador",
+      "ultUpdate": "2026-08-12"
+    },
+    "civil": {
+      "sentenciasRecientes": 0,
+      "tendencia": "equilibrada",
+      "ultUpdate": "2026-08-12"
+    },
+    "penal": {
+      "sentenciasRecientes": 0,
+      "tendencia": "rigurosa",
+      "ultUpdate": "2026-08-12"
+    },
+    "administrativo": {
+      "sentenciasRecientes": 0,
+      "tendencia": "formalista",
+      "ultUpdate": "2026-08-12"
+    },
+    "comercial": {
+      "sentenciasRecientes": 0,
+      "tendencia": "proteccion-comerciante",
+      "ultUpdate": "2026-08-12"
+    },
+    "corporativo-empresarial": {
+      "sentenciasRecientes": 0,
+      "tendencia": "proteccion-minoria",
+      "ultUpdate": "2026-08-12"
+    }
+  },
+  "reportingEstructure": {
+    "perRama": true,
+    "comparativoMensual": true,
+    "alertasPorRama": true,
+    "trendAnalysis": true
+  }
+}

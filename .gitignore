@@ -1,0 +1,20 @@
+# Generated outputs and test results
+outputs/
+*.log
+.DS_Store
+node_modules/
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.bak
+.progress-sc.json
+.orquestador-state.json
+logs/

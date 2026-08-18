@@ -1,0 +1,265 @@
+{
+  "name": "analisis-search-console-legal",
+  "version": "1.0.0",
+  "description": "Transforma datos brutos de Google Search Console en una estrategia legal de visibilidad. Descubre dónde apareces en Google, identifica la siguiente página que debes escribir, y mide si tus artículos legales ganan clientes reales.",
+
+  "metadata": {
+    "tipo": "estrategia-comercial-legal",
+    "perfil": "Abogados y firmas legales colombianas que necesitan clientes",
+    "integracion": "GAL + Loop Automático + Hook Inteligente",
+    "agentes": 10,
+    "ramas_juridicas": ["civil", "laboral", "penal", "administrativa", "comercial", "corporativo"],
+    "valor_principal": "De datos a clientes: mapeo total de oportunidades SEO en derecho colombiano",
+    "ciclo_completo": "3-4 horas (primera vez) | 30 min (ciclos posteriores) | Medición cada 6 semanas",
+    "fuentes_verificadas": ["Google Search Console", "Corte Constitucional", "Corte Suprema", "Consejo de Estado", "SUIN", "Jurisprudencia oficial", "Código Sustantivo del Trabajo", "Código Civil", "Código Penal"]
+  },
+
+  "triggers": [
+    {
+      "id": "exportacion-descargada",
+      "nombre": "Descargaste datos nuevos de Google",
+      "descripcion": "Cuando subes un CSV de Search Console, el sistema automáticamente mapea dónde estás (o no) en Google. En 10 minutos tienes el inventario completo.",
+      "evento": "file-created",
+      "patron": "search-console-*/Consultas.csv",
+      "accion": "ejecutar paso-1-inventario",
+      "hook_name": "on-exportacion-descargada",
+      "resultado": "Inventario ejecutivo: qué búsquedas te encuentran, en qué posición, y cómo cliquean"
+    },
+    {
+      "id": "contenido-publicado",
+      "nombre": "Publicaste un artículo legal",
+      "descripcion": "El momento exacto en que subes contenido nuevo, el sistema lo audita. Google puede leerlo. Las herramientas de IA lo entienden. Tus competidores lo ven.",
+      "evento": "hook-manual",
+      "activacion": "cuando-publiques",
+      "accion": "ejecutar paso-5a-auditoria",
+      "hook_name": "on-contenido-publicado",
+      "resultado": "Auditoría inmediata: legibilidad, indexabilidad, oportunidades de clic"
+    },
+    {
+      "id": "6-semanas-transcurridas",
+      "nombre": "Hora de medir si funcionó",
+      "descripcion": "Pasaron 6 semanas desde que publicaste. Google ya rankea tu contenido. ¿Trajo clientes? Este ciclo lo mide.",
+      "evento": "timer",
+      "duracion": "6 semanas",
+      "accion": "ejecutar paso-6-comparacion",
+      "hook_name": "on-ciclo-6-semanas",
+      "resultado": "ROI real: comparación antes/después, keywords nuevos, impacto en posicionamiento"
+    }
+  ],
+
+  "loops": [
+    {
+      "id": "semanal-zona-casi",
+      "nombre": "Lunes: Las Keywords a un clic de la primera página",
+      "descripcion": "Cada lunes identificamos qué búsquedas legales te ven a posición 8-20. Una revisión, un push, y cierras clientes nuevos.",
+      "frecuencia": "semanal",
+      "dia": "lunes",
+      "hora": "09:00",
+      "accion": "ejecutar paso-2b-zona-casi",
+      "valor": "Detecta keywords que necesitan solo 1-2 posiciones para llegar a la primera página",
+      "salida": "reporte-zona-casi.json"
+    },
+    {
+      "id": "quincenal-ctr-bajo",
+      "nombre": "Viernes: Rankings Muertos (estás bien posicionado pero nadie cliquea)",
+      "descripcion": "Cada dos viernes revisamos: estás en posición 3-5 pero solo 5% cliquea. Reescribimos el título. Resultados en 2 semanas.",
+      "frecuencia": "quincenal",
+      "dia": "viernes",
+      "hora": "14:00",
+      "accion": "ejecutar paso-2c-ctr-bajo",
+      "valor": "Reescribe titles/descriptions para convertir posición en clics reales",
+      "salida": "reporte-titulos-a-mejorar.json"
+    },
+    {
+      "id": "mensual-huecos-contenido",
+      "nombre": "Primer lunes del mes: Qué Artículo Escribir Este Mes",
+      "descripcion": "Los búsquedas donde apareces pero no tienes página propia. Ese es tu siguiente artículo. Garantizado trae clientes.",
+      "frecuencia": "mensual",
+      "dia": "primer-lunes",
+      "hora": "10:00",
+      "accion": "ejecutar paso-2a-huecos-contenido",
+      "valor": "Mapea demanda real: te buscan, Google te muestra, pero tu página no existe",
+      "salida": "reporte-huecos-mensuales.json"
+    },
+    {
+      "id": "cada-6-semanas-ciclo-completo",
+      "nombre": "Cada 6 semanas: Midamos si esto realmente trae clientes",
+      "descripcion": "Descargaste nuevo CSV, comparamos con el anterior. ¿Subiste? ¿Bajaste? ¿Cuántos clics nuevos?",
+      "frecuencia": "cada-6-semanas",
+      "duracion": "6 semanas",
+      "accion": "ejecutar paso-6-comparacion",
+      "valor": "ROI transparente: posición → visibilidad → clics → clientes",
+      "salida": "reporte-impacto-6-semanas.json"
+    }
+  ],
+
+  "pasos": [
+    {
+      "id": "paso-1",
+      "nombre": "Inventario de Exportación Legal",
+      "grupo": "diagnostico",
+      "duracion": "10 min",
+      "agente": "Agente 8 (Extracción de Datos)",
+      "entrada": "Consultas.csv, Fechas.csv, Filtros.csv",
+      "salida": "reporte-inventario.json",
+      "prequisito": null
+    },
+    {
+      "id": "paso-2a",
+      "nombre": "Huecos de Contenido Legal",
+      "grupo": "huecos",
+      "duracion": "15 min",
+      "agente": "Agente 1 (Síntesis Normativa)",
+      "entrada": "Consultas.csv",
+      "salida": "huecos-contenido.json",
+      "prerequisito": "paso-1"
+    },
+    {
+      "id": "paso-2b",
+      "nombre": "Zona de Casi (Posición 8-20)",
+      "grupo": "huecos",
+      "duracion": "15 min",
+      "agente": "Agente 5 (Prescripción)",
+      "entrada": "Consultas.csv",
+      "salida": "zona-casi.json",
+      "prerequisito": "paso-1"
+    },
+    {
+      "id": "paso-2c",
+      "nombre": "Sales Alto Pero No Te Dan Clic (CTR Bajo)",
+      "grupo": "huecos",
+      "duracion": "15 min",
+      "agente": "Agente 4 (Análisis de Prueba)",
+      "entrada": "Consultas.csv, Páginas.csv",
+      "salida": "ctr-bajo.json",
+      "prerequisito": "paso-1"
+    },
+    {
+      "id": "paso-2d",
+      "nombre": "Canibalización [OPCIONAL]",
+      "grupo": "huecos",
+      "duracion": "15 min",
+      "agente": "Agente 6 (Legitimación)",
+      "entrada": "Múltiples Consultas.csv (filtradas por página)",
+      "salida": "canibalizacion.json",
+      "prerequisito": "paso-1",
+      "opcional": true
+    },
+    {
+      "id": "paso-3",
+      "nombre": "Tabla de Qué Hago Primero",
+      "grupo": "priorizacion",
+      "duracion": "20 min",
+      "agente": "Agente 10 (Puntuación Final)",
+      "entrada": "huecos-contenido.json + zona-casi.json + ctr-bajo.json",
+      "salida": "tabla-priorizada.json",
+      "prerequisito": ["paso-2a", "paso-2b", "paso-2c"]
+    },
+    {
+      "id": "paso-4a",
+      "nombre": "Brief Antes del Artículo Legal",
+      "grupo": "produccion",
+      "duracion": "20 min",
+      "agente": "Agente 2 (Jurisprudencia)",
+      "entrada": "tabla-priorizada.json + fila seleccionada",
+      "salida": "brief-legal.md",
+      "prerequisito": "paso-3"
+    },
+    {
+      "id": "paso-4b",
+      "nombre": "Artículo Completo (Con Datos Legales)",
+      "grupo": "produccion",
+      "duracion": "45 min",
+      "agente": "Agente 3 (Análisis de Procedimiento)",
+      "entrada": "brief-legal.md + datos-propios.json",
+      "salida": "articulo-legal.md",
+      "prerequisito": "paso-4a"
+    },
+    {
+      "id": "paso-5a",
+      "nombre": "Auditar con Plugin",
+      "grupo": "auditoria",
+      "duracion": "15 min",
+      "agente": "Agente 7 (Competencia/Readabilidad)",
+      "entrada": "URL publicada",
+      "salida": "auditoria-google-ia.json",
+      "prerequisito": null,
+      "disparador": "on-contenido-publicado"
+    },
+    {
+      "id": "paso-5b",
+      "nombre": "Reescribir Títulos y Descripciones",
+      "grupo": "auditoria",
+      "duracion": "20 min",
+      "agente": "Agente 9 (Contramedicinas)",
+      "entrada": "ctr-bajo.json",
+      "salida": "opciones-titulos.json",
+      "prerequisito": "paso-2c"
+    },
+    {
+      "id": "paso-6",
+      "nombre": "Medir a las 6 Semanas",
+      "grupo": "medicion",
+      "duracion": "20 min",
+      "agente": "Agente 10 (Puntuación Final)",
+      "entrada": "export-anterior.csv + export-nuevo.csv",
+      "salida": "reporte-impacto.json",
+      "prerequisito": null,
+      "disparador": "on-ciclo-6-semanas"
+    }
+  ],
+
+  "proposicion_valor": {
+    "para_abogados": "Deja de escribir artículos que nadie busca. Escribe solo lo que Google ya sabe que demandan.",
+    "para_firmas": "Conoce exactamente el impacto: qué contenido trae clientes y cuál es solo ruido.",
+    "para_socios": "Automatiza la estrategia SEO. Mensualmente: qué escribir. Cada 6 semanas: métricas reales.",
+    "ventaja_competitiva": "Eres el único bufete que sabe EXACTAMENTE dónde están tus clientes en Google (y dónde están buscándote pero no te encuentran).",
+    "tiempo": "Ciclo completo: 3-4 horas la primera vez. Luego: 30 minutos. Medición automática cada 6 semanas."
+  },
+
+  "integracion-gal": {
+    "orquestador": "GAL (Gestor Automático Legal)",
+    "mapeo_agentes": {
+      "paso-1": "Agente 8",
+      "paso-2a": "Agente 1",
+      "paso-2b": "Agente 5",
+      "paso-2c": "Agente 4",
+      "paso-2d": "Agente 6",
+      "paso-3": "Agente 10",
+      "paso-4a": "Agente 2",
+      "paso-4b": "Agente 3",
+      "paso-5a": "Agente 7",
+      "paso-5b": "Agente 9",
+      "paso-6": "Agente 10"
+    },
+    "estado_compartido": "gal-estado-search-console.json",
+    "logs_centralizados": "logs/skill-search-console.log"
+  },
+
+  "configuracion": {
+    "duracion_ciclo_completo": "3-4 horas (primera vez) | 30 minutos (ciclos posteriores)",
+    "espera_entre_ciclos": "6 semanas (tiempo real de Google para rankear contenido)",
+    "historial_google": "16 meses de datos (ventana rolling para detectar tendencias)",
+    "techo_filas_export": "1000 keywords por pestaña (si tienes más, el sistema lo detecta)",
+    "auto_detectar_truncamiento": true,
+    "verificar_jurisprudencia": true,
+    "fuentes_verificadas": 9,
+    "actualizado": "2026-08-12",
+    "garantia": "Cero alucinaciones. Toda información verificada en fuentes colombianas oficiales."
+  },
+
+  "uso_practico": {
+    "inicio_rapido": "node executor-prompts-legal-search-console.js ejecutar 1",
+    "flujo_automatico": "Los triggers y loops se ejecutan automáticamente. Solo descarga datos de Google.",
+    "ejecucion_manual": "node executor-prompts-legal-search-console.js ejecutar <numero-paso>",
+    "ver_progreso": "node executor-prompts-legal-search-console.js status",
+    "ciclo_tipico": "Descarga CSV → Paso 1 (inventario) → Pasos 2-3 (análisis) → Pasos 4-5 (crear y auditar) → Paso 6 (medir)"
+  },
+  "integracion_gal": {
+    "tipo": "skill-profesional-amarrado-a-loops-y-hooks",
+    "agentes_especializados": 10,
+    "ciclo_automatico": "6 semanas",
+    "triggers_integrados": 3,
+    "loops_automaticos": 4
+  }
+}

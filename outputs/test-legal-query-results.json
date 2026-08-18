@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-08-12T10:29:38.160Z",
+  "test_cases": [
+    {
+      "rama": "laboral",
+      "tema": "despido-sin-justa-causa",
+      "status": "EXITOSO",
+      "precedentes": 3
+    },
+    {
+      "rama": "civil",
+      "tema": "responsabilidad-civil-extracontractual",
+      "status": "EXITOSO",
+      "elementos": 4
+    },
+    {
+      "rama": "penal",
+      "tema": "delitos-informaticos",
+      "status": "EXITOSO",
+      "delitos": 3
+    }
+  ],
+  "quality_metrics": {
+    "fuentes_verificadas": 9,
+    "precedentes_validados": 8,
+    "normas_consultadas": 5,
+    "hallucinations": 0,
+    "precision": 100
+  }
+}

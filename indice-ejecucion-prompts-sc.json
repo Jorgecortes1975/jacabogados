@@ -1,0 +1,116 @@
+{
+  "titulo": "Índice de Ejecución - Prompts Search Console Legal",
+  "descripcion": "Orden secuencial en que deben ejecutarse los prompts",
+  "ciclo_completo_duracion": "3-4 horas (primera vuelta)",
+  "pasos": [
+    {
+      "orden": 1,
+      "grupo": "Diagnóstico",
+      "paso": "Paso 1: Inventario",
+      "descripcion": "Analiza la exportación de Google Search Console",
+      "duracion": "10 min",
+      "agente": "Agente 8",
+      "precondicion": "Exportación CSV descargada"
+    },
+    {
+      "orden": 2,
+      "grupo": "Huecos",
+      "paso": "Paso 2A: Huecos de Contenido",
+      "descripcion": "Identifica búsquedas donde apareces pero sin página propia",
+      "duracion": "15 min",
+      "agente": "Agente 1",
+      "precondicion": "Inventario completado"
+    },
+    {
+      "orden": 3,
+      "grupo": "Huecos",
+      "paso": "Paso 2B: Zona de Casi",
+      "descripcion": "Búsquedas en posición 8-20: a un empujón de la primera página",
+      "duracion": "15 min",
+      "agente": "Agente 5",
+      "precondicion": "Inventario completado"
+    },
+    {
+      "orden": 4,
+      "grupo": "Huecos",
+      "paso": "Paso 2C: CTR Bajo",
+      "descripcion": "Posición buena pero pocos clics: reescribir títulos",
+      "duracion": "15 min",
+      "agente": "Agente 4",
+      "precondicion": "Inventario completado"
+    },
+    {
+      "orden": 5,
+      "grupo": "Huecos",
+      "paso": "Paso 2D: Canibalización [OPCIONAL]",
+      "descripcion": "Detectar páginas que compiten entre ellas",
+      "duracion": "15 min",
+      "agente": "Agente 6",
+      "precondicion": "Múltiples exportaciones filtradas (avanzado)",
+      "opcional": true
+    },
+    {
+      "orden": 6,
+      "grupo": "Priorización",
+      "paso": "Paso 3: Tabla Priorizada",
+      "descripcion": "Junta los tres cortes en un calendario ejecutable",
+      "duracion": "20 min",
+      "agente": "Agente 10",
+      "precondicion": "Pasos 2A, 2B, 2C completados"
+    },
+    {
+      "orden": 7,
+      "grupo": "Producción",
+      "paso": "Paso 4A: Brief Legal",
+      "descripcion": "Estructura del artículo ANTES de escribir",
+      "duracion": "20 min",
+      "agente": "Agente 2",
+      "precondicion": "Tabla priorizada + seleccionar fila"
+    },
+    {
+      "orden": 8,
+      "grupo": "Producción",
+      "paso": "Paso 4B: Artículo Completo",
+      "descripcion": "Redacta con datos legales propios (jurisprudencia, casos)",
+      "duracion": "45 min",
+      "agente": "Agente 3",
+      "precondicion": "Brief aprobado + material tuyo compilado"
+    },
+    {
+      "orden": 9,
+      "grupo": "Auditoría",
+      "paso": "Paso 5A: Auditar con Plugin",
+      "descripcion": "Verificar que Google y buscadores de IA puedan leer",
+      "duracion": "15 min",
+      "agente": "Agente 7",
+      "precondicion": "Artículo publicado en vivo"
+    },
+    {
+      "orden": 10,
+      "grupo": "Auditoría",
+      "paso": "Paso 5B: Títulos y Descripciones",
+      "descripcion": "Reescribir metadatos para ganar clics",
+      "duracion": "20 min",
+      "agente": "Agente 9",
+      "precondicion": "Análisis CTR completado"
+    },
+    {
+      "orden": 11,
+      "grupo": "Medición",
+      "paso": "Paso 6: Comparación 6 Semanas",
+      "descripcion": "Descargar nuevo export y medir si funcionó",
+      "duracion": "20 min",
+      "agente": "Agente 10",
+      "precondicion": "6 semanas desde publicación"
+    }
+  ],
+  "observaciones": [
+    "Ejecuta paso a paso en orden, no en paralelo",
+    "Espera la respuesta completa antes de pasar al siguiente",
+    "Los pasos 2A, 2B y 2C pueden ejecutarse en cualquier orden (son independientes)",
+    "Paso 2D (Canibalización) es opcional y requiere setup especial",
+    "Entre paso 8 (escribir) y paso 9 (auditar), debe pasar tiempo real de publicación",
+    "Paso 11 requiere esperar 4-6 semanas después de paso 8",
+    "Repite el ciclo cada 6 semanas: paso 1 → paso 2 → ... → paso 11 → paso 1"
+  ]
+}

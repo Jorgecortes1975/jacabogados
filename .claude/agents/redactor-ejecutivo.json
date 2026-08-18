@@ -1,0 +1,292 @@
+{
+  "name": "redactor-ejecutivo-jac",
+  "displayName": "Redactor Ejecutivo Automatizado",
+  "description": "Compila análisis y genera reportes profesionales listos para junta/clientes",
+  "type": "compilation-agent",
+  "baseSkill": "generador-reportes-ejecutivos",
+  "autonomyLevel": "medium",
+  "targetAudience": ["partners", "directors", "clients-executive"],
+  "capabilities": {
+    "input": [
+      "síntesis-comunicaciones",
+      "jurisprudencia-verificada",
+      "análisis-contractual",
+      "datos-financieros"
+    ],
+    "compilation": [
+      "structure-report",
+      "format-executive-summary",
+      "generate-matrices",
+      "create-annexes"
+    ],
+    "output": [
+      "pdf-professional",
+      "docx-editable",
+      "html-interactive",
+      "pptx-presentation"
+    ]
+  },
+  "reportTypes": {
+    "monthlyIntegral": {
+      "frequency": "monthly",
+      "trigger": "end-of-month",
+      "time": "16:00",
+      "sections": [
+        "executive-summary",
+        "active-cases-status",
+        "jurisprudence-verified",
+        "risk-matrix",
+        "action-plan",
+        "financial-impact",
+        "annexes"
+      ]
+    },
+    "caseSpecific": {
+      "frequency": "on-demand",
+      "trigger": "manual-request",
+      "sections": [
+        "case-overview",
+        "legal-analysis",
+        "risk-assessment",
+        "strategic-recommendation",
+        "next-steps",
+        "annexes"
+      ]
+    },
+    "riskReport": {
+      "frequency": "on-demand",
+      "trigger": "critical-risk-detected",
+      "sections": [
+        "executive-alert",
+        "risk-matrix",
+        "mitigation-plan",
+        "escalation-path"
+      ]
+    }
+  },
+  "executiveSummary": {
+    "maxLength": 1,
+    "format": "page",
+    "includes": [
+      "current-situation-3-lines",
+      "3-key-recommendations",
+      "immediate-next-steps"
+    ]
+  },
+  "reportStructure": {
+    "coverPage": {
+      "elements": [
+        "jac-logo",
+        "report-title",
+        "period-date",
+        "confidential-stamp"
+      ]
+    },
+    "executiveSummary": {
+      "format": "narrative",
+      "maxWords": 300,
+      "keyPoints": 5
+    },
+    "caseStatus": {
+      "format": "table-narrative",
+      "cases": "all-active",
+      "perCase": [
+        "current-status",
+        "key-milestones",
+        "identified-risks",
+        "next-actions"
+      ]
+    },
+    "juridicalAnalysis": {
+      "format": "narrative",
+      "sources": ["jurisprudencia-verificada"],
+      "citationFormat": "inline-radicado-date"
+    },
+    "riskMatrix": {
+      "format": "table-visual",
+      "axes": ["probability", "impact"],
+      "levels": 3,
+      "colorCode": true
+    },
+    "actionPlan": {
+      "format": "gantt-table",
+      "tasks": "all-pending",
+      "perTask": [
+        "description",
+        "responsible",
+        "deadline",
+        "priority",
+        "status"
+      ]
+    },
+    "financialImpact": {
+      "format": "table-narrative",
+      "includes": [
+        "scenarios",
+        "probabilities",
+        "financial-effects",
+        "risk-value"
+      ]
+    },
+    "annexes": {
+      "format": "multiple",
+      "documents": [
+        "jurisprudence-table",
+        "supporting-documents",
+        "amendment-templates",
+        "compliance-checklist"
+      ]
+    }
+  },
+  "compilationSteps": [
+    {
+      "step": 1,
+      "name": "gather-inputs",
+      "description": "Recopila síntesis, jurisprudencia, análisis del período",
+      "timeout": 60,
+      "sources": [
+        "outputs/síntesis/",
+        "outputs/jurisprudencia/",
+        "outputs/contratos/"
+      ]
+    },
+    {
+      "step": 2,
+      "name": "structure-content",
+      "description": "Organiza contenido según tipo de reporte",
+      "timeout": 60
+    },
+    {
+      "step": 3,
+      "name": "write-executive-summary",
+      "description": "Redacta resumen ejecutivo de 1 página",
+      "timeout": 30
+    },
+    {
+      "step": 4,
+      "name": "compile-analysis",
+      "description": "Compila análisis jurídico y de riesgos",
+      "timeout": 60
+    },
+    {
+      "step": 5,
+      "name": "create-visualizations",
+      "description": "Genera matrices, tablas, gráficos",
+      "timeout": 30
+    },
+    {
+      "step": 6,
+      "name": "generate-formats",
+      "description": "Crea PDF, DOCX, HTML, PPTX",
+      "timeout": 60
+    },
+    {
+      "step": 7,
+      "name": "sync-to-drive",
+      "description": "Sincroniza con Google Drive",
+      "timeout": 30
+    },
+    {
+      "step": 8,
+      "name": "send-notifications",
+      "description": "Notifica a stakeholders",
+      "timeout": 10
+    }
+  ],
+  "outputs": {
+    "pdf": {
+      "format": "professional",
+      "path": "outputs/reportes/",
+      "template": "jac-corporate",
+      "colors": "brand-guidelines",
+      "branding": true
+    },
+    "docx": {
+      "format": "editable",
+      "path": "outputs/reportes/",
+      "template": "jac-corporate",
+      "editable": true
+    },
+    "html": {
+      "format": "interactive",
+      "path": "outputs/reportes/",
+      "template": "responsive",
+      "interactiveElements": true
+    },
+    "pptx": {
+      "format": "presentation",
+      "path": "outputs/reportes/",
+      "slides": "auto-generated",
+      "format": "executive-summary"
+    }
+  },
+  "qualityGates": {
+    "executiveSummaryMaxOnePage": true,
+    "allRecommendationsPrioritized": true,
+    "riskMatrixComplete": true,
+    "tasksHaveOwner": true,
+    "allSourcesDocumented": true,
+    "noHallucinations": true
+  },
+  "schedule": {
+    "monthly": {
+      "type": "monthly",
+      "dayOfMonth": "last-friday",
+      "time": "16:00",
+      "timezone": "America/Bogota"
+    },
+    "onDemand": {
+      "type": "trigger",
+      "trigger": "manual-request"
+    },
+    "onRiskAlert": {
+      "type": "trigger",
+      "trigger": "critical-risk-detected",
+      "reportType": "risk-report"
+    }
+  },
+  "distribution": {
+    "email": {
+      "to": [
+        "socios@jacabogados.co",
+        "clientes-principales@ejemplo.co"
+      ],
+      "format": "pdf",
+      "subjectTemplate": "Reporte Jurídico Ejecutivo - [Período]"
+    },
+    "googleDrive": {
+      "folder": "JAC/Reportes Ejecutivos/",
+      "sync": true
+    },
+    "slack": {
+      "channel": "#reportes-legales",
+      "format": "summary-with-link"
+    }
+  },
+  "integrations": {
+    "consultor-comunicaciones": {
+      "source": "outputs/síntesis/",
+      "usage": "include-monthly-summary"
+    },
+    "investigador-jurisprudencial": {
+      "source": "outputs/jurisprudencia/",
+      "usage": "include-verified-precedents"
+    },
+    "auditor-contractual": {
+      "source": "outputs/contratos/",
+      "usage": "include-risk-summary"
+    }
+  },
+  "approvalFlow": {
+    "required": false,
+    "preDistribution": false,
+    "autoSend": true
+  },
+  "auditTrail": {
+    "enabled": true,
+    "logPath": ".claude/logs/audit-reportes.log",
+    "captureCompilation": true,
+    "captureDistribution": true,
+    "captureRecipients": true
+  }
+}

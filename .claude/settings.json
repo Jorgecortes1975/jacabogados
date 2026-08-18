@@ -1,0 +1,756 @@
+{
+  "version": "1.0.0",
+  "automation": {
+    "enabled": true,
+    "mode": "professional-corporate",
+    "environment": "JAC-Abogados-Asociados"
+  },
+  "loops": {
+    "síntesis-jurídica-diaria": {
+      "description": "Síntesis automática de comunicaciones legales",
+      "trigger": "schedule",
+      "schedule": "0 8 * * 1-5",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "síntesis-jurídica-emails",
+      "inputs": {
+        "source": "gmail",
+        "filters": {
+          "unread": true,
+          "folders": [
+            "Clientes Principales",
+            "Contraparte"
+          ],
+          "last_hours": 24
+        },
+        "format": "ejecutivo"
+      },
+      "outputs": {
+        "path": "outputs/síntesis/",
+        "format": [
+          "html",
+          "pdf"
+        ],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Síntesis Diaria/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "email": false,
+        "alert_on": "risk_detected"
+      },
+      "enabled": true
+    },
+    "búsqueda-jurisprudencial-4h": {
+      "description": "Monitoreo automático de jurisprudencia en 6 ramas del derecho colombiano",
+      "trigger": "schedule",
+      "schedule": "0 6,10,14,18 * * *",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "búsqueda-jurisprudencial-automatizada",
+      "inputs": {
+        "monitored_topics": [
+          "derecho-laboral",
+          "derecho-civil",
+          "derecho-penal",
+          "derecho-administrativo",
+          "derecho-comercial",
+          "direccion-corporativo-empresarial"
+        ],
+        "ramasLegales": [
+          "laboral",
+          "civil",
+          "penal",
+          "administrativo",
+          "comercial",
+          "corporativo-empresarial"
+        ],
+        "sources": [
+          "corte-constitucional",
+          "consejo-estado",
+          "corte-suprema",
+          "legal-data-hunter",
+          "suin"
+        ],
+        "timeframe": "last_7_days"
+      },
+      "outputs": {
+        "path": "outputs/jurisprudencia/",
+        "format": [
+          "html",
+          "pdf"
+        ],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Jurisprudencia/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "email": "socios@jacabogados.co",
+        "alert_on": [
+          "new_jurisprudence",
+          "jurisprudence_reversed"
+        ]
+      },
+      "enabled": true
+    },
+    "análisis-contractual-semanal": {
+      "description": "Análisis de riesgos contractuales todos los viernes",
+      "trigger": "schedule",
+      "schedule": "0 17 * * 5",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "análisis-flujo-contractual",
+      "inputs": {
+        "contract_sources": [
+          "contratos/",
+          "contratos-archivados/",
+          "contratos-pendientes/"
+        ],
+        "analysis_depth": "exhaustiva",
+        "include_benchmarking": true,
+        "alert_thresholds": {
+          "risk_score_above": 6,
+          "expiration_days": [
+            30,
+            60,
+            90
+          ],
+          "jurisprudence_changes": true
+        }
+      },
+      "outputs": {
+        "path": "outputs/contratos/",
+        "format": [
+          "html",
+          "pdf"
+        ],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Análisis Contractual/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "email": "socios@jacabogados.co",
+        "alert_on": [
+          "risk_critical",
+          "expiration_warning"
+        ]
+      },
+      "enabled": true
+    },
+    "reporte-mensual-ejecutivo": {
+      "description": "Generación de reporte mensual compilado",
+      "trigger": "schedule-monthly",
+      "schedule": "0 16 L * *",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "generador-reportes-ejecutivos",
+      "inputs": {
+        "type": "integral-monthly",
+        "include_sections": [
+          "sintesis-comunicaciones",
+          "jurisprudencia-verificada",
+          "evaluacion-riesgos",
+          "plan-accion",
+          "impacto-financiero"
+        ],
+        "aggregate_sources": [
+          "outputs/síntesis/",
+          "outputs/jurisprudencia/",
+          "outputs/contratos/"
+        ]
+      },
+      "outputs": {
+        "path": "outputs/reportes/",
+        "formats": [
+          "pdf",
+          "docx",
+          "html",
+          "pptx"
+        ],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Reportes Ejecutivos/",
+        "archive_previous": true
+      },
+      "notifications": {
+        "slack": "#reportes-legales",
+        "email": [
+          "socios@jacabogados.co",
+          "clientes@ejemplo.co"
+        ],
+        "alert_on": "completion"
+      },
+      "enabled": true
+    },
+    "optimizacion-comunicacion-legal": {
+      "description": "Optimización de comunicaciones legales antes de enviar (Slack/Teams/Email)",
+      "trigger": "manual",
+      "skill": "optimizacion-comunicacion-legal",
+      "inputs": {
+        "modes": ["profesional", "empático", "asertivo"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "analyze_risks": true
+      },
+      "outputs": {
+        "path": "outputs/comunicaciones/",
+        "format": ["txt", "md"],
+        "include_analysis": true
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "legal_risk_detected"
+      },
+      "enabled": true
+    },
+    "resolucion-errores-legales": {
+      "description": "Resolución de errores jurídicos y procedimentales",
+      "trigger": "manual",
+      "skill": "resolucion-errores-legales",
+      "inputs": {
+        "error_types": ["cálculo", "procedimiento", "interpretación", "formal"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "include_prevention": true
+      },
+      "outputs": {
+        "path": "outputs/errores-resueltos/",
+        "format": ["md", "pdf"],
+        "include_prevention_tips": true
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "critical_error"
+      },
+      "enabled": true
+    },
+    "briefing-reuniones-profesionales": {
+      "description": "Briefing ejecutivo para reuniones y negociaciones",
+      "trigger": "manual",
+      "skill": "briefing-reuniones-profesionales",
+      "inputs": {
+        "analysis_types": ["perfil", "negociación", "jurisprudencia", "contexto"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "include_strategy": true
+      },
+      "outputs": {
+        "path": "outputs/briefings/",
+        "format": ["md", "pdf"],
+        "include_strategy": true
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "high_priority_meeting"
+      },
+      "enabled": true
+    },
+    "extraccion-datos-estructurados": {
+      "description": "Extracción de datos jurídicos a tablas estructuradas Excel-compatible",
+      "trigger": "manual",
+      "skill": "extraccion-datos-estructurados",
+      "inputs": {
+        "data_types": ["jurisprudencia", "normas", "multas", "sanciones"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "output_format": "excel-ready"
+      },
+      "outputs": {
+        "path": "outputs/datos-estructurados/",
+        "format": ["csv", "xlsx", "md"],
+        "excel_compatible": true
+      },
+      "notifications": {
+        "slack": "#legal-automation"
+      },
+      "enabled": true
+    },
+    "comparativa-herramientas-legales": {
+      "description": "Análisis y comparativa de herramientas SaaS jurídicas",
+      "trigger": "manual",
+      "skill": "comparativa-herramientas-legales",
+      "inputs": {
+        "priorities": ["bajo-costo", "funcionalidad", "seguridad", "integraciones"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "include_pricing": true
+      },
+      "outputs": {
+        "path": "outputs/comparativas/",
+        "format": ["md", "pdf"],
+        "include_recommendation": true
+      },
+      "notifications": {
+        "slack": "#legal-automation"
+      },
+      "enabled": true
+    },
+    "adaptacion-documentos-rama": {
+      "description": "Adaptación de documentos y argumentos por rama jurídica",
+      "trigger": "manual",
+      "skill": "adaptacion-documentos-rama",
+      "inputs": {
+        "adaptation_types": ["rama-destino", "magistrado-específico", "cliente-específico"],
+        "ramasLegales": ["laboral", "civil", "penal", "administrativo", "comercial", "corporativo-empresarial"],
+        "include_jurisprudencia": true
+      },
+      "outputs": {
+        "path": "outputs/documentos-adaptados/",
+        "format": ["docx", "pdf", "md"],
+        "include_justification": true
+      },
+      "notifications": {
+        "slack": "#legal-automation"
+      },
+      "enabled": true
+    },
+    "validacion-auto-regulacion-nocturna": {
+      "description": "Ciclo nocturno de validación, mejora continua y detección de alucinaciones",
+      "trigger": "schedule",
+      "schedule": "0 22 * * *",
+      "timezone": "America/Bogota",
+      "type": "auto-mejora-continua",
+      "phase": "ciclo-completo",
+      "execution_mode": "silent",
+      "redirect_output": "file_only",
+      "suppress_display": true,
+      "inputs": {
+        "validar_prompts": true,
+        "detectar_alucinaciones": true,
+        "mejorar_skills": true,
+        "actualizar_jurisprudencia": true,
+        "tecnicas_vanguardia": [
+          "análisis-jurisprudencial-avanzado",
+          "redacción-legal-persuasiva",
+          "análisis-de-riesgo-predictivo",
+          "validación-múltiple-fuentes",
+          "detección-alucinaciones-avanzada"
+        ],
+        "fuentes_validacion": [
+          "corte-constitucional",
+          "corte-suprema",
+          "consejo-estado",
+          "diario-oficial",
+          "suin",
+          "dian",
+          "superintendencia-sociedades"
+        ],
+        "target_score": 85,
+        "ramasLegales": [
+          "laboral",
+          "civil",
+          "penal",
+          "administrativo",
+          "comercial",
+          "corporativo-empresarial"
+        ]
+      },
+      "outputs": {
+        "path": "outputs/auto-regulacion/",
+        "format": ["json", "html", "pdf"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Auto-Regulación Nocturna/",
+        "include_metrics": true
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "email": "socios@jacabogados.co",
+        "alert_on": [
+          "alucinaciones_detectadas",
+          "mejoras_aplicadas",
+          "skills_actualizados"
+        ],
+        "summary_report": true
+      },
+      "quality_assurance": {
+        "validaciones_ejecutadas": 60,
+        "alucinaciones_prevenidas": "todas",
+        "confianza_minima": 0.95,
+        "precision_requerida": "100%"
+      },
+      "enabled": true,
+      "prioridad": "crítica",
+      "autonomía": "alta"
+    },
+    "semanal-zona-casi": {
+      "description": "Revisión semanal: Zona de Casi (posición 8-20 en Search Console)",
+      "trigger": "schedule",
+      "schedule": "0 9 * * 1",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "analisis-search-console-legal",
+      "inputs": {
+        "paso": "paso-2b-zona-casi",
+        "entrada": "ultimo-export-search-console.csv",
+        "descripcion": "Identifica búsquedas en posiciones 8-20: a un empujón de la primera página"
+      },
+      "outputs": {
+        "path": "outputs/search-console/",
+        "format": ["json", "html"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Search Console Análisis/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "high_opportunity_keywords"
+      },
+      "enabled": true
+    },
+    "quincenal-ctr-bajo": {
+      "description": "Revisión quincenal: CTR Bajo (posición buena, pocos clics)",
+      "trigger": "schedule",
+      "schedule": "0 14 * * 5",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "analisis-search-console-legal",
+      "inputs": {
+        "paso": "paso-2c-ctr-bajo",
+        "entrada": "ultimo-export-search-console.csv",
+        "descripcion": "Detecta búsquedas con buena posición pero bajo CTR - candidatos para reescribir títulos"
+      },
+      "outputs": {
+        "path": "outputs/search-console/",
+        "format": ["json", "html"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Search Console Análisis/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "low_ctr_opportunities"
+      },
+      "enabled": true
+    },
+    "mensual-huecos-contenido": {
+      "description": "Análisis mensual: Huecos de Contenido Legal",
+      "trigger": "schedule",
+      "schedule": "0 10 1-7 * 1",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "analisis-search-console-legal",
+      "inputs": {
+        "paso": "paso-2a-huecos-contenido",
+        "entrada": "ultimo-export-search-console.csv",
+        "descripcion": "Identifica oportunidades de contenido nuevo: búsquedas donde apareces pero sin página propia"
+      },
+      "outputs": {
+        "path": "outputs/search-console/",
+        "format": ["json", "html"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Search Console Análisis/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "alert_on": "new_content_opportunities"
+      },
+      "enabled": true
+    },
+    "cada-6-semanas-ciclo-completo": {
+      "description": "Ciclo completo cada 6 semanas: comparación de impacto",
+      "trigger": "timer",
+      "duration": "6 weeks",
+      "timezone": "America/Bogota",
+      "execution_mode": "silent",
+      "suppress_display": true,
+      "skill": "analisis-search-console-legal",
+      "inputs": {
+        "paso": "paso-6-comparacion",
+        "entrada": "export-anterior.csv + export-nuevo.csv",
+        "descripcion": "Descarga nuevo export y compara con anterior para medir impacto de cambios"
+      },
+      "outputs": {
+        "path": "outputs/search-console/",
+        "format": ["json", "html", "pdf"],
+        "sync_to_drive": true,
+        "drive_folder": "JAC/Search Console Análisis/Impacto 6 Semanas/"
+      },
+      "notifications": {
+        "slack": "#legal-automation",
+        "email": "socios@jacabogados.co",
+        "alert_on": "impact_measured"
+      },
+      "enabled": true
+    }
+  },
+  "hooks": {
+    "pre-automation": {
+      "description": "Preparar entorno antes de loops",
+      "enabled": true,
+      "commands": [
+        "git fetch origin main",
+        "npm install --silent"
+      ]
+    },
+    "post-síntesis": {
+      "description": "Después de síntesis, investigar jurisprudencia si hay referencias",
+      "enabled": true,
+      "trigger": "síntesis-jurídica-diaria-complete",
+      "action": "if_jurisprudence_mentioned then trigger búsqueda-jurisprudencial-4h"
+    },
+    "post-jurisprudencia": {
+      "description": "Si hay jurisprudencia nueva, incluir en reporte mensual",
+      "enabled": true,
+      "trigger": "búsqueda-jurisprudencial-4h-complete",
+      "action": "append_to_monthly_report"
+    },
+    "escalacion-riesgos": {
+      "description": "Si riesgo crítico detectado, notificar inmediatamente a socios",
+      "enabled": true,
+      "trigger": "risk_score_above_8",
+      "action": "send_urgent_notification",
+      "targets": [
+        "slack://socios-urgent",
+        "email://socios@jacabogados.co"
+      ]
+    },
+    "sincronizacion-drive": {
+      "description": "Sincronizar outputs con Google Drive cada 6 horas",
+      "enabled": true,
+      "trigger": "schedule",
+      "schedule": "0 */6 * * *",
+      "action": "sync_outputs_to_drive",
+      "retry_failed": true,
+      "backoff": "exponential"
+    },
+    "notificacion-vencimientos": {
+      "description": "Recordar vencimientos contractuales",
+      "enabled": true,
+      "trigger": "schedule",
+      "schedule": "0 9 * * 1-5",
+      "action": "notify_contract_expirations",
+      "days_before": [
+        90,
+        60,
+        30,
+        14,
+        7,
+        1
+      ]
+    },
+    "validacion-calidad": {
+      "description": "Validar que outputs cumplan estándares de calidad",
+      "enabled": true,
+      "trigger": "any-loop-complete",
+      "checks": [
+        "verified_sources_only",
+        "citas_verificables",
+        "no_hallucinations",
+        "formato_profesional"
+      ],
+      "fail_action": "flag_for_review"
+    },
+    "auto-regulacion-nocturna-trigger": {
+      "description": "Dispara ciclo nocturno de auto-mejora después de cualquier cambio de skill",
+      "enabled": true,
+      "trigger": "any-skill-modified",
+      "action": "trigger_validacion-auto-regulacion-nocturna",
+      "timing": "schedule_next_22:00",
+      "priority": "high",
+      "retry_on_failure": true
+    },
+    "deteccion-alucinaciones-continua": {
+      "description": "Detecta alucinaciones en tiempo real durante ejecución de tasks",
+      "enabled": true,
+      "trigger": "task-execution-start",
+      "action": "triple_verify_output",
+      "verificar_contra": [
+        "corte-constitucional",
+        "corte-suprema",
+        "consejo-estado"
+      ],
+      "fail_action": "prevent_hallucination_output",
+      "confidence_threshold": 0.95
+    },
+    "mejora-continua-skills": {
+      "description": "Aplica mejoras continuas a skills basado en resultados",
+      "enabled": true,
+      "trigger": "daily-22:00",
+      "actions": [
+        "validar_prompts_maestros",
+        "detectar_alucinaciones",
+        "aplicar_mejoras",
+        "actualizar_con_jurisprudencia_nueva",
+        "integrar_tecnicas_vanguardia",
+        "generar_reporte"
+      ],
+      "techniques": [
+        "análisis-jurisprudencial-avanzado",
+        "redacción-legal-persuasiva",
+        "análisis-de-riesgo-predictivo"
+      ]
+    },
+    "exportacion-descargada": {
+      "description": "Trigger: Se detecta un archivo CSV nuevo de Search Console descargado",
+      "enabled": true,
+      "trigger": "file-created",
+      "pattern": "search-console-*/Consultas.csv",
+      "action": "trigger_analisis-search-console-legal",
+      "skill_action": "ejecutar paso-1-inventario",
+      "description_detail": "Cuando se descarga una nueva exportación de Google Search Console, automáticamente inicia Paso 1 (Inventario de Exportación Legal)",
+      "hooks": ["on-exportacion-descargada"],
+      "gal_agent": "Agente 8 (Extracción de Datos)"
+    },
+    "contenido-publicado": {
+      "description": "Trigger: Se publica nuevo contenido legal (artículo o demanda)",
+      "enabled": true,
+      "trigger": "manual-o-loop",
+      "action": "trigger_analisis-search-console-legal",
+      "skill_action": "ejecutar paso-5a-auditoria",
+      "description_detail": "Cuando se publica un nuevo artículo legal o demanda, automáticamente audita con Plugin para verificar indexabilidad Google e IA",
+      "hooks": ["on-contenido-publicado"],
+      "gal_agent": "Agente 7 (Competencia/Readabilidad)"
+    },
+    "6-semanas-transcurridas": {
+      "description": "Trigger: Ciclo de medición completado (6 semanas después de última publicación)",
+      "enabled": true,
+      "trigger": "timer",
+      "duration": "6 weeks",
+      "action": "trigger_analisis-search-console-legal",
+      "skill_action": "ejecutar paso-6-comparacion",
+      "description_detail": "Después de 6 semanas desde la publicación, automáticamente descarga nuevo export y compara para medir impacto",
+      "hooks": ["on-ciclo-6-semanas"],
+      "gal_agent": "Agente 10 (Puntuación Final)"
+    }
+  },
+  "integrations": {
+    "gmail": {
+      "enabled": true,
+      "scopes": [
+        "readonly"
+      ]
+    },
+    "google_drive": {
+      "enabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ],
+      "sync_interval": "6h",
+      "folders": {
+        "síntesis": "JAC/Síntesis Diaria/",
+        "jurisprudencia": "JAC/Jurisprudencia/",
+        "contratos": "JAC/Análisis Contractual/",
+        "reportes": "JAC/Reportes Ejecutivos/"
+      }
+    },
+    "slack": {
+      "enabled": true,
+      "channels": {
+        "automation": "#legal-automation",
+        "reportes": "#reportes-legales",
+        "urgent": "#socios-urgent"
+      },
+      "message_format": "rich-formatting"
+    },
+    "github": {
+      "enabled": true,
+      "auto_commit": true,
+      "commit_frequency": "daily",
+      "branch": "claude/claude-automation-skills-os6e2k"
+    }
+  },
+  "quality_assurance": {
+    "enabled": true,
+    "rules": {
+      "jurisprudencia_verificada": {
+        "description": "Solo jurisprudencia de fuentes oficiales",
+        "validation": "required",
+        "source_validation": true
+      },
+      "citas_trackeables": {
+        "description": "Cada cita debe tener radicado y fecha",
+        "validation": "required"
+      },
+      "no_hallucinations": {
+        "description": "No generar sentencias inventadas",
+        "validation": "critical",
+        "check_frequency": "every_output"
+      },
+      "profesionalismo": {
+        "description": "Formato y tono profesional corporativo",
+        "validation": "required"
+      }
+    },
+    "fail_on_missing": "critical",
+    "review_before_send": "risk_score_above_5"
+  },
+  "permissions": {
+    "gmail_read": true,
+    "drive_sync": true,
+    "slack_notify": true,
+    "git_commit": true,
+    "file_system_write": true
+  },
+  "logging": {
+    "enabled": true,
+    "level": "info",
+    "outputs": [
+      ".claude/logs/automation.log",
+      "outputs/logs/"
+    ]
+  },
+  "error_handling": {
+    "retry_failed_loops": true,
+    "max_retries": 3,
+    "backoff_strategy": "exponential",
+    "notify_on_failure": true,
+    "fail_notifications": "socios@jacabogados.co"
+  },
+  "schedule_preferences": {
+    "timezone": "America/Bogota",
+    "business_hours_only": true,
+    "skip_weekends": true,
+    "skip_holidays_colombia": true
+  },
+  "agents": {
+    "consultor-comunicaciones-jac": {
+      "enabled": true,
+      "installed": true,
+      "installed_date": "2026-08-12T10:27:42.865Z",
+      "skills": [
+        "síntesis-jurídica-emails",
+        "optimizacion-comunicacion-legal",
+        "briefing-reuniones-profesionales"
+      ]
+    },
+    "investigador-jurisprudencial-jac": {
+      "enabled": true,
+      "installed": true,
+      "installed_date": "2026-08-12T10:27:42.886Z",
+      "skills": [
+        "búsqueda-jurisprudencial-automatizada",
+        "extraccion-datos-estructurados",
+        "resolucion-errores-legales"
+      ]
+    },
+    "auditor-contractual-jac": {
+      "enabled": true,
+      "installed": true,
+      "installed_date": "2026-08-12T10:27:42.886Z",
+      "skills": [
+        "análisis-flujo-contractual",
+        "resolucion-errores-legales",
+        "comparativa-herramientas-legales"
+      ]
+    },
+    "redactor-ejecutivo-jac": {
+      "enabled": true,
+      "installed": true,
+      "installed_date": "2026-08-12T10:27:42.886Z",
+      "skills": [
+        "generador-reportes-ejecutivos",
+        "adaptacion-documentos-rama",
+        "extraccion-datos-estructurados"
+      ]
+    }
+  },
+  "additional_skills_by_agent": {
+    "all-agents": {
+      "resolucion-errores-legales": "Disponible bajo demanda",
+      "briefing-reuniones-profesionales": "Disponible bajo demanda",
+      "extraccion-datos-estructurados": "Disponible bajo demanda",
+      "comparativa-herramientas-legales": "Disponible bajo demanda",
+      "adaptacion-documentos-rama": "Disponible bajo demanda"
+    }
+  }
+}

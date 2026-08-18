@@ -1,0 +1,185 @@
+{
+  "cuentas": [
+    {
+      "id": "outlook-trabajo",
+      "email": "abogadojr@aliado.co",
+      "proveedor": "outlook",
+      "tipo": "profesional",
+      "descripcion": "Correo de trabajo - Aliado",
+      "habilitada": true,
+      "autenticacion": {
+        "tipo": "oauth2-microsoft",
+        "estado": "pendiente-configuracion",
+        "scopes": [
+          "Mail.Read",
+          "Mail.Read.Shared",
+          "Calendars.Read",
+          "offline_access"
+        ]
+      },
+      "carpetas_monitorizar": [
+        "Inbox",
+        "Seguimiento",
+        "Clientes"
+      ]
+    },
+    {
+      "id": "gmail-personal",
+      "email": "jorgeacortesc38@gmail.com",
+      "proveedor": "gmail",
+      "tipo": "personal",
+      "descripcion": "Correo personal de Gmail",
+      "habilitada": true,
+      "autenticacion": {
+        "tipo": "oauth2-google",
+        "estado": "pendiente-configuracion",
+        "scopes": [
+          "gmail.readonly",
+          "gmail.modify",
+          "calendar.readonly"
+        ]
+      },
+      "carpetas_monitorizar": [
+        "INBOX",
+        "IMPORTANT",
+        "STARRED"
+      ]
+    }
+  ],
+  "procesamiento_global": {
+    "palabrasClaveJuridicas": [
+      "sentencia",
+      "jurisprudencia",
+      "fallo",
+      "recurso",
+      "apelación",
+      "demanda",
+      "contrato",
+      "acuerdo",
+      "negociación",
+      "norma",
+      "ley",
+      "decreto",
+      "resolución",
+      "artículo",
+      "legal",
+      "litigio",
+      "pleito",
+      "conflicto",
+      "derecho",
+      "obligación",
+      "responsabilidad",
+      "indemnización",
+      "daño",
+      "perjuicio",
+      "cláusula",
+      "incumplimiento",
+      "sanción",
+      "multa",
+      "procedimiento",
+      "término",
+      "vencimiento",
+      "caducidad",
+      "parte demandante",
+      "parte demandada",
+      "tribunal",
+      "juzgado",
+      "corte",
+      "magistrado",
+      "juez",
+      "abogado",
+      "letrado"
+    ],
+    "frecuencia_chequeo": "tiempo-real",
+    "procesamiento_automatico": true,
+    "generar_analisis": true,
+    "actualizar_ecosistema": true,
+    "ejecutar_agentes": true
+  },
+  "almacenamiento": {
+    "base": "~/Documents/JAC-Correos-Procesados",
+    "estructura": {
+      "por_cuenta": true,
+      "por_tipo": true,
+      "por_fecha": true
+    },
+    "formatos": [
+      "json",
+      "markdown"
+    ]
+  },
+  "agentes_asignados": {
+    "outlook-trabajo": {
+      "investigador-jurisprudencial": true,
+      "auditor-contractual": true,
+      "consultor-comunicaciones": true,
+      "redactor-ejecutivo": true
+    },
+    "gmail-personal": {
+      "investigador-jurisprudencial": true,
+      "auditor-contractual": true,
+      "consultor-comunicaciones": true
+    }
+  },
+  "notificaciones": {
+    "habilitadas": true,
+    "consolidar_resumen": true,
+    "frecuencia_resumen": "diaria-08:00",
+    "alertas_urgentes": true,
+    "canales": {
+      "correo_respuesta": true,
+      "console": true,
+      "archivo_log": true
+    }
+  },
+  "sincronizacion": {
+    "deduplicar": true,
+    "consolidar_conversaciones": true,
+    "evitar_duplicados": true,
+    "retencion": "90-dias"
+  },
+  "logs": {
+    "habilitados": true,
+    "nivel": "INFO",
+    "archivo": "~/Documents/JAC-Logs/cuentas-correo-{YYYY-MM-DD}.log",
+    "detalle": "todas-las-operaciones"
+  },
+  "configuracion_avanzada": {
+    "buscar_en_archivo": true,
+    "procesar_forwarded": true,
+    "analizar_adjuntos": true,
+    "extraer_urls": true,
+    "verificar_firmas": true,
+    "detectar_amenazas": false
+  },
+  "integraciones": {
+    "ecosistema-legal": {
+      "habilitada": true,
+      "actualizar": true,
+      "crear_referencias": true
+    },
+    "calendario-vencimientos": {
+      "habilitada": true,
+      "detectar_terminos": true,
+      "crear_eventos": true
+    },
+    "search-console-legal": {
+      "habilitada": true,
+      "indexar_correos": true
+    },
+    "base-jurisprudencia": {
+      "habilitada": true,
+      "incorporar_sentencias": true
+    }
+  },
+  "estadisticas": {
+    "recopilar": true,
+    "frecuencia": "diaria",
+    "reportes": [
+      "resumen-diario",
+      "tendencias-semanales",
+      "tipos-documentos",
+      "palabras-clave-frecuentes"
+    ]
+  }
+}
