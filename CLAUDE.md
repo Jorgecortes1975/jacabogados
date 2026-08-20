@@ -245,6 +245,40 @@ Transporte REST para APIs legales.
 
 ---
 
+## 🧭 Spec Kit: Desarrollo Guiado por Especificaciones
+
+Este repositorio integra [Spec Kit](https://github.com/github/spec-kit) (GitHub), instalado como
+skills de Claude Code en `.claude/skills/speckit-*`. Se usa para planear y construir cambios
+medianos o grandes del ecosistema (nuevas fuentes, nuevos tipos de consulta, nuevos agentes) antes
+de escribir código, en lugar de improvisar directamente sobre `agente-juridico-especializado.js`,
+`lexa-super-router.js` o los transportes MCP.
+
+### Principios del proyecto
+
+Los principios rectores (sin alucinaciones, verificación multi-fuente, español jurídico por
+defecto, trazabilidad, simplicidad) están en `.specify/memory/constitution.md`, derivados
+directamente de las garantías de este documento. Actualízalos con:
+
+```bash
+/speckit-constitution
+```
+
+### Flujo recomendado para una funcionalidad nueva
+
+```bash
+/speckit-specify   "Descripción de la funcionalidad en términos de qué y por qué"
+/speckit-clarify    # opcional: resolver ambigüedades antes de planear
+/speckit-plan       "Stack y decisiones técnicas (Node.js, MCP, fuente X, etc.)"
+/speckit-tasks
+/speckit-analyze    # opcional pero recomendado si toca verificación de datos
+/speckit-implement
+```
+
+Cada spec y plan se genera en español dentro de `specs/`, salvo identificadores técnicos, siguiendo
+el principio III de la constitución.
+
+---
+
 ## 📖 Ejemplos de Uso Práctico
 
 ### Caso 1: Consulta Rápida de Jurisprudencia
