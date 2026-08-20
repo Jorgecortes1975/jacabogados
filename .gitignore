@@ -1,3 +1,14 @@
-.claude/logs/
-.env
+# Dependencias
 node_modules/
+
+# Variables de entorno (usa .env.example como plantilla)
+.env
+.env.local
+
+# Estado local de Spec Kit (por máquina, no se comparte)
+.specify/feature.json
+.specify/extensions/*/local-config.yml
+
+# Sistema operativo / editores
+.DS_Store
+*.log
