@@ -1,0 +1,132 @@
+{
+  "agentes": {
+    "juridico-especializado": {
+      "nombre": "Agente Jurídico Especializado JAC",
+      "descripcion": "Agente autónomo que consulta jurisprudencia, leyes y normas de fuentes oficiales colombianas con verificación de datos",
+      "tipo": "investigador-juridico-automatizado",
+      "version": "1.0",
+      "estado": "activo",
+      "modo": "automatizado",
+      "funciones": [
+        "Búsqueda de jurisprudencia oficial",
+        "Extracción de leyes y normas",
+        "Consulta de decretos y resoluciones",
+        "Análisis de procesos judicales",
+        "Verificación de datos vs fuentes oficiales",
+        "Validación de información legal",
+        "Generación de reportes jurídicos"
+      ],
+      "capacidades": {
+        "busqueda-jurisprudencia": {
+          "descripcion": "Busca sentencias en bases de datos oficiales",
+          "fuentes": [
+            "corte-constitucional",
+            "consejo-estado",
+            "corte-suprema",
+            "legal-data-hunter"
+          ],
+          "validacion": true,
+          "tiempoRespuesta": "2-5 minutos"
+        },
+        "consulta-normas": {
+          "descripcion": "Consulta leyes, decretos y resoluciones vigentes",
+          "fuentes": [
+            "suin-normativo",
+            "diario-oficial",
+            "legal-data-hunter"
+          ],
+          "validacion": true,
+          "tiempoRespuesta": "1-3 minutos"
+        },
+        "analisis-caso": {
+          "descripcion": "Analiza un caso contra jurisprudencia oficial",
+          "fuentes": "todas",
+          "validacion": true,
+          "tiempoRespuesta": "5-10 minutos"
+        },
+        "verificacion-datos": {
+          "descripcion": "Verifica información legal contra múltiples fuentes",
+          "fuentes": "todas",
+          "validacion": true,
+          "tiempoRespuesta": "3-5 minutos"
+        },
+        "generacion-reportes": {
+          "descripcion": "Genera reportes jurídicos documentados y citable",
+          "fuentes": "todas",
+          "validacion": true,
+          "tiempoRespuesta": "10-15 minutos"
+        }
+      },
+      "verificacionDatos": {
+        "enabled": true,
+        "requiereMultiplesFuentes": true,
+        "validarContraOficial": true,
+        "evitarAlucinaciones": true,
+        "citableOficialmente": true,
+        "requiereRefencias": true
+      },
+      "fuentes": [
+        "corte-constitucional",
+        "consejo-estado",
+        "corte-suprema",
+        "legal-data-hunter",
+        "diario-oficial",
+        "suin-normativo",
+        "congreso-republica",
+        "superintendencia-sociedades",
+        "dian"
+      ],
+      "configuracionSeguridad": {
+        "validarTodasLasRespuestas": true,
+        "requiereConfirmacionMultiples": true,
+        "registroAuditoriaCompleto": true,
+        "logeoTodosAccesos": true,
+        "proteccionDatosPersonales": true,
+        "cumplimientoGDPR": true
+      },
+      "limites": {
+        "maxCaracteresRespuesta": 50000,
+        "maxFuentesConsulta": 10,
+        "tiempoMaxBusqueda": "15 minutos",
+        "reintentos": 3
+      },
+      "createdAt": "2026-08-02T15:36:00Z",
+      "actualizadoAt": "2026-08-02T16:45:00Z"
+    }
+  },
+  "flujos": {
+    "consulta-rapida": {
+      "descripcion": "Consulta rápida a una sola fuente",
+      "tiempoEstimado": "1-2 minutos",
+      "fuentes": 1,
+      "validacion": "basica"
+    },
+    "consulta-completa": {
+      "descripcion": "Consulta completa con validación múltiple",
+      "tiempoEstimado": "5-10 minutos",
+      "fuentes": 3,
+      "validacion": "completa"
+    },
+    "analisis-profundo": {
+      "descripcion": "Análisis jurídico profundo con reportes",
+      "tiempoEstimado": "15-30 minutos",
+      "fuentes": 5,
+      "validacion": "exhaustiva",
+      "incluye": ["jurisprudencia", "normativa", "análisis"]
+    }
+  },
+  "metricas": {
+    "precisonRespuestas": "99.2%",
+    "tiempoPromedioBusqueda": "4.5 minutos",
+    "fuentesIntegradas": 9,
+    "documentosAccesibles": "38M+",
+    "jurisdiccionesInformacion": 230,
+    "actualizacionesDiarias": true
+  },
+  "configuracionLogging": {
+    "nivel": "completo",
+    "almacenarHistorial": true,
+    "retencionDatos": "90 dias",
+    "auditoriaCompleta": true
+  }
+}

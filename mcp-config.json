@@ -1,0 +1,348 @@
+{
+  "version": "1.0",
+  "transports": {
+    "corte-constitucional": {
+      "type": "http",
+      "url": "https://api.corteconstitucional.gov.co",
+      "enabled": true,
+      "createdAt": "2026-08-02T15:36:33.709Z",
+      "lastActivated": "2026-08-02T15:36:33.731Z"
+    },
+    "consejo-estado": {
+      "type": "http",
+      "url": "https://www.consejodeestado.gov.co",
+      "api": "https://www.consejodeestado.gov.co/web/guest",
+      "fuente": "Consejo de Estado de Colombia",
+      "contenido": [
+        "jurisprudencia",
+        "sentencias",
+        "decisiones"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.623Z",
+      "oficial": true
+    },
+    "corte-suprema": {
+      "type": "http",
+      "url": "https://www.cortesupremajusticia.gov.co",
+      "fuente": "Corte Suprema de Justicia",
+      "contenido": [
+        "jurisprudencia",
+        "sentencias",
+        "providencias"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "legal-data-hunter": {
+      "type": "mcp",
+      "servidor": "legal-data-hunter",
+      "fuente": "Legal Data Hunter - Base de datos multijurisdiccional",
+      "contenido": [
+        "jurisprudencia",
+        "leyes",
+        "normas",
+        "decretos",
+        "resoluciones"
+      ],
+      "jurisdicciones": 230,
+      "documentos": "38M+",
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "diario-oficial": {
+      "type": "http",
+      "url": "https://www.diariooficial.gov.co",
+      "fuente": "Diario Oficial de la República",
+      "contenido": [
+        "decretos",
+        "resoluciones",
+        "normas",
+        "edictos"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "suin-normativo": {
+      "type": "http",
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/inicio.aspx",
+      "fuente": "Sistema Único de Información Normativa (SUIN)",
+      "contenido": [
+        "leyes",
+        "decretos",
+        "resoluciones",
+        "normas"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "congreso-republica": {
+      "type": "http",
+      "url": "https://www.congreso.gov.co",
+      "api": "https://www.congreso.gov.co/comisiones/web/index.php",
+      "fuente": "Congreso de la República de Colombia",
+      "contenido": [
+        "proyectos-ley",
+        "leyes",
+        "actos-legislativos"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "superintendencia-sociedades": {
+      "type": "http",
+      "url": "https://www.supersociedades.gov.co",
+      "fuente": "Superintendencia de Sociedades",
+      "contenido": [
+        "jurisprudencia",
+        "circulares",
+        "resoluciones"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    },
+    "dian": {
+      "type": "http",
+      "url": "https://www.dian.gov.co",
+      "fuente": "Dirección de Impuestos y Aduanas Nacionales",
+      "contenido": [
+        "normas-tributarias",
+        "conceptos",
+        "resoluciones"
+      ],
+      "verificado": true,
+      "enabled": true,
+      "createdAt": "2026-08-02T15:41:15.624Z",
+      "oficial": true
+    }
+  },
+  "servers": {},
+  "agents": {
+    "juridico-especializado": {
+      "nombre": "Agente Jurídico Especializado JAC",
+      "tipo": "investigador-juridico-automatizado",
+      "descripcion": "Agente autónomo que consulta jurisprudencia, leyes, normas y decretos de fuentes oficiales colombianas",
+      "funciones": [
+        "Búsqueda de jurisprudencia oficial",
+        "Extracción de leyes y normas",
+        "Consulta de decretos y resoluciones",
+        "Análisis de procesos judiciales",
+        "Verificación de datos vs fuentes oficiales",
+        "Validación de información legal",
+        "Generación de reportes jurídicos"
+      ],
+      "fuentes": [
+        "corte-constitucional",
+        "consejo-estado",
+        "corte-suprema",
+        "legal-data-hunter",
+        "diario-oficial",
+        "suin-normativo",
+        "congreso-republica",
+        "superintendencia-sociedades",
+        "dian"
+      ],
+      "capacidades": {
+        "busqueda-jurisprudencia": {
+          "descripcion": "Busca sentencias en bases de datos oficiales",
+          "fuentes": [
+            "corte-constitucional",
+            "consejo-estado",
+            "corte-suprema",
+            "legal-data-hunter"
+          ],
+          "validacion": true
+        },
+        "consulta-normas": {
+          "descripcion": "Consulta leyes, decretos y resoluciones",
+          "fuentes": [
+            "suin-normativo",
+            "diario-oficial",
+            "legal-data-hunter"
+          ],
+          "validacion": true
+        },
+        "analisis-caso": {
+          "descripcion": "Analiza un caso contra jurisprudencia oficial",
+          "fuentes": "todas",
+          "validacion": true
+        },
+        "verificacion-datos": {
+          "descripcion": "Verifica información legal contra múltiples fuentes",
+          "fuentes": "todas",
+          "validacion": true
+        },
+        "generacion-reportes": {
+          "descripcion": "Genera reportes jurídicos documentados",
+          "fuentes": "todas",
+          "validacion": true
+        }
+      },
+      "verificacionDatos": {
+        "enabled": true,
+        "requiereMultiplesFuentes": true,
+        "validarContraOficial": true,
+        "evitarAlucinaciones": true
+      },
+      "modo": "automatizado",
+      "activado": true,
+      "createdAt": "2026-08-02T15:41:15.624Z"
+    }
+  },
+  "ecosystem": {
+    "version": "2.0-INTEGRADO",
+    "nombre": "LEXA-JAC Ecosistema Integrado",
+    "descripcion": "Sistema autónomo de 3 capas para operación integral del despacho",
+    "estado": "activo",
+    "capas": {
+      "dashboard": {
+        "nombre": "Dashboard de Monitoreo",
+        "puerto": "3000",
+        "funcion": "Monitorea todos los agentes 24/7",
+        "estado": "habilitado"
+      },
+      "router": {
+        "nombre": "Super Router LEXA-JAC",
+        "funcion": "Entrada única - Clasifica y despacha mensajes",
+        "estado": "habilitado",
+        "entradas": [
+          "telegram",
+          "email",
+          "whatsapp",
+          "api-rest"
+        ]
+      },
+      "agentes_especializados": {
+        "juridico": {
+          "nombre": "Agente Jurídico Especializado",
+          "ruta": "~/agents/juridico/",
+          "funciones": [
+            "escritos-procesales",
+            "tutelas",
+            "laboralista"
+          ],
+          "sub_agentes": [
+            "investigador",
+            "redactor",
+            "jac-validator"
+          ],
+          "fuentes": "todas las 9 oficiales",
+          "validacion": true
+        },
+        "mercantil": {
+          "nombre": "Agente Mercantil",
+          "ruta": "~/agents/mercantil/",
+          "funciones": [
+            "contratos",
+            "SAS",
+            "litigio-comercial"
+          ],
+          "sub_agentes": [
+            "contratos",
+            "litigio-mercantil",
+            "investigador-mercantil"
+          ],
+          "estado": "habilitado"
+        },
+        "email": {
+          "nombre": "Agente de Comunicaciones",
+          "ruta": "~/agents/email/",
+          "funciones": [
+            "correos",
+            "comunicaciones",
+            "reportes"
+          ],
+          "sub_agentes": [
+            "classifier",
+            "drafter",
+            "summarizer"
+          ],
+          "estado": "habilitado"
+        },
+        "tributario": {
+          "nombre": "Agente Tributario",
+          "ruta": "~/agents/tributario/",
+          "funciones": [
+            "impuestos",
+            "DIAN",
+            "compliance-tributario"
+          ],
+          "sub_agentes": [
+            "analista-impuestos",
+            "redactor-tributario",
+            "validator-dian"
+          ],
+          "fuentes": [
+            "DIAN",
+            "suin-normativo",
+            "legal-data-hunter"
+          ],
+          "estado": "nuevo"
+        },
+        "ambiental": {
+          "nombre": "Agente Ambiental",
+          "ruta": "~/agents/ambiental/",
+          "funciones": [
+            "licencias-ambientales",
+            "normativa-ambiental",
+            "litigio-ambiental"
+          ],
+          "sub_agentes": [
+            "investigador-ambiental",
+            "redactor-ambiental",
+            "validator"
+          ],
+          "estado": "nuevo"
+        },
+        "laboral": {
+          "nombre": "Agente Laboral Avanzado",
+          "ruta": "~/agents/laboral/",
+          "funciones": [
+            "conflictos-laborales",
+            "nómina",
+            "seguridad-social"
+          ],
+          "sub_agentes": [
+            "analista-laboral",
+            "redactor-laboral",
+            "validator"
+          ],
+          "estado": "nuevo"
+        }
+      }
+    },
+    "dispatch_table": {
+      "escritos procesales|tutelas|laboralista": "juridico",
+      "contratos|SAS|comercial": "mercantil",
+      "correos|comunicaciones|reportes": "email",
+      "impuestos|DIAN|tributario": "tributario",
+      "ambiental|licencias|normativa-ambiental": "ambiental",
+      "laboral|conflictos-laborales|nómina": "laboral",
+      "[REQUIERE VALIDACIÓN JAC]": "juridico-validado"
+    },
+    "validacion": {
+      "enabled": true,
+      "requiereJACValidation": true,
+      "contra_fuentes": [
+        "SUIN",
+        "LexisNexis",
+        "Juriscol",
+        "Legal Data Hunter"
+      ],
+      "firma_digital": true
+    }
+  }
+}
