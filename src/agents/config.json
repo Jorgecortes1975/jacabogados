@@ -64,15 +64,57 @@
         "id": "agent_003_dossier",
         "phase": "Fase 3 - Dossier Ejecutivo",
         "priority": "P2",
-        "status": "planned",
-        "description": "Extrae calendario → genera perfil decisor + radiografía empresarial + vulnerabilidades sector + tesis conversación"
+        "status": "active",
+        "capabilities": [
+          "Extrae datos de invitación a reunión (calendario, dominio, nombres)",
+          "Genera perfil verificable de decisor (LinkedIn, registros públicos)",
+          "Radiografía empresarial (RUES, tamaño, estructura)",
+          "Análisis de vulnerabilidades del sector (jurisprudencia + normativa)",
+          "Generación de 3 tesis de conversación con ROI cuantificable"
+        ],
+        "requirements": {
+          "temperature": 0.2,
+          "model": "claude-opus-5",
+          "sources": [
+            "RUES",
+            "Registros públicos",
+            "Jurisprudencia Corte Suprema",
+            "Consejo de Estado"
+          ]
+        },
+        "safeguards": {
+          "data_verification": "Solo datos públicos verificables",
+          "audit_trail": "Registro de cada dossier generado",
+          "human_validation": "Abogado senior revisa antes de reunión"
+        }
       },
       "forensic": {
         "id": "agent_004_forensic",
         "phase": "Fase 4 - Análisis Forense",
         "priority": "P3",
-        "status": "planned",
-        "description": "Procesa nóminas/contratos → matrices contingencia → cálculos 100% citables → reportes semanalizados"
+        "status": "active",
+        "capabilities": [
+          "Procesa nóminas e identifica exposición laboral",
+          "Calcula matrices de contingencia por concepto (indemnización, prestaciones, perjuicios)",
+          "Analiza alineamiento de contratos vs. estatutos",
+          "Genera reportes ejecutivos (1 pág) + tablas detalladas",
+          "100% de cálculos citables contra CST y jurisprudencia Corte Suprema"
+        ],
+        "requirements": {
+          "temperature": 0.2,
+          "model": "claude-opus-5",
+          "sources": [
+            "CST - Código Sustantivo del Trabajo",
+            "Jurisprudencia Corte Suprema",
+            "Decreto 2350/1944 (intereses)",
+            "SUIN - Normas laborales"
+          ]
+        },
+        "safeguards": {
+          "calculation_citability": "Cada cifra verificable contra norma/jurisprudencia",
+          "no_speculation": "No inventar montos, reporte como 'REQUIRES_DETAILED_PAYROLL'",
+          "human_validation": "Abogado senior aprueba antes de presentar a cliente"
+        }
       }
     },
     "fee_structure": {
