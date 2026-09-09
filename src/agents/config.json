@@ -1,0 +1,119 @@
+{
+  "jac_automation": {
+    "version": "1.0.0",
+    "status": "alpha",
+    "environment": "production",
+    "firm": {
+      "name": "JAC - Abogados Asociados",
+      "location": "Medellín, Colombia",
+      "team_size": 4,
+      "specialization": "Derecho Corporativo Comercial"
+    },
+    "agents": {
+      "social_listening": {
+        "id": "agent_001_social_listening",
+        "phase": "Fase 1 - Social Listening",
+        "priority": "P1",
+        "status": "active",
+        "capabilities": [
+          "Detección autónoma de contingencias en X, Facebook, Instagram, TikTok",
+          "Validación multi-fuente contra SUIN, Diario Oficial, jurisprudencia",
+          "Generación de ganchos técnicos sin lenguaje comercial",
+          "Conversión a DM privado con NDA"
+        ],
+        "requirements": {
+          "temperature": 0.2,
+          "model": "claude-opus-5",
+          "sources": [
+            "SUIN",
+            "Diario Oficial",
+            "Corte Suprema",
+            "Consejo de Estado",
+            "DIAN"
+          ]
+        },
+        "safeguards": {
+          "hallucination_prevention": "100% verificación multi-fuente",
+          "professional_secrecy": "Cero datos de cliente en canales públicos",
+          "audit_trail": "Inmutable, rastreable"
+        }
+      },
+      "intake": {
+        "id": "agent_002_intake",
+        "phase": "Fase 2 - Intake Inteligente",
+        "priority": "P2",
+        "status": "active",
+        "capabilities": [
+          "Captura automática de datos vía WhatsApp, formulario web, correo",
+          "Validación de conflicto de interés con escalada manual",
+          "Triaje operativo a Prioridad Alta, Corporativo, Filtrado",
+          "Respuestas automáticas profesionales"
+        ],
+        "requirements": {
+          "temperature": 0.2,
+          "model": "claude-opus-5",
+          "sources": ["Base de contrapartes local", "Análisis de patrones"]
+        },
+        "safeguards": {
+          "conflict_detection": "RF-003 obligatorio, escalada si duda",
+          "human_in_the_loop": "RF-009 en decisiones legales",
+          "professional_secrecy": "NDA antes de documentos sensibles"
+        }
+      },
+      "dossier": {
+        "id": "agent_003_dossier",
+        "phase": "Fase 3 - Dossier Ejecutivo",
+        "priority": "P2",
+        "status": "planned",
+        "description": "Extrae calendario → genera perfil decisor + radiografía empresarial + vulnerabilidades sector + tesis conversación"
+      },
+      "forensic": {
+        "id": "agent_004_forensic",
+        "phase": "Fase 4 - Análisis Forense",
+        "priority": "P3",
+        "status": "planned",
+        "description": "Procesa nóminas/contratos → matrices contingencia → cálculos 100% citables → reportes semanalizados"
+      }
+    },
+    "fee_structure": {
+      "cuota_fija": {
+        "description": "Proyectos corporativos con alcance definido",
+        "applies_to": ["Asesoría contractual", "Estructura empresarial", "Blindaje patrimonial"]
+      },
+      "cuota_liti": {
+        "description": "Contingencia en litigio (porcentaje de recuperación)",
+        "applies_to": ["Litigio comercial", "Cobro de acreencias", "Defensa empresarial"]
+      },
+      "retainer": {
+        "description": "Asesoría mensual continua",
+        "applies_to": ["Clientes corporativos B2B", "Startups post-funding"]
+      }
+    },
+    "constitution_principles": {
+      "I_no_hallucinations": "Cero datos inventados. 100% verificables contra 9 fuentes oficiales.",
+      "II_multi_source_verification": "Validación cruzada obligatoria en datos sensibles.",
+      "III_colombian_legal_spanish": "Español jurídico colombiano en todos los artefactos dirigidos a usuarios.",
+      "IV_traceability": "Auditoría inmutable: cada acción registrada con timestamp, actor, datos.",
+      "V_simplicity": "Reutiliza lexa-ecosystem.json, no duplica agentes/transportes."
+    },
+    "safeguards": {
+      "temperature_control": 0.2,
+      "human_in_the_loop": "Obligatorio en decisiones legales críticas (RF-009)",
+      "professional_secrecy": "Inviolable (RF-011)",
+      "conflict_of_interest": "Validación automática con escalada manual",
+      "audit_logging": "Inmutable, rastreable 24/7"
+    },
+    "expected_metrics": {
+      "social_listening": {
+        "detection_precision": ">=90%",
+        "hook_engagement_rate": ">=8%",
+        "conversion_rate": ">=40%"
+      },
+      "intake": {
+        "response_time": "<30s",
+        "conflict_detection_accuracy": ">=95%",
+        "human_validation_rate": "<5%"
+      }
+    }
+  }
+}
