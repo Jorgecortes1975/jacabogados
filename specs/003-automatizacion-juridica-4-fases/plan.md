@@ -1,46 +1,84 @@
-# Implementation Plan: [FEATURE]
+# Plan de Implementación: Automatización Jurídica Corporativa en 4 Fases + Social Listening
 
-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
+**Rama**: `claude/social-listening-legal-agents-6031yv` | **Fecha**: 2026-09-09 | **Specs**: [002-social-listening-legal-agents](../002-social-listening-legal-agents/spec.md), [003-automatizacion-juridica-4-fases](./spec.md)
 
-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
+**Entrada**: Especificaciones integradas de prospección quirúrgica corporativa (LinkedIn + redes sociales) → intake inteligente → dossier ejecutivo → análisis forense.
 
-**Note**: This template is filled in by the `/speckit-plan` command; its definition describes the execution workflow.
+---
 
-## Summary
+## Resumen Ejecutivo
 
-[Extract from feature spec: primary requirement + technical approach from research]
+JAC (Abogados Asociados, Medellín, 4 especialistas corporativos) automatiza la captación y gestión de clientes corporativos en 4 fases:
 
-## Technical Context
+1. **Fase 1 (Social Listening)**: Detección autónoma de contingencias en X/Facebook/Instagram/TikTok + LinkedIn prospecting quirúrgica → Genera ganchos técnicos (sin lenguaje comercial) → DM privado con NDA
+2. **Fase 2 (Intake Inteligente)**: Captura WhatsApp/formulario → Validación conflicto de interés → Triaje operativo (Prioridad Alta/Corporativo/Filtrado)
+3. **Fase 3 (Dossier Ejecutivo)**: Extrae calendario → Genera perfil decisor + radiografía empresarial + vulnerabilidades sector + tesis conversación (verificables)
+4. **Fase 4 (Análisis Forense)**: Procesa nóminas/contratos → Matrices contingencia laboral → Cálculos 100% citables contra CST/jurisprudencia → Reportes semanalizados
 
-<!--
-  ACTION REQUIRED: Replace the content in this section with the technical details
-  for the project. The structure here is presented in advisory capacity to guide
-  the iteration process.
--->
+**Modelo de Honorarios**: Cuota Fija (proyectos corporativos), Cuota Liti (contingencia litigio), Retainer (asesoría mensual continua)
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
+**Human-in-the-Loop**: Decisiones legales autónomas PROHIBIDAS. Abogado senior valida: conflictos, ganchos iniciales, dossiers, análisis forense, conceptos, propuestas de honorarios.
 
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
+---
 
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+## Contexto Técnico
 
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
+**Lenguaje/Versión**: Node.js 18+ (esyac con JavaScript/TypeScript moderno; alineado con `agente-juridico-especializado.js` existente)
 
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Dependencias Principales**:
+- **Claude API** (Messages API con temperatura 0.2 para ganchos y análisis forense)
+- **MCP Servers** (Legal Data Hunter, SUIN, Diario Oficial, jurisprudencia cortes)
+- **APIs Sociales**: X (v2 Academic), Meta for Business (Facebook/Instagram), TikTok Ads API
+- **LinkedIn**: Vendedor API (prospección quirúrgica) + web scraping verificado
+- **WhatsApp**: Business API oficial (intake messaging)
+- **Express.js** (backend web, intake forms, webhooks)
+- **Playwright** (extracción de calendario, datos públicos)
 
-**Project Type**: [e.g., library/cli/web-service/mobile-app/compiler/desktop-app or NEEDS CLARIFICATION]
+**Almacenamiento**: PostgreSQL 15+ (auditoría inmutable, prospectos, conflictos, dossiers, cálculos forenses) + Redis (caché de validaciones, rate limiting)
 
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]
+**Testing**:
+- Unit: Jest (lógica de detección, validación conflictos, cálculos de liquidación)
+- Integration: Supertest (webhooks, intake, generación dossier)
+- E2E: Playwright (flujos social listening → DM → conversión)
+- Compliance: Tests de no-alucinación (verifica todas las citas contra fuentes oficiales)
 
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]
+**Plataforma Destino**: Linux server (AWS EC2 o similar, 24/7 uptime); CLI local para intake manual + análisis forense bajo demanda
 
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Tipo de Proyecto**: Web service + CLI + MCP aggregator (agente multi-canal que monitorea redes, gestiona intake, genera dossiers, calcula riesgos)
 
-## Constitution Check
+**Objetivos de Rendimiento**:
+- Social listening: Monitoreo 4 plataformas en paralelo, <5min latencia detección→gancho publicado
+- Intake: <30s respuesta automática + triage
+- Dossier: <20min generación de expediente completo
+- Análisis forense: Procesa nómina de 100 empleados en <10min
 
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+**Restricciones**:
+- Cero datos de cliente en canales públicos (secreto profesional inviolable)
+- Cero números inventados (100% citables contra CST/SUIN/jurisprudencia)
+- 100% auditoría inmutable de cada acción (rastreabilidad legal)
+- Temperatura 0.2 en todas las generaciones de texto (precisión sobre creatividad)
+- Human-in-the-loop obligatorio en decisiones legales críticas
 
-[Gates determined based on constitution file]
+**Escala/Ámbito**:
+- **Usuarios**: 1 equipo interno (4 abogados + 1 coordinador intake + 1 admin MCP)
+- **Prospectos simultaneos**: 10-20 en pipeline de conversión activa
+- **Volumen redes**: 50-100 menciones/día monitoradas, 5-10 convertidas a prospección activa
+- **Clientes activos esperados**: 10-15 retainer, 5-10 proyectos fijos, 3-5 litigio contingencia simultáneos
+- **Datos históricos**: 2 años auditoría legal (>5GB PostgreSQL)
+
+## Verificación Constitucional
+
+*GATE: Debe pasar antes de Phase 0 Research. Re-evaluar después de Phase 1 Design.*
+
+| Principio | Verificación | Estado |
+|-----------|--------------|--------|
+| **I. Sin Alucinaciones** | Todos los ganchos (RF-004), dossiers (RF-007), cálculos forenses (RF-012) se generan con temperatura 0.2 + validación multi-fuente obligatoria. Ningún dato sin cita verificable. | ✅ CUMPLE |
+| **II. Verificación Cruzada** | Contingencias detectadas (RF-003) validadas contra MÍNIMO 2 fuentes (SUIN + jurisprudencia O DIAN + decreto). Dossier usa solo datos públicos verificables. | ✅ CUMPLE |
+| **III. Español Jurídico Colombiano** | Todos los mensajes (RF-004, RF-005, gancho técnico), reportes (Phase 4), documentos generados en español con terminología CST/SUIN/jurisprudencia colombiana. | ✅ CUMPLE |
+| **IV. Trazabilidad** | Auditoría inmutable (RF-010, SC-11): Log de detección→gancho→DM→dossier→análisis. Cada acción con timestamp, usuario responsable, datos procesados. | ✅ CUMPLE |
+| **V. Simplicidad** | Reutiliza `lexa-ecosystem.json` (6 agentes existentes), MCP config centralizada. No crea transportes o agents duplicados. | ✅ CUMPLE |
+
+**Resultado Gate**: ✅ **PASA** - Ambas specs alineadas con constitución. Proceder a Phase 0.
 
 ## Project Structure
 
