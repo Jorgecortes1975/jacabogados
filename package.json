@@ -4,11 +4,13 @@
   "description": "Agentes de automatización jurídica corporativa para JAC - Abogados Asociados",
   "main": "src/agents/index.js",
   "scripts": {
-    "agent:social-listening": "node src/agents/social-listening-agent.js",
-    "agent:intake": "node src/agents/intake-agent.js",
-    "agent:dossier": "node src/agents/dossier-agent.js",
-    "agent:forensic": "node src/agents/forensic-agent.js",
-    "agents:all": "npm run agent:social-listening && npm run agent:intake && npm run agent:dossier && npm run agent:forensic"
+    "agent:social-listening": "node src/agents/social-listening-agent-demo.js",
+    "agent:intake": "node src/agents/intake-agent-demo.js",
+    "agent:dossier": "node src/agents/dossier-agent-demo.js",
+    "agent:forensic": "node src/agents/forensic-agent-demo.js",
+    "agent:social-listening-real": "node src/agents/social-listening-agent-real.js",
+    "agents:demo": "npm run agent:social-listening && npm run agent:intake && npm run agent:dossier && npm run agent:forensic",
+    "agents:real": "npm run agent:social-listening-real && npm run agent:intake && npm run agent:dossier && npm run agent:forensic"
   },
   "keywords": [
     "legal",

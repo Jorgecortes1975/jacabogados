@@ -1,0 +1,36 @@
+{
+  "twitter": {
+    "apiKey": "YOUR_API_KEY",
+    "apiSecret": "YOUR_API_SECRET",
+    "accessToken": "YOUR_ACCESS_TOKEN",
+    "accessTokenSecret": "YOUR_TOKEN_SECRET",
+    "bearerToken": "YOUR_BEARER_TOKEN"
+  },
+  "meta": {
+    "appId": "YOUR_APP_ID",
+    "appSecret": "YOUR_APP_SECRET",
+    "accessToken": "YOUR_PAGE_ACCESS_TOKEN",
+    "pageId": "YOUR_PAGE_ID"
+  },
+  "tiktok": {
+    "clientKey": "YOUR_CLIENT_KEY",
+    "clientSecret": "YOUR_CLIENT_SECRET",
+    "accessToken": "YOUR_ACCESS_TOKEN"
+  },
+  "whatsapp": {
+    "phoneNumberId": "YOUR_PHONE_ID",
+    "businessAccountId": "YOUR_BUSINESS_ID",
+    "accessToken": "YOUR_WA_TOKEN",
+    "verifyToken": "YOUR_VERIFY_TOKEN",
+    "webhookUrl": "https://tu-dominio.com/webhook/whatsapp"
+  },
+  "rues": {
+    "apiUrl": "https://www.rues.org.co/api",
+    "documentType": "NIT"
+  },
+  "linkedin": {
+    "email": "YOUR_EMAIL",
+    "password": "YOUR_PASSWORD",
+    "apiKey": "YOUR_API_KEY"
+  }
+}
