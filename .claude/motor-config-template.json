@@ -1,0 +1,93 @@
+{
+  "motor_disparador": {
+    "version": "2.0",
+    "puerto": 3001,
+    "modo": "produccion",
+    "operacion": "24/7"
+  },
+  "integraciones": {
+    "telegram": {
+      "habilitado": false,
+      "bot_token": "YOUR_TELEGRAM_BOT_TOKEN_HERE",
+      "webhook_url": "https://jacabogados.co/webhook/telegram",
+      "chat_id": "YOUR_CHAT_ID_HERE",
+      "descripcion": "Recibe consultas jurídicas vía Telegram"
+    },
+    "email": {
+      "habilitado": false,
+      "imap_server": "imap.gmail.com",
+      "imap_port": 993,
+      "email_address": "consultas@jacabogados.co",
+      "password": "YOUR_EMAIL_PASSWORD_HERE",
+      "polling_interval_seconds": 60,
+      "descripcion": "Recibe consultas jurídicas vía Email"
+    },
+    "whatsapp": {
+      "habilitado": false,
+      "business_account_id": "YOUR_WHATSAPP_BUSINESS_ACCOUNT_ID",
+      "access_token": "YOUR_WHATSAPP_ACCESS_TOKEN",
+      "phone_number_id": "YOUR_PHONE_NUMBER_ID",
+      "webhook_url": "https://jacabogados.co/webhook/whatsapp",
+      "descripcion": "Recibe consultas jurídicas vía WhatsApp"
+    },
+    "api_rest": {
+      "habilitado": true,
+      "puerto": 3001,
+      "endpoint": "POST /webhook/api",
+      "autenticacion": "API_KEY",
+      "descripcion": "Recibe consultas jurídicas vía API REST",
+      "ejemplo_payload": {
+        "userId": "user_123",
+        "query": "Necesito constituir una SAS para mi negocio",
+        "requestId": "req_001",
+        "timestamp": "2026-08-02T10:30:00Z"
+      }
+    }
+  },
+  "fuentes_juridicas": {
+    "lexisnexis": {
+      "habilitado": true,
+      "api_key": "YOUR_LEXISNEXIS_API_KEY",
+      "descripcion": "Base de datos legal más grande de Colombia"
+    },
+    "suin_juriscol": {
+      "habilitado": true,
+      "api_url": "http://www.suin-juriscol.gov.co/",
+      "descripcion": "Sistema Único de Información Normativa"
+    },
+    "dian": {
+      "habilitado": true,
+      "api_url": "https://www.dian.gov.co/",
+      "descripcion": "Dirección de Impuestos y Aduanas Nacionales"
+    },
+    "supersociedades": {
+      "habilitado": true,
+      "api_url": "https://www.supersociedades.gov.co/",
+      "descripcion": "Superintendencia de Sociedades"
+    },
+    "legal_data_hunter": {
+      "habilitado": true,
+      "api_key": "YOUR_LEGAL_DATA_HUNTER_API_KEY",
+      "descripcion": "Plataforma de investigación legal multi-jurisdiccional"
+    }
+  },
+  "monitoreo": {
+    "metricas_tiempo_real": true,
+    "dashboard_puerto": 3002,
+    "alertas_habilitadas": true,
+    "auditoria_inmutable": true,
+    "logs_retension_dias": 90
+  },
+  "validacion_jac": {
+    "nivel_1_automatico": true,
+    "nivel_2_especialista": true,
+    "nivel_3_firma_digital": true,
+    "jorge_cortes_email": "jorge@jacabogados.co"
+  },
+  "agentes": {
+    "pool_size": 20,
+    "subagentes_por_rama": 3,
+    "standby_permanente": true,
+    "timeout_procesamiento_minutos": 10
+  }
+}

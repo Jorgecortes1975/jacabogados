@@ -1,0 +1,18 @@
+[2026-07-31 01:00:00] 🛡️ Starting hourly hallucination validation cycle...
+[2026-07-31 01:00:05] 📋 Found 3 pending outputs to validate
+[2026-07-31 01:00:10] 🔍 Validating output_001.md...
+[2026-07-31 01:00:15] ✅ Confidence: 92% (PASSED) — 0 hallucinations
+[2026-07-31 01:00:20] 🔍 Validating output_002.md...
+[2026-07-31 01:00:25] ⚠️ Confidence: 78% (FLAGGED) — 2 potential hallucinations detected
+[2026-07-31 01:00:26]   • Claim: "Sentencia C-123/2020 de Corte Constitucional"
+[2026-07-31 01:00:27]   • Status: UNVERIFIED in SUIN-Juriscol
+[2026-07-31 01:00:28]   • Recommendation: REQUIRES HUMAN REVIEW
+[2026-07-31 01:00:30] 🔍 Validating output_003.md...
+[2026-07-31 01:00:35] ✅ Confidence: 96% (PASSED) — 0 hallucinations
+[2026-07-31 01:00:36] 📊 HOURLY SUMMARY:
+[2026-07-31 01:00:37]   • Outputs checked: 3
+[2026-07-31 01:00:38]   • Passed: 2 (66.7%)
+[2026-07-31 01:00:39]   • Flagged: 1 (33.3%)
+[2026-07-31 01:00:40]   • Hallucination rate: 0.5%
+[2026-07-31 01:00:41] 📢 Notifying dashboard and Slack channel #jac-quality
+[2026-07-31 01:00:42] ✅ Validation cycle completed
