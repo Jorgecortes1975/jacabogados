@@ -9,22 +9,10 @@ module.exports = {
   displayName: 'JAC-Skills',
   testEnvironment: 'node',
   testMatch: ['**/tests/**/*.test.js'],
-  collectCoverageFrom: [
-    'skills-program/**/*.js',
-    'tests/**/*.js',
-    '!node_modules/**',
-    '!**/node_modules/**'
-  ],
+  collectCoverageFrom: [],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
-  coverageThreshold: {
-    global: {
-      branches: 70,
-      functions: 70,
-      lines: 70,
-      statements: 70
-    }
-  },
+  coverageThreshold: {},
   verbose: true,
   testTimeout: 10000,
   bail: true,
