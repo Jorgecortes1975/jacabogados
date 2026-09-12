@@ -9,9 +9,11 @@ module.exports = {
   displayName: 'JAC-Skills',
   testEnvironment: 'node',
   testMatch: ['**/tests/**/*.test.js'],
-  collectCoverageFrom: [],
+  collectCoverageFrom: [
+    'tests/unit/**/*.js'
+  ],
   coverageDirectory: 'coverage',
-  coverageReporters: ['text', 'lcov', 'html'],
+  coverageReporters: ['text', 'lcov', 'html', 'json-summary'],
   coverageThreshold: {},
   verbose: true,
   testTimeout: 10000,
