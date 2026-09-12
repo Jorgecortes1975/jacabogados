@@ -1,0 +1,226 @@
+---
+# Skills Program JAC - Agente Jurídico Especializado
+# Definición de skills para el ecosistema de agentes
+
+skills:
+  - id: consulta-jurisprudencia
+    name: "Consulta Jurisprudencia Colombiana"
+    description: "Busca jurisprudencia colombiana verificada en Corte Constitucional, Corte Suprema y Consejo de Estado"
+    category: "legal-research"
+    tags:
+      - juridico
+      - colombia
+      - jurisprudencia
+      - cortes
+      - sentencias
+    version: "1.0.0"
+    author: "JAC - Abogados Asociados"
+    license: "MIT"
+
+    capabilities:
+      - "Búsqueda de sentencias C- de Corte Constitucional"
+      - "Búsqueda de sentencias SP-, SC-, LB- de Corte Suprema"
+      - "Búsqueda de sentencias CE-, SU- de Consejo de Estado"
+      - "Identificación de precedentes relevantes"
+      - "Análisis de jurisprudencia oficial"
+
+    sources:
+      - name: "Corte Constitucional"
+        url: "https://www.corteconstitucional.gov.co"
+        official: true
+      - name: "Corte Suprema de Justicia"
+        url: "https://www.cortesuprema.gov.co"
+        official: true
+      - name: "Consejo de Estado"
+        url: "https://www.consejodeestado.gov.co"
+        official: true
+      - name: "Legal Data Hunter"
+        url: "https://www.legaldatahunter.com"
+        official: false
+
+    usage: |
+      node agente-juridico-especializado.js consulta jurisprudencia \
+        "tema de búsqueda"
+
+    examples:
+      - query: "despido sin justa causa"
+        returns: "Sentencias de Corte Constitucional y Suprema"
+      - query: "derechos fundamentales trabajador"
+        returns: "Jurisprudencia sobre derechos laborales"
+      - query: "Sentencia C-1234 de 2023"
+        returns: "Sentencia específica con análisis"
+
+  - id: consulta-normas
+    name: "Consulta Normas Colombianas"
+    description: "Acceso a normas colombianas vigentes: leyes, decretos, resoluciones y normas técnicas"
+    category: "legal-research"
+    tags:
+      - juridico
+      - colombia
+      - normas
+      - leyes
+      - decretos
+    version: "1.0.0"
+    author: "JAC - Abogados Asociados"
+    license: "MIT"
+
+    capabilities:
+      - "Búsqueda de leyes vigentes"
+      - "Acceso a decretos presidenciales"
+      - "Consulta de resoluciones ministeriales"
+      - "Verificación de vigencia normativa"
+      - "Identificación de modificaciones"
+
+    sources:
+      - name: "SUIN Juriscol"
+        url: "https://suin-juriscol.cuenta.unal.edu.co"
+        official: true
+      - name: "Diario Oficial"
+        url: "https://www.diariooficial.gov.co"
+        official: true
+      - name: "Congreso de la República"
+        url: "https://www.congreso.gov.co"
+        official: true
+
+    usage: |
+      node agente-juridico-especializado.js consulta norma \
+        "ley o decreto a consultar"
+
+    examples:
+      - query: "código sustantivo del trabajo"
+        returns: "Texto vigente con modificaciones"
+      - query: "salario mínimo 2024"
+        returns: "Decreto vigente y valor"
+      - query: "Decreto 1234 de 2023"
+        returns: "Decreto completo con fuente oficial"
+
+  - id: analisis-jurisprudencial
+    name: "Análisis Jurisprudencial"
+    description: "Análisis profesional de casos contra jurisprudencia colombiana verificada"
+    category: "legal-analysis"
+    tags:
+      - juridico
+      - colombia
+      - analisis
+      - casos
+      - riesgo-legal
+    version: "1.0.0"
+    author: "JAC - Abogados Asociados"
+    license: "MIT"
+
+    capabilities:
+      - "Análisis de casos contra jurisprudencia"
+      - "Identificación de precedentes aplicables"
+      - "Evaluación de riesgos legales"
+      - "Análisis comparativo de sentencias"
+      - "Recomendaciones estratégicas"
+
+    sources:
+      - name: "Corte Constitucional"
+        url: "https://www.corteconstitucional.gov.co"
+        official: true
+      - name: "Corte Suprema de Justicia"
+        url: "https://www.cortesuprema.gov.co"
+        official: true
+      - name: "Consejo de Estado"
+        url: "https://www.consejodeestado.gov.co"
+        official: true
+      - name: "Jurisprudencia Compilada"
+        url: "https://www.legaldatahunter.com"
+        official: false
+
+    usage: |
+      node agente-juridico-especializado.js consulta analisis \
+        "descripción de caso o situación"
+
+    examples:
+      - query: "Cliente despedido sin justa causa"
+        returns: "Análisis de riesgo, jurisprudencia aplicable, recomendaciones"
+      - query: "Conflicto de contrato de arrendamiento"
+        returns: "Sentencias relevantes, cláusulas críticas, riesgos"
+
+  - id: generador-reportes-juridicos
+    name: "Generador de Reportes Jurídicos"
+    description: "Genera reportes jurídicos profesionales estructurados con jurisprudencia verificada"
+    category: "legal-documentation"
+    tags:
+      - juridico
+      - colombia
+      - reportes
+      - documentacion
+      - memorandos
+    version: "1.0.0"
+    author: "JAC - Abogados Asociados"
+    license: "MIT"
+
+    capabilities:
+      - "Generación de reportes de investigación"
+      - "Memorandos de asesoramiento"
+      - "Análisis de riesgo legal"
+      - "Reportes de casos específicos"
+      - "Reportes de cumplimiento normativo"
+
+    sources:
+      - name: "Corte Constitucional"
+        url: "https://www.corteconstitucional.gov.co"
+        official: true
+      - name: "Congreso de la República"
+        url: "https://www.congreso.gov.co"
+        official: true
+      - name: "SUIN Juriscol"
+        url: "https://suin-juriscol.cuenta.unal.edu.co"
+        official: true
+
+    usage: |
+      node agente-juridico-especializado.js consulta reporte \
+        "tema o consulta para reporte"
+
+    examples:
+      - query: "Análisis de derechos laborales en Colombia"
+        returns: "Reporte profesional de 15+ páginas con jurisprudencia"
+      - query: "Memorando: constitución de sociedad anónima"
+        returns: "Memorando estructurado con procedimiento completo"
+
+# Agente que integra todos los skills
+agent:
+  name: "Agente Jurídico Especializado JAC"
+  description: "Agente autónomo que integra todos los skills para investigación jurídica colombiana"
+  type: "specialized-research-agent"
+
+  integrations:
+    - skill: "consulta-jurisprudencia"
+      when: "usuario pregunta sobre sentencias o jurisprudencia"
+
+    - skill: "consulta-normas"
+      when: "usuario pregunta sobre leyes, decretos o normas"
+
+    - skill: "analisis-jurisprudencial"
+      when: "usuario presenta caso o situación específica"
+
+    - skill: "generador-reportes-juridicos"
+      when: "usuario solicita reporte o análisis extenso"
+
+# Configuración del programa
+program:
+  name: "Skills Programa JAC"
+  version: "1.0.0"
+  description: "Sistema de skills para Agente Jurídico Especializado JAC"
+
+  requirements:
+    node: ">=22.20.0"
+    npm: ">=10.0.0"
+
+  skills-count: 4
+  total-capabilities: 20
+
+  sources:
+    official: 9
+    total: 12
+
+  status: "production"
+
+  documentation:
+    readme: "./README.md"
+    installation: "./README.md#-inicio-rápido"
+    examples: "./README.md#-ejemplos-de-uso"
+    support: "./README.md#-soporte"
