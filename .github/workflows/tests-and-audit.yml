@@ -1,0 +1,104 @@
+name: Tests y Auditoría de Sentencias
+
+on:
+  push:
+    branches:
+      - main
+      - claude/**
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Ejecutar Tests y Auditoría
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Ejecutar tests unitarios
+        run: npm run test:coverage
+        env:
+          NODE_ENV: test
+
+      - name: Ejecutar auditoría de sentencias
+        run: npm run audit:sentencias
+        env:
+          NODE_ENV: test
+
+      - name: Subir cobertura a Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/lcov.info
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+      - name: Validar cobertura mínima
+        run: |
+          COVERAGE=$(cat coverage/coverage-summary.json | grep '"lines"' | head -1 | grep -o '[0-9.]*' | head -1)
+          MINIMUM=70
+          if (( $(echo "$COVERAGE < $MINIMUM" | bc -l) )); then
+            echo "❌ Cobertura ($COVERAGE%) por debajo del mínimo ($MINIMUM%)"
+            exit 1
+          fi
+          echo "✅ Cobertura ($COVERAGE%) cumple mínimo ($MINIMUM%)"
+
+      - name: Revisar resultados de auditoría
+        run: |
+          if grep -q "VEREDICTO: ✓ APROBADO" <<< "$(npm run audit:sentencias --silent 2>&1 || true)"; then
+            echo "✅ Auditoría de sentencias: APROBADO"
+          else
+            echo "⚠️ Revisar resultados de auditoría"
+          fi
+
+      - name: Reportar resultados en PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const coverage = fs.readFileSync('coverage/coverage-summary.json', 'utf8');
+            const coverageData = JSON.parse(coverage);
+
+            const comment = `## 📊 Resultados de Tests y Auditoría
+
+            ### Coverage
+            - **Statements**: ${coverageData.total.statements.pct}%
+            - **Branches**: ${coverageData.total.branches.pct}%
+            - **Functions**: ${coverageData.total.functions.pct}%
+            - **Lines**: ${coverageData.total.lines.pct}%
+
+            [Ver cobertura completa](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+      - name: Fallar si hay alucinaciones detectadas
+        run: |
+          AUDIT_OUTPUT=$(npm run audit:sentencias --silent 2>&1 || true)
+          if echo "$AUDIT_OUTPUT" | grep -q "🚨 Riesgo de alucinación: [^0]"; then
+            echo "❌ Alucinaciones detectadas en auditoría"
+            exit 1
+          fi
+          echo "✅ Sin alucinaciones detectadas"

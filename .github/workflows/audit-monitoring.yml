@@ -1,0 +1,107 @@
+name: Monitoreo de Auditoría Continua
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Semanalmente los domingos
+  workflow_dispatch:  # Permitir ejecución manual
+
+jobs:
+  continuous-audit:
+    name: Auditoría Semanal de Sentencias
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Ejecutar auditoría completa
+        id: audit
+        run: |
+          npm run audit:full 2>&1 | tee audit-output.txt
+          echo "audit_status=$?" >> $GITHUB_OUTPUT
+
+      - name: Generar reporte
+        if: always()
+        run: |
+          cat > audit-report.md << 'EOF'
+          # 📊 Reporte de Auditoría Semanal - Programa Skills JAC
+
+          **Fecha**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')
+          **Rama**: ${{ github.ref_name }}
+          **Commit**: ${{ github.sha }}
+
+          ## Resultados
+
+          EOF
+
+          if grep -q "APROBADO" audit-output.txt; then
+            echo "- ✅ Tests: APROBADO" >> audit-report.md
+            echo "- ✅ Auditoría de sentencias: APROBADO" >> audit-report.md
+          else
+            echo "- ⚠️ Ver detalles en logs" >> audit-report.md
+          fi
+
+          cat audit-output.txt >> audit-report.md
+
+      - name: Crear issue si hay problemas
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const auditOutput = fs.readFileSync('audit-output.txt', 'utf8');
+
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Auditoría Fallida - ${new Date().toISOString().split('T')[0]}`,
+              body: `## Auditoría Automática Fallida\n\n\`\`\`\n${auditOutput.slice(0, 5000)}\n\`\`\``,
+              labels: ['auditoría', 'alerta']
+            });
+
+            console.log(`Issue creado: #${issue.data.number}`);
+
+      - name: Comentar en último PR si hay cambios
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('audit-report.md', 'utf8');
+
+            // Buscar último PR abierto
+            const prs = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 1,
+              sort: 'updated'
+            });
+
+            if (prs.data.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prs.data[0].number,
+                body: `## 🔍 Auditoría Automática Completada\n\n${report.slice(0, 3000)}`
+              });
+            }
+
+      - name: Subir artefactos
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: audit-reports
+          path: |
+            audit-output.txt
+            audit-report.md
+          retention-days: 30
