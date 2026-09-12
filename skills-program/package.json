@@ -1,0 +1,54 @@
+{
+  "name": "@jacabogados/skills",
+  "version": "1.0.0",
+  "description": "Skills para Agente Jurídico Especializado JAC - Abogados Asociados",
+  "type": "module",
+  "private": true,
+  "keywords": [
+    "skills",
+    "agent-skills",
+    "legal",
+    "juridico",
+    "colombia",
+    "jurisprudencia",
+    "normas-juridicas"
+  ],
+  "scripts": {
+    "setup": "npm install",
+    "activate": "node ../agente-juridico-especializado.js activar",
+    "consult": "node ../agente-juridico-especializado.js consulta",
+    "sources": "node ../agente-juridico-especializado.js fuentes",
+    "help": "node ../agente-juridico-especializado.js help"
+  },
+  "engines": {
+    "node": ">=22.20.0"
+  },
+  "author": "JAC - Abogados Asociados",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jorgecortes1975/jacabogados.git"
+  },
+  "skills": [
+    {
+      "name": "consulta-jurisprudencia",
+      "description": "Busca jurisprudencia colombiana verificada en cortes oficiales",
+      "path": "./skills/consulta-jurisprudencia"
+    },
+    {
+      "name": "consulta-normas",
+      "description": "Acceso a normas colombianas vigentes de SUIN y Diario Oficial",
+      "path": "./skills/consulta-normas"
+    },
+    {
+      "name": "analisis-jurisprudencial",
+      "description": "Análisis de casos contra jurisprudencia verificada",
+      "path": "./skills/analisis-jurisprudencial"
+    },
+    {
+      "name": "generador-reportes-juridicos",
+      "description": "Generador de reportes jurídicos profesionales y citables",
+      "path": "./skills/generador-reportes-juridicos"
+    }
+  ]
+}

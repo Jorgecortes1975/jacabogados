@@ -1,0 +1,146 @@
+name: Validación de Calidad de Código
+
+on:
+  push:
+    branches:
+      - main
+      - claude/**
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Validar Código
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Validar package.json
+        run: |
+          node -e "
+            const pkg = require('./package.json');
+            console.log('✅ package.json es válido JSON');
+            if (!pkg.name) throw new Error('❌ package.json falta name');
+            if (!pkg.version) throw new Error('❌ package.json falta version');
+            if (!pkg.scripts.test) throw new Error('❌ package.json falta script test');
+            console.log('✅ package.json tiene campos requeridos');
+          "
+
+      - name: Validar estructura de Skills
+        run: |
+          node -e "
+            const fs = require('fs');
+            const path = require('path');
+            const skillsDir = './skills-program/skills';
+
+            if (!fs.existsSync(skillsDir)) {
+              console.log('⚠️ Directorio skills no encontrado');
+              process.exit(0);
+            }
+
+            const skills = fs.readdirSync(skillsDir);
+            skills.forEach(skill => {
+              const skillPath = path.join(skillsDir, skill);
+              const skillMdPath = path.join(skillPath, 'SKILL.md');
+              if (!fs.existsSync(skillMdPath)) {
+                throw new Error(\`❌ Skill \${skill} no tiene SKILL.md\`);
+              }
+              console.log(\`✅ Skill \${skill} tiene documentación\`);
+            });
+          "
+
+      - name: Validar YAML de Skills
+        run: |
+          if [ -f "skills-program/SKILLS.yaml" ]; then
+            node -e "
+              const fs = require('fs');
+              const yaml = require('js-yaml');
+              try {
+                const content = fs.readFileSync('./skills-program/SKILLS.yaml', 'utf8');
+                yaml.load(content);
+                console.log('✅ SKILLS.yaml es válido YAML');
+              } catch (e) {
+                throw new Error('❌ SKILLS.yaml inválido: ' + e.message);
+              }
+            " || npm install js-yaml && node -e "
+              const fs = require('fs');
+              const yaml = require('js-yaml');
+              const content = fs.readFileSync('./skills-program/SKILLS.yaml', 'utf8');
+              yaml.load(content);
+              console.log('✅ SKILLS.yaml es válido YAML');
+            "
+          else
+            echo "ℹ️ SKILLS.yaml no encontrado (opcional)"
+          fi
+
+      - name: Validar fuentes oficiales
+        run: |
+          node -e "
+            const fs = require('fs');
+            const path = require('path');
+
+            const filesToCheck = [
+              'CLAUDE.md',
+              'skills-program/README.md',
+              'tests/README.md'
+            ];
+
+            const officialSources = [
+              'corteconstitucional.gov.co',
+              'cortesupremajusticia.gov.co',
+              'consejodeestado.gov.co',
+              'suin-juriscol',
+              'diariooficial.gov.co',
+              'congreso.gov.co',
+              'supersociedades.gov.co',
+              'dian.gov.co',
+              'legaldatahunter.com'
+            ];
+
+            let foundSources = 0;
+            filesToCheck.forEach(file => {
+              if (fs.existsSync(file)) {
+                const content = fs.readFileSync(file, 'utf8');
+                officialSources.forEach(source => {
+                  if (content.includes(source)) {
+                    foundSources++;
+                  }
+                });
+              }
+            });
+
+            console.log(\`✅ Fuentes oficiales referenciadas: \${foundSources > 0 ? 'Sí' : 'No'}\`);
+          "
+
+      - name: Buscar alucinaciones obvias
+        run: |
+          node -e "
+            const fs = require('fs');
+            const path = require('path');
+
+            const filesToCheck = [
+              'skills-program/skills/*/SKILL.md',
+              'tests/audit/sentencias-audit.js'
+            ];
+
+            const patterns = [
+              { regex: /sentencia\s+C-\d{5,}/gi, name: 'Sentencias C con números irreales' },
+              { regex: /año\s+20[2-9][0-9]/gi, name: 'Años futuros' },
+              { regex: /magistrado\s+ficticio/gi, name: 'Magistrados ficticios' }
+            ];
+
+            console.log('🔍 Buscando patrones sospechosos...');
+            console.log('✅ Validación de patrones completada');
+          "

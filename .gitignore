@@ -9,6 +9,11 @@ node_modules/
 .specify/feature.json
 .specify/extensions/*/local-config.yml
 
+# Cobertura de tests y artefactos Jest
+coverage/
+*.lcov
+.nyc_output/
+
 # Sistema operativo / editores
 .DS_Store
 *.log
