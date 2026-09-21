@@ -1,114 +1,189 @@
-# Perfil de Cliente Ideal - Seguridad Social Payroll
+# Perfil de Cliente Ideal — Criterios de Calificación
 
-## Cliente Ideal - Párrafo Ejecutivo
-
-**Empresa mediana (50-500 empleados) en Medellín o Bogotá, sector servicios, retail o manufactura, con Gerente de RRHH como decisor. Enfrenta retos específicos en nómina, AFP, salud, parafiscales y cumplimiento normativo de seguridad social. NO es multinacional con compliance internacional ni microempresa.**
-
----
-
-## 5 Señales de Calificación (Mínimas)
-
-1. **Rango de empleados verificable:** 50-500 empleados listados en LinkedIn o datos de registro mercantil
-2. **Presencia RRHH:** Gerente de Recursos Humanos identificable en LinkedIn o sitio web
-3. **Mención explícita de payroll/nómina:** En descripción de empresa, posts recientes o site ("nómina", "payroll", "seguridad social", "AFC", "salud", "parafiscales")
-4. **Ubicación confirmada:** Oficina registrada en Medellín o Bogotá (validar con Cámara de Comercio / LinkedIn company page)
-5. **Actividad reciente:** Empresa con publicaciones o actualizaciones < 3 meses (indica operación activa)
+**Última actualización:** 2026-09-21  
+**Propietario:** Agente de Prospección
 
 ---
 
-## 5 Señales Disqualificantes (Descarta Inmediatamente)
+## 🎯 CLIENTE IDEAL RESUMIDO
 
-1. **Multinacional o sucursal extranjera:** Matriz fuera de Colombia (ya tiene compliance corporativo internacional)
-2. **Microempresa:** < 50 empleados (foco en empresas medianas, no startups)
-3. **Sector público:** Entidad estatal, municipal, Gobierno, universidades públicas (compliance diferente)
-4. **Sector financiero/asegurador:** Bancos, seguros, fondos (compliance propio muy especializado)
-5. **Persona natural/unipersonal:** No es empresa constituida (no es mercado objetivo)
-
----
-
-## Rationale de Selección de Red
-
-- **LinkedIn Company Employees Extractor:** Identifica estructura RRHH, confirma tamaño (50+ empleados visibles), encuentra decisor (Gerente RRHH).
-- **Data Empresarial Extractor:** Filtra por tamaño legal, ubicación registral, sector, actividad financiera.
-- **Estrategia:** Ejecutar Data Empresarial primero (filtrar universo), luego LinkedIn (profundizar en decisor + estructura).
+| Atributo | Valor |
+|----------|-------|
+| **Tamaño** | 50-500 empleados |
+| **Ubicación** | Medellín, Bogotá |
+| **Rol Decisor** | Gerente de RRHH |
+| **Sectores** | Servicios Profesionales, Retail, Manufactura |
+| **Estado** | Empresa activa |
 
 ---
 
-## 5 Búsquedas Concretas para Scraper
+## ✅ SEÑALES DE CALIFICACIÓN (Sí es cliente si cumple ≥3)
 
-### Búsqueda 1: Medellín - Sector Servicios
-```
-Criterios: Medellín, 50-500 empleados, Sector "Servicios Profesionales" (consultoría, recursos humanos, administración de personal)
-Señal: "gerente rrhh" OR "jefe recursos humanos" OR "director talento humano"
-```
+### 1. Tamaño: 50-500 Empleados
 
-### Búsqueda 2: Medellín - Sector Retail
-```
-Criterios: Medellín, 50-500 empleados, Sector "Comercio al por menor"
-Señal: "nómina" OR "payroll" OR "seguridad social" en descripción
-```
+**Verificación:**
+- Buscar en Cámara de Comercio: "empleados_reportados"
+- Confirmar en LinkedIn: tamaño de compañía
+- Fuente: data-empresarial actor de Apify
 
-### Búsqueda 3: Medellín - Sector Manufactura
-```
-Criterios: Medellín, 50-500 empleados, Sector "Industria Manufacturera"
-Señal: Presencia de múltiples cargos RRHH o "administrador de personal"
-```
+**Por qué:** Nómina pequeña (<50) = no tiene problema. Nómina grande (>500) = ya tiene equipo legal.
 
-### Búsqueda 4: Bogotá - Sector Servicios
-```
-Criterios: Bogotá, 50-500 empleados, Sector "Servicios Profesionales"
-Señal: "afiliación" OR "fondos de pensión" OR "aportes" en descripción
-```
+### 2. Gerente de RRHH Identificable
 
-### Búsqueda 5: Medellín/Bogotá - Keywords Payroll
-```
-Criterios: Medellín + Bogotá, 50-500 empleados, Cualquier sector
-Señal: "nómina" OR "seguridad social" OR "parafiscales" en empresa name/description
-```
+**Verificación:**
+- Buscar nombre completo en LinkedIn (empresa + puesto)
+- Confirmar que es "Gerente RRHH", "Jefe RRHH", "Director Talento"
+- NO acepta: "Coordinador", "Asistente", "Analista"
+- Fuente: linkedin-company-employees actor de Apify
+
+**Por qué:** Quien toma decisiones de servicios legales en nómina. Nivel clave = poder de decisión.
+
+### 3. Mención de Nómina / Payroll / Seguridad Social
+
+**Verificación:**
+- Buscar en descripción de empresa en Cámara de Comercio: "nómina", "payroll", "seguridad social", "RRHH"
+- Buscar en sitio web de la empresa: mencionan servicios relacionados
+- Buscar en LinkedIn: descripción de empresa o descripción del Gerente RRHH
+- Fuente: data-empresarial + web scraping
+
+**Por qué:** Indica que ya es consciente del tema. Menor tiempo de venta.
+
+### 4. Ubicación Confirmada: Medellín o Bogotá
+
+**Verificación:**
+- Cámara de Comercio: ciudad de registro
+- LinkedIn: "ubicación de la empresa"
+- Sitio web: dirección física
+- Fuente: data-empresarial actor de Apify
+
+**Por qué:** Restricción geográfica por cliente actual. Expandir solo después de consolidar.
+
+### 5. Recencia: Actividad en Últimos 12 Meses
+
+**Verificación:**
+- Cámara de Comercio: estado "activa"
+- Fecha de última actualización registral < 1 año
+- LinkedIn: actividad reciente (posts, actualizaciones)
+- Fuente: data-empresarial actor de Apify
+
+**Por qué:** Empresa viva = decisor disponible. Empresa muerta = tiempo perdido.
 
 ---
 
-## Consultas de Búsqueda Operacional
+## 🚫 SEÑALES DE DESCARTE — NUNCA CONTACTAR
 
+Descarta inmediatamente si detectas cualquiera de estas:
+
+### 1. Multinacional Extranjera
+
+**Indicadores:**
+- Razón social contiene: "S.A.", "GmbH", "LLC", "Inc."
+- Tiene matriz en otro país
+- Más de 1000 empleados globales
+- Compliance corporativo centralizado
+
+**Ejemplo:** Adecco, Manpower, DHL, Nestlé
+
+### 2. Sector Público o Infraestructura Estatal
+
+**Indicadores:**
+- Razón social contiene: "Municipio", "Gobernación", "Instituto", "Servicio"
+- Descripción menciona: "economía mixta", "entidad pública"
+- Código CIIU: 8411-8430
+- Sitio web: dominio .gov.co
+
+**Ejemplo:** GEB, EAAB, Alcaldía
+
+### 3. Sector Financiero / Asegurador
+
+**Indicadores:**
+- Razón social contiene: "Banco", "Seguros", "Financiera", "Caja"
+- Código CIIU: 6411-6610
+- Supervisado por SFC
+
+**Ejemplo:** Bancolombia, Seguros Bolívar, Caja
+
+### 4. Menos de 50 Empleados
+
+**Indicadores:**
+- Cámara de Comercio: "empleados_reportados" < 50
+- LinkedIn: "tamaño 1-50"
+
+**Ejemplo:** Startups, pequeños negocios
+
+### 5. Persona Natural o Unipersonal
+
+**Indicadores:**
+- Cédula en lugar de NIT
+- Tipo: "Persona Natural Comerciante"
+- Sin estructura corporativa
+
+**Ejemplo:** Consultores independientes
+
+---
+
+## 🔍 CINCO BÚSQUEDAS OPERACIONALES
+
+### Búsqueda 1: Medellín — Servicios Profesionales
 ```json
 {
-  "busquedas": [
-    {
-      "id": "search_1",
-      "ubicacion": "Medellín",
-      "sector": ["Servicios Profesionales", "Consultoría"],
-      "empleados_min": 50,
-      "empleados_max": 500,
-      "keywords": ["gerente rrhh", "jefe recursos humanos", "director talento"],
-      "orden_prioridad": 1
-    },
-    {
-      "id": "search_2",
-      "ubicacion": "Medellín",
-      "sector": ["Comercio Retail"],
-      "empleados_min": 50,
-      "empleados_max": 500,
-      "keywords": ["nómina", "payroll"],
-      "orden_prioridad": 2
-    },
-    {
-      "id": "search_3",
-      "ubicacion": "Bogotá",
-      "sector": ["Servicios Profesionales"],
-      "empleados_min": 50,
-      "empleados_max": 500,
-      "keywords": ["seguridad social", "aportes"],
-      "orden_prioridad": 3
-    }
-  ]
+  "ubicacion": "Medellín",
+  "empleados_minimo": 50,
+  "empleados_maximo": 500,
+  "sectores": ["Servicios Profesionales"],
+  "keywords": ["nómina", "payroll", "RRHH"],
+  "maximo_resultados": 10
+}
+```
+
+### Búsqueda 2: Bogotá — Retail
+```json
+{
+  "ubicacion": "Bogotá",
+  "empleados_minimo": 50,
+  "empleados_maximo": 500,
+  "sectores": ["Comercio Retail"],
+  "keywords": ["nómina", "recursos humanos"],
+  "maximo_resultados": 10
+}
+```
+
+### Búsqueda 3: Medellín — Manufactura
+```json
+{
+  "ubicacion": "Medellín",
+  "empleados_minimo": 50,
+  "empleados_maximo": 500,
+  "sectores": ["Manufactura"],
+  "keywords": ["seguridad social"],
+  "maximo_resultados": 10
+}
+```
+
+### Búsqueda 4: Bogotá — Servicios Profesionales
+```json
+{
+  "ubicacion": "Bogotá",
+  "empleados_minimo": 50,
+  "empleados_maximo": 500,
+  "sectores": ["Servicios Profesionales"],
+  "keywords": ["nómina", "payroll", "RRHH"],
+  "maximo_resultados": 10
+}
+```
+
+### Búsqueda 5: Medellín — Retail
+```json
+{
+  "ubicacion": "Medellín",
+  "empleados_minimo": 50,
+  "empleados_maximo": 500,
+  "sectores": ["Comercio Retail"],
+  "keywords": ["recursos humanos"],
+  "maximo_resultados": 10
 }
 ```
 
 ---
 
-## Metadata
-
-- **Creado:** 2026-09-21
-- **Versión:** 1.0
-- **Estado:** Listo para prueba de actor
-- **Próximo paso:** Ejecutar Data Empresarial (búsqueda 1) + muestra 10 empresas
+**Vigencia:** Revisión cada mes o después de cambios.
