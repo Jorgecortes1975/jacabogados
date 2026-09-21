@@ -1,0 +1,13 @@
+# Carpeta: Reportes de Rondas
+
+El reporte completo de cada ciclo de prospección se guarda aquí como:
+`ronda-YYYY-MM-DD.md`
+
+Cada reporte contiene:
+- Resumen ejecutivo (números clave)
+- Desglose por grado
+- Ángulos usados (top 3)
+- Próximas acciones recomendadas
+- Trazabilidad de costos
+
+**Nota:** Los reportes son solo lectura. Se usan para auditoría y aprendizaje.
