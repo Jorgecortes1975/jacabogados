@@ -127,6 +127,34 @@
       "enabled": true,
       "createdAt": "2026-08-02T15:41:15.624Z",
       "oficial": true
+    },
+    "apify-mcp": {
+      "type": "http",
+      "url": "https://mcp.apify.com",
+      "nombre": "Apify MCP Server",
+      "fuente": "Apify - Web Scraping & Data Extraction Platform",
+      "descripcion": "Servidor MCP para integración con actores de Apify para extracción de datos jurídicos",
+      "contenido": [
+        "web-scraping",
+        "data-extraction",
+        "actores-custom",
+        "automatizacion-datos"
+      ],
+      "capacidades": [
+        "ejecutar-actores",
+        "gestionar-datasets",
+        "procesar-datos",
+        "automatizar-flujos"
+      ],
+      "transporte": "http",
+      "autenticacion": "apiToken",
+      "verificado": false,
+      "enabled": true,
+      "createdAt": "2026-09-21T02:15:00.000Z",
+      "lastActivated": null,
+      "oficial": false,
+      "experimentalFeature": true,
+      "vinculado": "clientes-apify"
     }
   },
   "servers": {},

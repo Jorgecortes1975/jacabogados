@@ -4,9 +4,18 @@
   "descripcion": "Sistema de gestión de clientes y extracción de datos jurídicos mediante Apify",
   "apify": {
     "credentialsFile": "./config/apify-credentials.json",
+    "mcpServer": "apify-mcp",
+    "mcpUrl": "https://mcp.apify.com",
     "timeoutMs": 300000,
     "maxRetries": 3,
-    "retryDelayMs": 5000
+    "retryDelayMs": 5000,
+    "autenticacion": "apiToken",
+    "endpoints": {
+      "actors": "/v1/actors",
+      "runs": "/v1/runs",
+      "datasets": "/v1/datasets",
+      "keyValueStore": "/v1/key-value-store"
+    }
   },
   "storage": {
     "datasetsPath": "./datasets",

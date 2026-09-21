@@ -1,0 +1,179 @@
+{
+  "version": "1.0",
+  "apifyMCP": {
+    "nombre": "Apify MCP Server Integration",
+    "descripcion": "Configuración de integración con servidor MCP de Apify",
+    "url": "https://mcp.apify.com",
+    "transporte": "http",
+    "estado": "configurado",
+    "createdAt": "2026-09-21T02:15:00Z"
+  },
+  "autenticacion": {
+    "tipo": "apiToken",
+    "tokenFile": "./apify-credentials.json",
+    "campos": {
+      "apiToken": "Token de autenticación de Apify",
+      "userId": "ID del usuario de Apify"
+    },
+    "requerido": true,
+    "documentacion": "https://docs.apify.com/platform/integrations/api"
+  },
+  "endpoints": {
+    "actores": {
+      "path": "/v1/actors",
+      "metodo": "GET/POST",
+      "descripcion": "Listar, crear y gestionar actores de Apify"
+    },
+    "ejecuciones": {
+      "path": "/v1/actor-runs",
+      "metodo": "GET/POST",
+      "descripcion": "Gestionar ejecuciones de actores"
+    },
+    "datasets": {
+      "path": "/v1/datasets",
+      "metodo": "GET/POST",
+      "descripcion": "Acceder y gestionar datasets de salida"
+    },
+    "keyValueStore": {
+      "path": "/v1/key-value-store",
+      "metodo": "GET/POST",
+      "descripcion": "Almacenamiento key-value para configuración y datos"
+    },
+    "tareas": {
+      "path": "/v1/actor-tasks",
+      "metodo": "GET/POST",
+      "descripcion": "Crear y gestionar tareas reutilizables"
+    }
+  },
+  "capacidades": {
+    "ejecutarActores": {
+      "enabled": true,
+      "descripcion": "Ejecutar actores de Apify bajo demanda",
+      "tipoUso": "automatizado"
+    },
+    "procesarDatos": {
+      "enabled": true,
+      "descripcion": "Procesar datos extraídos por actores",
+      "tipoUso": "real-time"
+    },
+    "almacenarDatasets": {
+      "enabled": true,
+      "descripcion": "Almacenar y consultar datasets de Apify",
+      "tipoUso": "persistente"
+    },
+    "programarEjecuciones": {
+      "enabled": true,
+      "descripcion": "Programar ejecuciones periódicas de actores",
+      "tipoUso": "scheduled"
+    },
+    "monitorearEjecutiones": {
+      "enabled": true,
+      "descripcion": "Monitorear estado de ejecuciones en tiempo real",
+      "tipoUso": "observability"
+    }
+  },
+  "parametrosEjecucion": {
+    "timeout": {
+      "predeterminado": 300000,
+      "minimo": 30000,
+      "maximo": 3600000,
+      "unidad": "milisegundos",
+      "descripcion": "Tiempo máximo de ejecución de un actor"
+    },
+    "memoria": {
+      "predeterminada": 512,
+      "minima": 128,
+      "maxima": 32768,
+      "unidad": "MB",
+      "descripcion": "Memoria asignada al actor"
+    },
+    "reintentos": {
+      "predeterminado": 3,
+      "minimo": 0,
+      "maximo": 10,
+      "descripcion": "Número de reintentos en caso de fallo"
+    },
+    "delayReintentos": {
+      "predeterminado": 5000,
+      "unidad": "milisegundos",
+      "descripcion": "Tiempo de espera entre reintentos"
+    }
+  },
+  "actoresIntegrados": {
+    "estado": "en_construccion",
+    "totalDefinidos": 3,
+    "actores": [
+      {
+        "id": "web-scraper-jurisprudencia",
+        "nombre": "Web Scraper Jurisprudencia",
+        "apifyId": "pendiente",
+        "estado": "desarrollo",
+        "descripcion": "Extrae sentencias de Cortes colombianas"
+      },
+      {
+        "id": "extractor-normas",
+        "nombre": "Extractor de Normas",
+        "apifyId": "pendiente",
+        "estado": "desarrollo",
+        "descripcion": "Extrae leyes y decretos de SUIN y Diario Oficial"
+      },
+      {
+        "id": "data-empresarial",
+        "nombre": "Extractor Datos Empresariales",
+        "apifyId": "pendiente",
+        "estado": "desarrollo",
+        "descripcion": "Extrae información de registros públicos"
+      }
+    ]
+  },
+  "flujoIntegracion": {
+    "paso1": "Configurar credenciales en apify-credentials.json",
+    "paso2": "Validar conexión a servidor MCP de Apify",
+    "paso3": "Registrar IDs de actores en actores-disponibles.json",
+    "paso4": "Crear cliente piloto en clients/",
+    "paso5": "Ejecutar primer actor",
+    "paso6": "Procesar datos con agente jurídico",
+    "paso7": "Generar reporte"
+  },
+  "seguridad": {
+    "encryptarCredenciales": true,
+    "validarSSL": true,
+    "validarEsquemas": true,
+    "auditarCalls": true,
+    "redactarLogs": true,
+    "politicaRetencion": "90_dias"
+  },
+  "monitoreo": {
+    "estadoCalls": {
+      "exitosos": "contar",
+      "fallos": "contar",
+      "duracionPromedio": "calcular",
+      "erroresPorTipo": "clasificar"
+    },
+    "alertas": {
+      "timeoutExcedido": "critical",
+      "falloAutenticacion": "critical",
+      "datosIncompresos": "warning",
+      "tasaErrorAlta": "warning"
+    },
+    "metricas": {
+      "periodo": "diario",
+      "almacenamiento": "logs/apify-metrics/",
+      "reporte": "logs/apify-metrics-report.json"
+    }
+  },
+  "documentacion": {
+    "apifyDocs": "https://docs.apify.com/platform",
+    "mcpDocs": "https://docs.apify.com/platform/integrations/mcp",
+    "apiReference": "https://docs.apify.com/api/v2",
+    "ejemplos": "../templates/",
+    "guiaIntegracion": "../README.md"
+  },
+  "metadata": {
+    "version": "1.0",
+    "createdAt": "2026-09-21T02:15:00Z",
+    "lastUpdated": "2026-09-21T02:15:00Z",
+    "proximaMilestone": "Integración de actores piloto",
+    "contacto": "sistema@jacabogados.co"
+  }
+}
