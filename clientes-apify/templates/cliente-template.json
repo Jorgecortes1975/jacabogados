@@ -1,0 +1,32 @@
+{
+  "cliente": {
+    "id": "cliente-template",
+    "nombre": "Nombre del Cliente",
+    "descripcion": "Descripción breve del cliente y su negocio",
+    "tipoCaso": "corporativo",
+    "contacto": {
+      "email": "contacto@cliente.com",
+      "telefono": "+57 1 XXX XXXX",
+      "representante": "Nombre del representante"
+    },
+    "ubicacion": {
+      "ciudad": "Bogotá",
+      "departamento": "Cundinamarca",
+      "pais": "Colombia"
+    }
+  },
+  "proyectos": [],
+  "configuracion": {
+    "actoresAsignados": [],
+    "frecuenciaExtraccion": "semanal",
+    "formatoSalida": "json",
+    "encriptacion": true,
+    "retencionDatos": 90
+  },
+  "metadata": {
+    "createdAt": "2026-09-21T00:00:00Z",
+    "createdBy": "sistema",
+    "estado": "activo",
+    "version": "1.0"
+  }
+}

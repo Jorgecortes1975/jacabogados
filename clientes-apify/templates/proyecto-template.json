@@ -1,0 +1,51 @@
+{
+  "proyecto": {
+    "id": "proyecto-template",
+    "nombre": "Nombre del Proyecto",
+    "descripcion": "Descripción del objetivo y alcance del proyecto",
+    "clienteId": "cliente-id",
+    "tipo": "investigacion_juridica",
+    "estado": "planificacion"
+  },
+  "alcance": {
+    "objetivos": [
+      "Objetivo 1",
+      "Objetivo 2",
+      "Objetivo 3"
+    ],
+    "actoresRequeridos": [
+      "actor-id-1"
+    ],
+    "fuentesDatos": [
+      "Corte Constitucional",
+      "SUIN Juriscol"
+    ]
+  },
+  "parametros": {
+    "palabrasClave": [],
+    "jurisdiccion": "Colombia",
+    "fechaInicio": "2026-09-21",
+    "fechaFin": null,
+    "periodicidad": "unica"
+  },
+  "ejecucion": {
+    "actorConfig": {
+      "startUrl": "https://ejemplo.com",
+      "maxRequests": 100
+    },
+    "cronograma": null,
+    "ultimaEjecucion": null,
+    "proximaEjecucion": null
+  },
+  "entregables": {
+    "formatoSalida": "json",
+    "rutaDataset": "datasets/cliente-id/proyecto-template/",
+    "metadatosRequeridos": true,
+    "validacionManual": true
+  },
+  "metadata": {
+    "createdAt": "2026-09-21T00:00:00Z",
+    "createdBy": "sistema",
+    "version": "1.0"
+  }
+}
