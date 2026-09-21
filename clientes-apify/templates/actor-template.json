@@ -1,0 +1,62 @@
+{
+  "actor": {
+    "id": "actor-template",
+    "nombre": "Nombre del Actor",
+    "descripcion": "Descripción funcional del actor de Apify",
+    "version": "1.0",
+    "apifyActorId": "~pendiente~",
+    "apifyTaskId": "~pendiente~"
+  },
+  "entrada": {
+    "schema": {
+      "type": "object",
+      "required": ["startUrl"],
+      "properties": {
+        "startUrl": {
+          "type": "string",
+          "description": "URL inicial para comenzar el scraping"
+        },
+        "maxRequests": {
+          "type": "integer",
+          "default": 100,
+          "description": "Máximo número de requests"
+        },
+        "pageFunction": {
+          "type": "string",
+          "description": "Función JavaScript para procesar páginas"
+        }
+      }
+    },
+    "ejemplo": {
+      "startUrl": "https://ejemplo.com",
+      "maxRequests": 50
+    }
+  },
+  "salida": {
+    "formato": "json",
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {"type": "string"},
+          "titulo": {"type": "string"},
+          "contenido": {"type": "string"},
+          "fecha": {"type": "string", "format": "date-time"}
+        }
+      }
+    }
+  },
+  "configuracion": {
+    "timeout": 300000,
+    "retries": 3,
+    "buildTag": "latest",
+    "memoryMbytes": 512
+  },
+  "metadata": {
+    "createdAt": "2026-09-21T00:00:00Z",
+    "maintainer": "JAC",
+    "estadoProduccion": false,
+    "ultimoTesteo": "~sin_datos~"
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "actor": {
+    "id": "data-empresarial",
+    "nombre": "Extractor Datos Empresariales",
+    "descripcion": "Extrae información de empresas de registros públicos colombianos (Cámara de Comercio, Superintendencia, DIAN)",
+    "version": "1.0",
+    "apifyActorId": "~pendiente-registro-apify~",
+    "apifyTaskId": "~pendiente~",
+    "repositorio": "~interno-jac~",
+    "tipo": "data-extraction",
+    "estado": "documentacion-completa"
+  },
+  "entrada": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "ubicacion"
+      ],
+      "properties": {
+        "ubicacion": {
+          "type": "string",
+          "description": "Ciudad o departamento donde buscar (ej: Medellín, Bogotá, Antioquia)",
+          "example": "Medellín"
+        },
+        "empleados_minimo": {
+          "type": "integer",
+          "default": 50,
+          "description": "Número mínimo de empleados de la empresa",
+          "minimum": 1,
+          "maximum": 10000
+        },
+        "empleados_maximo": {
+          "type": "integer",
+          "default": 500,
+          "description": "Número máximo de empleados de la empresa",
+          "minimum": 1,
+          "maximum": 10000
+        },
+        "sectores": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Lista de sectores económicos a buscar (ej: Servicios, Manufactura, Retail). Vacío = todos",
+          "example": [
+            "Servicios Profesionales",
+            "Retail",
+            "Manufactura"
+          ]
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Palabras clave en nombre o descripción de empresa (ej: nómina, payroll, RRHH)",
+          "example": [
+            "nómina",
+            "payroll",
+            "recursos humanos"
+          ]
+        },
+        "estado_empresa": {
+          "type": "string",
+          "default": "activa",
+          "description": "Estado de la empresa: activa, inactiva, cancelada",
+          "enum": [
+            "activa",
+            "inactiva",
+            "cancelada",
+            "cualquiera"
+          ]
+        },
+        "maximo_resultados": {
+          "type": "integer",
+          "default": 100,
+          "description": "Número máximo de empresas a retornar",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "ordenar_por": {
+          "type": "string",
+          "default": "empleados_desc",
+          "description": "Ordenamiento de resultados",
+          "enum": [
+            "empleados_desc",
+            "empleados_asc",
+            "nombre_asc",
+            "reciente"
+          ]
+        },
+        "fuentes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "Cámara de Comercio",
+            "Superintendencia",
+            "DIAN"
+          ],
+          "description": "Fuentes de datos a consultar",
+          "enum": [
+            "Cámara de Comercio",
+            "Superintendencia",
+            "DIAN"
+          ]
+        }
+      }
+    },
+    "ejemplo": {
+      "ubicacion": "Medellín",
+      "empleados_minimo": 50,
+      "empleados_maximo": 500,
+      "sectores": [
+        "Servicios Profesionales",
+        "Retail"
+      ],
+      "keywords": [
+        "nómina",
+        "payroll"
+      ],
+      "estado_empresa": "activa",
+      "maximo_resultados": 50,
+      "ordenar_por": "empleados_desc",
+      "fuentes": [
+        "Cámara de Comercio",
+        "Superintendencia"
+      ]
+    }
+  },
+  "salida": {
+    "formato": "json",
+    "descripcion": "Lista de empresas con información de registros públicos",
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "razonSocial": {
+            "type": "string",
+            "description": "Nombre legal de la empresa"
+          },
+          "nit": {
+            "type": "string",
+            "description": "Número de Identificación Tributaria"
+          },
+          "digito": {
+            "type": "string",
+            "description": "Dígito verificador del NIT"
+          },
+          "actividad_economica": {
+            "type": "string",
+            "description": "Código CIIU y descripción"
+          },
+          "sector": {
+            "type": "string",
+            "description": "Sector económico clasificado"
+          },
+          "empleados_reportados": {
+            "type": "integer",
+            "description": "Número de empleados en último reporte"
+          },
+          "ingresos_anuales": {
+            "type": "string",
+            "description": "Ingresos anuales reportados (en millones de pesos)"
+          },
+          "estado": {
+            "type": "string",
+            "description": "Estado de la empresa (activa, inactiva, cancelada)"
+          },
+          "fecha_constitucion": {
+            "type": "string",
+            "format": "date",
+            "description": "Fecha de constitución de la empresa"
+          },
+          "ubicacion": {
+            "type": "object",
+            "properties": {
+              "ciudad": {
+                "type": "string",
+                "description": "Ciudad de ubicación"
+              },
+              "departamento": {
+                "type": "string",
+                "description": "Departamento/región"
+              },
+              "direccion": {
+                "type": "string",
+                "description": "Dirección registrada"
+              }
+            }
+          },
+          "contacto": {
+            "type": "object",
+            "properties": {
+              "telefono": {
+                "type": "string",
+                "description": "Teléfono principal de la empresa"
+              },
+              "correo": {
+                "type": "string",
+                "description": "Email registrado"
+              },
+              "sitio_web": {
+                "type": "string",
+                "description": "Sitio web si está disponible"
+              }
+            }
+          },
+          "propietarios": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "nombre": {
+                  "type": "string"
+                },
+                "cedula": {
+                  "type": "string"
+                },
+                "porcentaje": {
+                  "type": "number"
+                }
+              }
+            },
+            "description": "Accionistas/propietarios principales"
+          },
+          "representante_legal": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "cedula": {
+                "type": "string"
+              },
+              "cargo": {
+                "type": "string"
+              }
+            },
+            "description": "Representante legal de la empresa"
+          },
+          "fuente": {
+            "type": "string",
+            "description": "Fuente de origen del dato",
+            "enum": [
+              "Cámara de Comercio",
+              "Superintendencia",
+              "DIAN"
+            ]
+          },
+          "extraido_en": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha/hora de extracción"
+          }
+        }
+      }
+    },
+    "ejemploItem": {
+      "razonSocial": "Empresa Medellín S.A.S.",
+      "nit": "900123456",
+      "digito": "7",
+      "actividad_economica": "6201 - Servicios de Consultoría",
+      "sector": "Servicios Profesionales",
+      "empleados_reportados": 75,
+      "ingresos_anuales": "2500",
+      "estado": "activa",
+      "fecha_constitucion": "2015-03-15",
+      "ubicacion": {
+        "ciudad": "Medellín",
+        "departamento": "Antioquia",
+        "direccion": "Cra 43A No 10-50, Medellín"
+      },
+      "contacto": {
+        "telefono": "+57 4 3123456",
+        "correo": "contacto@empresa.com.co",
+        "sitio_web": "https://www.empresa.com.co"
+      },
+      "propietarios": [
+        {
+          "nombre": "Juan Pérez García",
+          "cedula": "1234567890",
+          "porcentaje": 51
+        }
+      ],
+      "representante_legal": {
+        "nombre": "María López Rodríguez",
+        "cedula": "9876543210",
+        "cargo": "Gerente General"
+      },
+      "fuente": "Cámara de Comercio",
+      "extraido_en": "2026-09-21T02:30:00Z"
+    }
+  },
+  "configuracion": {
+    "timeout": 1800000,
+    "retries": 3,
+    "buildTag": "latest",
+    "memoryMbytes": 1024,
+    "maxPagesPerRun": 50,
+    "delayCacheMs": 0
+  },
+  "capacidades": {
+    "buscarPorUbicacion": {
+      "enabled": true,
+      "descripcion": "Busca empresas por ciudad o departamento"
+    },
+    "filtrarPorTamanio": {
+      "enabled": true,
+      "descripcion": "Filtra por rango de empleados"
+    },
+    "filtrarPorSector": {
+      "enabled": true,
+      "descripcion": "Filtra por sector económico"
+    },
+    "buscarPorKeyword": {
+      "enabled": true,
+      "descripcion": "Busca por palabras clave en nombre/descripción"
+    },
+    "obtenerContacto": {
+      "enabled": true,
+      "descripcion": "Extrae teléfono, email, sitio web"
+    },
+    "obtenerPropietarios": {
+      "enabled": true,
+      "descripcion": "Obtiene información de accionistas"
+    },
+    "obtenerRepresentante": {
+      "enabled": true,
+      "descripcion": "Obtiene representante legal"
+    }
+  },
+  "casos_uso": [
+    {
+      "titulo": "Búsqueda de Clientes Potenciales por Ubicación y Tamaño",
+      "descripcion": "Encontrar empresas medianas en Medellín que cumplan criterios de tamaño",
+      "industria": "Ventas, Marketing, Business Development"
+    },
+    {
+      "titulo": "Identificación de Empresas por Sector",
+      "descripcion": "Listar empresas de sector específico (servicios, manufactura) con datos de contacto",
+      "industria": "Consultoría, B2B"
+    },
+    {
+      "titulo": "Análisis de Competencia",
+      "descripcion": "Obtener lista de competidores con información financiera y de contacto",
+      "industria": "Estrategia Empresarial"
+    },
+    {
+      "titulo": "Due Diligence Empresarial",
+      "descripcion": "Verificar información registral de empresa objetivo",
+      "industria": "M&A, Legal"
+    },
+    {
+      "titulo": "Enriquecimiento de Leads",
+      "descripcion": "Complementar datos de leads con información de registros públicos",
+      "industria": "Ventas, CRM"
+    }
+  ],
+  "limitaciones": [
+    "Información limitada a registros públicos disponibles",
+    "Algunos campos pueden estar incompletos o desactualizados",
+    "Contactos pueden ser de empresa, no de departamento específico",
+    "Datos de ingresos/empleados son últimos reportados, no tiempo real"
+  ],
+  "seguridad": {
+    "dataSensible": false,
+    "datosPublicos": true,
+    "requiereProxy": false,
+    "verificarTerminos": false,
+    "notas": "Todos los datos extraídos son de registros públicos colombianos. No requiere autenticación ni acceso privilegiado."
+  },
+  "cumplimiento": {
+    "ley": "Leyes de acceso a información pública en Colombia",
+    "fuentes": "Cámara de Comercio, Superintendencia de Sociedades, DIAN son instituciones públicas",
+    "privacidad": "Solo datos públicos registrales, sin información personal sensible",
+    "uso": "Permitido para investigación comercial, due diligence, búsqueda de clientes"
+  },
+  "integracion_perfil_cliente": {
+    "proposito": "Buscar empresas medianas (50-500 empleados) en Medellín/Bogotá que cumplen perfil cliente",
+    "filtros_aplicados": {
+      "ubicacion": "Medellín o Bogotá",
+      "empleados_minimo": 50,
+      "empleados_maximo": 500,
+      "estado_empresa": "activa",
+      "sectores_objetivo": [
+        "Servicios Profesionales",
+        "Comercio Retail",
+        "Manufactura"
+      ]
+    },
+    "enriquecimiento": "Proporciona teléfono y email de empresa para contacto directo",
+    "siguiente_paso": "Usar linkedin-company-employees en empresas encontradas para identificar Gerentes RRHH específicos"
+  },
+  "documentacion": {
+    "guiaLocal": "DATA-EMPRESARIAL-GUIDE.md",
+    "ejemplosUso": "../templates/",
+    "fuentes_oficiales": [
+      "https://www.camcom.co/",
+      "https://www.supersociedades.gov.co/",
+      "https://www.dian.gov.co/"
+    ]
+  },
+  "metadata": {
+    "createdAt": "2026-09-21T02:30:00Z",
+    "createdBy": "sistema-jac",
+    "version": "1.0",
+    "estadoProduccion": false,
+    "ultimoTesteo": "~sin_datos~",
+    "proximaMilestone": "Registro en Apify y testing"
+  }
+}

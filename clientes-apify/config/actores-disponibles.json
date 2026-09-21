@@ -1,0 +1,73 @@
+{
+  "version": "1.0",
+  "actores": [
+    {
+      "id": "web-scraper-jurisprudencia",
+      "nombre": "Web Scraper Jurisprudencia",
+      "descripcion": "Extrae sentencias y jurisprudencia de fuentes jurídicas colombianas",
+      "fuentes": [
+        "Corte Constitucional",
+        "Corte Suprema de Justicia",
+        "Consejo de Estado"
+      ],
+      "tipoSalida": "json",
+      "estado": "disponible",
+      "version": "1.0",
+      "apifyActorId": "~pendiente~"
+    },
+    {
+      "id": "extractor-normas",
+      "nombre": "Extractor de Normas",
+      "descripcion": "Extrae leyes, decretos y resoluciones de SUIN y Diario Oficial",
+      "fuentes": [
+        "SUIN Juriscol",
+        "Diario Oficial",
+        "Congreso de la República"
+      ],
+      "tipoSalida": "json",
+      "estado": "disponible",
+      "version": "1.0",
+      "apifyActorId": "~pendiente~"
+    },
+    {
+      "id": "data-empresarial",
+      "nombre": "Extractor Datos Empresariales",
+      "descripcion": "Extrae información de empresas de registros públicos",
+      "fuentes": [
+        "Cámara de Comercio",
+        "Superintendencia de Sociedades",
+        "DIAN"
+      ],
+      "tipoSalida": "json",
+      "estado": "disponible",
+      "version": "1.0",
+      "apifyActorId": "~pendiente~"
+    },
+    {
+      "id": "linkedin-company-employees",
+      "nombre": "LinkedIn Company Employees Extractor",
+      "descripcion": "Extrae lista completa de empleados de una empresa en LinkedIn",
+      "fuentes": [
+        "LinkedIn"
+      ],
+      "tipoSalida": "json",
+      "estado": "disponible",
+      "version": "1.0",
+      "apifyActorId": "~pendiente-registrar~",
+      "repositorio": "https://github.com/tuhinmallick/apify-linkedin-company-employees",
+      "casoUso": ["reclutamiento", "investigacion-competencia", "due-diligence", "investigacion-juridica"],
+      "seguridad": {
+        "dataSensible": true,
+        "requiereProxy": true,
+        "verificarTerminos": true
+      }
+    }
+  ],
+  "estadoIntegracion": {
+    "apify": "en_configuracion",
+    "fuentes": "9_de_9_integradas",
+    "ultimaActualizacion": "2026-09-21T02:15:00Z",
+    "actoresIntegrados": 4,
+    "actoresDisponibles": "linkedin-company-employees (nuevo)"
+  }
+}

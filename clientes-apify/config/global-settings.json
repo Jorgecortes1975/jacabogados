@@ -1,0 +1,54 @@
+{
+  "version": "1.0",
+  "sistema": "JAC Clientes Apify",
+  "descripcion": "Sistema de gestión de clientes y extracción de datos jurídicos mediante Apify",
+  "apify": {
+    "credentialsFile": "./config/apify-credentials.json",
+    "mcpServer": "apify-mcp",
+    "mcpUrl": "https://mcp.apify.com",
+    "timeoutMs": 300000,
+    "maxRetries": 3,
+    "retryDelayMs": 5000,
+    "autenticacion": "apiToken",
+    "endpoints": {
+      "actors": "/v1/actors",
+      "runs": "/v1/runs",
+      "datasets": "/v1/datasets",
+      "keyValueStore": "/v1/key-value-store"
+    }
+  },
+  "storage": {
+    "datasetsPath": "./datasets",
+    "logsPath": "./logs",
+    "clientsPath": "./clients",
+    "actorsPath": "./actors"
+  },
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "logDir": "./logs",
+    "rotateDaily": true,
+    "retentionDays": 90
+  },
+  "clientes": {
+    "enabled": true,
+    "autoCreate": false,
+    "validationRequired": true
+  },
+  "actores": {
+    "registry": "./config/actores-disponibles.json",
+    "validateInputSchema": true,
+    "trackExecutions": true
+  },
+  "seguridad": {
+    "encryptarDatos": true,
+    "validarFirmas": true,
+    "auditarAccesos": true,
+    "gitIgnoreCredenciales": true
+  },
+  "metadata": {
+    "createdAt": "2026-09-21T02:01:00Z",
+    "maintainer": "JAC Sistema Legal",
+    "branch": "claude/clientes-apify-setup-m82pnl"
+  }
+}

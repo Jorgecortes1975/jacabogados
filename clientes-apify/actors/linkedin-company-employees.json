@@ -1,0 +1,225 @@
+{
+  "actor": {
+    "id": "linkedin-company-employees",
+    "nombre": "LinkedIn Company Employees Extractor",
+    "descripcion": "Extrae lista completa de empleados de una empresa en LinkedIn",
+    "version": "1.0",
+    "apifyActorId": "~pendiente-tuhinmallick-apify-linkedin-company-employees~",
+    "apifyTaskId": "~pendiente~",
+    "repositorio": "https://github.com/tuhinmallick/apify-linkedin-company-employees",
+    "mantenedor": "tuhinmallick",
+    "tipo": "web-scraper",
+    "estado": "disponible"
+  },
+  "entrada": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "companyLinkedInUrl"
+      ],
+      "properties": {
+        "companyLinkedInUrl": {
+          "type": "string",
+          "description": "URL de la página de empresa en LinkedIn (ej: https://www.linkedin.com/company/google)",
+          "example": "https://www.linkedin.com/company/google"
+        },
+        "maxRequests": {
+          "type": "integer",
+          "default": 5000,
+          "description": "Máximo número de empleados a extraer",
+          "minimum": 1,
+          "maximum": 50000
+        },
+        "maxConcurrency": {
+          "type": "integer",
+          "default": 1,
+          "description": "Número de requests concurrentes",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "useApifyProxy": {
+          "type": "boolean",
+          "default": true,
+          "description": "Usar proxy de Apify para evitar bloqueos"
+        },
+        "proxyConfiguration": {
+          "type": "object",
+          "description": "Configuración avanzada de proxy"
+        },
+        "parseFromIndustryPage": {
+          "type": "boolean",
+          "default": false,
+          "description": "Extraer desde página de industria en lugar de empresa"
+        }
+      }
+    },
+    "ejemplo": {
+      "companyLinkedInUrl": "https://www.linkedin.com/company/google",
+      "maxRequests": 1000,
+      "maxConcurrency": 1,
+      "useApifyProxy": true
+    }
+  },
+  "salida": {
+    "formato": "json",
+    "descripcion": "Lista de empleados con información de perfil de LinkedIn",
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nombre completo del empleado"
+          },
+          "linkedInUrl": {
+            "type": "string",
+            "description": "URL del perfil de LinkedIn"
+          },
+          "title": {
+            "type": "string",
+            "description": "Puesto o cargo actual"
+          },
+          "location": {
+            "type": "string",
+            "description": "Ubicación geográfica"
+          },
+          "profilePictureUrl": {
+            "type": "string",
+            "description": "URL de foto de perfil"
+          },
+          "connectionDegree": {
+            "type": "integer",
+            "description": "Grado de conexión (1st, 2nd, 3rd)"
+          },
+          "mutualConnections": {
+            "type": "integer",
+            "description": "Número de conexiones mutuas"
+          },
+          "company": {
+            "type": "string",
+            "description": "Empresa actual"
+          },
+          "extractedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Fecha/hora de extracción"
+          }
+        }
+      }
+    },
+    "ejemploItem": {
+      "name": "John Doe",
+      "linkedInUrl": "https://www.linkedin.com/in/johndoe",
+      "title": "Senior Software Engineer",
+      "location": "San Francisco, CA",
+      "profilePictureUrl": "https://media.licdn.com/...",
+      "connectionDegree": 2,
+      "mutualConnections": 5,
+      "company": "Google",
+      "extractedAt": "2026-09-21T12:00:00Z"
+    }
+  },
+  "configuracion": {
+    "timeout": 3600000,
+    "retries": 5,
+    "buildTag": "latest",
+    "memoryMbytes": 2048,
+    "maxPagesPerRun": 100,
+    "delayCacheMs": 0
+  },
+  "capacidades": {
+    "extraerEmpleados": {
+      "enabled": true,
+      "descripcion": "Extrae lista completa de empleados de una empresa"
+    },
+    "extraerPerfil": {
+      "enabled": true,
+      "descripcion": "Extrae información de perfil de cada empleado"
+    },
+    "filtrarPorUbicacion": {
+      "enabled": true,
+      "descripcion": "Permite filtrar empleados por ubicación"
+    },
+    "extraerContacto": {
+      "enabled": false,
+      "descripcion": "Extracción de información de contacto (limitada por LinkedIn)"
+    }
+  },
+  "casos_uso": [
+    {
+      "titulo": "Investigación de Competencia",
+      "descripcion": "Obtener lista de empleados y puestos de empresa competidora",
+      "industria": "Tecnología, Consultoría"
+    },
+    {
+      "titulo": "Reclutamiento Objetivo",
+      "descripcion": "Identificar candidatos en empresas específicas",
+      "industria": "RRHH, Reclutamiento"
+    },
+    {
+      "titulo": "Investigación Jurídica",
+      "descripcion": "Recopilar información de empleados para casos legales",
+      "industria": "Derecho, Litigio"
+    },
+    {
+      "titulo": "Análisis Empresarial",
+      "descripcion": "Análisis de estructura organizacional y equipo",
+      "industria": "Consultoría, Análisis Empresarial"
+    },
+    {
+      "titulo": "Due Diligence",
+      "descripcion": "Verificación de composición de equipo en adquisiciones",
+      "industria": "Fusiones y Adquisiciones"
+    }
+  ],
+  "limitaciones": [
+    "LinkedIn puede bloquear scraping agresivo",
+    "Requiere proxy de Apify para evitar detección",
+    "Límites de rate de LinkedIn aplican",
+    "Información limitada sin autenticación",
+    "No extrae emails directamente (se requiere procesamiento adicional)"
+  ],
+  "seguridad": {
+    "dataSensible": true,
+    "requiereProxy": true,
+    "respectaRobots": false,
+    "cumpleTerminos": false,
+    "notas": "Verificar términos de servicio de LinkedIn y leyes locales antes de usar"
+  },
+  "cumplimiento": {
+    "linkedInTerminos": "Revisar sección 8.2 - Web scraping no autorizado",
+    "gdpr": "Requiere consentimiento para procesamiento de datos personales",
+    "ccpa": "Cumplimiento recomendado con California Consumer Privacy Act",
+    "ley": "Verificar leyes locales de protección de datos",
+    "etica": "Uso ético recomendado - considerar obtener consentimiento"
+  },
+  "comparacionActores": {
+    "ventajas": [
+      "Extrae datos directamente de LinkedIn",
+      "Alta precisión en perfiles",
+      "Rápido (con proxy de Apify)",
+      "Actualización frecuente de datos"
+    ],
+    "desventajas": [
+      "Costo de Apify",
+      "Riesgo de bloqueo",
+      "Información limitada sin login",
+      "Cuestiones legales potenciales"
+    ]
+  },
+  "documentacion": {
+    "repositorio": "https://github.com/tuhinmallick/apify-linkedin-company-employees",
+    "apifyMarketplace": "https://apify.com/marketplace (buscar linkedin-company-employees)",
+    "guiaLocal": "../README.md",
+    "ejemplosUso": "../templates/"
+  },
+  "metadata": {
+    "createdAt": "2026-09-21T02:15:00Z",
+    "createdBy": "sistema-jac",
+    "version": "1.0",
+    "estadoProduccion": false,
+    "ultimoTesteo": "~sin_datos~",
+    "proximaMilestone": "Integración y testing"
+  }
+}
