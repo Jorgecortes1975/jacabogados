@@ -2,6 +2,8 @@
 
 > **Sistema autónomo de consulta jurídica colombiana con verificación de datos en fuentes oficiales**
 
+> Instrucciones operativas para agentes de IA (comandos, validación, reglas jurídicas y estado real de la verificación): ver [`AGENTS.md`](AGENTS.md).
+
 ## 🎯 Visión General
 
 Sistema completo que integra:

@@ -12,3 +12,6 @@ node_modules/
 # Sistema operativo / editores
 .DS_Store
 *.log
+
+# Python
+__pycache__/
