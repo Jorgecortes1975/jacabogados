@@ -71,15 +71,89 @@ Datos extraídos:
 
 Aplicación al despacho: ninguna. Otorgar a un agente capacidad de transferir fondos es incompatible con los principios del sistema y no guarda relación con la práctica jurídica. No instalar en ningún entorno del despacho.
 
-## 3. Acciones concretas
+## 4. Uso en el despacho y límites del beneficio
 
-1. Verificar en la documentación oficial de Cloudflare (developers.cloudflare.com) la disponibilidad general de MCP Server Portals y su costo en el plan Zero Trust aplicable.
-2. Si se confirma, abrir una especificación con `/speckit-specify` para "Portal MCP centralizado con trazabilidad y DLP" antes de modificar `mcp-config.json` o `claude-mcp-transport.js`.
-3. Definir con la política de gobernanza de IA del despacho la retención y el acceso a los logs de prompts.
-4. Mantener Discourse y Ninety en observación hasta que exista una necesidad operativa concreta.
-5. Usar Windsor.ai, y no Omneky, para cualquier automatización publicitaria, con aprobación humana por pieza.
-6. Registrar IronWallet como herramienta prohibida.
+Ninguna de estas herramientas ejecuta trabajo jurídico. Su valor es operativo: gobierno de la IA, gestión interna y comercialización. El beneficio termina donde empieza el criterio profesional. Ninguna verifica normas ni sentencias, ni traslada la responsabilidad del abogado sobre lo que firma o publica.
 
-## 4. Enlaces de la fuente
+| Herramienta | Utilidad real | Beneficio | Condición para que valga la pena |
+|---|---|---|---|
+| Cloudflare MCP Portals | Control y auditoría del uso de IA | Alto | Varios usuarios o conectores con datos de clientes |
+| Ninety MCP | Gestión gerencial del despacho | Medio | Adopción de la metodología EOS |
+| Discourse MCP | Base de conocimiento interna o comunidad de clientes | Medio a bajo | Existencia de un foro Discourse |
+| Omneky | Publicidad automatizada | Bajo | Solo con aprobación humana por pieza |
+| IronWallet | Ninguna | Nulo | No aplica |
+
+### 4.1 Cloudflare MCP Portals
+
+Cómo se usa:
+1. Todos los conectores (Croma, Legal Data Hunter, Gmail, Drive y los transportes de `mcp-config.json`) pasan por un solo punto de entrada.
+2. Permisos por rol: el socio accede a correo y expedientes; el practicante, solo a fuentes normativas y jurisprudenciales.
+3. Registro de qué consultó cada abogado y cuándo, útil para demostrar supervisión humana si se cuestiona un escrito asistido por IA.
+4. DLP para bloquear la salida de cédulas, radicados o datos de clientes hacia herramientas no aprobadas.
+
+Límite del beneficio:
+1. No valida la existencia de sentencias ni la vigencia de normas; controla el acceso, no la calidad de la respuesta.
+2. Los registros son una base de datos sensible, sujeta a secreto profesional, que debe custodiarse como un expediente.
+3. En un despacho de uno a tres abogados con pocos conectores, el costo de configuración y mantenimiento puede superar el beneficio.
+
+### 4.2 Ninety MCP
+
+Cómo se usa:
+1. Metas trimestrales (Rocks), por ejemplo radicar las demandas represadas o captar clientes corporativos.
+2. Indicadores semanales (Scorecard): casos nuevos, términos próximos a vencer, cartera y horas facturables.
+3. Resúmenes de la reunión semanal y creación de tareas desde Claude.
+
+Límite del beneficio: es gerencia, no derecho. No reemplaza el control de términos procesales. Sin EOS adoptado, solo suma una suscripción. Complementa `kpi-juridico-col` y `plan-90-dias-col`.
+
+### 4.3 Discourse MCP
+
+Cómo se usa:
+1. Foro interno de conocimiento: consultas entre abogados, criterios de la firma y modelos aprobados, con búsqueda y resumen de hilos previos.
+2. Comunidad de clientes empresariales.
+
+Límite del beneficio: una respuesta automática a un cliente equivale a asesoría jurídica sin supervisión. Toda respuesta a terceros requiere aprobación previa del abogado. El valor real está en el uso interno.
+
+### 4.4 Omneky
+
+Cómo podría usarse: variantes de creativos y consolidación de reportes.
+
+Límite del beneficio: su función central, lanzar campañas de forma autónoma, es la que genera riesgo frente a los deberes de publicidad del abogado. Opera sobre ChatGPT. El despacho ya dispone de Windsor.ai, que ejecuta acciones solo con confirmación expresa.
+
+### 4.5 IronWallet
+
+Sin uso legítimo en el despacho. Aun al asesorar clientes del sector cripto, basta con exploradores de bloques de solo lectura; nunca se debe dar a un agente la facultad de firmar transferencias.
+
+### 4.6 Riesgos
+
+| Riesgo | Nivel | Herramienta |
+|---|---|---|
+| Filtración de datos de clientes o del secreto profesional en los registros | Alto | Cloudflare mal configurado |
+| Asesoría no supervisada publicada a terceros | Alto | Discourse con respuestas automáticas |
+| Publicidad jurídica no conforme | Alto | Omneky |
+| Pérdida patrimonial por instrucción errónea del agente | Muy alto | IronWallet |
+| Costo superior al beneficio | Medio | Cloudflare y Ninety en despachos pequeños |
+| Confiar en que la herramienta verifica derecho | Alto | Todas |
+
+Marco normativo de referencia, sujeto a verificación de vigencia en fuente oficial: Ley 1581 de 2012 (protección de datos personales) y Ley 1123 de 2007 (Código Disciplinario del Abogado: secreto profesional y publicidad). No se citan artículos específicos por no haber sido verificados.
+
+### 4.7 Documentos necesarios
+
+1. Política interna de uso de IA (base: skill `gobernanza-ia-despacho-col`).
+2. Política de tratamiento de datos personales actualizada para incluir los registros de IA.
+3. Cláusula de información al cliente sobre uso de IA en contratos de mandato u hojas de encargo.
+4. Inventario de conectores activos con su responsable.
+5. Documentación oficial y cotización de Cloudflare y, si aplica, de Ninety.
+
+## 5. Acciones concretas
+
+1. Urgente: adoptar la política escrita de uso de IA antes de cualquier infraestructura nueva.
+2. Verificar en la documentación oficial de Cloudflare (developers.cloudflare.com) la disponibilidad general de MCP Server Portals y su costo en el plan Zero Trust aplicable.
+3. Si se confirma, abrir una especificación con `/speckit-specify` para "Portal MCP centralizado con trazabilidad y DLP" antes de modificar `mcp-config.json` o `claude-mcp-transport.js`.
+4. Definir con la política de gobernanza de IA del despacho la retención y el acceso a los logs de prompts.
+5. Mantener Discourse y Ninety en observación hasta que exista una necesidad operativa concreta.
+6. Usar Windsor.ai, y no Omneky, para cualquier automatización publicitaria, con aprobación humana por pieza.
+7. Registrar IronWallet como herramienta prohibida.
+
+## 6. Enlaces de la fuente
 
 Los enlaces a ia.university aparecen truncados en la publicación original, salvo los endpoints transcritos arriba. Deben recuperarse desde la publicación completa antes de citarlos.
