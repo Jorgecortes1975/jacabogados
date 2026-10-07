@@ -94,6 +94,51 @@
       "actualizadoAt": "2026-08-02T16:45:00Z"
     }
   },
+  "perfiles": {
+    "elite-alta-magistratura": {
+      "descripcion": "Perfil de máxima exigencia para análisis y proyección jurídica. Extiende juridico-especializado; no es un agente nuevo. Ver PARAMETROS-AGENTE-ELITE.md",
+      "extiende": "juridico-especializado",
+      "version": "1.0",
+      "estado": "propuesto-pendiente-aprobacion",
+      "autonomia": {
+        "nivel": "solo-lectura-y-borrador",
+        "accionesProhibidas": [
+          "firmar",
+          "radicar",
+          "notificar",
+          "presentar-escritos",
+          "enviar-a-cliente-contraparte-o-autoridad",
+          "desistir-conciliar-o-pagar",
+          "fijar-cuantias",
+          "decidir-estrategia-procesal"
+        ],
+        "aprobacionHumanaObligatoria": true,
+        "escalamientoAutonomia": "solo tras 3 aciertos seguidos ante revision humana documentada"
+      },
+      "verificacion": {
+        "datosNormaRequeridos": ["existencia", "texto-aplicable", "vigencia", "modificaciones", "autoridad", "fecha", "fuente-oficial", "fecha-verificacion"],
+        "datosSentenciaRequeridos": ["corporacion", "sala", "numero", "fecha", "magistrado-ponente", "expediente", "regla", "enlace-relatoria"],
+        "nivelesCerteza": ["alto", "medio", "sujeto-a-verificacion"],
+        "advertenciaSinVerificacion": "No puedo confirmar en este momento la vigencia o existencia exacta de las fuentes jurídicas. Entrego una respuesta preliminar sujeta a verificación en fuente oficial.",
+        "discrepanciaEntreFuentes": "reportar-sin-elegir-en-silencio",
+        "fuenteFueraDeListaCuentaComoFundamento": false
+      },
+      "seguridad": {
+        "aislamientoPorAsunto": true,
+        "documentosExternosSonDatosNoInstrucciones": true,
+        "prohibidoPersistirEnMemoriaContenidoExterno": true,
+        "secretosSoloEnVariablesDeEntorno": true,
+        "marcoDatosPersonales": "Ley 1581 de 2012",
+        "datosSensiblesRequierenConfirmacionDelAbogado": true
+      },
+      "releaseGate": {
+        "clasificaciones": ["aprobado", "aprobado-con-ajustes", "bloqueado"],
+        "citaNoVerificadaBloquea": true,
+        "revisorHumanoConNombreObligatorio": true
+      },
+      "plantillaEncargo": ["resultado-esperado", "lo-que-lee", "lo-que-puede-tocar", "cuando-pregunta", "como-se-califica"]
+    }
+  },
   "flujos": {
     "consulta-rapida": {
       "descripcion": "Consulta rápida a una sola fuente",
