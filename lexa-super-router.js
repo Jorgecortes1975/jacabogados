@@ -85,11 +85,11 @@ class LEXASuperRouter {
       },
       dispatch_table: {
         'escritos procesales|tutelas|laboralista': 'juridico',
+        'laboral|conflictos-laborales|nómina': 'laboral',
         'contratos|SAS|comercial': 'mercantil',
         'correos|comunicaciones|reportes': 'email',
         'impuestos|DIAN|tributario': 'tributario',
-        'ambiental|licencias|normativa-ambiental': 'ambiental',
-        'laboral|conflictos-laborales|nómina': 'laboral'
+        'ambiental|licencia ambiental|normativa-ambiental': 'ambiental'
       },
       validacion: {
         implementada: false,
@@ -101,27 +101,31 @@ class LEXASuperRouter {
     // Definición en memoria: no se persiste en mcp-config.json.
   }
 
-  // Normaliza a palabras completas: minúsculas, sin acentos, sin puntuación y con plural simplificado.
-  // La coincidencia es por palabra completa (no por subcadena) y la primera entrada de la tabla gana.
+  // Normaliza a palabras completas: minúsculas, sin acentos, siglas sin puntos (S.A.S. -> sas) y sin puntuación.
+  // Cada palabra se representa por sus variantes (con y sin plural) y dos palabras coinciden si comparten
+  // alguna variante. La coincidencia es por palabra completa, no por subcadena.
   tokenizar(texto) {
-    const singular = (t) => {
-      if (t.length > 4 && t.endsWith('es')) return t.slice(0, -2);
-      if (t.length > 3 && t.endsWith('s')) return t.slice(0, -1);
-      return t;
+    const variantes = (t) => {
+      const v = new Set([t]);
+      if (t.length > 3 && t.endsWith('s')) v.add(t.slice(0, -1));
+      if (t.length > 4 && t.endsWith('es')) v.add(t.slice(0, -2));
+      return [...v];
     };
     return texto
       .toLowerCase()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\b([a-z])\.(?=[a-z]\b)/g, '$1')
       .split(/[^a-z0-9]+/)
       .filter(Boolean)
-      .map(singular);
+      .map(variantes);
   }
 
+  // La primera entrada de la tabla que coincida gana.
   contieneSecuencia(tokensTexto, tokensClave) {
     if (tokensClave.length === 0) return false;
     for (let i = 0; i + tokensClave.length <= tokensTexto.length; i++) {
-      if (tokensClave.every((t, j) => tokensTexto[i + j] === t)) return true;
+      if (tokensClave.every((vc, k) => vc.some(v => tokensTexto[i + k].includes(v)))) return true;
     }
     return false;
   }
@@ -136,7 +140,7 @@ class LEXASuperRouter {
         if (this.contieneSecuencia(tokensTexto, this.tokenizar(palabra))) {
           return {
             agente,
-            tipo: criterio,
+            tipo: palabra,
             metodo: 'coincidencia-de-palabra-clave',
             requiereRevisionHumana: true,
             timestamp: new Date().toISOString()
@@ -181,9 +185,9 @@ class LEXASuperRouter {
       paso1_entrada: 'Router clasifica el mensaje por palabra clave (unico paso real)',
       paso2_despacho_objetivo: `Agente destino previsto: ${agente.nombre} (no implementado)`,
       paso3_sub_agentes_objetivo: `Sub-agentes previstos: ${agente.sub_agentes.join(', ')}`,
-      paso4_validacion_objetivo: agente.validacion_objetivo ? 'Validacion JAC prevista (no implementada)' : 'Sin validacion adicional prevista',
+      paso4_validacion_objetivo: agente.validacion_objetivo ? 'Validacion JAC prevista (no implementada)' : 'Validacion adicional no definida; la revision humana siempre rige',
       paso5_salida_objetivo: 'Revision del abogado responsable antes de cualquier salida',
-      fuentes_objetivo: agente.fuentes_objetivo || 'fuentes estandar'
+      fuentes_objetivo: Array.isArray(agente.fuentes_objetivo) ? agente.fuentes_objetivo.join(', ') : (agente.fuentes_objetivo || 'fuentes estandar')
     };
   }
 
@@ -201,9 +205,9 @@ No hay agentes, dashboard, canales, validación ni firma implementados.
 
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║                                                                            ║
-║          🌟 LEXA-JAC ECOSISTEMA INTEGRADO V2.0 🌟                         ║
+║          🌟 LEXA-JAC ECOSISTEMA (DISEÑO) V2.0 🌟                          ║
 ║                                                                            ║
-║  Super Router Orquestador - Entrada Única para Servicios Legales          ║
+║  Diseño objetivo: hoy solo clasifica por palabras clave                   ║
 ║                                                                            ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 
@@ -456,7 +460,13 @@ async function main() {
         break;
 
       default:
-        router.mostrarComandos();
+        if (args.command) {
+          console.error(`❌ Comando no reconocido: ${args.command}`);
+          router.mostrarComandos();
+          process.exitCode = 1;
+        } else {
+          router.mostrarComandos();
+        }
     }
   } catch (error) {
     console.error('❌ Error:', error.message);
