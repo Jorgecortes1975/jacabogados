@@ -44,7 +44,7 @@
         "estado": "habilitado",
         "inteligencia": {
           "clasificacion": "ML-basada",
-          "precision": "99.2%",
+          "precision": "no-medida",
           "tiempo_respuesta": "< 100ms"
         }
       },
@@ -78,9 +78,9 @@
             "superintendencia-sociedades",
             "ministerio-interior"
           ],
-          "precision": "99.2%",
+          "precision": "no-medida",
           "validacion_jac": true,
-          "tiempo_respuesta_promedio": "4.5 minutos"
+          "tiempo_respuesta_promedio": "no-medido"
         },
         "mercantil": {
           "nombre": "Agente Mercantil y Corporativo",
@@ -240,21 +240,21 @@
         "Jurisprudencia oficial",
         "Normativa vigente"
       ],
-      "firma_digital": true,
+      "firma_digital": false,
       "timestamp_validacion": true,
       "auditoria_completa": true
     },
     "metricas": {
-      "precision_general": "99.2%",
+      "precision_general": "no-medida",
       "fuentes_integradas_total": "30+",
-      "documentos_accesibles": "38M+",
-      "jurisdicciones": "230+",
+      "documentos_accesibles": "38M+ (cifra del proveedor)",
+      "jurisdicciones": "230+ (cifra del proveedor)",
       "agentes_activos": 6,
       "sub_agentes_totales": 18,
       "canales_entrada": 6,
-      "tiempo_respuesta_promedio": "4.5 minutos",
-      "uptime": "99.9%",
-      "disponibilidad": "24/7"
+      "tiempo_respuesta_promedio": "no-medido",
+      "uptime": "no-medido",
+      "disponibilidad": "sin-compromiso"
     },
     "escalabilidad": {
       "arquitectura": "microservicios",
@@ -268,10 +268,10 @@
       "carga_simultanea": "10,000+ usuarios"
     },
     "seguridad": {
-      "encriptacion": "AES-256",
+      "encriptacion": "objetivo-AES-256-no-implementado",
       "autenticacion": "OAuth 2.0 + JWT",
       "autorizacion": "RBAC",
-      "datos_personales": "GDPR + HABEAS DATA",
+      "datos_personales": "Ley 1581 de 2012 (cumplimiento no evaluado)",
       "secretos": "hashicorp-vault",
       "logs_seguridad": "ELK-stack",
       "pentesting": "trimestral",
@@ -309,7 +309,7 @@
       "metricas": "prometheus",
       "alertas": "alertmanager",
       "trazabilidad": "jaeger",
-      "uptime_monitoring": "24/7"
+      "uptime_monitoring": "objetivo-no-implementado"
     },
     "configuracion_automatica": {
       "setup_inicial": "automatizado",

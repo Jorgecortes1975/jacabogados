@@ -1,5 +1,7 @@
 # LEXA-JAC v2.0 - Integración Completa del Ecosistema
 
+> ESTADO REAL DE IMPLEMENTACIÓN (verificado el 2026-10-07 leyendo el código). Este documento describe el diseño objetivo, no capacidades en operación. El CLI `agente-juridico-especializado.js` solo muestra configuración (`activar`, `fuentes`, `help`); su comando `consulta` no está implementado: no busca ni verifica. El router `lexa-super-router.js` clasifica por palabras clave y construye un plan de flujo en texto; no despacha a agentes ni consulta fuentes. Ningún componente carga `agente-config.json`. Las cifras de precisión, disponibilidad y tiempos son metas sin medición. Hoy la verificación de normas y sentencias se hace como protocolo de trabajo (abogado o sesión de Claude con herramientas MCP conectadas), conforme a `PARAMETROS-AGENTE-ELITE.md`.
+
 > **Orquestación Autónoma de Servicios Legales Colombianos**
 
 ## 🎯 Visión General
@@ -17,7 +19,7 @@ Sistema de **entrada única con 6 agentes especializados** que operan de forma a
     ↓               ↓               ↓
 [Sub-agentes]   [Sub-agentes]   [Sub-agentes]
     ↓               ↓               ↓
-[Validación JAC - Múltiples Fuentes - Firma Digital]
+[Validación JAC - Múltiples Fuentes - Revisión del abogado]
     ↓
 [RESPUESTA VERIFICADA AL USUARIO]
 ```
@@ -37,7 +39,7 @@ Sistema de **entrada única con 6 agentes especializados** que operan de forma a
 ### **CAPA 2: Super Router**
 Punto de entrada único que:
 - Recibe mensajes de 6 canales diferentes
-- Clasifica automáticamente (99.2% precisión)
+- Clasifica automáticamente (por palabras clave; precisión no medida)
 - Despacha al agente correcto
 - Prioriza consultas urgentes
 - Enruta validaciones JAC
@@ -67,7 +69,7 @@ Sub-agentes:
   • JAC Validator (validación final)
 
 Fuentes: 9 oficiales (Corte Const., Suprema, etc.)
-Precisión: 99.2%
+Precisión: no medida
 Tiempo: 4.5 min promedio
 Validación: SÍ (múltiple)
 ```
@@ -230,14 +232,13 @@ NIVEL 2: Sub-agente Validador
   
 NIVEL 3: Jorge Cortés (Propietario)
   └─ Revisión final manual
-  └─ Firma digital
+  └─ Decisión del abogado responsable
   └─ Aprobación para salida
 ```
 
-**Garantías:**
+**Objetivos de diseño (no garantías):**
 ✓ Validación múltiple obligatoria
 ✓ Contra fuentes oficiales (LexisNexis, SUIN, etc.)
-✓ Firma digital integrada
 ✓ Auditoría completa e inmutable
 
 ---
@@ -246,7 +247,7 @@ NIVEL 3: Jorge Cortés (Propietario)
 
 | Métrica | Valor |
 |---------|-------|
-| **Precisión General** | 99.2% |
+| **Precisión General** | No medida |
 | **Agentes Activos** | 6 |
 | **Sub-agentes Totales** | 18 |
 | **Fuentes Integradas** | 30+ |
@@ -254,8 +255,8 @@ NIVEL 3: Jorge Cortés (Propietario)
 | **Jurisdicciones** | 230+ |
 | **Canales de Entrada** | 6 |
 | **Tiempo Respuesta Promedio** | 4.5 min |
-| **Uptime** | 99.9% |
-| **Disponibilidad** | 24/7 |
+| **Uptime** | No medido |
+| **Disponibilidad** | Sin compromiso |
 | **Carga Simultánea** | 10,000+ usuarios |
 
 ---
@@ -278,13 +279,13 @@ El ecosistema LEXA v2.0 se configura automáticamente con:
 
 ---
 
-## 🔐 Seguridad Integrada
+## 🔐 Seguridad (objetivo de diseño, no implementada)
 
 ```
 ✓ Encriptación AES-256
 ✓ Autenticación OAuth 2.0 + JWT
 ✓ Autorización RBAC
-✓ GDPR + Habeas Data
+✓ Marco aplicable: Ley 1581 de 2012 (cumplimiento no evaluado)
 ✓ Hashicorp Vault para secretos
 ✓ ELK Stack para logs de seguridad
 ✓ Pentesting trimestral
@@ -334,7 +335,7 @@ JAC Validator verifica:
   • Contra jurisprudencia vigente
   • Valida citas
   
-Jorge Cortés revisa y firma
+Jorge Cortés revisa y decide (la firma y la radicación son siempre actos humanos)
   ↓
 Respuesta verificada al usuario
 ```
@@ -440,11 +441,11 @@ Soporta: 10,000+ usuarios simultáneos
 ## ✨ Ventajas Competitivas
 
 ✅ **Entrada Única** para 6 servicios diferentes
-✅ **Clasificación Automática** (99.2% precisión)
+✅ **Clasificación Automática** (por palabras clave; precisión no medida)
 ✅ **Validación Múltiple** contra fuentes oficiales
-✅ **Disponibilidad 24/7** con 99.9% uptime
+✅ **Disponibilidad** no medida ni garantizada
 ✅ **Escalabilidad** para 10,000+ usuarios
-✅ **Seguridad** nivel empresarial
+✅ **Seguridad**: objetivo de diseño, no implementada
 ✅ **Integración** con ERPs y portales
 ✅ **Auditoría Completa** de todas las operaciones
 
@@ -452,4 +453,4 @@ Soporta: 10,000+ usuarios simultáneos
 
 **JAC - Abogados Asociados | LEXA v2.0 - Orquestación Autónoma de Servicios Legales**
 
-*"Una sola entrada. Seis especialidades. Respuestas verificadas. Operación 24/7."*
+*"Una sola entrada. Seis especialidades. Respuestas sujetas a verificación en fuente oficial."*
