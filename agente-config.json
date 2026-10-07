@@ -2,11 +2,11 @@
   "agentes": {
     "juridico-especializado": {
       "nombre": "Agente Jurídico Especializado JAC",
-      "descripcion": "Agente autónomo que consulta jurisprudencia, leyes y normas de fuentes oficiales colombianas con verificación de datos",
+      "descripcion": "Agente de investigación asistida que consulta jurisprudencia, leyes y normas de fuentes oficiales colombianas con verificación de datos, bajo revisión del abogado responsable",
       "tipo": "investigador-juridico-automatizado",
       "version": "1.0",
       "estado": "activo",
-      "modo": "automatizado",
+      "modo": "asistido-con-revision-humana",
       "funciones": [
         "Búsqueda de jurisprudencia oficial",
         "Extracción de leyes y normas",
@@ -82,7 +82,7 @@
         "registroAuditoriaCompleto": true,
         "logeoTodosAccesos": true,
         "proteccionDatosPersonales": true,
-        "cumplimientoGDPR": true
+        "marcoDatosPersonales": "Ley 1581 de 2012"
       },
       "limites": {
         "maxCaracteresRespuesta": 50000,
@@ -143,11 +143,8 @@
       },
       "plantillaEncargo": ["resultado-esperado", "lo-que-lee", "lo-que-puede-tocar", "cuando-pregunta", "como-se-califica"],
       "sobrescrituras": {
-        "modo": "asistido-con-revision-humana",
-        "descripcion": "Asistente de investigación y borrador bajo control del abogado responsable",
-        "seguridad.cumplimientoGDPR": "no-aplica-marco-colombiano-ley-1581-de-2012",
-        "metricas.precisonRespuestas": "retirada-sin-evaluacion-que-la-respalde",
-        "metricas.tiemposRespuesta": "metas-no-garantias"
+        "nota": "modo, descripción, marco de datos personales y métrica de precisión se corrigieron en el bloque base del agente",
+        "metricas.tiempoPromedioBusqueda": "meta-no-garantia"
       },
       "excepcionesConstitucion": {
         "fuentesFueraDeLasNueve": "Función Pública usada solo para registro de verificación; requiere cotejo en Diario Oficial o SUIN antes de fundamentar un producto. Pendiente de ratificar en el PR (PARAMETROS-AGENTE-ELITE.md, 4.3.1)"
@@ -176,7 +173,7 @@
     }
   },
   "metricas": {
-    "precisonRespuestas": "99.2%",
+    "evaluacionPrecision": "pendiente: sin evaluación propia no se declara cifra",
     "tiempoPromedioBusqueda": "4.5 minutos",
     "fuentesIntegradas": 9,
     "documentosAccesibles": "38M+",

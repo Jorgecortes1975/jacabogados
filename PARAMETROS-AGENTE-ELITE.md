@@ -79,7 +79,7 @@ Versión 1.0 | Fecha de elaboración: 2026-10-07 | Perfil de configuración: `pe
 
 ## 7. Datos personales, reserva profesional y seguridad
 
-7.1 Régimen aplicable. La protección de datos en Colombia se rige por la Ley 1581 de 2012, con la Superintendencia de Industria y Comercio como autoridad de vigilancia (Gestor Normativo de Función Pública, datos del 2026-10-06). El registro consigna como decretos reglamentarios el 1377 de 2013, el 886 de 2014 y el 1081 de 2015. Su vigencia actual queda PENDIENTE DE VERIFICACIÓN: es posible que parte de ese contenido haya sido compilado en un decreto único sectorial, por ejemplo el Decreto 1074 de 2015 (existe en el registro), pero el registro consultado no lo afirma y no se asume. Antes de citar un decreto en un caso, confirmar cuál es la versión vigente. Importante: `agente-config.json` declara `cumplimientoGDPR`. El GDPR es norma europea y no es el marco colombiano. Se recomienda sustituir esa etiqueta por cumplimiento de la Ley 1581 de 2012.
+7.1 Régimen aplicable. La protección de datos en Colombia se rige por la Ley 1581 de 2012, con la Superintendencia de Industria y Comercio como autoridad de vigilancia (Gestor Normativo de Función Pública, datos del 2026-10-06). El registro consigna como decretos reglamentarios el 1377 de 2013, el 886 de 2014 y el 1081 de 2015. Su vigencia actual queda PENDIENTE DE VERIFICACIÓN: es posible que parte de ese contenido haya sido compilado en un decreto único sectorial, por ejemplo el Decreto 1074 de 2015 (existe en el registro), pero el registro consultado no lo afirma y no se asume. Antes de citar un decreto en un caso, confirmar cuál es la versión vigente. Corrección aplicada: `agente-config.json` declaraba `cumplimientoGDPR`. El GDPR es norma europea y no es el marco colombiano. El bloque base ahora registra `marcoDatosPersonales: "Ley 1581 de 2012"`. Esto identifica el marco aplicable; no declara que el despacho cumpla, lo cual requiere una evaluación propia.
 
 7.2 Aislamiento por asunto. Cada sesión trabaja un solo asunto. Está prohibido cruzar información entre clientes. Si un mensaje mezcla expedientes, el agente se detiene y pide separar.
 
@@ -118,7 +118,7 @@ Datos mínimos del asunto: cliente, contraparte, jurisdicción y despacho, radic
 
 9.2 Clasificación de salida: Aprobado, Aprobado con ajustes, Bloqueado o No verificado (cuando no hubo acceso a fuentes y el producto solo puede entregarse como preliminar con la advertencia de 4.5). Una sola norma o sentencia no verificada bloquea la salida como definitiva. La equivalencia con la nomenclatura del skill de release de CROMA JAC debe confirmarse contra ese skill.
 
-9.3 Métricas. Se miden, no se declaran. Indicadores sugeridos: porcentaje de citas verificadas al primer intento, número de citas corregidas por el revisor, tiempo de revisión humana, y errores por tipo. La configuración actual contiene `precisonRespuestas: "99.2%"` sin evaluación que la respalde. Una cifra de precisión no medida contradice el principio I. Se recomienda retirarla hasta contar con una evaluación propia.
+9.3 Métricas. Se miden, no se declaran. Indicadores sugeridos: porcentaje de citas verificadas al primer intento, número de citas corregidas por el revisor, tiempo de revisión humana, y errores por tipo. La configuración contenía `precisonRespuestas: "99.2%"` sin evaluación que la respalde. Una cifra de precisión no medida contradice el principio I. Fue retirada y reemplazada por `evaluacionPrecision: pendiente`, hasta contar con una evaluación propia.
 
 9.4 Escalamiento de autonomía. Se amplía solo para un tipo de tarea que haya salido bien tres veces seguidas ante revisión humana.
 
@@ -175,13 +175,13 @@ Corte Constitucional, Sentencia T-323 de 2024 (fallo de tutela, no de control ab
 
 ## 12. Hallazgos sobre la configuración actual y decisiones requeridas
 
-1. Retirar o sustentar `metricas.precisonRespuestas: "99.2%"` (sección 9.3).
-2. Sustituir `cumplimientoGDPR` por cumplimiento de la Ley 1581 de 2012 (sección 7.1).
+1. Resuelto: la métrica `precisonRespuestas: "99.2%"` fue retirada del bloque base (sección 9.3).
+2. Resuelto: `cumplimientoGDPR` fue sustituido por `marcoDatosPersonales: "Ley 1581 de 2012"` (sección 7.1).
 3. Definir retención de datos frente a reserva profesional (sección 7.6).
 4. Los tiempos de respuesta declarados en `agente-config.json` son estimaciones sin medición. Tratarlos como metas, no como garantías.
 5. Antes de implementar cambios de código en el agente o el router, seguir el flujo spec-driven de la constitución (`/speckit-specify`, `/speckit-plan`, `/speckit-tasks`, `/speckit-analyze`, `/speckit-implement`).
 6. Ratificar la excepción de fuentes de 4.3.1 en el PR, conforme a la gobernanza de la constitución.
-7. El perfil hereda del agente base el modo "automatizado", la descripción "agente autónomo", `cumplimientoGDPR` y `precisonRespuestas`. El bloque del perfil las neutraliza mediante `sobrescrituras`, pero el bloque base debe corregirse por el flujo spec-driven.
+7. Resuelto: el bloque base se corrigió (modo "asistido-con-revision-humana", descripción de investigación asistida, marco de datos personales y retiro de la cifra de precisión). Se aplicó como corrección directa de configuración, sin el flujo spec-driven completo, por tratarse de valores declarativos sin cambio de código. Los tiempos de respuesta siguen siendo metas, no garantías. El estado del agente base permanece "activo" y se revisará en la spec de implementación.
 ## 13. Conclusión operativa
 
 La guía de 30X aporta un método sólido: delegar de menor a mayor riesgo, definir por escrito resultado, lectura, permisos, puntos de aprobación y criterio de calidad, y mantener revisión humana con nombre. Aplicado a JAC, el agente élite opera en solo lectura y borrador, con verificación obligatoria de cada fuente, nivel de certeza en cada conclusión y ningún acto externo sin abogado. Primer paso recomendado: aprobar este perfil, correr el piloto de la semana 1 sobre un flujo de riesgo bajo y decidir los siete puntos de la sección 12.
