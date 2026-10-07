@@ -1,5 +1,7 @@
 # 📦 Guía de Instalación - LEXA-JAC v2.0
 
+> ESTADO REAL DE IMPLEMENTACIÓN (verificado el 2026-10-07 leyendo el código). Este documento describe el diseño objetivo, no capacidades en operación. El CLI `agente-juridico-especializado.js` solo muestra configuración (`activar`, `fuentes`, `help`); su comando `consulta` no está implementado: no busca ni verifica. El router `lexa-super-router.js` clasifica por palabras clave y construye un plan de flujo en texto; no despacha a agentes ni consulta fuentes. Ningún componente carga `agente-config.json`. Las cifras de precisión, disponibilidad y tiempos son metas sin medición. Hoy la verificación de normas y sentencias se hace como protocolo de trabajo (abogado o sesión de Claude con herramientas MCP conectadas), conforme a `PARAMETROS-AGENTE-ELITE.md`.
+
 > **Instalación completa del ecosistema de agentes legales colombianos**
 
 ---
@@ -195,7 +197,8 @@ node lexa-super-router.js procesar "Hola, ¿cómo estás?"
 node agente-juridico-especializado.js consulta jurisprudencia \
   "¿Cuál es la indemnización por despido sin justa causa?"
 
-# Resultado esperado: Respuesta con jurisprudencia verificada
+# Resultado esperado: advertencia de que la función no está implementada y código de salida 2.
+# El comando no devuelve jurisprudencia.
 ```
 
 ### **Prueba 3: Análisis de Caso**
@@ -205,7 +208,7 @@ node agente-juridico-especializado.js consulta jurisprudencia \
 node agente-juridico-especializado.js consulta analisis \
   "Mi cliente fue despedido el 15 de agosto sin justificación"
 
-# Resultado esperado: Análisis jurisprudencial completo
+# Resultado actual: advertencia de función no implementada (código de salida 2)
 ```
 
 ### **Prueba 4: Generación de Reporte**
@@ -215,7 +218,7 @@ node agente-juridico-especializado.js consulta analisis \
 node agente-juridico-especializado.js consulta reporte \
   "Derechos de trabajadores en Colombia"
 
-# Resultado esperado: Reporte documentado con citas verificables
+# Resultado actual: advertencia de función no implementada (código de salida 2)
 ```
 
 ---

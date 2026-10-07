@@ -1,6 +1,8 @@
 # 🌟 LEXA-JAC v2.0 - Super Agente Orquestador Autónomo
 
-> **Solución integral de servicios legales para Colombia con entrada única, 6 agentes especializados y operación 24/7**
+> ESTADO REAL DE IMPLEMENTACIÓN (verificado el 2026-10-07 leyendo el código). Este documento describe el diseño objetivo, no capacidades en operación. El CLI `agente-juridico-especializado.js` solo muestra configuración (`activar`, `fuentes`, `help`); su comando `consulta` no está implementado: no busca ni verifica. El router `lexa-super-router.js` clasifica por palabras clave y construye un plan de flujo en texto; no despacha a agentes ni consulta fuentes. Ningún componente carga `agente-config.json`. Las cifras de precisión, disponibilidad y tiempos son metas sin medición. Hoy la verificación de normas y sentencias se hace como protocolo de trabajo (abogado o sesión de Claude con herramientas MCP conectadas), conforme a `PARAMETROS-AGENTE-ELITE.md`.
+
+> **Solución integral de servicios legales para Colombia con entrada única, 6 agentes especializados y diseño objetivo, con revisión humana**
 
 ---
 
@@ -39,7 +41,7 @@ Un **ecosistema autónomo** de agentes especializados que integra:
 - ✅ **Agente Laboral** para conflictos laborales
 - ✅ **Agente Email** para comunicaciones
 
-**Todo en una sola entrada**, clasificación automática (99.2%), validación JAC integrada, y operación continua.
+**Todo en una sola entrada**, clasificación automática (por palabras clave; precisión no medida), validación JAC integrada, y operación continua.
 
 ---
 
@@ -168,7 +170,7 @@ RESULTADO:
   ✓ Sub-agentes: Investigador + Redactor + Validator
   ✓ Fuentes: 9 oficiales colombianas
   ✓ Tiempo: 4.5 minutos promedio
-  ✓ Precisión: 99.2%
+  ✓ Precisión: no medida
 ```
 
 ### **Ejemplo 2: Consulta Tributaria**
@@ -204,9 +206,9 @@ Nivel 2: Sub-agente Validador
   └─ Validación contra múltiples fuentes
 
 Nivel 3: Jorge Cortés (Propietario)
-  └─ Revisión final + Firma digital
+  └─ Revisión final y decisión del abogado responsable
 
-Garantía: Información 100% verificable
+Objetivo: información verificable en fuente oficial
 ```
 
 ---
@@ -215,14 +217,14 @@ Garantía: Información 100% verificable
 
 | Métrica | Valor |
 |---------|-------|
-| Precisión | 99.2% |
+| Precisión | No medida |
 | Agentes | 6 |
 | Sub-agentes | 18 |
 | Fuentes Integradas | 30+ |
 | Documentos Accesibles | 38M+ |
 | Jurisdicciones | 230+ |
-| Uptime | 99.9% |
-| Disponibilidad | 24/7 |
+| Uptime | No medido |
+| Disponibilidad | Sin compromiso |
 | Tiempo Respuesta | 4.5 min |
 | Carga Simultánea | 10,000+ usuarios |
 
@@ -253,13 +255,12 @@ El sistema se configura automáticamente con:
 
 ---
 
-## 🔐 Seguridad
+## 🔐 Seguridad (objetivo de diseño, no implementada)
 
 ✓ Encriptación AES-256
 ✓ Autenticación OAuth 2.0 + JWT
-✓ GDPR + Habeas Data compliance
+✓ Marco aplicable: Ley 1581 de 2012 (cumplimiento no evaluado)
 ✓ Auditoría completa e inmutable
-✓ Firma digital integrada
 ✓ Pentesting trimestral
 
 ---
@@ -325,11 +326,11 @@ node agente-juridico-especializado.js fuentes
 ## 🏆 Ventajas Competitivas
 
 ✓ **Entrada Única** para 6 servicios diferentes
-✓ **Clasificación Automática** (99.2% precisión)
+✓ **Clasificación Automática** (por palabras clave; precisión no medida)
 ✓ **Validación Múltiple** contra fuentes oficiales
-✓ **Operación 24/7** sin intervención humana
+✓ **Revisión humana obligatoria** antes de cualquier salida
 ✓ **Escalabilidad** para 10,000+ usuarios
-✓ **Seguridad** nivel empresarial
+✓ **Seguridad**: objetivo de diseño, no implementada
 ✓ **Integración** con ERP y portales
 ✓ **Auditoría Completa** de todas las operaciones
 
@@ -391,11 +392,11 @@ node agente-juridico-especializado.js consulta reporte "tema"
 ✅ Una entrada única
 ✅ Seis servicios especializados
 ✅ Validación de datos verificada
-✅ Operación 24/7 sin intervención
+✅ Revisión humana obligatoria antes de cualquier salida
 ✅ Escalabilidad probada
-✅ Seguridad empresarial
+✅ Seguridad: objetivo de diseño, no implementada
 
-**"Una sola entrada. Seis especialidades. Respuestas verificadas. Operación 24/7."**
+**"Una sola entrada. Seis especialidades. Respuestas sujetas a verificación en fuente oficial."**
 
 ---
 

@@ -1,5 +1,7 @@
 # Ejemplos de Consultas | Agente Jurídico Especializado
 
+> ESTADO REAL DE IMPLEMENTACIÓN (verificado el 2026-10-07 leyendo el código). Este documento describe el diseño objetivo, no capacidades en operación. El CLI `agente-juridico-especializado.js` solo muestra configuración (`activar`, `fuentes`, `help`); su comando `consulta` no está implementado: no busca ni verifica. El router `lexa-super-router.js` clasifica por palabras clave y construye un plan de flujo en texto; no despacha a agentes ni consulta fuentes. Ningún componente carga `agente-config.json`. Las cifras de precisión, disponibilidad y tiempos son metas sin medición. Hoy la verificación de normas y sentencias se hace como protocolo de trabajo (abogado o sesión de Claude con herramientas MCP conectadas), conforme a `PARAMETROS-AGENTE-ELITE.md`.
+
 ## 🎯 Casos de Uso en Despacho Jurídico
 
 ---
@@ -219,9 +221,9 @@ node agente-juridico-especializado.js consulta verificar \
 
 ---
 
-## 🔒 Garantías del Sistema
+## 🔒 Estándar de calidad objetivo
 
-Todas las respuestas cumplen con:
+Los ejemplos ilustran el estándar al que debe responder el trabajo jurídico. El software actual no lo garantiza; se cumple mediante verificación humana o de sesión:
 
 ✅ **Fuentes Oficiales Verificadas**
 - Solo información de instituciones gubernamentales
@@ -232,8 +234,8 @@ Todas las respuestas cumplen con:
 - Sentencias recientes de las cortes
 - Resoluciones del Diario Oficial
 
-✅ **Sin Alucinaciones**
-- Cada dato validado contra múltiples fuentes
+✅ **Meta de cero alucinaciones**
+- Cada dato debe validarse contra fuentes oficiales
 - Citas verificables en documentos oficiales
 - Precedentes consultables
 
@@ -260,4 +262,4 @@ Todas las respuestas cumplen con:
 
 **JAC - Abogados Asociados | Investigación Jurídica Automatizada**
 
-*Todos los ejemplos se basan en normativa colombiana vigente y jurisprudencia oficial verificada.*
+*Los ejemplos son ilustrativos. La normativa y jurisprudencia que mencionan deben verificarse en fuente oficial antes de usarse; no se ha confirmado su vigencia en este documento.*

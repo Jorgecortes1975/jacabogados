@@ -252,13 +252,11 @@ EJEMPLOS:
 5. Generar reporte completo:
    node agente-juridico-especializado.js consulta reporte "Análisis completo sobre derechos de trabajadores en Colombia"
 
-GARANTÍAS DEL AGENTE:
-  ✓ Datos verificados de fuentes oficiales colombianas
-  ✓ Sin alucinaciones - validación múltiple
-  ✓ Jurisprudencia oficial (Corte Constitucional, Suprema, Consejo de Estado)
-  ✓ Leyes actualizadas (SUIN, Diario Oficial)
-  ✓ Análisis basado en fuentes verificadas
-  ✓ Reportes documentados y citable
+ESTADO ACTUAL (leer antes de usar):
+  Este CLI solo muestra la configuración de fuentes (comandos activar y fuentes).
+  El comando consulta NO está implementado: no busca, no verifica ni genera respuestas.
+  La verificación de normas y sentencias debe hacerse en fuente oficial y quedar registrada
+  (fuente, fecha y fecha de verificación). Ver PARAMETROS-AGENTE-ELITE.md.
 
 FUENTES INTEGRADAS: ${Object.keys(this.config.transports).length}
   • Corte Constitucional
@@ -320,9 +318,12 @@ async function main() {
         if (args.arg2) {
           console.log(`❓ Pregunta: ${args.arg2}`);
         }
-        console.log('\n⏳ Ejecutando búsqueda en fuentes oficiales...');
-        console.log('🔍 Validando información contra múltiples fuentes...');
-        console.log('✓ Generando respuesta verificada...\n');
+        console.log('\n⚠️  FUNCIÓN NO IMPLEMENTADA: este comando no consulta fuentes oficiales ni genera respuestas.');
+        console.log('   No se ejecutó ninguna búsqueda ni verificación. Ningún resultado debe tomarse como verificado.');
+        console.log('   Para verificar normas o sentencias, consulte directamente la fuente oficial');
+        console.log('   (Diario Oficial, SUIN, relatorías de las altas cortes) o use las herramientas MCP conectadas');
+        console.log('   en la sesión de trabajo, y registre fuente, fecha y fecha de verificación.\n');
+        process.exitCode = 2;
         break;
 
       case 'help':

@@ -1,55 +1,39 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-
-const CONFIG_FILE = path.join(process.cwd(), 'mcp-config.json');
-
 /**
  * LEXA Super Router
- * Orquestador central que integra todos los agentes especializados
- * Entrada única para cualquier tipo de consulta/servicio
+ *
+ * ESTADO REAL: este router solo clasifica un mensaje por coincidencia de palabras clave y
+ * construye un plan de flujo en texto. No despacha a agentes, no consulta fuentes, no valida,
+ * no firma ni envía nada. Los agentes, el dashboard y los canales de entrada son definiciones de
+ * diseño sin implementación. No lee ni escribe archivos.
  */
 class LEXASuperRouter {
   constructor() {
-    this.config = this.loadConfig();
+    this.config = { ecosystem: {} };
     this.inicializarEcosistema();
   }
 
-  loadConfig() {
-    if (fs.existsSync(CONFIG_FILE)) {
-      return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
-    }
-    return { version: '1.0', transports: {}, servers: {}, agents: {}, ecosystem: {} };
-  }
-
-  saveConfig() {
-    fs.writeFileSync(CONFIG_FILE, JSON.stringify(this.config, null, 2));
-  }
-
   inicializarEcosistema() {
-    if (!this.config.ecosystem) {
-      this.config.ecosystem = {};
-    }
-
     // Definir capas del ecosistema LEXA
     this.config.ecosystem = {
-      version: '2.0-INTEGRADO',
-      nombre: 'LEXA-JAC Ecosistema Integrado',
-      descripcion: 'Sistema autónomo de 3 capas para operación integral del despacho',
-      estado: 'activo',
+      version: '2.0-DISENO',
+      nombre: 'LEXA-JAC Ecosistema (diseño)',
+      descripcion: 'Diseño de 3 capas para el despacho. Ninguna capa está implementada',
+      estado: 'diseno-no-implementado',
       capas: {
         dashboard: {
           nombre: 'Dashboard de Monitoreo',
           puerto: '3000',
-          funcion: 'Monitorea todos los agentes 24/7',
-          estado: 'habilitado'
+          funcion: 'Monitoreo de agentes (diseño, no implementado)',
+          estado: 'no-implementado'
         },
         router: {
           nombre: 'Super Router LEXA-JAC',
-          funcion: 'Entrada única - Clasifica y despacha mensajes',
-          estado: 'habilitado',
-          entradas: ['telegram', 'email', 'whatsapp', 'api-rest']
+          funcion: 'Clasifica un mensaje por palabras clave. No despacha',
+          estado: 'solo-clasificacion',
+          entradas: ['linea-de-comandos'],
+          entradas_objetivo: ['telegram', 'email', 'whatsapp', 'api-rest']
         },
         agentes_especializados: {
           juridico: {
@@ -57,78 +41,108 @@ class LEXASuperRouter {
             ruta: '~/agents/juridico/',
             funciones: ['escritos-procesales', 'tutelas', 'laboralista'],
             sub_agentes: ['investigador', 'redactor', 'jac-validator'],
-            fuentes: 'todas las 9 oficiales',
-            validacion: true
+            fuentes_objetivo: 'las 9 fuentes oficiales configuradas',
+            validacion_objetivo: true,
+            estado: 'no-implementado'
           },
           mercantil: {
             nombre: 'Agente Mercantil',
             ruta: '~/agents/mercantil/',
             funciones: ['contratos', 'SAS', 'litigio-comercial'],
             sub_agentes: ['contratos', 'litigio-mercantil', 'investigador-mercantil'],
-            estado: 'habilitado'
+            estado: 'no-implementado'
           },
           email: {
             nombre: 'Agente de Comunicaciones',
             ruta: '~/agents/email/',
             funciones: ['correos', 'comunicaciones', 'reportes'],
             sub_agentes: ['classifier', 'drafter', 'summarizer'],
-            estado: 'habilitado'
+            estado: 'no-implementado'
           },
           tributario: {
             nombre: 'Agente Tributario',
             ruta: '~/agents/tributario/',
             funciones: ['impuestos', 'DIAN', 'compliance-tributario'],
             sub_agentes: ['analista-impuestos', 'redactor-tributario', 'validator-dian'],
-            fuentes: ['DIAN', 'suin-normativo', 'legal-data-hunter'],
-            estado: 'nuevo'
+            fuentes_objetivo: ['DIAN', 'suin-normativo', 'legal-data-hunter'],
+            estado: 'no-implementado'
           },
           ambiental: {
             nombre: 'Agente Ambiental',
             ruta: '~/agents/ambiental/',
             funciones: ['licencias-ambientales', 'normativa-ambiental', 'litigio-ambiental'],
             sub_agentes: ['investigador-ambiental', 'redactor-ambiental', 'validator'],
-            estado: 'nuevo'
+            estado: 'no-implementado'
           },
           laboral: {
             nombre: 'Agente Laboral Avanzado',
             ruta: '~/agents/laboral/',
             funciones: ['conflictos-laborales', 'nómina', 'seguridad-social'],
             sub_agentes: ['analista-laboral', 'redactor-laboral', 'validator'],
-            estado: 'nuevo'
+            estado: 'no-implementado'
           }
         }
       },
       dispatch_table: {
         'escritos procesales|tutelas|laboralista': 'juridico',
+        'laboral|conflictos-laborales|nómina': 'laboral',
         'contratos|SAS|comercial': 'mercantil',
         'correos|comunicaciones|reportes': 'email',
         'impuestos|DIAN|tributario': 'tributario',
-        'ambiental|licencias|normativa-ambiental': 'ambiental',
-        'laboral|conflictos-laborales|nómina': 'laboral',
-        '[REQUIERE VALIDACIÓN JAC]': 'juridico-validado'
+        'ambiental|licencia ambiental|normativa-ambiental': 'ambiental'
       },
       validacion: {
-        enabled: true,
-        requiereJACValidation: true,
-        contra_fuentes: ['SUIN', 'LexisNexis', 'Juriscol', 'Legal Data Hunter'],
-        firma_digital: true
+        implementada: false,
+        revision_humana_obligatoria: true,
+        contra_fuentes_objetivo: ['SUIN', 'Juriscol', 'Legal Data Hunter'],
+        firma_digital: false
       }
     };
+    // Definición en memoria: no se persiste en mcp-config.json.
+  }
 
-    this.saveConfig();
+  // Normaliza a palabras completas: minúsculas, sin acentos, siglas sin puntos (S.A.S. -> sas) y sin puntuación.
+  // Cada palabra se representa por sus variantes (con y sin plural) y dos palabras coinciden si comparten
+  // alguna variante. La coincidencia es por palabra completa, no por subcadena.
+  tokenizar(texto) {
+    const variantes = (t) => {
+      const v = new Set([t]);
+      if (t.length > 3 && t.endsWith('s')) v.add(t.slice(0, -1));
+      if (t.length > 4 && t.endsWith('es')) v.add(t.slice(0, -2));
+      return [...v];
+    };
+    return texto
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\b([a-z])\.(?=[a-z]\b)/g, '$1')
+      .split(/[^a-z0-9]+/)
+      .filter(Boolean)
+      .map(variantes);
+  }
+
+  // La primera entrada de la tabla que coincida gana.
+  contieneSecuencia(tokensTexto, tokensClave) {
+    if (tokensClave.length === 0) return false;
+    for (let i = 0; i + tokensClave.length <= tokensTexto.length; i++) {
+      if (tokensClave.every((vc, k) => vc.some(v => tokensTexto[i + k].includes(v)))) return true;
+    }
+    return false;
   }
 
   clasificarMensaje(contenido) {
     const dispatch = this.config.ecosystem.dispatch_table;
+    const tokensTexto = this.tokenizar(contenido);
 
     for (const [criterio, agente] of Object.entries(dispatch)) {
       const palabras = criterio.split('|');
       for (const palabra of palabras) {
-        if (contenido.toLowerCase().includes(palabra.toLowerCase())) {
+        if (this.contieneSecuencia(tokensTexto, this.tokenizar(palabra))) {
           return {
             agente,
-            tipo: criterio,
-            confianza: 0.95,
+            tipo: palabra,
+            metodo: 'coincidencia-de-palabra-clave',
+            requiereRevisionHumana: true,
             timestamp: new Date().toISOString()
           };
         }
@@ -139,8 +153,8 @@ class LEXASuperRouter {
     return {
       agente: 'juridico',
       tipo: 'consulta-general',
-      confianza: 0.5,
-      requiereManualReview: true,
+      metodo: 'sin-coincidencia-asignacion-por-defecto',
+      requiereRevisionHumana: true,
       timestamp: new Date().toISOString()
     };
   }
@@ -152,7 +166,7 @@ class LEXASuperRouter {
       clasificacion,
       flujo: this.construirFlujo(clasificacion),
       timestamp: new Date().toISOString(),
-      status: 'procesado'
+      status: 'clasificado-sin-ejecucion'
     };
   }
 
@@ -160,26 +174,40 @@ class LEXASuperRouter {
     const agente = this.config.ecosystem.capas.agentes_especializados[clasificacion.agente];
 
     if (!agente) {
-      return { error: 'Agente no encontrado' };
+      return {
+        aviso: 'PLAN TEORICO. No se ejecuto ningun paso: no hay agentes, fuentes ni validacion implementados',
+        error: 'Agente no encontrado en la definicion'
+      };
     }
 
     return {
-      paso1_entrada: 'Router clasifica entrada',
-      paso2_despacho: `Envía a agente: ${agente.nombre}`,
-      paso3_sub_agentes: `Sub-agentes: ${agente.sub_agentes.join(', ')}`,
-      paso4_validacion: agente.validacion ? 'Validación JAC activada' : 'Sin validación adicional',
-      paso5_salida: 'Resultado a Outbox → Usuario',
-      fuentes: agente.fuentes || 'fuentes estándar'
+      aviso: 'PLAN TEORICO. No se ejecuto ningun paso: no hay agentes, fuentes ni validacion implementados',
+      paso1_entrada: 'Router clasifica el mensaje por palabra clave (unico paso real)',
+      paso2_despacho_objetivo: `Agente destino previsto: ${agente.nombre} (no implementado)`,
+      paso3_sub_agentes_objetivo: `Sub-agentes previstos: ${agente.sub_agentes.join(', ')}`,
+      paso4_validacion_objetivo: agente.validacion_objetivo ? 'Validacion JAC prevista (no implementada)' : 'Validacion adicional no definida; la revision humana siempre rige',
+      paso5_salida_objetivo: 'Revision del abogado responsable antes de cualquier salida',
+      fuentes_objetivo: Array.isArray(agente.fuentes_objetivo) ? agente.fuentes_objetivo.join(', ') : (agente.fuentes_objetivo || 'fuentes estandar')
     };
   }
 
   mostrarArquitectura() {
+    const dispatch = this.config.ecosystem.dispatch_table;
+    const tablaClasificacion = Object.entries(dispatch)
+      .map(([criterio, agente]) => `    ${criterio.split('|').join(', ')}  →  ${agente}`)
+      .join('\n');
+    const agentesDefinidos = Object.values(this.config.ecosystem.capas.agentes_especializados);
+    const nDefinidos = agentesDefinidos.length;
+    const nImplementados = agentesDefinidos.filter(a => a.estado === 'implementado').length;
     console.log(`
+ESTADO REAL: este diagrama es un DISEÑO OBJETIVO. Hoy solo existe la clasificación por palabras clave.
+No hay agentes, dashboard, canales, validación ni firma implementados.
+
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║                                                                            ║
-║          🌟 LEXA-JAC ECOSISTEMA INTEGRADO V2.0 🌟                         ║
+║          🌟 LEXA-JAC ECOSISTEMA (DISEÑO) V2.0 🌟                          ║
 ║                                                                            ║
-║  Super Router Orquestador - Entrada Única para Servicios Legales          ║
+║  Diseño objetivo: hoy solo clasifica por palabras clave                   ║
 ║                                                                            ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 
@@ -187,13 +215,13 @@ ARQUITECTURA DE 3 CAPAS:
 
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ 📊 DASHBOARD LEXA                                                       │
-│ Monitoreo en tiempo real de todos los agentes · Métricas · Auditoría    │
+│ Monitoreo de agentes · Métricas · Auditoría (objetivo, no implementado) │
 └─────────────────────────────────────────────────────────────────────────┘
                                   ↓
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ 🔀 SUPER ROUTER CENTRAL                                                 │
 │ Entrada única: Telegram · Email · WhatsApp · API REST                  │
-│ Clasifica y despacha automáticamente a agente especializado             │
+│ Hoy solo clasifica por palabras clave; el despacho es objetivo          │
 └─────────────────────────────────────────────────────────────────────────┘
                                   ↓ ↓ ↓ ↓ ↓ ↓
 ┌──────────────────┬──────────────────┬──────────────────┬────────────────────┬──────────────────┬──────────────────┐
@@ -208,8 +236,8 @@ ARQUITECTURA DE 3 CAPAS:
 │ • Redactor       │ • Litigio        │ • Drafter        │ • Redactor         │ • Redactor       │ • Redactor       │
 │ • Validator JAC  │ • Investigador   │ • Summarizer     │ • Validator DIAN   │ • Validator      │ • Validator      │
 │                  │                  │                  │                    │                  │                  │
-│ Fuentes: 9       │ Fuentes: 4       │ Generador        │ Fuentes: DIAN      │ Fuentes: 3       │ Fuentes: 5       │
-│ oficiales        │ oficiales        │ automático       │ · SUIN · LDH       │ oficiales        │ oficiales        │
+│ Fuentes objetivo │ Fuentes objetivo │ (sin definir)    │ Fuentes objetivo   │ Fuentes objetivo │ Fuentes objetivo │
+│ (sin conexión)   │ (sin conexión)   │                  │ DIAN · SUIN · LDH  │ (sin conexión)   │ (sin conexión)   │
 └──────────────────┴──────────────────┴──────────────────┴────────────────────┴──────────────────┴──────────────────┘
 
 FLUJO DE MENSAJES:
@@ -222,49 +250,38 @@ FLUJO DE MENSAJES:
          ↓
 [Sub-agentes especializados]
          ↓
-[Validación + Verificación de Fuentes]
+[Validación + Verificación de Fuentes (objetivo)]
          ↓
-[Firma Digital / Outbox]
+[Revisión del abogado responsable]
          ↓
-[Usuario - Respuesta Verificada]
+[Salida al usuario, solo tras revisión humana]
 
-TABLA DE DESPACHO (Dispatch Table):
+TABLA DE CLASIFICACIÓN (palabras clave; gana la primera coincidencia; sin coincidencia se asigna jurídico por defecto):
 
-    Consulta contiene...              → Enviar a...
-    ─────────────────────────────────────────────────
-    escritos, tutelas, laboral        → JURÍDICO (9 fuentes)
-    contratos, SAS, comercial         → MERCANTIL (4 fuentes)
-    correos, reportes, comunicaciones → EMAIL/COMUN. (generador)
-    impuestos, DIAN, tributario       → TRIBUTARIO (DIAN + SUIN)
-    ambiental, licencias, normativa   → AMBIENTAL (3 fuentes)
-    laboral, nómina, conflictos       → LABORAL (5 fuentes)
-    [REQUIERE VALIDACIÓN JAC]         → JURÍDICO + JAC-VALIDATOR
+${tablaClasificacion}
 
-CAPACIDADES DEL ECOSISTEMA:
+ESTADO DE CAPACIDADES:
 
-✓ Entrada única multi-canal (6 canales)
-✓ Clasificación automática de mensajes
-✓ Despacho inteligente a agente correcto
-✓ Sub-agentes especializados (18 en total)
-✓ Validación de datos (múltiples fuentes)
-✓ Firma digital integrada
-✓ Auditoría completa
-✓ Monitoreo 24/7
-✓ Escalabilidad horizontal
-✓ Documentación automática
+Implementada:
+✓ Clasificación de mensajes por coincidencia de palabras clave
+
+Objetivos de diseño, NO implementados:
+· Entrada multi-canal
+· Despacho a agentes y sub-agentes especializados
+· Validación de datos contra múltiples fuentes
+· Auditoría y monitoreo
+· Escalabilidad horizontal y documentación automática
+
+La firma, radicación y notificación son siempre actos del abogado responsable.
 
 ═════════════════════════════════════════════════════════════════════════════
 
 MÉTRICAS DEL ECOSISTEMA:
 
-Agentes Activos:          6
-Sub-agentes Totales:      18
-Fuentes Integradas:       30+
-Documentos Accesibles:    38M+
-Jurisdicciones:           230+
-Canales de Entrada:       6
-Validadores:              6
-Precisión General:        99.2%
+Agentes implementados:    ${nImplementados} de ${nDefinidos} definidos
+Precisión de la clasificación: no medida
+Disponibilidad:           sin compromiso
+Cifras de cobertura (38M+ documentos, 230+ jurisdicciones): del proveedor Legal Data Hunter, no verificadas aquí
 
 ═════════════════════════════════════════════════════════════════════════════
 `);
@@ -274,37 +291,40 @@ Precisión General:        99.2%
     console.log(`
 🚀 COMANDOS DISPONIBLES - LEXA SUPER ROUTER
 
-ACTIVAR ECOSISTEMA:
+Aviso: el router solo clasifica por palabras clave. No despacha, no consulta fuentes ni valida.
+
+VER LA ARQUITECTURA OBJETIVO (diseño, no implementado):
   $ node lexa-super-router.js arquitectura
 
-PROCESAR CONSULTA:
+CLASIFICAR CONSULTA (no la procesa; 'procesar' es un alias de 'clasificar'):
   $ node lexa-super-router.js procesar "Tu consulta aquí"
 
-EJEMPLO - Consulta Jurídica:
-  $ node lexa-super-router.js procesar "Necesito escribir una demanda de despido"
-  → Despachado a: AGENTE JURÍDICO + 9 fuentes oficiales
+EJEMPLO - Coincidencia con "escritos procesales":
+  $ node lexa-super-router.js clasificar "Necesito apoyo con escritos procesales"
+  → Clasificado como: jurídico, por coincidencia de palabra clave (no se ejecuta ningún agente)
 
 EJEMPLO - Consulta Tributaria:
-  $ node lexa-super-router.js procesar "¿Cuál es mi obligación fiscal?"
-  → Despachado a: AGENTE TRIBUTARIO + DIAN + SUIN
+  $ node lexa-super-router.js clasificar "Necesito asesoría sobre impuestos"
+  → Clasificado como: tributario, por coincidencia de palabra clave (no se ejecuta ningún agente)
 
 EJEMPLO - Consulta Mercantil:
-  $ node lexa-super-router.js procesar "Necesito crear una SAS"
-  → Despachado a: AGENTE MERCANTIL + 4 fuentes
+  $ node lexa-super-router.js clasificar "Necesito crear una SAS"
+  → Clasificado como: mercantil, por coincidencia de palabra clave (no se ejecuta ningún agente)
 
 EJEMPLO - Consulta Ambiental:
-  $ node lexa-super-router.js procesar "¿Qué permisos ambientales necesito?"
-  → Despachado a: AGENTE AMBIENTAL + normativa
+  $ node lexa-super-router.js clasificar "Necesito una licencia ambiental"
+  → Clasificado como: ambiental, por coincidencia de palabra clave (no se ejecuta ningún agente)
 
 EJEMPLO - Consulta Laboral:
-  $ node lexa-super-router.js procesar "Tengo un conflicto laboral"
-  → Despachado a: AGENTE LABORAL + jurisprudencia laboral
+  $ node lexa-super-router.js clasificar "Tengo un conflicto laboral"
+  → Clasificado como: laboral, por coincidencia de palabra clave (no se ejecuta ningún agente)
+
+EJEMPLO - Sin coincidencia:
+  $ node lexa-super-router.js clasificar "Necesito una demanda de despido"
+  → Asignado a jurídico POR DEFECTO, no por coincidencia. El resultado "jurídico" puede ser solo el valor por defecto.
 
 LISTAR AGENTES:
   $ node lexa-super-router.js agentes
-
-LISTAR FUENTES:
-  $ node lexa-super-router.js fuentes
 
 ESTADO DEL SISTEMA:
   $ node lexa-super-router.js status
@@ -317,17 +337,17 @@ HELP:
   }
 
   listarAgentes() {
-    console.log('\n🤖 AGENTES ACTIVOS EN ECOSISTEMA LEXA\n');
+    console.log('\n🤖 AGENTES DEFINIDOS EN EL DISEÑO LEXA (ninguno implementado)\n');
 
     const agentes = this.config.ecosystem.capas.agentes_especializados;
 
     Object.entries(agentes).forEach(([clave, agente]) => {
-      console.log(`✓ ${agente.nombre}`);
+      console.log(`· ${agente.nombre}`);
       console.log(`  Tipo: ${clave}`);
       console.log(`  Funciones: ${agente.funciones.join(', ')}`);
       console.log(`  Sub-agentes: ${agente.sub_agentes.join(', ')}`);
-      if (agente.fuentes) {
-        console.log(`  Fuentes: ${agente.fuentes}`);
+      if (agente.fuentes_objetivo) {
+        console.log(`  Fuentes objetivo: ${Array.isArray(agente.fuentes_objetivo) ? agente.fuentes_objetivo.join(', ') : agente.fuentes_objetivo}`);
       }
       console.log(`  Estado: ${agente.estado}`);
       console.log();
@@ -344,7 +364,7 @@ HELP:
 
 DASHBOARD:       ${capas.dashboard.estado.toUpperCase()}
 ROUTER:          ${capas.router.estado.toUpperCase()}
-AGENTES:         ${Object.values(capas.agentes_especializados).filter(a => a.estado === 'habilitado' || a.estado === 'nuevo').length}/6 ACTIVOS
+AGENTES:         ${Object.values(capas.agentes_especializados).filter(a => a.estado === 'implementado').length}/${Object.keys(capas.agentes_especializados).length} IMPLEMENTADOS
 
 DETALLES POR CAPA:
 
@@ -352,10 +372,12 @@ Dashboard:
   Estado: ${capas.dashboard.estado}
   Puerto: ${capas.dashboard.puerto}
   Función: ${capas.dashboard.funcion}
+  (El router no inicia ningún dashboard)
 
 Router:
   Estado: ${capas.router.estado}
-  Entradas: ${capas.router.entradas.join(', ')}
+  Entradas implementadas: ${capas.router.entradas.join(', ')}
+  Entradas objetivo (no implementadas): ${capas.router.entradas_objetivo.join(', ')}
   Función: ${capas.router.funcion}
 
 Agentes Especializados:
@@ -367,13 +389,11 @@ Agentes Especializados:
 
     console.log(`
 
-ESTADÍSTICAS GLOBALES:
-  Agentes: 6
-  Sub-agentes: 18
-  Canales de entrada: ${capas.router.entradas.length}
-  Validadores: 6
-  Fuentes integradas: 30+
-  Documentos accesibles: 38M+
+RESUMEN:
+  Agentes definidos: ${Object.keys(capas.agentes_especializados).length}, implementados: ${Object.values(capas.agentes_especializados).filter(a => a.estado === 'implementado').length}
+  Canales de entrada implementados: ${capas.router.entradas.length}
+  Validación y fuentes: no implementadas
+  Precisión y disponibilidad: no medidas
 
 ════════════════════════════════════════════════════════════════════════════════
 `);
@@ -403,19 +423,22 @@ async function main() {
         router.mostrarArquitectura();
         break;
 
+      case 'clasificar':
       case 'procesar':
         if (!args.mensaje) {
-          console.error('❌ Uso: node lexa-super-router.js procesar "mensaje"');
+          console.error('❌ Uso: node lexa-super-router.js clasificar "mensaje"');
           process.exit(1);
         }
         const resultado = router.procesarConsulta(args.mensaje);
-        console.log('\n📨 CONSULTA PROCESADA');
+        console.log('\n📨 CONSULTA CLASIFICADA (NO PROCESADA)');
+        console.log('Solo se clasificó por palabras clave. No se ejecutó ningún agente, búsqueda ni validación.');
         console.log('═'.repeat(80));
         console.log(`Mensaje: "${args.mensaje}"`);
         console.log(`\nClasificación:`);
         console.log(`  Agente: ${resultado.clasificacion.agente}`);
         console.log(`  Tipo: ${resultado.clasificacion.tipo}`);
-        console.log(`  Confianza: ${(resultado.clasificacion.confianza * 100).toFixed(1)}%`);
+        console.log(`  Método: ${resultado.clasificacion.metodo} (sin medida de confianza)`);
+        console.log(`  Requiere revisión humana: sí`);
         console.log(`\nFlujo de Procesamiento:`);
         Object.entries(resultado.flujo).forEach(([paso, desc]) => {
           console.log(`  ${paso}: ${desc}`);
@@ -437,7 +460,13 @@ async function main() {
         break;
 
       default:
-        router.mostrarComandos();
+        if (args.command) {
+          console.error(`❌ Comando no reconocido: ${args.command}`);
+          router.mostrarComandos();
+          process.exitCode = 1;
+        } else {
+          router.mostrarComandos();
+        }
     }
   } catch (error) {
     console.error('❌ Error:', error.message);
