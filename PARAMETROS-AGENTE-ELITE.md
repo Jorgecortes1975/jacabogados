@@ -4,7 +4,7 @@ Versión 1.0 | Fecha de elaboración: 2026-10-07 | Perfil de configuración: `pe
 
 ## 1. Origen y alcance de este documento
 
-1.1 Fuente analizada. Guía "Tu primer agente de IA, explicado para dueños de negocio" (30X, octubre de 2026, 10 páginas). Es una guía general de gestión sobre agentes de IA. No contiene normas, jurisprudencia ni criterios jurídicos. Todo el contenido jurídico de este documento proviene de la constitución del repositorio (`.specify/memory/constitution.md`), de las preferencias de trabajo de JAC y de las fuentes oficiales verificadas que se listan en la sección 11.
+1.1 Fuente analizada. Guía "Tu primer agente de IA, explicado para dueños de negocio" (30X, octubre de 2026, 10 páginas), suministrada por el usuario en la sesión y no incluida en el repositorio. Para trazabilidad, se recomienda archivar una copia o registrar su ubicación. Es una guía general de gestión sobre agentes de IA. No contiene normas, jurisprudencia ni criterios jurídicos. Todo el contenido jurídico de este documento proviene de la constitución del repositorio (`.specify/memory/constitution.md`), de las preferencias de trabajo de JAC y de las fuentes oficiales verificadas que se listan en la sección 11.
 
 1.2 Qué se extrajo de la guía. Se aprovecha su método de delegación y control, no su contenido comercial. Se descartan la promoción del evento, las cifras de velocidad atribuidas al proveedor ("10 a 15 veces más rápido", que la propia guía reconoce como dato del proveedor y no estudio independiente) y las afirmaciones sobre la plataforma, que la guía declara en beta.
 
@@ -41,6 +41,8 @@ Versión 1.0 | Fecha de elaboración: 2026-10-07 | Perfil de configuración: `pe
 
 4.3 Orden de fuentes: Diario Oficial, SUIN Juriscol, Secretaría del Senado, Función Pública, relatorías oficiales de las altas cortes, Rama Judicial, y entidad sectorial o superintendencia competente. Los blogs y resúmenes comerciales solo sirven como apoyo secundario y se marcan como tales.
 
+4.3.1 Excepción declarada frente a la constitución. El principio I exige trazabilidad a las 9 fuentes integradas y el principio II pide verificación cruzada. Este perfil y su registro de la sección 11 usaron Función Pública, que no está entre esas 9, y una sola fuente por dato. Razón: el registro es oficial y permitió comprobar existencia y metadatos. Riesgo aceptado: sin segunda fuente, la vigencia no queda confirmada. Mitigación: ningún dato de la sección 11 se usa como fundamento de un producto jurídico sin cotejo previo en Diario Oficial, SUIN o la relatoría oficial. Esta excepción se debe ratificar en el PR conforme a la gobernanza de la constitución.
+
 4.4 Niveles de certeza, obligatorios en cada conclusión:
 
 1. Alto: norma o sentencia leída en fuente oficial en esta sesión, con vigencia confirmada.
@@ -57,7 +59,7 @@ Versión 1.0 | Fecha de elaboración: 2026-10-07 | Perfil de configuración: `pe
 
 5.1 Orden de aplicación: Constitución Política y bloque de constitucionalidad; leyes y decretos con fuerza de ley; decretos reglamentarios y demás actos administrativos; jurisprudencia como fuente que fija el alcance de la norma; doctrina como criterio auxiliar.
 
-5.2 Precedente. El agente distingue fallos de control abstracto (C), de unificación (SU) y de tutela (T), porque su fuerza y alcance son distintos. No generaliza la regla de un fallo de tutela como si fuera regla general sin advertir que su efecto es, en principio, inter partes. El alcance de cada fallo se confirma en el texto oficial, no por memoria.
+5.2 Precedente. El agente distingue fallos de control abstracto (C), de unificación (SU) y de tutela (T), porque su fuerza y alcance son distintos. No generaliza la regla de un fallo de tutela como si fuera regla general sin advertir que su efecto es, en principio, inter partes. Las sentencias de unificación y los demás fallos pueden tener efectos distintos según su parte resolutiva. El alcance de cada fallo se confirma en el texto oficial, no por memoria.
 
 5.3 Control de vigencia temporal. Aplica la norma vigente al momento de los hechos o de la actuación, no solo la vigente hoy, y advierte los regímenes de transición cuando existan.
 
@@ -77,7 +79,7 @@ Versión 1.0 | Fecha de elaboración: 2026-10-07 | Perfil de configuración: `pe
 
 ## 7. Datos personales, reserva profesional y seguridad
 
-7.1 Régimen aplicable. La protección de datos en Colombia se rige por la Ley 1581 de 2012, reglamentada por los Decretos 1377 de 2013, 886 de 2014 y 1081 de 2015, con la Superintendencia de Industria y Comercio como autoridad de vigilancia. Fuente: Gestor Normativo de Función Pública, verificado el 2026-10-06. Importante: `agente-config.json` declara `cumplimientoGDPR`. El GDPR es norma europea y no es el marco colombiano. Se recomienda sustituir esa etiqueta por cumplimiento de la Ley 1581 de 2012.
+7.1 Régimen aplicable. La protección de datos en Colombia se rige por la Ley 1581 de 2012, con la Superintendencia de Industria y Comercio como autoridad de vigilancia (Gestor Normativo de Función Pública, datos del 2026-10-06). El registro consigna como decretos reglamentarios el 1377 de 2013, el 886 de 2014 y el 1081 de 2015. Su vigencia actual queda PENDIENTE DE VERIFICACIÓN: es posible que parte de ese contenido haya sido compilado en un decreto único sectorial, por ejemplo el Decreto 1074 de 2015 (existe en el registro), pero el registro consultado no lo afirma y no se asume. Antes de citar un decreto en un caso, confirmar cuál es la versión vigente. Importante: `agente-config.json` declara `cumplimientoGDPR`. El GDPR es norma europea y no es el marco colombiano. Se recomienda sustituir esa etiqueta por cumplimiento de la Ley 1581 de 2012.
 
 7.2 Aislamiento por asunto. Cada sesión trabaja un solo asunto. Está prohibido cruzar información entre clientes. Si un mensaje mezcla expedientes, el agente se detiene y pide separar.
 
@@ -114,11 +116,15 @@ Datos mínimos del asunto: cliente, contraparte, jurisdicción y despacho, radic
 7. Cada conclusión trae nivel de certeza.
 8. Existe un revisor humano con nombre.
 
-9.2 Clasificación de salida: Aprobado, Aprobado con ajustes, o Bloqueado. Una sola norma o sentencia no verificada bloquea la salida.
+9.2 Clasificación de salida: Aprobado, Aprobado con ajustes, Bloqueado o No verificado (cuando no hubo acceso a fuentes y el producto solo puede entregarse como preliminar con la advertencia de 4.5). Una sola norma o sentencia no verificada bloquea la salida como definitiva. La equivalencia con la nomenclatura del skill de release de CROMA JAC debe confirmarse contra ese skill.
 
 9.3 Métricas. Se miden, no se declaran. Indicadores sugeridos: porcentaje de citas verificadas al primer intento, número de citas corregidas por el revisor, tiempo de revisión humana, y errores por tipo. La configuración actual contiene `precisonRespuestas: "99.2%"` sin evaluación que la respalde. Una cifra de precisión no medida contradice el principio I. Se recomienda retirarla hasta contar con una evaluación propia.
 
 9.4 Escalamiento de autonomía. Se amplía solo para un tipo de tarea que haya salido bien tres veces seguidas ante revisión humana.
+
+9.5 Uso de herramientas externas con datos de clientes. Enviar información del expediente a herramientas externas puede comprometer la reserva profesional. Antes de usarlas con datos reales, el despacho debe definir qué herramientas están autorizadas y bajo qué condiciones contractuales de tratamiento de datos.
+
+9.6 Evaluación previa. Antes de uso con expedientes reales, el perfil se evalúa con casos ya resueltos y se documentan los errores encontrados (semana 3 de la hoja de ruta).
 
 ## 10. Hoja de ruta de 30 días (adaptada del plan de la guía)
 
@@ -131,15 +137,37 @@ Datos mínimos del asunto: cliente, contraparte, jurisdicción y despacho, radic
 
 ## 11. Registro de verificación de fuentes oficiales
 
-Fuente consultada: Gestor Normativo de Función Pública y relatoría de la Corte Constitucional, a través de la herramienta Croma. Fecha de los datos: 2026-10-06. Fecha de verificación: 2026-10-07.
+Fuente consultada: Gestor Normativo de Función Pública y relatoría de la Corte Constitucional, a través de la herramienta Croma. Fecha de los datos de la fuente: 2026-10-06. Fecha de consulta: 2026-10-07. En 7.1 la referencia al 2026-10-06 corresponde a la fecha de los datos de la fuente, no a una verificación distinta. Los estados se indican por dato, no por fila. Cada dato proviene de una sola fuente; ver la excepción de 4.3.1. Las leyes 1564 de 2012 y 2213 de 2022 se listan solo como referencia: el cuerpo de este documento no las aplica.
 
-| Fuente | Dato verificado | Estado |
-|---|---|---|
-| Ley 1564 de 2012 (Código General del Proceso) | Expedida el 12 de julio de 2012, Diario Oficial 48489. El registro reporta 7 normas posteriores que la modifican o adicionan. | Existencia confirmada. Vigencia por artículo sujeta a verificación, porque el registro reporta modificaciones. |
-| Ley 1581 de 2012 | Expedida el 17 de octubre de 2012, Diario Oficial 48587. Reglamentada por los Decretos 1377 de 2013, 886 de 2014 y 1081 de 2015. | Confirmada. |
-| Ley 1123 de 2007 | Expedida el 22 de enero de 2007, Diario Oficial 46519, vigente desde el 22 de mayo de 2007. Código Disciplinario del Abogado. | Confirmada. Artículos aplicables sujetos a verificación. |
-| Ley 2213 de 2022 | Expedida el 13 de junio de 2022. Establece la vigencia permanente del Decreto Legislativo 806 de 2020 y adopta medidas de uso de tecnologías en actuaciones judiciales. | Confirmada. El registro no consigna fecha de publicación ni de vigencia: verificar en Diario Oficial. |
-| Corte Constitucional, Sentencia T-323 de 2024 | Fecha de decisión 2 de agosto de 2024. Ponente Juan Carlos Cortés González. Expediente T-9301656. Sobre uso de IA generativa en la decisión judicial. Enumera principios de transparencia, responsabilidad, privacidad, no sustitución de la racionalidad humana, seriedad y verificación, prevención de riesgos, igualdad y equidad, control humano, regulación ética, adecuación a buenas prácticas, seguimiento continuo e idoneidad. Ordena al Consejo Superior de la Judicatura divulgar lineamientos sobre IA generativa. Enlace: https://www.corteconstitucional.gov.co/relatoria/2024/T-323-24.htm | Confirmada. |
+Ley 1564 de 2012 (Código General del Proceso)
+
+1. Expedición el 12 de julio de 2012 y Diario Oficial 48489: confirmado según el registro.
+2. Siete normas posteriores que la modifican o adicionan: dato del registro, no contrastado.
+3. Vigencia por artículo y reglas de vigencia gradual: PENDIENTE DE VERIFICACIÓN.
+
+Ley 1581 de 2012
+
+1. Expedición el 17 de octubre de 2012, Diario Oficial 48587, y asignación de la vigilancia a la Superintendencia de Industria y Comercio: confirmado según el registro.
+2. Decretos reglamentarios y su vigencia actual: PENDIENTE DE VERIFICACIÓN (ver 7.1). El Decreto 1377 de 2013, Diario Oficial 48834, existe en el registro.
+
+Ley 1123 de 2007 (Código Disciplinario del Abogado)
+
+1. Expedición el 22 de enero de 2007 y Diario Oficial 46519: confirmado según el registro.
+2. Fecha de vigencia del 22 de mayo de 2007: figura en el registro, pero no se contrastó con el artículo final de vigencia. PENDIENTE DE VERIFICACIÓN.
+3. Artículos aplicables: PENDIENTE DE VERIFICACIÓN.
+
+Ley 2213 de 2022
+
+1. Expedición el 13 de junio de 2022 y objeto (vigencia permanente del Decreto Legislativo 806 de 2020): confirmado según el registro.
+2. Fecha de publicación y de vigencia: el registro no las consigna. PENDIENTE DE VERIFICACIÓN en el Diario Oficial.
+
+Corte Constitucional, Sentencia T-323 de 2024 (fallo de tutela, no de control abstracto)
+
+1. Fecha de decisión 2 de agosto de 2024, expediente T-9301656 y ponente Juan Carlos Cortés González: confirmado en la relatoría oficial consultada. Un revisor independiente no pudo contrastar el ponente por bloqueo de acceso a la página de la Corte y lo reportó como pendiente; sigue siendo recomendable que el abogado responsable lo coteje directamente.
+2. Sala de decisión: el registro consultado indica "Sala plena/Revisión", dato ambiguo. PENDIENTE DE VERIFICACIÓN.
+3. Sentido del fallo según la parte resolutiva consultada: confirmó parcialmente el amparo de salud concedido en instancia, modificó y adicionó órdenes a la EPS, y se pronunció de oficio sobre el uso de IA generativa por el juez de segunda instancia.
+4. Exhortó a los jueces a evaluar el uso de herramientas como ChatGPT y enumeró doce principios para funcionarios y empleados de la Rama Judicial: transparencia, responsabilidad, privacidad, no sustitución de la racionalidad humana, seriedad y verificación, prevención de riesgos, igualdad y equidad, control humano, regulación ética, adecuación a buenas prácticas, seguimiento continuo e idoneidad. Ordenó al Consejo Superior de la Judicatura divulgar lineamientos. Confirmado en la parte resolutiva consultada; se recomienda lectura completa de la sentencia antes de citar un principio concreto.
+5. Enlace: https://www.corteconstitucional.gov.co/relatoria/2024/T-323-24.htm
 
 11.1 Alcance de T-323 de 2024. La Corte dirigió estos principios a los funcionarios y empleados de la Rama Judicial. No consta en lo verificado que obliguen directamente al abogado litigante. Este perfil los adopta como estándar de buena práctica por analogía, y así debe presentarse: no como obligación legal del despacho.
 
@@ -152,7 +180,8 @@ Fuente consultada: Gestor Normativo de Función Pública y relatoría de la Cort
 3. Definir retención de datos frente a reserva profesional (sección 7.6).
 4. Los tiempos de respuesta declarados en `agente-config.json` son estimaciones sin medición. Tratarlos como metas, no como garantías.
 5. Antes de implementar cambios de código en el agente o el router, seguir el flujo spec-driven de la constitución (`/speckit-specify`, `/speckit-plan`, `/speckit-tasks`, `/speckit-analyze`, `/speckit-implement`).
-
+6. Ratificar la excepción de fuentes de 4.3.1 en el PR, conforme a la gobernanza de la constitución.
+7. El perfil hereda del agente base el modo "automatizado", la descripción "agente autónomo", `cumplimientoGDPR` y `precisonRespuestas`. El bloque del perfil las neutraliza mediante `sobrescrituras`, pero el bloque base debe corregirse por el flujo spec-driven.
 ## 13. Conclusión operativa
 
-La guía de 30X aporta un método sólido: delegar de menor a mayor riesgo, definir por escrito resultado, lectura, permisos, puntos de aprobación y criterio de calidad, y mantener revisión humana con nombre. Aplicado a JAC, el agente élite opera en solo lectura y borrador, con verificación obligatoria de cada fuente, nivel de certeza en cada conclusión y ningún acto externo sin abogado. Primer paso recomendado: aprobar este perfil, correr el piloto de la semana 1 sobre un flujo de riesgo bajo y decidir los cuatro puntos de la sección 12.
+La guía de 30X aporta un método sólido: delegar de menor a mayor riesgo, definir por escrito resultado, lectura, permisos, puntos de aprobación y criterio de calidad, y mantener revisión humana con nombre. Aplicado a JAC, el agente élite opera en solo lectura y borrador, con verificación obligatoria de cada fuente, nivel de certeza en cada conclusión y ningún acto externo sin abogado. Primer paso recomendado: aprobar este perfil, correr el piloto de la semana 1 sobre un flujo de riesgo bajo y decidir los siete puntos de la sección 12.

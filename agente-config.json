@@ -108,10 +108,15 @@
           "notificar",
           "presentar-escritos",
           "enviar-a-cliente-contraparte-o-autoridad",
-          "desistir-conciliar-o-pagar",
+          "desistir",
+          "conciliar",
+          "pagar",
+          "aceptar-acuerdos",
+          "solicitar-medidas-cautelares",
           "fijar-cuantias",
           "decidir-estrategia-procesal"
         ],
+        "entorno": "aislado-sin-acceso-a-canales-de-radicacion",
         "aprobacionHumanaObligatoria": true,
         "escalamientoAutonomia": "solo tras 3 aciertos seguidos ante revision humana documentada"
       },
@@ -136,7 +141,17 @@
         "citaNoVerificadaBloquea": true,
         "revisorHumanoConNombreObligatorio": true
       },
-      "plantillaEncargo": ["resultado-esperado", "lo-que-lee", "lo-que-puede-tocar", "cuando-pregunta", "como-se-califica"]
+      "plantillaEncargo": ["resultado-esperado", "lo-que-lee", "lo-que-puede-tocar", "cuando-pregunta", "como-se-califica"],
+      "sobrescrituras": {
+        "modo": "asistido-con-revision-humana",
+        "descripcion": "Asistente de investigación y borrador bajo control del abogado responsable",
+        "seguridad.cumplimientoGDPR": "no-aplica-marco-colombiano-ley-1581-de-2012",
+        "metricas.precisonRespuestas": "retirada-sin-evaluacion-que-la-respalde",
+        "metricas.tiemposRespuesta": "metas-no-garantias"
+      },
+      "excepcionesConstitucion": {
+        "fuentesFueraDeLasNueve": "Función Pública usada solo para registro de verificación; requiere cotejo en Diario Oficial o SUIN antes de fundamentar un producto. Pendiente de ratificar en el PR (PARAMETROS-AGENTE-ELITE.md, 4.3.1)"
+      }
     }
   },
   "flujos": {
