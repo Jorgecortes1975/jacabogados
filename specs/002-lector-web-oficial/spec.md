@@ -18,13 +18,13 @@ El abogado, o el agente jurídico en su nombre, entrega la dirección de una pá
 
 **Por qué esta prioridad**: Es el valor central. Sin lectura trazable, el agente no puede apoyar sus respuestas en el texto publicado por la autoridad (principios I y IV de la constitución).
 
-**Prueba independiente**: Se entrega una dirección de un dominio de la lista autorizada y se verifica que la respuesta contenga el texto, la autoridad emisora, la dirección consultada, la fecha y hora de consulta y la huella de integridad.
+**Prueba independiente**: Se entrega una dirección de un dominio de la lista autorizada y se verifica que la respuesta contenga el texto, la autoridad emisora, la dirección consultada, la fecha y hora de consulta y las huellas de integridad.
 
 **Escenarios de aceptación**:
 
 1. **Dado** una dirección cuyo dominio está en la lista autorizada, **cuando** se solicita su lectura, **entonces** el sistema devuelve el texto de la página y los metadatos de trazabilidad completos.
 2. **Dado** una lectura exitosa, **cuando** se revisa el resultado, **entonces** el estado de vigencia figura como "pendiente de verificación" y no existe ningún campo que lo declare verificado.
-3. **Dado** dos lecturas de la misma página sin cambios en su contenido, **cuando** se comparan, **entonces** la huella de integridad es idéntica; si el contenido cambió, es distinta.
+3. **Dado** dos lecturas de la misma página sin cambios en su contenido, **cuando** se comparan, **entonces** las huellas de integridad son idénticas; si el contenido cambió, son distintas.
 
 ---
 
@@ -109,7 +109,8 @@ Un responsable del despacho puede consultar qué autoridades y dominios están a
 ### Casos Límite
 
 - Dirección sin protocolo seguro (http): se rechaza; no se eleva automáticamente a https ni se lee en claro.
-- Dirección con mayúsculas, puertos no estándar, caracteres internacionales o variantes de escritura del dominio: se normaliza antes de validar; las variantes engañosas se rechazan.
+- Dirección con mayúsculas, caracteres internacionales o variantes de escritura del dominio: se normaliza antes de validar; las variantes engañosas se rechazan.
+- Dirección con un puerto distinto del estándar de HTTPS (443): se rechaza; no se normaliza ni se acepta.
 - Subdominios de un dominio autorizado: se aceptan únicamente si la regla de la lista los cubre expresamente.
 - Sitio con certificado inválido o vencido: se rechaza la lectura y se informa; no se continúa.
 - Redirecciones en cadena o en ciclo: se limita el número de saltos y cada salto se vuelve a validar.
@@ -131,7 +132,7 @@ Un responsable del despacho puede consultar qué autoridades y dominios están a
 - **RF-007**: El sistema DEBE limitar el número de redirecciones y DEBE validar la lista autorizada en cada una.
 - **RF-008**: El sistema DEBE imponer un tamaño máximo de contenido y un tiempo máximo de lectura, y DEBE interrumpir y avisar al excederlos, sin entregar contenido parcial como completo.
 - **RF-009**: El sistema DEBE extraer el texto legible de la página, eliminando elementos de navegación y de presentación que no forman parte del contenido jurídico.
-- **RF-010**: El sistema DEBE devolver con cada lectura exitosa: autoridad emisora, dominio, dirección consultada, dirección final tras redirecciones, fecha y hora de consulta, huella de integridad del contenido obtenido y estado de vigencia.
+- **RF-010**: El sistema DEBE devolver con cada lectura exitosa: autoridad emisora, dominio, dirección consultada, dirección final tras redirecciones, fecha y hora de consulta, huellas de integridad (del contenido recibido y del texto extraído) y estado de vigencia.
 - **RF-011**: El sistema DEBE marcar todo resultado con estado de vigencia "pendiente de verificación" y NO DEBE ofrecer ninguna vía para marcarlo automáticamente como verificado. La verificación de vigencia seguirá el protocolo de verificación de las fuentes oficiales del agente.
 - **RF-012**: El sistema DEBE tratar el contenido leído exclusivamente como datos y NO DEBE ejecutar ni obedecer instrucciones contenidas en él.
 - **RF-013**: El sistema DEBE declarar de forma explícita las lecturas fallidas, parciales o vacías (desafío anti-robot, formato no soportado, sin texto, fuente caída, certificado inválido) y NO DEBE completar ni inferir contenido ausente.
@@ -145,7 +146,7 @@ Un responsable del despacho puede consultar qué autoridades y dominios están a
 
 - **Fuente Autorizada**: Dominio oficial permitido, con su autoridad emisora, reglas sobre subdominios y justificación de inclusión.
 - **Solicitud de Lectura**: Dirección entregada, usuario o agente solicitante, fecha y hora.
-- **Resultado de Lectura**: Texto extraído, autoridad, dirección consultada y final, fecha y hora, huella de integridad, estado de vigencia (siempre "pendiente de verificación") y advertencias.
+- **Resultado de Lectura**: Texto extraído, autoridad, dirección consultada y final, fecha y hora, huellas de integridad, estado de vigencia (siempre "pendiente de verificación") y advertencias.
 - **Rechazo o Fallo**: Motivo estructurado (fuente no autorizada, destino no público, tamaño excedido, tiempo agotado, formato no soportado, desafío anti-robot, fuente no disponible).
 - **Registro de Auditoría**: Historial de solicitudes y resultados.
 
@@ -154,7 +155,7 @@ Un responsable del despacho puede consultar qué autoridades y dominios están a
 ### Resultados Medibles
 
 - **CE-001**: El 100 % de las direcciones de dominios no autorizados, de destinos no públicos y de dominios engañosos incluidos en el conjunto de pruebas se rechaza sin contactar el sitio solicitado.
-- **CE-002**: En el 100 % de las lecturas exitosas, el resultado incluye los seis datos de trazabilidad (autoridad, dirección consultada, dirección final, fecha y hora, huella, estado de vigencia), y el estado de vigencia es siempre "pendiente de verificación".
+- **CE-002**: En el 100 % de las lecturas exitosas, el resultado incluye los datos de trazabilidad (autoridad, dirección consultada, dirección final, fecha y hora, huellas de integridad, estado de vigencia), y el estado de vigencia es siempre "pendiente de verificación".
 - **CE-003**: En el 100 % de las lecturas, el registro de conexiones salientes muestra únicamente contacto con el dominio autorizado solicitado y sus redirecciones autorizadas; ninguna con terceros.
 - **CE-004**: Una lectura de una página oficial de tamaño habitual se completa en menos de 15 segundos en el 95 % de los casos, y nunca excede el tiempo máximo configurado.
 - **CE-005**: En el 100 % de los casos de lectura fallida del conjunto de pruebas, el abogado recibe un mensaje en español que indica la causa, y en ninguno se entrega texto vacío como éxito.
@@ -167,9 +168,11 @@ Un responsable del despacho puede consultar qué autoridades y dominios están a
 - Lista inicial: se deriva de las fuentes oficiales ya integradas. Los dominios candidatos son los de Corte Constitucional, Consejo de Estado, Corte Suprema de Justicia, SUIN-Juriscol, Diario Oficial / Imprenta Nacional, Secretaría del Senado, Congreso, Función Pública, Rama Judicial, Superintendencia de Sociedades y DIAN. **Cada dominio exacto debe verificarse contra la fuente oficial antes de activarse.** Esta especificación no declara como verificado ningún dominio.
 - Alcance de formatos v1: páginas web con texto. Los PDF y demás formatos quedan EXCLUIDOS de la primera versión (decisión confirmada por el usuario el 2026-10-10); su lectura falla de forma explícita (RF-013).
 - Alcance: lectura de una página por solicitud. No incluye rastreo masivo, búsqueda ni lectura de sitios que requieran inicio de sesión.
+- La lista de dominios autorizados es subordinada a las 9 fuentes oficiales ya integradas: no agrega una décima fuente ni amplía el catálogo del agente. Sirve para leer páginas publicadas por esas autoridades u otras entidades expresamente autorizadas tras su verificación.
 - Esta funcionalidad aporta el texto y su trazabilidad; no determina vigencia, modificaciones ni derogatorias. Esa verificación sigue siendo un paso posterior obligatorio del protocolo del agente (principios I y II).
 - Restricción de ecosistema indicada por el usuario: se construye dentro del agente jurídico existente y su configuración de fuentes, en el mismo lenguaje del ecosistema, sin dependencias de otros lenguajes. Las decisiones técnicas detalladas corresponden al plan (`/speckit-plan`).
 - Límites de tamaño, tiempo y redirecciones: valores por defecto razonables, ajustables por configuración; se fijarán en el plan.
 - La conservación del contenido leído es decisión del usuario; el sistema solo conserva la bitácora de auditoría.
 - Cambios a la lista de fuentes exigen actualizar la configuración de fuentes y la tabla de fuentes del `CLAUDE.md` (restricciones técnicas de la constitución).
+- CE-004 se mide con lecturas reales una vez activado al menos un dominio verificado. CE-006 (comprensión del resultado por un abogado sin formación técnica) es una validación posterior al uso con usuarios del despacho; no tiene tarea de construcción asociada.
 - Dependencia: disponibilidad pública de los sitios oficiales; su caída no se suple con fuentes no autorizadas.

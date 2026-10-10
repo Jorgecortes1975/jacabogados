@@ -14,7 +14,8 @@ new LectorWebOficial({
   resolver,        // opcional, inyectable para pruebas: (host) => Promise<[{address, family}]>
   requestFn,       // opcional, inyectable para pruebas
   ahora,           // opcional, () => Date
-  rutaAuditoria    // opcional, sobrescribe la ruta de la bitácora
+  rutaAuditoria,   // opcional, sobrescribe la ruta de la bitácora
+  opcionesRedPrueba // EXCLUSIVO DE PRUEBAS: { puerto, ca }. Solo se lee del constructor; nunca de mcp-config.json
 })
 ```
 
@@ -57,4 +58,4 @@ En `agente-juridico-especializado.js`:
 agente.leerPaginaOficial(url) // delega en LectorWebOficial.leer(url)
 ```
 
-Declarada en `mcp-config.json` como capacidad `lectura-web-oficial` del agente `juridico-especializado`, con `validacion: true` y la nota de que no determina vigencia.
+Declarada como capacidad `lectura-web-oficial` del agente `juridico-especializado`, con `validacion: true` y la nota de que no determina vigencia, en DOS lugares: `mcp-config.json` y el objeto que construye `crearAgenteJuridico()`. El comando `activar` sobrescribe la configuración del agente con ese objeto; si la capacidad no está allí, se pierde. Una prueba comprueba que, tras ejecutar `activar`, la capacidad sigue presente.

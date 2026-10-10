@@ -32,7 +32,7 @@ Reglas de validación al cargar:
 | rutaAuditoria | texto | `logs/lector-web-auditoria.jsonl` |
 | dominios | lista de FuenteAutorizada | lista candidata, todos inactivos |
 
-Esquema formal en [contracts/config-lector-web.schema.json](./contracts/config-lector-web.schema.json).
+Esquema formal en [contracts/config-lector-web.schema.json](./contracts/config-lector-web.schema.json). El esquema no admite propiedades adicionales: claves como `puerto`, `ca` u `opcionesRedPrueba` en `mcp-config.json` invalidan la configuración. Esas opciones existen solo como parámetro del constructor para pruebas.
 
 ## 3. SolicitudLectura (entrada)
 
@@ -55,7 +55,7 @@ Esquema formal en [contracts/config-lector-web.schema.json](./contracts/config-l
 | metadatos.estadoHttp | entero | Código de respuesta. |
 | metadatos.tipoContenido | texto | Cabecera `Content-Type` normalizada. |
 | metadatos.bytes | entero | Bytes recibidos. |
-| metadatos.hashContenido | texto | SHA-256 hexadecimal de los bytes recibidos. |
+| metadatos.hashContenido | texto | SHA-256 hexadecimal de los bytes recibidos. Junto con `hashTexto` forma las huellas de integridad. |
 | metadatos.hashTexto | texto | SHA-256 hexadecimal del texto extraído. |
 | metadatos.estadoVigencia | texto | Siempre `PENDIENTE_VERIFICACION`. |
 | metadatos.tratamiento | texto | Siempre `DATO_NO_CONFIABLE`. |

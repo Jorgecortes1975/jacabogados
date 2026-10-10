@@ -4,7 +4,7 @@ Esta guía describe cómo comprobar que la funcionalidad cumple la especificaci�
 
 ## Requisitos previos
 
-1. Node.js 18 o superior (`node --version`).
+1. Node.js 20 o superior (`node --version`).
 2. Estar en la raíz del repositorio.
 3. Para el escenario con red real: al menos un dominio verificado y activado en `lectorWeb.dominios` de `mcp-config.json`, con `verificadoEn` y `fuenteVerificacion`.
 
@@ -47,7 +47,7 @@ Resultado esperado: mensaje en español `FUENTE_NO_AUTORIZADA`, sin tráfico de 
 node agente-juridico-especializado.js leer "https://<dominio-activo>/<ruta-publica>"
 ```
 
-Resultado esperado: encabezado de trazabilidad completo, línea "Vigencia: PENDIENTE DE VERIFICACION" y texto extraído. Repetir la lectura: la huella del contenido es igual si la página no cambió.
+Resultado esperado: encabezado de trazabilidad completo, línea "Vigencia: PENDIENTE DE VERIFICACION" y texto extraído. Repetir la lectura: las huellas del contenido y del texto son iguales si la página no cambió. Medir el tiempo de al menos 20 lecturas de páginas oficiales de tamaño habitual y registrar cuántas terminan en menos de 15 segundos (CE-004: 95 % o más).
 
 ## Escenario E: PDF excluido
 
@@ -62,6 +62,10 @@ tail -n 5 logs/lector-web-auditoria.jsonl
 ```
 
 Resultado esperado: un registro por cada ejecución anterior, sin el texto de las páginas.
+
+## Validación posterior al uso (fuera de la construcción)
+
+CE-006: mostrar un resultado de lectura a abogados del despacho sin formación técnica y comprobar que identifican la autoridad, la fecha de consulta y que la vigencia está pendiente en menos de 1 minuto. Se hace con usuarios reales una vez activado el lector.
 
 ## Comprobación de la constitución
 

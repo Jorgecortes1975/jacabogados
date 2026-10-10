@@ -24,6 +24,7 @@ Alternativas descartadas: `fetch` nativo de Node (ofrece menos control sobre la 
 ### D-02. Cliente de red
 Decisión: `https.request` con `lookup` personalizada y `agent` sin reutilización de conexiones.
 Justificación: permite validar la dirección IP en el momento exacto de la conexión y entregar a la conexión esa misma dirección, lo que impide el cambio de DNS entre la validación y la conexión. Mantiene la verificación de certificados activa; no se desactiva en ningún caso.
+Nota de implementación (sujeto a verificación en Node 20 o superior): la selección automática de familia de direcciones puede invocar `lookup` pidiendo todas las direcciones a la vez (`all: true`). La `lookup` debe manejar ambos modos de llamada y validar todas las direcciones devueltas; las pruebas cubren los dos modos.
 Alternativas descartadas: validar con `dns.lookup` y luego conectar por nombre (vulnerable a cambio de DNS), `fetch` (no permite fijar la dirección validada de forma directa).
 
 ### D-03. Origen y activación de la lista de dominios
@@ -57,9 +58,9 @@ Limitación aceptada y declarada: es menos robusto que un analizador HTML comple
 Alternativas descartadas: `cheerio` o `jsdom` (dependencias externas, contrarias a la instrucción salvo que sea imprescindible; se reconsidera si las pruebas con páginas reales muestran fallos graves), el servicio Jina Reader (envía la URL a un tercero, prohibido por el requisito).
 
 ### D-07. Límites
-Decisión: tamaño máximo 5 MiB sobre bytes recibidos y 5 MiB sobre bytes descomprimidos (límite en `zlib` con `maxOutputLength`); tiempo máximo 20 s para toda la operación; máximo 3 redirecciones; solo puerto 443; solo `GET`; cabecera `Accept` limitada a `text/html, text/plain`; sin cookies; `User-Agent` identificable del despacho.
+Decisión: tamaño máximo 5 MiB sobre bytes recibidos y 5 MiB sobre bytes descomprimidos (los bytes descomprimidos se cuentan manualmente durante el flujo y se corta al exceder el límite; no se depende de `maxOutputLength` de `zlib`, cuyo alcance sobre flujos queda sujeto a verificación); tiempo máximo 20 s para toda la operación; máximo 3 redirecciones; solo puerto 443; solo `GET`; cabecera `Accept` limitada a `text/html, text/plain`; sin cookies; `User-Agent` identificable del despacho.
 Justificación: coherente con RF-008 y con el rango de valores del proyecto estudiado, con protección adicional contra archivos comprimidos que se expanden en exceso.
-Alternativas descartadas: sin límite de descompresión (riesgo de agotar memoria).
+Alternativas descartadas: sin límite de descompresión (riesgo de agotar memoria), confiar solo en `maxOutputLength` (alcance no confirmado).
 
 ### D-08. Formatos y PDF (decisión confirmada por el usuario)
 Decisión: se aceptan `text/html`, `application/xhtml+xml` y `text/plain`. Todo otro tipo falla con el código `FORMATO_NO_SOPORTADO`. Los PDF se detectan por `Content-Type: application/pdf` o por la firma `%PDF-` en los primeros bytes (aunque el servidor declare otro tipo) y fallan con un mensaje específico que indica que los PDF están fuera de la versión 1 y que debe consultarse el documento manualmente en la fuente.
@@ -83,12 +84,14 @@ Aviso: la bitácora puede contener direcciones que revelan el asunto consultado;
 Alternativas descartadas: registrar el contenido (riesgo de reserva y tamaño), no registrar (sin auditoría, contrario a RF-015).
 
 ### D-13. Integración con el agente
-Decisión: método `leerPaginaOficial(url)` en `AgentJuridicoEspecializado`; subcomandos `leer <url>` y `fuentes-web`; capacidad `lectura-web-oficial` en `mcp-config.json`. No se agrega servidor MCP.
+Decisión: método `leerPaginaOficial(url)` en `AgentJuridicoEspecializado`; subcomandos `leer <url>` y `fuentes-web`; capacidad `lectura-web-oficial` declarada en `mcp-config.json` Y en el objeto que construye `crearAgenteJuridico()`. No se agrega servidor MCP.
+Motivo del doble registro: el comando `activar` reconstruye `agents['juridico-especializado']` desde un objeto fijo en el código y sobrescribe lo que haya en el archivo; si la capacidad solo estuviera en `mcp-config.json`, `activar` la borraría. La clave `lectorWeb` no se ve afectada porque los scripts cargan y guardan el archivo completo.
 Justificación: principio V de la constitución y ausencia de SDK MCP en el repositorio.
 Alternativas descartadas: servidor MCP propio (dependencia de SDK y mayor superficie), integrarlo dentro de `consulta` (la simulación actual daría apariencia de verificación).
 
 ### D-14. Pruebas sin internet
-Decisión: el constructor acepta `resolver`, `requestFn`, `ahora` y `rutaAuditoria` inyectables. Las pruebas unitarias simulan DNS y respuestas; la prueba de integración levanta un servidor HTTPS local con certificado de prueba y una lista autorizada de prueba que no pertenece a producción.
+Decisión: el constructor acepta `resolver`, `requestFn`, `ahora` y `rutaAuditoria` inyectables, y un objeto `opcionesRedPrueba` con `puerto` y `ca` (certificado de confianza), documentado como exclusivo de pruebas. Las pruebas unitarias simulan DNS y respuestas; la prueba de integración levanta un servidor HTTPS local en un puerto de prueba, con un certificado incluido como archivo fijo en `tests/lector-web/fixtures/` (generado con `openssl`; el módulo `crypto` de Node no crea certificados X.509), y una lista autorizada de prueba que no pertenece a producción.
+Salvaguardas: `opcionesRedPrueba` solo se lee del constructor, nunca de `mcp-config.json` (el esquema rechaza esas claves), y una prueba comprueba que una configuración de producción no puede cambiar el puerto ni el certificado de confianza. Sin esta opción, el código real de red (validación en `lookup`, límites, tiempo) no podría probarse, porque el puerto de producción es siempre 443.
 Justificación: permite probar los controles de seguridad (rangos, redirecciones, límites) de forma determinista.
 
 ## Tareas obligatorias previas a la activación de dominios (fuera del código)

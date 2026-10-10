@@ -12,13 +12,13 @@ Decisión del usuario incorporada: los PDF quedan excluidos de la versión 1 y f
 
 ## Contexto Técnico
 
-**Lenguaje/Versión**: JavaScript (CommonJS), Node.js 18 o superior. El entorno de desarrollo usa Node 22.22.0. El ecosistema actual es CommonJS (`require`, `module.exports`).
+**Lenguaje/Versión**: JavaScript (CommonJS), Node.js 20 o superior (`node:test` es estable desde esa versión). El entorno de desarrollo usa Node 22.22.0. El ecosistema actual es CommonJS (`require`, `module.exports`).
 
 **Dependencias principales**: Ninguna externa. Solo módulos nativos de Node.js: `https`, `dns`, `net`, `crypto`, `zlib`, `fs`, `path`, `url`. No existe `package.json` en el repositorio y el plan no lo exige.
 
 **Almacenamiento**: Archivo de configuración `mcp-config.json` (lista de dominios y límites) y bitácora de auditoría en formato JSON Lines en `logs/lector-web-auditoria.jsonl` (excluida del control de versiones). El contenido leído no se persiste.
 
-**Pruebas**: `node:test` y `node:assert` nativos (`node --test`). Sin acceso a internet: se inyectan el resolutor DNS y la función de petición. Las pruebas de integración usan un servidor HTTPS local con certificado de prueba.
+**Pruebas**: `node:test` y `node:assert` nativos (`node --test`). Sin acceso a internet: se inyectan el resolutor DNS y la función de petición. Las pruebas de integración usan un servidor HTTPS local con un certificado de prueba incluido como archivo fijo (generado con `openssl`, no con `crypto`) y opciones de red exclusivas de prueba (puerto y certificado de confianza) que solo acepta el constructor, nunca la configuración.
 
 **Plataforma objetivo**: Línea de comandos y módulo importable por el agente, en Linux, macOS y Windows con Node.js.
 
@@ -40,6 +40,7 @@ Decisión del usuario incorporada: los PDF quedan excluidos de la versión 1 y f
 | II. Verificación Cruzada | Cumple, con límite declarado | El lector no verifica vigencia ni existencia. Deja ese paso al protocolo del agente. No relaja `requiereMultiplesFuentes`. |
 | III. Español Jurídico | Cumple | Mensajes, advertencias y documentos de usuario en español. Identificadores técnicos en inglés solo en nombres internos de código. |
 | IV. Trazabilidad | Cumple | Cada resultado incluye autoridad, URL solicitada y final, fecha y hora, huellas SHA-256 y bitácora de auditoría. |
+| Restricciones técnicas (lista de fuentes) | Cumple, con aclaración | La lista de dominios del lector es subordinada a las 9 fuentes oficiales y no agrega una décima fuente. Se documenta en `CLAUDE.md` como nota, no como fila de la tabla de fuentes. |
 | V. Simplicidad | Cumple | Se extiende `AgentJuridicoEspecializado` (nuevo método y subcomandos) y `mcp-config.json`. No se crea agente, orquestador ni servidor MCP paralelo. Sin dependencias nuevas. |
 | Restricciones técnicas | Cumple | La lista de dominios vive en `mcp-config.json`. No hay secretos. Cambios en la lista se reflejan en `CLAUDE.md`. |
 
@@ -77,7 +78,7 @@ lector-web/
 ├── resultado.js             # constructores de resultado exitoso y de fallo, códigos y mensajes en español
 └── auditoria.js             # bitácora JSON Lines
 
-agente-juridico-especializado.js   # se agrega leerPaginaOficial() y subcomandos leer, fuentes-web
+agente-juridico-especializado.js   # se agrega leerPaginaOficial(), subcomandos leer y fuentes-web, y la capacidad en crearAgenteJuridico()
 mcp-config.json                    # se agrega lectorWeb y la capacidad lectura-web-oficial
 CLAUDE.md                          # se documenta el comando y la advertencia sobre dominios candidatos
 .gitignore                         # se agrega logs/
@@ -99,7 +100,7 @@ tests/lector-web/
 1. Validación de dominio por lista exacta. Un subdominio solo se acepta si la entrada de la lista lo declara con `incluyeSubdominios: true`. Nunca se usa búsqueda de texto parcial (RF-002).
 2. Protección contra destinos no públicos en el momento de conectar. La función `lookup` de la petición HTTPS resuelve el nombre, rechaza si cualquiera de las direcciones es privada o reservada y entrega a la conexión la dirección ya validada. Así se evita el cambio de DNS entre la validación y la conexión (RF-005).
 3. Redirecciones manuales. Se desactiva el seguimiento automático, se vuelve a ejecutar toda la validación en cada salto y se limita a 3 (RF-007).
-4. Límites duros. Tamaño sobre los bytes recibidos y sobre los descomprimidos, y un temporizador de la operación completa (RF-008).
+4. Límites duros. Tamaño sobre los bytes recibidos y sobre los descomprimidos (contados manualmente durante el flujo, sin depender de la opción `maxOutputLength` de `zlib`), y un temporizador de la operación completa (RF-008).
 5. Huella SHA-256 de los bytes recibidos y del texto extraído (RF-010).
 6. Vigencia como constante congelada, con una prueba que recorre todas las rutas y comprueba que ningún resultado trae otro valor (RF-011).
 7. Contenido tratado como dato no confiable. El resultado lo marca así y el módulo no interpreta ni ejecuta nada del contenido (RF-012).
