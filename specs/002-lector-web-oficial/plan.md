@@ -18,7 +18,7 @@ Decisión del usuario incorporada: los PDF quedan excluidos de la versión 1 y f
 
 **Almacenamiento**: Archivo de configuración `mcp-config.json` (lista de dominios y límites) y bitácora de auditoría en formato JSON Lines en `logs/lector-web-auditoria.jsonl` (excluida del control de versiones). El contenido leído no se persiste.
 
-**Pruebas**: `node:test` y `node:assert` nativos (`node --test tests/lector-web/*.test.js`). Sin acceso a internet: se inyectan el resolutor DNS y la función de petición. Las pruebas de integración usan un servidor HTTPS local con un certificado de prueba incluido como archivo fijo (generado con `openssl`, no con `crypto`) y opciones de red exclusivas de prueba (puerto y certificado de confianza) que solo acepta el constructor, nunca la configuración.
+**Pruebas**: `node:test` y `node:assert` nativos (`node --test tests/lector-web/*.test.js`). Sin acceso a internet: se inyectan el resolutor DNS y la función de petición. Las pruebas de integración usan un servidor HTTPS local con un certificado de prueba generado al ejecutar las pruebas con `openssl` (no con `crypto`; no se versiona ninguna clave) y opciones de red exclusivas de prueba (puerto y certificado de confianza) que solo acepta el constructor, nunca la configuración.
 
 **Plataforma objetivo**: Línea de comandos y módulo importable por el agente, en Linux, macOS y Windows con Node.js.
 
@@ -101,14 +101,14 @@ tests/lector-web/
 2. Protección contra destinos no públicos en el momento de conectar. La función `lookup` de la petición HTTPS resuelve el nombre, rechaza si cualquiera de las direcciones es privada o reservada y entrega a la conexión la dirección ya validada. Así se evita el cambio de DNS entre la validación y la conexión (RF-005).
 3. Redirecciones manuales. Se desactiva el seguimiento automático, se vuelve a ejecutar toda la validación en cada salto y se limita a 3 (RF-007).
 4. Límites duros. Tamaño sobre los bytes recibidos y sobre los descomprimidos (contados manualmente durante el flujo, sin depender de la opción `maxOutputLength` de `zlib`), y un temporizador de la operación completa (RF-008).
-5. Huella SHA-256 de los bytes recibidos y del texto extraído (RF-010).
+5. Huella SHA-256 del contenido ya descomprimido y del texto extraído (RF-010).
 6. Vigencia como constante congelada, con una prueba que recorre todas las rutas y comprueba que ningún resultado trae otro valor (RF-011).
 7. Contenido tratado como dato no confiable. El resultado lo marca así y el módulo no interpreta ni ejecuta nada del contenido (RF-012).
 8. Sin exposición como servidor MCP en la versión 1. Se mantiene en CLI y módulo para no introducir una dependencia de SDK. Queda como mejora futura.
 
 ## Riesgos Técnicos y Mitigación
 
-1. Extractor de texto sin dependencias: un analizador HTML propio es menos robusto que una biblioteca. Mitigación: pruebas con páginas de muestra de cada tipo de sitio, aviso de baja calidad cuando el texto sea muy corto y registro de la limitación en `research.md` (D-06).
+1. Extractor de texto sin dependencias: un analizador HTML propio es menos robusto que una biblioteca. Se implementó como recorrido lineal de una sola pasada (no con expresiones regulares perezosas, que con HTML hostil tardaban más de 25 s; ver research.md D-06). Mitigación: pruebas con páginas de muestra de cada tipo de sitio, aviso de baja calidad cuando el texto sea muy corto y registro de la limitación en `research.md` (D-06).
 2. Dominios candidatos sin verificar: la lista parte inactiva. Ninguna lectura funciona hasta que un responsable verifique cada dominio y registre fecha y fuente (D-03).
 3. Inconsistencias previas del repositorio: ver `research.md` (D-03 y hallazgos), por ejemplo hosts distintos para una misma entidad entre `mcp-config.json` y el código.
 4. Sitios oficiales con certificados defectuosos o desafíos anti-robot: se rechazan o se informan, sin forzar la lectura.

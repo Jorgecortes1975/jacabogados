@@ -6,6 +6,7 @@ Esta guía describe cómo comprobar que la funcionalidad cumple la especificaci�
 
 1. Node.js 20 o superior (`node --version`).
 2. Estar en la raíz del repositorio.
+   `openssl` disponible para las pruebas con TLS (genera un certificado de prueba temporal; si falta, esas pruebas se omiten).
 3. Para el escenario con red real: al menos un dominio verificado y activado en `lectorWeb.dominios` de `mcp-config.json`, con `verificadoEn` y `fuenteVerificacion`.
 
 ## Escenario A: pruebas automáticas sin internet

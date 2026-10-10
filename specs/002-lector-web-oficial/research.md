@@ -54,6 +54,7 @@ Alternativas descartadas: biblioteca externa de rangos IP (dependencia), solo bl
 
 ### D-06. Extracción de texto
 Decisión: extractor propio por etapas: decodificación del conjunto de caracteres (cabecera `Content-Type`, luego `<meta charset>`, luego UTF-8) con `TextDecoder`; eliminación de `script`, `style`, `noscript`, `svg`, `nav`, `header`, `footer`, `aside`, `form` y comentarios; conversión de bloques a saltos de línea; decodificación de entidades; normalización de espacios.
+Implementación (hallazgo de la revisión adversarial T041): la primera versión usaba expresiones regulares con búsqueda perezosa sobre todo el documento. Medido con 5 MiB de HTML roto u hostil (`<script>`, `<!--` o `<nav>` repetidos sin cierre, `<a` sin `>`), cada caso tardó más de 25 s por costo cuadrático y bloqueaba todo el proceso, sin que el temporizador de lectura pudiera interrumpirlo (el temporizador no actúa durante trabajo sincrónico). Se reemplazó por un recorrido lineal de una sola pasada que memoriza las búsquedas de cierre que fallan; los mismos casos tardan entre 10 y 184 ms y hay pruebas de regresión con umbral de 3 s.
 Limitación aceptada y declarada: es menos robusto que un analizador HTML completo. Para mitigarlo, el resultado incluye `advertencias` cuando el texto es corto o el HTML estaba mal formado, y las pruebas usan páginas de muestra.
 Alternativas descartadas: `cheerio` o `jsdom` (dependencias externas, contrarias a la instrucción salvo que sea imprescindible; se reconsidera si las pruebas con páginas reales muestran fallos graves), el servicio Jina Reader (envía la URL a un tercero, prohibido por el requisito).
 
@@ -71,7 +72,7 @@ Decisión: estados 403, 429 y 503 combinados con marcadores conocidos en el cuer
 Justificación: el sistema no debe sortear controles de acceso del sitio. Se informa al abogado para consulta manual.
 
 ### D-10. Trazabilidad y huellas
-Decisión: SHA-256 en hexadecimal de los bytes recibidos (`hashContenido`) y del texto extraído (`hashTexto`). Fecha y hora en ISO 8601 UTC. Se registran URL solicitada, URL final y la cadena de redirecciones.
+Decisión: SHA-256 en hexadecimal del contenido ya descomprimido (`hashContenido`; no depende de la compresión de transporte) y del texto extraído (`hashTexto`). Fecha y hora en ISO 8601 UTC. Se registran URL solicitada, URL final y la cadena de redirecciones.
 Justificación: permite a otro abogado comprobar que el texto citado corresponde a lo que publicó la autoridad en ese momento.
 
 ### D-11. Estado de vigencia
@@ -90,7 +91,7 @@ Justificación: principio V de la constitución y ausencia de SDK MCP en el repo
 Alternativas descartadas: servidor MCP propio (dependencia de SDK y mayor superficie), integrarlo dentro de `consulta` (la simulación actual daría apariencia de verificación).
 
 ### D-14. Pruebas sin internet
-Decisión: el constructor acepta `resolver`, `requestFn`, `ahora` y `rutaAuditoria` inyectables, y un objeto `opcionesRedPrueba` con `puerto`, `ca` (certificado de confianza) y `permitirLoopback`, documentado como exclusivo de pruebas. Las pruebas unitarias simulan DNS y respuestas; la prueba de integración levanta un servidor HTTPS local en un puerto de prueba, con un certificado incluido como archivo fijo en `tests/lector-web/fixtures/` (generado con `openssl`; el módulo `crypto` de Node no crea certificados X.509), y una lista autorizada de prueba que no pertenece a producción.
+Decisión: el constructor acepta `resolver`, `requestFn`, `ahora` y `rutaAuditoria` inyectables, y un objeto `opcionesRedPrueba` con `puerto`, `ca` (certificado de confianza) y `permitirLoopback`, documentado como exclusivo de pruebas. Las pruebas unitarias simulan DNS y respuestas; la prueba de integración levanta un servidor HTTPS local en un puerto de prueba, con un certificado generado al ejecutar las pruebas mediante `openssl` a partir de `tests/lector-web/fixtures/openssl-prueba.cnf` (el módulo `crypto` de Node no crea certificados X.509; no se versiona ninguna clave privada para no activar escáneres de secretos; si `openssl` falta, las pruebas con TLS se omiten), y una lista autorizada de prueba que no pertenece a producción.
 El servidor de prueba escucha en la dirección local, que la regla D-05 prohíbe; por eso `permitirLoopback` exonera únicamente 127.0.0.0/8 y ::1 y deja prohibidos todos los demás rangos. Modos de prueba: las que ejercen el código real de red (`lookup`, tamaño, tiempo, redirecciones, TLS) usan el servidor local; las demás usan la función de petición simulada.
 Salvaguardas: `opcionesRedPrueba` solo se lee del constructor, nunca de `mcp-config.json` (el esquema rechaza esas claves), y una prueba comprueba que una configuración de producción no puede cambiar el puerto ni el certificado de confianza. Sin esta opción, el código real de red (validación en `lookup`, límites, tiempo) no podría probarse, porque el puerto de producción es siempre 443.
 Justificación: permite probar los controles de seguridad (rangos, redirecciones, límites) de forma determinista.

@@ -34,3 +34,17 @@
 - Los dominios concretos de la lista inicial NO están verificados; la especificación los declara candidatos y exige su verificación contra fuente oficial antes de activarlos (Suposiciones).
 - La restricción de lenguaje del ecosistema aparece solo como suposición; el detalle técnico se resuelve en `/speckit-plan`.
 - Alcance v1 excluye PDF; es la decisión por defecto más relevante para revisar con el usuario.
+
+## Resultado de la implementación (2026-10-10)
+
+Escenarios de `quickstart.md` ejecutados en la sesión de implementación:
+
+- Escenario A (pruebas sin internet): `node --test tests/lector-web/*.test.js` → 256 pruebas, todas aprobadas, en unos 4 segundos.
+- Escenario B (`fuentes-web`): lista los 9 dominios candidatos, todos "pendiente de verificación", Total: 9 | Activos: 0.
+- Escenario C (`leer` de dominio no autorizado): `FUENTE_NO_AUTORIZADA`, mensaje en español, código de salida 1, sin conexión de red.
+- Escenario F (bitácora): un registro por ejecución, sin el contenido, carpeta 0700 y archivo 0600.
+- Escenario E (PDF): cubierto por pruebas automáticas (tipo declarado y firma `%PDF-`); no se ejecutó contra un sitio real.
+- Escenario D (lectura real de un dominio activado): NO ejecutado. Ningún dominio está activo porque no se ha verificado ninguno (tareas de gobierno G001 a G003). Tampoco se midió CE-004 (menos de 15 s en el 95 % de las lecturas), que exige lecturas reales.
+- CE-006 (comprensión del resultado por abogados sin formación técnica): validación posterior al uso, pendiente.
+
+Hallazgo de la revisión adversarial (T041): el extractor inicial, basado en expresiones regulares perezosas, tardaba más de 25 s con 5 MiB de HTML roto u hostil y bloqueaba el proceso. Se reemplazó por un recorrido lineal (10 a 184 ms en los mismos casos) con pruebas de regresión.

@@ -189,6 +189,11 @@
           "descripcion": "Genera reportes jurídicos documentados",
           "fuentes": "todas",
           "validacion": true
+        },
+        "lectura-web-oficial": {
+          "descripcion": "Lee páginas web de dominios oficiales autorizados con trazabilidad. No determina vigencia: todo resultado queda pendiente de verificación",
+          "fuentes": "lista autorizada en lectorWeb (mcp-config.json)",
+          "validacion": true
         }
       },
       "verificacionDatos": {
@@ -344,5 +349,105 @@
       ],
       "firma_digital": true
     }
+  },
+  "lectorWeb": {
+    "enabled": true,
+    "maxBytes": 5242880,
+    "timeoutMs": 20000,
+    "maxRedirecciones": 3,
+    "userAgent": "JAC-LectorWebOficial/1.0",
+    "rutaAuditoria": "logs/lector-web-auditoria.jsonl",
+    "dominios": [
+      {
+        "host": "www.corteconstitucional.gov.co",
+        "autoridad": "Corte Constitucional de Colombia",
+        "incluyeSubdominios": false,
+        "transporteRelacionado": "corte-constitucional",
+        "activo": false,
+        "verificadoEn": null,
+        "fuenteVerificacion": null,
+        "notas": "Candidato sin verificar contra la fuente oficial. Inactivo hasta registrar verificadoEn y fuenteVerificacion. El código del agente usa este host; mcp-config.json usa api.corteconstitucional.gov.co para el mismo transporte."
+      },
+      {
+        "host": "api.corteconstitucional.gov.co",
+        "autoridad": "Corte Constitucional de Colombia",
+        "incluyeSubdominios": false,
+        "transporteRelacionado": "corte-constitucional",
+        "activo": false,
+        "verificadoEn": null,
+        "fuenteVerificacion": null,
+        "notas": "Candidato sin verificar contra la fuente oficial. Inactivo hasta registrar verificadoEn y fuenteVerificacion. Host que figura en mcp-config.json para el transporte; resolver la inconsistencia con www."
+      },
+      {
+        "host": "www.consejodeestado.gov.co",
+        "autoridad": "Consejo de Estado de Colombia",
+        "incluyeSubdominios": false,
+        "transporteRelacionado": "consejo-estado",
+        "activo": false,
+        "verificadoEn": null,
+        "fuenteVerificacion": null,
+        "notas": "Candidato sin verificar contra la fuente oficial. Inactivo hasta registrar verificadoEn y fuenteVerificacion."
+      },
+      {
+        "host": "www.cortesupremajusticia.gov.co",
+        "autoridad": "Corte Suprema de Justicia",
+        "incluyeSubdominios": false,
+        "transporteRelacionado": "corte-suprema",
+        "activo": false,
+        "verificadoEn": null,
+        "fuenteVerificacion": null,
+        "notas": "Candidato sin verificar contra la fuente oficial. Inactivo hasta registrar verificadoEn y fuenteVerificacion."
+      },
+      {
+        "host": "www.diariooficial.gov.co",
+        "autoridad": "Diario Oficial de la República",
+        "incluyeSubdominios": false,
+        "transporteRelacionado": "diario-oficial",
+        "activo": false,
+        "verificadoEn": null,
+        "fuenteVerificacion": null,
+        "notas": "Candidato sin verificar contra la fuente oficial. Inactivo hasta registrar verificadoEn y fuenteVerificacion."
+      },
+      {
+        "host": "www.funcionpublica.gov.co",
+        "autoridad": "Función Pública (gestor normativo, según el transporte suin-normativo)",
+        "incluyeSubdominios": false,
+        "transporteRelacionado": "suin-normativo",
+        "activo": false,
+        "verificadoEn": null,
+        "fuenteVerificacion": null,
+        "notas": "Candidato sin verificar contra la fuente oficial. Inactivo hasta registrar verificadoEn y fuenteVerificacion. Confirmar si SUIN-Juriscol tiene un dominio propio que deba listarse."
+      },
+      {
+        "host": "www.congreso.gov.co",
+        "autoridad": "Congreso de la República de Colombia",
+        "incluyeSubdominios": false,
+        "transporteRelacionado": "congreso-republica",
+        "activo": false,
+        "verificadoEn": null,
+        "fuenteVerificacion": null,
+        "notas": "Candidato sin verificar contra la fuente oficial. Inactivo hasta registrar verificadoEn y fuenteVerificacion."
+      },
+      {
+        "host": "www.supersociedades.gov.co",
+        "autoridad": "Superintendencia de Sociedades",
+        "incluyeSubdominios": false,
+        "transporteRelacionado": "superintendencia-sociedades",
+        "activo": false,
+        "verificadoEn": null,
+        "fuenteVerificacion": null,
+        "notas": "Candidato sin verificar contra la fuente oficial. Inactivo hasta registrar verificadoEn y fuenteVerificacion."
+      },
+      {
+        "host": "www.dian.gov.co",
+        "autoridad": "Dirección de Impuestos y Aduanas Nacionales",
+        "incluyeSubdominios": false,
+        "transporteRelacionado": "dian",
+        "activo": false,
+        "verificadoEn": null,
+        "fuenteVerificacion": null,
+        "notas": "Candidato sin verificar contra la fuente oficial. Inactivo hasta registrar verificadoEn y fuenteVerificacion."
+      }
+    ]
   }
 }

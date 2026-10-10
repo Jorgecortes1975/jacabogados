@@ -12,3 +12,6 @@ node_modules/
 # Sistema operativo / editores
 .DS_Store
 *.log
+
+# Bitácora de auditoría del lector web (información reservada del despacho)
+logs/

@@ -157,6 +157,41 @@ node agente-juridico-especializado.js consulta reporte \
 
 ---
 
+## 🌐 Lectura Web de Dominios Oficiales
+
+Capacidad `lectura-web-oficial` del agente: lee una página publicada por una autoridad de la lista
+autorizada y devuelve su texto con trazabilidad (autoridad, dirección consultada y final, fecha y hora,
+huellas SHA-256). Especificación: `specs/002-lector-web-oficial/`.
+
+```bash
+# Ver los dominios autorizados y su estado (activo o pendiente de verificación)
+node agente-juridico-especializado.js fuentes-web
+
+# Leer una página de un dominio autorizado y activo
+node agente-juridico-especializado.js leer "https://<dominio-autorizado>/<ruta>" [--json]
+```
+
+**Advertencias**
+
+- El lector **NO determina vigencia**: todo resultado queda `PENDIENTE_VERIFICACION`. La verificación de vigencia,
+  modificaciones y derogatorias sigue siendo un paso posterior obligatorio contra la fuente oficial.
+- La lista de dominios (`lectorWeb.dominios` en `mcp-config.json`) es **subordinada a las 9 fuentes oficiales**: no
+  agrega una décima fuente ni amplía el catálogo del agente. Por eso no figura en la tabla de fuentes.
+- Los dominios iniciales son **candidatos sin verificar** y están inactivos. Un dominio solo se activa con
+  `activo: true` más `verificadoEn` y `fuenteVerificacion` (confirmación contra la fuente oficial de la entidad).
+  Mientras ninguno esté activo, el lector no lee nada.
+- Versión 1: solo páginas web con texto. Los PDF y otros formatos fallan con aviso explícito (consultar el documento
+  manualmente en la fuente).
+- No envía direcciones ni contenido a terceros, solo usa HTTPS en el puerto 443, bloquea destinos de red no públicos
+  y limita tamaño (5 MiB), tiempo (20 s) y redirecciones (3).
+- `leer` es un comando independiente; no forma parte de `consulta`.
+- La bitácora `logs/lector-web-auditoria.jsonl` registra las direcciones consultadas (no el contenido). Puede revelar
+  el asunto de una consulta: es local, no se versiona y debe protegerse como información reservada.
+- Requiere Node.js 20 o superior. Sin dependencias externas. Pruebas: `node --test tests/lector-web/*.test.js`
+  (pasar la carpeta como argumento falla en Node 22).
+
+---
+
 ## 🛡️ Garantías de Seguridad Jurídica
 
 ### Protección contra Alucinaciones

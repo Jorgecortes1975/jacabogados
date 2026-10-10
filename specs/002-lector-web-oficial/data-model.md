@@ -55,7 +55,7 @@ Esquema formal en [contracts/config-lector-web.schema.json](./contracts/config-l
 | metadatos.estadoHttp | entero | Código de respuesta. |
 | metadatos.tipoContenido | texto | Cabecera `Content-Type` normalizada. |
 | metadatos.bytes | entero | Bytes recibidos. |
-| metadatos.hashContenido | texto | SHA-256 hexadecimal de los bytes recibidos. Junto con `hashTexto` forma las huellas de integridad. |
+| metadatos.hashContenido | texto | SHA-256 hexadecimal del contenido ya descomprimido. Junto con `hashTexto` forma las huellas de integridad. |
 | metadatos.hashTexto | texto | SHA-256 hexadecimal del texto extraído. |
 | metadatos.estadoVigencia | texto | Siempre `PENDIENTE_VERIFICACION`. |
 | metadatos.tratamiento | texto | Siempre `DATO_NO_CONFIABLE`. |
