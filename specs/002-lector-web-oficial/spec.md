@@ -108,12 +108,12 @@ Un responsable del despacho puede consultar qué autoridades y dominios están a
 
 ### Casos Límite
 
-- Dirección sin protocolo seguro (http): se rechaza o se eleva a https solo si el dominio autorizado lo admite; nunca se lee en claro un destino que exija https.
+- Dirección sin protocolo seguro (http): se rechaza; no se eleva automáticamente a https ni se lee en claro.
 - Dirección con mayúsculas, puertos no estándar, caracteres internacionales o variantes de escritura del dominio: se normaliza antes de validar; las variantes engañosas se rechazan.
 - Subdominios de un dominio autorizado: se aceptan únicamente si la regla de la lista los cubre expresamente.
 - Sitio con certificado inválido o vencido: se rechaza la lectura y se informa; no se continúa.
 - Redirecciones en cadena o en ciclo: se limita el número de saltos y cada salto se vuelve a validar.
-- Documentos en PDF u otros formatos publicados por las cortes: el comportamiento depende del alcance definido en las Suposiciones.
+- Documentos en PDF u otros formatos publicados por las cortes: fuera de la versión 1; se rechazan con aviso explícito y se indica consultar el documento manualmente en la fuente.
 - Página que cambia entre dos lecturas: la huella y la fecha permiten detectar la diferencia.
 - Contenido con instrucciones dirigidas a un asistente de IA: se trata siempre como texto a leer, nunca como orden a ejecutar.
 - Fuente oficial caída o en mantenimiento: se informa la no disponibilidad y no se sustituye por otra fuente no autorizada.
@@ -165,7 +165,7 @@ Un responsable del despacho puede consultar qué autoridades y dominios están a
 
 - Usuarios: abogados y personal del despacho JAC, y el propio agente jurídico actuando por ellos.
 - Lista inicial: se deriva de las fuentes oficiales ya integradas. Los dominios candidatos son los de Corte Constitucional, Consejo de Estado, Corte Suprema de Justicia, SUIN-Juriscol, Diario Oficial / Imprenta Nacional, Secretaría del Senado, Congreso, Función Pública, Rama Judicial, Superintendencia de Sociedades y DIAN. **Cada dominio exacto debe verificarse contra la fuente oficial antes de activarse.** Esta especificación no declara como verificado ningún dominio.
-- Alcance de formatos v1: páginas web con texto. Los documentos en PDF y similares quedan fuera de la primera versión, salvo decisión posterior; su lectura debe fallar de forma explícita (RF-013).
+- Alcance de formatos v1: páginas web con texto. Los PDF y demás formatos quedan EXCLUIDOS de la primera versión (decisión confirmada por el usuario el 2026-10-10); su lectura falla de forma explícita (RF-013).
 - Alcance: lectura de una página por solicitud. No incluye rastreo masivo, búsqueda ni lectura de sitios que requieran inicio de sesión.
 - Esta funcionalidad aporta el texto y su trazabilidad; no determina vigencia, modificaciones ni derogatorias. Esa verificación sigue siendo un paso posterior obligatorio del protocolo del agente (principios I y II).
 - Restricción de ecosistema indicada por el usuario: se construye dentro del agente jurídico existente y su configuración de fuentes, en el mismo lenguaje del ecosistema, sin dependencias de otros lenguajes. Las decisiones técnicas detalladas corresponden al plan (`/speckit-plan`).

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Configuración del Lector Web Oficial (clave lectorWeb en mcp-config.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["enabled", "dominios"],
+  "properties": {
+    "enabled": { "type": "boolean", "default": true },
+    "maxBytes": { "type": "integer", "minimum": 1024, "maximum": 20971520, "default": 5242880 },
+    "timeoutMs": { "type": "integer", "minimum": 1000, "maximum": 60000, "default": 20000 },
+    "maxRedirecciones": { "type": "integer", "minimum": 0, "maximum": 5, "default": 3 },
+    "userAgent": { "type": "string", "default": "JAC-LectorWebOficial/1.0" },
+    "rutaAuditoria": { "type": "string", "default": "logs/lector-web-auditoria.jsonl" },
+    "dominios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["host", "autoridad", "activo"],
+        "properties": {
+          "host": {
+            "type": "string",
+            "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$"
+          },
+          "autoridad": { "type": "string", "minLength": 3 },
+          "incluyeSubdominios": { "type": "boolean", "default": false },
+          "transporteRelacionado": { "type": "string" },
+          "activo": { "type": "boolean", "default": false },
+          "verificadoEn": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "fuenteVerificacion": { "type": ["string", "null"], "minLength": 5 },
+          "notas": { "type": "string" }
+        },
+        "if": { "properties": { "activo": { "const": true } }, "required": ["activo"] },
+        "then": {
+          "required": ["verificadoEn", "fuenteVerificacion"],
+          "properties": {
+            "verificadoEn": { "type": "string" },
+            "fuenteVerificacion": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
