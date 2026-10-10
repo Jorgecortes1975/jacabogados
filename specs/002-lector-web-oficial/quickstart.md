@@ -11,8 +11,10 @@ Esta guía describe cómo comprobar que la funcionalidad cumple la especificaci�
 ## Escenario A: pruebas automáticas sin internet
 
 ```bash
-node --test tests/lector-web/
+node --test tests/lector-web/*.test.js
 ```
+
+Nota: con una carpeta como argumento (`node --test tests/lector-web/`) la ejecución falla en Node 22 (verificado: 1 prueba fallida, 0 aprobadas). Se usa el patrón de archivos. En Linux y macOS el intérprete de comandos expande el patrón; en Windows con Node 21 o superior se escribe entre comillas.
 
 Resultado esperado: todas las pruebas pasan. Cubren:
 1. Rechazo de dominios no autorizados y de dominios engañosos, sin abrir conexión (Historia 2, CE-001).

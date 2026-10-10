@@ -18,7 +18,7 @@ Decisión del usuario incorporada: los PDF quedan excluidos de la versión 1 y f
 
 **Almacenamiento**: Archivo de configuración `mcp-config.json` (lista de dominios y límites) y bitácora de auditoría en formato JSON Lines en `logs/lector-web-auditoria.jsonl` (excluida del control de versiones). El contenido leído no se persiste.
 
-**Pruebas**: `node:test` y `node:assert` nativos (`node --test`). Sin acceso a internet: se inyectan el resolutor DNS y la función de petición. Las pruebas de integración usan un servidor HTTPS local con un certificado de prueba incluido como archivo fijo (generado con `openssl`, no con `crypto`) y opciones de red exclusivas de prueba (puerto y certificado de confianza) que solo acepta el constructor, nunca la configuración.
+**Pruebas**: `node:test` y `node:assert` nativos (`node --test tests/lector-web/*.test.js`). Sin acceso a internet: se inyectan el resolutor DNS y la función de petición. Las pruebas de integración usan un servidor HTTPS local con un certificado de prueba incluido como archivo fijo (generado con `openssl`, no con `crypto`) y opciones de red exclusivas de prueba (puerto y certificado de confianza) que solo acepta el constructor, nunca la configuración.
 
 **Plataforma objetivo**: Línea de comandos y módulo importable por el agente, en Linux, macOS y Windows con Node.js.
 
