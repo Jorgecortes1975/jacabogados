@@ -59,7 +59,7 @@ Limitación aceptada y declarada: es menos robusto que un analizador HTML comple
 Alternativas descartadas: `cheerio` o `jsdom` (dependencias externas, contrarias a la instrucción salvo que sea imprescindible; se reconsidera si las pruebas con páginas reales muestran fallos graves), el servicio Jina Reader (envía la URL a un tercero, prohibido por el requisito).
 
 ### D-07. Límites
-Decisión: tamaño máximo 5 MiB sobre bytes recibidos y 5 MiB sobre bytes descomprimidos (los bytes descomprimidos se cuentan manualmente durante el flujo y se corta al exceder el límite; no se depende de `maxOutputLength` de `zlib`, cuyo alcance sobre flujos queda sujeto a verificación); tiempo máximo 20 s para toda la operación; máximo 3 redirecciones; solo puerto 443; solo `GET`; cabecera `Accept` limitada a `text/html, text/plain`; sin cookies; `User-Agent` identificable del despacho.
+Decisión: tamaño máximo 5 MiB sobre bytes recibidos y 5 MiB sobre bytes descomprimidos (los bytes descomprimidos se cuentan manualmente durante el flujo y se corta al exceder el límite; no se depende de `maxOutputLength` de `zlib`, cuyo alcance sobre flujos queda sujeto a verificación); tiempo máximo 20 s para toda la operación; máximo 3 redirecciones; solo puerto 443; solo `GET`; cabecera `Accept` limitada a `text/html, application/xhtml+xml, text/plain;q=0.9`; sin cookies; `User-Agent` identificable del despacho.
 Justificación: coherente con RF-008 y con el rango de valores del proyecto estudiado, con protección adicional contra archivos comprimidos que se expanden en exceso.
 Alternativas descartadas: sin límite de descompresión (riesgo de agotar memoria), confiar solo en `maxOutputLength` (alcance no confirmado).
 

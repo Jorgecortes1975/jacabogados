@@ -84,13 +84,17 @@ CLAUDE.md                          # se documenta el comando y la advertencia so
 .gitignore                         # se agrega logs/
 
 tests/lector-web/
+├── helpers.js                 # utilidades: servidor HTTPS local, resolutor y petición simulados
 ├── lista-autorizada.test.js
 ├── validacion-url.test.js
+├── auditoria.test.js
 ├── red-segura.test.js
 ├── extraccion-texto.test.js
 ├── integracion.test.js
 ├── vigencia-invariante.test.js
+├── cli.test.js
 └── fixtures/
+    └── openssl-prueba.cnf     # plantilla; el certificado se genera al ejecutar las pruebas
 ```
 
 **Decisión de estructura**: carpeta propia `lector-web/` en la raíz, coherente con la disposición plana del repositorio. Se separa por responsabilidad para que cada control de seguridad se pruebe de forma aislada.

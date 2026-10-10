@@ -528,3 +528,67 @@ test('[servidor local] la validación se repite al conectar: un DNS que cambia e
     await srv.cerrar();
   }
 });
+
+// ---------- Rutas de respuesta atípicas (verificadas con sondas en la tercera pasada de análisis) ----------
+
+async function leerConServidor(manejador, extra = {}) {
+  const srv = await servidorHttps(manejador);
+  try {
+    return await lectorLocal(srv, { extra }).lector.leer(`https://${HOST}/`);
+  } finally {
+    await srv.cerrar();
+  }
+}
+
+test('[servidor local] deflate y br se descomprimen y se leen', { skip: sinOpenssl }, async () => {
+  const zlib = require('node:zlib');
+  const cuerpo = Buffer.from(pagina(), 'utf8');
+  const casos = { deflate: zlib.deflateSync(cuerpo), br: zlib.brotliCompressSync(cuerpo) };
+  for (const [codificacion, datos] of Object.entries(casos)) {
+    const r = await leerConServidor((req, res) => {
+      res.writeHead(200, { 'content-type': 'text/html', 'content-encoding': codificacion });
+      res.end(datos);
+    });
+    assert.strictEqual(r.ok, true, `${codificacion}: ${JSON.stringify(r)}`);
+    assert.match(r.texto, /Texto jurídico de prueba/);
+  }
+});
+
+test('[servidor local] codificación de contenido desconocida → FORMATO_NO_SOPORTADO', { skip: sinOpenssl }, async () => {
+  const r = await leerConServidor((req, res) => {
+    res.writeHead(200, { 'content-type': 'text/html', 'content-encoding': 'zstd' });
+    res.end(pagina());
+  });
+  assert.strictEqual(r.codigo, 'FORMATO_NO_SOPORTADO');
+  assert.strictEqual(r.detalle.codificacion, 'zstd');
+});
+
+test('[servidor local] gzip corrupto → FUENTE_NO_DISPONIBLE', { skip: sinOpenssl }, async () => {
+  const r = await leerConServidor((req, res) => {
+    res.writeHead(200, { 'content-type': 'text/html', 'content-encoding': 'gzip' });
+    res.end(Buffer.from('esto no es gzip'));
+  });
+  assert.strictEqual(r.codigo, 'FUENTE_NO_DISPONIBLE');
+});
+
+test('[servidor local] redirección protocolo-relativa a otro dominio → FUENTE_NO_AUTORIZADA', { skip: sinOpenssl }, async () => {
+  const r = await leerConServidor((req, res) => { res.writeHead(302, { location: '//ejemplo.com/x' }); res.end(); });
+  assert.strictEqual(r.codigo, 'FUENTE_NO_AUTORIZADA');
+  assert.strictEqual(r.detalle.dominio, 'ejemplo.com');
+});
+
+test('[servidor local] 3xx sin Location (302 y 304) → FUENTE_NO_DISPONIBLE con el estado', { skip: sinOpenssl }, async () => {
+  for (const estado of [302, 304]) {
+    const r = await leerConServidor((req, res) => { res.writeHead(estado); res.end(); });
+    assert.strictEqual(r.codigo, 'FUENTE_NO_DISPONIBLE', `estado ${estado}`);
+    assert.strictEqual(r.detalle.estadoHttp, estado);
+  }
+});
+
+test('[servidor local] cabeceras de más de 16 KB → FUENTE_NO_DISPONIBLE', { skip: sinOpenssl }, async () => {
+  const r = await leerConServidor((req, res) => {
+    res.writeHead(200, { 'content-type': 'text/html', 'x-grande': 'a'.repeat(20000) });
+    res.end(pagina());
+  });
+  assert.strictEqual(r.codigo, 'FUENTE_NO_DISPONIBLE');
+});

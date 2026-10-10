@@ -21,6 +21,30 @@ new LectorWebOficial({
 
 Si la configuración es inválida, el constructor no lanza: deja el lector en estado deshabilitado y toda lectura devuelve `LECTOR_DESHABILITADO` con el motivo (falla cerrada).
 
+### Función de petición inyectable (`requestFn`)
+
+Por defecto el lector usa la descarga real de `lector-web/red-segura.js`. Para pruebas puede sustituirse con una función asíncrona que recibe un único objeto y realiza **una sola petición, sin seguir redirecciones** (el lector revalida cada salto):
+
+```js
+requestFn({
+  url,               // objeto URL ya validado y autorizado
+  timeoutMs,         // tiempo restante de toda la operación
+  maxBytes,          // tamaño máximo permitido
+  userAgent,
+  lookup,            // función lookup que valida el destino al conectar (úsese si abre una conexión real)
+  opcionesRedPrueba, // { puerto, ca, permitirLoopback } congelado
+})
+```
+
+Devuelve una de dos formas:
+
+```js
+{ estado, cabeceras, cuerpo /* Buffer ya descomprimido */, bytesRecibidos }  // respuesta final
+{ estado, cabeceras, redireccion /* valor del encabezado Location */ }        // redirección
+```
+
+Para señalar un fallo con código propio puede lanzar `ErrorLector(codigo, detalle)` (exportado por `red-segura.js`); cualquier otra excepción se convierte en `FUENTE_NO_DISPONIBLE`. Aunque la función sea simulada, el lector verifica antes el destino con el resolutor inyectado (`resolver`) y comprueba como respaldo que el cuerpo no supere `maxBytes`.
+
 ## Métodos
 
 ### `leer(url: string): Promise<ResultadoLectura | FalloLectura>`

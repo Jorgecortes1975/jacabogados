@@ -177,7 +177,7 @@ description: "Lista de tareas: Lector Web de Fuentes Oficiales"
 - [X] T040 Ejecutar `node --test tests/lector-web/*.test.js` (no la carpeta: falla en Node 22) y confirmar que todas las pruebas pasan sin acceso a internet (Escenario A de quickstart.md)
 - [X] T041 [P] Revisar adversarialmente `lector-web/` contra la lista de comprobación del plan: no hay dependencias externas, no hay llamadas a servicios de terceros, la verificación TLS nunca se desactiva, la vigencia no se puede cambiar, el contenido leído no se registra
 - [X] T042 [P] Ejecutar los escenarios B, C, E y F de quickstart.md y anotar el resultado en `specs/002-lector-web-oficial/checklists/requirements.md`
-- [ ] T043 Ejecutar `/speckit-analyze` otra vez sobre el código terminado y corregir las inconsistencias que aparezcan
+- [X] T043 Ejecutar `/speckit-analyze` otra vez sobre el código terminado y corregir las inconsistencias que aparezcan
 
 ---
 

@@ -39,7 +39,7 @@
 
 Escenarios de `quickstart.md` ejecutados en la sesión de implementación:
 
-- Escenario A (pruebas sin internet): `node --test tests/lector-web/*.test.js` → 256 pruebas, todas aprobadas, en unos 4 segundos.
+- Escenario A (pruebas sin internet): `node --test tests/lector-web/*.test.js` → 262 pruebas, todas aprobadas, en unos 4 segundos.
 - Escenario B (`fuentes-web`): lista los 9 dominios candidatos, todos "pendiente de verificación", Total: 9 | Activos: 0.
 - Escenario C (`leer` de dominio no autorizado): `FUENTE_NO_AUTORIZADA`, mensaje en español, código de salida 1, sin conexión de red.
 - Escenario F (bitácora): un registro por ejecución, sin el contenido, carpeta 0700 y archivo 0600.
@@ -48,3 +48,5 @@ Escenarios de `quickstart.md` ejecutados en la sesión de implementación:
 - CE-006 (comprensión del resultado por abogados sin formación técnica): validación posterior al uso, pendiente.
 
 Hallazgo de la revisión adversarial (T041): el extractor inicial, basado en expresiones regulares perezosas, tardaba más de 25 s con 5 MiB de HTML roto u hostil y bloqueaba el proceso. Se reemplazó por un recorrido lineal (10 a 184 ms en los mismos casos) con pruebas de regresión.
+
+Tercera pasada de `/speckit-analyze` sobre el código terminado (T043): sin hallazgos críticos ni altos nuevos. Corregidos J1 a J4 (contrato de `requestFn`, cabecera `Accept` en D-07, árbol de pruebas del plan y 6 pruebas de rutas atípicas: deflate, br, codificación desconocida, gzip corrupto, redirección protocolo-relativa, 3xx sin Location y cabeceras de más de 16 KB). Pendientes por decisión o entorno: J5 (política de retención de la bitácora), J6 (probar en Node 20; solo se ejecutó en Node 22.22.0) y J7 (comando `consulta`, G005).
