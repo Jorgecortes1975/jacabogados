@@ -17,7 +17,7 @@ description: "Lista de tareas: Lector Web de Fuentes Oficiales"
 
 - **[P]**: se puede ejecutar en paralelo (archivos distintos, sin dependencia de tareas incompletas)
 - **[Historia]**: US1 a US6, según spec.md
-- Convenciones: código en `lector-web/`, pruebas en `tests/lector-web/`, ejecutadas con `node --test`. Sin dependencias externas. Todo mensaje al usuario en español.
+- Convenciones: código en `lector-web/`, pruebas en `tests/lector-web/`, ejecutadas con `node --test tests/lector-web/*.test.js` (pasar una carpeta como argumento falla en Node 22). Sin dependencias externas. Todo mensaje al usuario en español.
 
 ---
 
@@ -38,11 +38,11 @@ description: "Lista de tareas: Lector Web de Fuentes Oficiales"
 **⚠️ CRÍTICO**: ninguna historia puede empezar antes de terminar esta fase
 
 - [ ] T004 Implementar en `lector-web/resultado.js` la constante congelada `ESTADO_VIGENCIA = 'PENDIENTE_VERIFICACION'`, el objeto congelado `CODIGOS_FALLO`, el texto en español de cada código y los constructores `resultadoExitoso()` y `fallo()` según data-model.md. Ningún constructor acepta un estado de vigencia distinto
-- [ ] T005 [P] Escribir en `tests/lector-web/lista-autorizada.test.js` las pruebas de carga de configuración: `activo: true` sin `verificadoEn` o sin `fuenteVerificacion` invalida la configuración, hosts duplicados, host con IP, puerto, ruta, esquema o caracteres no ASCII, entradas inactivas ignoradas, y falla cerrada (`LECTOR_DESHABILITADO`). Incluir: una configuración con las claves `puerto`, `ca` u `opcionesRedPrueba` se rechaza (la configuración de producción no puede cambiar el puerto ni el certificado de confianza)
+- [ ] T005 [P] Escribir en `tests/lector-web/lista-autorizada.test.js` las pruebas de carga de configuración: `activo: true` sin `verificadoEn` o sin `fuenteVerificacion` invalida la configuración, hosts duplicados, host con IP, puerto, ruta, esquema o caracteres no ASCII, entradas inactivas ignoradas, y falla cerrada (`LECTOR_DESHABILITADO`). Incluir: una configuración con las claves `puerto`, `ca`, `permitirLoopback` u `opcionesRedPrueba` se rechaza (la configuración de producción no puede cambiar el puerto, el certificado de confianza ni exonerar la dirección local)
 - [ ] T006 Implementar en `lector-web/lista-autorizada.js` la carga y validación de `lectorWeb` desde `mcp-config.json` (o desde el objeto inyectado), con valores por defecto de data-model.md y conforme a `contracts/config-lector-web.schema.json`. Hacer pasar T005
 - [ ] T007 [P] Escribir en `tests/lector-web/auditoria.test.js` las pruebas de la bitácora: una línea JSON por solicitud, campos de data-model.md, sin texto de la página, creación de la carpeta si no existe
 - [ ] T008 [P] Implementar en `lector-web/auditoria.js` el registro JSON Lines con permisos restrictivos (0600 donde el sistema lo permita). Hacer pasar T007
-- [ ] T009 Crear en `lector-web/index.js` la clase `LectorWebOficial` con constructor inyectable (`config`, `resolver`, `requestFn`, `ahora`, `rutaAuditoria` y `opcionesRedPrueba` con `puerto` y `ca`, esta última documentada como exclusiva de pruebas y leída solo del constructor), método `estado()` y `leer()` provisional que devuelve `LECTOR_DESHABILITADO` si la configuración es inválida. Exportar `LectorWebOficial`, `ESTADO_VIGENCIA` y `CODIGOS_FALLO` según contracts/modulo-lector.md
+- [ ] T009 Crear en `lector-web/index.js` la clase `LectorWebOficial` con constructor inyectable (`config`, `resolver`, `requestFn`, `ahora`, `rutaAuditoria` y `opcionesRedPrueba` con `puerto`, `ca` y `permitirLoopback`, documentada como exclusiva de pruebas y leída solo del constructor), método `estado()` y `leer()` provisional que devuelve `LECTOR_DESHABILITADO` si la configuración es inválida. Exportar `LectorWebOficial`, `ESTADO_VIGENCIA` y `CODIGOS_FALLO` según contracts/modulo-lector.md
 
 **Punto de control**: base lista; pueden comenzar las historias
 
@@ -58,7 +58,7 @@ description: "Lista de tareas: Lector Web de Fuentes Oficiales"
 
 - [ ] T010 [P] [US2] Pruebas de normalización y validación en `tests/lector-web/validacion-url.test.js`: solo `https`, puerto 443, sin credenciales, mayúsculas, puerto explícito, nombres internacionales, host con punto final, direcciones IP literales (v4, v6, decimales y octales)
 - [ ] T011 [P] [US2] Pruebas de coincidencia en `tests/lector-web/lista-autorizada.test.js`: coincidencia exacta, subdominio solo con `incluyeSubdominios`, dominios engañosos (`dian.gov.co.ejemplo.com`, `www.dian.gov.co@ejemplo.com`, `dian.gov.co.` con punto final, `xdian.gov.co`), dominio inactivo rechazado
-- [ ] T012 [US2] Prueba de integración en `tests/lector-web/integracion.test.js`: con `requestFn` espía, una dirección no autorizada devuelve `FUENTE_NO_AUTORIZADA` y el espía registra cero llamadas
+- [ ] T012 [US2] Prueba de integración en `tests/lector-web/integracion.test.js` (modo: función de petición simulada): con `requestFn` espía, una dirección no autorizada devuelve `FUENTE_NO_AUTORIZADA` y el espía registra cero llamadas
 
 ### Implementación de la Historia 2
 
@@ -80,12 +80,12 @@ description: "Lista de tareas: Lector Web de Fuentes Oficiales"
 
 - [ ] T016 [P] [US3] Pruebas de rangos en `tests/lector-web/red-segura.test.js` para cada rango de D-05 en IPv4 e IPv6, direcciones IPv4 mapeadas en IPv6, `169.254.169.254`, y direcciones públicas válidas aceptadas
 - [ ] T017 [US3] Pruebas de resolución en `tests/lector-web/red-segura.test.js` (mismo archivo que T016, por eso sin [P]): un nombre autorizado que resuelve a un rango prohibido devuelve `DESTINO_NO_PUBLICO`; si el resolutor devuelve varias direcciones y una es prohibida, se rechaza; el resolutor se vuelve a consultar en cada redirección; la `lookup` se prueba en sus dos modos de llamada (una dirección y todas las direcciones, `all: true`)
-- [ ] T018 [US3] Pruebas de redirección en `tests/lector-web/integracion.test.js`: redirección a dominio no autorizado → `FUENTE_NO_AUTORIZADA`; a destino no público → `DESTINO_NO_PUBLICO`; a `http` → `URL_INVALIDA`; más de 3 saltos o ciclo → `DEMASIADAS_REDIRECCIONES`; las conexiones registradas solo van a hosts autorizados; la petición saliente no lleva cabeceras `Cookie` ni `Authorization` (RF-018); una dirección con puerto distinto de 443 → `URL_INVALIDA`
+- [ ] T018 [US3] Pruebas de redirección y de red en `tests/lector-web/integracion.test.js` (modo: servidor local con el código real de red): redirección a dominio no autorizado → `FUENTE_NO_AUTORIZADA`; a destino no público → `DESTINO_NO_PUBLICO`; a `http` → `URL_INVALIDA`; más de 3 saltos o ciclo → `DEMASIADAS_REDIRECCIONES`; las conexiones registradas solo van a hosts autorizados; la petición saliente no lleva cabeceras `Cookie` ni `Authorization` (RF-018); una dirección con puerto distinto de 443 → `URL_INVALIDA`
 
 ### Implementación de la Historia 3
 
 - [ ] T019 [P] [US3] Implementar en `lector-web/red-segura.js` la función `esDireccionProhibida()` con aritmética propia sobre `net` y los rangos de D-05
-- [ ] T020 [US3] Implementar en `lector-web/red-segura.js` la función `lookup` validada (debe atender tanto la llamada que pide una dirección como la que pide todas con `all: true`, y validar todas las devueltas; sujeto a verificación en Node 20 o superior) y la petición `https.request` con esa `lookup`, aplicando `opcionesRedPrueba` solo si el constructor las recibió, sin reutilizar conexiones, sin cookies, `GET` con `Accept: text/html, text/plain`, verificación TLS siempre activa y seguimiento automático de redirecciones desactivado (D-02)
+- [ ] T020 [US3] Implementar en `lector-web/red-segura.js` la función `lookup` validada (debe atender tanto la llamada que pide una dirección como la que pide todas con `all: true`, y validar todas las devueltas; sujeto a verificación en Node 20 o superior) y la petición `https.request` con esa `lookup`, aplicando `opcionesRedPrueba` solo si el constructor las recibió (`permitirLoopback` exonera únicamente 127.0.0.0/8 y ::1, que es donde escucha el servidor de prueba; los demás rangos de D-05 siguen prohibidos), sin reutilizar conexiones, sin cookies, `GET` con `Accept: text/html, text/plain`, verificación TLS siempre activa y seguimiento automático de redirecciones desactivado (D-02)
 - [ ] T021 [US3] Implementar en `lector-web/red-segura.js` el manejo manual de redirecciones: cada salto vuelve a pasar por T013 y T014, con tope de `maxRedirecciones` (D-07) y registro de la cadena
 - [ ] T022 [US3] Conectar en `lector-web/index.js` el paso de descarga tras la autorización. Hacer pasar T016 a T018
 
@@ -104,9 +104,9 @@ description: "Lista de tareas: Lector Web de Fuentes Oficiales"
 ### Pruebas de la Historia 1 ⚠️
 
 - [ ] T023 [P] [US1] Pruebas de extracción en `tests/lector-web/extraccion-texto.test.js` con fixtures HTML: eliminación de `script`, `style`, navegación y pie; saltos de línea por bloque; entidades nombradas y numéricas; codificaciones UTF-8 e ISO-8859-1 declaradas por cabecera y por `<meta>`; HTML mal formado
-- [ ] T024 [P] [US1] Prueba de integración en `tests/lector-web/integracion.test.js` (T026 va después por compartir archivo): lectura exitosa devuelve todos los metadatos de data-model.md, fecha en ISO 8601 UTC, `hashContenido` y `hashTexto` en SHA-256 hexadecimal, y dos lecturas del mismo contenido dan huellas iguales mientras un cambio las modifica
+- [ ] T024 [P] [US1] Prueba de integración en `tests/lector-web/integracion.test.js` (T026 va después por compartir archivo; modo: servidor local con el código real de red): lectura exitosa devuelve todos los metadatos de data-model.md, fecha en ISO 8601 UTC, `hashContenido` y `hashTexto` en SHA-256 hexadecimal, y dos lecturas del mismo contenido dan huellas iguales mientras un cambio las modifica
 - [ ] T025 [P] [US1] Prueba de invariante en `tests/lector-web/vigencia-invariante.test.js`: recorre todos los resultados exitosos de las pruebas de integración y falla si `estadoVigencia` no es `PENDIENTE_VERIFICACION`; comprueba que `resultado.js` no exporta forma alguna de establecer otro valor
-- [ ] T026 [US1] Prueba de contenido hostil en `tests/lector-web/integracion.test.js`: una página con instrucciones dirigidas a un asistente de IA se devuelve como texto, con `tratamiento: DATO_NO_CONFIABLE`, sin alterar ningún comportamiento (CE-007)
+- [ ] T026 [US1] Prueba de contenido hostil en `tests/lector-web/integracion.test.js` (modo: función de petición simulada): una página con instrucciones dirigidas a un asistente de IA se devuelve como texto, con `tratamiento: DATO_NO_CONFIABLE`, sin alterar ningún comportamiento (CE-007)
 
 ### Implementación de la Historia 1
 
@@ -126,7 +126,7 @@ description: "Lista de tareas: Lector Web de Fuentes Oficiales"
 
 ### Pruebas de la Historia 4 ⚠️
 
-- [ ] T030 [P] [US4] Pruebas en `tests/lector-web/red-segura.test.js`: cuerpo mayor a `maxBytes` → `TAMANO_EXCEDIDO` sin entregar contenido parcial; cuerpo comprimido pequeño que supera el límite al descomprimirse → `TAMANO_EXCEDIDO`; servidor que no responde o responde con lentitud → `TIEMPO_AGOTADO` en el tiempo configurado
+- [ ] T030 [P] [US4] Pruebas en `tests/lector-web/red-segura.test.js` (modo: servidor local con el código real de red): cuerpo mayor a `maxBytes` → `TAMANO_EXCEDIDO` sin entregar contenido parcial; cuerpo comprimido pequeño que supera el límite al descomprimirse → `TAMANO_EXCEDIDO`; servidor que no responde o responde con lentitud → `TIEMPO_AGOTADO` en el tiempo configurado
 
 ### Implementación de la Historia 4
 
@@ -142,7 +142,7 @@ description: "Lista de tareas: Lector Web de Fuentes Oficiales"
 
 ### Pruebas de la Historia 5 ⚠️
 
-- [ ] T032 [P] [US5] Pruebas en `tests/lector-web/extraccion-texto.test.js` y `integracion.test.js`: estados 403, 429 y 503 con marcadores de desafío → `DESAFIO_ANTIROBOT`; `application/pdf` y firma `%PDF-` con tipo declarado distinto → `FORMATO_NO_SOPORTADO` con mensaje específico sobre PDF fuera de la versión 1; otros tipos → `FORMATO_NO_SOPORTADO`; texto extraído menor al umbral → `SIN_TEXTO`; certificado inválido → `CERTIFICADO_INVALIDO`; error de conexión o estado 5xx → `FUENTE_NO_DISPONIBLE`. Verificar además que el mensaje de cada uno de los 12 códigos de `CODIGOS_FALLO` está redactado en español y no está vacío (RF-017)
+- [ ] T032 [P] [US5] Pruebas en `tests/lector-web/extraccion-texto.test.js` y `integracion.test.js` (modo: función de petición simulada, salvo `CERTIFICADO_INVALIDO`, que usa el servidor local sin el certificado de confianza): estados 403, 429 y 503 con marcadores de desafío → `DESAFIO_ANTIROBOT`; `application/pdf` y firma `%PDF-` con tipo declarado distinto → `FORMATO_NO_SOPORTADO` con mensaje específico sobre PDF fuera de la versión 1; otros tipos → `FORMATO_NO_SOPORTADO`; texto extraído menor al umbral → `SIN_TEXTO`; certificado inválido → `CERTIFICADO_INVALIDO`; error de conexión o estado 5xx → `FUENTE_NO_DISPONIBLE`. Verificar además que el mensaje de cada uno de los 12 códigos de `CODIGOS_FALLO` está redactado en español y no está vacío (RF-017)
 
 ### Implementación de la Historia 5
 
@@ -174,7 +174,7 @@ description: "Lista de tareas: Lector Web de Fuentes Oficiales"
 
 **Propósito**: cierre, revisión de seguridad y evidencia
 
-- [ ] T040 Ejecutar `node --test tests/lector-web/` y confirmar que todas las pruebas pasan sin acceso a internet (Escenario A de quickstart.md)
+- [ ] T040 Ejecutar `node --test tests/lector-web/*.test.js` (no la carpeta: falla en Node 22) y confirmar que todas las pruebas pasan sin acceso a internet (Escenario A de quickstart.md)
 - [ ] T041 [P] Revisar adversarialmente `lector-web/` contra la lista de comprobación del plan: no hay dependencias externas, no hay llamadas a servicios de terceros, la verificación TLS nunca se desactiva, la vigencia no se puede cambiar, el contenido leído no se registra
 - [ ] T042 [P] Ejecutar los escenarios B, C, E y F de quickstart.md y anotar el resultado en `specs/002-lector-web-oficial/checklists/requirements.md`
 - [ ] T043 Ejecutar `/speckit-analyze` otra vez sobre el código terminado y corregir las inconsistencias que aparezcan

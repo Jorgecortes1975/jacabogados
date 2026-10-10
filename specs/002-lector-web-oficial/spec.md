@@ -115,7 +115,7 @@ Un responsable del despacho puede consultar qué autoridades y dominios están a
 - Sitio con certificado inválido o vencido: se rechaza la lectura y se informa; no se continúa.
 - Redirecciones en cadena o en ciclo: se limita el número de saltos y cada salto se vuelve a validar.
 - Documentos en PDF u otros formatos publicados por las cortes: fuera de la versión 1; se rechazan con aviso explícito y se indica consultar el documento manualmente en la fuente.
-- Página que cambia entre dos lecturas: la huella y la fecha permiten detectar la diferencia.
+- Página que cambia entre dos lecturas: las huellas y la fecha permiten detectar la diferencia.
 - Contenido con instrucciones dirigidas a un asistente de IA: se trata siempre como texto a leer, nunca como orden a ejecutar.
 - Fuente oficial caída o en mantenimiento: se informa la no disponibilidad y no se sustituye por otra fuente no autorizada.
 

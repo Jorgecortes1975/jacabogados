@@ -15,7 +15,7 @@ new LectorWebOficial({
   requestFn,       // opcional, inyectable para pruebas
   ahora,           // opcional, () => Date
   rutaAuditoria,   // opcional, sobrescribe la ruta de la bitácora
-  opcionesRedPrueba // EXCLUSIVO DE PRUEBAS: { puerto, ca }. Solo se lee del constructor; nunca de mcp-config.json
+  opcionesRedPrueba // EXCLUSIVO DE PRUEBAS: { puerto, ca, permitirLoopback }. Solo se lee del constructor; nunca de mcp-config.json
 })
 ```
 
