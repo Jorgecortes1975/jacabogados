@@ -85,6 +85,19 @@ def hallazgos_de_citas(citas: List[dict]) -> List[Hallazgo]:
     return out
 
 
+def hallazgos_de_vigencia(citas: List[dict]) -> List[Hallazgo]:
+    """Una vez por norma distinta: existir no es estar vigente."""
+    out, vistas = [], set()
+    for c in citas:
+        v = c.get("vigencia")
+        if c["clase"] != "norma" or not v or c["clave"] in vistas or v["estado"] == "confirmada_manual":
+            continue
+        vistas.add(c["clave"])
+        cod = "NORMA_DEROGACION_REGISTRADA" if v["estado"] == "derogacion_registrada" else "VIGENCIA_NO_DETERMINADA"
+        out.append(Hallazgo(cod, PENDIENTE, f"{c['texto']}: {v['detalle']}", f"línea {c['linea']}, párrafo {c['parrafo']}"))
+    return out
+
+
 def decidir(hallazgos: List[Hallazgo]) -> str:
     if any(h.gravedad == CRITICO for h in hallazgos):
         return "BLOCKED"

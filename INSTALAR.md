@@ -509,3 +509,16 @@ node agente-juridico-especializado.js consulta validar-escrito escrito.txt
 
 Códigos de salida: 0 PASS_AUTOMATICO, 1 CONDITIONAL, 2 BLOCKED, 3 error de uso. Acepta .txt, .md y .docx (no PDF).
 Protocolo completo: `protocolos/JAC-GAUNTLET-ELITE.md`.
+
+## Conector de normas
+
+```bash
+python3 -m normas_col listar                                   # catálogo verificado (13 normas de uso frecuente)
+python3 -m normas_col consultar "Ley 1437 de 2011" [--en-vivo]
+python3 -m normas_col agregar "Ley 57 de 1887" --id <id> --expedida 1887-04-15   # norma verificada por usted en fuente oficial
+python3 -m normas_col confirmar "Ley 1437 de 2011" --por "Nombre" --fuente "SUIN-Juriscol" --nota "art. 142 vigente"
+python3 -m gauntlet_jac validar-escrito escrito.docx --en-vivo
+```
+
+El conector acredita existencia y fecha de expedición, nunca vigencia. Una norma que no figura queda PENDIENTE, no inexistente.
+El catálogo propio se guarda en `normas_usuario.json` y las confirmaciones en `normas_confirmadas.json` (variables `JAC_NORMAS_CATALOGO` y `JAC_NORMAS_CONFIRMACIONES`).

@@ -254,6 +254,7 @@ Controles automáticos reproducibles (no sustituyen la revisión del abogado):
 ```bash
 python3 -m gauntlet_jac validar-escrito escrito.docx --radicado <radicado> [--previo ronda1.json --json ronda2.json]
 python3 -m gauntlet_jac inventario ./expediente
+python3 -m normas_col consultar "Ley 1437 de 2011"   # existencia, nunca vigencia
 ```
 
 ---

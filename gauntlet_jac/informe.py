@@ -10,22 +10,24 @@ from . import controles as C
 from .extractor import extraer_citas, extraer_fechas
 from .verificador import Verificador
 
-LIMITES = ("Este control cubre solo verificaciones mecánicas (existencia de citas de la Corte Constitucional, "
-           "fechas, relleno pendiente y radicados). NO verifica hechos, pruebas, vigencia de normas, términos, "
+LIMITES = ("Este control cubre solo verificaciones mecánicas (existencia de citas de la Corte Constitucional y de normas del catálogo, "
+           "fechas, relleno pendiente y radicados). NO determina la vigencia de normas ni el texto de sus artículos, y no verifica hechos, pruebas, términos, "
            "cálculos ni estrategia. Requiere revisión adversarial y revisión final del abogado responsable.")
 
 
 def ejecutar(texto: str, fecha_ref: Optional[date] = None, radicado: Optional[str] = None,
-             cliente=None, sin_red: bool = False, previo: Optional[dict] = None) -> dict:
+             cliente=None, sin_red: bool = False, previo: Optional[dict] = None,
+             en_vivo: bool = False, catalogo_normas: Optional[dict] = None, ruta_confirmaciones: Optional[str] = None) -> dict:
     fecha_ref = fecha_ref or date.today()
-    v = Verificador(cliente=cliente, sin_red=sin_red)
+    v = Verificador(cliente=cliente, sin_red=sin_red, fecha_ref=fecha_ref, en_vivo=en_vivo,
+                    catalogo_normas=catalogo_normas, ruta_confirmaciones=ruta_confirmaciones)
     citas = []
     for c in extraer_citas(texto, fecha_ref):
         r = v.cc(c) if c.clase == "cc" else v.otra(c)
         citas.append({"clase": c.clase, "texto": c.texto, "clave": c.clave, "linea": c.linea,
                       "columna": c.columna, "parrafo": c.parrafo, **r})
     hallazgos: List[C.Hallazgo] = (
-        C.hallazgos_de_citas(citas) + C.controlar_placeholders(texto)
+        C.hallazgos_de_citas(citas) + C.hallazgos_de_vigencia(citas) + C.controlar_placeholders(texto)
         + C.controlar_fechas(extraer_fechas(texto), fecha_ref) + C.controlar_radicados(texto, radicado))
     if not citas:
         hallazgos.append(C.Hallazgo("SIN_CITAS", C.ADVERTENCIA, "No se detectaron citas normativas ni jurisprudenciales para validar"))

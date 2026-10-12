@@ -105,8 +105,14 @@ def test_apariciones_repetidas_se_reportan_todas_pero_se_consulta_una_vez():
     assert len(i["citas"]) == 2 and len([u for u in llamadas if "datos.gov.co" in u]) == 1
 
 
-def test_normas_nunca_se_dan_por_verificadas():
+def test_norma_del_catalogo_existe_pero_su_vigencia_queda_pendiente():
     i = informe.ejecutar("Ley 100 de 1993.", REF, cliente=cliente(fuentes()))
+    assert i["citas"][0]["estado"] == "verificada"
+    assert [h["codigo"] for h in i["hallazgos"]] == ["VIGENCIA_NO_DETERMINADA"] and i["estado"] == "CONDITIONAL"
+
+
+def test_norma_fuera_del_catalogo_queda_pendiente_no_inexistente():
+    i = informe.ejecutar("Ley 57 de 1887.", REF, cliente=cliente(fuentes()))
     assert i["citas"][0]["estado"] == "pendiente" and i["estado"] == "CONDITIONAL"
 
 

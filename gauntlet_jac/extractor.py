@@ -23,7 +23,7 @@ RE_CS = re.compile(r"(?<![A-Za-z0-9])(?P<tipo>SL|SC|SP|STL|STC|STP)(?P<num>\d{1,
 RE_NORMA = re.compile(
     r"\b(?P<tipo>Ley|Decreto(?:[ -]Ley)?|Decreto Legislativo|Resoluci[oó]n|Acuerdo|Acto Legislativo|Circular)"
     r"\s+(?:No\.?|N[úu]mero|N[úu]m\.)?\s*(?P<num>\d{1,4}(?:\.\d{3})?)\s+(?:de|del)\s+"
-    r"(?:\d{1,2}\s+de\s+[A-Za-zñáéíóú]+\s+de\s+)?(?P<anio>\d{4})\b", re.IGNORECASE)
+    r"(?:(?P<dia>\d{1,2})\s+de\s+(?P<mes>[A-Za-zñáéíóú]+)\s+de\s+)?(?P<anio>\d{4})\b", re.IGNORECASE)
 RE_FECHA = re.compile(r"\b(?P<d>\d{1,2})\s+de\s+(?P<m>[A-Za-zñáéíóú]+)\s+(?:de|del)\s+(?P<y>\d{4})\b", re.IGNORECASE)
 RE_ISO = re.compile(r"\b(?P<y>\d{4})-(?P<m>\d{2})-(?P<d>\d{2})\b")
 RE_RADICADO = re.compile(r"(?<!\d)\d{5}-?\d{2}-?\d{2}-?\d{3}-?\d{4}-?\d{5}-?\d{2}(?!\d)")
@@ -46,6 +46,7 @@ class Cita:
     parrafo: int
     contexto: str = ""    # texto inmediato posterior (para ponente)
     problema: str = ""    # formato imposible detectado al extraer
+    fecha: str = ""       # fecha completa citada (AAAA-MM-DD), si el escrito la incluye
 
 
 @dataclass
@@ -86,7 +87,14 @@ def extraer_citas(texto: str, hoy: Optional[date] = None) -> List[Cita]:
         anio = int(m.group("anio"))
         linea, col, par = ubicacion(texto, m.start())
         prob = "" if 1886 <= anio <= hoy.year else f"Año {anio} imposible para una norma colombiana vigente"
-        citas.append(Cita("norma", m.group(0), f"{tipo} {int(num)} de {anio}", linea, col, par, problema=prob))
+        fecha = ""
+        if m.group("dia"):
+            mes = MESES.get(sin_acentos(m.group("mes")).lower())
+            try:
+                fecha = date(anio, mes, int(m.group("dia"))).isoformat() if mes else ""
+            except ValueError:
+                fecha = ""
+        citas.append(Cita("norma", m.group(0), f"{tipo} {int(num)} de {anio}", linea, col, par, problema=prob, fecha=fecha))
     return sorted(citas, key=lambda c: (c.linea, c.columna))
 
 
