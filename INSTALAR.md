@@ -494,3 +494,18 @@ Requiere salida HTTPS a: www.datos.gov.co, www.corteconstitucional.gov.co,
 jurisprudencia.ramajudicial.gov.co y samai.consejodeestado.gov.co. Si `verificar` muestra
 403 en CONNECT, la red o el proxy del entorno bloquea el host.
 Variable opcional: SOCRATA_APP_TOKEN (eleva el límite de consultas a datos.gov.co).
+
+---
+
+## Controles JAC Gauntlet Elite
+
+```bash
+python3 -m pytest -q tests_gauntlet tests_jurisprudencia   # pruebas sin red
+python3 -m gauntlet_jac validar-escrito escrito.txt --radicado 11001310500120200012300 --json ronda1.json
+python3 -m gauntlet_jac validar-escrito escrito_corregido.txt --previo ronda1.json --json ronda2.json
+python3 -m gauntlet_jac inventario ./carpeta-expediente
+node agente-juridico-especializado.js consulta validar-escrito escrito.txt
+```
+
+Códigos de salida: 0 PASS_AUTOMATICO, 1 CONDITIONAL, 2 BLOCKED, 3 error de uso. Acepta .txt, .md y .docx (no PDF).
+Protocolo completo: `protocolos/JAC-GAUNTLET-ELITE.md`.

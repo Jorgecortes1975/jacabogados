@@ -59,3 +59,23 @@ def descargar_texto(cita: str, cliente=None) -> Tuple[str, str]:
         if r.status_code == 200:
             return url, html_a_texto(decodificar(r))
     return urls[0], ""
+
+
+def estado_url(url: str, cliente=None) -> int:
+    """Código HTTP de la URL sin descargar el texto (HEAD; si no se admite, GET en streaming)."""
+    from .http import FuenteNoDisponible, nuevo_cliente
+    import httpx
+
+    propio = cliente is None
+    cli = cliente or nuevo_cliente()
+    try:
+        r = cli.head(url)
+        if r.status_code in (405, 501):
+            with cli.stream("GET", url) as g:
+                return g.status_code
+        return r.status_code
+    except httpx.HTTPError as e:
+        raise FuenteNoDisponible(f"{url} -> {type(e).__name__}: {e}") from e
+    finally:
+        if propio:
+            cli.close()
