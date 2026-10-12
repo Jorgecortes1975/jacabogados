@@ -1,0 +1,38 @@
+# JAC Legal OS: agente jurídico de derecho colombiano
+
+Verificación determinista de citas y normas, control Gauntlet de escritos e inventario documental, más un agente (Claude) que razona sobre esas verificaciones. No requiere instalar nada: solo Python 3.9 o superior.
+
+## Tres formas de usarlo
+
+1. Como comando, sin instalar: `bin/jac consulta "<cita, texto, archivo o carpeta>"` o `python3 -m jac ...` desde la raíz del repositorio. Instalado con `pip install .`, el comando es `jac`.
+2. Como plugin de Claude Code: `claude plugin marketplace add jorgecortes1975/jacabogados` y `claude plugin install jac-legal-os@jac-abogados`. Dentro de una sesión, `/jac-legal-os:jac-agente <consulta>`, `/jac-legal-os:jac-gauntlet` (protocolo completo) o `/jac-legal-os:jac-verificar <citas>`.
+3. Como plugin de Claude Cowork: `python3 -m jac empaquetar` genera `jac-legal-os.plugin`. Se instala cargando ese archivo en Cowork y aceptando el plugin.
+
+Modo automático desde terminal, sin abrir sesión: `jac agente "<consulta abierta>"` (usa la CLI `claude` con el plugin cargado).
+
+## Comandos
+
+| Comando | Qué hace |
+| --- | --- |
+| `jac consulta "<entrada>"` | Enruta solo: cita, texto con citas, búsqueda de jurisprudencia, archivo o carpeta |
+| `jac sentencia T-008/20` | Verifica una sentencia de la Corte Constitucional |
+| `jac norma "Ley 1437 de 2011"` | Existencia y fecha de una norma del catálogo (nunca vigencia) |
+| `jac validar escrito.docx --radicado <r>` | Control Gauntlet: BLOCKED, CONDITIONAL o PASS_AUTOMATICO |
+| `jac inventario <carpeta>` | Inventario por contenido y duplicados |
+| `jac prueba [--red]` | Prueba de aceptación reproducible |
+| `jac doctor [--red]` | Diagnóstico de instalación y de acceso a las fuentes |
+| `jac empaquetar` | Crea el archivo .plugin |
+
+## Cómo comprobar que funciona
+
+`jac prueba` ejecuta un escrito sintético con 8 errores sembrados, mide cuántos detecta, comprueba que no marque como error lo correcto y recorre el ciclo completo (ronda 1 BLOCKED, corrección, ronda 2 PASS_AUTOMATICO). `jac prueba --red` añade citas reales contra las fuentes oficiales. `jac doctor --red` informa qué hosts son alcanzables desde su red.
+
+## Qué garantiza y qué no
+
+Garantiza: no declara verificada una cita que ninguna fuente confirmó; no declara inexistente una norma por no figurar en el catálogo; no afirma vigencia; informa qué fuentes respondieron y cuáles no.
+
+No hace: determinar vigencia de normas ni el texto de sus artículos, verificar hechos, términos o cálculos, ni cubrir Corte Suprema y Consejo de Estado con conector propio (con herramientas de Croma conectadas, el agente puede consultarlas y lo declara). PASS_AUTOMATICO no equivale a PASS del protocolo. El abogado responsable es el último filtro.
+
+## Confidencialidad
+
+Las consultas a fuentes oficiales envían solo la cita normalizada (por ejemplo `T-008/20`), nunca el texto del escrito. El texto del escrito lo procesa Claude bajo las condiciones de su plan. El archivo .plugin no incluye datos de clientes, CRM ni prospectos.

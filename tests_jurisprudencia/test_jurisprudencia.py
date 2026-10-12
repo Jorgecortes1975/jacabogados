@@ -1,4 +1,4 @@
-import httpx
+from jurisprudencia_col.simulado import ClienteSimulado, Resp
 import pytest
 
 from jurisprudencia_col import rama_judicial, relatoria_cc, samai, socrata_cc
@@ -7,7 +7,7 @@ from jurisprudencia_col.http import FuenteNoDisponible, obtener
 
 
 def cliente(handler):
-    return httpx.Client(transport=httpx.MockTransport(handler))
+    return ClienteSimulado(handler)
 
 
 # URL oficiales verificadas contra la relatoría (Croma, 2026-10-12)
@@ -36,13 +36,13 @@ def test_buscar_cc_usa_q_y_limite():
     vistos = {}
     def h(req):
         vistos.update(dict(req.url.params))
-        return httpx.Response(200, json=[{"sentencia": "C-080/18"}])
+        return Resp(200, json=[{"sentencia": "C-080/18"}])
     r = socrata_cc.buscar_cc("o'brien", 5, cliente(h))
     assert vistos == {"$limit": "5", "$q": "o'brien"} and r[0].sentencia == "C-080/18"
 
 
 def test_verificar_existencia():
-    h = lambda req: httpx.Response(200, json=[{"sentencia": "T-009/20"}, {"sentencia": "T-008/20"}])
+    h = lambda req: Resp(200, json=[{"sentencia": "T-009/20"}, {"sentencia": "T-008/20"}])
     assert socrata_cc.verificar_existencia("T-008/20", cliente(h)).sentencia == "T-008/20"
     assert socrata_cc.verificar_existencia("T-999/20", cliente(h)) is None
 
@@ -52,14 +52,14 @@ def test_descarga_prueba_variantes_y_decodifica_cp1252():
     def h(req):
         pedidas.append(req.url.path)
         if req.url.path.endswith("T-008-20.htm"):
-            return httpx.Response(404)
-        return httpx.Response(200, content="<p>Sentencia sección</p>".encode("cp1252"))
+            return Resp(404)
+        return Resp(200, content="<p>Sentencia sección</p>".encode("cp1252"))
     url, txt = relatoria_cc.descargar_texto("T-008/20", cliente(h))
     assert url.endswith("t-008-20.htm") and "sección" in txt and len(pedidas) == 2
 
 
 def test_descarga_sin_exito_devuelve_url_primera():
-    url, txt = relatoria_cc.descargar_texto("T-008/20", cliente(lambda r: httpx.Response(404)))
+    url, txt = relatoria_cc.descargar_texto("T-008/20", cliente(lambda r: Resp(404)))
     assert url.endswith("T-008-20.htm") and txt == ""
 
 
@@ -68,7 +68,7 @@ def test_reintenta_5xx_y_agota(monkeypatch):
     n = []
     def h(req):
         n.append(1)
-        return httpx.Response(503)
+        return Resp(503)
     with pytest.raises(FuenteNoDisponible):
         obtener("https://x.test", cliente=cliente(h))
     assert len(n) == 3
@@ -76,6 +76,6 @@ def test_reintenta_5xx_y_agota(monkeypatch):
 
 def test_diagnosticos():
     html = '<form id="frm"><input name="javax.faces.ViewState"></form>'
-    r = rama_judicial.verificar_disponibilidad(cliente(lambda q: httpx.Response(200, text=html)))
+    r = rama_judicial.verificar_disponibilidad(cliente(lambda q: Resp(200, text=html)))
     assert r["tiene_viewstate"] and r["ids_formulario"] == ["frm"]
-    assert samai.verificar_samai(cliente(lambda q: httpx.Response(200, text="ok")))["accesible"]
+    assert samai.verificar_samai(cliente(lambda q: Resp(200, text="ok")))["accesible"]

@@ -508,7 +508,7 @@ node agente-juridico-especializado.js consulta validar-escrito escrito.txt
 ```
 
 Códigos de salida: 0 PASS_AUTOMATICO, 1 CONDITIONAL, 2 BLOCKED, 3 error de uso. Acepta .txt, .md y .docx (no PDF).
-Protocolo completo: `protocolos/JAC-GAUNTLET-ELITE.md`.
+Protocolo completo: `jac/datos/JAC-GAUNTLET-ELITE.md`.
 
 ## Conector de normas
 
@@ -522,3 +522,16 @@ python3 -m gauntlet_jac validar-escrito escrito.docx --en-vivo
 
 El conector acredita existencia y fecha de expedición, nunca vigencia. Una norma que no figura queda PENDIENTE, no inexistente.
 El catálogo propio se guarda en `normas_usuario.json` y las confirmaciones en `normas_confirmadas.json` (variables `JAC_NORMAS_CATALOGO` y `JAC_NORMAS_CONFIRMACIONES`).
+
+---
+
+## Agente automático JAC Legal OS
+
+Guía completa: `AGENTE-JAC.md`. Resumen:
+
+```bash
+bin/jac prueba                 # prueba de aceptación (8 errores sembrados, ciclo Gauntlet completo)
+bin/jac doctor --red           # instalación y acceso a las fuentes oficiales
+bin/jac consulta "T-008/20 y Ley 1437 de 2011"
+bin/jac empaquetar             # crea jac-legal-os.plugin para Claude Cowork
+```

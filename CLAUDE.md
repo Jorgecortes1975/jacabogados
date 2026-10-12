@@ -247,9 +247,9 @@ Transporte REST para APIs legales.
 
 ## 🛡️ Protocolo JAC Gauntlet Elite (control de calidad jurídico)
 
-Para encargos jurídicos de importancia (demandas, tutelas, recursos, poderes, contratos, conceptos, liquidaciones), aplicar `protocolos/JAC-GAUNTLET-ELITE.md`: delimitar el asunto (Matter Lock, fecha de referencia, inventario documental), producir, someter a revisión adversarial, corregir, revalidar y entregar con control final (estado BLOCKED, CONDITIONAL o PASS, rondas reales y pendientes). No inventar normas, sentencias ni datos; lo no verificable se marca PENDIENTE DE VERIFICACIÓN.
+Para encargos jurídicos de importancia (demandas, tutelas, recursos, poderes, contratos, conceptos, liquidaciones), aplicar `jac/datos/JAC-GAUNTLET-ELITE.md`: delimitar el asunto (Matter Lock, fecha de referencia, inventario documental), producir, someter a revisión adversarial, corregir, revalidar y entregar con control final (estado BLOCKED, CONDITIONAL o PASS, rondas reales y pendientes). No inventar normas, sentencias ni datos; lo no verificable se marca PENDIENTE DE VERIFICACIÓN.
 
-Controles automáticos reproducibles (no sustituyen la revisión del abogado):
+Comando único y plugin (`AGENTE-JAC.md`): `bin/jac consulta "<entrada>"`, `bin/jac prueba`, `bin/jac empaquetar`. Controles automáticos reproducibles (no sustituyen la revisión del abogado):
 
 ```bash
 python3 -m gauntlet_jac validar-escrito escrito.docx --radicado <radicado> [--previo ronda1.json --json ronda2.json]

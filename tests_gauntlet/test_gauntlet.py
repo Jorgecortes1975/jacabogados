@@ -1,7 +1,7 @@
 import json
 from datetime import date
 
-import httpx
+from jurisprudencia_col.simulado import ClienteSimulado, Resp
 import pytest
 
 from gauntlet_jac import cli, controles as C, informe, inventario
@@ -12,17 +12,17 @@ REF = date(2026, 10, 12)
 
 
 def cliente(handler):
-    return httpx.Client(transport=httpx.MockTransport(handler))
+    return ClienteSimulado(handler)
 
 
 def fuentes(socrata_rows=None, existentes=(), socrata_ok=True, relatoria_ok=True):
     """Mock: Socrata devuelve filas; la relatoría responde 200 solo para las rutas dadas."""
     def h(req):
         if "datos.gov.co" in str(req.url):
-            return httpx.Response(200, json=socrata_rows or []) if socrata_ok else httpx.Response(503)
+            return Resp(200, json=socrata_rows or []) if socrata_ok else Resp(503)
         if not relatoria_ok:
-            return httpx.Response(500)
-        return httpx.Response(200 if req.url.path in existentes else 404)
+            return Resp(500)
+        return Resp(200 if req.url.path in existentes else 404)
     return h
 
 

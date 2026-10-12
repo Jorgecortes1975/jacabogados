@@ -64,8 +64,6 @@ def descargar_texto(cita: str, cliente=None) -> Tuple[str, str]:
 def estado_url(url: str, cliente=None) -> int:
     """Código HTTP de la URL sin descargar el texto (HEAD; si no se admite, GET en streaming)."""
     from .http import FuenteNoDisponible, nuevo_cliente
-    import httpx
-
     propio = cliente is None
     cli = cliente or nuevo_cliente()
     try:
@@ -74,7 +72,7 @@ def estado_url(url: str, cliente=None) -> int:
             with cli.stream("GET", url) as g:
                 return g.status_code
         return r.status_code
-    except httpx.HTTPError as e:
+    except OSError as e:
         raise FuenteNoDisponible(f"{url} -> {type(e).__name__}: {e}") from e
     finally:
         if propio:

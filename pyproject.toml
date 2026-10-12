@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jac-legal-os"
+version = "0.2.0"
+description = "Agente jurídico JAC: verificación de citas y normas de derecho colombiano y control Gauntlet de escritos."
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+jac = "jac.cli:main"
+
+[tool.setuptools]
+packages = ["jac", "jurisprudencia_col", "gauntlet_jac", "normas_col"]
+
+[tool.setuptools.package-data]
+normas_col = ["datos/*.json"]
+jac = ["datos/*.md", "datos/*.txt"]

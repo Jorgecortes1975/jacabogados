@@ -1,7 +1,7 @@
 import json
 from datetime import date
 
-import httpx
+from jurisprudencia_col.simulado import ClienteSimulado, Resp
 import pytest
 
 from gauntlet_jac import informe
@@ -12,7 +12,7 @@ CAT = C.cargar("/nonexistent.json")
 
 
 def cliente(handler):
-    return httpx.Client(transport=httpx.MockTransport(handler))
+    return ClienteSimulado(handler)
 
 
 def test_semilla_carga_y_tiene_datos_clave():
@@ -68,15 +68,15 @@ def test_confirmacion_manual_con_caducidad(tmp_path):
 
 def test_en_vivo_ok_caida_y_negativa():
     n = C.buscar(CAT, "ley", 1437, 2011)
-    assert gestor_normativo.confirmar_en_vivo(n, cliente(lambda r: httpx.Response(200, text="Ley 1437 de 2011")))[0] is True
-    assert gestor_normativo.confirmar_en_vivo(n, cliente(lambda r: httpx.Response(200, text="otra cosa")))[0] is False
-    assert gestor_normativo.confirmar_en_vivo(n, cliente(lambda r: httpx.Response(404)))[0] is False
-    assert gestor_normativo.confirmar_en_vivo(n, cliente(lambda r: httpx.Response(403)))[0] is None
+    assert gestor_normativo.confirmar_en_vivo(n, cliente(lambda r: Resp(200, text="Ley 1437 de 2011")))[0] is True
+    assert gestor_normativo.confirmar_en_vivo(n, cliente(lambda r: Resp(200, text="otra cosa")))[0] is False
+    assert gestor_normativo.confirmar_en_vivo(n, cliente(lambda r: Resp(404)))[0] is False
+    assert gestor_normativo.confirmar_en_vivo(n, cliente(lambda r: Resp(403)))[0] is None
 
 
 def test_en_vivo_caido_no_cambia_el_resultado_pero_se_informa(monkeypatch):
     monkeypatch.setattr("time.sleep", lambda s: None)
-    r = V.verificar("ley", 1437, 2011, fecha_ref=REF, catalogo=CAT, en_vivo=True, cliente=cliente(lambda q: httpx.Response(503)))
+    r = V.verificar("ley", 1437, 2011, fecha_ref=REF, catalogo=CAT, en_vivo=True, cliente=cliente(lambda q: Resp(503)))
     assert r["estado"] == "verificada" and "no disponible" in r["detalle"] and r["fuentes"] == ["catalogo_funcion_publica"]
 
 

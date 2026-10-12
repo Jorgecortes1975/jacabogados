@@ -65,7 +65,7 @@ def esquema(cliente=None) -> List[str]:
 
 
 def buscar_cc(consulta: str = "", limite: int = 50, cliente=None) -> List[SentenciaCC]:
-    """Búsqueda de texto libre ($q de SoQL) con parámetros URL-encoded por httpx."""
+    """Búsqueda de texto libre ($q de SoQL) con parámetros URL-encoded."""
     params: Dict[str, object] = {"$limit": max(1, min(int(limite), 1000))}
     if consulta.strip():
         params["$q"] = consulta.strip()

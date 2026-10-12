@@ -1,0 +1,14 @@
+{
+  "name": "jac-abogados",
+  "description": "Plugins de Abogados Asociados JAC para derecho colombiano.",
+  "owner": {
+    "name": "Abogados Asociados JAC"
+  },
+  "plugins": [
+    {
+      "name": "jac-legal-os",
+      "source": "./",
+      "description": "Agente jurídico JAC: verificación de citas y normas, control Gauntlet de escritos e inventario documental para derecho colombiano."
+    }
+  ]
+}

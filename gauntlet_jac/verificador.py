@@ -8,8 +8,6 @@ from __future__ import annotations
 
 from typing import Dict, List, Optional
 
-import httpx
-
 from jurisprudencia_col import relatoria_cc, socrata_cc
 from jurisprudencia_col.citas import parsear_cita, urls_candidatas
 from jurisprudencia_col.http import FuenteNoDisponible
@@ -24,7 +22,7 @@ def _tokens(nombre: str) -> set:
 
 
 class Verificador:
-    def __init__(self, cliente: Optional[httpx.Client] = None, sin_red: bool = False,
+    def __init__(self, cliente=None, sin_red: bool = False,
                  fecha_ref: Optional[date] = None, en_vivo: bool = False,
                  catalogo_normas: Optional[dict] = None, ruta_confirmaciones: Optional[str] = None):
         self.cliente, self.sin_red = cliente, sin_red
@@ -52,7 +50,7 @@ class Verificador:
                     return s, ""
             self._anotar("socrata_cc", "ok")
             return False, ""
-        except (FuenteNoDisponible, httpx.HTTPError, ValueError) as e:
+        except (FuenteNoDisponible, OSError, ValueError) as e:
             self._anotar("socrata_cc", "caida", str(e))
             return None, str(e)
 
@@ -71,7 +69,7 @@ class Verificador:
                     vistas404 += 1
                 else:
                     raise FuenteNoDisponible(f"{u} -> HTTP {codigo}")
-        except (FuenteNoDisponible, httpx.HTTPError) as e:
+        except (FuenteNoDisponible, OSError) as e:
             self._anotar("relatoria_cc", "caida", str(e))
             return None, None, str(e)
         self._anotar("relatoria_cc", "ok")

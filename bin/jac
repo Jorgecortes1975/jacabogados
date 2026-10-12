@@ -1,0 +1,4 @@
+#!/bin/sh
+# Lanzador: ejecuta jac desde esta copia del repositorio, sin instalación.
+RAIZ="$(cd "$(dirname "$0")/.." && pwd)"
+PYTHONPATH="$RAIZ${PYTHONPATH:+:$PYTHONPATH}" exec python3 -m jac "$@"
