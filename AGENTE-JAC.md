@@ -21,6 +21,12 @@ python3 instalar_jac_cowork.py --red      # además comprueba si la red alcanza 
 
 Solo declara éxito si la prueba de aceptación pasa. No sobrescribe carpetas ajenas (exige `--forzar`), verifica su integridad con SHA-256 y, si el archivo llega cortado o alterado, falla con un mensaje claro. Códigos de salida: 0 correcto, 1 la prueba falló, 2 archivo dañado o alterado, 3 error de uso o de entorno.
 
+## Paquete de archivos .md para Cowork
+
+`python3 -m jac empaquetar --cowork-md cowork-jac` genera, desde las mismas fuentes que el plugin, una carpeta con: instrucciones del proyecto, los tres skills (en .md y en .zip con la estructura de carpeta que exige la carga de skills), el protocolo Gauntlet, el catálogo de normas verificadas, un caso de prueba y una guía de carga. Sirve cuando Cowork no puede ejecutar código: los skills incluyen un modo sin herramientas que verifica abriendo fuentes y declara pendiente lo que no pudo comprobar.
+
+Evidencia del modo solo .md: se ejecutó el paquete sin herramientas y sin el plugin sobre el caso de prueba, en dos corridas independientes; ambas cumplieron los 13 criterios comprobables (estado BLOCKED, errores detectados, sentencias no verificadas dejadas como pendientes, ninguna vigencia afirmada, revisión declarada interna). Son dos corridas con un solo modelo: indicativo, no una garantía estadística.
+
 ## Comandos
 
 | Comando | Qué hace |

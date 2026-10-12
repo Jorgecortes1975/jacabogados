@@ -7,7 +7,7 @@ from datetime import date, datetime, timezone
 from typing import List, Optional
 
 from . import controles as C
-from .extractor import extraer_citas, extraer_fechas
+from .extractor import extraer_citas, extraer_fechas, extraer_referencias
 from .verificador import Verificador
 
 LIMITES = ("Este control cubre solo verificaciones mecánicas (existencia de citas de la Corte Constitucional y de normas del catálogo, "
@@ -29,6 +29,10 @@ def ejecutar(texto: str, fecha_ref: Optional[date] = None, radicado: Optional[st
     hallazgos: List[C.Hallazgo] = (
         C.hallazgos_de_citas(citas) + C.hallazgos_de_vigencia(citas) + C.controlar_placeholders(texto)
         + C.controlar_fechas(extraer_fechas(texto), fecha_ref) + C.controlar_radicados(texto, radicado))
+    referencias = extraer_referencias(texto)
+    for ref, linea in referencias:
+        hallazgos.append(C.Hallazgo("REFERENCIA_NO_VERIFICABLE", C.ADVERTENCIA,
+                                    f"Referencia a {ref}: el control no verifica artículos ni su texto vigente; confirmar en fuente oficial", f"línea {linea}"))
     if not citas:
         hallazgos.append(C.Hallazgo("SIN_CITAS", C.ADVERTENCIA, "No se detectaron citas normativas ni jurisprudenciales para validar"))
     informe = {
@@ -39,6 +43,7 @@ def ejecutar(texto: str, fecha_ref: Optional[date] = None, radicado: Optional[st
         "estado": C.decidir(hallazgos),
         "resumen": C.resumen_citas(citas),
         "citas": citas,
+        "referencias_no_verificables": [r for r, _ in referencias],
         "hallazgos": [h.a_dict() for h in hallazgos],
         "fuentes_consultadas": v.fuentes,
         "ejecuciones_de_control": (previo.get("ejecuciones_de_control", 0) if previo else 0) + 1,

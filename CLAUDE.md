@@ -5,10 +5,10 @@
 ## 🎯 Visión General
 
 Sistema completo que integra:
-- ✅ **9 fuentes legales oficiales colombianas**
+- 9 fuentes oficiales colombianas registradas; **conector real** para la Corte Constitucional y un catálogo verificado de normas (ver tabla de estado)
 - ✅ **Agente jurídico automatizado** para investigación autónoma
-- ✅ **Verificación de datos** contra múltiples fuentes
-- ✅ **Sin alucinaciones** - solo información oficial
+- **Verificación de datos** contra las fuentes con conector real (no contra todas)
+- **Diseñado contra alucinaciones**: no se declara verificada una cita que ninguna fuente confirmó, y lo no verificable se informa como pendiente
 - ✅ **Jurisprudencia verificada** de cortes colombianas
 - ✅ **Leyes y normas actualizadas**
 
@@ -65,8 +65,23 @@ Un agente autónomo que consulta automáticamente jurisprudencia, leyes, normas,
 
 ### Fuentes Integradas (9 Instituciones Oficiales)
 
-| Fuente | Contenido | Estado |
+| Fuente | Contenido | Conector local (estado real, verificado 2026-10-12) |
 |--------|-----------|--------|
+| **Corte Constitucional** | Jurisprudencia, sentencias | SÍ: Socrata (metadatos) y relatoría (existencia), con tolerancia a fuentes caídas |
+| **Normas (Función Pública, Gestor Normativo)** | Leyes y decretos | PARCIAL: catálogo de 13 normas; existencia y fecha, nunca vigencia |
+| **Rama Judicial (relatoría unificada)** y **SAMAI** | Jurisprudencia y procesos | SOLO DIAGNÓSTICO: comprueban disponibilidad; la búsqueda no está automatizada |
+| **Consejo de Estado** | Jurisprudencia | NO (con Croma conectado, el agente puede consultarla) |
+| **Corte Suprema de Justicia** | Jurisprudencia | NO (con Croma conectado, el agente puede consultarla) |
+| **Legal Data Hunter** | Multijurisdiccional | NO local; disponible solo si el servidor MCP está conectado |
+| **Diario Oficial** | Decretos, resoluciones | NO |
+| **SUIN** | Leyes, decretos | NO (sustituido por el catálogo de normas) |
+| **Congreso de la República** | Proyectos de ley, leyes | NO |
+| **Superintendencia de Sociedades** | Circulares, resoluciones | NO |
+| **DIAN** | Normas tributarias, conceptos | NO |
+
+Las fuentes sin conector local figuran en la configuración como referencia; no se consultan automáticamente. Lo que no tiene conector queda **pendiente de verificación**, nunca "verificado".
+
+--------|-----------|--------|
 | **Corte Constitucional** | Jurisprudencia, sentencias, auto-acordos | ✓ Activo |
 | **Consejo de Estado** | Jurisprudencia, sentencias, decisiones | ✓ Activo |
 | **Corte Suprema de Justicia** | Jurisprudencia, sentencias, providencias | ✓ Activo |
@@ -88,6 +103,8 @@ node agente-juridico-especializado.js consulta <tipo> "<pregunta>"
 ```
 
 ### Tipos de Consulta
+
+> Estado real: `jurisprudencia`, `norma`, `verificar` y `validar-escrito` ejecutan consultas reales (Corte Constitucional y catálogo de normas). `analisis` y `reporte` requieren el agente (Claude): use `bin/jac consulta "<entrada>"` o `/jac-legal-os:jac-agente`. Los resultados descritos como "Retorna" más abajo son el objetivo de diseño, no lo que cada comando imprime hoy.
 
 #### 1. **Jurisprudencia** - Buscar sentencias oficiales
 
@@ -157,21 +174,24 @@ node agente-juridico-especializado.js consulta reporte \
 
 ---
 
-## 🛡️ Garantías de Seguridad Jurídica
+## 🛡️ Garantías de diseño y su alcance real
 
-### Protección contra Alucinaciones
+### Qué se garantiza (probado con pruebas automáticas)
 
-✓ **Verificación Múltiple**: Cada dato se valida contra múltiples fuentes oficiales
-✓ **Fuentes Oficiales**: Solo información de instituciones verificadas
-✓ **Sin Fabricación**: No genera precedentes inexistentes
-✓ **Citable**: Todas las respuestas tienen referencias verificables
+- No se declara **verificada** una cita que ninguna fuente confirmó.
+- Una fuente caída deja la cita **pendiente**; nunca se presume que no existe.
+- Una norma ausente del catálogo queda **pendiente**: su ausencia no prueba que no exista.
+- Existir no es estar vigente: el sistema **no determina vigencia** de normas ni el texto de artículos.
+- Cada ejecución informa qué fuentes respondieron y cuáles no.
 
-### Control de Calidad
+### Qué NO se garantiza
 
-✓ **Instituciones Verificadas**: Solo fuentes oficiales colombianas
-✓ **Datos Actualizados**: Información vigente de SUIN y Diario Oficial
-✓ **Jurisprudencia Oficial**: Sentencias directas de cortes
-✓ **Validación Cruzada**: Confirmación en múltiples fuentes
+- Verificación de hechos, pruebas, términos ni cálculos.
+- Cobertura de Consejo de Estado, Corte Suprema, Diario Oficial, SUIN, Congreso, Supersociedades ni DIAN sin conector local.
+- Validación cruzada en todos los casos: solo cuando hay más de una fuente con conector (Corte Constitucional).
+- PASS_AUTOMATICO no equivale a PASS del protocolo; el abogado responsable es el último filtro.
+
+Comprobación: `bin/jac prueba` (escrito sintético con 8 errores sembrados) y `bin/jac doctor --red`.
 
 ---
 

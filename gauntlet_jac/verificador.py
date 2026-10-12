@@ -30,6 +30,7 @@ class Verificador:
         self.catalogo_normas, self.ruta_confirmaciones = catalogo_normas, ruta_confirmaciones
         self.fuentes: Dict[str, dict] = {}   # fuente -> {estado, detalle}
         self._cache: Dict[str, dict] = {}
+        self._esquema_ok = False
 
     def _anotar(self, fuente: str, estado: str, detalle: str = "") -> None:
         previo = self.fuentes.get(fuente)
@@ -43,6 +44,14 @@ class Verificador:
         if self._caida("socrata_cc"):
             return None, "fuente no disponible en esta ejecución"
         try:
+            if not self._esquema_ok:
+                sonda = socrata_cc.buscar_cc("", 1, cliente=self.cliente)
+                if sonda and not sonda[0].sentencia:
+                    cols = ", ".join(sorted(sonda[0].raw)[:12])
+                    detalle = f"esquema inesperado del dataset (columnas: {cols}); ejecute `python3 -m jurisprudencia_col esquema` y ajuste los alias"
+                    self._anotar("socrata_cc", "caida", detalle)
+                    return None, detalle
+                self._esquema_ok = True
             for s in socrata_cc.buscar_cc(canonica, 20, cliente=self.cliente):
                 p = parsear_cita(s.sentencia)
                 if p and p.canonica == canonica:

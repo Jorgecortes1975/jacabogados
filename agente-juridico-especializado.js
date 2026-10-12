@@ -4,6 +4,15 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
+const CONECTORES = {
+  'corte-constitucional': 'SÍ (Socrata + relatoría)',
+  'socrata-corte-constitucional': 'SÍ (metadatos)',
+  'relatoria-corte-constitucional': 'SÍ (existencia)',
+  'rama-judicial-relatoria': 'SOLO DIAGNÓSTICO',
+  'samai': 'SOLO DIAGNÓSTICO',
+  'suin-normativo': 'PARCIAL (catálogo de 13 normas del Gestor Normativo)',
+};
+
 const CONFIG_FILE = path.join(process.cwd(), 'mcp-config.json');
 
 class AgentJuridicoEspecializado {
@@ -172,20 +181,20 @@ class AgentJuridicoEspecializado {
   }
 
   listarFuentesOficiales() {
-    console.log('\n📋 FUENTES OFICIALES COLOMBIANAS INTEGRADAS:');
+    console.log('\n📋 FUENTES OFICIALES COLOMBIANAS REGISTRADAS (con su conector real):');
     console.log('═'.repeat(80));
 
     const fuentes = Object.entries(this.config.transports)
       .filter(([_, config]) => config.oficial);
 
     fuentes.forEach(([nombre, config]) => {
-      console.log(`\n✓ ${config.fuente}`);
+      console.log(`\n• ${config.fuente}`);
       console.log(`  Nombre: ${nombre}`);
       console.log(`  URL: ${config.url}`);
       if (config.contenido) {
         console.log(`  Contenido: ${config.contenido.join(', ')}`);
       }
-      console.log(`  Estado: ${config.enabled ? '🟢 ACTIVO' : '🔴 INACTIVO'}`);
+      console.log(`  Conector local: ${CONECTORES[nombre] || 'NO (solo referencia a la fuente; no se consulta automáticamente)'}`);
     });
 
     console.log('\n' + '═'.repeat(80));
@@ -323,6 +332,18 @@ async function main() {
         if (tipo === 'jurisprudencia' && args.arg2) {
           const r = spawnSync('python3', ['-m', 'jurisprudencia_col', 'buscar', args.arg2], { stdio: 'inherit' });
           process.exit(r.status === null ? 1 : r.status);
+        }
+        if (tipo === 'norma' && args.arg2) {
+          const r = spawnSync('python3', ['-m', 'normas_col', 'consultar', args.arg2], { stdio: 'inherit' });
+          process.exit(r.status === null ? 1 : r.status);
+        }
+        if (tipo === 'verificar' && args.arg2) {
+          const r = spawnSync('python3', ['-m', 'jac', 'consulta', args.arg2], { stdio: 'inherit' });
+          process.exit(r.status === null ? 1 : r.status);
+        }
+        if ((tipo === 'analisis' || tipo === 'reporte') && args.arg2) {
+          console.log('\nEl análisis abierto lo hace el agente (Claude), no este comando. Use: jac agente "<consulta>" o /jac-legal-os:jac-agente');
+          process.exit(4);
         }
         if (tipo === 'validar-escrito' && args.arg2) {
           const r = spawnSync('python3', ['-m', 'gauntlet_jac', 'validar-escrito', args.arg2], { stdio: 'inherit' });

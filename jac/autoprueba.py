@@ -59,7 +59,7 @@ SEMBRADOS: List[tuple] = [
     ("Decreto 2591 con fecha equivocada (20 en vez de 19 de noviembre de 1991)", lambda i: _hay(i, "CITA_DISCREPANTE", "Decreto 2591")),
     ("Sentencia T-008/20 con magistrado ponente equivocado", lambda i: _hay(i, "CITA_DISCREPANTE", "T-008")),
     ("Sentencia imposible T-999 de 1985 (la Corte inició en 1991)", lambda i: _hay(i, "CITA_NO_ENCONTRADA", "T-999")),
-    ("Sentencia inexistente T-777/20 (las fuentes responden y no la conocen)", lambda i: _hay(i, "CITA_NO_ENCONTRADA", "T-777")),
+    ("Sentencia T-777/20 que no figura en la relatoría (consulta del 2026-10-12)", lambda i: _hay(i, "CITA_NO_ENCONTRADA", "T-777")),
 ]
 # Citas correctas que NO deben generar hallazgos críticos (control de falsos positivos).
 CORRECTAS = [("C-080/18", "verificada"), ("ley 1437 de 2011", "verificada")]
@@ -156,7 +156,7 @@ def ejecutar(red: bool = False) -> dict:
 def _prueba_red() -> List[dict]:
     """Citas reales (verificadas contra la relatoría) consultadas en las fuentes oficiales reales."""
     out = []
-    for cita, esperado in (("T-008/20", "verificada"), ("C-080/18", "verificada"), ("T-012/92", "verificada"), ("Ley 1437 de 2011", "verificada")):
+    for cita, esperado in (("T-008/20", "verificada"), ("C-080/18", "verificada"), ("T-012/92", "verificada"), ("Ley 1437 de 2011", "verificada"), ("T-777/20", "no_encontrada")):
         inf = informe.ejecutar(cita, FECHA)
         estado = inf["citas"][0]["estado"]
         out.append({"cita": cita, "esperado": esperado, "obtenido": estado,

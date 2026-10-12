@@ -165,3 +165,54 @@ def test_instalador_destino_imposible(instalador, tmp_path):
     solo_archivo = tmp_path / "archivo"
     solo_archivo.write_text("x")
     assert correr(f, "--destino", str(solo_archivo / "jac"), cwd=tmp_path).returncode == 3
+
+
+# ---------------- paquete .md para Cowork ----------------
+@pytest.fixture(scope="module")
+def pack(tmp_path_factory):
+    d = tmp_path_factory.mktemp("pack") / "cowork-jac"
+    return d, empaquetar.generar_pack_cowork(str(d))
+
+
+def test_pack_cowork_contenido_y_skills_zip(pack):
+    d, r = pack
+    esperados = {"00-LEEME-COWORK.md", "01-INSTRUCCIONES-DEL-PROYECTO.md", "03-PROTOCOLO-GAUNTLET-ELITE.md", "04-CATALOGO-NORMAS.md",
+                 "05-CASO-DE-PRUEBA.md", "SKILL-jac-agente.md", "SKILL-jac-gauntlet.md", "SKILL-jac-verificar.md"}
+    assert esperados == set(r["archivos"]) and r["skills"] == 3
+    for z in (d / "skills-zip").glob("*.zip"):
+        nombres = zipfile.ZipFile(z).namelist()
+        assert nombres == [f"{z.stem}/SKILL.md"], "estructura carpeta/SKILL.md exigida para cargar skills"
+        assert zipfile.ZipFile(z).read(nombres[0]).decode().startswith(f"---\nname: {z.stem}\n")
+    assert zipfile.ZipFile(r["paquete"]).testzip() is None
+
+
+def test_catalogo_md_coincide_con_el_json(pack):
+    from normas_col import catalogo
+    d, _ = pack
+    md = (d / "04-CATALOGO-NORMAS.md").read_text(encoding="utf-8")
+    normas = catalogo.cargar("/nonexistent.json")
+    assert len(normas) == 13 and all(n.titulo in md and n.url in md for n in normas.values())
+    assert "NO acredita vigencia" in md and "Ley 57 de 1887" in md
+
+
+def test_caso_de_prueba_md_lista_todos_los_errores_sembrados(pack):
+    d, _ = pack
+    md = (d / "05-CASO-DE-PRUEBA.md").read_text(encoding="utf-8")
+    assert all(desc in md for desc, _ in autoprueba.SEMBRADOS)
+    assert (autoprueba.DATOS / "ejemplo_ronda1.txt").read_text(encoding="utf-8").strip() in md
+    assert md.count("PENDIENTE DE VERIFICACIÓN") >= 3
+
+
+def test_md_de_cowork_sin_asteriscos_ni_guiones_como_vinetas(pack):
+    """Preferencia de estilo del despacho: títulos, numeración y párrafos."""
+    d, _ = pack
+    for f in d.glob("*.md"):
+        txt = f.read_text(encoding="utf-8")
+        assert "*" not in txt, f.name
+        assert not re.search(r"^\s*- ", txt, re.M), f.name
+
+
+def test_skills_funcionan_sin_herramientas():
+    for n in ("jac-agente", "jac-verificar", "jac-gauntlet"):
+        txt = (RAIZ / "skills" / n / "SKILL.md").read_text(encoding="utf-8")
+        assert re.search(r"sin ejecución de código|Modo sin herramientas", txt, re.I), n

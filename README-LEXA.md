@@ -1,3 +1,5 @@
+> **Estado real:** este documento describe el diseño y objetivos del ecosistema. Los conectores y resultados efectivamente implementados y verificados están en `CLAUDE.md` (tabla de estado) y `AGENTE-JAC.md`. Los ejemplos de salida son ilustrativos salvo que se indique lo contrario.
+
 # 🌟 LEXA-JAC v2.0 - Super Agente Orquestador Autónomo
 
 > **Solución integral de servicios legales para Colombia con entrada única, 6 agentes especializados y operación 24/7**

@@ -7,7 +7,7 @@ description: Agente jurídico JAC para cualquier consulta de derecho colombiano.
 
 Atiende la consulta del usuario con herramientas deterministas para lo verificable y con análisis propio, marcado como tal, para lo demás. Derecho aplicable: colombiano.
 
-## Herramientas deterministas
+## Herramientas deterministas (si hay ejecución de código)
 
 Se ejecutan con Bash. Si `python3 -m jac --version` falla con "No module named jac", anteponga `PYTHONPATH` con la raíz del plugin (dos niveles por encima del directorio base de este skill) o use el lanzador `bin/jac` de esa raíz.
 
@@ -19,6 +19,17 @@ Se ejecutan con Bash. Si `python3 -m jac --version` falla con "No module named j
 6. `python3 -m jac fuentes` y `python3 -m jac doctor --red` diagnostican el acceso a las fuentes oficiales.
 
 Lo que estas herramientas no hacen: no determinan vigencia de normas ni el texto de artículos, no verifican hechos, términos ni cálculos, y Corte Suprema y Consejo de Estado no tienen conector local. Una norma ausente del catálogo queda pendiente; su ausencia no prueba que no exista.
+
+## Modo sin herramientas (solo instrucciones)
+
+Si no puede ejecutar código (por ejemplo, un entorno sin Python o sin Bash), no finja las verificaciones. Aplique el procedimiento manual:
+
+1. Cita de la Corte Constitucional (T-008/20, C-080/18, SU-502/25): construya la URL de la relatoría, `https://www.corteconstitucional.gov.co/relatoria/AAAA/TIPO-NNN-AA.htm` (tipo en mayúscula, número de tres dígitos; ejemplo verificado: T-008/20 es `/relatoria/2020/T-008-20.htm`). Si tiene navegación web o una herramienta de consulta, ábrala y compare número, fecha y ponente. Si no, la cita queda PENDIENTE DE VERIFICACIÓN. Una sentencia anterior a 1991 o con año imposible es un error evidente que sí puede declarar.
+2. Norma (Ley, Decreto): consulte la tabla de normas verificadas (archivo de catálogo, si está cargado). Si figura, confirme existencia y fecha de expedición. Si no figura, queda PENDIENTE: su ausencia no prueba que no exista.
+3. Vigencia: nunca la afirme por memoria. Existir no es estar vigente. Márquela PENDIENTE hasta que el abogado confirme el texto vigente en fuente oficial, con fecha y fuente.
+4. Datos que no puede comprobar (ponente, fecha exacta, número de radicado, contenido de una sentencia): no los complete de memoria; márquelos PENDIENTE DE VERIFICACIÓN.
+5. Controles que sí puede hacer sin herramientas: fechas inexistentes, relleno sin completar, radicados ajenos al asunto, contradicciones internas, términos mal contados con datos suficientes, coherencia entre hechos y pretensiones.
+6. Declare siempre qué comprobó y qué no, y que su revisión es interna, no independiente.
 
 ## Flujo
 

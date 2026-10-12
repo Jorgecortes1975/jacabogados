@@ -5,7 +5,7 @@ description: Protocolo JAC Gauntlet Elite de producción y control de calidad ju
 
 # JAC Gauntlet Elite
 
-Lea el protocolo completo con `python3 -m jac protocolo` (si falla, ver las instrucciones de PYTHONPATH en el skill jac-agente) y aplíquelo. Resumen operativo:
+Aplique el protocolo JAC Gauntlet Elite. El texto completo está en `python3 -m jac protocolo` o, sin ejecución de código, en el archivo PROTOCOLO-GAUNTLET-ELITE.md si está cargado. Si no hay ejecución de código, haga manualmente los controles de los pasos 1 y 3 (inventario de documentos, fechas, relleno, radicados, citas con el procedimiento manual del skill jac-agente) y declárelo. Resumen operativo:
 
 1. Tarea. Fije objetivo, producto, partes, radicado, jurisdicción y la fecha de referencia de la que derivará todo término o cálculo. Si hay una carpeta de expediente, ejecute `python3 -m jac inventario <carpeta>`; identifique cada documento por su contenido y no declare revisado el expediente mientras haya archivos sin leer.
 2. Producción. Redacte la versión inicial. No la entregue.

@@ -102,7 +102,8 @@ def test_apariciones_repetidas_se_reportan_todas_pero_se_consulta_una_vez():
     def h(req):
         llamadas.append(str(req.url)); return base(req)
     i = informe.ejecutar("T-008/20.\n\nOtra vez T-008 de 2020.", REF, cliente=cliente(h))
-    assert len(i["citas"]) == 2 and len([u for u in llamadas if "datos.gov.co" in u]) == 1
+    # 2 consultas a Socrata: la sonda de esquema (una por ejecución) y la búsqueda de la cita; la repetición no consulta de nuevo
+    assert len(i["citas"]) == 2 and len([u for u in llamadas if "datos.gov.co" in u]) == 2
 
 
 def test_norma_del_catalogo_existe_pero_su_vigencia_queda_pendiente():
@@ -184,3 +185,34 @@ def test_inventario_detecta_duplicados_por_contenido(tmp_path):
     filas = inventario.inventariar(str(tmp_path))
     assert len(filas) == 3 and sum(1 for f in filas if f["duplicado_de"]) == 1
     assert any("requiere extraccion" in f["lectura"] for f in filas)
+
+
+# ---------- defectos corregidos tras la revisión adversarial ----------
+@pytest.mark.parametrize("texto,clave", [
+    ("Decreto 2591/91", "decreto 2591 de 1991"), ("Decreto 2591/1991", "decreto 2591 de 1991"), ("Ley 100/93", "ley 100 de 1993"),
+    ("Ley 1437/11", "ley 1437 de 2011"), ("Dec. 2591 de 1991", "decreto 2591 de 1991"), ("Resolución 1234/2020", "resolucion 1234 de 2020"),
+])
+def test_normas_con_barra_y_abreviaturas_se_detectan(texto, clave):
+    assert [c.clave for c in extraer_citas(texto, REF)] == [clave]
+
+
+def test_sentencia_sin_guion_y_sin_falsos_positivos():
+    assert [c.clave for c in extraer_citas("la sentencia T 008 de 2020", REF)] == ["T-008/20"]
+    assert extraer_citas("En 2020 hubo 12/20 casos, a 5 de mayo de 2020 y COVID-19", REF) == []
+
+
+def test_referencias_a_constitucion_y_codigos_se_informan_sin_bloquear():
+    i = informe.ejecutar("El artículo 29 de la Constitución Política y el Código General del Proceso.", REF, sin_red=True)
+    assert i["referencias_no_verificables"] == ["Constitución Política", "Código General del Proceso"]
+    assert [h["codigo"] for h in i["hallazgos"]].count("REFERENCIA_NO_VERIFICABLE") == 2 and i["estado"] == "PASS_AUTOMATICO"
+
+
+def test_esquema_inesperado_de_socrata_nunca_da_no_encontrada():
+    """Si las columnas del dataset no coinciden con los alias, ninguna sentencia real puede declararse inexistente."""
+    def h(req):
+        if "datos.gov.co" in str(req.url):
+            return Resp(200, json=[{"col_x": "T-777/20", "col_y": "otro"}])
+        return Resp(404)
+    i = informe.ejecutar("Ver T-777 de 2020.", REF, cliente=ClienteSimulado(h))
+    c = i["citas"][0]
+    assert c["estado"] == "pendiente" and "esquema inesperado" in c["detalle"] and i["estado"] == "CONDITIONAL"

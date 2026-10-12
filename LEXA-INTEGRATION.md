@@ -1,3 +1,5 @@
+> **Estado real:** este documento describe el diseño y objetivos del ecosistema. Los conectores y resultados efectivamente implementados y verificados están en `CLAUDE.md` (tabla de estado) y `AGENTE-JAC.md`. Los ejemplos de salida son ilustrativos salvo que se indique lo contrario.
+
 # LEXA-JAC v2.0 - Integración Completa del Ecosistema
 
 > **Orquestación Autónoma de Servicios Legales Colombianos**
