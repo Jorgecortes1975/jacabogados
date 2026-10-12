@@ -46,6 +46,7 @@ def main(argv=None) -> int:
     v.add_argument("--fecha-ref", help="AAAA-MM-DD (por defecto, hoy)")
     v.add_argument("--radicado", help="Radicado del asunto fijado (Matter Lock)")
     v.add_argument("--sin-red", action="store_true")
+    v.add_argument("--en-vivo", action="store_true", help="Confirmar normas del catálogo contra su página oficial")
     v.add_argument("--json", dest="salida_json")
     v.add_argument("--previo", help="JSON de una ejecución anterior, para comparar")
     i = sub.add_parser("inventario")
@@ -62,7 +63,7 @@ def main(argv=None) -> int:
         texto = leer_entrada(a.entrada)
         previo = json.load(open(a.previo, encoding="utf-8")) if a.previo else None
         ref = date.fromisoformat(a.fecha_ref) if a.fecha_ref else None
-        inf = informe.ejecutar(texto, ref, a.radicado, sin_red=a.sin_red, previo=previo)
+        inf = informe.ejecutar(texto, ref, a.radicado, sin_red=a.sin_red, previo=previo, en_vivo=a.en_vivo)
         print(informe.a_texto(inf))
         if a.salida_json:
             json.dump(inf, open(a.salida_json, "w", encoding="utf-8"), ensure_ascii=False, indent=2)

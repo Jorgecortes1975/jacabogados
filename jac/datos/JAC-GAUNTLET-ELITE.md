@@ -50,7 +50,7 @@ Rondas: tarea breve, una revisión proporcional; análisis complejo, dos rondas;
 ## 4. Verificación obligatoria
 
 1. Integridad documental: no afirmar haber leído lo inaccesible; cada afirmación importante enlaza su documento.
-2. Normas: texto, vigencia, reformas, derogatorias y régimen de transición, en fuente oficial (Diario Oficial, SUIN-Juriscol, Secretaría del Senado). El control automático NO verifica normas: las deja PENDIENTE.
+2. Normas: texto, vigencia, reformas, derogatorias y régimen de transición, en fuente oficial (Diario Oficial, SUIN-Juriscol, Secretaría del Senado). El control automático (`normas_col`) confirma la EXISTENCIA y la fecha de expedición de las normas del catálogo (Gestor Normativo de Función Pública, verificado el 2026-10-12) y detecta fecha citada discrepante o derogación registrada. NO determina vigencia ni el texto de los artículos: el registro es incompleto y la ausencia de una norma no prueba que no exista (la Ley 57 de 1887 no figura). Cada norma citada queda con el hallazgo VIGENCIA_NO_DETERMINADA hasta que el abogado confirme el texto vigente en fuente oficial y lo registre con `python3 -m normas_col confirmar "Ley X de AAAA" --por <nombre> --fuente <fuente>`; la confirmación caduca a los 30 días.
 3. Jurisprudencia: órgano, número, fecha, radicado y regla; distinguir ratio de obiter; pertinencia fáctica. Para Corte Constitucional, el control automático confirma existencia y ponente. Corte Suprema y Consejo de Estado quedan PENDIENTE hasta tener conector.
 4. Control procesal: competencia, legitimación, caducidad, prescripción, términos, notificaciones, anexos. No calcular términos definitivos sin acto inicial y reglas aplicables.
 5. Cálculos: cada cifra reproducible desde sus fuentes y desde la fecha de referencia. Si no hay importe, la celda queda vacía o PENDIENTE; nunca cero ni aproximación.
@@ -64,7 +64,7 @@ Un listón es comprobable, no opinable. "Bien redactado" es opinable; "cada cita
 2. Todo documento del inventario aparece como leído, ilegible o descartado con razón.
 3. Cada hecho determinante enlaza su prueba.
 4. Cronología consistente; sin fechas imposibles; fecha de referencia declarada.
-5. Cada cita de la Corte Constitucional en estado verificada; cada norma verificada manualmente en fuente oficial, con fecha de verificación.
+5. Cada cita de la Corte Constitucional en estado verificada; cada norma con existencia confirmada y vigencia confirmada manualmente en fuente oficial, con fecha y responsable (sin hallazgos VIGENCIA_NO_DETERMINADA ni NORMA_DEROGACION_REGISTRADA).
 6. Cada cálculo reproducible desde la fecha de referencia.
 7. Pretensiones coherentes con hechos y pruebas.
 8. Cero marcadores PENDIENTE DE VERIFICACIÓN o relleno, salvo los declarados en el control final.

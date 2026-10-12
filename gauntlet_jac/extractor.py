@@ -21,9 +21,20 @@ RE_CC = re.compile(
     r"(?:[/-](?P<a2>\d{4}|\d{2})|\s+de\s+(?P<a4>\d{4}))(?!\d)")
 RE_CS = re.compile(r"(?<![A-Za-z0-9])(?P<tipo>SL|SC|SP|STL|STC|STP)(?P<num>\d{1,5})-(?P<anio>\d{4})(?!\d)")
 RE_NORMA = re.compile(
-    r"\b(?P<tipo>Ley|Decreto(?:[ -]Ley)?|Decreto Legislativo|Resoluci[oó]n|Acuerdo|Acto Legislativo|Circular)"
-    r"\s+(?:No\.?|N[úu]mero|N[úu]m\.)?\s*(?P<num>\d{1,4}(?:\.\d{3})?)\s+(?:de|del)\s+"
-    r"(?:\d{1,2}\s+de\s+[A-Za-zñáéíóú]+\s+de\s+)?(?P<anio>\d{4})\b", re.IGNORECASE)
+    r"\b(?P<tipo>Ley|Decreto(?:[ -]Ley)?|Dec\.|Decreto Legislativo|Resoluci[oó]n|Acuerdo|Acto Legislativo|Circular)"
+    r"\s+(?:No\.?|N[úu]mero|N[úu]m\.)?\s*(?P<num>\d{1,4}(?:\.\d{3})?)"
+    r"(?:\s+(?:de|del)\s+(?:(?P<dia>\d{1,2})\s+de\s+(?P<mes>[A-Za-zñáéíóú]+)\s+de\s+)?(?P<anio>\d{4})|\s?/\s?(?P<anio2>\d{4}|\d{2}))(?!\d)",
+    re.IGNORECASE)
+# Sentencia escrita sin guion ("sentencia T 008 de 2020"): se exige la palabra que la introduce para no confundir con texto común.
+RE_CC_ESPACIADA = re.compile(
+    r"\b(?:sentencia|providencia|auto)\s+(?P<tipo>SU|T|C|A)\s(?P<num>\d{1,4})\s?"
+    r"(?:[/-](?P<a2>\d{4}|\d{2})|\s+de\s+(?P<a4>\d{4}))(?!\d)", re.IGNORECASE)
+# Referencias que este control NO puede verificar (artículos y vigencia): se informan, no se ignoran.
+RE_REFERENCIA = re.compile(
+    r"\b(Constituci[oó]n Pol[ií]tica(?: de Colombia)?|C[oó]digo (?:General del Proceso|Civil|de Comercio|Penal|"
+    r"de Procedimiento (?:Penal|Civil|Administrativo y de lo Contencioso Administrativo)|Sustantivo del Trabajo|"
+    r"Procesal del Trabajo(?: y de la Seguridad Social)?|General Disciplinario|Disciplinario [ÚU]nico|"
+    r"de la Infancia y la Adolescencia|de Minas|Electoral|Tributario|de Polic[ií]a))\b", re.IGNORECASE)
 RE_FECHA = re.compile(r"\b(?P<d>\d{1,2})\s+de\s+(?P<m>[A-Za-zñáéíóú]+)\s+(?:de|del)\s+(?P<y>\d{4})\b", re.IGNORECASE)
 RE_ISO = re.compile(r"\b(?P<y>\d{4})-(?P<m>\d{2})-(?P<d>\d{2})\b")
 RE_RADICADO = re.compile(r"(?<!\d)\d{5}-?\d{2}-?\d{2}-?\d{3}-?\d{4}-?\d{5}-?\d{2}(?!\d)")
@@ -46,6 +57,7 @@ class Cita:
     parrafo: int
     contexto: str = ""    # texto inmediato posterior (para ponente)
     problema: str = ""    # formato imposible detectado al extraer
+    fecha: str = ""       # fecha completa citada (AAAA-MM-DD), si el escrito la incluye
 
 
 @dataclass
@@ -69,9 +81,13 @@ def ubicacion(texto: str, pos: int):
 def extraer_citas(texto: str, hoy: Optional[date] = None) -> List[Cita]:
     hoy = hoy or date.today()
     citas: List[Cita] = []
-    for m in RE_CC.finditer(texto):
+    vistos = set()
+    for m in sorted(list(RE_CC.finditer(texto)) + [x for x in RE_CC_ESPACIADA.finditer(texto)], key=lambda m: m.start()):
+        if (m.group("tipo").upper(), m.group("num"), m.start()) in vistos:
+            continue
+        vistos.add((m.group("tipo").upper(), m.group("num"), m.start()))
         anio = m.group("a2") or m.group("a4")
-        c = parsear_cita(f"{m.group('tipo')}-{m.group('num')}/{anio}")
+        c = parsear_cita(f"{m.group('tipo').upper()}-{m.group('num')}/{anio}")
         linea, col, par = ubicacion(texto, m.start())
         citas.append(Cita(
             "cc", m.group(0), c.canonica if c else m.group(0).upper(), linea, col, par,
@@ -81,12 +97,23 @@ def extraer_citas(texto: str, hoy: Optional[date] = None) -> List[Cita]:
         linea, col, par = ubicacion(texto, m.start())
         citas.append(Cita("cs", m.group(0), f"{m.group('tipo')}{int(m.group('num'))}-{m.group('anio')}", linea, col, par))
     for m in RE_NORMA.finditer(texto):
-        tipo = re.sub(r"[ -]+", " ", sin_acentos(m.group("tipo")).lower())
+        tipo = "decreto" if m.group("tipo").lower() == "dec." else re.sub(r"[ -]+", " ", sin_acentos(m.group("tipo")).lower())
         num = m.group("num").replace(".", "")
-        anio = int(m.group("anio"))
+        if m.group("anio"):
+            anio = int(m.group("anio"))
+        else:                                   # "Ley 100/93": dos dígitos = año más reciente posible
+            a = m.group("anio2")
+            anio = int(a) if len(a) == 4 else (2000 + int(a) if 2000 + int(a) <= hoy.year else 1900 + int(a))
         linea, col, par = ubicacion(texto, m.start())
         prob = "" if 1886 <= anio <= hoy.year else f"Año {anio} imposible para una norma colombiana vigente"
-        citas.append(Cita("norma", m.group(0), f"{tipo} {int(num)} de {anio}", linea, col, par, problema=prob))
+        fecha = ""
+        if m.group("dia"):
+            mes = MESES.get(sin_acentos(m.group("mes")).lower())
+            try:
+                fecha = date(anio, mes, int(m.group("dia"))).isoformat() if mes else ""
+            except ValueError:
+                fecha = ""
+        citas.append(Cita("norma", m.group(0), f"{tipo} {int(num)} de {anio}", linea, col, par, problema=prob, fecha=fecha))
     return sorted(citas, key=lambda c: (c.linea, c.columna))
 
 
@@ -117,3 +144,14 @@ def extraer_radicados(texto: str) -> List[str]:
 def ponente_en_contexto(contexto: str) -> str:
     m = RE_PONENTE.search(contexto[:200])
     return m.group(1).strip() if m else ""
+
+
+def extraer_referencias(texto: str):
+    """Referencias a la Constitución o a códigos: (texto, línea). Dedupe por texto normalizado."""
+    vistas, out = set(), []
+    for m in RE_REFERENCIA.finditer(texto):
+        k = sin_acentos(m.group(1)).lower()
+        if k not in vistas:
+            vistas.add(k)
+            out.append((m.group(1), ubicacion(texto, m.start())[0]))
+    return out

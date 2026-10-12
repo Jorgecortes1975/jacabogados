@@ -8,11 +8,11 @@ from __future__ import annotations
 
 from typing import Dict, List, Optional
 
-import httpx
-
 from jurisprudencia_col import relatoria_cc, socrata_cc
 from jurisprudencia_col.citas import parsear_cita, urls_candidatas
 from jurisprudencia_col.http import FuenteNoDisponible
+from normas_col import verificar as normas_verificar
+from datetime import date
 
 from .extractor import Cita, ponente_en_contexto, sin_acentos
 
@@ -22,10 +22,15 @@ def _tokens(nombre: str) -> set:
 
 
 class Verificador:
-    def __init__(self, cliente: Optional[httpx.Client] = None, sin_red: bool = False):
+    def __init__(self, cliente=None, sin_red: bool = False,
+                 fecha_ref: Optional[date] = None, en_vivo: bool = False,
+                 catalogo_normas: Optional[dict] = None, ruta_confirmaciones: Optional[str] = None):
         self.cliente, self.sin_red = cliente, sin_red
+        self.fecha_ref, self.en_vivo = fecha_ref or date.today(), en_vivo
+        self.catalogo_normas, self.ruta_confirmaciones = catalogo_normas, ruta_confirmaciones
         self.fuentes: Dict[str, dict] = {}   # fuente -> {estado, detalle}
         self._cache: Dict[str, dict] = {}
+        self._esquema_ok = False
 
     def _anotar(self, fuente: str, estado: str, detalle: str = "") -> None:
         previo = self.fuentes.get(fuente)
@@ -39,6 +44,14 @@ class Verificador:
         if self._caida("socrata_cc"):
             return None, "fuente no disponible en esta ejecución"
         try:
+            if not self._esquema_ok:
+                sonda = socrata_cc.buscar_cc("", 1, cliente=self.cliente)
+                if sonda and not sonda[0].sentencia:
+                    cols = ", ".join(sorted(sonda[0].raw)[:12])
+                    detalle = f"esquema inesperado del dataset (columnas: {cols}); ejecute `python3 -m jurisprudencia_col esquema` y ajuste los alias"
+                    self._anotar("socrata_cc", "caida", detalle)
+                    return None, detalle
+                self._esquema_ok = True
             for s in socrata_cc.buscar_cc(canonica, 20, cliente=self.cliente):
                 p = parsear_cita(s.sentencia)
                 if p and p.canonica == canonica:
@@ -46,7 +59,7 @@ class Verificador:
                     return s, ""
             self._anotar("socrata_cc", "ok")
             return False, ""
-        except (FuenteNoDisponible, httpx.HTTPError, ValueError) as e:
+        except (FuenteNoDisponible, OSError, ValueError) as e:
             self._anotar("socrata_cc", "caida", str(e))
             return None, str(e)
 
@@ -65,7 +78,7 @@ class Verificador:
                     vistas404 += 1
                 else:
                     raise FuenteNoDisponible(f"{u} -> HTTP {codigo}")
-        except (FuenteNoDisponible, httpx.HTTPError) as e:
+        except (FuenteNoDisponible, OSError) as e:
             self._anotar("relatoria_cc", "caida", str(e))
             return None, None, str(e)
         self._anotar("relatoria_cc", "ok")
@@ -108,10 +121,24 @@ class Verificador:
         motivos = "; ".join(m for m in (err_s, err_r) if m) or "respuesta no concluyente de las fuentes"
         return {**res, "estado": "pendiente", "detalle": "Fuente no concluyente: " + motivos}
 
-    def otra(self, c: Cita) -> dict:
+    def norma(self, c: Cita) -> dict:
         if c.problema:
             return {"estado": "no_encontrada", "detalle": c.problema, "fuentes": [], "url": ""}
-        destino = ("Corte Suprema de Justicia (relatoría oficial)" if c.clase == "cs"
-                   else "SUIN-Juriscol / Diario Oficial / Secretaría del Senado")
+        tipo, resto = c.clave.split(" ", 1) if not c.clave.startswith(("decreto ley", "decreto legislativo", "acto legislativo")) \
+            else (" ".join(c.clave.split(" ")[:2]), c.clave.split(" ", 2)[2])
+        numero, _, anio = resto.partition(" de ")
+        res = normas_verificar.verificar(tipo, numero, int(anio), c.fecha, self.fecha_ref, self.catalogo_normas,
+                                         self.cliente, self.en_vivo and not self.sin_red, self.ruta_confirmaciones)
+        if "catalogo_funcion_publica" in res.get("fuentes", []):
+            self._anotar("catalogo_funcion_publica", "ok", "catálogo local verificado el 2026-10-12")
+        if self.en_vivo and not self.sin_red and "Confirmación en vivo no disponible" in res.get("detalle", ""):
+            self._anotar("gestor_normativo", "caida", res["detalle"].split("disponible:")[-1].strip())
+        return res
+
+    def otra(self, c: Cita) -> dict:
+        if c.clase == "norma":
+            return self.norma(c)
+        if c.problema:
+            return {"estado": "no_encontrada", "detalle": c.problema, "fuentes": [], "url": ""}
         return {"estado": "pendiente", "fuentes": [], "url": "",
-                "detalle": f"Sin conector automático; verificar existencia y vigencia en {destino}."}
+                "detalle": "Sin conector automático; verificar existencia y vigencia en Corte Suprema de Justicia (relatoría oficial)."}
