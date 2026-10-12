@@ -472,3 +472,25 @@ Cuando veas este mensaje, ¡estás listo!
 **JAC - Abogados Asociados | LEXA v2.0**  
 **Guía de Instalación | Versión 1.0**  
 **Actualizado: Agosto 2026**
+
+---
+
+## Conectores de jurisprudencia (Python)
+
+```bash
+pip install -r requirements.txt            # httpx
+pip install -r requirements-dev.txt        # opcional: pytest
+python3 -m pytest -q tests_jurisprudencia  # pruebas sin red
+
+python3 -m jurisprudencia_col verificar    # diagnóstico de las 4 fuentes
+python3 -m jurisprudencia_col esquema      # columnas reales del dataset Socrata
+python3 -m jurisprudencia_col buscar "tutela salud" --limite 10
+python3 -m jurisprudencia_col url T-008/20
+python3 -m jurisprudencia_col texto T-008/20
+node agente-juridico-especializado.js verificar-fuentes
+```
+
+Requiere salida HTTPS a: www.datos.gov.co, www.corteconstitucional.gov.co,
+jurisprudencia.ramajudicial.gov.co y samai.consejodeestado.gov.co. Si `verificar` muestra
+403 en CONNECT, la red o el proxy del entorno bloquea el host.
+Variable opcional: SOCRATA_APP_TOKEN (eleva el límite de consultas a datos.gov.co).

@@ -12,3 +12,5 @@ node_modules/
 # Sistema operativo / editores
 .DS_Store
 *.log
+__pycache__/
+.pytest_cache/
