@@ -115,11 +115,15 @@ def cmd_empaquetar(args) -> int:
             print(f"Paquete Cowork en {r['carpeta']} ({len(r['archivos'])} archivos .md + {r['skills']} skills .zip); bundle: {r['paquete']}")
             return 0
         if args.instalador:
-            r = empaquetar.generar_instalador(args.instalador)
+            r = empaquetar.generar_instalador(args.instalador, con_agentes=args.con_agentes, modo_agentes=args.modo_agentes)
             print(f"Creado instalador {r['archivo']}: JAC Legal OS {r['version']}, {r['archivos']} archivos, {r['bytes']} bytes")
+            for n, h in r["agentes_externos"].items():
+                print(f"  incluido sin modificar: {n} ({h})")
             return 0
-        r = empaquetar.empaquetar(args.salida)
-    except FileNotFoundError as e:
+        r = empaquetar.empaquetar(args.salida, con_agentes=args.con_agentes, modo_agentes=args.modo_agentes)
+        for n, h in r["agentes_externos"].items():
+            print(f"  incluido sin modificar: {n} (sha256 {h})")
+    except (FileNotFoundError, ValueError) as e:
         print(e, file=sys.stderr)
         return 3
     print(f"Creado {r['archivo']}: plugin {r['plugin']} {r['version']}, {r['archivos']} archivos, {r['bytes']} bytes")
@@ -194,7 +198,7 @@ def main(argv=None) -> int:
     s.add_parser("protocolo", help="imprime el protocolo JAC Gauntlet Elite").set_defaults(f=cmd_protocolo)
     d = s.add_parser("doctor", help="comprueba la instalación"); d.add_argument("--red", action="store_true"); d.set_defaults(f=cmd_doctor)
     q = s.add_parser("prueba", help="prueba de aceptación reproducible"); q.add_argument("--red", action="store_true", help="incluye citas reales en las fuentes oficiales"); q.add_argument("--json", help="guarda la evidencia en este archivo"); q.set_defaults(f=cmd_prueba)
-    e = s.add_parser("empaquetar", help="crea el archivo .plugin para Cowork"); e.add_argument("--salida", default="jac-legal-os.plugin"); e.add_argument("--cowork-md", metavar="CARPETA", help="genera el paquete de archivos .md para Cowork"); e.add_argument("--instalador", metavar="ARCHIVO.py", help="genera un único .py autocontenido con el agente completo"); e.set_defaults(f=cmd_empaquetar)
+    e = s.add_parser("empaquetar", help="crea el archivo .plugin para Cowork"); e.add_argument("--salida", default="jac-legal-os.plugin"); e.add_argument("--con-agentes", metavar="RUTA", help="incluye sin modificar los agentes de otro plugin (p. ej. croma-jac); `auto` lo busca en ~/.claude/plugins"); e.add_argument("--modo-agentes", choices=("solo", "apoyo", "completo"), default="apoyo", help="solo: únicamente los agentes; apoyo: agentes y los skills que necesitan (por defecto); completo: todos los skills de ese plugin"); e.add_argument("--cowork-md", metavar="CARPETA", help="genera el paquete de archivos .md para Cowork"); e.add_argument("--instalador", metavar="ARCHIVO.py", help="genera un único .py autocontenido con el agente completo"); e.set_defaults(f=cmd_empaquetar)
     a = s.add_parser("agente", help="modo automático: Claude atiende una consulta abierta con estas herramientas")
     a.add_argument("consulta"); a.add_argument("--modelo"); a.add_argument("--max-turnos", type=int, default=30); a.set_defaults(f=cmd_agente)
     args = p.parse_args(argv)

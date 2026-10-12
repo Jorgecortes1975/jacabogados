@@ -513,7 +513,7 @@ Protocolo completo: `jac/datos/JAC-GAUNTLET-ELITE.md`.
 ## Conector de normas
 
 ```bash
-python3 -m normas_col listar                                   # catálogo verificado (13 normas de uso frecuente)
+python3 -m normas_col listar                                   # catálogo verificado (18 normas de uso frecuente)
 python3 -m normas_col consultar "Ley 1437 de 2011" [--en-vivo]
 python3 -m normas_col agregar "Ley 57 de 1887" --id <id> --expedida 1887-04-15   # norma verificada por usted en fuente oficial
 python3 -m normas_col confirmar "Ley 1437 de 2011" --por "Nombre" --fuente "SUIN-Juriscol" --nota "art. 142 vigente"

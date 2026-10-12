@@ -191,7 +191,7 @@ def test_catalogo_md_coincide_con_el_json(pack):
     d, _ = pack
     md = (d / "04-CATALOGO-NORMAS.md").read_text(encoding="utf-8")
     normas = catalogo.cargar("/nonexistent.json")
-    assert len(normas) == 13 and all(n.titulo in md and n.url in md for n in normas.values())
+    assert len(normas) == 18 and all(n.titulo in md and n.url in md for n in normas.values())
     assert "NO acredita vigencia" in md and "Ley 57 de 1887" in md
 
 
@@ -216,3 +216,92 @@ def test_skills_funcionan_sin_herramientas():
     for n in ("jac-agente", "jac-verificar", "jac-gauntlet"):
         txt = (RAIZ / "skills" / n / "SKILL.md").read_text(encoding="utf-8")
         assert re.search(r"sin ejecución de código|Modo sin herramientas", txt, re.I), n
+
+
+# ---------------- agentes de otro plugin (p. ej. croma-jac), sin copiar su contenido al repositorio ----------------
+def plugin_ajeno(tmp_path):
+    """Plugin sintético: dos agentes, skills con dependencias y un enrutador."""
+    base = tmp_path / "ajeno"
+    (base / "agents").mkdir(parents=True)
+    (base / "agents" / "ag-uno.md").write_text("---\nname: ag-uno\ndescription: x\n---\nUsa el skill alfa.\n", encoding="utf-8")
+    (base / "agents" / "ag-dos.md").write_text("---\nname: ag-dos\ndescription: y\n---\nSin dependencias.\n", encoding="utf-8")
+    nombres = ["alfa", "beta", "gamma", "d1", "d2", "d3", "d4", "d5"]
+    for n in nombres:
+        (base / "skills" / n).mkdir(parents=True)
+    cuerpos = {"alfa": "Requiere beta y enruta.", "beta": "Fin.", "gamma": "Independiente.",
+               "d1": "x", "d2": "x", "d3": "x", "d4": "x", "d5": "x"}
+    cuerpos["alfa"] += " " + " ".join(["d1", "d2", "d3", "d4", "d5", "gamma"])   # 7 menciones: enrutador, no se expande
+    for n in nombres:
+        (base / "skills" / n / "SKILL.md").write_text(f"---\nname: {n}\ndescription: z\n---\n{cuerpos[n]}\n", encoding="utf-8")
+    (base / "skills" / "alfa" / "references").mkdir()
+    (base / "skills" / "alfa" / "references" / "ref.md").write_text("referencia", encoding="utf-8")
+    return base
+
+
+def nombres_zip(r):
+    return set(zipfile.ZipFile(r["archivo"]).namelist())
+
+
+def test_agentes_modo_solo(tmp_path):
+    b = plugin_ajeno(tmp_path)
+    r = empaquetar.empaquetar(str(tmp_path / "x.plugin"), con_agentes=str(b), modo_agentes="solo")
+    n = nombres_zip(r)
+    assert {"agents/ag-uno.md", "agents/ag-dos.md", "agents/jac-revisor.md"} <= n and not any(x.startswith("skills/alfa") for x in n)
+    assert zipfile.ZipFile(r["archivo"]).read("agents/ag-uno.md") == (b / "agents" / "ag-uno.md").read_bytes(), "sin modificar"
+
+
+def test_agentes_modo_apoyo_cierre_sin_expandir_enrutadores(tmp_path):
+    b = plugin_ajeno(tmp_path)
+    n = nombres_zip(empaquetar.empaquetar(str(tmp_path / "x.plugin"), con_agentes=str(b)))
+    assert "skills/alfa/SKILL.md" in n and "skills/alfa/references/ref.md" in n
+    assert "skills/beta/SKILL.md" not in n, "alfa es un enrutador (más de 5 menciones): no se expande"
+    assert "skills/gamma/SKILL.md" not in n and "skills/d1/SKILL.md" not in n
+
+
+def test_agentes_modo_completo(tmp_path):
+    b = plugin_ajeno(tmp_path)
+    n = nombres_zip(empaquetar.empaquetar(str(tmp_path / "x.plugin"), con_agentes=str(b), modo_agentes="completo"))
+    assert all(f"skills/{s}/SKILL.md" in n for s in ("alfa", "beta", "gamma", "d1"))
+
+
+def test_agentes_rechaza_colisiones_y_encabezados_invalidos(tmp_path):
+    b = plugin_ajeno(tmp_path)
+    (b / "agents" / "jac-revisor.md").write_text("---\nname: jac-revisor\ndescription: x\n---\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="Colisión"):
+        empaquetar.empaquetar(str(tmp_path / "x.plugin"), con_agentes=str(b))
+    (b / "agents" / "jac-revisor.md").unlink()
+    (b / "agents" / "ag-uno.md").write_text("---\nname: otro-nombre\ndescription: x\n---\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="encabezado"):
+        empaquetar.empaquetar(str(tmp_path / "x.plugin"), con_agentes=str(b))
+    (b / "agents" / "ag-uno.md").write_text("---\nname: ag-uno\ndescription: x\n---\nUsa jac-agente.\n", encoding="utf-8")
+    (b / "skills" / "jac-agente").mkdir()
+    (b / "skills" / "jac-agente" / "SKILL.md").write_text("---\nname: jac-agente\ndescription: x\n---\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="Colisión"):
+        empaquetar.empaquetar(str(tmp_path / "x.plugin"), con_agentes=str(b))
+
+
+def test_agentes_auto_sin_plugin_instalado(tmp_path, monkeypatch):
+    monkeypatch.setattr(Path, "home", classmethod(lambda cls: tmp_path))
+    with pytest.raises(FileNotFoundError, match="croma-jac"):
+        empaquetar.localizar_agentes("auto")
+
+
+def test_agentes_cli_error_claro(tmp_path, capsys):
+    assert cli.main(["empaquetar", "--salida", str(tmp_path / "x.plugin"), "--con-agentes", str(tmp_path / "no-existe")]) == 3
+    assert "No hay agentes" in capsys.readouterr().err
+
+
+def test_el_repositorio_no_contiene_agentes_ajenos():
+    """El repositorio es público: el contenido de croma-jac no debe versionarse aquí."""
+    assert sorted(p.name for p in (RAIZ / "agents").glob("*.md")) == ["jac-revisor.md"]
+    assert sorted(p.name for p in (RAIZ / "skills").iterdir()) == ["jac-agente", "jac-gauntlet", "jac-verificar"]
+
+
+def test_instalador_lleva_los_agentes_ajenos(tmp_path):
+    b = plugin_ajeno(tmp_path)
+    inst = tmp_path / "inst.py"
+    r = empaquetar.generar_instalador(str(inst), con_agentes=str(b))
+    assert "agents/ag-uno.md" in r["agentes_externos"]
+    res = correr(inst, "--destino", str(tmp_path / "jac"), "--sin-prueba", cwd=tmp_path)
+    assert res.returncode == 0 and (tmp_path / "jac" / "agents" / "ag-uno.md").is_file()
+    assert (tmp_path / "jac" / "skills" / "alfa" / "references" / "ref.md").is_file()

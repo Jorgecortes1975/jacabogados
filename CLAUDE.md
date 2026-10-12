@@ -68,7 +68,7 @@ Un agente autónomo que consulta automáticamente jurisprudencia, leyes, normas,
 | Fuente | Contenido | Conector local (estado real, verificado 2026-10-12) |
 |--------|-----------|--------|
 | **Corte Constitucional** | Jurisprudencia, sentencias | SÍ: Socrata (metadatos) y relatoría (existencia), con tolerancia a fuentes caídas |
-| **Normas (Función Pública, Gestor Normativo)** | Leyes y decretos | PARCIAL: catálogo de 13 normas; existencia y fecha, nunca vigencia |
+| **Normas (Función Pública, Gestor Normativo)** | Leyes y decretos | PARCIAL: catálogo de 18 normas; existencia y fecha, nunca vigencia |
 | **Rama Judicial (relatoría unificada)** y **SAMAI** | Jurisprudencia y procesos | SOLO DIAGNÓSTICO: comprueban disponibilidad; la búsqueda no está automatizada |
 | **Consejo de Estado** | Jurisprudencia | NO (con Croma conectado, el agente puede consultarla) |
 | **Corte Suprema de Justicia** | Jurisprudencia | NO (con Croma conectado, el agente puede consultarla) |
@@ -278,6 +278,10 @@ python3 -m normas_col consultar "Ley 1437 de 2011"   # existencia, nunca vigenci
 ```
 
 ---
+
+### Registro de sentencias verificadas (jurisprudencia_col/registro.py)
+
+`jurisprudencia_col/datos/registro_sentencias.json` guarda fichas de sentencias de las que se leyó el texto o la relatoría (C-683/14, SC4855-2021, SC455-2023, SC2157-2025): corporación, fecha, radicado, ponente, decisión, regla en palabras propias y límites. Estar en el registro no prueba vigencia de la regla ni que sea precedente obligatorio. Las tres sentencias de la Sala Civil se contrastaron solo con el texto aportado por el usuario; falta confirmarlas en la relatoría oficial. Las minutas, los modelos de escritos y los textos de libros de un despacho NO se publican en este repositorio.
 
 ## 🧭 Spec Kit: Desarrollo Guiado por Especificaciones
 

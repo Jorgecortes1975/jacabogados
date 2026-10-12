@@ -27,6 +27,14 @@ Solo declara éxito si la prueba de aceptación pasa. No sobrescribe carpetas aj
 
 Evidencia del modo solo .md: se ejecutó el paquete sin herramientas y sin el plugin sobre el caso de prueba, en dos corridas independientes; ambas cumplieron los 13 criterios comprobables (estado BLOCKED, errores detectados, sentencias no verificadas dejadas como pendientes, ninguna vigencia afirmada, revisión declarada interna). Son dos corridas con un solo modelo: indicativo, no una garantía estadística.
 
+## Incluir los agentes de otro plugin (croma-jac) en el mismo archivo
+
+`python3 -m jac empaquetar --con-agentes auto` agrega al `.plugin` los agentes del plugin `croma-jac` instalado (`jac-legal-command`, `jac-legal-counsel`, `jac-review-chamber`), **sin modificarlos** (se verifica byte a byte), y rechaza colisiones de nombre. La opción también existe en `--instalador`. `--con-agentes RUTA` acepta la raíz de otro plugin o su carpeta `agents`.
+
+Modos (`--modo-agentes`): `solo` incluye únicamente los agentes; `apoyo` (por defecto) añade los skills que los agentes necesitan para funcionar como fueron diseñados (calculados por menciones, sin expandir enrutadores); `completo` añade todos los skills de ese plugin. En `apoyo` con croma-jac se agregan `croma` (con sus tres referencias), `croma-release` y `croma-revisar`. El enrutador `croma` nombra otros 13 comandos que no se incluyen: en ese modo `/croma expediente` y similares no existen. Use `completo` si los necesita.
+
+El contenido de croma-jac no se versiona en este repositorio (es público): el archivo se genera en su equipo a partir de su instalación local.
+
 ## Comandos
 
 | Comando | Qué hace |

@@ -232,6 +232,70 @@
     "Modifica Ley 685 de 2001"
    ],
    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=156590"
+  },
+  {
+   "id": "258236",
+   "tipo": "ley",
+   "numero": "2447",
+   "anio": 2025,
+   "titulo": "Ley 2447 de 2025",
+   "expedida": "2025-02-13",
+   "vigencia_desde": "2025-02-13",
+   "publicada_en": null,
+   "modificaciones": [],
+   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=258236"
+  },
+  {
+   "id": "262716",
+   "tipo": "ley",
+   "numero": "2541",
+   "anio": 2025,
+   "titulo": "Ley 2541 de 2025",
+   "expedida": "2025-08-27",
+   "vigencia_desde": "2025-08-27",
+   "publicada_en": null,
+   "modificaciones": [],
+   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=262716"
+  },
+  {
+   "id": "175406",
+   "tipo": "decreto",
+   "numero": "1885",
+   "anio": 2021,
+   "titulo": "Decreto 1885 de 2021",
+   "expedida": "2021-12-30",
+   "vigencia_desde": null,
+   "publicada_en": null,
+   "modificaciones": [
+    "Modifica el Decreto 1069 de 2015 (arts. 2.2.6.13.2.1.1, 2.2.6.13.2.2.4 y 2.2.6.13.2.2.6, entre otros), según el registro de Función Pública"
+   ],
+   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=175406"
+  },
+  {
+   "id": "74174",
+   "tipo": "decreto",
+   "numero": "1069",
+   "anio": 2015,
+   "titulo": "Decreto 1069 de 2015",
+   "expedida": "2015-05-26",
+   "vigencia_desde": "2015-05-26",
+   "publicada_en": null,
+   "modificaciones": [],
+   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=74174"
+  },
+  {
+   "id": "188766",
+   "tipo": "ley",
+   "numero": "2220",
+   "anio": 2022,
+   "titulo": "Ley 2220 de 2022",
+   "expedida": "2022-06-30",
+   "vigencia_desde": null,
+   "publicada_en": null,
+   "modificaciones": [
+    "Deroga la Ley 640 de 2001, los arts. 620 y 621 y el inciso 2 del numeral 6 del art. 384 de la Ley 1564 de 2012, entre otras disposiciones (art. 146); rige seis meses después de su promulgación (art. 145), según el texto consolidado de Función Pública"
+   ],
+   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=188766"
   }
  ]
 }
