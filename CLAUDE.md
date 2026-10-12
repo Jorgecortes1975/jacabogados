@@ -68,7 +68,7 @@ Un agente autónomo que consulta automáticamente jurisprudencia, leyes, normas,
 | Fuente | Contenido | Conector local (estado real, verificado 2026-10-12) |
 |--------|-----------|--------|
 | **Corte Constitucional** | Jurisprudencia, sentencias | SÍ: Socrata (metadatos) y relatoría (existencia), con tolerancia a fuentes caídas |
-| **Normas (Función Pública, Gestor Normativo)** | Leyes y decretos | PARCIAL: catálogo de 17 normas; existencia y fecha, nunca vigencia |
+| **Normas (Función Pública, Gestor Normativo)** | Leyes y decretos | PARCIAL: catálogo de 18 normas; existencia y fecha, nunca vigencia |
 | **Rama Judicial (relatoría unificada)** y **SAMAI** | Jurisprudencia y procesos | SOLO DIAGNÓSTICO: comprueban disponibilidad; la búsqueda no está automatizada |
 | **Consejo de Estado** | Jurisprudencia | NO (con Croma conectado, el agente puede consultarla) |
 | **Corte Suprema de Justicia** | Jurisprudencia | NO (con Croma conectado, el agente puede consultarla) |
