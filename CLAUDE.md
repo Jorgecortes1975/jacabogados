@@ -279,6 +279,10 @@ python3 -m normas_col consultar "Ley 1437 de 2011"   # existencia, nunca vigenci
 
 ---
 
+### Registro de sentencias verificadas (jurisprudencia_col/registro.py)
+
+`jurisprudencia_col/datos/registro_sentencias.json` guarda fichas de sentencias de las que se leyó el texto o la relatoría (C-683/14, SC4855-2021, SC455-2023, SC2157-2025): corporación, fecha, radicado, ponente, decisión, regla en palabras propias y límites. Estar en el registro no prueba vigencia de la regla ni que sea precedente obligatorio. Las tres sentencias de la Sala Civil se contrastaron solo con el texto aportado por el usuario; falta confirmarlas en la relatoría oficial. Las minutas, los modelos de escritos y los textos de libros de un despacho NO se publican en este repositorio.
+
 ## 🧭 Spec Kit: Desarrollo Guiado por Especificaciones
 
 Este repositorio integra [Spec Kit](https://github.com/github/spec-kit) (GitHub), instalado como

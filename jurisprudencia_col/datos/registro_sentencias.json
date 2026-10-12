@@ -1,0 +1,91 @@
+{
+ "version": 1,
+ "nota": "Registro de sentencias de las que se leyó el texto o la relatoría. Existir en el registro NO equivale a vigencia de la regla ni a que sea precedente obligatorio; el abogado debe leer la providencia. Estados: VERIFICADA_EN_RELATORIA_Y_TEXTO, VERIFICADA_EN_TEXTO_APORTADO (el usuario aportó el PDF; no se halló en el índice de Croma, lo que no prueba inexistencia).",
+ "sentencias": [
+  {
+   "claves": [
+    "C-683/14",
+    "C-683-14",
+    "C-683 DE 2014"
+   ],
+   "corporacion": "Corte Constitucional",
+   "sala": "Sala Plena",
+   "numero": "C-683/14",
+   "fecha": "2014-09-10",
+   "radicado": "D-10113",
+   "ponente": "Mauricio González Cuervo",
+   "estado": "VERIFICADA_EN_RELATORIA_Y_TEXTO",
+   "decision": "Declara EXEQUIBLE el parágrafo del artículo 487 de la Ley 1564 de 2012 (partición del patrimonio en vida por escritura pública) por los cargos de unidad de materia e igualdad.",
+   "regla": "La partición en vida del art. 487 par. CGP no vulnera la igualdad de los hijos que no han consolidado su vínculo ni de terceros sin vocación hereditaria; protege a los interesados con la licencia judicial previa y la rescisión en dos años.",
+   "limites": "El fallo solo decidió los cargos por unidad de materia e igualdad; hubo salvamentos parciales de voto.",
+   "url_oficial": "https://www.corteconstitucional.gov.co/relatoria/2014/C-683-14.htm",
+   "relacionada_con": [
+    "CGP art. 487 parágrafo"
+   ]
+  },
+  {
+   "claves": [
+    "SC4855-2021",
+    "SC4855 DE 2021"
+   ],
+   "corporacion": "Corte Suprema de Justicia",
+   "sala": "Sala de Casación Civil",
+   "numero": "SC4855-2021",
+   "fecha": "2021-11-02",
+   "radicado": "11001-31-10-013-2014-00011-01",
+   "ponente": "Luis Armando Tolosa Villabona",
+   "estado": "VERIFICADA_EN_TEXTO_APORTADO",
+   "decision": "No casa la sentencia del Tribunal Superior de Bogotá, Sala de Familia, de 9 de noviembre de 2017; costas a los recurrentes (agencias en derecho $6.000.000). Aclaración de voto del magistrado Álvaro Fernando García Restrepo.",
+   "regla": "La sanción del art. 1824 del Código Civil (pérdida de la porción y restitución doblada) no se limita a actos entre la disolución y la liquidación de la sociedad conyugal; la sociedad existe desde el matrimonio. Exige probar calidad del sujeto, carácter social del bien, ocultamiento o distracción y dolo; el dolo no se presume.",
+   "limites": "No se casó por falta de prueba del dolo y de errores de hecho trascendentes; hubo aclaración de voto que discrepa de presentar el criterio como cambio jurisprudencial.",
+   "url_oficial": "",
+   "relacionada_con": [
+    "CC art. 1824",
+    "CC arts. 180, 1774, 1820",
+    "Ley 28 de 1932 art. 1"
+   ]
+  },
+  {
+   "claves": [
+    "SC455-2023",
+    "SC455 DE 2023"
+   ],
+   "corporacion": "Corte Suprema de Justicia",
+   "sala": "Sala de Casación Civil, Agraria y Rural",
+   "numero": "SC455-2023",
+   "fecha": "2023-12-18",
+   "radicado": "11001-31-03-002-2014-00003-01",
+   "ponente": "Aroldo Wilson Quiroz Monsalvo",
+   "estado": "VERIFICADA_EN_TEXTO_APORTADO",
+   "decision": "No casa la sentencia de 20 de abril de 2021 de la Sala Civil del Tribunal Superior de Bogotá; costas al recurrente (10 smlmv de agencias en derecho).",
+   "regla": "Requisitos de la acción de simulación: divergencia entre voluntad real y declarada, concierto simulatorio (animus simulandi) y propósito de engañar a terceros. La simulación relativa puede ser de naturaleza, de contenido o por interposición de personas. El recurrente en casación debe probar la trascendencia del error; la omisión de indicios que no cambian el sentido del fallo es intrascendente.",
+   "limites": "La pretensión de donación oculta fracasó porque se probó otro negocio oculto (restitución del bien), no la donación.",
+   "url_oficial": "",
+   "relacionada_con": [
+    "CC art. 1766",
+    "CGP art. 336"
+   ]
+  },
+  {
+   "claves": [
+    "SC2157-2025",
+    "SC2157 DE 2025"
+   ],
+   "corporacion": "Corte Suprema de Justicia",
+   "sala": "Sala de Casación Civil",
+   "numero": "SC2157-2025",
+   "fecha": "2025-12-19",
+   "radicado": "23001-31-03-003-2015-00199-01",
+   "ponente": "Martha Patricia Guzmán Álvarez",
+   "estado": "VERIFICADA_EN_TEXTO_APORTADO",
+   "decision": "Casa la sentencia del Tribunal de Montería y, en sede de instancia, revoca la de primera instancia; declara la simulación relativa de la compraventa, que ocultaba una donación de la nuda propiedad, y la nulidad absoluta de la donación por falta de insinuación (art. 1458 CC; valor superior a 50 smlmv); acoge la excepción de tercero de buena fe e inoponibilidad respecto de la adjudicación del 25% de la nuda propiedad a la excónyuge de uno de los donatarios.",
+   "regla": "La interrupción de la prescripción (art. 94 CGP) exige presentación y admisión de la demanda, notificación al demandado dentro del año siguiente a la notificación al demandante del auto admisorio, y que el demandado sea enterado; la ineficacia del art. 95 num. 5 CGP solo opera si la nulidad es imputable al demandante. Quien solo tiene un embargo sobre cuota del bien no es litisconsorte necesario en la acción de simulación.",
+   "limites": "Existe aclaración AC2380-2026 (2026-05-14), indexada en Croma con el mismo radicado, que reitera que los efectos restitutorios no despojan a la tercera de buena fe de la cuota adjudicada; hay aclaraciones de voto sobre el alcance de la nulidad por falta de insinuación.",
+   "url_oficial": "https://consultajurisprudencial.ramajudicial.gov.co/WebRelatoria/FileReferenceServlet?corp=csj&ext=html&file=960944 (solo la aclaración AC2380-2026)",
+   "relacionada_con": [
+    "CC arts. 1458, 1741, 1742, 1766, 2536",
+    "CGP arts. 94 y 95"
+   ]
+  }
+ ]
+}
