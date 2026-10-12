@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { spawnSync } = require('child_process');
 
 const CONFIG_FILE = path.join(process.cwd(), 'mcp-config.json');
 
@@ -314,16 +315,23 @@ async function main() {
         agente.listarFuentesOficiales();
         break;
 
-      case 'consulta':
+      case 'consulta': {
         agente.crearComandoConsulta();
-        console.log(`\n📝 Tipo de consulta: ${args.arg1 || 'no especificado'}`);
-        if (args.arg2) {
-          console.log(`❓ Pregunta: ${args.arg2}`);
+        const tipo = args.arg1 || 'no especificado';
+        console.log(`\n📝 Tipo de consulta: ${tipo}`);
+        if (args.arg2) console.log(`❓ Pregunta: ${args.arg2}`);
+        if (tipo === 'jurisprudencia' && args.arg2) {
+          const r = spawnSync('python3', ['-m', 'jurisprudencia_col', 'buscar', args.arg2], { stdio: 'inherit' });
+          process.exit(r.status === null ? 1 : r.status);
         }
-        console.log('\n⏳ Ejecutando búsqueda en fuentes oficiales...');
-        console.log('🔍 Validando información contra múltiples fuentes...');
-        console.log('✓ Generando respuesta verificada...\n');
+        console.log('\n⚠️  El tipo de consulta indicado aún no tiene conector automático; verifique en fuente oficial.');
         break;
+      }
+
+      case 'verificar-fuentes': {
+        const r = spawnSync('python3', ['-m', 'jurisprudencia_col', 'verificar'], { stdio: 'inherit' });
+        process.exit(r.status === null ? 1 : r.status);
+      }
 
       case 'help':
       case '--help':
@@ -332,7 +340,7 @@ async function main() {
         break;
 
       default:
-        console.error('❌ Comando desconocido. Use: activar, fuentes, consulta, help');
+        console.error('❌ Comando desconocido. Use: activar, fuentes, consulta, verificar-fuentes, help');
         printHelp();
         process.exit(1);
     }

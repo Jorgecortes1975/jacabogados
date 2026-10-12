@@ -127,6 +127,47 @@
       "enabled": true,
       "createdAt": "2026-08-02T15:41:15.624Z",
       "oficial": true
+    },
+    "socrata-corte-constitucional": {
+      "type": "http",
+      "url": "https://www.datos.gov.co/resource/v2k4-2t8s.json",
+      "fuente": "Datos Abiertos Colombia - Corte Constitucional (solo metadatos)",
+      "contenido": [
+        "metadatos-sentencias"
+      ],
+      "enabled": true,
+      "oficial": true
+    },
+    "relatoria-corte-constitucional": {
+      "type": "http",
+      "url": "https://www.corteconstitucional.gov.co/relatoria/",
+      "fuente": "Relatoría Corte Constitucional (texto completo)",
+      "contenido": [
+        "sentencias-texto-completo"
+      ],
+      "enabled": true,
+      "oficial": true
+    },
+    "rama-judicial-relatoria": {
+      "type": "http",
+      "url": "https://jurisprudencia.ramajudicial.gov.co/WebRelatoria/consulta/index.xhtml",
+      "fuente": "Relatoría unificada Rama Judicial (JSF; solo diagnóstico, búsqueda manual)",
+      "contenido": [
+        "jurisprudencia"
+      ],
+      "enabled": true,
+      "oficial": true
+    },
+    "samai": {
+      "type": "http",
+      "url": "https://samai.consejodeestado.gov.co",
+      "fuente": "SAMAI - Consejo de Estado (consulta por radicado)",
+      "contenido": [
+        "procesos",
+        "providencias"
+      ],
+      "enabled": true,
+      "oficial": true
     }
   },
   "servers": {},
