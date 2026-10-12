@@ -324,6 +324,10 @@ async function main() {
           const r = spawnSync('python3', ['-m', 'jurisprudencia_col', 'buscar', args.arg2], { stdio: 'inherit' });
           process.exit(r.status === null ? 1 : r.status);
         }
+        if (tipo === 'validar-escrito' && args.arg2) {
+          const r = spawnSync('python3', ['-m', 'gauntlet_jac', 'validar-escrito', args.arg2], { stdio: 'inherit' });
+          process.exit(r.status === null ? 1 : r.status);
+        }
         console.log('\n⚠️  El tipo de consulta indicado aún no tiene conector automático; verifique en fuente oficial.');
         break;
       }
