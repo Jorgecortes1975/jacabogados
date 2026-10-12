@@ -17,4 +17,4 @@ packages = ["jac", "jurisprudencia_col", "gauntlet_jac", "normas_col"]
 
 [tool.setuptools.package-data]
 normas_col = ["datos/*.json"]
-jac = ["datos/*.md", "datos/*.txt"]
+jac = ["datos/*.md", "datos/*.txt", "datos/*.py"]

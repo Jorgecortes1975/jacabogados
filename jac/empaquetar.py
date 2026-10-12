@@ -43,3 +43,28 @@ def empaquetar(salida: str = "jac-legal-os.plugin", raiz: Path = RAIZ) -> dict:
             z.write(guia, "README.md")
     return {"archivo": str(destino), "plugin": manifiesto["name"], "version": manifiesto["version"],
             "archivos": len(lista) + 1, "bytes": destino.stat().st_size}
+
+
+def generar_instalador(salida: str = "instalar_jac_cowork.py", raiz: Path = RAIZ) -> dict:
+    """Un solo archivo .py con el agente completo incrustado, autoverificable y listo para llevar."""
+    import base64
+    import hashlib
+    import tempfile
+
+    plantilla = (raiz / "jac" / "datos" / "plantilla_instalador.py")
+    if not plantilla.is_file():
+        raise FileNotFoundError("No se encontró la plantilla del instalador; ejecute desde una copia del repositorio (git clone).")
+    with tempfile.TemporaryDirectory() as tmp:
+        paquete = Path(tmp) / "jac-legal-os.plugin"
+        info = empaquetar(str(paquete), raiz)
+        crudo = paquete.read_bytes()
+    b64 = base64.b64encode(crudo).decode("ascii")
+    cuerpo = "\n".join("# " + b64[i:i + 76] for i in range(0, len(b64), 76))
+    texto = (plantilla.read_text(encoding="utf-8")
+             .replace("@@VERSION@@", info["version"]).replace("@@SHA256@@", hashlib.sha256(crudo).hexdigest())
+             .replace("@@PAYLOAD@@", cuerpo))
+    destino = Path(salida)
+    destino.write_text(texto, encoding="utf-8")
+    destino.chmod(0o755)
+    return {"archivo": str(destino), "version": info["version"], "archivos": info["archivos"], "bytes": destino.stat().st_size,
+            "sha256_contenido": hashlib.sha256(crudo).hexdigest()}

@@ -110,6 +110,10 @@ def cmd_prueba(args) -> int:
 def cmd_empaquetar(args) -> int:
     from . import empaquetar
     try:
+        if args.instalador:
+            r = empaquetar.generar_instalador(args.instalador)
+            print(f"Creado instalador {r['archivo']}: JAC Legal OS {r['version']}, {r['archivos']} archivos, {r['bytes']} bytes")
+            return 0
         r = empaquetar.empaquetar(args.salida)
     except FileNotFoundError as e:
         print(e, file=sys.stderr)
@@ -186,7 +190,7 @@ def main(argv=None) -> int:
     s.add_parser("protocolo", help="imprime el protocolo JAC Gauntlet Elite").set_defaults(f=cmd_protocolo)
     d = s.add_parser("doctor", help="comprueba la instalación"); d.add_argument("--red", action="store_true"); d.set_defaults(f=cmd_doctor)
     q = s.add_parser("prueba", help="prueba de aceptación reproducible"); q.add_argument("--red", action="store_true", help="incluye citas reales en las fuentes oficiales"); q.add_argument("--json", help="guarda la evidencia en este archivo"); q.set_defaults(f=cmd_prueba)
-    e = s.add_parser("empaquetar", help="crea el archivo .plugin para Cowork"); e.add_argument("--salida", default="jac-legal-os.plugin"); e.set_defaults(f=cmd_empaquetar)
+    e = s.add_parser("empaquetar", help="crea el archivo .plugin para Cowork"); e.add_argument("--salida", default="jac-legal-os.plugin"); e.add_argument("--instalador", metavar="ARCHIVO.py", help="genera un único .py autocontenido con el agente completo"); e.set_defaults(f=cmd_empaquetar)
     a = s.add_parser("agente", help="modo automático: Claude atiende una consulta abierta con estas herramientas")
     a.add_argument("consulta"); a.add_argument("--modelo"); a.add_argument("--max-turnos", type=int, default=30); a.set_defaults(f=cmd_agente)
     args = p.parse_args(argv)

@@ -93,3 +93,75 @@ def test_pyproject_empaqueta_todos_los_archivos_de_datos():
 def test_empaquetar_fuera_del_repositorio_da_error_claro(tmp_path):
     with pytest.raises(FileNotFoundError, match="git clone"):
         empaquetar.empaquetar(str(tmp_path / "x.plugin"), raiz=tmp_path)
+
+
+# ---------------- instalador autocontenido ----------------
+import os
+import subprocess
+import sys
+
+
+@pytest.fixture(scope="module")
+def instalador(tmp_path_factory):
+    d = tmp_path_factory.mktemp("inst")
+    r = empaquetar.generar_instalador(str(d / "instalar_jac_cowork.py"))
+    return d, Path(r["archivo"])
+
+
+def correr(archivo, *args, cwd):
+    env = {k: v for k, v in os.environ.items() if k != "PYTHONPATH"}
+    return subprocess.run([sys.executable, str(archivo), *args], cwd=cwd, env=env, capture_output=True, text=True, timeout=120)
+
+
+def test_instalador_instala_verifica_y_crea_plugin(instalador, tmp_path):
+    _, f = instalador
+    r = correr(f, "--destino", str(tmp_path / "jac"), cwd=tmp_path)
+    assert r.returncode == 0 and "22 de 22" in r.stdout and "INSTALACIÓN COMPLETA" in r.stdout
+    assert (tmp_path / "jac" / ".claude-plugin" / "plugin.json").is_file() and (tmp_path / "jac-legal-os.plugin").is_file()
+    assert zipfile.ZipFile(tmp_path / "jac-legal-os.plugin").testzip() is None
+    assert correr(f, "--destino", str(tmp_path / "jac"), cwd=tmp_path).returncode == 0, "debe ser idempotente"
+
+
+def test_instalador_no_toca_carpetas_ajenas(instalador, tmp_path):
+    _, f = instalador
+    (tmp_path / "ajena").mkdir()
+    (tmp_path / "ajena" / "cliente.txt").write_text("dato")
+    r = correr(f, "--destino", str(tmp_path / "ajena"), cwd=tmp_path)
+    assert r.returncode == 3 and (tmp_path / "ajena" / "cliente.txt").read_text() == "dato"
+
+
+def test_instalador_detecta_contenido_alterado(instalador, tmp_path):
+    _, f = instalador
+    txt = f.read_text(encoding="utf-8")
+    i = txt.index("# --JAC-PAYLOAD-INICIO--\n# ") + 27
+    alterado = tmp_path / "alt.py"
+    alterado.write_text(txt[:i] + ("B" if txt[i] != "B" else "C") + txt[i + 1:], encoding="utf-8")
+    r = correr(alterado, "--destino", str(tmp_path / "x"), cwd=tmp_path)
+    assert r.returncode == 2 and "alterado" in r.stderr and not (tmp_path / "x").exists()
+
+
+def test_instalador_acepta_saltos_de_linea_de_windows(instalador, tmp_path):
+    _, f = instalador
+    crlf = tmp_path / "crlf.py"
+    crlf.write_bytes(f.read_bytes().replace(b"\n", b"\r\n"))
+    assert correr(crlf, "--destino", str(tmp_path / "x"), "--sin-prueba", cwd=tmp_path).returncode == 0
+
+
+def test_instalador_truncado_nunca_termina_en_silencio(instalador, tmp_path):
+    """Un archivo cortado en cualquier punto debe fallar de forma explícita (nunca exit 0)."""
+    _, f = instalador
+    datos = f.read_bytes()
+    n = len(datos)
+    cortes = list(range(1, 2600, 97)) + [n // 4, n // 2, n - 200, n - 30, n - 10, n - 2]
+    for k in cortes:
+        corte = tmp_path / "corte.py"
+        corte.write_bytes(datos[:k])
+        r = correr(corte, "--destino", str(tmp_path / "x"), cwd=tmp_path)
+        assert r.returncode != 0 and not (tmp_path / "x").exists(), f"corte en {k} terminó con código {r.returncode}"
+
+
+def test_instalador_destino_imposible(instalador, tmp_path):
+    _, f = instalador
+    solo_archivo = tmp_path / "archivo"
+    solo_archivo.write_text("x")
+    assert correr(f, "--destino", str(solo_archivo / "jac"), cwd=tmp_path).returncode == 3

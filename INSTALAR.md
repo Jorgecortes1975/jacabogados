@@ -534,4 +534,5 @@ bin/jac prueba                 # prueba de aceptación (8 errores sembrados, cic
 bin/jac doctor --red           # instalación y acceso a las fuentes oficiales
 bin/jac consulta "T-008/20 y Ley 1437 de 2011"
 bin/jac empaquetar             # crea jac-legal-os.plugin para Claude Cowork
+bin/jac empaquetar --instalador instalar_jac_cowork.py   # un único archivo con todo el agente, autoverificable
 ```

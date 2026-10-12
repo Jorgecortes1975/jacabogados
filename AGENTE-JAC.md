@@ -10,6 +10,17 @@ Verificación determinista de citas y normas, control Gauntlet de escritos e inv
 
 Modo automático desde terminal, sin abrir sesión: `jac agente "<consulta abierta>"` (usa la CLI `claude` con el plugin cargado).
 
+## Instalación en un solo archivo (recomendada para Cowork)
+
+`python3 -m jac empaquetar --instalador instalar_jac_cowork.py` genera un único archivo Python con el agente completo incrustado. Se lleva a cualquier equipo con Python 3.9 o superior y no necesita `git`, `pip` ni internet:
+
+```
+python3 instalar_jac_cowork.py            # instala, crea jac-legal-os.plugin y ejecuta la prueba de aceptación
+python3 instalar_jac_cowork.py --red      # además comprueba si la red alcanza las fuentes oficiales
+```
+
+Solo declara éxito si la prueba de aceptación pasa. No sobrescribe carpetas ajenas (exige `--forzar`), verifica su integridad con SHA-256 y, si el archivo llega cortado o alterado, falla con un mensaje claro. Códigos de salida: 0 correcto, 1 la prueba falló, 2 archivo dañado o alterado, 3 error de uso o de entorno.
+
 ## Comandos
 
 | Comando | Qué hace |
