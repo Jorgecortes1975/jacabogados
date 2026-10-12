@@ -8,12 +8,84 @@ from __future__ import annotations
 import json
 import zipfile
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 RAIZ = Path(__file__).resolve().parent.parent
 INCLUIR = [".claude-plugin", "skills", "agents", "hooks", "bin", "jac", "jurisprudencia_col", "gauntlet_jac", "normas_col"]
 EXCLUIR_PARTES = {"__pycache__", ".pytest_cache", ".DS_Store"}
 EXCLUIR_SUFIJOS = {".pyc", ".pyo"}
+
+
+def localizar_agentes(origen: str) -> Path:
+    """Carpeta con los .md de agentes. `auto` busca el plugin croma-jac instalado; acepta la raíz del plugin o su carpeta agents."""
+    if origen == "auto":
+        base = Path.home() / ".claude" / "plugins"
+        hallados = sorted(base.rglob("croma-jac/agents")) if base.is_dir() else []
+        if not hallados:
+            raise FileNotFoundError("No se encontró el plugin croma-jac en ~/.claude/plugins; indique la ruta con --con-agentes RUTA.")
+        return hallados[0]
+    p = Path(origen).expanduser()
+    p = p / "agents" if (p / "agents").is_dir() else p
+    if not p.is_dir() or not list(p.glob("*.md")):
+        raise FileNotFoundError(f"No hay agentes (.md) en {p}")
+    return p
+
+
+MODOS_AGENTES = ("solo", "apoyo", "completo")
+
+
+def _skills_de_apoyo(raiz_plugin: Path, texto_agentes: str, modo: str) -> List[Path]:
+    """Skills de otro plugin que sus agentes necesitan. `apoyo`: cierre por menciones sin expandir enrutadores
+    (un skill que nombra a más de 5 skills es un enrutador y no se expande); `completo`: todos."""
+    import re
+    skills = {d.name: d for d in sorted((raiz_plugin / "skills").glob("*")) if (d / "SKILL.md").is_file()}
+    if modo == "completo":
+        return list(skills.values())
+
+    def menciones(texto: str, excepto: str = "") -> set:
+        return {n for n in skills if n != excepto and re.search(rf"(?<![\w-]){re.escape(n)}(?![\w-])", texto)}
+
+    cierre, pendientes = set(menciones(texto_agentes)), list(menciones(texto_agentes))
+    while pendientes:
+        n = pendientes.pop()
+        hijos = menciones((skills[n] / "SKILL.md").read_text(encoding="utf-8"), n)
+        if len(hijos) > 5:              # enrutador: lista casi todos los comandos; no se expande
+            continue
+        for h in hijos - cierre:
+            cierre.add(h)
+            pendientes.append(h)
+    return [skills[n] for n in sorted(cierre)]
+
+
+def _agentes_externos(origen: str, propios_agentes: set, propios_skills: set, modo: str = "apoyo") -> List[tuple]:
+    """[(nombre_en_zip, bytes)] de los agentes de otro plugin (y, según el modo, de los skills que necesitan), SIN modificarlos.
+    Valida el encabezado y rechaza colisiones de nombres."""
+    import re
+    if modo not in MODOS_AGENTES:
+        raise ValueError(f"Modo inválido {modo!r}; use uno de {MODOS_AGENTES}")
+    carpeta = localizar_agentes(origen)
+    out, textos = [], []
+    for f in sorted(carpeta.glob("*.md")):
+        contenido = f.read_bytes()
+        m = re.match(r"^---\r?\nname: ([^\r\n]+)\r?\n", contenido.decode("utf-8"))
+        if not m or m.group(1).strip().strip('"') != f.stem:
+            raise ValueError(f"{f.name}: el encabezado no tiene name igual al nombre del archivo")
+        if f.name in propios_agentes:
+            raise ValueError(f"Colisión: ya existe un agente propio llamado {f.name}")
+        out.append((f"agents/{f.name}", contenido))
+        textos.append(contenido.decode("utf-8"))
+    raiz_plugin = carpeta.parent
+    if modo != "solo" and (raiz_plugin / "skills").is_dir():
+        for d in _skills_de_apoyo(raiz_plugin, "\n".join(textos), modo):
+            if d.name in propios_skills:
+                raise ValueError(f"Colisión: ya existe un skill propio llamado {d.name}")
+            md = (d / "SKILL.md").read_bytes().decode("utf-8")
+            if not re.match(rf"^---\r?\nname: {re.escape(d.name)}\r?\n", md):
+                raise ValueError(f"skills/{d.name}/SKILL.md: el encabezado no tiene name igual al directorio")
+            for f in sorted(d.rglob("*")):
+                if f.is_file():
+                    out.append((f"skills/{d.name}/{f.relative_to(d).as_posix()}", f.read_bytes()))
+    return out
 
 
 def archivos(raiz: Path = RAIZ) -> List[Path]:
@@ -28,24 +100,30 @@ def archivos(raiz: Path = RAIZ) -> List[Path]:
     return out
 
 
-def empaquetar(salida: str = "jac-legal-os.plugin", raiz: Path = RAIZ) -> dict:
+def empaquetar(salida: str = "jac-legal-os.plugin", raiz: Path = RAIZ, con_agentes: Optional[str] = None, modo_agentes: str = "apoyo") -> dict:
     if not (raiz / ".claude-plugin" / "plugin.json").is_file():
         raise FileNotFoundError("No se encontró .claude-plugin/plugin.json: ejecute `empaquetar` desde una copia "
                                 "del repositorio (git clone), no desde una instalación con pip.")
     manifiesto = json.loads((raiz / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
     destino = Path(salida)
     lista = archivos(raiz)
+    externos = (_agentes_externos(con_agentes, {f.name for f in lista if f.parent.name == "agents"},
+                                  {f.parent.name for f in lista if f.name == "SKILL.md"}, modo_agentes) if con_agentes else [])
     with zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED) as z:
         for f in lista:
             z.write(f, f.relative_to(raiz).as_posix())      # conserva permisos de ejecución
+        for nombre, contenido in externos:
+            z.writestr(nombre, contenido)
         guia = raiz / "AGENTE-JAC.md"
         if guia.is_file():
             z.write(guia, "README.md")
+    import hashlib
     return {"archivo": str(destino), "plugin": manifiesto["name"], "version": manifiesto["version"],
-            "archivos": len(lista) + 1, "bytes": destino.stat().st_size}
+            "archivos": len(lista) + 1 + len(externos), "bytes": destino.stat().st_size,
+            "agentes_externos": {n: hashlib.sha256(c).hexdigest()[:16] for n, c in externos}}
 
 
-def generar_instalador(salida: str = "instalar_jac_cowork.py", raiz: Path = RAIZ) -> dict:
+def generar_instalador(salida: str = "instalar_jac_cowork.py", raiz: Path = RAIZ, con_agentes: Optional[str] = None, modo_agentes: str = "apoyo") -> dict:
     """Un solo archivo .py con el agente completo incrustado, autoverificable y listo para llevar."""
     import base64
     import hashlib
@@ -56,7 +134,7 @@ def generar_instalador(salida: str = "instalar_jac_cowork.py", raiz: Path = RAIZ
         raise FileNotFoundError("No se encontró la plantilla del instalador; ejecute desde una copia del repositorio (git clone).")
     with tempfile.TemporaryDirectory() as tmp:
         paquete = Path(tmp) / "jac-legal-os.plugin"
-        info = empaquetar(str(paquete), raiz)
+        info = empaquetar(str(paquete), raiz, con_agentes, modo_agentes)
         crudo = paquete.read_bytes()
     b64 = base64.b64encode(crudo).decode("ascii")
     cuerpo = "\n".join("# " + b64[i:i + 76] for i in range(0, len(b64), 76))
@@ -66,7 +144,7 @@ def generar_instalador(salida: str = "instalar_jac_cowork.py", raiz: Path = RAIZ
     destino = Path(salida)
     destino.write_text(texto, encoding="utf-8")
     destino.chmod(0o755)
-    return {"archivo": str(destino), "version": info["version"], "archivos": info["archivos"], "bytes": destino.stat().st_size,
+    return {"archivo": str(destino), "version": info["version"], "archivos": info["archivos"], "bytes": destino.stat().st_size, "agentes_externos": info["agentes_externos"],
             "sha256_contenido": hashlib.sha256(crudo).hexdigest()}
 
 
