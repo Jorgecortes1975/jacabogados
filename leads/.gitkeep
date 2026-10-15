@@ -1,0 +1,11 @@
+# Carpeta: Leads Brutos
+
+Los archivos CSV de cada ronda de prospección se guardan aquí como:
+`YYYY-MM-DD.csv`
+
+Cada archivo contiene los contactos sin filtrar de esa ronda, con todos los datos crudos del scraper.
+
+**Estructura de CSV:**
+negocio | contacto | puesto | telefono | correo | sitio_web | instagram | linkedin | ciudad | rating | resenas | senal_de_calificacion | fuente | fecha
+
+**Nota:** Estos archivos NUNCA se borran ni se modifican. Son el registro original de cada prospección.

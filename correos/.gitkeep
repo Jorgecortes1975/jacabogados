@@ -1,0 +1,19 @@
+# Carpeta: Correos Generados
+
+Los correos listos para enviar se guardan aquí como:
+`YYYY-MM-DD.csv`
+
+Cada archivo contiene los correos generados en esa ronda, pendientes de aprobación manual antes de enviarlos.
+
+**Estructura de CSV:**
+negocio | contacto | email | grado | asunto_a | asunto_b | angulo_usado | cuerpo | estado
+
+**Estados permitidos:**
+- pendiente_aprobacion (esperando tu visto bueno)
+- aprobado (lista para enviar)
+- enviado (ya mandado)
+- rebotado (email inválido)
+- no_response (no contestó después de 2 seguimientos)
+- converted (convirtió en cliente)
+
+**Nota:** Nunca se envía un correo sin tu aprobación explícita.
