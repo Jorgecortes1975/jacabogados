@@ -1,0 +1,31 @@
+{
+  "name": "jac-automatizacion-juridica",
+  "version": "1.0.0",
+  "description": "Agentes de automatización jurídica corporativa para JAC - Abogados Asociados",
+  "main": "src/agents/index.js",
+  "scripts": {
+    "agent:social-listening": "node src/agents/social-listening-agent-demo.js",
+    "agent:intake": "node src/agents/intake-agent-demo.js",
+    "agent:dossier": "node src/agents/dossier-agent-demo.js",
+    "agent:forensic": "node src/agents/forensic-agent-demo.js",
+    "agent:social-listening-real": "node src/agents/social-listening-agent-real.js",
+    "agents:demo": "npm run agent:social-listening && npm run agent:intake && npm run agent:dossier && npm run agent:forensic",
+    "agents:real": "npm run agent:social-listening-real && npm run agent:intake && npm run agent:dossier && npm run agent:forensic"
+  },
+  "keywords": [
+    "legal",
+    "automation",
+    "colombia",
+    "corporate",
+    "agents",
+    "claude"
+  ],
+  "author": "JAC - Abogados Asociados",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
