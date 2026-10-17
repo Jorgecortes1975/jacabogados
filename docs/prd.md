@@ -95,8 +95,9 @@ En esta versión los avisos los envía Google Calendar, no el despacho.
 2. Si el pago es rechazado, la página le dice que no se cobró nada y que ese horario sigue apartado para él unos 30 minutos. Se deja apartado a propósito: si el cliente reintenta el pago y esta vez se aprueba, la reserva debe existir. Puede escoger otra hora o esperar a que se libere.
 3. Si el pago queda en proceso, la página le pide esperar y vuelve a revisar.
 4. Si paga y cierra el navegador sin volver, el aviso automático de la pasarela confirma la reserva y el cliente recibe la invitación por correo.
-5. Si paga pero el espacio ya se había liberado, la página le muestra una referencia y le pide escribir al despacho. Usted lo resuelve a mano.
-6. Si no paga, el espacio se libera solo pasados 30 minutos.
+5. El cupo se aparta 30 minutos (decisión del titular). Un pago por PSE puede tardar más: si el cupo se liberó antes de que el pago se apruebe, el caso lo resuelve una persona con la referencia.
+6. Si paga pero el espacio ya se había liberado, la página le muestra una referencia y le pide escribir al despacho. Usted lo resuelve a mano.
+7. Si no paga, el espacio se libera solo pasados 30 minutos.
 
 ## 4. Qué cuenta como terminado
 
@@ -156,7 +157,7 @@ Fuera de esta versión: punto 17.
 5. Dominio y alojamiento: decidido que quedan a nombre suyo. Falta el nombre del dominio, si ya lo tiene.
 6. Los datos del despacho para los textos legales: NIT, ciudad y dirección, correo y teléfono de contacto.
 7. ¿Cuánto tiempo conserva el despacho los datos de quien agenda? No lo decidimos.
-8. Festivos: cargados hasta diciembre de 2026, con fuente (ver `agenda-web/lib/festivos.js`). Falta cargar los de 2027 antes de que la agenda llegue a enero. La agenda avisa en su registro cuando eso pase.
+8. Festivos: cargados de noviembre de 2026 a diciembre de 2027, con fuente (ver `agenda-web/lib/festivos.js`). Un año sin lista no se ofrece en la agenda hasta que se cargue. Falta verificar en fuente oficial el posible festivo del 9 de julio de 2027 (descanso el lunes 12): hoy el 12 de julio queda bloqueado por prudencia.
 
 ### Las que debe revisar usted como abogado
 

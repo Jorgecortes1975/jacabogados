@@ -3,10 +3,11 @@ import { calendario } from '../lib/calendario.js';
 import { generarSlots, quitarOcupados } from '../lib/horarios.js';
 
 export async function cuposLibres(ahora = new Date()) {
-  const slots = generarSlots(ahora, config);
+  // Un año sin lista de festivos no se ofrece: es mejor ocultar días que vender un festivo como hábil.
+  const todos = generarSlots(ahora, config);
+  const slots = todos.filter((s) => config.aniosConFestivos.includes(s.fecha.slice(0, 4)));
+  if (slots.length < todos.length) console.warn('Hay fechas ocultas porque no hay festivos cargados para su año (lib/festivos.js).');
   if (!slots.length) return [];
-  const ultimoAnio = slots.at(-1).fecha.slice(0, 4);
-  if (!config.aniosConFestivos.includes(ultimoAnio)) console.warn(`La agenda llega al ${ultimoAnio} y no hay festivos cargados para ese año (lib/festivos.js).`);
   const ocupados = await calendario.ocupados(slots[0].inicio, slots.at(-1).fin);
   return quitarOcupados(slots, ocupados, config.margenMin);
 }

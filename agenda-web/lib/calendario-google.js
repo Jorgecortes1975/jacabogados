@@ -51,11 +51,14 @@ export async function ocupados(desde, hasta) {
     body: JSON.stringify({ timeMin: desde, timeMax: hasta, timeZone: 'America/Bogota', items: [{ id: process.env.GOOGLE_CALENDAR_ID || 'primary' }] }),
   });
   const cal = Object.values(j.calendars || {})[0];
-  return (cal?.busy || []).map((b) => ({ inicio: b.start, fin: b.end }));
+  if (!cal || cal.errors?.length) {
+    throw new Error(`Google no pudo consultar el calendario: ${JSON.stringify(cal?.errors || 'sin respuesta')}`);
+  }
+  return (cal.busy || []).map((b) => ({ inicio: b.start, fin: b.end }));
 }
 
 export async function crearReserva({ id, inicio, fin, datos, monto }) {
-  await g(`/calendars/${calId()}/events?sendUpdates=none`, {
+  const creado = await g(`/calendars/${calId()}/events?sendUpdates=none`, {
     method: 'POST',
     body: JSON.stringify({
       id,
@@ -67,6 +70,7 @@ export async function crearReserva({ id, inicio, fin, datos, monto }) {
       description: descripcion(datos),
     }),
   });
+  if (!creado) throw new Error('Google no encontró el calendario al crear la reserva (revise GOOGLE_CALENDAR_ID).');
   return { id };
 }
 
@@ -90,6 +94,7 @@ export async function obtenerReserva(id) {
 
 export async function confirmarReserva(id) {
   const actual = await g(`/calendars/${calId()}/events/${id}`);
+  if (!actual || actual.status === 'cancelled') return null;
   if (actual.extendedProperties?.private?.jac_estado === 'confirmada') return { meetUrl: actual.hangoutLink || null };
   const nombre = actual.summary.replace('PENDIENTE DE PAGO - ', '');
   const email = actual.extendedProperties.private.jac_email;

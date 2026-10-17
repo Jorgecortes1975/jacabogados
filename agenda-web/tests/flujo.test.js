@@ -49,6 +49,8 @@ test('validaciones: sin autorización, correo inválido y horario inventado', as
   assert.equal((await post('/api/reservar', { ...datos, inicio, autoriza: false })).status, 400);
   assert.equal((await post('/api/reservar', { ...datos, inicio, email: 'x' })).status, 400);
   assert.equal((await post('/api/reservar', { ...datos, inicio: '2026-10-20T03:00:00.000Z' })).status, 409);
+  // varias direcciones o separadores: Google rechazaría la invitación después del pago
+  for (const email of ['a,b@c.co', 'x;y@z.com', 'a b@c.co', 'a@b']) assert.equal((await post('/api/reservar', { ...datos, inicio, email })).status, 400, email);
   // correo con comillas o signos de etiqueta, y campos que no son texto
   assert.equal((await post('/api/reservar', { ...datos, inicio, email: 'x"><script>alert(2)</script>@example.com' })).status, 400);
   assert.equal((await post('/api/reservar', { ...datos, inicio, nombre: { a: 1 } })).status, 400);

@@ -23,6 +23,7 @@ export async function obtenerReserva(id) {
 }
 export async function confirmarReserva(id) {
   const r = reservas.get(id);
+  if (!r) return null;
   r.estado = 'confirmada';
   r.meetUrl = 'https://meet.google.com/enlace-de-prueba';
   return { meetUrl: r.meetUrl };

@@ -17,6 +17,8 @@ export async function confirmarPago({ referencia, id }) {
     const estado = { PENDING: 'pendiente', NO_ENCONTRADA: 'pendiente', NO_COINCIDE: 'requiere_atencion' }[pago.estado] || 'rechazado';
     return [200, { estado }];
   }
-  const { meetUrl } = await calendario.confirmarReserva(referencia);
+  const confirmada = await calendario.confirmarReserva(referencia);
+  if (!confirmada) return [404, { estado: 'requiere_atencion' }]; // el cupo desapareció justo tras el pago
+  const { meetUrl } = confirmada;
   return [200, { estado: 'confirmada', inicio: reserva.inicio, meetUrl }];
 }

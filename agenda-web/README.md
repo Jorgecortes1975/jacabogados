@@ -33,4 +33,5 @@ La guía paso a paso para el titular está en `docs/guia-puesta-en-marcha.md`.
 
 Hecho y probado en modo de prueba: agenda, reserva, flujo de pago simulado, confirmación (por la página y por el aviso de la pasarela), liberación de cupos, validaciones y textos legales en borrador.
 Escrito pero SIN probar contra los servicios reales: Wompi, Google Calendar y la forma del aviso automático. La documentación no estuvo accesible, así que esos puntos son supuestos.
+Decisión del titular: el cupo se aparta 30 minutos mientras se paga. Un pago por PSE puede tardar más; si pasa, el cliente verá "necesitamos revisar su reserva" y el despacho lo resuelve a mano con la referencia.
 No incluido: correos propios del despacho (el recordatorio garantizado al cliente), cambio de hora desde la página, límite de solicitudes contra abuso.

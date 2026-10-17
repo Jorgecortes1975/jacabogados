@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { generarSlots, quitarOcupados } from '../lib/horarios.js';
 import { config } from '../lib/config.js';
+import { cuposLibres } from '../api/disponibilidad.js';
 
 const cfg = {
   consulta: { duracionMin: 45 }, diasHabiles: [1, 2, 3, 4, 5],
@@ -44,4 +45,20 @@ test('los festivos de noviembre y diciembre de 2026 no se ofrecen', () => {
   const fechas = new Set(generarSlots(desdeOctubre, { ...config, diasVentana: 90 }).map((x) => x.fecha));
   for (const f of ['2026-11-02', '2026-11-16', '2026-12-08', '2026-12-25']) assert.ok(!fechas.has(f), f);
   assert.ok(fechas.has('2026-11-03')); // el día siguiente sí se ofrece
+});
+
+test('festivos de 2027 cargados (incluido el 12 de julio, sin verificar y bloqueado por prudencia)', () => {
+  const fechas = new Set(generarSlots(new Date('2026-12-30T12:00:00-05:00'), { ...config, diasVentana: 400 }).map((x) => x.fecha));
+  for (const f of ['2027-01-01', '2027-01-11', '2027-03-22', '2027-03-25', '2027-03-26', '2027-05-10', '2027-05-31', '2027-06-07', '2027-07-05', '2027-07-12', '2027-07-20', '2027-08-16', '2027-10-18', '2027-11-01', '2027-11-15', '2027-12-08']) {
+    assert.ok(!fechas.has(f), f);
+  }
+  assert.ok(fechas.has('2027-01-12')); // el día siguiente a un festivo sí se ofrece
+  assert.equal(config.festivos.filter((f) => f.startsWith('2027')).length, 19); // 18 verificados + 12 de julio
+});
+
+test('un año sin festivos cargados no se ofrece (falla cerrado)', async () => {
+  process.env.MODO_PRUEBA = '1';
+  const libres = await cuposLibres(new Date('2027-12-20T12:00:00-05:00'));
+  assert.ok(libres.length > 0);
+  assert.ok(libres.every((s) => s.fecha.startsWith('2027')), 'no debe ofrecer fechas de 2028');
 });

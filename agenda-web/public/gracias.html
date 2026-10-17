@@ -31,11 +31,13 @@ async function revisar() {
       t.textContent = 'Su consulta quedó confirmada';
       d.textContent = `${fmt.format(new Date(j.inicio))} (hora de Colombia). Le enviamos la invitación a su correo.`;
       if (j.meetUrl) e.innerHTML = '', e.append(Object.assign(document.createElement('a'), { href: j.meetUrl, textContent: 'Enlace de la videollamada' }));
-    } else if (j.estado === 'pendiente' && ++intentos < 6) {
+    } else if ((j.estado === 'pendiente' || j.estado === 'error') && ++intentos < 6) {
       t.textContent = 'Su pago está en proceso';
-      d.textContent = 'Aún no tenemos la aprobación. Revisaremos de nuevo en unos segundos.';
+      d.textContent = j.estado === 'error'
+        ? 'Tuvimos un problema temporal al verificar su pago. Reintentando en unos segundos.'
+        : 'Aún no tenemos la aprobación. Revisaremos de nuevo en unos segundos.';
       setTimeout(revisar, 5000);
-    } else if (j.estado === 'pendiente') {
+    } else if (j.estado === 'pendiente' || j.estado === 'error') {
       d.textContent = `Su pago sigue en proceso. Si se aprueba, recibirá la confirmación por correo. Guarde esta referencia: ${ref}`;
     } else if (j.estado === 'rechazado') {
       t.textContent = 'El pago no fue aprobado';
