@@ -39,7 +39,7 @@ async function revisar() {
       d.textContent = `Su pago sigue en proceso. Si se aprueba, recibirá la confirmación por correo. Guarde esta referencia: ${ref}`;
     } else if (j.estado === 'rechazado') {
       t.textContent = 'El pago no fue aprobado';
-      d.textContent = 'No se realizó ningún cobro por esta reserva. Puede intentar de nuevo desde el inicio.';
+      d.textContent = 'No se realizó ningún cobro por esta reserva. Ese horario queda apartado para usted unos 30 minutos y luego se libera. Puede escoger otra hora desde el inicio, o esperar a que se libere para elegir la misma.';
     } else {
       t.textContent = 'Necesitamos revisar su reserva';
       d.textContent = `No pudimos confirmar el horario automáticamente. Si ya pagó, escríbanos con esta referencia y lo resolvemos: ${ref}`;

@@ -7,32 +7,33 @@ const pesos = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP
 
 function habilitar() {
   const f = $('formulario');
-  $('pagar').disabled = !(estado.inicio && f.autoriza.checked);
+  const falta = [!estado.inicio && 'escoger un día y una hora', !f.autoriza.checked && 'marcar la autorización de datos'].filter(Boolean);
+  $('pagar').disabled = falta.length > 0;
+  $('falta').textContent = falta.length ? `Para continuar falta: ${falta.join(' y ')}.` : '';
+}
+
+// Cada opción es un botón de radio con etiqueta: con teclado basta un Tab para entrar al grupo y las flechas para moverse.
+function opcion(grupo, valor, texto, marcado) {
+  const id = `${grupo}-${valor}`;
+  const r = Object.assign(document.createElement('input'), { type: 'radio', name: grupo, id, value: valor, checked: marcado });
+  const l = Object.assign(document.createElement('label'), { htmlFor: id, textContent: texto, className: 'opcion' });
+  const envoltura = Object.assign(document.createElement('span'), { className: 'opcion-envoltura' });
+  envoltura.append(r, l);
+  return envoltura;
 }
 
 function pintarHoras() {
-  const cont = $('horas');
-  cont.replaceChildren();
   const dia = estado.dias.find((d) => d.fecha === estado.fecha);
-  for (const inicio of dia?.inicios || []) {
-    const b = Object.assign(document.createElement('button'), { type: 'button', className: 'hora', textContent: fmtHora.format(new Date(inicio)) });
-    b.setAttribute('aria-pressed', String(inicio === estado.inicio));
-    b.onclick = () => { estado.inicio = inicio; pintarHoras(); habilitar(); };
-    cont.append(b);
-  }
+  $('horas').replaceChildren(...(dia?.inicios || []).map((i) => opcion('hora', i, fmtHora.format(new Date(i)), i === estado.inicio)));
 }
 
 function pintarDias() {
-  const cont = $('dias');
-  cont.replaceChildren();
-  for (const d of estado.dias) {
-    const b = Object.assign(document.createElement('button'), { type: 'button', className: 'dia', textContent: fmtDia.format(new Date(d.inicios[0])) });
-    b.setAttribute('aria-pressed', String(d.fecha === estado.fecha));
-    b.onclick = () => { estado.fecha = d.fecha; estado.inicio = null; pintarDias(); pintarHoras(); habilitar(); };
-    cont.append(b);
-  }
+  $('dias').replaceChildren(...estado.dias.map((d) => opcion('dia', d.fecha, fmtDia.format(new Date(d.inicios[0])), d.fecha === estado.fecha)));
   $('vacio').hidden = estado.dias.length > 0;
 }
+
+$('dias').addEventListener('change', (e) => { estado.fecha = e.target.value; estado.inicio = null; pintarHoras(); habilitar(); });
+$('horas').addEventListener('change', (e) => { estado.inicio = e.target.value; habilitar(); });
 
 async function cargar() {
   try {
@@ -46,6 +47,7 @@ async function cargar() {
     $('precio').textContent = pesos.format(j.consulta.precioCOP);
     pintarDias();
     pintarHoras();
+    habilitar();
   } catch (e) {
     $('servicio').textContent = 'No fue posible cargar la agenda.';
     $('error').textContent = e.message || 'Intente de nuevo en unos minutos.';
@@ -78,3 +80,4 @@ $('formulario').addEventListener('submit', async (ev) => {
   }
 });
 cargar();
+habilitar();

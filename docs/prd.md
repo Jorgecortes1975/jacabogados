@@ -92,7 +92,7 @@ En esta versión los avisos los envía Google Calendar, no el despacho.
 ### Qué pasa cuando algo sale diferente
 
 1. Si el espacio que escogió se ocupó mientras llenaba el formulario, la página se lo dice y le pide escoger otro.
-2. Si el pago es rechazado, la página le dice que no se cobró nada y que puede intentar de nuevo.
+2. Si el pago es rechazado, la página le dice que no se cobró nada y que ese horario sigue apartado para él unos 30 minutos. Se deja apartado a propósito: si el cliente reintenta el pago y esta vez se aprueba, la reserva debe existir. Puede escoger otra hora o esperar a que se libere.
 3. Si el pago queda en proceso, la página le pide esperar y vuelve a revisar.
 4. Si paga y cierra el navegador sin volver, el aviso automático de la pasarela confirma la reserva y el cliente recibe la invitación por correo.
 5. Si paga pero el espacio ya se había liberado, la página le muestra una referencia y le pide escribir al despacho. Usted lo resuelve a mano.

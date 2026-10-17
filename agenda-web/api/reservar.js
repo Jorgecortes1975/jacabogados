@@ -4,8 +4,8 @@ import { calendario } from '../lib/calendario.js';
 import { crearCheckout } from '../lib/pagos.js';
 import { cuposLibres } from './disponibilidad.js';
 
-const limpio = (v, max) => String(v ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim().slice(0, max);
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const limpio = (v, max) => (typeof v === 'string' ? v : '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim().slice(0, max);
+const EMAIL = /^[^\s@<>"'`]+@[^\s@<>"'`]+\.[^\s@<>"'`]{2,}$/;
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Método no permitido.' });

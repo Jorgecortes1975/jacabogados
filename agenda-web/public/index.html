@@ -21,8 +21,8 @@
 
   <section class="tarjeta" aria-labelledby="t-fecha">
     <h2 id="t-fecha">1. Escoja el día y la hora <span class="ayuda">(hora de Colombia)</span></h2>
-    <div id="dias" class="dias" role="group" aria-label="Días disponibles"></div>
-    <div id="horas" class="horas" role="group" aria-label="Horas disponibles"></div>
+    <div id="dias" class="dias" role="radiogroup" aria-label="Días disponibles"></div>
+    <div id="horas" class="horas" role="radiogroup" aria-label="Horas disponibles"></div>
     <p id="vacio" class="ayuda" hidden>No hay horarios disponibles por ahora. Intente más tarde.</p>
   </section>
 
@@ -41,7 +41,9 @@
       <input id="autoriza" name="autoriza" type="checkbox" required>
       <span>Autorizo el tratamiento de mis datos personales según la <a href="privacidad.html" target="_blank" rel="noopener">política de tratamiento de datos</a>, y acepto los <a href="terminos.html" target="_blank" rel="noopener">términos del servicio</a> y la <a href="cancelacion.html" target="_blank" rel="noopener">política de cancelación</a>.</span>
     </label>
+    <p class="ayuda" id="politica">Cambio de hora: sin costo hasta 24 horas antes, escribiendo al despacho. Después de ese plazo se pierde la cita. Los reembolsos se estudian caso por caso. <a href="cancelacion.html" target="_blank" rel="noopener">Ver la política completa</a>.</p>
     <div id="error" class="error" role="alert"></div>
+    <p id="falta" class="ayuda" aria-live="polite"></p>
     <button id="pagar" class="boton" type="submit" disabled>Continuar al pago</button>
   </form>
   <p class="pie">El pago se procesa en la plataforma segura de la pasarela de pagos. Esta página no almacena datos de su tarjeta.</p>
