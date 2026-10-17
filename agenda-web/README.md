@@ -18,10 +18,12 @@ Proyecto independiente del sistema jurídico de este repositorio. No usa depende
 
 No hay base de datos: el estado vive en su Google Calendar.
 
+La guía paso a paso para el titular está en `docs/guia-puesta-en-marcha.md`.
+
 ## Para pasar a producción (MODO_PRUEBA=0)
 
 1. Cuenta aprobada en la pasarela y llaves en `.env` (nunca en el repositorio).
-2. Credenciales de Google Calendar (cliente OAuth y token de actualización de la cuenta del despacho).
+2. Credenciales de Google Calendar (cliente OAuth) y el token de actualización de la cuenta del despacho, que entrega `npm run google-token`.
 3. Nombre y precio definitivos de la consulta, y festivos del año.
 4. Textos legales revisados y completados (privacidad, términos, cancelación).
 5. Registrar en el panel de Wompi la dirección del aviso automático: `SITIO_URL/api/webhook`.
