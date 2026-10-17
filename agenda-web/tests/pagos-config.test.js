@@ -28,6 +28,13 @@ test('pago rechazado y transacción inexistente', async () => {
   assert.equal((await conRespuesta(tx({ status: 'DECLINED' }), args)).estado, 'DECLINED');
   assert.equal((await conRespuesta({ ok: false, status: 404 }, args)).estado, 'NO_ENCONTRADA');
 });
+test('sin número de transacción queda pendiente y no se consulta a la pasarela', async () => {
+  const r = await conRespuesta({ ok: true, json: async () => { throw new Error('no debía consultarse'); } }, { ...args, transaccionId: '' });
+  assert.deepEqual([r.aprobado, r.estado], [false, 'PENDING']);
+});
+test('una respuesta de Wompi sin datos se trata como error, no como aprobada ni rechazada', async () => {
+  await assert.rejects(conRespuesta({ ok: true, json: async () => ({}) }, args), /sin datos/);
+});
 test('un fallo temporal de Wompi (5xx, 429) no se toma como "no existe"', async () => {
   await assert.rejects(conRespuesta({ ok: false, status: 500 }, args), /Wompi respondió 500/);
   await assert.rejects(conRespuesta({ ok: false, status: 429 }, args), /429/);

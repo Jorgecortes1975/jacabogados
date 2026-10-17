@@ -7,7 +7,10 @@ export async function confirmarPago({ referencia, id }) {
   if (!/^jac[0-9a-f]{20}$/.test(referencia || '')) return [400, { estado: 'invalida' }];
   const reserva = await calendario.obtenerReserva(referencia);
   // Pagó pero el cupo ya se liberó (o la referencia no existe): requiere atención humana.
-  if (!reserva) return [404, { estado: 'requiere_atencion' }];
+  if (!reserva) {
+    console.error(`REQUIERE ATENCION: llegó un pago (transacción ${id || 'sin id'}) para la referencia ${referencia}, que ya no tiene reserva. Resolver a mano.`);
+    return [404, { estado: 'requiere_atencion' }];
+  }
   if (reserva.estado === 'confirmada') {
     return [200, { estado: 'confirmada', inicio: reserva.inicio, meetUrl: reserva.meetUrl }];
   }
@@ -18,7 +21,10 @@ export async function confirmarPago({ referencia, id }) {
     return [200, { estado }];
   }
   const confirmada = await calendario.confirmarReserva(referencia);
-  if (!confirmada) return [404, { estado: 'requiere_atencion' }]; // el cupo desapareció justo tras el pago
+  if (!confirmada) { // el cupo desapareció justo tras el pago
+    console.error(`REQUIERE ATENCION: pago aprobado (transacción ${id}) y la reserva ${referencia} desapareció antes de confirmarse. Resolver a mano.`);
+    return [404, { estado: 'requiere_atencion' }];
+  }
   const { meetUrl } = confirmada;
   return [200, { estado: 'confirmada', inicio: reserva.inicio, meetUrl }];
 }

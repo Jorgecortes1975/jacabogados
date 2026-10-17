@@ -81,3 +81,5 @@ $('formulario').addEventListener('submit', async (ev) => {
 });
 cargar();
 habilitar();
+// Al volver con "atrás" el navegador puede restaurar la página con el botón ya apagado: se refresca todo.
+addEventListener('pageshow', (e) => { if (e.persisted) { $('error').textContent = ''; estado.inicio = null; cargar().then(habilitar); } });
