@@ -1,0 +1,13 @@
+{
+  "name": "agenda-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Página para agendar y pagar una consulta jurídica (JAC Abogados Asociados)",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env servidor-local.js",
+    "google-token": "node --env-file-if-exists=.env scripts/google-token.js",
+    "test": "node --test \"tests/*.test.js\""
+  }
+}

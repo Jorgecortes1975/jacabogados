@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pago de prueba | JAC Abogados Asociados</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header><div class="marca">JAC Abogados Asociados</div></header>
+<main>
+  <div class="aviso">Pantalla de prueba. Reemplaza a la pasarela de pagos mientras la cuenta real no esté conectada. No se cobra nada.</div>
+  <h1>Simular el pago</h1>
+  <div class="tarjeta">
+    <button class="boton" id="si">Simular pago aprobado</button>
+    <button class="boton" id="no" style="background:var(--error)">Simular pago rechazado</button>
+  </div>
+</main>
+<script>
+const ref = new URLSearchParams(location.search).get('ref');
+document.getElementById('si').onclick = () => location.href = `gracias.html?ref=${ref}&id=prueba`;
+document.getElementById('no').onclick = () => location.href = `gracias.html?ref=${ref}&id=rechazado`;
+</script>
+</body>
+</html>
