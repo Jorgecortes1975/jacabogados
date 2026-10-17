@@ -12,9 +12,9 @@ Proyecto independiente del sistema jurídico de este repositorio. No usa depende
 
 ## Cómo funciona
 
-1. La página consulta `/api/disponibilidad`: genera los cupos del horario (lunes a viernes, 8 a 12 y 2 a 5, hora de Colombia, 45 minutos más 60 de margen) y quita los ocupados.
+1. La página consulta `/api/disponibilidad`: genera los cupos del horario (lunes a viernes, 8 a 12 y 2 a 5, hora de Colombia, 45 minutos más 15 de descanso: siete espacios por día) y quita los ocupados.
 2. Al enviar el formulario, `/api/reservar` valida los datos, retiene el cupo 30 minutos como evento provisional "PENDIENTE DE PAGO" y envía al cliente a la pasarela.
-3. Al volver, `/api/confirmar` le pregunta a la pasarela si el pago fue aprobado (no confía en el navegador). Si lo fue, confirma el evento, crea el enlace de Meet y Google envía la invitación al correo del cliente.
+3. Al volver, `/api/confirmar` (o el aviso automático de la pasarela en `/api/webhook`) le pregunta a la pasarela si el pago fue aprobado (no confía en el navegador). Si lo fue, confirma el evento, crea el enlace de Meet y Google envía la invitación al correo del cliente.
 
 No hay base de datos: el estado vive en su Google Calendar.
 
@@ -24,10 +24,11 @@ No hay base de datos: el estado vive en su Google Calendar.
 2. Credenciales de Google Calendar (cliente OAuth y token de actualización de la cuenta del despacho).
 3. Nombre y precio definitivos de la consulta, y festivos del año.
 4. Textos legales revisados y completados (privacidad, términos, cancelación).
-5. Probar con la cuenta de pruebas (sandbox) de la pasarela antes de cobrar dinero real.
+5. Registrar en el panel de Wompi la dirección del aviso automático: `SITIO_URL/api/webhook`.
+6. Probar con la cuenta de pruebas (sandbox) de la pasarela antes de cobrar dinero real.
 
 ## Alcance de esta primera versión
 
-Hecho y probado en modo de prueba: agenda, reserva, flujo de pago simulado, confirmación, validaciones y textos legales en borrador.
-Escrito pero SIN probar contra los servicios reales: conexión con Wompi y con Google Calendar.
-No incluido todavía: recordatorio al cliente 24 horas antes y aviso propio al despacho (hoy los cubre la invitación de Google), reprogramación por el propio cliente, webhook de la pasarela (si el cliente cierra el navegador tras pagar, la reserva queda pendiente y se resuelve a mano con la referencia).
+Hecho y probado en modo de prueba: agenda, reserva, flujo de pago simulado, confirmación (por la página y por el aviso de la pasarela), liberación de cupos, validaciones y textos legales en borrador.
+Escrito pero SIN probar contra los servicios reales: Wompi, Google Calendar y la forma del aviso automático. La documentación no estuvo accesible, así que esos puntos son supuestos.
+No incluido: correos propios del despacho (el recordatorio garantizado al cliente), cambio de hora desde la página, límite de solicitudes contra abuso.

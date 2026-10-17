@@ -65,6 +65,19 @@ test('el cupo de quien no paga se libera y su referencia deja de existir', async
   assert.equal((await fetch(`${base}/api/confirmar?referencia=${referencia}&id=prueba`)).status, 404);
 });
 
+test('aviso automático de la pasarela confirma la reserva sin que el cliente vuelva', async () => {
+  const disp = await (await fetch(base + '/api/disponibilidad')).json();
+  const { referencia } = await (await post('/api/reservar', { ...datos, inicio: disp.dias[4].inicios[0] })).json();
+  const aviso = (cuerpo) => post('/api/webhook', cuerpo);
+  assert.equal((await aviso({ event: 'transaction.updated', data: {} })).status, 400); // aviso sin transacción
+  assert.equal((await aviso({ data: { transaction: { id: 'rechazado', reference: referencia } } })).status, 200);
+  assert.equal((await (await fetch(`${base}/api/confirmar?referencia=${referencia}&id=x`)).json()).estado, 'rechazado'); // un aviso falso no confirma
+  assert.equal((await aviso({ data: { transaction: { id: 'prueba', reference: referencia } } })).status, 200);
+  const c = await (await fetch(`${base}/api/confirmar?referencia=${referencia}`)).json(); // sin id: ya estaba confirmada por el aviso
+  assert.equal(c.estado, 'confirmada');
+  assert.equal((await aviso({ data: { transaction: { id: 'prueba', reference: referencia } } })).status, 200); // repetido: no duplica
+});
+
 test('referencia inválida o inexistente', async () => {
   assert.equal((await fetch(`${base}/api/confirmar?referencia=hack&id=prueba`)).status, 400);
   assert.equal((await fetch(`${base}/api/confirmar?referencia=jac${'0'.repeat(20)}&id=prueba`)).status, 404);

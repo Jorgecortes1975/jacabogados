@@ -22,7 +22,7 @@ export const config = {
   // Horario aprobado: lunes a viernes, hora de Colombia (UTC-5, sin cambio de hora).
   diasHabiles: [1, 2, 3, 4, 5],
   franjas: [['08:00', '12:00'], ['14:00', '17:00']],
-  margenMin: 60,
+  margenMin: 15,
   antelacionHoras: 24, // supuesto: coherente con la regla de 24 horas; ajustable
   diasVentana: 30,     // supuesto: cuántos días hacia adelante se ofrece agenda
   retencionMin: 30,    // tiempo que se reserva el cupo mientras el cliente paga

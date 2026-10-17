@@ -6,7 +6,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const RAIZ = fileURLToPath(new URL('.', import.meta.url));
 const TIPOS = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml' };
-const RUTAS = new Set(['disponibilidad', 'reservar', 'confirmar']);
+const RUTAS = new Set(['disponibilidad', 'reservar', 'confirmar', 'webhook']);
 
 export function crearServidor() {
   return createServer(async (req, res) => {

@@ -90,6 +90,7 @@ export async function obtenerReserva(id) {
 
 export async function confirmarReserva(id) {
   const actual = await g(`/calendars/${calId()}/events/${id}`);
+  if (actual.extendedProperties?.private?.jac_estado === 'confirmada') return { meetUrl: actual.hangoutLink || null };
   const nombre = actual.summary.replace('PENDIENTE DE PAGO - ', '');
   const email = actual.extendedProperties.private.jac_email;
   let e = await g(`/calendars/${calId()}/events/${id}?conferenceDataVersion=1&sendUpdates=all`, {
