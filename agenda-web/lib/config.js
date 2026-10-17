@@ -1,3 +1,5 @@
+import { FESTIVOS } from './festivos.js';
+
 const env = process.env;
 const modoPrueba = env.MODO_PRUEBA !== '0'; // seguro por defecto: solo se cobra si MODO_PRUEBA=0 de forma expresa
 
@@ -26,5 +28,6 @@ export const config = {
   antelacionHoras: 24, // supuesto: coherente con la regla de 24 horas; ajustable
   diasVentana: 30,     // supuesto: cuántos días hacia adelante se ofrece agenda
   retencionMin: 30,    // tiempo que se reserva el cupo mientras el cliente paga
-  festivos: (env.FESTIVOS || '').split(',').map((s) => s.trim()).filter(Boolean),
+  festivos: [...Object.values(FESTIVOS).flat(), ...(env.FESTIVOS || '').split(',').map((s) => s.trim()).filter(Boolean)],
+  aniosConFestivos: Object.keys(FESTIVOS),
 };

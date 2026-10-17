@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { generarSlots, quitarOcupados } from '../lib/horarios.js';
+import { config } from '../lib/config.js';
 
 const cfg = {
   consulta: { duracionMin: 45 }, diasHabiles: [1, 2, 3, 4, 5],
@@ -36,4 +37,11 @@ test('un evento ocupado bloquea su cupo y el contiguo por el margen', () => {
   assert.equal(libres.length, s.length - 1); // el cupo siguiente queda justo a 15 min: permitido
   const cercano = quitarOcupados(s, [{ inicio: s[0].inicio, fin: new Date(new Date(s[0].fin).getTime() + 5 * 60000).toISOString() }], cfg.margenMin);
   assert.equal(cercano.length, s.length - 2); // un evento externo que termina 5 min después también bloquea el siguiente
+});
+
+test('los festivos de noviembre y diciembre de 2026 no se ofrecen', () => {
+  const desdeOctubre = new Date('2026-10-18T12:00:00-05:00');
+  const fechas = new Set(generarSlots(desdeOctubre, { ...config, diasVentana: 90 }).map((x) => x.fecha));
+  for (const f of ['2026-11-02', '2026-11-16', '2026-12-08', '2026-12-25']) assert.ok(!fechas.has(f), f);
+  assert.ok(fechas.has('2026-11-03')); // el día siguiente sí se ofrece
 });

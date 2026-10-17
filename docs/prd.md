@@ -153,10 +153,10 @@ Fuera de esta versión: punto 17.
 2. ¿Qué pasarela va a usar? En la entrevista dijimos Wompi o Mercado Pago. Lo construido está pensado para Wompi. Necesito que la cuenta esté aprobada para probar con dinero de mentira.
 3. ¿Me autoriza a conectar el Google Calendar de jorgeacortesc38@gmail.com? Sin su autorización expresa no lo toco. ¿O prefiere otra cuenta?
 4. ¿Tiene dominio (por ejemplo jacabogados.com), logo y colores? Si no, queda una apariencia sencilla que usted podrá cambiar.
-5. ¿Quién paga el dominio y el alojamiento, y a nombre de quién quedan? Recomendación: a nombre suyo.
+5. Dominio y alojamiento: decidido que quedan a nombre suyo. Falta el nombre del dominio, si ya lo tiene.
 6. Los datos del despacho para los textos legales: NIT, ciudad y dirección, correo y teléfono de contacto.
 7. ¿Cuánto tiempo conserva el despacho los datos de quien agenda? No lo decidimos.
-8. La lista de festivos que quiere bloquear este año.
+8. Festivos: cargados hasta diciembre de 2026, con fuente (ver `agenda-web/lib/festivos.js`). Falta cargar los de 2027 antes de que la agenda llegue a enero. La agenda avisa en su registro cuando eso pase.
 
 ### Las que debe revisar usted como abogado
 
@@ -176,7 +176,7 @@ Fuera de esta versión: punto 17.
 
 ### Una pregunta nueva
 
-19. ¿Necesita que el cliente reciba un recordatorio seguro 24 horas antes ya en la primera versión? Si sí, hay que agregar correos propios del despacho, con otro servicio y otra cuenta.
+19. Recordatorio seguro al cliente 24 horas antes: decidido que queda para la segunda versión.
 
 ### Un tema técnico que usted debe decidir
 
