@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agende su consulta jurídica | JAC Abogados Asociados</title>
+<meta name="description" content="Agende y pague en línea una consulta jurídica por videollamada con JAC Abogados Asociados.">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header><div class="marca">JAC Abogados Asociados</div></header>
+<main>
+  <h1>Agende su consulta jurídica</h1>
+  <p class="sub">Escoja el día y la hora, deje sus datos y pague en línea. Recibirá la confirmación y el enlace de la videollamada por correo.</p>
+  <div id="aviso-prueba" class="aviso" hidden>Modo de prueba: no se cobra dinero real y no se agenda en ningún calendario.</div>
+
+  <section class="tarjeta" aria-labelledby="t-servicio">
+    <h2 id="t-servicio">Su consulta</h2>
+    <div class="resumen"><span id="servicio">Cargando…</span><span class="precio" id="precio"></span></div>
+  </section>
+
+  <section class="tarjeta" aria-labelledby="t-fecha">
+    <h2 id="t-fecha">1. Escoja el día y la hora <span class="ayuda">(hora de Colombia)</span></h2>
+    <div id="dias" class="dias" role="group" aria-label="Días disponibles"></div>
+    <div id="horas" class="horas" role="group" aria-label="Horas disponibles"></div>
+    <p id="vacio" class="ayuda" hidden>No hay horarios disponibles por ahora. Intente más tarde.</p>
+  </section>
+
+  <form id="formulario" class="tarjeta" novalidate aria-labelledby="t-datos">
+    <h2 id="t-datos">2. Sus datos</h2>
+    <label for="nombre">Nombre completo</label>
+    <input id="nombre" name="nombre" type="text" autocomplete="name" required maxlength="120">
+    <label for="email">Correo electrónico</label>
+    <input id="email" name="email" type="email" autocomplete="email" required maxlength="160">
+    <label for="telefono">Celular</label>
+    <input id="telefono" name="telefono" type="tel" autocomplete="tel" required maxlength="30">
+    <label for="tema">Tema de la consulta, en una frase</label>
+    <input id="tema" name="tema" type="text" required maxlength="200">
+    <p class="ayuda">Por ejemplo: despido, arrendamiento, contrato. No escriba aquí detalles del caso: los conversaremos en la llamada.</p>
+    <label class="consent" for="autoriza">
+      <input id="autoriza" name="autoriza" type="checkbox" required>
+      <span>Autorizo el tratamiento de mis datos personales según la <a href="privacidad.html" target="_blank" rel="noopener">política de tratamiento de datos</a>, y acepto los <a href="terminos.html" target="_blank" rel="noopener">términos del servicio</a> y la <a href="cancelacion.html" target="_blank" rel="noopener">política de cancelación</a>.</span>
+    </label>
+    <div id="error" class="error" role="alert"></div>
+    <button id="pagar" class="boton" type="submit" disabled>Continuar al pago</button>
+  </form>
+  <p class="pie">El pago se procesa en la plataforma segura de la pasarela de pagos. Esta página no almacena datos de su tarjeta.</p>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

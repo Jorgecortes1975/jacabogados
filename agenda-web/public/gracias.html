@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confirmación de su consulta | JAC Abogados Asociados</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header><div class="marca">JAC Abogados Asociados</div></header>
+<main>
+  <h1 id="titulo">Verificando su pago…</h1>
+  <div class="tarjeta"><p id="detalle">Un momento, estamos confirmando su pago con la pasarela.</p><p id="enlace"></p></div>
+  <p><a href="index.html">Volver al inicio</a></p>
+</main>
+<script>
+const q = new URLSearchParams(location.search);
+const ref = q.get('ref') || q.get('reference') || sessionStorage.getItem('jac_ref');
+const id = q.get('id');
+const t = document.getElementById('titulo'), d = document.getElementById('detalle'), e = document.getElementById('enlace');
+const fmt = new Intl.DateTimeFormat('es-CO', { dateStyle: 'full', timeStyle: 'short', timeZone: 'America/Bogota' });
+let intentos = 0;
+async function revisar() {
+  try {
+    const r = await fetch(`/api/confirmar?referencia=${encodeURIComponent(ref || '')}&id=${encodeURIComponent(id || '')}`);
+    const j = await r.json();
+    if (j.estado === 'confirmada') {
+      t.textContent = 'Su consulta quedó confirmada';
+      d.textContent = `${fmt.format(new Date(j.inicio))} (hora de Colombia). Le enviamos la invitación a su correo.`;
+      if (j.meetUrl) e.innerHTML = '', e.append(Object.assign(document.createElement('a'), { href: j.meetUrl, textContent: 'Enlace de la videollamada' }));
+    } else if (j.estado === 'pendiente' && ++intentos < 6) {
+      t.textContent = 'Su pago está en proceso';
+      d.textContent = 'Aún no tenemos la aprobación. Revisaremos de nuevo en unos segundos.';
+      setTimeout(revisar, 5000);
+    } else if (j.estado === 'pendiente') {
+      d.textContent = `Su pago sigue en proceso. Si se aprueba, recibirá la confirmación por correo. Guarde esta referencia: ${ref}`;
+    } else if (j.estado === 'rechazado') {
+      t.textContent = 'El pago no fue aprobado';
+      d.textContent = 'No se realizó ningún cobro por esta reserva. Puede intentar de nuevo desde el inicio.';
+    } else {
+      t.textContent = 'Necesitamos revisar su reserva';
+      d.textContent = `No pudimos confirmar el horario automáticamente. Si ya pagó, escríbanos con esta referencia y lo resolvemos: ${ref}`;
+    }
+  } catch { d.textContent = 'No fue posible verificar el pago. Recargue la página.'; }
+}
+revisar();
+</script>
+</body>
+</html>
