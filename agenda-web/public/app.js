@@ -40,10 +40,12 @@ async function cargar() {
     const j = await r.json();
     if (!r.ok) throw new Error(j.error);
     estado.dias = j.dias;
+    if (!estado.dias.some((d) => d.fecha === estado.fecha)) estado.fecha = null;
     $('aviso-prueba').hidden = !j.modoPrueba;
     $('servicio').textContent = `${j.consulta.nombre} · ${j.consulta.duracionMin} minutos por videollamada`;
     $('precio').textContent = pesos.format(j.consulta.precioCOP);
     pintarDias();
+    pintarHoras();
   } catch (e) {
     $('servicio').textContent = 'No fue posible cargar la agenda.';
     $('error').textContent = e.message || 'Intente de nuevo en unos minutos.';

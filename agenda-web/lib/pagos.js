@@ -4,7 +4,7 @@ import { config } from './config.js';
 
 export function crearCheckout({ referencia, montoCOP, urlRetorno }) {
   if (config.modoPrueba) {
-    return `${config.sitioUrl}/pago-prueba.html?ref=${encodeURIComponent(referencia)}`;
+    return `/pago-prueba.html?ref=${encodeURIComponent(referencia)}`;
   }
   const centavos = montoCOP * 100;
   const firma = createHash('sha256')

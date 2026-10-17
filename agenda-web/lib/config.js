@@ -1,14 +1,22 @@
 const env = process.env;
+const modoPrueba = env.MODO_PRUEBA !== '0'; // seguro por defecto: solo se cobra si MODO_PRUEBA=0 de forma expresa
+
+// En producción no se arranca con datos faltantes ni con un precio dudoso: es dinero real.
+if (!modoPrueba) {
+  const requeridas = ['SITIO_URL', 'WOMPI_PUBLIC_KEY', 'WOMPI_INTEGRITY_SECRET', 'GOOGLE_CLIENT_ID', 'GOOGLE_CLIENT_SECRET', 'GOOGLE_REFRESH_TOKEN'];
+  const faltan = requeridas.filter((k) => !env[k]);
+  if (faltan.length) throw new Error(`Falta configurar: ${faltan.join(', ')}`);
+  if (!/^[1-9]\d*$/.test(env.CONSULTA_PRECIO_COP || '')) {
+    throw new Error('CONSULTA_PRECIO_COP debe ser un número entero de pesos, sin puntos ni comas (ej. 150000).');
+  }
+}
 
 export const config = {
-  // Seguro por defecto: solo se cobra de verdad si MODO_PRUEBA=0 de forma expresa.
-  modoPrueba: env.MODO_PRUEBA !== '0',
-  sitioUrl: (env.SITIO_URL || '').replace(/\/$/, ''),
-
+  modoPrueba,
   consulta: {
     nombre: env.CONSULTA_NOMBRE || 'Consulta jurídica inicial',
     duracionMin: 45,
-    precioCOP: Number(env.CONSULTA_PRECIO_COP) || 150000, // provisional
+    precioCOP: modoPrueba ? Number(env.CONSULTA_PRECIO_COP) || 150000 : Number(env.CONSULTA_PRECIO_COP), // 150000 solo en prueba
   },
 
   // Horario aprobado: lunes a viernes, hora de Colombia (UTC-5, sin cambio de hora).

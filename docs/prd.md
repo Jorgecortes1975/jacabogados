@@ -132,8 +132,8 @@ Cada punto se puede comprobar abriendo la página. Se prueban primero en modo de
 
 ### Estado hoy frente a esta lista
 
-Ya construido y probado en modo de prueba: puntos 1, 3, 4, 5, 6, 7 (con textos en borrador), 8, 9, 10 y 18.
-Escrito pero sin probar: el punto 11 (la liberación a los 30 minutos solo existe para Google Calendar real; en modo de prueba no se libera) y los puntos 9 al 14 con Wompi y con Google Calendar de verdad.
+Ya construido y probado en modo de prueba: puntos 1, 3, 4, 5, 6, 7 (con textos en borrador), 8, 9, 10, 11 y 18.
+Escrito pero sin probar con los servicios reales: los puntos 9 al 14 con Wompi y con Google Calendar de verdad, y la liberación del cupo en Google.
 Todavía no construido como aviso propio: puntos 15 y 16. Hoy los cubre la invitación de Google Calendar.
 Pendiente de usted: puntos 2, 12 y 17.
 

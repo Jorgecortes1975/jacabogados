@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import http from 'node:http';
 process.env.MODO_PRUEBA = '1';
 const { crearServidor } = await import('../servidor-local.js');
 
@@ -48,6 +49,20 @@ test('validaciones: sin autorización, correo inválido y horario inventado', as
   assert.equal((await post('/api/reservar', { ...datos, inicio, autoriza: false })).status, 400);
   assert.equal((await post('/api/reservar', { ...datos, inicio, email: 'x' })).status, 400);
   assert.equal((await post('/api/reservar', { ...datos, inicio: '2026-10-20T03:00:00.000Z' })).status, 409);
+  // sin horario o con horario ilegible: error del cliente (400), no fallo del servidor
+  assert.equal((await post('/api/reservar', { ...datos })).status, 400);
+  assert.equal((await post('/api/reservar', { ...datos, inicio: 'xx' })).status, 400);
+});
+
+test('el cupo de quien no paga se libera y su referencia deja de existir', async () => {
+  const disp = await (await fetch(base + '/api/disponibilidad')).json();
+  const inicio = disp.dias[3].inicios[0];
+  const { referencia } = await (await post('/api/reservar', { ...datos, inicio })).json();
+  const libre = async () => (await (await fetch(base + '/api/disponibilidad')).json()).dias.some((d) => d.inicios.includes(inicio));
+  assert.equal(await libre(), false);
+  globalThis.__reservasPrueba.get(referencia).creada -= 31 * 60000; // pasaron más de 30 minutos
+  assert.equal(await libre(), true);
+  assert.equal((await fetch(`${base}/api/confirmar?referencia=${referencia}&id=prueba`)).status, 404);
 });
 
 test('referencia inválida o inexistente', async () => {
@@ -59,5 +74,7 @@ test('páginas legales y principal se sirven', async () => {
   for (const p of ['/', '/privacidad.html', '/terminos.html', '/cancelacion.html', '/gracias.html']) {
     assert.equal((await fetch(base + p)).status, 200, p);
   }
-  assert.equal((await fetch(base + '/../package.json')).status !== 200, true);
+  // el cliente de pruebas normaliza las rutas, por eso se envían crudas
+  const crudo = (path) => new Promise((ok) => http.get({ port: servidor.address().port, path }, (r) => { r.resume(); ok(r.statusCode); }));
+  for (const p of ['/../package.json', '/%2e%2e/package.json', '/..%2fpackage.json']) assert.notEqual(await crudo(p), 200, p);
 });

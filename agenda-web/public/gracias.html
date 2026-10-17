@@ -15,12 +15,15 @@
 </main>
 <script>
 const q = new URLSearchParams(location.search);
-const ref = q.get('ref') || q.get('reference') || sessionStorage.getItem('jac_ref');
+let guardada = null;
+try { guardada = sessionStorage.getItem('jac_ref'); } catch {}
+const ref = q.get('ref') || guardada;
 const id = q.get('id');
 const t = document.getElementById('titulo'), d = document.getElementById('detalle'), e = document.getElementById('enlace');
 const fmt = new Intl.DateTimeFormat('es-CO', { dateStyle: 'full', timeStyle: 'short', timeZone: 'America/Bogota' });
 let intentos = 0;
 async function revisar() {
+  if (!ref) { t.textContent = 'Dirección no válida'; d.textContent = 'No encontramos su reserva. Vuelva al inicio para agendar.'; return; }
   try {
     const r = await fetch(`/api/confirmar?referencia=${encodeURIComponent(ref || '')}&id=${encodeURIComponent(id || '')}`);
     const j = await r.json();

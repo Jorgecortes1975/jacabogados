@@ -54,7 +54,7 @@ export async function ocupados(desde, hasta) {
   return (cal?.busy || []).map((b) => ({ inicio: b.start, fin: b.end }));
 }
 
-export async function crearReserva({ id, inicio, fin, datos }) {
+export async function crearReserva({ id, inicio, fin, datos, monto }) {
   await g(`/calendars/${calId()}/events?sendUpdates=none`, {
     method: 'POST',
     body: JSON.stringify({
@@ -63,7 +63,7 @@ export async function crearReserva({ id, inicio, fin, datos }) {
       summary: `PENDIENTE DE PAGO - ${datos.nombre}`,
       start: { dateTime: inicio, timeZone: 'America/Bogota' },
       end: { dateTime: fin, timeZone: 'America/Bogota' },
-      extendedProperties: { private: { jac_estado: 'pendiente', jac_email: datos.email } },
+      extendedProperties: { private: { jac_estado: 'pendiente', jac_email: datos.email, jac_monto: String(monto) } },
       description: descripcion(datos),
     }),
   });
@@ -78,7 +78,7 @@ function normalizar(e) {
     inicio: e.start.dateTime,
     fin: e.end.dateTime,
     estado: e.extendedProperties?.private?.jac_estado === 'confirmada' ? 'confirmada' : 'pendiente',
-    email: e.extendedProperties?.private?.jac_email,
+    monto: Number(e.extendedProperties?.private?.jac_monto),
     meetUrl: e.hangoutLink || null,
   };
 }
@@ -98,7 +98,7 @@ export async function confirmarReserva(id) {
       status: 'confirmed',
       summary: `${config.consulta.nombre} - ${nombre}`,
       attendees: [{ email }],
-      extendedProperties: { private: { jac_estado: 'confirmada', jac_email: email } },
+      extendedProperties: { private: { jac_estado: 'confirmada', jac_email: email, jac_monto: actual.extendedProperties.private.jac_monto } },
       conferenceData: { createRequest: { requestId: id, conferenceSolutionKey: { type: 'hangoutsMeet' } } },
       reminders: { useDefault: false, overrides: [{ method: 'email', minutes: 1440 }, { method: 'popup', minutes: 30 }] },
     }),
