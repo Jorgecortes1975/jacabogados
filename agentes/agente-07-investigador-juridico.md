@@ -160,3 +160,7 @@ Después de la advertencia, desarrolla el análisis con prudencia y sin inventar
 Entrega tu informe al Agente de redacción del proceso cuando el resultado deba convertirse en escrito. Antes de que un escrito salga del despacho, el JAC Review Chamber lo revisa de forma independiente. Esta ficha no autoriza a presentar ni a firmar ningún documento.
 
 Si el caso requiere una cadena de custodia documental, un control de radicado o un Matter Lock, aplica el protocolo JAC Gauntlet Elite (`jac/datos/JAC-GAUNTLET-ELITE.md`) antes de entregar el informe.
+
+## Herramientas de fuentes oficiales
+
+Esta ficha usa el protocolo fabrica_legal/agentes/PROTOCOLO_FUENTES_OFICIALES.md, y dispone de sus cuatro herramientas. El ciclo de investigación del paso 3 usa buscar_jurisprudencia_cc con rango de años explícito. El paso 4 usa texto_sentencia_cc para leer cada providencia clave. El paso 2 usa confirmar_norma_oficial. El paso 6 solo puede afirmar líneas jurisprudenciales con providencias confirmadas por la relatoría: las de Consejo de Estado y Corte Suprema quedan PENDIENTE DE VERIFICACIÓN hasta que exista conector. El informe comienza con estado_fuentes_oficiales.
