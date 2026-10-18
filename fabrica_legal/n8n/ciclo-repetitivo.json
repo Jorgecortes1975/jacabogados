@@ -1,0 +1,79 @@
+{
+  "name": "JAC_Fabrica_Legal_Ciclo_Repetitivo",
+  "nota": "Plantilla sin probar. No se ha ejecutado en n8n. Sustituir MODELO_ANTHROPIC_CONFIGURADO en la configuración de n8n; no escribir identificadores de modelo en el repositorio.",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Trigger_Vigilancia_y_Requerimientos",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "parameters": {
+        "pollTimes": { "item": [{ "mode": "everyMinute" }] },
+        "filters": { "q": "label:REQUERIMIENTO-BUFETE OR subject:(Notificación Estado Judicial OR RUES OR Liquidación)" }
+      }
+    },
+    {
+      "id": "2",
+      "name": "Cargar_EXPEDIENTE_MD_Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "parameters": { "operation": "download", "fileId": "={{ $json.expediente_file_id }}" }
+    },
+    {
+      "id": "3",
+      "name": "Agente_00_Router",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "parameters": {
+        "model": "MODELO_ANTHROPIC_CONFIGURADO",
+        "options": { "temperature": 0.0, "maxTokensToSample": 1024, "systemMessage": "Ejecutar fabrica_legal/agentes/agente-00-router.md con EXPEDIENTE.md como contexto." }
+      }
+    },
+    {
+      "id": "4",
+      "name": "Switch_Enrutador_Determinista",
+      "type": "n8n-nodes-base.switch",
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ JSON.parse($node['Agente_00_Router'].json.text).target_agent }}",
+        "rules": [
+          { "value2": "Agente-01-Vigilancia-Terminos", "output": 0 },
+          { "value2": "Agente-02-Compliance-RUES", "output": 1 },
+          { "value2": "Agente-03-Corporativo-Societario", "output": 2 },
+          { "value2": "Agente-04-Laboral-Nomina", "output": 3 },
+          { "value2": "Agente-05-Inmobiliario-Notarial", "output": 4 }
+        ]
+      }
+    },
+    {
+      "id": "5",
+      "name": "Cliente_MCP_Fabrica_Legal",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "parameters": {
+        "sseEndpoint": "http://localhost:8000/sse",
+        "allowedTools": [
+          "calcular_termino_judicial_colombia",
+          "liquidar_contrato_laboral_colombia",
+          "proyectar_costo_jornada_ley_2101",
+          "generar_tabla_amortizacion_credito",
+          "convertir_smlmv_uvt_colombia"
+        ]
+      }
+    },
+    {
+      "id": "6",
+      "name": "Agente_06_Contralor_Senior",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "parameters": {
+        "model": "MODELO_ANTHROPIC_CONFIGURADO",
+        "options": { "temperature": 0.1, "systemMessage": "Ejecutar fabrica_legal/agentes/agente-06-contralor-senior.md. Devolver REJECTED ante cualquier afirmación fuera de EXPEDIENTE.md o cálculo no proveniente del servidor MCP." }
+      }
+    },
+    {
+      "id": "7",
+      "name": "Compuerta_Human_In_The_Loop_Socio",
+      "type": "n8n-nodes-base.googleDocs",
+      "parameters": {
+        "operation": "create",
+        "title": "BORRADOR_VALIDADO_{{ $json.request_id }}_PENDIENTE_FIRMA_SOCIO"
+      }
+    }
+  ]
+}
