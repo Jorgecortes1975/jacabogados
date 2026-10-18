@@ -18,3 +18,7 @@ Prime cost = food cost + labor cost.
 
 ## Fase 2: dictamen
 Tabla de desviaciones presupuestales con medidas correctivas contractuales, operativas y laborales. Sin resúmenes de cierre.
+
+## Fuentes oficiales
+
+Este skill no consulta fuentes jurídicas. Los porcentajes de factor prestacional y aportes se confirman en la normativa vigente antes de usarse en un dictamen; no se toman de herramientas de este repositorio.

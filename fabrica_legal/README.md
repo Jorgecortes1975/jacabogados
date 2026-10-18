@@ -46,3 +46,20 @@ Ejecución: el resultado de cualquier término, liquidación o amortización deb
 
     pip install -r fabrica_legal/requirements.txt
     python3 -m unittest tests_fabrica.test_calculos tests_fabrica.test_servidor
+
+## Fuentes oficiales en vivo (fabrica_legal/fuentes.py)
+
+Cuatro herramientas MCP permiten a cualquier cliente MCP consultar fuentes oficiales:
+
+1. buscar_jurisprudencia_cc: metadatos de sentencias de la Corte Constitucional (datos.gov.co), por texto y rango de años. Pagina el dataset; si no lo agota, informa limite_alcanzado.
+2. texto_sentencia_cc: texto de una sentencia de la Corte Constitucional a partir de su cita, desde la relatoría oficial.
+3. confirmar_norma_oficial: existencia y fecha de una norma del catálogo local, confirmada en su página oficial. No confirma vigencia.
+4. estado_fuentes_oficiales: accesibilidad real de cada fuente desde el entorno de ejecución, y qué cubre cada una.
+
+Cobertura real: Corte Constitucional (metadatos y texto), catálogo de normas. Sin conector confirmado: Consejo de Estado, Corte Suprema, SUIN, Diario Oficial, Congreso, Supersociedades y DIAN. Rama Judicial y SAMAI solo se diagnostican. Esas fuentes se marcan SIN_CONECTOR o PENDIENTE DE VERIFICACIÓN.
+
+Limitación de acceso: en la sesión donde se escribió este código, los dominios oficiales (corteconstitucional.gov.co, consejodeestado.gov.co, cortesuprema.gov.co, suin-juriscol.gov.co, ramajudicial.gov.co, funcionpublica.gov.co, secretariasenado.gov.co, datos.gov.co, entre otros) respondieron 403 en el CONNECT del proxy. Por eso las pruebas de fuentes.py verifican solo la lógica con un cliente simulado. El acceso real debe probarse con estado_fuentes_oficiales desde un entorno que tenga salida a esos dominios.
+
+Protocolo de uso por los agentes: fabrica_legal/agentes/PROTOCOLO_FUENTES_OFICIALES.md.
+
+Ejecución del servidor MCP: python3 -m fabrica_legal.servidor

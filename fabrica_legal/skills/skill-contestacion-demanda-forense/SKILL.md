@@ -24,3 +24,7 @@ Evaluar prescripción o caducidad con el cómputo determinista, inexistencia de 
 
 ## Fase 4: compuerta
 Pasar el borrador por Agente-06-Contralor-Senior. Sin dictamen APPROVED no se entrega.
+
+## Fuentes oficiales
+
+Aplicar fabrica_legal/agentes/PROTOCOLO_FUENTES_OFICIALES.md. Herramientas: texto_sentencia_cc para cada providencia que se cite como precedente, y confirmar_norma_oficial para cada norma de la excepción. Toda cita sin resultado OK queda PENDIENTE DE VERIFICACIÓN en el memorial borrador.

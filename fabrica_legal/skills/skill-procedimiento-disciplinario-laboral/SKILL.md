@@ -18,3 +18,7 @@ Pendiente de verificación antes de uso real: la Sentencia C-593 de 2014 y el Ar
 6. Indicación del superior y del término para impugnar.
 
 Si alguna garantía no consta en el expediente, la decisión queda bloqueada y se reporta el vacío.
+
+## Fuentes oficiales
+
+Aplicar fabrica_legal/agentes/PROTOCOLO_FUENTES_OFICIALES.md. Herramienta: texto_sentencia_cc para la Sentencia C-593/14 antes de citar sus garantías. Si el texto no se obtiene, las garantías quedan PENDIENTE DE VERIFICACIÓN.

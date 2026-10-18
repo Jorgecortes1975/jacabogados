@@ -17,3 +17,7 @@ Comprobar que las acciones representadas coincidan con el porcentaje declarado. 
 
 ## Fase 3: documento
 Acta con constancia de aprobación del texto. Si es para inscripción en Cámara de Comercio, incluir la constancia de fidelidad con el libro de actas registrado.
+
+## Fuentes oficiales
+
+Aplicar fabrica_legal/agentes/PROTOCOLO_FUENTES_OFICIALES.md. Herramienta: confirmar_norma_oficial para la Ley 1258 de 2008. La regla de convocatoria y los órganos sociales se toman de los estatutos del cliente, no de una fuente oficial.

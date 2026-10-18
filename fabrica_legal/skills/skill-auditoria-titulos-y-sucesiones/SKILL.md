@@ -14,3 +14,7 @@ Ejecutar el plan de Agente-05-Inmobiliario-Notarial sobre todas las anotaciones.
 
 ## Fase 2: actos sucesorales
 Si es sucesión notarial, generar en un solo bloque: solicitud de apertura, inventario de activos y pasivos (cada inmueble con matrícula, cédula catastral y escritura) y partición con hijuelas. La suma de hijuelas debe igualar el activo bruto inventariado. Comprobarlo con el cálculo determinista, no de memoria.
+
+## Fuentes oficiales
+
+Aplicar fabrica_legal/agentes/PROTOCOLO_FUENTES_OFICIALES.md. Herramienta: confirmar_norma_oficial para la Ley 1579 de 2012 y el Decreto 902 de 1988. Los códigos de especificación registral no tienen fuente conectada: PENDIENTE DE VERIFICACIÓN.

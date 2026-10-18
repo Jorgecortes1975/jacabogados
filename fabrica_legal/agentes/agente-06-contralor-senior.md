@@ -22,3 +22,7 @@ Rechazo inmediato si ocurre cualquiera de estos casos:
 Si falla cualquier punto, devuelve "status": "REJECTED" con la lista de correcciones obligatorias. Si cumple todo, devuelve "status": "APPROVED" con el documento depurado para firma del socio.
 </validation_protocol>
 </system_instructions>
+
+## Fuentes oficiales
+
+Aplicar PROTOCOLO_FUENTES_OFICIALES.md. Para la regla 2 del protocolo de validación, cada cita de la Corte Constitucional se contrasta con texto_sentencia_cc. Toda cita sin resultado OK queda en el dictamen como PENDIENTE DE VERIFICACIÓN, no como cita válida. El dictamen incluye la salida de estado_fuentes_oficiales.

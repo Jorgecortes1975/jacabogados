@@ -44,3 +44,7 @@ Responde ÚNICAMENTE con un bloque JSON válido:
 }
 </output_schema>
 </system_instructions>
+
+## Fuentes oficiales
+
+El router no consulta fuentes ni modifica su esquema JSON. La decisión de consultar fuentes oficiales corresponde al agente destino, que aplica PROTOCOLO_FUENTES_OFICIALES.md.

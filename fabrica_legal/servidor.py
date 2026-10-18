@@ -15,7 +15,7 @@ from typing import Literal, Optional
 
 from mcp.types import ToolAnnotations
 
-from fabrica_legal import calculos
+from fabrica_legal import calculos, fuentes
 
 try:  # mcp 2.x
     from mcp.server.mcpserver import MCPServer as _Servidor
@@ -105,6 +105,37 @@ def convertir_smlmv_uvt_colombia(
 ) -> dict:
     """Convierte SMLMV, UVT o pesos usando los valores que el llamador confirme para la vigencia."""
     return calculos.convertir_smlmv_uvt(Decimal(cantidad), unidad, Decimal(smlmv_cop), Decimal(uvt_cop))
+
+
+@mcp.tool(annotations=SOLO_LECTURA)
+def buscar_jurisprudencia_cc(
+    texto: str = "",
+    anio_desde: Optional[int] = None,
+    anio_hasta: Optional[int] = None,
+    limite: int = 100,
+    max_paginas: int = 5,
+) -> dict:
+    """Metadatos de sentencias de la Corte Constitucional (datos.gov.co) por texto y rango de años.
+    Revisar limite_alcanzado: si es True, la cobertura está incompleta. Un resultado vacío no prueba inexistencia."""
+    return fuentes.buscar_jurisprudencia_cc(texto, anio_desde, anio_hasta, limite, max_paginas)
+
+
+@mcp.tool(annotations=SOLO_LECTURA)
+def texto_sentencia_cc(cita: str) -> dict:
+    """Texto de una sentencia de la Corte Constitucional por cita, por ejemplo T-008/20 o C-080/18."""
+    return fuentes.texto_sentencia_cc(cita)
+
+
+@mcp.tool(annotations=SOLO_LECTURA)
+def confirmar_norma_oficial(tipo: str, numero: str, anio: int) -> dict:
+    """Confirma existencia y fecha de una norma del catálogo oficial. No confirma vigencia."""
+    return fuentes.confirmar_norma(tipo, numero, anio)
+
+
+@mcp.tool(annotations=SOLO_LECTURA)
+def estado_fuentes_oficiales() -> list:
+    """Accesibilidad de cada fuente oficial desde este entorno y lo que cada una cubre."""
+    return fuentes.estado_fuentes()
 
 
 @mcp.resource("expediente://{expediente_id}/constitucion")
