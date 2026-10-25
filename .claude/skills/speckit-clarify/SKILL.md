@@ -19,6 +19,8 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+Redacta en español, con terminología jurídica colombiana, todo lo que se dirija al abogado o al cliente (preguntas, informes, resúmenes y mensajes), según el principio III de `.specify/memory/constitution.md`. Conserva en inglés los identificadores técnicos, comandos, rutas y nombres de archivo.
+
 ## Pre-Execution Checks
 
 **Check for extension hooks (before clarification)**:

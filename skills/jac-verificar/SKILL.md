@@ -5,7 +5,7 @@ description: Verificación rápida de citas jurídicas colombianas. Recibe una s
 
 # JAC Verificar
 
-Si puede ejecutar código, ejecute `python3 -m jac consulta "<texto con las citas>"` (si falla con "No module named jac", ver las instrucciones de PYTHONPATH en el skill jac-agente) y reporte el resultado sin modificarlo:
+Si puede ejecutar código, ejecute `python3 -m jac consulta "<texto con las citas>"` (si falla con "No module named jac", use `bin/jac consulta "<texto>"` desde la raíz del plugin, o vea las instrucciones de PYTHONPATH en el skill jac-agente) y reporte el resultado sin modificarlo:
 
 1. Para cada cita: estado, dato oficial encontrado y fuente. Distinga "no encontrada" (las fuentes respondieron y no la conocen) de "pendiente" (la fuente no respondió o no hay conector).
 2. En normas, existencia no es vigencia: indique que la vigencia debe confirmarse en fuente oficial.

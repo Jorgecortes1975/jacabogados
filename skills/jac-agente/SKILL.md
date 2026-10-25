@@ -14,7 +14,7 @@ Se ejecutan con Bash. Si `python3 -m jac --version` falla con "No module named j
 1. `python3 -m jac consulta "<texto, cita, archivo o carpeta>"` enruta solo: verifica citas, busca jurisprudencia, valida un archivo o inventaría una carpeta.
 2. `python3 -m jac sentencia "T-008/20"` verifica una sentencia de la Corte Constitucional; con texto libre busca en el dataset oficial.
 3. `python3 -m jac norma "Ley 1437 de 2011"` verifica existencia y fecha de una norma del catálogo.
-4. `python3 -m jac validar escrito.docx --radicado <radicado>` ejecuta el control Gauntlet y devuelve BLOCKED, CONDITIONAL o PASS_AUTOMATICO.
+4. `python3 -m jac validar escrito.docx --radicado <radicado>` ejecuta el control Gauntlet y devuelve BLOCKED, CONDITIONAL o PASS_AUTOMATICO. Es el mismo control que `python3 -m gauntlet_jac validar-escrito`; use uno de los dos, no ambos.
 5. `python3 -m jac inventario <carpeta>` lista archivos por contenido y detecta duplicados.
 6. `python3 -m jac fuentes` y `python3 -m jac doctor --red` diagnostican el acceso a las fuentes oficiales.
 
@@ -24,8 +24,8 @@ Lo que estas herramientas no hacen: no determinan vigencia de normas ni el texto
 
 Si no puede ejecutar código (por ejemplo, un entorno sin Python o sin Bash), no finja las verificaciones. Aplique el procedimiento manual:
 
-1. Cita de la Corte Constitucional (T-008/20, C-080/18, SU-502/25): construya la URL de la relatoría, `https://www.corteconstitucional.gov.co/relatoria/AAAA/TIPO-NNN-AA.htm` (tipo en mayúscula, número de tres dígitos; ejemplo verificado: T-008/20 es `/relatoria/2020/T-008-20.htm`). Si tiene navegación web o una herramienta de consulta, ábrala y compare número, fecha y ponente. Si no, la cita queda PENDIENTE DE VERIFICACIÓN. Una sentencia anterior a 1991 o con año imposible es un error evidente que sí puede declarar.
-2. Norma (Ley, Decreto): consulte la tabla de normas verificadas (archivo de catálogo, si está cargado). Si figura, confirme existencia y fecha de expedición. Si no figura, queda PENDIENTE: su ausencia no prueba que no exista.
+1. Cita de la Corte Constitucional (T-008/20, C-080/18, SU-502/25): construya la URL de la relatoría, `https://www.corteconstitucional.gov.co/relatoria/AAAA/TIPO-NNN-AA.htm` (tipo en mayúscula, número de tres dígitos; la URL oficial de una sentencia se toma del campo `official_url` que devuelve `python3 -m jac sentencia`; no se construye a mano). Si tiene navegación web o una herramienta de consulta, ábrala y compare número, fecha y ponente. Si no, la cita queda PENDIENTE DE VERIFICACIÓN. Una sentencia anterior a 1991 o con año imposible es un error evidente que sí puede declarar.
+2. Norma (Ley, Decreto): consulte el catálogo `normas_col/datos/catalogo_funcion_publica.json`, si está cargado. Si figura, confirme existencia y fecha de expedición. Si no figura, queda PENDIENTE: su ausencia no prueba que no exista.
 3. Vigencia: nunca la afirme por memoria. Existir no es estar vigente. Márquela PENDIENTE hasta que el abogado confirme el texto vigente en fuente oficial, con fecha y fuente.
 4. Datos que no puede comprobar (ponente, fecha exacta, número de radicado, contenido de una sentencia): no los complete de memoria; márquelos PENDIENTE DE VERIFICACIÓN.
 5. Controles que sí puede hacer sin herramientas: fechas inexistentes, relleno sin completar, radicados ajenos al asunto, contradicciones internas, términos mal contados con datos suficientes, coherencia entre hechos y pretensiones.

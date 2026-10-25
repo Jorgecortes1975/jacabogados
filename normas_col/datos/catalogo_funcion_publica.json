@@ -1,237 +1,534 @@
 {
- "fuente": "Gestor Normativo de Función Pública (funcionpublica.gov.co/eva/gestornormativo)",
- "obtenido_via": "Croma (servicio que replica el registro); no consultado directamente desde este entorno",
- "verificado_el": "2026-10-12",
- "advertencia": "Acredita EXISTENCIA y datos de expedición. NO acredita vigencia: el registro es incompleto (p. ej. la Ley 2080 de 2021 declara que modifica la Ley 1437 de 2011, pero la ficha de esta no la lista) y la ausencia de una norma tampoco prueba su inexistencia (la Ley 57 de 1887 no figura).",
- "normas": [
-  {
-   "id": "5304",
-   "tipo": "decreto",
-   "numero": "2591",
-   "anio": 1991,
-   "titulo": "Decreto 2591 de 1991",
-   "expedida": "1991-11-19",
-   "vigencia_desde": "1991-11-19",
-   "publicada_en": "Diario Oficial 40165 del 19 de noviembre de 1991",
-   "modificaciones": [],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=5304"
-  },
-  {
-   "id": "72173",
-   "tipo": "decreto",
-   "numero": "1072",
-   "anio": 2015,
-   "titulo": "Decreto 1072 de 2015",
-   "expedida": null,
-   "vigencia_desde": null,
-   "publicada_en": null,
-   "modificaciones": [],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=72173"
-  },
-  {
-   "id": "304",
-   "tipo": "ley",
-   "numero": "80",
-   "anio": 1993,
-   "titulo": "Ley 80 de 1993",
-   "expedida": "1993-10-28",
-   "vigencia_desde": "1993-10-28",
-   "publicada_en": "Diario Oficial",
-   "modificaciones": [
-    "Modificado por Ley 2294 de 2023",
-    "Modificado por Ley 2195 de 2022",
-    "Modificado parcialmente por Ley 2160 de 2021",
-    "Adicionado por Decreto 537 de 2020",
-    "Modificado por Ley 1882 de 2018",
-    "Adicionado por Ley 1882 de 2018",
-    "Reglamentado por Decreto 734 de 2012",
-    "Reglamentado parcialmente por Decreto 2473 de 2010",
-    "Reglamentado parcialmente por Decreto 2474 de 2008",
-    "Reglamentado parcialmente por Decreto 4375 de 2006",
-    "Reglamentado parcialmente por Decreto 2434 de 2006",
-    "Reglamentado parcialmente por Decreto 959 de 2006",
-    "Reglamentado parcialmente por Decreto 3740 de 2004",
-    "Reglamentado parcialmente por Decreto 3629 de 2004",
-    "Reglamentado parcialmente por Decreto 2170 de 2002",
-    "Reglamentado parcialmente por Decreto 626 de 2001",
-    "Reglamentado parcialmente por Decreto 679 de 1994"
-   ],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=304"
-  },
-  {
-   "id": "5248",
-   "tipo": "ley",
-   "numero": "100",
-   "anio": 1993,
-   "titulo": "Ley 100 de 1993",
-   "expedida": "1993-12-23",
-   "vigencia_desde": "1993-12-23",
-   "publicada_en": "Diario Oficial 41.148 del 23 de Diciembre de 1993",
-   "modificaciones": [
-    "Modificado parcialmente por Ley 2161 de 2021",
-    "Modificado por Ley 2112 de 2021",
-    "Modificado por Decreto 2106 de 2019",
-    "Reglamentado por art. 1 de Decreto 1950 de 2005",
-    "Reglamentado parcialmente por Decreto 1320 de 1997",
-    "Modificado por Ley 344 de 1996",
-    "Adicionado por Ley 238 de 1995"
-   ],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=5248"
-  },
-  {
-   "id": "6388",
-   "tipo": "ley",
-   "numero": "599",
-   "anio": 2000,
-   "titulo": "Ley 599 de 2000",
-   "expedida": "2000-07-24",
-   "vigencia_desde": "2001-07-24",
-   "publicada_en": "Diario Oficial 44097 del 24 de julio de 2000",
-   "modificaciones": [
-    "Adicionado por art. 4 de Ley 2446 de 2025 Congreso de la República",
-    "Adicionado por Ley 2364 de 2024",
-    "Adicionado por Ley 2316 de 2023",
-    "Adicionado por Ley 2272 de 2022",
-    "Adicionado por Ley 2292 de 2023",
-    "Modificado por Ley 2292 de 2023",
-    "Modificado por Ley 2197 de 2022",
-    "Adicionado por Ley 2197 de 2022",
-    "Modificado por Ley 2168 de 2021",
-    "Modificado por Ley 2111 de 2021",
-    "Sustituido por Ley 2111 de 2021",
-    "Modificado por Ley 2110 de 2021",
-    "Modificado parcialmente por Ley 2098 de 2021",
-    "Modificado por Ley 2083 de 2021",
-    "Modificado por Ley 890 de 2004"
-   ],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=6388"
-  },
-  {
-   "id": "8738",
-   "tipo": "ley",
-   "numero": "820",
-   "anio": 2003,
-   "titulo": "Ley 820 de 2003",
-   "expedida": "2003-07-10",
-   "vigencia_desde": "2003-07-10",
-   "publicada_en": "Diario Oficial 45244 de julio 10 de 2003",
-   "modificaciones": [],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=8738"
-  },
-  {
-   "id": "14787",
-   "tipo": "ley",
-   "numero": "906",
-   "anio": 2004,
-   "titulo": "Ley 906 de 2004",
-   "expedida": "2004-08-31",
-   "vigencia_desde": "2005-01-01",
-   "publicada_en": "Diario Oficial 45658 de septiembre 1 de 2004",
-   "modificaciones": [
-    "Modificado por Ley 2205 de 2022",
-    "Modificado por Ley 2292 de 2023",
-    "Modificado por Ley 2197 de 2022",
-    "Adicionado por Ley 2197 de 2022",
-    "Adicionado por Ley 2111 de 2021",
-    "Modificado parcialmente por Ley 2098 de 2021",
-    "Reglamentado por Decreto 3905 de 2009"
-   ],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=14787"
-  },
-  {
-   "id": "41249",
-   "tipo": "ley",
-   "numero": "1437",
-   "anio": 2011,
-   "titulo": "Ley 1437 de 2011",
-   "expedida": "2011-01-18",
-   "vigencia_desde": "2012-07-02",
-   "publicada_en": "Diario Oficial 47.956 de enero 18 de 2011",
-   "modificaciones": [
-    "Modificado por Decreto 1463 de 2022",
-    "Modificado por Ley 2220 de 2022",
-    "Modificado por Ley 2195 de 2022",
-    "Adicionado por Ley 2195 de 2022",
-    "Modificado por Ley 2080 de 2021",
-    "Modificado por Decreto 403 de 2020"
-   ],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=41249"
-  },
-  {
-   "id": "44306",
-   "tipo": "ley",
-   "numero": "1480",
-   "anio": 2011,
-   "titulo": "Ley 1480 de 2011",
-   "expedida": "2011-10-12",
-   "vigencia_desde": null,
-   "publicada_en": "Diario Oficial 48220 de octubre 12 de 2011.",
-   "modificaciones": [],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=44306"
-  },
-  {
-   "id": "48425",
-   "tipo": "ley",
-   "numero": "1564",
-   "anio": 2012,
-   "titulo": "Ley 1564 de 2012",
-   "expedida": "2012-07-12",
-   "vigencia_desde": null,
-   "publicada_en": "Diario Oficial 48489 de julio 12 de 2012",
-   "modificaciones": [
-    "Derogado parcialmente Ley 2220 de 2022",
-    "Modificado por Ley 2113 de 2021",
-    "Modificado por Ley 2080 de 2021",
-    "Adicionado por Ley 2030 de 2020",
-    "Modificado por Ley 1996 de 2019",
-    "Modificado por Ley 1743 de 2014",
-    "Modificado por Decreto 1736 de 2012"
-   ],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=48425"
-  },
-  {
-   "id": "49981",
-   "tipo": "ley",
-   "numero": "1581",
-   "anio": 2012,
-   "titulo": "Ley 1581 de 2012",
-   "expedida": "2012-10-17",
-   "vigencia_desde": "2012-10-17",
-   "publicada_en": "Diario Oficial 48587 de octubre 18 de 2012.",
-   "modificaciones": [
-    "Reglamentado por Decreto 1081 de 2015 Sector Presidencia de la República",
-    "Reglamentado por Decreto 886 de 2014",
-    "Reglamentado por Decreto 1377 de 2013"
-   ],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981"
-  },
-  {
-   "id": "65334",
-   "tipo": "ley",
-   "numero": "1755",
-   "anio": 2015,
-   "titulo": "Ley 1755 de 2015",
-   "expedida": "2015-06-30",
-   "vigencia_desde": null,
-   "publicada_en": null,
-   "modificaciones": [],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=65334"
-  },
-  {
-   "id": "156590",
-   "tipo": "ley",
-   "numero": "2080",
-   "anio": 2021,
-   "titulo": "Ley 2080 de 2021",
-   "expedida": "2021-01-25",
-   "vigencia_desde": null,
-   "publicada_en": null,
-   "modificaciones": [
-    "Modifica Ley 1564 de 2012",
-    "Modifica Ley 1437 de 2011",
-    "Modifica Ley 685 de 2001"
-   ],
-   "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=156590"
-  }
- ]
+  "fuente": "Gestor Normativo de Función Pública (funcionpublica.gov.co/eva/gestornormativo)",
+  "obtenido_via": "Croma (servicio que replica el registro); no consultado directamente desde este entorno",
+  "verificado_el": "2026-10-25",
+  "advertencia": "Acredita EXISTENCIA y datos de expedición. NO acredita vigencia: el registro es incompleto (p. ej. la Ley 2080 de 2021 declara que modifica la Ley 1437 de 2011, pero la ficha de esta no la lista) y la ausencia de una norma tampoco prueba su inexistencia (la Ley 57 de 1887 no figura). Actualización del 25 de octubre de 2026: se agregaron normas verificadas en el registro. Donde el registro no indica vigencia desde, el campo queda vacío. Las derogaciones y la inexequibilidad constan como modificaciones registradas; el registro no es exhaustivo, así que su ausencia no prueba vigencia. La Ley 84 de 1873 y la Ley 57 de 1887 (Código Civil) no figuran en el registro y quedan pendientes.",
+  "normas": [
+    {
+      "id": "5304",
+      "tipo": "decreto",
+      "numero": "2591",
+      "anio": 1991,
+      "titulo": "Decreto 2591 de 1991",
+      "expedida": "1991-11-19",
+      "vigencia_desde": "1991-11-19",
+      "publicada_en": "Diario Oficial 40165 del 19 de noviembre de 1991",
+      "modificaciones": [],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=5304"
+    },
+    {
+      "id": "72173",
+      "tipo": "decreto",
+      "numero": "1072",
+      "anio": 2015,
+      "titulo": "Decreto 1072 de 2015",
+      "expedida": null,
+      "vigencia_desde": null,
+      "publicada_en": null,
+      "modificaciones": [],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=72173"
+    },
+    {
+      "id": "304",
+      "tipo": "ley",
+      "numero": "80",
+      "anio": 1993,
+      "titulo": "Ley 80 de 1993",
+      "expedida": "1993-10-28",
+      "vigencia_desde": "1993-10-28",
+      "publicada_en": "Diario Oficial",
+      "modificaciones": [
+        "Modificado por Ley 2294 de 2023",
+        "Modificado por Ley 2195 de 2022",
+        "Modificado parcialmente por Ley 2160 de 2021",
+        "Adicionado por Decreto 537 de 2020",
+        "Modificado por Ley 1882 de 2018",
+        "Adicionado por Ley 1882 de 2018",
+        "Reglamentado por Decreto 734 de 2012",
+        "Reglamentado parcialmente por Decreto 2473 de 2010",
+        "Reglamentado parcialmente por Decreto 2474 de 2008",
+        "Reglamentado parcialmente por Decreto 4375 de 2006",
+        "Reglamentado parcialmente por Decreto 2434 de 2006",
+        "Reglamentado parcialmente por Decreto 959 de 2006",
+        "Reglamentado parcialmente por Decreto 3740 de 2004",
+        "Reglamentado parcialmente por Decreto 3629 de 2004",
+        "Reglamentado parcialmente por Decreto 2170 de 2002",
+        "Reglamentado parcialmente por Decreto 626 de 2001",
+        "Reglamentado parcialmente por Decreto 679 de 1994"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=304"
+    },
+    {
+      "id": "5248",
+      "tipo": "ley",
+      "numero": "100",
+      "anio": 1993,
+      "titulo": "Ley 100 de 1993",
+      "expedida": "1993-12-23",
+      "vigencia_desde": "1993-12-23",
+      "publicada_en": "Diario Oficial 41.148 del 23 de Diciembre de 1993",
+      "modificaciones": [
+        "Modificado parcialmente por Ley 2161 de 2021",
+        "Modificado por Ley 2112 de 2021",
+        "Modificado por Decreto 2106 de 2019",
+        "Reglamentado por art. 1 de Decreto 1950 de 2005",
+        "Reglamentado parcialmente por Decreto 1320 de 1997",
+        "Modificado por Ley 344 de 1996",
+        "Adicionado por Ley 238 de 1995"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=5248"
+    },
+    {
+      "id": "6388",
+      "tipo": "ley",
+      "numero": "599",
+      "anio": 2000,
+      "titulo": "Ley 599 de 2000",
+      "expedida": "2000-07-24",
+      "vigencia_desde": "2001-07-24",
+      "publicada_en": "Diario Oficial 44097 del 24 de julio de 2000",
+      "modificaciones": [
+        "Adicionado por art. 4 de Ley 2446 de 2025 Congreso de la República",
+        "Adicionado por Ley 2364 de 2024",
+        "Adicionado por Ley 2316 de 2023",
+        "Adicionado por Ley 2272 de 2022",
+        "Adicionado por Ley 2292 de 2023",
+        "Modificado por Ley 2292 de 2023",
+        "Modificado por Ley 2197 de 2022",
+        "Adicionado por Ley 2197 de 2022",
+        "Modificado por Ley 2168 de 2021",
+        "Modificado por Ley 2111 de 2021",
+        "Sustituido por Ley 2111 de 2021",
+        "Modificado por Ley 2110 de 2021",
+        "Modificado parcialmente por Ley 2098 de 2021",
+        "Modificado por Ley 2083 de 2021",
+        "Modificado por Ley 890 de 2004"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=6388"
+    },
+    {
+      "id": "8738",
+      "tipo": "ley",
+      "numero": "820",
+      "anio": 2003,
+      "titulo": "Ley 820 de 2003",
+      "expedida": "2003-07-10",
+      "vigencia_desde": "2003-07-10",
+      "publicada_en": "Diario Oficial 45244 de julio 10 de 2003",
+      "modificaciones": [],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=8738"
+    },
+    {
+      "id": "14787",
+      "tipo": "ley",
+      "numero": "906",
+      "anio": 2004,
+      "titulo": "Ley 906 de 2004",
+      "expedida": "2004-08-31",
+      "vigencia_desde": "2005-01-01",
+      "publicada_en": "Diario Oficial 45658 de septiembre 1 de 2004",
+      "modificaciones": [
+        "Modificado por Ley 2205 de 2022",
+        "Modificado por Ley 2292 de 2023",
+        "Modificado por Ley 2197 de 2022",
+        "Adicionado por Ley 2197 de 2022",
+        "Adicionado por Ley 2111 de 2021",
+        "Modificado parcialmente por Ley 2098 de 2021",
+        "Reglamentado por Decreto 3905 de 2009"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=14787"
+    },
+    {
+      "id": "41249",
+      "tipo": "ley",
+      "numero": "1437",
+      "anio": 2011,
+      "titulo": "Ley 1437 de 2011",
+      "expedida": "2011-01-18",
+      "vigencia_desde": "2012-07-02",
+      "publicada_en": "Diario Oficial 47.956 de enero 18 de 2011",
+      "modificaciones": [
+        "Modificado por Decreto 1463 de 2022",
+        "Modificado por Ley 2220 de 2022",
+        "Modificado por Ley 2195 de 2022",
+        "Adicionado por Ley 2195 de 2022",
+        "Modificado por Ley 2080 de 2021",
+        "Modificado por Decreto 403 de 2020"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=41249"
+    },
+    {
+      "id": "44306",
+      "tipo": "ley",
+      "numero": "1480",
+      "anio": 2011,
+      "titulo": "Ley 1480 de 2011",
+      "expedida": "2011-10-12",
+      "vigencia_desde": null,
+      "publicada_en": "Diario Oficial 48220 de octubre 12 de 2011.",
+      "modificaciones": [],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=44306"
+    },
+    {
+      "id": "48425",
+      "tipo": "ley",
+      "numero": "1564",
+      "anio": 2012,
+      "titulo": "Ley 1564 de 2012",
+      "expedida": "2012-07-12",
+      "vigencia_desde": null,
+      "publicada_en": "Diario Oficial 48489 de julio 12 de 2012",
+      "modificaciones": [
+        "Derogado parcialmente Ley 2220 de 2022",
+        "Modificado por Ley 2113 de 2021",
+        "Modificado por Ley 2080 de 2021",
+        "Adicionado por Ley 2030 de 2020",
+        "Modificado por Ley 1996 de 2019",
+        "Modificado por Ley 1743 de 2014",
+        "Modificado por Decreto 1736 de 2012"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=48425"
+    },
+    {
+      "id": "49981",
+      "tipo": "ley",
+      "numero": "1581",
+      "anio": 2012,
+      "titulo": "Ley 1581 de 2012",
+      "expedida": "2012-10-17",
+      "vigencia_desde": "2012-10-17",
+      "publicada_en": "Diario Oficial 48587 de octubre 18 de 2012.",
+      "modificaciones": [
+        "Reglamentado por Decreto 1081 de 2015 Sector Presidencia de la República",
+        "Reglamentado por Decreto 886 de 2014",
+        "Reglamentado por Decreto 1377 de 2013"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981"
+    },
+    {
+      "id": "65334",
+      "tipo": "ley",
+      "numero": "1755",
+      "anio": 2015,
+      "titulo": "Ley 1755 de 2015",
+      "expedida": "2015-06-30",
+      "vigencia_desde": null,
+      "publicada_en": null,
+      "modificaciones": [],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=65334"
+    },
+    {
+      "id": "156590",
+      "tipo": "ley",
+      "numero": "2080",
+      "anio": 2021,
+      "titulo": "Ley 2080 de 2021",
+      "expedida": "2021-01-25",
+      "vigencia_desde": null,
+      "publicada_en": null,
+      "modificaciones": [
+        "Modifica Ley 1564 de 2012",
+        "Modifica Ley 1437 de 2011",
+        "Modifica Ley 685 de 2001"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=156590"
+    },
+    {
+      "id": "34130",
+      "tipo": "ley",
+      "numero": "1258",
+      "anio": 2008,
+      "titulo": "Ley 1258 de 2008",
+      "expedida": "2008-12-05",
+      "vigencia_desde": "2008-12-05",
+      "publicada_en": "Diario Oficial 47.194 de diciembre 5 de 2008",
+      "modificaciones": [
+        "Modifica Ley 1258 de 2008 (registro de la Ley 2294 de 2023)"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=34130"
+    },
+    {
+      "id": "6739",
+      "tipo": "ley",
+      "numero": "222",
+      "anio": 1995,
+      "titulo": "Ley 222 de 1995",
+      "expedida": "1995-12-20",
+      "vigencia_desde": "1995-12-20",
+      "publicada_en": "Diario Oficial No. 42.156 de diciembre 20 de 1995",
+      "modificaciones": [],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=6739"
+    },
+    {
+      "id": "48366",
+      "tipo": "ley",
+      "numero": "1563",
+      "anio": 2012,
+      "titulo": "Ley 1563 de 2012",
+      "expedida": "2012-07-12",
+      "vigencia_desde": "2012-10-12",
+      "publicada_en": "Diario Oficial 48489 del 12 de julio de 2012",
+      "modificaciones": [],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=48366"
+    },
+    {
+      "id": "36912",
+      "tipo": "ley",
+      "numero": "1340",
+      "anio": 2009,
+      "titulo": "Ley 1340 de 2009",
+      "expedida": "2009-07-24",
+      "vigencia_desde": "2009-07-24",
+      "publicada_en": "Diario Oficial 47420 de julio 24 de 2009",
+      "modificaciones": [
+        "Modificado por Ley 2195 de 2022"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=36912"
+    },
+    {
+      "id": "209510",
+      "tipo": "ley",
+      "numero": "2294",
+      "anio": 2023,
+      "titulo": "Ley 2294 de 2023 (Plan Nacional de Desarrollo 2022-2026)",
+      "expedida": "2023-05-19",
+      "vigencia_desde": "2023-05-19",
+      "publicada_en": null,
+      "modificaciones": [
+        "Modifica Ley 1258 de 2008",
+        "Adiciona Decreto 410 de 1971",
+        "Adiciona Decreto Ley 624 de 1989",
+        "Modifica Decreto Ley 624 de 1989",
+        "Modifica Ley 1955 de 2019",
+        "Modifica Ley 1819 de 2016",
+        "Modifica Ley 1450 de 2011",
+        "Lista parcial: el registro enumera más modificaciones"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=209510"
+    },
+    {
+      "id": "41102",
+      "tipo": "decreto",
+      "numero": "410",
+      "anio": 1971,
+      "titulo": "Decreto 410 de 1971 (Código de Comercio)",
+      "expedida": "1971-03-27",
+      "vigencia_desde": "1972-01-01",
+      "publicada_en": "Diario Oficial 33.339 de junio 16 de 1971",
+      "modificaciones": [
+        "Modificado por Ley 2195 de 2022",
+        "Adicionado por Ley 2294 de 2023"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=41102"
+    },
+    {
+      "id": "199983",
+      "tipo": "decreto",
+      "numero": "2663",
+      "anio": 1950,
+      "titulo": "Decreto 2663 de 1950 (Código Sustantivo del Trabajo)",
+      "expedida": "1950-08-05",
+      "vigencia_desde": "1950-08-05",
+      "publicada_en": null,
+      "modificaciones": [
+        "Modificado parcialmente por Decreto 2606 de 1998 (listado no exhaustivo)"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=199983"
+    },
+    {
+      "id": "5259",
+      "tipo": "decreto",
+      "numero": "2158",
+      "anio": 1948,
+      "titulo": "Decreto 2158 de 1948 (Código Procesal del Trabajo y de la Seguridad Social)",
+      "expedida": "1948-06-24",
+      "vigencia_desde": "1948-06-24",
+      "publicada_en": null,
+      "modificaciones": [],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=5259"
+    },
+    {
+      "id": "6533",
+      "tipo": "decreto ley",
+      "numero": "624",
+      "anio": 1989,
+      "titulo": "Decreto Ley 624 de 1989 (Estatuto Tributario)",
+      "expedida": "1989-03-30",
+      "vigencia_desde": "1989-03-30",
+      "publicada_en": "Diario Oficial 38756 de marzo 30 de 1989",
+      "modificaciones": [
+        "Modificado por Ley 2294 de 2023",
+        "Adicionado por Ley 2294 de 2023",
+        "Modificado por Ley 2155 de 2021",
+        "Modificado por Ley 2010 de 2019",
+        "Reglamentado por Decreto 1006 de 2024 (parcial)",
+        "Reglamentado por Decreto 128 de 2024 (parcial)",
+        "Derogado parcialmente por Ley 2277 de 2022",
+        "Derogado parcialmente por Ley 2152 de 2021 (registro)"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=6533"
+    },
+    {
+      "id": "6543",
+      "tipo": "decreto",
+      "numero": "1",
+      "anio": 1984,
+      "titulo": "Decreto 1 de 1984 (Código Contencioso Administrativo)",
+      "expedida": "1984-01-02",
+      "vigencia_desde": "1984-03-01",
+      "publicada_en": "Diario Oficial 36439 de enero 10 de 1984",
+      "modificaciones": [
+        "Derogado por art. 309 de la Ley 1437 de 2011"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=6543"
+    },
+    {
+      "id": "6923",
+      "tipo": "decreto",
+      "numero": "1400",
+      "anio": 1970,
+      "titulo": "Decreto 1400 de 1970 (Código de Procedimiento Civil)",
+      "expedida": "1970-08-06",
+      "vigencia_desde": "1971-07-01",
+      "publicada_en": "Diario Oficial 33150 de septiembre 21 de 1970",
+      "modificaciones": [
+        "Derogado por art. 626 de la Ley 1564 de 2012"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=6923"
+    },
+    {
+      "id": "1551",
+      "tipo": "decreto",
+      "numero": "2811",
+      "anio": 1974,
+      "titulo": "Decreto 2811 de 1974 (Código Nacional de Recursos Naturales Renovables)",
+      "expedida": "1974-12-18",
+      "vigencia_desde": "1974-12-18",
+      "publicada_en": "Diario Oficial No. 34243",
+      "modificaciones": [
+        "Modificado parcialmente por Ley 2099 de 2021"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=1551"
+    },
+    {
+      "id": "9029",
+      "tipo": "decreto",
+      "numero": "2241",
+      "anio": 1986,
+      "titulo": "Decreto 2241 de 1986 (Código Electoral)",
+      "expedida": "1986-07-15",
+      "vigencia_desde": "1986-08-01",
+      "publicada_en": "Diario Oficial 37571 de agosto 1 de 1986",
+      "modificaciones": [
+        "Sin modificaciones registradas: esto no prueba que el código esté vigente sin cambios"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=9029"
+    },
+    {
+      "id": "9202",
+      "tipo": "ley",
+      "numero": "685",
+      "anio": 2001,
+      "titulo": "Ley 685 de 2001 (Código de Minas)",
+      "expedida": "2001-08-15",
+      "vigencia_desde": "2001-09-08",
+      "publicada_en": "Registro: Diario Oficial 45273 de agosto 8 de 2003 (año distinto al de expedición: verificar)",
+      "modificaciones": [
+        "Modificado por Ley 2080 de 2021"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=9202"
+    },
+    {
+      "id": "22106",
+      "tipo": "ley",
+      "numero": "1098",
+      "anio": 2006,
+      "titulo": "Ley 1098 de 2006 (Código de la Infancia y la Adolescencia)",
+      "expedida": "2006-11-08",
+      "vigencia_desde": "2007-05-08",
+      "publicada_en": "Diario Oficial 46446 de noviembre 08 de 2006",
+      "modificaciones": [
+        "Modificado por Ley 2126 de 2021",
+        "Adicionado por Ley 2126 de 2021"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=22106"
+    },
+    {
+      "id": "90324",
+      "tipo": "ley",
+      "numero": "1952",
+      "anio": 2019,
+      "titulo": "Ley 1952 de 2019 (Código General Disciplinario)",
+      "expedida": "2019-01-28",
+      "vigencia_desde": "2021-12-09",
+      "publicada_en": null,
+      "modificaciones": [
+        "Modificado parcialmente por Ley 2094 de 2021",
+        "Deroga parcialmente Ley 734 de 2002"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=90324"
+    },
+    {
+      "id": "4589",
+      "tipo": "ley",
+      "numero": "734",
+      "anio": 2002,
+      "titulo": "Ley 734 de 2002 (Código Disciplinario Único)",
+      "expedida": "2002-02-05",
+      "vigencia_desde": "2002-05-05",
+      "publicada_en": "Diario Oficial 44699 del 5 de febrero de 2002",
+      "modificaciones": [
+        "Derogado parcialmente por Ley 1952 de 2019",
+        "Deroga Ley 200 de 1995"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4589"
+    },
+    {
+      "id": "80538",
+      "tipo": "ley",
+      "numero": "1801",
+      "anio": 2016,
+      "titulo": "Ley 1801 de 2016 (Código Nacional de Policía y Convivencia)",
+      "expedida": "2016-07-29",
+      "vigencia_desde": null,
+      "publicada_en": null,
+      "modificaciones": [
+        "Modificado por Ley 2318 de 2023",
+        "Modificado por Ley 2220 de 2022",
+        "Modificado por Ley 2197 de 2022",
+        "Modificado por Ley 2054 de 2020",
+        "Modificado por Ley 2030 de 2020",
+        "Modificado por Ley 2000 de 2019",
+        "Modificado por Ley 1955 de 2019",
+        "Modificado por Decreto 555 de 2017"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=80538"
+    },
+    {
+      "id": "40200",
+      "tipo": "ley",
+      "numero": "1407",
+      "anio": 2010,
+      "titulo": "Ley 1407 de 2010 (Código Penal Militar)",
+      "expedida": "2010-08-17",
+      "vigencia_desde": "2010-08-17",
+      "publicada_en": "Diario Oficial 47804 de agosto 17 de 2010",
+      "modificaciones": [
+        "CONFLICTO sin resolver: el registro anota 'Código Penal Militar (inexequible)'. La búsqueda en relatoría (Legal Data Hunter, 25-oct-2026) no encontró sentencia que lo declare inexequible; la Sentencia C-252/12 rechaza cargos de inexequibilidad. No citar como vigente ni como inexequible hasta revisar la sentencia correspondiente"
+      ],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=40200"
+    },
+    {
+      "id": "22657",
+      "tipo": "ley",
+      "numero": "1116",
+      "anio": 2006,
+      "titulo": "Ley 1116 de 2006 (Régimen de Insolvencia Empresarial)",
+      "expedida": "2006-12-27",
+      "vigencia_desde": "2007-06-27",
+      "publicada_en": "Diario Oficial 46494 de diciembre 27 de 2006",
+      "modificaciones": [],
+      "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=22657"
+    }
+  ]
 }

@@ -178,7 +178,9 @@ def test_pack_cowork_contenido_y_skills_zip(pack):
     d, r = pack
     esperados = {"00-LEEME-COWORK.md", "01-INSTRUCCIONES-DEL-PROYECTO.md", "03-PROTOCOLO-GAUNTLET-ELITE.md", "04-CATALOGO-NORMAS.md",
                  "05-CASO-DE-PRUEBA.md", "SKILL-jac-agente.md", "SKILL-jac-gauntlet.md", "SKILL-jac-verificar.md"}
-    assert esperados == set(r["archivos"]) and r["skills"] == 3
+    skills = sorted(s.name for s in (RAIZ / "skills").iterdir())
+    esperados |= {f"SKILL-{s}.md" for s in skills}
+    assert esperados == set(r["archivos"]) and r["skills"] == len(skills)
     for z in (d / "skills-zip").glob("*.zip"):
         nombres = zipfile.ZipFile(z).namelist()
         assert nombres == [f"{z.stem}/SKILL.md"], "estructura carpeta/SKILL.md exigida para cargar skills"
@@ -191,7 +193,7 @@ def test_catalogo_md_coincide_con_el_json(pack):
     d, _ = pack
     md = (d / "04-CATALOGO-NORMAS.md").read_text(encoding="utf-8")
     normas = catalogo.cargar("/nonexistent.json")
-    assert len(normas) == 13 and all(n.titulo in md and n.url in md for n in normas.values())
+    assert len(normas) == len(json.load(open(catalogo.SEMILLA, encoding='utf8'))['normas']) and all(n.titulo in md and n.url in md for n in normas.values())
     assert "NO acredita vigencia" in md and "Ley 57 de 1887" in md
 
 
