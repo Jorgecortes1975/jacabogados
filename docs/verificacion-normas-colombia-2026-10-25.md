@@ -81,3 +81,32 @@ Cada pendiente tiene una decisión o un bloqueo identificado. Ninguno queda abie
 1. Texto de la licencia MIT de la fuente de Sprintlaw. Sin él no puedo cumplir la obligación de incluir el aviso de licencia completo. Lo que sí consta: autor Sprintlaw y licencia MIT, indicados en cada skill derivada. Desbloqueo: entregar el archivo LICENSE de la fuente, o confirmar que basta la atribución indicada.
 2. Archivo `docs/rules/domain/professional-domain-disclaimer.md`. No existe en el repositorio ni en sus ramas. Desbloqueo: entregar el archivo o su contenido.
 3. Ubicación de instalación del plugin. Decisión provisional: el paquete queda en la carpeta de trabajo, no en la configuración global. Desbloqueo: indicar la ruta de instalación deseada.
+
+## Resolución con fuentes oficiales y repositorios (25 de octubre de 2026, segunda ronda)
+
+Las fuentes oficiales colombianas no resuelven por DNS desde el entorno (`www.corteconstitucional.gov.co`, `www.funcionpublica.gov.co`, `www.suin-juriscol.gov.co`). Se usó Legal Data Hunter, que sí da acceso al texto de SUIN-Juriscol, Gestor Normativo, Secretaría del Senado y relatoría de la Corte Constitucional.
+
+### Cerrados con texto de fuente oficial
+
+1. Plazo del derecho de petición. Ley 1755 de 2015, artículo 14 (texto del Gestor Normativo, vía Legal Data Hunter): 15 días siguientes a la recepción en general; 10 días para peticiones de documentos e información, y 30 días para consultas. El parágrafo permite prorrogar, con aviso motivado, hasta el doble del plazo inicial. Cerrado.
+2. Derogatoria del Código Contencioso Administrativo. Ley 1437 de 2011, artículo 309: deroga expresamente el Decreto 01 de 1984 (SUIN-Juriscol, Leyes/1680117#art=309). Cerrado. El catálogo ya lo registra.
+3. Sentencia T-008/20. Existe en la relatoría oficial: https://www.corteconstitucional.gov.co/relatoria/2020/T-008-20.htm, expediente 7521422 (Legal Data Hunter, CO/DatosGovCo). Cerrado en cuanto a existencia y URL.
+4. Código Civil. Existencia confirmada por referencia en fuentes oficiales: la Ley 1060 de 2006 ("el artículo 224 del Código Civil quedará así") y la Ley 1518 de 2012 lo modifican (Secretaría del Senado, vía Legal Data Hunter). No se localizó el texto del código. Decisión: se cita por nombre; no se citan artículos ni se reproduce texto. Cerrado.
+
+### Conflicto que no se puede resolver con las fuentes disponibles
+
+1. Ley 1407 de 2010 (Código Penal Militar). El registro dice "inexequible". La búsqueda en la relatoría no encontró sentencia que la declare inexequible, y la Sentencia C-252/12 rechaza cargos de inexequibilidad. El catálogo la marca como CONFLICTO sin resolver (estado `conflicto_sin_resolver`). Decisión: no citarla ni como vigente ni como inexequible. Para resolverla se necesita localizar la sentencia de constitucionalidad completa, lo que requiere la relatoría oficial (ver punto 4 de bloqueados).
+
+### Repositorios revisados
+
+1. Jorgecortes1975/abogados-jac: plantilla de chatbot de Vercel (licencia Apache, Vercel, 2024). No contiene el archivo de reglas ni normas colombianas.
+2. Jorgecortes1975/Clauderoutines1: vacío.
+3. Jorgecortes1975/jacabogados: revisado; no contiene el archivo de reglas.
+4. Sprintlaw/legal-skills: GitHub devuelve 404 para la URL pública, y el conector no lo tiene en alcance. No se pudo leer ni la licencia ni el disclaimer.
+
+### Bloqueados que siguen abiertos
+
+1. Archivo `docs/rules/domain/professional-domain-disclaimer.md`: no existe en ninguno de los tres repositorios revisados. Necesito que lo pases o me digas dónde está.
+2. Texto de la licencia MIT de Sprintlaw: no accesible. Necesito el archivo LICENSE de la fuente, o confirmación de que basta la atribución.
+3. Ruta de instalación del plugin: decisión del usuario.
+4. Relatoría oficial de la Corte Constitucional y SUIN-Juriscol directo: sin DNS desde el entorno. Las consultas se hacen por Legal Data Hunter y Croma, que sí responden.

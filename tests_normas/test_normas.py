@@ -120,7 +120,9 @@ def test_decreto_ley_y_acto_legislativo_no_rompen():
     assert {c["estado"] for c in i["citas"]} == {"pendiente"}
 
 
-def test_inexequibilidad_registrada_se_reporta():
+
+
+def test_conflicto_sin_resolver_no_se_presenta_como_inexequible():
     cat = C.cargar("/nonexistent.json")
     r = V.verificar("ley", 1407, 2010, catalogo=cat)
-    assert r["estado"] == "verificada" and r["vigencia"]["estado"] == "inexequibilidad_registrada"
+    assert r["vigencia"]["estado"] == "conflicto_sin_resolver"
