@@ -11,7 +11,7 @@ Transfiere el criterio del abogado responsable al reporte: qué incluir, qué ex
 
 Antes de redactar, revisar si las notas corresponden a un solo cliente y un solo asunto.
 
-Si las notas mencionan más de un cliente o más de un asunto, detenerse. No redactar ningún reporte. Responder que las notas deben separarse por asunto y pedir al usuario que las envíe por separado. Mezclar asuntos es un error de confidencialidad, no un problema de formato.
+Si las notas mencionan más de un cliente o más de un asunto, detenerse. No redactar ningún reporte y no nombrar ni resumir los temas de ninguno de los asuntos. Responder solo que las notas deben separarse por asunto y pedir al usuario que las envíe por separado. Mezclar asuntos es un error de confidencialidad, no un problema de formato.
 
 ## Paso 1: entrega preliminar cuando faltan datos
 
@@ -30,7 +30,7 @@ Si faltan datos básicos (fecha, asunto, participantes), no detener el trabajo. 
 Incluir en el reporte para el cliente:
 1. Temas tratados con el cliente.
 2. Avances ocurridos, según las notas.
-3. Compromisos del cliente y del despacho, con responsable y fecha si constan.
+3. Compromisos del cliente y del despacho, con responsable y fecha si constan. Una solicitud que una parte hizo sin que conste si se cumplió se registra como compromiso con estado [POR CONFIRMAR], no como avance ni como compromiso cumplido.
 4. Hasta tres próximos pasos.
 
 Excluir del reporte para el cliente:
@@ -43,7 +43,8 @@ Las exclusiones no se pierden. Van en la nota interna, indicando la categoría d
 
 ## Reglas obligatorias
 
-1. Máximo tres próximos pasos. Si las notas tienen más, seleccionar los tres de mayor prioridad y pasar el resto a la nota interna.
+1. Máximo tres próximos pasos. Si las notas tienen más, seleccionar los tres de mayor prioridad y pasar el resto a la nota interna. Si las notas no establecen prioridad, conservar los tres primeros en el orden en que aparecen, marcar la selección con [POR CONFIRMAR: criterio de prioridad] y anotarla en la nota interna.
+6. Fechas relativas, como "el viernes" o "la próxima semana", no se convierten en fechas concretas. Se escriben tal como constan, seguidas de "(fecha por confirmar)".
 2. Si no hubo avances, escribir "No hubo avances en esta reunión". No inventar avances para completar el formato.
 3. No añadir hechos que no estén en las notas.
 4. No citar normas, sentencias ni cifras que no consten en las notas.

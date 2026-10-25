@@ -24,6 +24,8 @@ Resultado esperado:
 2. La molestia del socio no aparece en el reporte. Aparece en la nota interna como categoría ("valoración sobre persona del cliente"), sin el contenido.
 3. Pasos 4 y 5 aparecen en la nota interna como pasos adicionales no incluidos.
 4. La fecha de la reunión es 2026-09-14, sin [POR CONFIRMAR].
+5. El compromiso "enviar el anexo técnico el viernes" aparece como "viernes (fecha por confirmar)", sin convertirlo en fecha concreta.
+6. Las notas no fijan prioridad: los tres pasos se toman en el orden de las notas, con [POR CONFIRMAR: criterio de prioridad], y los pasos cuarto y quinto aparecen en la nota interna.
 
 ## Caso 2: sin avances y datos faltantes
 
@@ -53,4 +55,4 @@ sobre el pleito laboral. Ambos quieren respuesta esta semana.
 Resultado esperado:
 1. No se genera ningún reporte.
 2. La respuesta indica que las notas corresponden a dos asuntos y pide enviarlas por separado.
-3. No se resume ningún contenido de ninguno de los dos asuntos.
+3. No se resume ni se nombra ningún tema de ninguno de los dos asuntos.

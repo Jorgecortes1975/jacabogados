@@ -224,7 +224,9 @@ def test_skill_reporte_reunion_conserva_sus_controles():
     base = RAIZ / "skills" / "jac-reporte-reunion"
     txt = (base / "SKILL.md").read_text(encoding="utf-8")
     for requerido in ("Paso 0: control de aislamiento", "[POR CONFIRMAR]", "Documento 1", "Documento 2",
-                      "Lista de verificación final", "Máximo tres próximos pasos"):
+                      "Lista de verificación final", "Máximo tres próximos pasos",
+                      "criterio de prioridad", "fecha por confirmar", "no nombrar ni resumir",
+                      "con estado [POR CONFIRMAR]"):
         assert requerido in txt, requerido
     casos = (base / "casos-de-prueba.md").read_text(encoding="utf-8")
     assert len(re.findall(r"^## Caso \d", casos, re.M)) == 3
