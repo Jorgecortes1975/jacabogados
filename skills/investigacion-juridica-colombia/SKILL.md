@@ -108,7 +108,7 @@ Para cada sentencia, identifique:
 Antes de cerrar la respuesta, verifique:
 
 1. La versión consolidada más reciente en fuente oficial, con su fecha.
-2. Las modificaciones, derogatorias y reglamentos posteriores a la versión que leyó.
+2. Las modificaciones, derogatorias y reglamentos posteriores a la versión que leyó. Para normas comerciales, tributarias y de contratación de la última década, compruebe si fueron modificadas por la Ley 2294 de 2023 (Plan Nacional de Desarrollo 2022-2026), que modificó varias de ellas.
 3. Los proyectos de ley o reformas en trámite, con su estado.
 4. Las sentencias de inexequibilidad, nulidad o suspensión provisional que afecten la norma.
 5. Las cifras que se actualizan cada año, como el salario mínimo o la UVT. Confirme el valor del año que corresponda al caso.

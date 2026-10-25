@@ -19,3 +19,21 @@ Los códigos (Código de Comercio, Código Sustantivo del Trabajo, Código Gener
 ## Límites
 
 No se verificó la vigencia del texto de ningún artículo. Las fuentes oficiales de la Corte Constitucional, la Rama Judicial y SAMAI devolvieron 403 desde el entorno de verificación.
+
+## Segunda verificación (misma fecha, revisión de vicios y vacíos)
+
+| Norma | Existencia | Observaciones del registro | Skills que la citan |
+|---|---|---|---|
+| Decreto 410 de 1971 (Código de Comercio) | Confirmada | Modificado por la Ley 2195 de 2022; adicionado por la Ley 2294 de 2023 | constitucion-empresa-colombia, venta-empresa-colombia |
+| Decreto 2663 de 1950 (Código Sustantivo del Trabajo) | Confirmada | Modificado parcialmente por el Decreto 2606 de 1998 (listado no exhaustivo) | venta-empresa-colombia |
+| Ley 1564 de 2012 (Código General del Proceso) | Confirmada | Expedido el 12 de julio de 2012 | revision-adversarial-colombia |
+| Ley 1340 de 2009 (protección de la competencia) | Confirmada | Modificada por la Ley 2195 de 2022. Señala a la Superintendencia de Industria y Comercio como autoridad | venta-empresa-colombia |
+| Ley 2294 de 2023 (Plan Nacional de Desarrollo 2022-2026) | Confirmada | Modifica, entre otras, la Ley 1258 de 2008, el Decreto 410 de 1971 y el Decreto Ley 624 de 1989 | constitucion-empresa-colombia, venta-empresa-colombia, investigacion-juridica-colombia |
+| Decreto Ley 624 de 1989 (Estatuto Tributario) | Confirmada | Reglamentado y modificado por varias normas, incluida la Ley 2294 de 2023 | venta-empresa-colombia |
+
+Las vigencias de los textos actuales y los artículos concretos siguen sin verificar en todos los casos.
+
+## Pendientes
+
+1. El archivo docs/rules/domain/professional-domain-disclaimer.md, que se pidió como regla de dominio, no existe en el repositorio ni en sus ramas.
+2. La consulta de sentencias de la Corte Constitucional, la Rama Judicial y SAMAI sigue bloqueada (403) desde el entorno de verificación.
