@@ -63,10 +63,10 @@ Participantes del despacho: [nombres, si constan]
 [Dos a cuatro líneas]
 
 ## 2. Temas tratados
-- [tema]
+1. [tema]
 
 ## 3. Avances
-- [avance, o "No hubo avances en esta reunión"]
+1. [avance, o "No hubo avances en esta reunión"]
 
 ## 4. Compromisos
 | Parte | Compromiso | Fecha |
@@ -87,16 +87,16 @@ Asunto: [asunto]
 Fecha: [AAAA-MM-DD o POR CONFIRMAR]
 
 ## Observaciones del abogado
-- [observación]
+1. [observación]
 
 ## Pasos adicionales no incluidos (más de tres)
-- [paso]
+1. [paso]
 
 ## Datos excluidos por confidencialidad o por ser de terceros
-- [categoría del dato, sin el dato]
+1. [categoría del dato, sin el dato]
 
 ## Datos faltantes y puntos por confirmar
-- [dato]
+1. [dato]
 ```
 
 ## Lista de verificación final
