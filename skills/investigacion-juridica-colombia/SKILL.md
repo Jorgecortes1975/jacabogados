@@ -4,6 +4,7 @@ description: Investigación de un punto de derecho colombiano con verificación 
 metadata:
   adaptado_de: "Sprintlaw, skill de investigación jurídica v0.1.0 (licencia MIT, jurisdicciones AU, UK, NZ, US)"
   jurisdiccion: "Colombia"
+  version: "0.2.0"
   complementa: "investigacion-juridica-col (matriz de fuentes y relatoría) y jac-agente (herramientas deterministas)"
 ---
 
@@ -56,6 +57,13 @@ Herramientas disponibles en este repositorio, en el orden en que conviene usarla
 
 Si una herramienta no está disponible, la fuente correspondiente queda PENDIENTE DE VERIFICACIÓN. No la sustituya por memoria.
 
+Criterios de búsqueda, aprendidos en las pruebas:
+
+1. Busque primero por filtros exactos (tipo, número y año) y solo después por texto libre. En las pruebas, la búsqueda libre devolvió normas y providencias sin relación con la consulta.
+2. Un resultado solo prueba el punto si su resumen o sus temas coinciden con la pregunta. Si el resumen es nulo o no coincide, marque el punto como PENDIENTE DE VERIFICACIÓN.
+3. Registre cada consulta en el registro del Paso 6, incluidas las que no devolvieron resultados.
+4. En el entorno de pruebas, las relatorías de la Corte Constitucional, la Rama Judicial y SAMAI respondieron con 403 (bloqueo de red). Trátelas como no disponibles hasta comprobar el acceso.
+
 ## Paso 3. Fuentes primarias, leídas en contexto
 
 Para cada norma, lea:
@@ -68,6 +76,9 @@ Para cada norma, lea:
 6. Vigencia y derogatoria: cláusula final y normas que la modifican o la derogan.
 7. Reglamentos: decretos o resoluciones que la desarrollan.
 8. Transitorios: qué ocurre con las situaciones anteriores.
+9. Relaciones con otras normas: si la norma sustituye, modifica o deroga un título o artículo de otra, léala en esa relación. El registro de Función Pública lo expresa en el resumen y en el campo de modificaciones.
+
+Ejemplo verificado en las pruebas: la Ley 1755 de 2015 sustituye el Título II, capítulos I a III, de la Ley 1437 de 2011 en materia de derecho de petición. Por eso, para un punto sobre derecho de petición, la Ley 1437 sola no basta.
 
 Para cada sentencia, identifique:
 
@@ -87,6 +98,9 @@ Antes de cerrar la respuesta, verifique:
 3. Los proyectos de ley o reformas en trámite, con su estado.
 4. Las sentencias de inexequibilidad, nulidad o suspensión provisional que afecten la norma.
 5. Las cifras que se actualizan cada año, como el salario mínimo o la UVT. Confirme el valor del año que corresponda al caso.
+6. Fecha de vigencia vacía en el registro: la vigencia no está determinada. No la deduzca de la fecha de expedición.
+7. Fechas de emisión posteriores a la fecha de consulta: el registro es inconsistente. No lo use como fuente y repórtelo.
+8. Independencia de fuentes: el catálogo de Función Pública y el Gestor Normativo son la misma institución. Para la validación cruzada hace falta una fuente de otra institución, como Diario Oficial, SUIN-Juriscol, la relatoría o la Secretaría del Senado. Si no está disponible, la validación cruzada queda PENDIENTE DE VERIFICACIÓN.
 
 ## Paso 5. Encuesta comparada
 
