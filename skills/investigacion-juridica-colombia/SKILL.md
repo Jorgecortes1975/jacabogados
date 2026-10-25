@@ -4,7 +4,7 @@ description: Investigación de un punto de derecho colombiano con verificación 
 metadata:
   adaptado_de: "Sprintlaw, skill de investigación jurídica v0.1.0 (licencia MIT, jurisdicciones AU, UK, NZ, US)"
   jurisdiccion: "Colombia"
-  version: "0.2.0"
+  version: "0.3.0"
   complementa: "investigacion-juridica-col (matriz de fuentes y relatoría) y jac-agente (herramientas deterministas)"
 ---
 
@@ -63,6 +63,19 @@ Criterios de búsqueda, aprendidos en las pruebas:
 2. Un resultado solo prueba el punto si su resumen o sus temas coinciden con la pregunta. Si el resumen es nulo o no coincide, marque el punto como PENDIENTE DE VERIFICACIÓN.
 3. Registre cada consulta en el registro del Paso 6, incluidas las que no devolvieron resultados.
 4. En el entorno de pruebas, las relatorías de la Corte Constitucional, la Rama Judicial y SAMAI respondieron con 403 (bloqueo de red). Trátelas como no disponibles hasta comprobar el acceso.
+
+## Técnicas avanzadas de búsqueda
+
+Use estas técnicas cuando la primera búsqueda sea insuficiente. Cada una debe quedar registrada en el Paso 6.
+
+1. Ampliación de términos. Busque sinónimos y expresiones jurídicas equivalentes: "derecho de petición" con "petición", "solicitud", "respuesta"; "plazo" con "término" y "caducidad". Registre qué término dio resultados.
+2. Encadenamiento de citas. Desde cada norma o sentencia relevante, siga las normas que cita y las providencias que la citan. Un registro que cita la norma es un punto de partida, no una prueba de su vigencia.
+3. Búsqueda de contradicción. Busque la norma junto con "inexequible", "nulidad", "suspensión provisional" y "condicionado". Si no encuentra nada, anótelo: una búsqueda negativa también es un resultado.
+4. Cortes por fecha. Cuando la pregunta depende de una versión, reduzca la búsqueda a la ventana de fechas que corresponda al hecho o al acto.
+5. Triangulación. Un punto solo queda confirmado si una fuente de otra institución lo confirma. Dos registros de Función Pública no cuentan como dos fuentes.
+6. Criterio de parada. Pare cuando la pregunta quede respondida, cuando una ronda adicional no aporte fuentes nuevas, o cuando se agote el presupuesto de consultas. Diga cuál de los tres ocurrió.
+
+Para ejecutar esta investigación en bucle, use `bin/jac investigar "<pregunta>" --rondas 3`. Cada ronda registra sus consultas. El bucle se detiene solo por las reglas de parada del punto 6.
 
 ## Paso 3. Fuentes primarias, leídas en contexto
 

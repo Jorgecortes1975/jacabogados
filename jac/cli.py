@@ -176,6 +176,18 @@ def cmd_agente(args) -> int:
     return subprocess.call(cmd, env=env)
 
 
+def cmd_investigar(args) -> int:
+    from .investigar import investigar
+    try:
+        resumen = investigar(args.pregunta, rondas=args.rondas, salida=args.salida,
+                             modelo=args.modelo, max_turnos=args.max_turnos)
+    except OSError as e:
+        print(f"No se pudo ejecutar la investigación: {e}", file=sys.stderr)
+        return 3
+    print(json.dumps(resumen, ensure_ascii=False, indent=2))
+    return 0 if resumen["estado"] in ("COMPLETO", "SIN_NUEVAS_FUENTES") else 1
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="jac", description="Agente jurídico JAC: consulta verificable de derecho colombiano.")
     p.add_argument("--version", action="version", version=f"jac {__version__}")
@@ -197,6 +209,10 @@ def main(argv=None) -> int:
     e = s.add_parser("empaquetar", help="crea el archivo .plugin para Cowork"); e.add_argument("--salida", default="jac-legal-os.plugin"); e.add_argument("--cowork-md", metavar="CARPETA", help="genera el paquete de archivos .md para Cowork"); e.add_argument("--instalador", metavar="ARCHIVO.py", help="genera un único .py autocontenido con el agente completo"); e.set_defaults(f=cmd_empaquetar)
     a = s.add_parser("agente", help="modo automático: Claude atiende una consulta abierta con estas herramientas")
     a.add_argument("consulta"); a.add_argument("--modelo"); a.add_argument("--max-turnos", type=int, default=30); a.set_defaults(f=cmd_agente)
+    iv = s.add_parser("investigar", help="investigación en bucle: varias rondas de la skill investigacion-juridica-colombia con registro y criterio de parada")
+    iv.add_argument("pregunta"); iv.add_argument("--rondas", type=int, default=3, help="máximo de rondas (1 a 5)")
+    iv.add_argument("--salida", type=Path, help="carpeta de salida (por defecto investigaciones/ultima)")
+    iv.add_argument("--modelo"); iv.add_argument("--max-turnos", type=int, default=30); iv.set_defaults(f=cmd_investigar)
     args = p.parse_args(argv)
     if not args.cmd:
         p.print_help()

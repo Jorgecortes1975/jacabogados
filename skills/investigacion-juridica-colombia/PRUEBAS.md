@@ -51,3 +51,16 @@ Resultados:
 1. Repetir el Caso 1 cuando las relatorías respondan, para verificar el plazo en el texto del artículo.
 2. Probar al menos un caso laboral y uno tributario.
 3. Evaluar la calidad de la búsqueda de la Corte Constitucional con filtros de expediente.
+
+## Pruebas del bucle `jac investigar` (versión 0.3.0)
+
+Las pruebas usaron una CLI simulada (variable JAC_CLAUDE) para verificar las reglas de parada sin llamar al modelo.
+
+1. Escenario A, parada por COMPLETO en la ronda 2 de 3. Resultado: estado COMPLETO, 3 consultas registradas. Correcto.
+2. Escenario B, parada por falta de avance: la ronda 2 no añadió consultas. Resultado: SIN_AVANCE tras 1 de 3 rondas esperadas, con 1 consulta registrada. Correcto.
+3. Escenario C, sin CLI `claude`: error limpio, código de salida 3, sin traceback. Correcto.
+4. Escenario D, agotamiento de rondas: estado AGOTADAS_RONDAS tras 3 rondas. Correcto.
+5. Hook PostToolUse: registra solo comandos `python3 -m jac` y solo si JAC_REGISTRO está definida. Un comando `ls` no se registra. Correcto.
+6. `jac prueba` (aceptación determinista del repositorio): 22 controles OK, 0 fallidos.
+
+Pendiente: ninguna ronda real con el modelo se ha ejecutado todavía. Hay que confirmar que el campo `tool_response` del evento PostToolUse tiene el contenido esperado, porque el hook lo guarda tal cual.
