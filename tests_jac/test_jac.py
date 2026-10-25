@@ -230,3 +230,14 @@ def test_skill_reporte_reunion_conserva_sus_controles():
         assert requerido in txt, requerido
     casos = (base / "casos-de-prueba.md").read_text(encoding="utf-8")
     assert len(re.findall(r"^## Caso \d", casos, re.M)) == 3
+
+
+def test_skill_contenido_juridico_conserva_sus_controles():
+    """Guarda los controles de jac-contenido-juridico: destino, promesas, datos personales, revisión y casos de prueba."""
+    base = RAIZ / "skills" / "jac-contenido-juridico"
+    txt = (base / "SKILL.md").read_text(encoding="utf-8")
+    for requerido in ("Paso 0: control de destino y de datos", "te garantizamos", "[POR CONFIRMAR: base del tratamiento]",
+                      "Reglas que no se incumplen", "Lista de verificación final", "aprobación del abogado responsable"):
+        assert requerido in txt, requerido
+    casos = (base / "casos-de-prueba.md").read_text(encoding="utf-8")
+    assert len(re.findall(r"^## Caso \d", casos, re.M)) == 3
