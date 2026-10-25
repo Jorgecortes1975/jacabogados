@@ -1,14 +1,15 @@
 ---
 name: investigacion-juridica-colombia
 description: Investigación de un punto de derecho colombiano con verificación en fuentes oficiales. Formula la pregunta precisa, determina la jurisdicción, el nivel territorial y la fecha de la norma aplicable, consulta primero normas y sentencias, lee las disposiciones en contexto (definiciones, excepciones, vigencia, transitorios), verifica vigencia, condicionamientos y tratamiento posterior de las providencias, lleva un registro con fechas y entrega un memorando con citas verificables. Usar cuando el usuario pida investigar un punto de derecho colombiano, encontrar la norma o la jurisprudencia sobre un tema, preguntar cuál es la autoridad para algo, saber si una norma cambió, o cuando la respuesta vaya a usarse en un escrito, concepto o decisión y deba citarse. Activar con frases como "investigación", "qué dice la ley sobre", "hay jurisprudencia sobre", "¿ha cambiado esto?" o "consulte la norma".
-metadata:
-  adaptado_de: "Sprintlaw, skill de investigación jurídica v0.1.0 (licencia MIT, jurisdicciones AU, UK, NZ, US)"
-  jurisdiccion: "Colombia"
-  version: "0.3.0"
-  complementa: "investigacion-juridica-col (matriz de fuentes y relatoría) y jac-agente (herramientas deterministas)"
 ---
 
 # Investigación jurídica colombiana
+
+> Procedencia y metadatos de la skill:
+> adaptado_de: "Sprintlaw, skill de investigación jurídica v0.1.0 (licencia MIT, jurisdicciones AU, UK, NZ, US)"
+> jurisdiccion: "Colombia"
+> version: "0.3.0"
+> complementa: "investigacion-juridica-col (matriz de fuentes y relatoría) y jac-agente (herramientas deterministas)"
 
 Esta skill ejecuta el método de investigación por pasos sobre el derecho colombiano. Responde con las fuentes primarias a la vista, separa lo verificado de lo pendiente y entrega un memorando que un abogado pueda revisar. Para la matriz de fuentes y la búsqueda en relatoría, use también la skill investigacion-juridica-col. Para la verificación determinista de citas, use jac-agente.
 

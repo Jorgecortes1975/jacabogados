@@ -1,14 +1,15 @@
 ---
 name: constitucion-empresa-colombia
 description: Ayuda a fundadores y pequeñas empresas en Colombia a elegir la forma jurídica (persona natural comerciante, sociedad por acciones simplificada SAS, sociedad limitada, sociedad anónima, sucursal de sociedad extranjera), constituirla e inscribirla en el registro mercantil de la Cámara de Comercio, redactar estatutos o un acuerdo de accionistas que cubra la entrada de socios, las salidas forzosas y voluntarias, el bloqueo, el derecho de preferencia, los asuntos reservados, la no competencia y la valoración, y orientar a los nuevos administradores sobre sus deberes. Crea también un registro y un calendario anual de cumplimiento. Útil para "debo constituir una empresa", "persona natural o SAS", "registrar una empresa", "SAS", "sociedad limitada", "cofundador", "acuerdo de accionistas", "reparto de acciones", "deberes del administrador", "RUT", "registro mercantil", "beneficiario final" o "calendario de cumplimiento".
-metadata:
-  adaptado_de: "Sprintlaw, skill business-setup (descripción pública; texto original no disponible en esta sesión)"
-  jurisdiccion: "Colombia"
-  version: "0.1.0"
-  complementa: "venta-empresa-colombia (transferencia de la sociedad), investigacion-juridica-colombia (verificación de normas)"
 ---
 
 # Constitución de empresa en Colombia
+
+> Procedencia y metadatos de la skill:
+> adaptado_de: "Sprintlaw, skill business-setup (descripción pública; texto original no disponible en esta sesión)"
+> jurisdiccion: "Colombia"
+> version: "0.1.0"
+> complementa: "venta-empresa-colombia (transferencia de la sociedad), investigacion-juridica-colombia (verificación de normas)"
 
 Esta skill acompaña la decisión de constituir una empresa y los acuerdos iniciales entre socios. Las normas se confirman en fuente oficial antes de citarlas: las marcadas "a confirmar" son puntos de verificación.
 
@@ -25,7 +26,7 @@ Pregunte primero por el número de socios, el capital, si habrá inversionistas 
 | Forma | Cuándo suele convenir | Punto a confirmar |
 |---|---|---|
 | Persona natural comerciante | Un solo titular, riesgo bajo, operación simple | Responsabilidad ilimitada del titular con su patrimonio |
-| SAS (Ley 1258 de 2008) | Dos o más socios, flexibilidad estatutaria, inversión posterior | Régimen de administración y acuerdos de accionistas. Artículos a confirmar |
+| SAS (Ley 1258 de 2008) | Dos o más socios, flexibilidad estatutaria, inversión posterior | La ley existe y fue modificada por la Ley 2294 de 2023, según el Gestor Normativo. Confirme el texto vigente de cada artículo antes de citarlo |
 | Sociedad limitada (Código de Comercio) | Socios cercanos, estructura conocida | Limitaciones a la cesión de cuotas. Artículos a confirmar |
 | Sociedad anónima (Código de Comercio) | Estructuras con junta directiva y muchos accionistas | Mayor formalidad y costo. Artículos a confirmar |
 | Sucursal de sociedad extranjera | La matriz está fuera de Colombia | Registro de la sociedad extranjera y poderes. Artículos a confirmar |

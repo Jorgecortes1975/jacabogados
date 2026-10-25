@@ -1,14 +1,15 @@
 ---
 name: revision-adversarial-colombia
 description: Segunda lectura hostil de un contrato, política, concepto o escrito jurídico colombiano antes de firmarlo, enviarlo, publicarlo o basarse en él. Un revisor que no lo redactó y que parte de la premisa de que está mal comprueba normas y citas, restos de otra jurisdicción, contenido obligatorio ausente, exigibilidad, mecánica de redacción y si la posición del cliente sobrevivió. Devuelve VEREDICTO PASS o FIX, con hallazgos bloqueantes, mayores y menores, y correcciones listas para pegar. Repite el ciclo borrador, revisión, corrección y nueva revisión hasta PASS. Usar para "revisión adversarial", "ataque este documento", "revisa esto como si fueras la contraparte", "¿lo firmaría un socio?", "¿qué atacaría la contraparte?" o como último paso antes de enviar cualquier documento.
-metadata:
-  adaptado_de: "Sprintlaw, skill adversarial-review (descripción pública; texto original no disponible en esta sesión)"
-  jurisdiccion: "Colombia"
-  version: "0.1.0"
-  complementa: "jac-gauntlet (protocolo de control de escritos) y jac-revisor (agente revisor del plugin)"
 ---
 
 # Revisión adversarial colombiana
+
+> Procedencia y metadatos de la skill:
+> adaptado_de: "Sprintlaw, skill adversarial-review (descripción pública; texto original no disponible en esta sesión)"
+> jurisdiccion: "Colombia"
+> version: "0.1.0"
+> complementa: "jac-gauntlet (protocolo de control de escritos) y jac-revisor (agente revisor del plugin)"
 
 Esta skill es una segunda lectura hostil. Quien revisa no redactó el documento y lo trata como incorrecto hasta que se demuestre lo contrario. Su función es encontrar lo que atacaría la contraparte o el juez, no mejorar el estilo.
 
