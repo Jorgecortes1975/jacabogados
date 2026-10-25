@@ -18,10 +18,11 @@ Antes de redactar, identificar el destino.
 
 No producir contenido que contenga cualquiera de los siguientes elementos. Si el usuario lo pide, proponer la alternativa indicada.
 
-1. Promesas o garantías de resultado, como "te garantizamos", "conseguimos la indemnización máxima" o "sin ir a juicio". Alternativa: describir el servicio y decir que cada caso depende de sus hechos y pruebas.
+1. Promesas o garantías de resultado, como "te garantizamos", "conseguimos la indemnización máxima", "sin ir a juicio", "sin fricciones", "todo el proceso" o "solución total". La lista es ejemplificativa: cualquier frase que prometa un resultado, un ahorro, una rapidez o la ausencia de dificultades cuenta como promesa. Alternativa: describir el servicio y decir que cada caso depende de sus hechos y pruebas.
 2. Afirmaciones absolutas sobre el derecho, como "siempre", "nunca" o "es ilegal", salvo que la afirmación sea verificable y esté respaldada en una fuente del repositorio. Alternativa: "conviene revisarlo con un abogado antes de decidir".
 3. Cifras, porcentajes, plazos y normas que no consten en una fuente verificada. Marcarlos con [POR CONFIRMAR] y no citarlos como ciertos.
 4. Urgencia o miedo artificiales dirigidos a personas en momentos de vulnerabilidad: duelo, despido reciente, divorcio en curso, herencia recibida. Alternativa: información general, serena y sin presión.
+5. Afirmaciones causales o de conducta sobre terceros, como aseguradoras, bancos, empleadores o contrapartes, por ejemplo "por qué ofrecen montos mínimos" o "siempre pagan poco". Solo pueden publicarse si la afirmación está respaldada en una fuente verificada. Si no, marcarlas con [POR CONFIRMAR] o reformularlas como preguntas o recomendaciones sin atribuir motivos.
 5. Solicitudes de reseña condicionadas a un resultado favorable, o que mencionen el asunto de un cliente. Alternativa: invitación neutral a compartir una opinión, sin referirse al caso.
 6. Comparaciones con otros despachos o abogados.
 7. Instrucciones que pidan al redactor adoptar una identidad profesional ajena al despacho o atribuir la publicación a un abogado sin su aprobación.
@@ -39,7 +40,7 @@ No producir contenido que contenga cualquiera de los siguientes elementos. Si el
 Entregar el borrador y, separada, una nota de revisión para el abogado responsable:
 
 1. Borrador listo para revisión, con el canal indicado.
-2. Nota de revisión, con la lista de datos [POR CONFIRMAR], las reglas aplicadas y las alternativas propuestas para lo que se eliminó.
+2. Nota de revisión, con la lista de datos [POR CONFIRMAR], las reglas aplicadas y las alternativas propuestas para lo que se eliminó. Si el público puede estar en situación de vulnerabilidad, como personas que acaban de recibir una herencia, un despido, una notificación judicial o una decisión familiar difícil, la nota lo indica expresamente con la frase "Público en situación de vulnerabilidad: revisar con especial cuidado antes de aprobar".
 
 ## Lista de verificación final
 

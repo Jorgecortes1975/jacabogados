@@ -237,7 +237,9 @@ def test_skill_contenido_juridico_conserva_sus_controles():
     base = RAIZ / "skills" / "jac-contenido-juridico"
     txt = (base / "SKILL.md").read_text(encoding="utf-8")
     for requerido in ("Paso 0: control de destino y de datos", "te garantizamos", "[POR CONFIRMAR: base del tratamiento]",
-                      "Reglas que no se incumplen", "Lista de verificación final", "aprobación del abogado responsable"):
+                      "Reglas que no se incumplen", "Lista de verificación final", "aprobación del abogado responsable",
+                      "Afirmaciones causales o de conducta sobre terceros", "sin fricciones", "solución total",
+                      "Público en situación de vulnerabilidad"):
         assert requerido in txt, requerido
     casos = (base / "casos-de-prueba.md").read_text(encoding="utf-8")
     assert len(re.findall(r"^## Caso \d", casos, re.M)) == 3
