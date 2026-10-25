@@ -57,7 +57,7 @@ Resultados:
 Las pruebas usaron una CLI simulada (variable JAC_CLAUDE) para verificar las reglas de parada sin llamar al modelo.
 
 1. Escenario A, parada por COMPLETO en la ronda 2 de 3. Resultado: estado COMPLETO, 3 consultas registradas. Correcto.
-2. Escenario B, parada por falta de avance: la ronda 2 no añadió consultas. Resultado: SIN_AVANCE tras 1 de 3 rondas esperadas, con 1 consulta registrada. Correcto.
+2. Escenario B, parada por falta de avance: la ronda 2 no añadió consultas. Resultado: SIN_AVANCE tras la ronda 2 de 3, con 1 consulta registrada en total. Correcto.
 3. Escenario C, sin CLI `claude`: error limpio, código de salida 3, sin traceback. Correcto.
 4. Escenario D, agotamiento de rondas: estado AGOTADAS_RONDAS tras 3 rondas. Correcto.
 5. Hook PostToolUse: registra solo comandos `python3 -m jac` y solo si JAC_REGISTRO está definida. Un comando `ls` no se registra. Correcto.
