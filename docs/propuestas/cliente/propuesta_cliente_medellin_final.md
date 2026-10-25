@@ -56,7 +56,7 @@ Especialista en cumplimiento: [NOMBRE Y FORMACIÓN].
 Consultor de gestión: [NOMBRE Y EXPERIENCIA].
 Especialista en seguridad de la información: [NOMBRE Y FORMACIÓN].
 
-Cada persona aparece con su autorización escrita y su formación verificada.
+Antes de iniciar el diagnóstico, verificamos la formación de cada persona del equipo y obtenemos su autorización escrita para aparecer en esta propuesta.
 
 ## 7. Condiciones generales
 
