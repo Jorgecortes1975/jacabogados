@@ -14,6 +14,31 @@ Sistema completo que integra:
 
 ---
 
+## 🏢 Perfil del Bufete
+
+Datos tomados de `plan_marketing_digital_jaabogados.md` (versión 1.0, junio 2026). Confirmar el nombre oficial antes de usarlo en documentos externos: el repositorio usa "JAC - Abogados Asociados" y el plan usa "JA Abogados".
+
+- **Ubicación de operación:** Medellín, Colombia.
+- **Ámbito:** derecho colombiano. Toda cita normativa o jurisprudencial sigue el protocolo de verificación de este documento.
+- **Portafolio de servicios (ocho pilares):**
+  1. Derecho Corporativo y M&A
+  2. Contratos y Compliance
+  3. Derecho Laboral y Litigios
+  4. Tributario y Financiero
+  5. Civil, Comercial y Administrativo
+  6. Redacción Jurídica Profesional
+  7. Consultoría para Pymes
+  8. Asesoría a Empresas Extranjeras
+
+**Reglas de trabajo para Claude en este repositorio:**
+
+1. Los documentos destinados a clientes o a publicación se entregan como borrador. Nada se publica ni se envía sin aprobación del abogado responsable.
+2. El marketing jurídico debe ser veraz y verificable, no prometer resultados garantizados y no identificar clientes sin consentimiento expreso. Las normas deontológicas que aplican están en la sección 13 del plan de marketing; sus citas están pendientes de verificación en fuente oficial antes de usarlas en un documento.
+3. Las bases de contactos y prospectos contienen datos personales. No se copian a servicios externos ni se incluyen en commits sin necesidad.
+4. Lo no verificable se marca como PENDIENTE DE VERIFICACIÓN, según el protocolo JAC Gauntlet Elite.
+
+---
+
 ## 🚀 INICIO RÁPIDO: Activar Agente Jurídico
 
 ```bash
