@@ -9,6 +9,9 @@ description = "Agente jurídico JAC: verificación de citas y normas de derecho 
 requires-python = ">=3.9"
 dependencies = []
 
+[project.optional-dependencies]
+pdf = ["pdfminer.six>=20260107"]
+
 [project.scripts]
 jac = "jac.cli:main"
 

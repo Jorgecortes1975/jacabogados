@@ -171,6 +171,41 @@ def test_cli_pdf_rechazado(tmp_path):
     assert cli.main(["validar-escrito", str(p)]) == 3
 
 
+def test_cli_pdf_sin_extra_indica_como_instalarlo(tmp_path, monkeypatch):
+    import sys
+    monkeypatch.setitem(sys.modules, "pdfminer.high_level", None)
+    p = tmp_path / "a.pdf"; p.write_bytes(b"%PDF-1.4 minimo")
+    with pytest.raises(ValueError, match=r"extra pdf"):
+        cli.leer_entrada(str(p))
+
+
+def test_cli_pdf_con_contenido_no_pdf_se_rechaza(tmp_path):
+    p = tmp_path / "a.pdf"; p.write_bytes(b"texto plano con extension pdf")
+    with pytest.raises(ValueError, match="no es un PDF válido"):
+        cli.leer_entrada(str(p))
+
+
+def test_cli_pdf_corrupto_es_error_controlado(tmp_path):
+    p = tmp_path / "a.pdf"; p.write_bytes(b"%PDF-1.4 no es pdf real")
+    with pytest.raises(ValueError, match="No se pudo convertir el PDF"):
+        cli.leer_entrada(str(p))
+
+
+def test_cli_pdf_valido_extrae_texto(tmp_path):
+    objs = [b"<< /Type /Catalog /Pages 2 0 R >>", b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+            b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 300 144] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>",
+            b"<< /Length 44 >>\nstream\nBT /F1 18 Tf 20 100 Td (Ley 1581 de 2012) Tj ET\nendstream",
+            b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>"]
+    out = b"%PDF-1.4\n"; offs = []
+    for i, o in enumerate(objs, 1):
+        offs.append(len(out)); out += f"{i} 0 obj\n".encode() + o + b"\nendobj\n"
+    x = len(out)
+    out += f"xref\n0 {len(objs)+1}\n0000000000 65535 f \n".encode() + b"".join(f"{o:010d} 00000 n \n".encode() for o in offs)
+    out += f"trailer\n<< /Size {len(objs)+1} /Root 1 0 R >>\nstartxref\n{x}\n%%EOF\n".encode()
+    p = tmp_path / "ok.pdf"; p.write_bytes(out)
+    assert "Ley 1581 de 2012" in cli.leer_entrada(str(p))
+
+
 def test_docx(tmp_path):
     import zipfile
     p = tmp_path / "a.docx"
