@@ -240,7 +240,7 @@ def test_skill_contenido_juridico_conserva_sus_controles():
                       "Reglas que no se incumplen", "Lista de verificación final", "aprobación del abogado responsable",
                       "Afirmaciones causales o de conducta sobre terceros", "sin fricciones", "solución total",
                       "Público en situación de vulnerabilidad", "Un mensaje comercial frío", "evita conflictos futuros",
-                      "¿te han despedido"):
+                      "¿te han despedido", "\n6. Solicitudes de reseña", "\n8. Instrucciones que pidan"):
         assert requerido in txt, requerido
     casos = (base / "casos-de-prueba.md").read_text(encoding="utf-8")
     assert len(re.findall(r"^## Caso \d", casos, re.M)) == 7

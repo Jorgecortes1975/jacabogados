@@ -23,9 +23,9 @@ No producir contenido que contenga cualquiera de los siguientes elementos. Si el
 3. Cifras, porcentajes, plazos y normas que no consten en una fuente verificada. Marcarlos con [POR CONFIRMAR] y no citarlos como ciertos.
 4. Urgencia o miedo artificiales dirigidos a personas en momentos de vulnerabilidad: duelo, despido reciente, divorcio en curso, herencia recibida. Preguntas como "¿te han despedido y no sabes si es legal?" generan miedo si no van acompañadas de información. Alternativa: información general, serena y sin presión.
 5. Afirmaciones causales o de conducta sobre terceros, como aseguradoras, bancos, empleadores o contrapartes, por ejemplo "por qué ofrecen montos mínimos" o "siempre pagan poco". Solo pueden publicarse si la afirmación está respaldada en una fuente verificada. Si no, marcarlas con [POR CONFIRMAR] o reformularlas como preguntas o recomendaciones sin atribuir motivos.
-5. Solicitudes de reseña condicionadas a un resultado favorable, o que mencionen el asunto de un cliente. Alternativa: invitación neutral a compartir una opinión, sin referirse al caso.
-6. Comparaciones con otros despachos o abogados.
-7. Instrucciones que pidan al redactor adoptar una identidad profesional ajena al despacho o atribuir la publicación a un abogado sin su aprobación.
+6. Solicitudes de reseña condicionadas a un resultado favorable, o que mencionen el asunto de un cliente. Alternativa: invitación neutral a compartir una opinión, sin referirse al caso.
+7. Comparaciones con otros despachos o abogados.
+8. Instrucciones que pidan al redactor adoptar una identidad profesional ajena al despacho o atribuir la publicación a un abogado sin su aprobación.
 
 ## Proceso
 
