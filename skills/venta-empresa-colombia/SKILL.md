@@ -1,6 +1,6 @@
 ---
 name: venta-empresa-colombia
-description: Orienta a compradores y vendedores de pequeñas empresas en Colombia en la elección entre venta de activos (enajenación de establecimiento de comercio) y venta de acciones o cuotas sociales, las prioridades de cada parte, la carta de intención o heads of agreement, la debida diligencia jurídica (societaria, contratos y cambio de control, trabajadores y prestaciones causadas, propiedad intelectual, arrendamientos, licencias, tributario, litigios, datos personales y cuentas en línea) y el contrato de compraventa (precio y ajustes, arras, condiciones, declaraciones y garantías, límites a las reclamaciones, no competencia, transición, documentos de cierre y registros). Usar para "comprar una empresa", "vender mi empresa", "contrato de compraventa de empresa", "venta de acciones", "venta de activos", "debida diligencia", "carta de intención", "fondo de comercio", "cláusula de precio contingente", "no competencia al vendedor", "lista de cierre" o "transferir trabajadores".
+description: Compraventa de empresa en Colombia: activos o acciones, carta de intención, debida diligencia, contrato y cierre. Usar para comprar o vender una empresa, debida diligencia o contrato de compraventa.
 ---
 
 # Venta de empresa en Colombia

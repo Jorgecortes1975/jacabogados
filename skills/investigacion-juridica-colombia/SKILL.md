@@ -1,6 +1,6 @@
 ---
 name: investigacion-juridica-colombia
-description: Investigación de un punto de derecho colombiano con verificación en fuentes oficiales. Formula la pregunta precisa, determina la jurisdicción, el nivel territorial y la fecha de la norma aplicable, consulta primero normas y sentencias, lee las disposiciones en contexto (definiciones, excepciones, vigencia, transitorios), verifica vigencia, condicionamientos y tratamiento posterior de las providencias, lleva un registro con fechas y entrega un memorando con citas verificables. Usar cuando el usuario pida investigar un punto de derecho colombiano, encontrar la norma o la jurisprudencia sobre un tema, preguntar cuál es la autoridad para algo, saber si una norma cambió, o cuando la respuesta vaya a usarse en un escrito, concepto o decisión y deba citarse. Activar con frases como "investigación", "qué dice la ley sobre", "hay jurisprudencia sobre", "¿ha cambiado esto?" o "consulte la norma".
+description: Investigación de derecho colombiano con verificación oficial: pregunta, jurisdicción, vigencia, sentencias y memorando con citas. Usar para investigar una norma o jurisprudencia o saber si algo cambió.
 ---
 
 # Investigación jurídica colombiana

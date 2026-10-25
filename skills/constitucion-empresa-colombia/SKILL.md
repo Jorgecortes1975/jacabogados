@@ -1,6 +1,6 @@
 ---
 name: constitucion-empresa-colombia
-description: Ayuda a fundadores y pequeñas empresas en Colombia a elegir la forma jurídica (persona natural comerciante, sociedad por acciones simplificada SAS, sociedad limitada, sociedad anónima, sucursal de sociedad extranjera), constituirla e inscribirla en el registro mercantil de la Cámara de Comercio, redactar estatutos o un acuerdo de accionistas que cubra la entrada de socios, las salidas forzosas y voluntarias, el bloqueo, el derecho de preferencia, los asuntos reservados, la no competencia y la valoración, y orientar a los nuevos administradores sobre sus deberes. Crea también un registro y un calendario anual de cumplimiento. Útil para "debo constituir una empresa", "persona natural o SAS", "registrar una empresa", "SAS", "sociedad limitada", "cofundador", "acuerdo de accionistas", "reparto de acciones", "deberes del administrador", "RUT", "registro mercantil", "beneficiario final" o "calendario de cumplimiento".
+description: Constitución de empresa en Colombia: forma jurídica, registro, acuerdo de accionistas, deberes de administradores y calendario anual. Usar para constituir una SAS, limitada o anónima, o redactar un acuerdo de socios.
 ---
 
 # Constitución de empresa en Colombia
