@@ -48,7 +48,12 @@ def verificar(tipo: str, numero, anio: int, fecha_citada: str = "", fecha_ref: O
             notas.append("Confirmación en vivo negativa: " + det)
 
     conf = confirmaciones.vigente(clave, fecha_ref, ruta_confirmaciones)
-    if n.derogaciones:
+    inexequibles = [m for m in n.modificaciones if "inexequ" in m.lower()]
+    if inexequibles:
+        vig = {"estado": "inexequibilidad_registrada",
+               "detalle": "El registro anota inexequibilidad: " + "; ".join(inexequibles[:3])
+                          + ". No citar como vigente sin verificar la sentencia de la Corte Constitucional."}
+    elif n.derogaciones:
         vig = {"estado": "derogacion_registrada",
                "detalle": "El registro anota derogación: " + "; ".join(n.derogaciones[:3]) + ". Puede ser parcial; confirmar el texto del artículo citado."}
     elif conf:

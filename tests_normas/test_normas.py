@@ -16,7 +16,7 @@ def cliente(handler):
 
 
 def test_semilla_carga_y_tiene_datos_clave():
-    assert len(CAT) == 13
+    assert len(CAT) == len(json.load(open(C.SEMILLA, encoding='utf8'))['normas'])
     n = C.buscar(CAT, "ley", 1437, 2011)
     assert (n.id, n.expedida, n.vigencia_desde) == ("41249", "2011-01-18", "2012-07-02")
     assert n.url.endswith("norma.php?i=41249")
@@ -84,7 +84,7 @@ def test_catalogo_del_despacho_prevalece_y_se_persiste(tmp_path):
     ruta = str(tmp_path / "u.json")
     C.agregar_usuario(C.Norma("999", "ley", "57", 1887, "Ley 57 de 1887", expedida="1887-04-15"), ruta)
     cat = C.cargar(ruta)
-    assert len(cat) == 14 and V.verificar("ley", 57, 1887, catalogo=cat)["estado"] == "verificada"
+    assert len(cat) == len(json.load(open(C.SEMILLA, encoding='utf8'))['normas']) + 1 and V.verificar("ley", 57, 1887, catalogo=cat)["estado"] == "verificada"
     assert json.load(open(ruta))["normas"][0]["id"] == "999"
 
 
@@ -118,3 +118,9 @@ def test_vigencia_se_reporta_una_vez_por_norma():
 def test_decreto_ley_y_acto_legislativo_no_rompen():
     i = informe.ejecutar("Decreto Ley 2663 de 1950 y Acto Legislativo 1 de 2017.", REF, sin_red=True)
     assert {c["estado"] for c in i["citas"]} == {"pendiente"}
+
+
+def test_inexequibilidad_registrada_se_reporta():
+    cat = C.cargar("/nonexistent.json")
+    r = V.verificar("ley", 1407, 2010, catalogo=cat)
+    assert r["estado"] == "verificada" and r["vigencia"]["estado"] == "inexequibilidad_registrada"

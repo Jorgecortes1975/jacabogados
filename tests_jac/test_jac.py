@@ -193,7 +193,7 @@ def test_catalogo_md_coincide_con_el_json(pack):
     d, _ = pack
     md = (d / "04-CATALOGO-NORMAS.md").read_text(encoding="utf-8")
     normas = catalogo.cargar("/nonexistent.json")
-    assert len(normas) == 13 and all(n.titulo in md and n.url in md for n in normas.values())
+    assert len(normas) == len(json.load(open(catalogo.SEMILLA, encoding='utf8'))['normas']) and all(n.titulo in md and n.url in md for n in normas.values())
     assert "NO acredita vigencia" in md and "Ley 57 de 1887" in md
 
 
