@@ -17,12 +17,34 @@ from . import informe, inventario
 SALIDA = {"PASS_AUTOMATICO": 0, "CONDITIONAL": 1, "BLOCKED": 2}
 
 
+def _pdf_a_texto(ruta: str) -> str:
+    """Extrae el texto de un PDF con pdfminer.six. Requiere el extra opcional `pdf`.
+
+    No se usa MarkItDown: ante un archivo que no es PDF devuelve su contenido crudo sin error.
+    """
+    with open(ruta, "rb") as f:
+        cabecera = f.read(5)
+    if cabecera != b"%PDF-":
+        raise ValueError("El archivo tiene extensión .pdf, pero su contenido no es un PDF válido")
+    try:
+        from pdfminer.high_level import extract_text
+    except ImportError:
+        raise ValueError("PDF requiere el extra pdf: pip install -e '.[pdf]', o convierta a texto o docx antes de validar")
+    try:
+        texto = extract_text(ruta)
+    except Exception as e:
+        raise ValueError(f"No se pudo convertir el PDF: {e}")
+    if not texto.strip():
+        raise ValueError("El PDF no contiene texto extraíble; puede ser un escaneo y requiere OCR")
+    return texto
+
+
 def leer_entrada(arg: str) -> str:
     """Ruta a .txt/.md/.docx, o el texto literal del escrito."""
     if not os.path.isfile(arg):
         return arg
     if arg.lower().endswith(".pdf"):
-        raise ValueError("PDF no soportado: convierta a texto o docx antes de validar")
+        return _pdf_a_texto(arg)
     if arg.lower().endswith(".docx"):
         with zipfile.ZipFile(arg) as z:
             xml = z.read("word/document.xml").decode("utf-8")
