@@ -11,7 +11,7 @@ description: Ayuda a fundadores y pequeñas empresas en Colombia a elegir la for
 > version: "0.1.0"
 > complementa: "venta-empresa-colombia (transferencia de la sociedad), investigacion-juridica-colombia (verificación de normas)"
 
-Esta skill acompaña la decisión de constituir una empresa y los acuerdos iniciales entre socios. Las normas se confirman en fuente oficial antes de citarlas: las marcadas "a confirmar" son puntos de verificación.
+Esta skill acompaña la decisión de constituir una empresa y los acuerdos iniciales entre socios. Las normas se citan por nombre y número, con su existencia confirmada en el Gestor Normativo. Esta skill no cita artículos.
 
 ## No negociables
 
@@ -23,13 +23,13 @@ Esta skill acompaña la decisión de constituir una empresa y los acuerdos inici
 
 Pregunte primero por el número de socios, el capital, si habrá inversionistas externos, si hay un socio extranjero y la actividad.
 
-| Forma | Cuándo suele convenir | Punto a confirmar |
+| Forma | Cuándo suele convenir | Punto a considerar |
 |---|---|---|
 | Persona natural comerciante | Un solo titular, riesgo bajo, operación simple | Responsabilidad ilimitada del titular con su patrimonio |
 | SAS (Ley 1258 de 2008) | Dos o más socios, flexibilidad estatutaria, inversión posterior | La ley existe y fue modificada por la Ley 2294 de 2023, según el Gestor Normativo. Confirme el texto vigente de cada artículo antes de citarlo |
-| Sociedad limitada (Código de Comercio) | Socios cercanos, estructura conocida | Limitaciones a la cesión de cuotas. Artículos a confirmar |
-| Sociedad anónima (Código de Comercio) | Estructuras con junta directiva y muchos accionistas | Mayor formalidad y costo. Artículos a confirmar |
-| Sucursal de sociedad extranjera | La matriz está fuera de Colombia | Registro de la sociedad extranjera y poderes. Artículos a confirmar |
+| Sociedad limitada (Código de Comercio) | Socios cercanos, estructura conocida | Limitaciones a la cesión de cuotas. |
+| Sociedad anónima (Código de Comercio) | Estructuras con junta directiva y muchos accionistas | Mayor formalidad y costo. |
+| Sucursal de sociedad extranjera | La matriz está fuera de Colombia | Registro de la sociedad extranjera y poderes. |
 
 No recomiende una forma sin conocer el número de socios, el capital y el plan de inversión.
 
@@ -40,7 +40,7 @@ El Código de Comercio (Decreto 410 de 1971) existe según el Gestor Normativo y
 1. Redacte los estatutos o el documento de constitución con: denominación, domicilio, objeto social, capital suscrito y pagado, forma de administración, causales de disolución y reglas de cesión.
 2. Inscriba la sociedad en el registro mercantil de la Cámara de Comercio del domicilio. Verifique en el Código de Comercio y, si aplica, en la Ley 1258 de 2008, si la inscripción es requisito de existencia o de oponibilidad frente a terceros, y desde cuándo surte efecto.
 3. Obtenga el Registro Único Tributario (RUT) ante la DIAN, con la actividad económica correspondiente y los responsables que apliquen.
-4. Registre el beneficiario final cuando la normativa lo exija. Artículo a confirmar.
+4. Registre el beneficiario final cuando la normativa lo exija.
 5. Verifique los requisitos de apertura de cuentas bancarias y de licencias sectoriales, si la actividad los exige.
 
 ## Paso 3. Acuerdo de accionistas o de socios
@@ -57,11 +57,11 @@ Cubra, como mínimo:
 8. No competencia y confidencialidad para los socios.
 9. Solución de controversias.
 
-Verifique si cada cláusula es oponible a la sociedad o solo entre las partes. Algunas reglas requieren constar en los estatutos para producir efecto frente a la sociedad. Artículo a confirmar en la Ley 1258 de 2008.
+La oponibilidad de cada cláusula frente a la sociedad es una cuestión de análisis del abogado, no de esta skill.
 
 ## Paso 4. Deberes de los administradores
 
-Informe a los nuevos administradores sobre sus deberes de lealtad, diligencia y cuidado, y sobre la responsabilidad que surge de incumplirlos. La Ley 222 de 1995 existe según el Gestor Normativo, y su resumen registrado incluye la responsabilidad de los administradores. Verifique el régimen aplicable en el texto vigente y en el Código de Comercio. Artículos a confirmar. No redacte esta explicación como asesoría individual: es información general.
+Informe a los nuevos administradores sobre sus deberes de lealtad, diligencia y cuidado, y sobre la responsabilidad que surge de incumplirlos. La Ley 222 de 1995 existe según el Gestor Normativo, y su resumen registrado incluye la responsabilidad de los administradores. El régimen aplicable se determina en el texto vigente del Código de Comercio. No redacte esta explicación como asesoría individual: es información general.
 
 ## Paso 5. Registro y calendario de cumplimiento
 
@@ -82,4 +82,4 @@ Cédulas de los socios, documento de constitución o estatutos, comprobante de a
 
 ## Límites
 
-Esta skill no reemplaza al abogado que constituye la sociedad ni al contador. Las normas marcadas "a confirmar" no se citan hasta verificarlas en fuente oficial.
+Esta skill no reemplaza al abogado que constituye la sociedad ni al contador. Las normas se citan por nombre y número, con su existencia confirmada en el Gestor Normativo.

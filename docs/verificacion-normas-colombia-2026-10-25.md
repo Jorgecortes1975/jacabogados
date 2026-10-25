@@ -55,3 +55,29 @@ Situaciones detectadas en el registro:
 3. Parcialmente derogada: Ley 734 de 2002, por la Ley 1952 de 2019.
 4. Inconsistencia del registro: Código de Minas (Ley 685 de 2001), con fecha de publicación de 2003 en la ficha. Verificar en el Diario Oficial.
 5. Sin fecha de vigencia en el registro: Código Nacional de Policía (Ley 1801 de 2016) y Ley 2294 de 2023.
+
+## Estado definitivo de los pendientes (25 de octubre de 2026)
+
+Cada pendiente tiene una decisión o un bloqueo identificado. Ninguno queda abierto sin dueño.
+
+### Cerrados con decisión
+
+1. Artículos concretos de las leyes. Decisión: las skills no citan artículos. El artículo aplicable lo determina el abogado en el texto vigente. Cerrado.
+2. Vigencia del texto actual. Decisión: el sistema no determina vigencia. La registra como dato del Gestor (modificaciones, derogaciones, inexequibilidad) y deja la conclusión al abogado. Cerrado como límite de alcance.
+3. URL de ejemplo de la Corte Constitucional (T-008/20). Decisión: eliminada de la skill. La URL oficial es el campo `official_url` que devuelve la herramienta. Cerrado.
+4. Campo `tool_response` del hook. Decisión: el hook registra ahora las claves exactas del evento (`claves_del_evento`). La primera ejecución real documenta el formato. Cerrado en el código.
+5. Código Civil (Ley 84 de 1873 y Ley 57 de 1887). Decisión: no figura en el registro, así que no se cita ni se agrega al catálogo. Cerrado.
+6. Ley 1407 de 2010, inexequible. Decisión: el catálogo la marca como inexequibilidad registrada y no se cita como vigente. Cerrado.
+7. Ley 685 de 2001, fecha de publicación inconsistente. Decisión: se cita solo la fecha de expedición (15 de agosto de 2001). La fecha de publicación no se usa. Cerrado.
+8. Hooks repetidos en las diez skills de Spec Kit. Decisión: no se compactan. La duplicación es inocua y cambiarla requiere tocar la estructura de Spec Kit. Cerrado.
+
+### Bloqueados por el entorno (confirmado el 25 de octubre de 2026 con `jac doctor --red`)
+
+1. Relatoría de la Corte Constitucional, Rama Judicial, SAMAI y Socrata: 403. Consecuencia definida: ninguna sentencia de estas fuentes se cita en las skills. Desbloqueo: acceso de red a esos hosts.
+2. Gestor Normativo con conexión directa: 403. El conector Croma sí responde y es la fuente usada para toda norma del catálogo.
+
+### Bloqueados por falta de material del usuario
+
+1. Texto de la licencia MIT de la fuente de Sprintlaw. Sin él no puedo cumplir la obligación de incluir el aviso de licencia completo. Lo que sí consta: autor Sprintlaw y licencia MIT, indicados en cada skill derivada. Desbloqueo: entregar el archivo LICENSE de la fuente, o confirmar que basta la atribución indicada.
+2. Archivo `docs/rules/domain/professional-domain-disclaimer.md`. No existe en el repositorio ni en sus ramas. Desbloqueo: entregar el archivo o su contenido.
+3. Ubicación de instalación del plugin. Decisión provisional: el paquete queda en la carpeta de trabajo, no en la configuración global. Desbloqueo: indicar la ruta de instalación deseada.

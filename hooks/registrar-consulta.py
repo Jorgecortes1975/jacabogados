@@ -18,11 +18,11 @@ def main() -> int:
         comando = (evento.get("tool_input") or {}).get("command", "")
         if "-m jac" not in comando:
             return 0
-        respuesta = evento.get("tool_response")
         fila = {
             "ts": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "comando": comando[:500],
-            "salida": str(respuesta)[:2000],
+            "claves_del_evento": sorted(evento.keys()),
+            "respuesta": str(evento.get("tool_response"))[:2000],
         }
         with open(destino, "a", encoding="utf8") as f:
             f.write(json.dumps(fila, ensure_ascii=False) + "\n")
