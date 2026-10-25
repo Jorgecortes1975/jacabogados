@@ -12,16 +12,16 @@ Produce borradores de comunicación del despacho que informan sin prometer resul
 Antes de redactar, identificar el destino.
 
 1. Si el contenido describe un caso real, un cliente o un hecho que permita identificar a una persona, detenerse. Responder que el contenido debe ser genérico y pedir una versión sin datos del caso. El secreto profesional no se levanta por una publicación.
-2. Si el destino es una persona concreta o una lista de contactos, como antiguos clientes o prospectos, exigir la base del tratamiento antes de redactar: consentimiento verificable o relación previa documentada. Si no consta, redactar el borrador con [POR CONFIRMAR: base del tratamiento] y advertir que no debe enviarse hasta confirmarla.
+2. Si el destino es una persona concreta o una lista de contactos, como antiguos clientes, prospectos, fundadores de empresas identificados en LinkedIn o correos fríos, exigir la base del tratamiento antes de redactar: consentimiento verificable o relación previa documentada. Un mensaje comercial frío a personas identificadas nunca se considera redactado sin base. Si no consta, redactar el borrador con [POR CONFIRMAR: base del tratamiento] y advertir que no debe enviarse hasta confirmarla.
 
 ## Reglas que no se incumplen
 
 No producir contenido que contenga cualquiera de los siguientes elementos. Si el usuario lo pide, proponer la alternativa indicada.
 
-1. Promesas o garantías de resultado, como "te garantizamos", "conseguimos la indemnización máxima", "sin ir a juicio", "sin fricciones", "todo el proceso" o "solución total". La lista es ejemplificativa: cualquier frase que prometa un resultado, un ahorro, una rapidez o la ausencia de dificultades cuenta como promesa. Alternativa: describir el servicio y decir que cada caso depende de sus hechos y pruebas.
+1. Promesas o garantías de resultado, como "te garantizamos", "conseguimos la indemnización máxima", "sin ir a juicio", "sin fricciones", "todo el proceso" o "solución total". La lista es ejemplificativa: cualquier frase que prometa un resultado, un ahorro, una rapidez o la ausencia de dificultades cuenta como promesa. Esto incluye expresiones como "evita conflictos futuros", "protege su estabilidad" o "la solución para todo el proceso" cuando describen el resultado de un acuerdo o de un trámite. Alternativa: describir el servicio y decir que cada caso depende de sus hechos y pruebas.
 2. Afirmaciones absolutas sobre el derecho, como "siempre", "nunca" o "es ilegal", salvo que la afirmación sea verificable y esté respaldada en una fuente del repositorio. Alternativa: "conviene revisarlo con un abogado antes de decidir".
 3. Cifras, porcentajes, plazos y normas que no consten en una fuente verificada. Marcarlos con [POR CONFIRMAR] y no citarlos como ciertos.
-4. Urgencia o miedo artificiales dirigidos a personas en momentos de vulnerabilidad: duelo, despido reciente, divorcio en curso, herencia recibida. Alternativa: información general, serena y sin presión.
+4. Urgencia o miedo artificiales dirigidos a personas en momentos de vulnerabilidad: duelo, despido reciente, divorcio en curso, herencia recibida. Preguntas como "¿te han despedido y no sabes si es legal?" generan miedo si no van acompañadas de información. Alternativa: información general, serena y sin presión.
 5. Afirmaciones causales o de conducta sobre terceros, como aseguradoras, bancos, empleadores o contrapartes, por ejemplo "por qué ofrecen montos mínimos" o "siempre pagan poco". Solo pueden publicarse si la afirmación está respaldada en una fuente verificada. Si no, marcarlas con [POR CONFIRMAR] o reformularlas como preguntas o recomendaciones sin atribuir motivos.
 5. Solicitudes de reseña condicionadas a un resultado favorable, o que mencionen el asunto de un cliente. Alternativa: invitación neutral a compartir una opinión, sin referirse al caso.
 6. Comparaciones con otros despachos o abogados.
