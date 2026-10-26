@@ -47,7 +47,8 @@ Aplique estas técnicas en todo documento. Cada una tiene un criterio de comprob
 7. Contraargumentación explícita. Anticipe la objeción más fuerte de la contraparte o del juez y respóndala con fuente. Comprobación: existe al menos una respuesta a la objeción principal en los escritos de parte y en los conceptos.
 8. Economía de palabras. Elimine repetición, adjetivación sin función y lenguaje decorativo. Comprobación: cada párrafo aporta una idea o una prueba.
 9. Coherencia entre piezas. Hechos, fundamentos y pretensiones no pueden contradecir las pruebas ni las fechas del inventario documental. Comprobación: el control de contradicciones no reporta hallazgos.
-10. Estructura de sentencia de alta corte. Para proyectos de decisión: antecedentes, problema jurídico, consideraciones con precedente y análisis del caso, decisión y, si aplica, salvamentos o aclaraciones. El requisito formal de cada elemento debe verificarse en la norma aplicable; si no se verifica, queda PENDIENTE DE VERIFICACIÓN.
+10. Esquema argumentativo. Cada argumento se reconstruye como uno de los 40 esquemas de `anexo-argumentos.md`, con premisas explícitas y conclusión marcada como necesaria o plausible. Comprobación: cada argumento del escrito indica su número de esquema y cada premisa tiene su fuente.
+11. Estructura de sentencia de alta corte. Para proyectos de decisión: antecedentes, problema jurídico, consideraciones con precedente y análisis del caso, decisión y, si aplica, salvamentos o aclaraciones. El requisito formal de cada elemento debe verificarse en la norma aplicable; si no se verifica, queda PENDIENTE DE VERIFICACIÓN.
 
 Use estas técnicas en el orden de la Fase 1 y no las aplique como plantilla rígida. Si el tipo de documento exige una estructura legal específica, esa estructura prevalece.
 
@@ -88,7 +89,9 @@ Entregue el documento completo y utilizable, con los datos faltantes marcados PE
 
 ## Anexo de argumentos
 
-Pendiente de incorporar. Cuando se reciba el documento, sus técnicas y ejemplos se integrarán en la Fase 2 con su respectiva comprobación, sin reemplazar los controles de las Fases 3 a 5.
+Los 40 esquemas argumentativos del anexo están en `anexo-argumentos.md`, en esta carpeta. Son 20 esquemas generales y probatorios y 20 de interpretación normativa, con premisas, conclusión y lista de comprobación. Su fuente es un documento de formación (Prof. Luis Alfonso Malavé Naime), no normativa ni jurisprudencia. Sus ejemplos extranjeros no se citan como derecho colombiano.
+
+Regla de uso en la Fase 2: cada argumento del escrito debe reconstruirse como uno de los 40 esquemas. Si ninguno encaja, el argumento no está listo. Los esquemas presuntivos se marcan con "plausiblemente" y anticipan su objeción. El control final revisa la lista de comprobación del anexo.
 
 ## Reglas permanentes
 
