@@ -1,6 +1,6 @@
 {
   "name": "jac-legal-os",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "JAC Legal OS: agente jurídico de derecho colombiano con verificación determinista de citas (Corte Constitucional, normas), control Gauntlet de escritos con estados BLOCKED, CONDITIONAL y PASS, e inventario documental.",
   "author": {
     "name": "Abogados Asociados JAC"

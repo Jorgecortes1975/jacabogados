@@ -177,8 +177,9 @@ def pack(tmp_path_factory):
 def test_pack_cowork_contenido_y_skills_zip(pack):
     d, r = pack
     esperados = {"00-LEEME-COWORK.md", "01-INSTRUCCIONES-DEL-PROYECTO.md", "03-PROTOCOLO-GAUNTLET-ELITE.md", "04-CATALOGO-NORMAS.md",
-                 "05-CASO-DE-PRUEBA.md", "SKILL-jac-agente.md", "SKILL-jac-gauntlet.md", "SKILL-jac-verificar.md"}
-    assert esperados == set(r["archivos"]) and r["skills"] == 3
+                 "05-CASO-DE-PRUEBA.md", "SKILL-jac-agente.md", "SKILL-jac-gauntlet.md", "SKILL-jac-verificar.md",
+                 "SKILL-jac-redaccion-elite.md"}
+    assert esperados == set(r["archivos"]) and r["skills"] == 4
     for z in (d / "skills-zip").glob("*.zip"):
         nombres = zipfile.ZipFile(z).namelist()
         assert nombres == [f"{z.stem}/SKILL.md"], "estructura carpeta/SKILL.md exigida para cargar skills"
