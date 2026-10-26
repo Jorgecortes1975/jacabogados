@@ -70,6 +70,23 @@ Cuando se use para redactar o revisar un escrito:
 4. Objeciones previstas y respuesta.
 5. Acciones: qué verificar, qué reformular y qué prueba falta.
 
+## Aplicación en escritos colombianos
+
+Los esquemas son formas de razonar y no dependen del país. Lo que cambia en Colombia es qué norma, qué sentencia y qué regla de precedente se usan como premisa. Esa parte debe verificarse en fuente oficial antes de cada escrito.
+
+Esquemas que suelen aparecer en cada tipo de escrito. Son orientativos; el abogado decide según el caso.
+
+1. Demandas y contestaciones: 34 (analogía legis, si falta norma expresa), 35 (precedentes, con la sentencia verificada), 21 a 24 (interpretación de la norma aplicada).
+2. Acciones de tutela: 14 a 17 (posición de conocer el hecho y fuentes), 19 y 20 (pruebas aportadas), 39 (reducción al absurdo frente a la decisión impugnada).
+3. Recursos (reposición, apelación, casación): 25 a 28 (coherencia del sistema frente a la interpretación del juez), 39 (consecuencias absurdas de la decisión), 22 (a contrario sensu, si la norma es restrictiva).
+4. Conceptos y análisis internos: 9 (mejor explicación), 11 (analogía) y 38 (doctrina, como apoyo y no como regla).
+
+Reglas de precedente:
+
+1. Distinga la razón de la decisión (ratio decidendi) de lo dicho de paso (obiter dictum). Solo la primera sostiene un esquema de precedente; la segunda debe presentarse como comentario.
+2. Confirme en la relatoría oficial de la corporación que la sentencia existe, su número, su fecha y su fuerza vinculante en la materia. Si no puede confirmarlo, use la frase de pendiente de verificación.
+3. No atribuya a una corte una regla que no aparezca en sus providencias.
+
 ## Criterios de calidad
 
 Un argumento se considera sólido solo si cumple los cinco criterios siguientes. Evalúa cada uno como cumple, parcial o no cumple.

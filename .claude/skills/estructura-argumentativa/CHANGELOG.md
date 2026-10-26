@@ -8,3 +8,4 @@
   - APLICACION-SKILLS-INSTALADAS.md: correspondencia con las skills jurídicas instaladas. No se modificó ninguna skill instalada, porque las copias sincronizadas se sobrescriben.
 
 - Versión 2: criterios de calidad, plantilla de argumento, uso corporativo y lista de control final en SKILL.md.
+- Versión 3: sección de aplicación en escritos colombianos (demandas, tutelas, recursos, conceptos) y reglas de precedente (ratio decidendi frente a obiter dictum). Anexo recibido igual al anterior (mismo MD5).
