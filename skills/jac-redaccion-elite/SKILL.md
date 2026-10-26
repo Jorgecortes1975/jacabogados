@@ -25,8 +25,8 @@ Use las skills que estén disponibles en el entorno. Si una no está instalada, 
 1. Concepto jurídico: redactor-juridico-col, matriz-estrategica-col y subsuncion-juridica-col. El concepto responde una pregunta concreta, con hechos, norma, análisis y conclusión.
 2. Derecho de petición y comunicaciones: escritos-colombianos. Pretensión clara, plazo y fundamento verificable.
 3. Poderes, contratos y actas: playbook-contratos-col, hoja-encargo-col, commercial-legal:review, corporate-legal:board-minutes y corporate-legal:written-consent.
-4. Demanda ordinaria: demand-draft, litigation-legal:demand-draft y demandas-civiles-col. Para tipos concretos, use la skill lit-* correspondiente de litigacion-colombia (por ejemplo lit-civil-demanda-verbal o lit-laboral-demanda-ordinaria).
-5. Demanda ante la jurisdicción contencioso-administrativa: lit-ca-* de litigacion-colombia (nulidad, nulidad y restablecimiento, reparación directa, controversias contractuales).
+4. Demanda ordinaria: demand-draft, litigation-legal:demand-draft y demandas-civiles-col. Para tipos concretos, use la skill lit-civil, lit-laboral o lit-penal correspondiente de litigacion-colombia (por ejemplo lit-civil-demanda-verbal o lit-laboral-demanda-ordinaria).
+5. Demanda ante la jurisdicción contencioso-administrativa: skills lit-ca de litigacion-colombia (nulidad, nulidad y restablecimiento, reparación directa, controversias contractuales).
 6. Tutela y acción de cumplimiento: lit-const-tutela, lit-const-tutela-salud-eps, lit-const-tutela-contra-providencia, lit-const-cumplimiento-desacato.
 7. Contestación, excepciones y reconvención: lit-civil-contestacion-reconvencion, lit-civil-excepciones-previas, lit-civil-excepciones-ejecutivo.
 8. Recursos y casación: lit-civil-recursos-ordinarios, lit-civil-casacion, lit-laboral-casacion, lit-penal-recursos-apelacion-casacion, lit-ca-recursos-apelacion-queja-suplica.
