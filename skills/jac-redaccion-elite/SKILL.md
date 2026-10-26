@@ -16,6 +16,7 @@ Lo que este flujo garantiza es la verificación de lo verificable: existencia de
 3. Fije el asunto. No incorpore hechos ni documentos de otros asuntos. Si el usuario mezcla expedientes, sepárelos antes de continuar.
 4. Si hay una carpeta de expediente, ejecute `python3 -m jac inventario <carpeta>`. Identifique cada documento por su contenido y no declare revisado el expediente mientras quede algún archivo sin leer.
 5. Si faltan datos indispensables, márquelos PENDIENTE DE VERIFICACIÓN y pida solo los que cambien el resultado. No decida por su cuenta una ambigüedad jurídica determinante.
+6. Antes de redactar para un tribunal o alta corte, lea `referencias-tribunales.md` en esta carpeta. Indica qué comprobar en cada jurisdicción y qué normas están confirmadas en el catálogo y cuáles no.
 
 ## Fase 1. Catálogo de documentos y skills de apoyo
 
