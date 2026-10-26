@@ -70,6 +70,49 @@ Cuando se use para redactar o revisar un escrito:
 4. Objeciones previstas y respuesta.
 5. Acciones: qué verificar, qué reformular y qué prueba falta.
 
+## Criterios de calidad
+
+Un argumento se considera sólido solo si cumple los cinco criterios siguientes. Evalúa cada uno como cumple, parcial o no cumple.
+
+1. Esquema identificado: se nombra el esquema y sus premisas aparecen explícitas.
+2. Premisas soportadas: cada premisa tiene fuente verificada o está marcada como supuesto.
+3. Conclusión proporcionada: la conclusión no supera lo que el esquema permite (necesaria o plausible).
+4. Objeción respondida: la mejor objeción tiene respuesta documentada.
+5. Riesgo cuantificado: se indica qué pasa si el argumento falla y cuál es la alternativa.
+
+Un argumento con algún criterio en "no cumple" no se presenta como sólido. Se propone la acción que lo corrige.
+
+## Plantilla de argumento
+
+Para cada argumento principal, entrega:
+
+1. Tesis: una frase.
+2. Esquema: número y nombre del esquema de Malavé Naime.
+3. Premisas: numeradas, con su nivel de soporte (alto, medio o sujeto a verificación).
+4. Conclusión: con su grado (necesaria o plausible).
+5. Objeción principal y respuesta.
+6. Riesgo y alternativa.
+
+## Uso corporativo
+
+Cuando el resultado vaya a un comité, a un cliente o a una decisión de negocio:
+
+1. Resume en una frase qué decisión se recomienda y qué riesgo se asume.
+2. Separa la opción más segura de la más eficiente.
+3. Indica qué documentos o pruebas faltan antes de actuar.
+4. Señala los riesgos legales, probatorios, económicos y reputacionales que dependen de cada argumento.
+5. No hagas recomendaciones de sentido común en lugar de análisis jurídico. Si el análisis no se puede completar, dilo.
+
+## Lista de control final
+
+Antes de entregar, confirma:
+
+- Cada esquema citado existe en `esquemas.md` con el número y nombre correctos.
+- Cada norma, sentencia o doctrina usada está verificada o marcada como pendiente.
+- Ninguna conclusión plausible se presenta como necesaria.
+- Se respondió la objeción más fuerte de cada argumento principal.
+- No quedan asteriscos ni viñetas con guion en la salida.
+
 ## Reglas
 
 - No inventes esquemas, normas ni sentencias.
