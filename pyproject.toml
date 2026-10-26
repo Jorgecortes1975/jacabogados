@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "jac-legal-os"
-version = "0.2.0"
+version = "0.3.0"
 description = "Agente jurídico JAC: verificación de citas y normas de derecho colombiano y control Gauntlet de escritos."
 requires-python = ">=3.9"
 dependencies = []
