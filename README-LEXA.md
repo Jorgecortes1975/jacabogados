@@ -259,7 +259,7 @@ El sistema se configura automáticamente con:
 
 ✓ Encriptación AES-256
 ✓ Autenticación OAuth 2.0 + JWT
-✓ GDPR + Habeas Data compliance
+✓ Habeas Data: Ley 1581 de 2012 (cumplimiento pendiente de verificación)
 ✓ Auditoría completa e inmutable
 ✓ Firma digital integrada
 ✓ Pentesting trimestral

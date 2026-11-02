@@ -82,7 +82,7 @@
         "registroAuditoriaCompleto": true,
         "logeoTodosAccesos": true,
         "proteccionDatosPersonales": true,
-        "cumplimientoGDPR": true
+        "cumplimientoLey1581": false
       },
       "limites": {
         "maxCaracteresRespuesta": 50000,
