@@ -286,7 +286,7 @@ El ecosistema LEXA v2.0 se configura automáticamente con:
 ✓ Encriptación AES-256
 ✓ Autenticación OAuth 2.0 + JWT
 ✓ Autorización RBAC
-✓ GDPR + Habeas Data
+✓ Habeas Data: Ley 1581 de 2012 (cumplimiento pendiente de verificación)
 ✓ Hashicorp Vault para secretos
 ✓ ELK Stack para logs de seguridad
 ✓ Pentesting trimestral

@@ -271,7 +271,7 @@
       "encriptacion": "AES-256",
       "autenticacion": "OAuth 2.0 + JWT",
       "autorizacion": "RBAC",
-      "datos_personales": "GDPR + HABEAS DATA",
+      "datos_personales": "Ley 1581 de 2012 (Habeas Data), cumplimiento pendiente de verificación",
       "secretos": "hashicorp-vault",
       "logs_seguridad": "ELK-stack",
       "pentesting": "trimestral",
