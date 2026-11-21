@@ -1,6 +1,6 @@
 # Revisión oficial del Consejo sobre el piloto
 
-Revisor: revisor independiente, un agente distinto de quien redactó las piezas. Recibió solo estos archivos: agents/jac-consejo.md, marketing/piloto/piezas-piloto.md (versión 1, antes de corrección), marketing/ADN-despacho.md y marketing/checklist-publicidad.md. No leyó la revisión previa ni fuentes externas.
+Revisor: revisor independiente, un agente distinto de quien redactó las piezas. Recibió solo estos archivos: .claude/agents/jac-consejo.md (antes agents/jac-consejo.md), marketing/piloto/piezas-piloto.md (versión 1, antes de corrección), marketing/ADN-despacho.md y marketing/checklist-publicidad.md. No leyó la revisión previa ni fuentes externas.
 
 Esta es la revisión oficial del piloto. La revisión preliminar hecha en la misma sesión que redactó las piezas queda superada. Sus coincidencias y diferencias se resumen abajo.
 

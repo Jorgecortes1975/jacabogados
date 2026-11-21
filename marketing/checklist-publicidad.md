@@ -1,6 +1,6 @@
 # Lista de control de publicidad jurídica
 
-Uso: el Consejo (agents/jac-consejo.md) aplica esta lista a cada pieza. El abogado responsable la firma antes de publicar. Cada punto se marca como CUMPLE, NO CUMPLE, PENDIENTE DE VERIFICACIÓN o NO APLICA.
+Uso: el Consejo (.claude/agents/jac-consejo.md) aplica esta lista a cada pieza. El abogado responsable la firma antes de publicar. Cada punto se marca como CUMPLE, NO CUMPLE, PENDIENTE DE VERIFICACIÓN o NO APLICA.
 
 Pieza:
 Canal:

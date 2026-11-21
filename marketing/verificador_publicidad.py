@@ -19,7 +19,7 @@ Qué comprueba:
   8. Registro del Consejo: Estado PASS, Revisor y Fecha de revisión completados (BLOQUEO si falta).
 
 Qué NO comprueba: veracidad de los hechos, vigencia de normas, ni la decisión jurídica.
-Eso corresponde al Consejo (agents/jac-consejo.md) y al abogado responsable. Un resultado
+Eso corresponde al Consejo (.claude/agents/jac-consejo.md) y al abogado responsable. Un resultado
 APTA no es una certificación ni sustituye la revisión humana.
 """
 
