@@ -81,7 +81,6 @@ Un agente autónomo que consulta automáticamente jurisprudencia, leyes, normas,
 
 Las fuentes sin conector local figuran en la configuración como referencia; no se consultan automáticamente. Lo que no tiene conector queda **pendiente de verificación**, nunca "verificado".
 
-
 ---
 
 ## 💻 Comandos de Consulta

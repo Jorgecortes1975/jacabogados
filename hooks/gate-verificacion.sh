@@ -15,6 +15,12 @@ CAMBIOS=$(git status --porcelain | awk '{print $NF}')
 RELEVANTE=$(printf '%s\n' "$CAMBIOS" | grep -E '^(CLAUDE\.md|skills/|agents/|jac/|gauntlet_jac/|normas_col/|jurisprudencia_col/|tests_|bin/|hooks/|\.claude/|pyproject\.toml)' || true)
 [ -z "$RELEVANTE" ] && exit 0
 
+# Copias gemelas del revisor (plugin y proyecto): deben ser idénticas.
+if [ -f agents/jac-revisor.md ] && [ -f .claude/agents/jac-revisor.md ] && ! cmp -s agents/jac-revisor.md .claude/agents/jac-revisor.md; then
+  echo "Las copias de jac-revisor divergen: agents/jac-revisor.md y .claude/agents/jac-revisor.md deben ser idénticas. Corrija antes de terminar el turno." >&2
+  exit 2
+fi
+
 if command -v timeout >/dev/null 2>&1; then
   SALIDA=$(timeout 300 ./bin/jac prueba 2>&1)
 else
