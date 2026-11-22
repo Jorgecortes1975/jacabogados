@@ -21,6 +21,7 @@ comprobar() {
 }
 
 comprobar "suite de pruebas tests_jac" python3 -m pytest tests_jac -q
+comprobar "suite de pruebas tests_gauntlet (control de escritos)" python3 -m pytest tests_gauntlet -q
 comprobar "bin/jac prueba (aceptación)" ./bin/jac prueba
 comprobar "puerta de verificación (hook Stop)" sh -c "CLAUDE_PROJECT_DIR='$RAIZ' sh hooks/gate-verificacion.sh"
 comprobar "copias del revisor idénticas" cmp -s agents/jac-revisor.md .claude/agents/jac-revisor.md
