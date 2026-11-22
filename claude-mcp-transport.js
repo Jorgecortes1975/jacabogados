@@ -4,7 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 
-const CONFIG_FILE = path.join(process.cwd(), 'mcp-config.json');
+// Ruta resuelta desde este archivo, no desde el directorio actual.
+const CONFIG_FILE = path.join(path.resolve(__dirname), 'mcp-config.json');
 
 class MCPTransportManager {
   constructor() {
@@ -106,7 +107,7 @@ class MCPTransportManager {
       } else {
         console.log(`  URL: ${config.url}`);
       }
-      console.log(`  Creado: ${config.createdAt}`);
+      console.log(`  Creado: ${config.createdAt || 'desconocido (registro anterior)'}`);
       if (config.lastActivated) {
         console.log(`  Último activado: ${config.lastActivated}`);
       }

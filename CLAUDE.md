@@ -5,7 +5,7 @@
 ## 🎯 Visión General
 
 Sistema completo que integra:
-- 9 fuentes oficiales colombianas registradas; **conector real** para la Corte Constitucional y un catálogo verificado de normas (ver tabla de estado)
+- 10 fuentes oficiales colombianas registradas (ver tabla), más Legal Data Hunter como base multijurisdiccional sin conector local; **conector real** solo para la Corte Constitucional y un catálogo verificado de 13 normas (ver tabla de estado)
 - ✅ **Agente jurídico automatizado** para investigación autónoma
 - **Verificación de datos** contra las fuentes con conector real (no contra todas)
 - **Diseñado contra alucinaciones**: no se declara verificada una cita que ninguna fuente confirmó, y lo no verificable se informa como pendiente
@@ -43,10 +43,9 @@ Un agente autónomo que consulta automáticamente jurisprudencia, leyes, normas,
    - Providencias de Consejo de Estado
 
 2. **Consulta de Normas**
-   - Leyes vigentes
-   - Decretos presidenciales
-   - Resoluciones ministeriales
-   - Via SUIN (Sistema Único de Información Normativa)
+   - Existencia y fecha de las normas del catálogo local (13 normas); la vigencia no la determina el sistema
+   - Decretos y resoluciones fuera del catálogo: PENDIENTE DE VERIFICACIÓN (Diario Oficial sin conector local)
+   - SUIN: sin conector local; no se consulta
 
 3. **Análisis de Casos**
    - Compara tu caso con jurisprudencia oficial
@@ -54,7 +53,7 @@ Un agente autónomo que consulta automáticamente jurisprudencia, leyes, normas,
    - Genera análisis fundamentado
 
 4. **Verificación de Datos**
-   - Valida información contra múltiples fuentes
+   - Valida citas contra las fuentes con conector local (validación cruzada solo con la Corte Constitucional)
    - Evita alucinaciones
    - Garantiza información verificada
 
@@ -63,7 +62,7 @@ Un agente autónomo que consulta automáticamente jurisprudencia, leyes, normas,
    - Citas verificables
    - Análisis profesional
 
-### Fuentes Integradas (9 Instituciones Oficiales)
+### Fuentes Integradas (10 fuentes oficiales colombianas y Legal Data Hunter)
 
 | Fuente | Contenido | Conector local (estado real, verificado 2026-10-12) |
 |--------|-----------|--------|
@@ -80,17 +79,6 @@ Un agente autónomo que consulta automáticamente jurisprudencia, leyes, normas,
 | **DIAN** | Normas tributarias, conceptos | NO |
 
 Las fuentes sin conector local figuran en la configuración como referencia; no se consultan automáticamente. Lo que no tiene conector queda **pendiente de verificación**, nunca "verificado".
-
---------|-----------|--------|
-| **Corte Constitucional** | Jurisprudencia, sentencias, auto-acordos | ✓ Activo |
-| **Consejo de Estado** | Jurisprudencia, sentencias, decisiones | ✓ Activo |
-| **Corte Suprema de Justicia** | Jurisprudencia, sentencias, providencias | ✓ Activo |
-| **Legal Data Hunter** | 38M+ documentos, 230+ jurisdicciones | ✓ Activo |
-| **Diario Oficial** | Decretos, resoluciones, normas, edictos | ✓ Activo |
-| **SUIN** | Leyes, decretos, resoluciones normativas | ✓ Activo |
-| **Congreso de la República** | Proyectos de ley, leyes, actos legislativos | ✓ Activo |
-| **Superintendencia de Sociedades** | Jurisprudencia, circulares, resoluciones | ✓ Activo |
-| **DIAN** | Normas tributarias, conceptos, resoluciones | ✓ Activo |
 
 ---
 
@@ -127,10 +115,9 @@ node agente-juridico-especializado.js consulta norma \
 ```
 
 **Retorna:**
-- Texto normativo vigente
-- Modificaciones posteriores
-- Normas relacionadas
-- Fuente oficial
+- Existencia y fecha de la norma en el catálogo local (13 normas)
+- Estado de vigencia: NO DETERMINADA. El texto vigente debe confirmarse en fuente oficial
+- Lo que no está en el catálogo queda PENDIENTE, nunca inexistente
 
 #### 3. **Análisis** - Analizar caso contra jurisprudencia
 
@@ -347,14 +334,14 @@ node agente-juridico-especializado.js consulta reporte \
 
 ## 🐛 Troubleshooting
 
-**Error: "Agente no activado"**
-- Ejecuta: `node agente-juridico-especializado.js activar`
+**Fuente no disponible**
+- Consulte `node agente-juridico-especializado.js fuentes` para ver el estado de cada fuente. Una fuente caída deja la cita PENDIENTE, nunca inexistente.
 
-**Error: "Fuente no disponible"**
-- Verifica: `node agente-juridico-especializado.js fuentes`
+**Activación del agente**
+- `node agente-juridico-especializado.js activar` solo muestra el resumen del agente. No modifica archivos versionados.
 
 **Resultado no verificado**
-- El agente requiere múltiples fuentes - algunos temas pueden tener menos cobertura
+- Solo la Corte Constitucional tiene validación cruzada con conector local; los demás temas quedan PENDIENTES DE VERIFICACIÓN
 
 ---
 
@@ -363,7 +350,7 @@ node agente-juridico-especializado.js consulta reporte \
 **Rama:** `claude/colombia-legal-prospects-gask4u`  
 **Sistema:** Agente Jurídico Especializado JAC  
 **Versión:** 1.0  
-**Última actualización:** 2026-08-02
+**Última revisión de este documento:** 2026-11-22
 
 ---
 

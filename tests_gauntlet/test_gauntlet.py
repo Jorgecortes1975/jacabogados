@@ -145,7 +145,8 @@ def test_fecha_posterior_solo_advierte():
 
 def test_sin_citas_se_informa():
     i = informe.ejecutar("Texto sin citas.", REF, sin_red=True)
-    assert [h["codigo"] for h in i["hallazgos"]] == ["SIN_CITAS"] and i["estado"] == "PASS_AUTOMATICO"
+    # Un escrito sin citas validadas no puede salir como PASS_AUTOMATICO: queda pendiente.
+    assert [h["codigo"] for h in i["hallazgos"]] == ["SIN_CITAS"] and i["estado"] == "CONDITIONAL"
 
 
 def test_comparacion_entre_rondas():
@@ -160,8 +161,8 @@ def test_comparacion_entre_rondas():
 def test_cli_codigos_de_salida_y_json(tmp_path, capsys):
     f = tmp_path / "e.txt"; f.write_text("Sin citas.", encoding="utf-8")
     out = tmp_path / "o.json"
-    assert cli.main(["validar-escrito", str(f), "--sin-red", "--json", str(out)]) == 0
-    assert json.load(open(out))["estado"] == "PASS_AUTOMATICO"
+    assert cli.main(["validar-escrito", str(f), "--sin-red", "--json", str(out)]) == 1
+    assert json.load(open(out))["estado"] == "CONDITIONAL"
     f.write_text("Fecha 30 de febrero de 2020.", encoding="utf-8")
     assert cli.main(["validar-escrito", str(f), "--sin-red"]) == 2
 
@@ -204,7 +205,14 @@ def test_sentencia_sin_guion_y_sin_falsos_positivos():
 def test_referencias_a_constitucion_y_codigos_se_informan_sin_bloquear():
     i = informe.ejecutar("El artículo 29 de la Constitución Política y el Código General del Proceso.", REF, sin_red=True)
     assert i["referencias_no_verificables"] == ["Constitución Política", "Código General del Proceso"]
-    assert [h["codigo"] for h in i["hallazgos"]].count("REFERENCIA_NO_VERIFICABLE") == 2 and i["estado"] == "PASS_AUTOMATICO"
+    assert [h["codigo"] for h in i["hallazgos"]].count("REFERENCIA_NO_VERIFICABLE") == 2 and i["estado"] == "CONDITIONAL"
+
+
+def test_escrito_real_que_cita_el_cgp_por_nombre_no_sale_como_pass():
+    # Caso del piloto: el escrito cita el Código General del Proceso por nombre y sus artículos.
+    # El control no los verifica, así que el resultado no puede ser PASS_AUTOMATICO.
+    i = informe.ejecutar("De acuerdo con el artículo 447 del Código General del Proceso, se solicita el pago.", REF, sin_red=True)
+    assert i["estado"] == "CONDITIONAL"
 
 
 def test_esquema_inesperado_de_socrata_nunca_da_no_encontrada():

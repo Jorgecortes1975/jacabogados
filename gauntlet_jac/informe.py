@@ -31,10 +31,10 @@ def ejecutar(texto: str, fecha_ref: Optional[date] = None, radicado: Optional[st
         + C.controlar_fechas(extraer_fechas(texto), fecha_ref) + C.controlar_radicados(texto, radicado))
     referencias = extraer_referencias(texto)
     for ref, linea in referencias:
-        hallazgos.append(C.Hallazgo("REFERENCIA_NO_VERIFICABLE", C.ADVERTENCIA,
+        hallazgos.append(C.Hallazgo("REFERENCIA_NO_VERIFICABLE", C.PENDIENTE,
                                     f"Referencia a {ref}: el control no verifica artículos ni su texto vigente; confirmar en fuente oficial", f"línea {linea}"))
     if not citas:
-        hallazgos.append(C.Hallazgo("SIN_CITAS", C.ADVERTENCIA, "No se detectaron citas normativas ni jurisprudenciales para validar"))
+        hallazgos.append(C.Hallazgo("SIN_CITAS", C.PENDIENTE, "No se detectaron citas normativas ni jurisprudenciales para validar"))
     informe = {
         "version": 1,
         "generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),

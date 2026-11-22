@@ -3,7 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const CONFIG_FILE = path.join(process.cwd(), 'mcp-config.json');
+// Ruta resuelta desde este archivo, no desde el directorio actual.
+const CONFIG_FILE = path.join(path.resolve(__dirname), 'mcp-config.json');
 
 /**
  * LEXA Super Router
