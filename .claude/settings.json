@@ -20,5 +20,6 @@
         ]
       }
     ]
-  }
+  },
+  "autoMemoryEnabled": false
 }

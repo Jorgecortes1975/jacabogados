@@ -81,16 +81,6 @@ Un agente autónomo que consulta automáticamente jurisprudencia, leyes, normas,
 
 Las fuentes sin conector local figuran en la configuración como referencia; no se consultan automáticamente. Lo que no tiene conector queda **pendiente de verificación**, nunca "verificado".
 
---------|-----------|--------|
-| **Corte Constitucional** | Jurisprudencia, sentencias, auto-acordos | ✓ Activo |
-| **Consejo de Estado** | Jurisprudencia, sentencias, decisiones | ✓ Activo |
-| **Corte Suprema de Justicia** | Jurisprudencia, sentencias, providencias | ✓ Activo |
-| **Legal Data Hunter** | 38M+ documentos, 230+ jurisdicciones | ✓ Activo |
-| **Diario Oficial** | Decretos, resoluciones, normas, edictos | ✓ Activo |
-| **SUIN** | Leyes, decretos, resoluciones normativas | ✓ Activo |
-| **Congreso de la República** | Proyectos de ley, leyes, actos legislativos | ✓ Activo |
-| **Superintendencia de Sociedades** | Jurisprudencia, circulares, resoluciones | ✓ Activo |
-| **DIAN** | Normas tributarias, conceptos, resoluciones | ✓ Activo |
 
 ---
 
