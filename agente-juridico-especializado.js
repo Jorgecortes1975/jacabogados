@@ -105,7 +105,9 @@ class AgentJuridicoEspecializado {
       }
     };
 
-    // Agregar transportes oficiales a la configuración
+    // Agregar transportes oficiales a la configuración. Solo se escribe el archivo
+    // si realmente faltaba algún transporte: abrir el agente no debe modificar mcp-config.json.
+    let agregados = 0;
     Object.entries(transportesOficiales).forEach(([nombre, config]) => {
       if (!this.config.transports[nombre]) {
         this.config.transports[nombre] = {
@@ -114,10 +116,11 @@ class AgentJuridicoEspecializado {
           createdAt: new Date().toISOString(),
           oficial: true,
         };
+        agregados++;
       }
     });
 
-    this.saveConfig();
+    if (agregados > 0) this.saveConfig();
   }
 
   crearAgenteJuridico() {
@@ -173,9 +176,9 @@ class AgentJuridicoEspecializado {
       createdAt: new Date().toISOString()
     };
 
+    // Estado solo en memoria: `activar` no modifica mcp-config.json (archivo versionado).
     this.config.agents = this.config.agents || {};
     this.config.agents['juridico-especializado'] = agenteConfig;
-    this.saveConfig();
 
     return agenteConfig;
   }
