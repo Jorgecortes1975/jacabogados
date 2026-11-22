@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.local)",
+      "Read(./expedientes/**)",
+      "Read(./clientes/**)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/hooks/gate-verificacion.sh\"",
+            "timeout": 320
+          }
+        ]
+      }
+    ]
+  }
+}

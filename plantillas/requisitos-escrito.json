@@ -1,0 +1,43 @@
+{
+  "_nota": "Plantilla genérica. Copie este archivo a la carpeta del asunto y complételo allí; no guarde datos de clientes en esta plantilla. Solo cambie el valor de 'passes' a true cuando la verificación con evidencia supere el requisito. No elimine ni reescriba requisitos.",
+  "asunto": "IDENTIFICADOR DEL ASUNTO (Matter Lock)",
+  "fecha_referencia": "AAAA-MM-DD",
+  "requisitos": [
+    {
+      "id": "R01",
+      "descripcion": "Identificación de partes, representación y competencia",
+      "verificacion": "Comprobar datos contra los documentos originales del expediente",
+      "passes": false
+    },
+    {
+      "id": "R02",
+      "descripcion": "Oportunidad procesal y cálculo de términos",
+      "verificacion": "Cálculo revisado por el abogado responsable, con fecha de notificación documentada",
+      "passes": false
+    },
+    {
+      "id": "R03",
+      "descripcion": "Normas citadas existen y su vigencia está confirmada en fuente oficial",
+      "verificacion": "Salida del control de citas, con estado VERIFICADO o PENDIENTE DE VERIFICACIÓN",
+      "passes": false
+    },
+    {
+      "id": "R04",
+      "descripcion": "Jurisprudencia citada existe y corresponde al punto tratado",
+      "verificacion": "Salida del control de citas y consulta en relatoría oficial, con fecha de consulta",
+      "passes": false
+    },
+    {
+      "id": "R05",
+      "descripcion": "Hechos sostenidos por soporte documental identificado",
+      "verificacion": "Cada hecho enlazado con su folio o documento de origen",
+      "passes": false
+    },
+    {
+      "id": "R06",
+      "descripcion": "Revisión independiente sin hallazgos críticos abiertos",
+      "verificacion": "Informe del agente jac-revisor con estado distinto de BLOCKED",
+      "passes": false
+    }
+  ]
+}
