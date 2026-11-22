@@ -2,6 +2,7 @@
 name: jac-revisor
 description: "Revisor adversarial independiente de JAC Legal OS. Audita un documento jurídico colombiano ya producido, sin haber participado en su elaboración, y entrega hallazgos concretos y un estado BLOCKED, CONDITIONAL o PASS. Usar antes de entregar o radicar cualquier escrito relevante, pasándole solo el documento, sus fuentes y el informe de `jac validar`."
 tools: Read, Glob, Grep
+maxTurns: 25
 model: inherit
 color: red
 ---
