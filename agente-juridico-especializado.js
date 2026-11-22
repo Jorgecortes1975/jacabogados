@@ -13,7 +13,15 @@ const CONECTORES = {
   'suin-normativo': 'PARCIAL (catálogo de 13 normas del Gestor Normativo)',
 };
 
-const CONFIG_FILE = path.join(process.cwd(), 'mcp-config.json');
+// La raíz del repositorio se resuelve desde la ruta de este archivo, no desde el directorio actual.
+const RAIZ = path.resolve(__dirname);
+const CONFIG_FILE = path.join(RAIZ, 'mcp-config.json');
+// Los subprocesos de Python corren desde la raíz y pueden importar los paquetes del repositorio.
+const OPCIONES_PYTHON = {
+  stdio: 'inherit',
+  cwd: RAIZ,
+  env: { ...process.env, PYTHONPATH: RAIZ + (process.env.PYTHONPATH ? path.delimiter + process.env.PYTHONPATH : '') },
+};
 
 class AgentJuridicoEspecializado {
   constructor() {
@@ -333,15 +341,15 @@ async function main() {
         console.log(`\n📝 Tipo de consulta: ${tipo}`);
         if (args.arg2) console.log(`❓ Pregunta: ${args.arg2}`);
         if (tipo === 'jurisprudencia' && args.arg2) {
-          const r = spawnSync('python3', ['-m', 'jurisprudencia_col', 'buscar', args.arg2], { stdio: 'inherit' });
+          const r = spawnSync('python3', ['-m', 'jurisprudencia_col', 'buscar', args.arg2], OPCIONES_PYTHON);
           process.exit(r.status === null ? 1 : r.status);
         }
         if (tipo === 'norma' && args.arg2) {
-          const r = spawnSync('python3', ['-m', 'normas_col', 'consultar', args.arg2], { stdio: 'inherit' });
+          const r = spawnSync('python3', ['-m', 'normas_col', 'consultar', args.arg2], OPCIONES_PYTHON);
           process.exit(r.status === null ? 1 : r.status);
         }
         if (tipo === 'verificar' && args.arg2) {
-          const r = spawnSync('python3', ['-m', 'jac', 'consulta', args.arg2], { stdio: 'inherit' });
+          const r = spawnSync('python3', ['-m', 'jac', 'consulta', args.arg2], OPCIONES_PYTHON);
           process.exit(r.status === null ? 1 : r.status);
         }
         if ((tipo === 'analisis' || tipo === 'reporte') && args.arg2) {
@@ -349,7 +357,7 @@ async function main() {
           process.exit(4);
         }
         if (tipo === 'validar-escrito' && args.arg2) {
-          const r = spawnSync('python3', ['-m', 'gauntlet_jac', 'validar-escrito', args.arg2], { stdio: 'inherit' });
+          const r = spawnSync('python3', ['-m', 'gauntlet_jac', 'validar-escrito', args.arg2], OPCIONES_PYTHON);
           process.exit(r.status === null ? 1 : r.status);
         }
         console.log('\n⚠️  El tipo de consulta indicado aún no tiene conector automático; verifique en fuente oficial.');
@@ -357,7 +365,7 @@ async function main() {
       }
 
       case 'verificar-fuentes': {
-        const r = spawnSync('python3', ['-m', 'jurisprudencia_col', 'verificar'], { stdio: 'inherit' });
+        const r = spawnSync('python3', ['-m', 'jurisprudencia_col', 'verificar'], OPCIONES_PYTHON);
         process.exit(r.status === null ? 1 : r.status);
       }
 

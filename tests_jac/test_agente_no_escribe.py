@@ -41,3 +41,17 @@ def test_comando_no_modifica_mcp_config(copia, argumentos):
     )
     assert resultado.returncode == 0, resultado.stderr
     assert (copia / CONFIG.name).read_bytes() == antes
+
+
+def test_consulta_funciona_desde_otro_directorio(tmp_path):
+    # El agente resuelve la raíz por su propia ruta: no depende del directorio actual
+    # ni de que PYTHONPATH esté definido.
+    entorno = {k: v for k, v in os.environ.items() if k != "PYTHONPATH"}
+    antes = CONFIG.read_bytes()
+    resultado = subprocess.run(
+        [node, str(AGENTE), "consulta", "norma", "Ley 1437 de 2011"],
+        cwd=tmp_path, env=entorno, capture_output=True, text=True, timeout=60,
+    )
+    assert resultado.returncode == 0, resultado.stderr
+    assert '"estado": "verificada"' in resultado.stdout
+    assert CONFIG.read_bytes() == antes
