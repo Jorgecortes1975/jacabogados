@@ -107,7 +107,7 @@ class MCPTransportManager {
       } else {
         console.log(`  URL: ${config.url}`);
       }
-      console.log(`  Creado: ${config.createdAt}`);
+      console.log(`  Creado: ${config.createdAt || 'desconocido (registro anterior)'}`);
       if (config.lastActivated) {
         console.log(`  Último activado: ${config.lastActivated}`);
       }
