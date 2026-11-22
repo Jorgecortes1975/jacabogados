@@ -14,7 +14,8 @@
           {
             "type": "command",
             "command": "sh \"$CLAUDE_PROJECT_DIR/hooks/gate-verificacion.sh\"",
-            "timeout": 320
+            "timeout": 320,
+            "onFailure": "block"
           }
         ]
       }
