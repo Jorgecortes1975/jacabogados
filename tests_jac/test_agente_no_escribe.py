@@ -55,3 +55,19 @@ def test_consulta_funciona_desde_otro_directorio(tmp_path):
     assert resultado.returncode == 0, resultado.stderr
     assert '"estado": "verificada"' in resultado.stdout
     assert CONFIG.read_bytes() == antes
+
+
+@pytest.mark.parametrize("script,argumentos", [
+    ("lexa-super-router.js", ["arquitectura"]),
+    ("claude-mcp-transport.js", ["list"]),
+])
+def test_utilidades_node_no_dependen_del_directorio(tmp_path, script, argumentos):
+    # Las utilidades resuelven mcp-config.json desde su propia ruta y no escriben en lecturas.
+    entorno = {k: v for k, v in os.environ.items() if k != "PYTHONPATH"}
+    antes = CONFIG.read_bytes()
+    resultado = subprocess.run(
+        [node, str(RAIZ / script), *argumentos],
+        cwd=tmp_path, env=entorno, capture_output=True, text=True, timeout=60,
+    )
+    assert resultado.returncode == 0, resultado.stderr
+    assert CONFIG.read_bytes() == antes
