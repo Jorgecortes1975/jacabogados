@@ -46,7 +46,7 @@ Evidencia del modo solo .md: se ejecutó el paquete sin herramientas y sin el pl
 
 ## Qué garantiza y qué no
 
-Garantiza: no declara verificada una cita que ninguna fuente confirmó; no declara inexistente una norma por no figurar en el catálogo; no afirma vigencia; informa qué fuentes respondieron y cuáles no.
+Garantiza: no declara verificada una cita que ninguna fuente confirmó; no declara inexistente una norma por no figurar en el catálogo; no afirma vigencia; informa qué fuentes respondieron y cuáles no; declara su base de confianza (sección 6 del informe) y no presenta como independientes los dos canales de la Corte Constitucional (Socrata y relatoría), que son un solo origen institucional.
 
 No hace: determinar vigencia de normas ni el texto de sus artículos, verificar hechos, términos o cálculos, ni cubrir Corte Suprema y Consejo de Estado con conector propio (con herramientas de Croma conectadas, el agente puede consultarlas y lo declara). PASS_AUTOMATICO no equivale a PASS del protocolo. El abogado responsable es el último filtro.
 
