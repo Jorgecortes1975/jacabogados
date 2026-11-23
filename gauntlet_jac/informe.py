@@ -12,7 +12,27 @@ from .verificador import Verificador
 
 LIMITES = ("Este control cubre solo verificaciones mecánicas (existencia de citas de la Corte Constitucional y de normas del catálogo, "
            "fechas, relleno pendiente y radicados). NO determina la vigencia de normas ni el texto de sus artículos, y no verifica hechos, pruebas, términos, "
-           "cálculos ni estrategia. Requiere revisión adversarial y revisión final del abogado responsable.")
+           "cálculos ni estrategia. Los dos canales de la Corte Constitucional (Socrata y relatoría) son UN solo origen institucional: "
+           "no cuentan como confirmación independiente. Requiere revisión adversarial y revisión final del abogado responsable.")
+
+# Origen institucional de cada conector. Canales de una misma entidad comparten origen.
+ORIGEN_INSTITUCIONAL = {
+    "socrata_cc": "Corte Constitucional",
+    "relatoria_cc": "Corte Constitucional",
+    "catalogo_funcion_publica": "Función Pública",
+}
+
+
+def base_de_confianza(fuentes: dict, citas: list) -> dict:
+    """Orígenes institucionales que respondieron y si la confirmación es independiente."""
+    origenes = sorted({ORIGEN_INSTITUCIONAL.get(f, f) for f, d in fuentes.items() if d.get("estado") == "ok"})
+    confirmadas = [c for c in citas if c.get("estado") == "verificada"]
+    nota = ""
+    if confirmadas and len(origenes) < 2:
+        nota = ("Las confirmaciones proceden de un único origen institucional. Es validación por canales de una misma entidad, "
+                "no confirmación independiente: revisión interna de fuentes.")
+    return {"origenes_institucionales": origenes, "confirmacion_independiente": len(origenes) >= 2 if confirmadas else None,
+            "nota_independencia": nota}
 
 
 def ejecutar(texto: str, fecha_ref: Optional[date] = None, radicado: Optional[str] = None,
@@ -46,6 +66,7 @@ def ejecutar(texto: str, fecha_ref: Optional[date] = None, radicado: Optional[st
         "referencias_no_verificables": [r for r, _ in referencias],
         "hallazgos": [h.a_dict() for h in hallazgos],
         "fuentes_consultadas": v.fuentes,
+        "base_de_confianza": base_de_confianza(v.fuentes, citas),
         "ejecuciones_de_control": (previo.get("ejecuciones_de_control", 0) if previo else 0) + 1,
         "limites": LIMITES,
     }
@@ -84,5 +105,11 @@ def a_texto(i: dict) -> str:
         k = i["comparacion"]
         L += ["", "5. COMPARACIÓN CON LA EJECUCIÓN ANTERIOR",
               f"Resueltos {len(k['resueltos'])} | nuevos {len(k['nuevos'])} | persistentes {len(k['persistentes'])}"]
+    b = i.get("base_de_confianza", {})
+    L += ["", f"{6 if 'comparacion' in i else 5}. BASE DE CONFIANZA",
+          "Orígenes institucionales que respondieron: " + (", ".join(b.get("origenes_institucionales", [])) or "ninguno") + ".",
+          "Confirmación independiente: " + {True: "sí", False: "no", None: "no aplica (ninguna cita confirmada)"}[b.get("confirmacion_independiente")] + "."]
+    if b.get("nota_independencia"):
+        L.append(b["nota_independencia"])
     L += ["", "LÍMITES: " + i["limites"]]
     return "\n".join(L)

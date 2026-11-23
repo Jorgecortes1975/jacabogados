@@ -216,3 +216,28 @@ def test_esquema_inesperado_de_socrata_nunca_da_no_encontrada():
     i = informe.ejecutar("Ver T-777 de 2020.", REF, cliente=ClienteSimulado(h))
     c = i["citas"][0]
     assert c["estado"] == "pendiente" and "esquema inesperado" in c["detalle"] and i["estado"] == "CONDITIONAL"
+
+
+# ---------- base de confianza e independencia ----------
+def test_dos_canales_de_la_misma_corte_no_son_confirmacion_independiente():
+    i = informe.ejecutar("Ver T-008 de 2020.", REF, cliente=cliente(fuentes([FILA], {"/relatoria/2020/T-008-20.htm"})))
+    b = i["base_de_confianza"]
+    assert b["origenes_institucionales"] == ["Corte Constitucional"]
+    assert b["confirmacion_independiente"] is False
+    assert "único origen institucional" in b["nota_independencia"]
+    assert "UN solo origen institucional" in i["limites"]
+    assert "5. BASE DE CONFIANZA" in informe.a_texto(i)
+
+
+def test_sin_confirmaciones_no_aplica_independencia():
+    i = informe.ejecutar("Ver T-777 de 2020.", REF, cliente=cliente(fuentes([])))
+    assert i["base_de_confianza"]["confirmacion_independiente"] is None
+    assert i["base_de_confianza"]["nota_independencia"] == ""
+
+
+def test_dos_origenes_distintos_cuentan_como_independientes():
+    b = informe.base_de_confianza(
+        {"socrata_cc": {"estado": "ok"}, "catalogo_funcion_publica": {"estado": "ok"}},
+        [{"estado": "verificada"}])
+    assert b["origenes_institucionales"] == ["Corte Constitucional", "Función Pública"]
+    assert b["confirmacion_independiente"] is True and b["nota_independencia"] == ""
